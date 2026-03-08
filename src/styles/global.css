@@ -159,8 +159,9 @@ a:hover {
 
 .data-table th {
   background: var(--bg-secondary);
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
   text-align: left;
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid var(--border-color);
@@ -205,22 +206,30 @@ a:hover {
   font-variant-numeric: tabular-nums;
 }
 
-/* Skill value color coding */
-.data-table td.skill-high {
-  color: #4caf50;
+/* Per-skill color coding */
+.skill-athletics { color: #e67e22; }
+.skill-riding { color: #8e44ad; }
+.skill-onehanded { color: #e74c3c; }
+.skill-twohanded { color: #c0392b; }
+.skill-polearm { color: #2ecc71; }
+.skill-bow { color: #3498db; }
+.skill-crossbow { color: #1abc9c; }
+.skill-throwing { color: #f39c12; }
+
+/* Dim zero values */
+.skill-zero {
+  color: var(--text-muted) !important;
 }
 
-.data-table td.skill-mid {
-  color: #c9a44a;
-}
-
-.data-table td.skill-low {
-  color: var(--text-secondary);
-}
-
-.data-table td.skill-zero {
-  color: var(--text-muted);
-}
+/* Skill column headers match their color */
+th[data-col="athletics"] { color: #e67e22 !important; }
+th[data-col="riding"] { color: #8e44ad !important; }
+th[data-col="oneHanded"] { color: #e74c3c !important; }
+th[data-col="twoHanded"] { color: #c0392b !important; }
+th[data-col="polearm"] { color: #2ecc71 !important; }
+th[data-col="bow"] { color: #3498db !important; }
+th[data-col="crossbow"] { color: #1abc9c !important; }
+th[data-col="throwing"] { color: #f39c12 !important; }
 
 .data-table .col-id {
   color: var(--text-secondary);
