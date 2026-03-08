@@ -12,6 +12,36 @@ function getDataDir(): string {
   return path.resolve(process.cwd(), 'src', 'data');
 }
 
+// Map vanilla Bannerlord culture IDs to LOTR faction names
+const CULTURE_DISPLAY_NAMES: Record<string, string> = {
+  aserai: 'Harad',
+  khuzait: 'Rhun',
+  battania: 'Khand',
+  empire: 'Dunland',
+  vlandia: 'Rohan',
+  sturgia: 'Dale',
+  erebor: 'Erebor',
+  gondor: 'Gondor',
+  mordor: 'Mordor',
+  isengard: 'Isengard',
+  gundabad: 'Gundabad',
+  mirkwood: 'Mirkwood',
+  rivendell: 'Rivendell',
+  umbar: 'Umbar',
+  dolguldur: 'Dol Guldur',
+};
+
+// Cultures to exclude from display
+const HIDDEN_CULTURES = new Set(['lothlorien']);
+
+export function getCultureDisplayName(culture: string): string {
+  return CULTURE_DISPLAY_NAMES[culture] || culture.charAt(0).toUpperCase() + culture.slice(1);
+}
+
+export function isHiddenCulture(culture: string): boolean {
+  return HIDDEN_CULTURES.has(culture);
+}
+
 // --- Types ---
 
 export interface Troop {

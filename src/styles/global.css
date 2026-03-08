@@ -188,6 +188,14 @@ a:hover {
   color: var(--text-primary);
 }
 
+.data-table tbody tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+.data-table tbody tr:nth-child(odd) td {
+  background: var(--bg-primary);
+}
+
 .data-table tr:hover td {
   background: var(--bg-hover);
 }
@@ -195,6 +203,23 @@ a:hover {
 .data-table .col-num {
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+/* Skill value color coding */
+.data-table td.skill-high {
+  color: #4caf50;
+}
+
+.data-table td.skill-mid {
+  color: #c9a44a;
+}
+
+.data-table td.skill-low {
+  color: var(--text-secondary);
+}
+
+.data-table td.skill-zero {
+  color: var(--text-muted);
 }
 
 .data-table .col-id {

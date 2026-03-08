@@ -1,8 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseTroops } from '../lib/parse-xml';
+import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../lib/parse-xml';
 
-const allTroops = parseTroops();
+const allTroops = parseTroops().filter(t => !isHiddenCulture(t.culture));
+
+function skillClass(val: number): string {
+  if (val === 0) return 'col-num section-start skill-zero';
+  if (val >= 200) return 'col-num section-start skill-high';
+  if (val >= 100) return 'col-num section-start skill-mid';
+  return 'col-num section-start skill-low';
+}
+
+function skillClassInner(val: number): string {
+  if (val === 0) return 'col-num skill-zero';
+  if (val >= 200) return 'col-num skill-high';
+  if (val >= 100) return 'col-num skill-mid';
+  return 'col-num skill-low';
+}
 
 // Get unique cultures and groups for filters
 const cultures = [...new Set(allTroops.map(t => t.culture).filter(Boolean))].sort();
@@ -17,7 +31,7 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
       <input type="text" id="search" placeholder="Search by name or ID..." />
       <select id="filter-culture">
         <option value="">All Cultures</option>
-        {cultures.map(c => <option value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
+        {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
       </select>
       <select id="filter-group">
         <option value="">All Groups</option>
@@ -38,22 +52,9 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
       <table class="data-table" id="troop-table">
         <thead>
           <tr>
-            <th data-col="faceTemplate">Face</th>
-            <th data-col="id">Id</th>
-            <th data-col="defaultGroup">Default Group</th>
-            <th data-col="level" class="col-num">Level</th>
             <th data-col="name">Name</th>
-            <th data-col="race">Race</th>
-            <th data-col="isBasicTroop">Is Basic Troop</th>
-            <th data-col="culture">Culture</th>
-            <th data-col="item0" class="section-start">Item0</th>
-            <th data-col="item1">Item1</th>
-            <th data-col="item2">Item2</th>
-            <th data-col="item3">Item3</th>
-            <th data-col="head">Head</th>
-            <th data-col="body">Body</th>
-            <th data-col="leg">Leg</th>
-            <th data-col="glove">Glove</th>
+            <th data-col="level" class="col-num">Level</th>
+            <th data-col="defaultGroup">Default Group</th>
             <th data-col="athletics" class="col-num section-start">Athletics</th>
             <th data-col="riding" class="col-num">Riding</th>
             <th data-col="oneHanded" class="col-num">OneHanded</th>
@@ -62,6 +63,17 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
             <th data-col="bow" class="col-num">Bow</th>
             <th data-col="crossbow" class="col-num">Crossbow</th>
             <th data-col="throwing" class="col-num">Throwing</th>
+            <th data-col="item0" class="section-start">Item0</th>
+            <th data-col="item1">Item1</th>
+            <th data-col="item2">Item2</th>
+            <th data-col="item3">Item3</th>
+            <th data-col="head">Head</th>
+            <th data-col="body">Body</th>
+            <th data-col="leg">Leg</th>
+            <th data-col="glove">Glove</th>
+            <th data-col="race" class="section-start">Race</th>
+            <th data-col="culture">Culture</th>
+            <th data-col="id">Id</th>
           </tr>
         </thead>
         <tbody>
@@ -73,14 +85,17 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
               data-group={t.defaultGroup}
               data-occupation={t.occupation}
             >
-              <td class="col-id">{t.faceTemplate}</td>
-              <td class="col-id">{t.id}</td>
-              <td>{t.defaultGroup}</td>
-              <td class="col-num">{t.level}</td>
               <td>{t.name}</td>
-              <td>{t.race}</td>
-              <td>{t.isBasicTroop ? 'Yes' : 'No'}</td>
-              <td>{t.culture}</td>
+              <td class="col-num">{t.level}</td>
+              <td>{t.defaultGroup}</td>
+              <td class={skillClass(t.athletics)}>{t.athletics}</td>
+              <td class={skillClassInner(t.riding)}>{t.riding}</td>
+              <td class={skillClassInner(t.oneHanded)}>{t.oneHanded}</td>
+              <td class={skillClassInner(t.twoHanded)}>{t.twoHanded}</td>
+              <td class={skillClassInner(t.polearm)}>{t.polearm}</td>
+              <td class={skillClassInner(t.bow)}>{t.bow}</td>
+              <td class={skillClassInner(t.crossbow)}>{t.crossbow}</td>
+              <td class={skillClassInner(t.throwing)}>{t.throwing}</td>
               <td class="col-id section-start">{t.item0}</td>
               <td class="col-id">{t.item1}</td>
               <td class="col-id">{t.item2}</td>
@@ -89,14 +104,9 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
               <td class="col-id">{t.body}</td>
               <td class="col-id">{t.leg}</td>
               <td class="col-id">{t.glove}</td>
-              <td class="col-num section-start">{t.athletics}</td>
-              <td class="col-num">{t.riding}</td>
-              <td class="col-num">{t.oneHanded}</td>
-              <td class="col-num">{t.twoHanded}</td>
-              <td class="col-num">{t.polearm}</td>
-              <td class="col-num">{t.bow}</td>
-              <td class="col-num">{t.crossbow}</td>
-              <td class="col-num">{t.throwing}</td>
+              <td class="section-start">{t.race}</td>
+              <td>{getCultureDisplayName(t.culture)}</td>
+              <td class="col-id">{t.id}</td>
             </tr>
           ))}
         </tbody>

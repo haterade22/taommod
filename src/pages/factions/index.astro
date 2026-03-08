@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { parseTroops } from '../../lib/parse-xml';
+import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
 
-const troops = parseTroops();
+const troops = parseTroops().filter(t => !isHiddenCulture(t.culture));
 
 // Build faction summary from troop data
 const factionMap = new Map<string, { count: number; groups: Set<string>; minLevel: number; maxLevel: number }>();
@@ -17,18 +17,18 @@ for (const t of troops) {
 }
 
 const factions = Array.from(factionMap.entries())
-  .map(([name, data]) => ({ name, ...data, groups: Array.from(data.groups) }))
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .map(([name, data]) => ({ name, displayName: getCultureDisplayName(name), ...data, groups: Array.from(data.groups) }))
+  .sort((a, b) => a.displayName.localeCompare(b.displayName));
 ---
 
-<BaseLayout title="Factions" description="All 16 factions in TAOM with troop counts and compositions">
+<BaseLayout title="Factions" description="All factions in TAOM with troop counts and compositions">
   <div class="page-content">
     <h1 class="page-title">Factions</h1>
 
     <div class="card-grid">
       {factions.map(f => (
         <a href={`/troops?culture=${f.name}`} class="card" style="text-decoration: none;">
-          <h3>{f.name.charAt(0).toUpperCase() + f.name.slice(1)}</h3>
+          <h3>{f.displayName}</h3>
           <p>
             <strong>{f.count}</strong> units &middot;
             Levels {f.minLevel}-{f.maxLevel}
