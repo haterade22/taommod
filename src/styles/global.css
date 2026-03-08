@@ -59,11 +59,22 @@ a:hover {
 }
 
 .site-nav .logo {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--accent);
+  display: flex;
+  align-items: center;
   margin-right: 2rem;
-  letter-spacing: 1px;
+}
+
+.site-nav .nav-logo {
+  height: 32px;
+  width: auto;
+}
+
+/* Hero logo */
+.hero-logo {
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .site-nav .nav-links {
