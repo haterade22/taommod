@@ -6,30 +6,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="page-content" style="max-width: 800px;">
     <h1 class="page-title">Community</h1>
 
-    <div class="card-grid" style="grid-template-columns: 1fr;">
-      <a href="#" class="card" style="text-decoration: none;">
-        <h3>Discord</h3>
-        <p>Join our Discord server for discussions, support, and development updates.</p>
-      </a>
-
-      <a href="#" class="card" style="text-decoration: none;">
-        <h3>Patreon</h3>
-        <p>Support TAOM development and get early access to new content.</p>
-      </a>
-
-      <a href="#" class="card" style="text-decoration: none;">
-        <h3>YouTube</h3>
-        <p>Watch gameplay videos, development updates, and community showcases.</p>
-      </a>
-
-      <a href="#" class="card" style="text-decoration: none;">
-        <h3>GitHub</h3>
-        <p>View the source code, report issues, and contribute to development.</p>
+    <div class="community-block">
+      <p class="community-label">To follow the development of the mod, check out the development blogs on</p>
+      <a href="https://www.youtube.com/@haterade_industries" class="badge-link" target="_blank" rel="noopener">
+        <img src="/images/youtube-badge.svg" alt="YouTube" class="community-badge youtube-badge" />
       </a>
     </div>
 
-    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;">
-      Links will be updated with actual URLs. Replace the # placeholders with your community links.
-    </p>
+    <div class="community-block">
+      <p class="community-label">For more information about the mod, assistance, or to interact with the development team</p>
+      <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
+        <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="community-badge discord-badge" />
+      </a>
+    </div>
+
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr; margin-top: 2rem;">
+      <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="card" style="text-decoration: none;" target="_blank" rel="noopener">
+        <h3>ModDB</h3>
+        <p>Download the mod, track updates, and leave reviews.</p>
+      </a>
+
+      <a href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748" class="card" style="text-decoration: none;" target="_blank" rel="noopener">
+        <h3>Nexus Mods</h3>
+        <p>Alternative download source and mod tracking.</p>
+      </a>
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .community-block {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .community-label {
+    color: var(--accent);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge-link {
+    display: inline-block;
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  .badge-link:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .community-badge {
+    height: 60px;
+    width: auto;
+  }
+
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

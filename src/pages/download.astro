@@ -3,45 +3,263 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Download" description="Download and install TAOM - Tales From the Age of Men for Bannerlord">
-  <div class="page-content" style="max-width: 800px;">
+  <div class="page-content" style="max-width: 850px;">
     <h1 class="page-title">Download & Install</h1>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Requirements</h3>
-      <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text-secondary);">
-        <li>Mount & Blade II: Bannerlord (v1.3.x)</li>
-        <li>Steam or GOG version</li>
+    <div class="card alert-card" style="margin-bottom: 1.5rem;">
+      <h3>Compatibility</h3>
+      <p><strong>This mod is compatible with Bannerlord 1.2.12 through Steam.</strong></p>
+      <ul>
+        <li>You will need to roll your game back to version 1.2.12.</li>
+        <li>This mod <strong>cannot</strong> be used with the Xbox Game Pass version of the game.</li>
       </ul>
+      <p class="note">Be sure to delete any old files of the mod you may have downloaded before starting the process of a new download.</p>
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Download Links</h3>
+      <h3>Video Tutorial</h3>
+      <p>For a video walkthrough of the install process:</p>
+      <a href="https://www.youtube.com/watch?v=cu7K5skn2Fo" class="btn btn-secondary" target="_blank" rel="noopener">Watch on YouTube</a>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Option 1: Launcher (Recommended)</h3>
+      <p>Download the launcher for automatic installation and updates:</p>
+      <a href="https://lotraom.com/" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 0.5rem;">Download Launcher</a>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Option 2: Manual Download</h3>
       <p style="margin-bottom: 0.75rem;">Download the latest release from one of these sources:</p>
-      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <a href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748" class="btn btn-primary" target="_blank" rel="noopener">Nexus Mods</a>
-        <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="btn btn-secondary" target="_blank" rel="noopener">ModDB</a>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="btn btn-primary" target="_blank" rel="noopener">ModDB</a>
+        <a href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748" class="btn btn-secondary" target="_blank" rel="noopener">Nexus Mods</a>
       </div>
+      <p class="note">The most recent public release is dated January 1st.</p>
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Installation</h3>
-      <ol style="list-style: decimal; padding-left: 1.5rem; color: var(--text-secondary);">
-        <li style="margin-bottom: 0.5rem;">Download and extract the mod archive</li>
-        <li style="margin-bottom: 0.5rem;">Copy the <code style="background: var(--bg-tertiary); padding: 0.15rem 0.4rem; border-radius: 3px;">TAOM</code> folder to your Bannerlord Modules directory:
-          <code style="display: block; background: var(--bg-tertiary); padding: 0.5rem; border-radius: 3px; margin-top: 0.25rem; font-size: 0.8rem;">
+      <h3>Manual Installation Steps</h3>
+      <ol class="install-steps">
+        <li>
+          <strong>Download</strong> the mod from ModDB or Nexus Mods (2 files from Nexus).
+        </li>
+        <li>
+          <strong>Extract</strong> the downloaded files using WinRAR, 7zip, or similar.
+        </li>
+        <li>
+          <strong>Open your Modules folder:</strong>
+          <code class="code-block">
             Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\
           </code>
+          <span class="note">Your drive letter may vary — check wherever Bannerlord is installed.</span>
         </li>
-        <li style="margin-bottom: 0.5rem;">Launch Bannerlord and enable TAOM in the Mods menu</li>
-        <li style="margin-bottom: 0.5rem;">Ensure TAOM is loaded after the base game modules</li>
-        <li>Start a new campaign</li>
+        <li>
+          <strong>Delete old files</strong> from any previous versions of the mod in your Modules folder.
+        </li>
+        <li>
+          <strong>Copy files</strong> — Open the extracted folder, select all files within it, and drag them into the Modules folder.
+          <span class="note">We provide every file you need, including dependencies.</span>
+        </li>
+        <li>
+          <strong>Unblock DLLs</strong> — Right-click each DLL file → Properties → check "Unblock", or run this PowerShell command in the Modules folder:
+          <code class="code-block">
+            Get-ChildItem -Recurse -Filter *.dll | Unblock-File
+          </code>
+        </li>
+        <li>
+          <strong>Delete shaders</strong> if you played this mod before:
+          <code class="code-block">
+            C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map
+          </code>
+        </li>
       </ol>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Load Order</h3>
+      <p style="margin-bottom: 0.75rem;"><strong>Bannerlord Version 1.2.12</strong> — Set this exact load order in the launcher:</p>
+      <ol class="load-order">
+        <li><span class="mod-name">Harmony</span> <span class="mod-version">v2.3.6.220</span></li>
+        <li><span class="mod-name">Palantir Debugger</span> <span class="mod-note">Writes crash logs for diagnostics</span></li>
+        <li><span class="mod-name">BetterExceptionWindow</span> <span class="mod-version">v7.1.1.0</span></li>
+        <li><span class="mod-name">ButterLib</span> <span class="mod-version">v2.10.0.0</span></li>
+        <li><span class="mod-name">UIExtenderEx</span> <span class="mod-version">v2.13.0.0</span></li>
+        <li><span class="mod-name">MCM</span> <span class="mod-version">v5.11.3.0</span></li>
+        <li><span class="mod-name">Native</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Sandbox Core</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Sandbox</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">StoryMode</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">CustomBattle</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Birth and Aging Options</span></li>
+        <li><span class="mod-name">LOTR_Map</span></li>
+        <li><span class="mod-name">LOTRAOM_Armory</span></li>
+        <li><span class="mod-name">Alliance.Wargs</span></li>
+        <li><span class="mod-name highlight">LOTRAOM</span> <span class="mod-version highlight">v0.69.3</span></li>
+      </ol>
+      <p style="margin-top: 0.75rem;">Press <strong>Play</strong>, then go to Options and set <strong>Terrain Quality</strong> to Medium or higher.</p>
     </div>
 
     <div class="card">
       <h3>Troubleshooting</h3>
-      <p>Having issues? Join our Discord for help and support.</p>
-      <a href="/community" class="btn btn-secondary" style="margin-top: 0.5rem;">Join Discord</a>
+      <div class="troubleshoot-item">
+        <p><strong>"Cannot load" a DLL file?</strong></p>
+        <p>Unblock the DLL files manually using PowerShell. Run the unblock command from step 6 above. If PowerShell returns with a new blank line, it was done correctly.</p>
+      </div>
+      <div class="troubleshoot-item">
+        <p><strong>Main loading screen frozen (horse not moving)?</strong></p>
+        <p>This is normal — let it load. The initial load can take a while.</p>
+      </div>
+      <div class="troubleshoot-item">
+        <p><strong>Still having issues?</strong></p>
+        <p>Join our Discord for help and support.</p>
+        <a href="https://discord.gg/taom" class="btn btn-secondary" style="margin-top: 0.5rem;" target="_blank" rel="noopener">Join Discord</a>
+      </div>
+    </div>
+
+    <div class="community-badges">
+      <div class="badge-block">
+        <p class="badge-label">To follow the development of the mod, check out the development blogs on</p>
+        <a href="https://www.youtube.com/@haterade_industries" class="badge-link" target="_blank" rel="noopener">
+          <img src="/images/youtube-badge.svg" alt="YouTube" class="badge-img" />
+        </a>
+      </div>
+      <div class="badge-block">
+        <p class="badge-label">For more information about the mod, assistance, or to interact with the development team</p>
+        <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
+          <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="badge-img" />
+        </a>
+      </div>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .alert-card {
+    border-color: var(--accent);
+  }
+
+  .alert-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+  }
+
+  .install-steps {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .install-steps li {
+    margin-bottom: 0.75rem;
+  }
+
+  .code-block {
+    display: block;
+    background: var(--bg-tertiary);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    word-break: break-all;
+  }
+
+  .note {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+    font-style: italic;
+  }
+
+  .load-order {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .load-order li {
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .mod-name {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .mod-version {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .mod-note {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .mod-name.highlight {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .mod-version.highlight {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .troubleshoot-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .troubleshoot-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .community-badges {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .badge-block {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .badge-label {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .badge-link {
+    display: inline-block;
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  .badge-link:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .badge-img {
+    height: 55px;
+    width: auto;
+  }
+</style>

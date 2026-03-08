@@ -3,30 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Home">
-  <section class="hero">
-    <div class="hero-split">
-      <div class="hero-art">
-        <img src="/images/rohan-icon.png" alt="Rohan" class="hero-illustration" />
-      </div>
-      <div class="hero-text">
-        <img src="/images/logo.png" alt="Tales From the Age of Men" class="hero-logo" />
-        <p class="subtitle">A Lord of the Rings Total Conversion Mod for Bannerlord</p>
-        <p class="tagline">
-          Experience Middle-earth in Mount &amp; Blade II: Bannerlord. Command the armies of Gondor, Rohan, Erebor,
-          Mordor, and more across 16 factions with hundreds of unique troops, lords, and equipment.
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center;">
-          <a href="/download" class="btn btn-primary">Download</a>
-          <a href="/troops" class="btn btn-secondary">Browse Troops</a>
-        </div>
-      </div>
-      <div class="hero-art">
-        <img src="/images/easterling-horsemen.png" alt="Easterling Horsemen" class="hero-illustration" />
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="/images/logo.png" alt="Tales From the Age of Men" class="hero-logo" />
+      <p class="subtitle">A Lord of the Rings Total Conversion Mod for Bannerlord</p>
+      <div class="hero-buttons">
+        <a href="/download" class="btn btn-primary">Download</a>
+        <a href="/troops" class="btn btn-secondary">Browse Troops</a>
       </div>
     </div>
   </section>
 
   <div class="page-content">
+    <p class="tagline">
+      Experience Middle-earth in Mount &amp; Blade II: Bannerlord. Command the armies of Gondor, Rohan, Erebor,
+      Mordor, and more across 16 factions with hundreds of unique troops, lords, and equipment.
+    </p>
+
     <div class="card-grid">
       <div class="card">
         <h3>16 Factions</h3>
@@ -65,34 +59,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </section>
+
+    <!-- Art Gallery -->
+    <section class="art-gallery">
+      <div class="art-piece">
+        <img src="/images/rohan-icon.png" alt="Rohan Rider" />
+      </div>
+      <div class="art-piece">
+        <img src="/images/easterling-horsemen.png" alt="Easterling Horsemen" />
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
 <style>
-  .hero-split {
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    background: url('/images/hero-bg.jpg') center center / cover no-repeat;
+    overflow: hidden;
   }
 
-  .hero-text {
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(25, 25, 25, 0.85) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    flex: 1;
+    padding: 3rem 1.5rem;
   }
 
-  .hero-art {
-    flex: 0 0 auto;
-    max-width: 450px;
-  }
-
-  .hero-illustration {
-    width: 100%;
+  .hero-content .hero-logo {
+    max-width: 550px;
+    width: 90%;
     height: auto;
-    border-radius: 8px;
-    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.7));
+    margin-bottom: 1rem;
+  }
+
+  .hero-content .subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .tagline {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
 
   .award-section {
@@ -129,14 +166,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 1rem;
   }
 
+  .art-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .art-piece img {
+    max-height: 250px;
+    width: auto;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+  }
+
   @media (max-width: 768px) {
-    .hero-split {
-      flex-direction: column;
-      gap: 2rem;
+    .hero-banner {
+      min-height: 350px;
     }
 
-    .hero-art {
-      max-width: 300px;
+    .hero-content .hero-logo {
+      max-width: 350px;
     }
 
     .award-content {
@@ -146,6 +196,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .award-badge {
       width: 140px;
+    }
+
+    .art-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .art-piece img {
+      max-height: 200px;
     }
   }
 </style>
