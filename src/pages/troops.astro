@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { parseTroops } from '../lib/parse-xml';
+
+const allTroops = parseTroops();
+
+// Get unique cultures and groups for filters
+const cultures = [...new Set(allTroops.map(t => t.culture).filter(Boolean))].sort();
+const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].sort();
+---
+
+<BaseLayout title="Troops" description="Complete troop database for TAOM - all factions, skills, and equipment">
+  <div class="page-content">
+    <h1 class="page-title">Troop Database</h1>
+
+    <div class="table-controls">
+      <input type="text" id="search" placeholder="Search by name or ID..." />
+      <select id="filter-culture">
+        <option value="">All Cultures</option>
+        {cultures.map(c => <option value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
+      </select>
+      <select id="filter-group">
+        <option value="">All Groups</option>
+        {groups.map(g => <option value={g}>{g}</option>)}
+      </select>
+      <select id="filter-occupation">
+        <option value="">All Types</option>
+        <option value="Soldier">Soldiers</option>
+        <option value="CaravanGuard">Caravan Guards</option>
+        <option value="Mercenary">Mercenaries</option>
+        <option value="Bandit">Bandits</option>
+        <option value="Villager">Villagers</option>
+      </select>
+      <span class="result-count" id="result-count">{allTroops.length} troops</span>
+    </div>
+
+    <div class="data-table-wrapper">
+      <table class="data-table" id="troop-table">
+        <thead>
+          <tr>
+            <th data-col="faceTemplate">Face</th>
+            <th data-col="id">Id</th>
+            <th data-col="defaultGroup">Default Group</th>
+            <th data-col="level" class="col-num">Level</th>
+            <th data-col="name">Name</th>
+            <th data-col="race">Race</th>
+            <th data-col="isBasicTroop">Is Basic Troop</th>
+            <th data-col="culture">Culture</th>
+            <th data-col="item0" class="section-start">Item0</th>
+            <th data-col="item1">Item1</th>
+            <th data-col="item2">Item2</th>
+            <th data-col="item3">Item3</th>
+            <th data-col="head">Head</th>
+            <th data-col="body">Body</th>
+            <th data-col="leg">Leg</th>
+            <th data-col="glove">Glove</th>
+            <th data-col="athletics" class="col-num section-start">Athletics</th>
+            <th data-col="riding" class="col-num">Riding</th>
+            <th data-col="oneHanded" class="col-num">OneHanded</th>
+            <th data-col="twoHanded" class="col-num">TwoHanded</th>
+            <th data-col="polearm" class="col-num">Polearm</th>
+            <th data-col="bow" class="col-num">Bow</th>
+            <th data-col="crossbow" class="col-num">Crossbow</th>
+            <th data-col="throwing" class="col-num">Throwing</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allTroops.map(t => (
+            <tr
+              data-name={t.name.toLowerCase()}
+              data-id={t.id.toLowerCase()}
+              data-culture={t.culture}
+              data-group={t.defaultGroup}
+              data-occupation={t.occupation}
+            >
+              <td class="col-id">{t.faceTemplate}</td>
+              <td class="col-id">{t.id}</td>
+              <td>{t.defaultGroup}</td>
+              <td class="col-num">{t.level}</td>
+              <td>{t.name}</td>
+              <td>{t.race}</td>
+              <td>{t.isBasicTroop ? 'Yes' : 'No'}</td>
+              <td>{t.culture}</td>
+              <td class="col-id section-start">{t.item0}</td>
+              <td class="col-id">{t.item1}</td>
+              <td class="col-id">{t.item2}</td>
+              <td class="col-id">{t.item3}</td>
+              <td class="col-id">{t.head}</td>
+              <td class="col-id">{t.body}</td>
+              <td class="col-id">{t.leg}</td>
+              <td class="col-id">{t.glove}</td>
+              <td class="col-num section-start">{t.athletics}</td>
+              <td class="col-num">{t.riding}</td>
+              <td class="col-num">{t.oneHanded}</td>
+              <td class="col-num">{t.twoHanded}</td>
+              <td class="col-num">{t.polearm}</td>
+              <td class="col-num">{t.bow}</td>
+              <td class="col-num">{t.crossbow}</td>
+              <td class="col-num">{t.throwing}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Client-side filtering, sorting, and search
+  const table = document.getElementById('troop-table') as HTMLTableElement;
+  const tbody = table.querySelector('tbody')!;
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
+  const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
+  const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
+  const resultCount = document.getElementById('result-count')!;
+
+  let sortCol = '';
+  let sortAsc = true;
+
+  function filterRows() {
+    const search = searchInput.value.toLowerCase();
+    const culture = cultureFilter.value;
+    const group = groupFilter.value;
+    const occupation = occupationFilter.value;
+    let visible = 0;
+
+    for (const row of rows) {
+      const name = row.dataset.name || '';
+      const id = row.dataset.id || '';
+      const rowCulture = row.dataset.culture || '';
+      const rowGroup = row.dataset.group || '';
+      const rowOccupation = row.dataset.occupation || '';
+
+      const matchesSearch = !search || name.includes(search) || id.includes(search);
+      const matchesCulture = !culture || rowCulture === culture;
+      const matchesGroup = !group || rowGroup === group;
+      const matchesOccupation = !occupation || rowOccupation === occupation;
+
+      const show = matchesSearch && matchesCulture && matchesGroup && matchesOccupation;
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
+    }
+
+    resultCount.textContent = `${visible} troops`;
+  }
+
+  searchInput.addEventListener('input', filterRows);
+  cultureFilter.addEventListener('change', filterRows);
+  groupFilter.addEventListener('change', filterRows);
+  occupationFilter.addEventListener('change', filterRows);
+
+  // Column sorting
+  const headers = table.querySelectorAll('th[data-col]');
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const col = (th as HTMLElement).dataset.col!;
+      if (sortCol === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortCol = col;
+        sortAsc = true;
+      }
+
+      // Update sort indicators
+      headers.forEach(h => {
+        const indicator = h.querySelector('.sort-indicator');
+        if (indicator) indicator.remove();
+      });
+      const indicator = document.createElement('span');
+      indicator.className = 'sort-indicator';
+      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+      th.appendChild(indicator);
+
+      // Get column index
+      const colIndex = Array.from(headers).indexOf(th);
+
+      // Sort rows
+      const isNumeric = th.classList.contains('col-num');
+      rows.sort((a, b) => {
+        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+        if (isNumeric) {
+          const aNum = parseFloat(aVal) || 0;
+          const bNum = parseFloat(bVal) || 0;
+          return sortAsc ? aNum - bNum : bNum - aNum;
+        }
+
+        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      });
+
+      // Re-append sorted rows
+      for (const row of rows) {
+        tbody.appendChild(row);
+      }
+    });
+  });
+</script>

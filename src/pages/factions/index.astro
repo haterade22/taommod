@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseTroops } from '../../lib/parse-xml';
+
+const troops = parseTroops();
+
+// Build faction summary from troop data
+const factionMap = new Map<string, { count: number; groups: Set<string>; minLevel: number; maxLevel: number }>();
+for (const t of troops) {
+  if (!t.culture) continue;
+  const existing = factionMap.get(t.culture) || { count: 0, groups: new Set(), minLevel: 999, maxLevel: 0 };
+  existing.count++;
+  if (t.defaultGroup) existing.groups.add(t.defaultGroup);
+  existing.minLevel = Math.min(existing.minLevel, t.level);
+  existing.maxLevel = Math.max(existing.maxLevel, t.level);
+  factionMap.set(t.culture, existing);
+}
+
+const factions = Array.from(factionMap.entries())
+  .map(([name, data]) => ({ name, ...data, groups: Array.from(data.groups) }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout title="Factions" description="All 16 factions in TAOM with troop counts and compositions">
+  <div class="page-content">
+    <h1 class="page-title">Factions</h1>
+
+    <div class="card-grid">
+      {factions.map(f => (
+        <a href={`/troops?culture=${f.name}`} class="card" style="text-decoration: none;">
+          <h3>{f.name.charAt(0).toUpperCase() + f.name.slice(1)}</h3>
+          <p>
+            <strong>{f.count}</strong> units &middot;
+            Levels {f.minLevel}-{f.maxLevel}
+          </p>
+          <p style="margin-top: 0.25rem;">
+            {f.groups.join(', ')}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

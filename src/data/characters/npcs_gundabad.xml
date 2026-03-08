@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+
+	<!-- ==================== GUNDABAD CIVILIAN NPCs ==================== -->
+	<!-- All use race="pale_uruk" for correct orc rendering -->
+
+	<!-- Tournament / Arena -->
+	<NPCCharacter id="tournament_master_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="ArenaMaster" culture="Culture.gundabad" name="{=aom_gb_arena}Arena Master">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_heavy_d" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_heavy_d" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Villager (upgrades to snaga) -->
+	<NPCCharacter id="villager_gundabad" race="pale_uruk" default_group="Infantry" level="1" name="{=aom_gb_villager}Slave" occupation="Villager" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<upgrade_targets>
+			<upgrade_target id="NPCCharacter.gundabad_snaga" />
+		</upgrade_targets>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Caravan Staff -->
+	<NPCCharacter id="caravan_master_gundabad" race="pale_uruk" default_group="Infantry" level="26" name="{=aom_gb_caravan_master}Gundabad Caravan Master" occupation="CaravanGuard" culture="Culture.gundabad">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="120" />
+			<skill id="Polearm" value="80" />
+			<skill id="Trade" value="100" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gundabad_sword_a03" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a02" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_heavy_a" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_heavy_a" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_heavy_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_heavy_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="caravan_guard_gundabad" race="pale_uruk" default_group="Infantry" level="21" name="{=aom_gb_caravan_guard}Gundabad Caravan Guard" occupation="CaravanGuard" culture="Culture.gundabad">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="100" />
+			<skill id="Polearm" value="100" />
+			<skill id="Bow" value="40" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gundabad_spear_a02" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a02" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="veteran_caravan_guard_gundabad" race="pale_uruk" default_group="Infantry" level="26" name="{=aom_gb_vet_caravan_guard}Gundabad Veteran Caravan Guard" occupation="CaravanGuard" culture="Culture.gundabad">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="130" />
+			<skill id="Polearm" value="130" />
+			<skill id="Bow" value="50" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gundabad_sword_a03" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a03" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_heavy_b" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_heavy_b" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_heavy_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_heavy_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armed_trader_gundabad" race="pale_uruk" default_group="Infantry" level="16" name="{=aom_gb_armed_trader}Gundabad Armed Trader" occupation="CaravanGuard" culture="Culture.gundabad">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="Athletics" value="40" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="60" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gundabad_axe_a01" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_light_a" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Guards -->
+	<NPCCharacter id="prison_guard_gundabad" race="pale_uruk" default_group="Infantry" level="4" culture="Culture.gundabad" occupation="PrisonGuard" name="{=aom_gb_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="OneHanded" value="50" />
+			<skill id="TwoHanded" value="50" />
+			<skill id="Polearm" value="50" />
+		</skills>
+		<upgrade_targets></upgrade_targets>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item1" id="Item.wm_gundabad_spear_a01" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="guard_gundabad" race="pale_uruk" default_group="Infantry" level="16" name="{=aom_gb_guard}Guard" occupation="Soldier" culture="Culture.gundabad">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="80" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_spear_a02" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a02" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Crafters -->
+	<NPCCharacter id="blacksmith_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Blacksmith" culture="Culture.gundabad" name="{=aom_gb_blacksmith}Blacksmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_mace_a01" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weaponsmith_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Weaponsmith" culture="Culture.gundabad" name="{=aom_gb_weaponsmith}Weaponsmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_sword_a01" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armorer_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Armorer" culture="Culture.gundabad" name="{=aom_gb_armorer}Armorer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_heavy_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_heavy_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="horseMerchant_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="HorseTrader" culture="Culture.gundabad" name="{=aom_gb_warg_merchant}Warg Merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchants -->
+	<NPCCharacter id="merchant_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="GoodsTrader" culture="Culture.gundabad" name="{=aom_gb_merchant}Trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_sword_a01" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Tavern -->
+	<NPCCharacter id="tavernkeeper_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" name="{=aom_gb_tavernkeeper}Tavern Keeper" occupation="Tavernkeeper" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="taverngamehost_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" name="{=aom_gb_gamehost}Game Host" occupation="TavernGameHost" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="musician_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" name="{=aom_gb_musician}Musician" occupation="Musician" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="tavern_wench_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" name="{=aom_gb_tavern_wench}Tavern Wench" occupation="TavernWench" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Services -->
+	<NPCCharacter id="barber_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.gundabad" name="{=aom_gb_barber}Barber" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="shop_worker_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="ShopWorker" culture="Culture.gundabad" name="{=aom_gb_shop_worker}Shop Worker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="ransom_broker_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="RansomBroker" culture="Culture.gundabad" name="{=aom_gb_ransom_broker}Ransom Broker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_sword_a02" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Gang -->
+	<NPCCharacter id="gangleader_bodyguard_gundabad" race="pale_uruk" default_group="Infantry" level="16" is_hero="false" occupation="Townsfolk" culture="Culture.gundabad" name="{=aom_gb_gang_bodyguard}Gang Bodyguard" skill_template="SkillSet.infantry_heavyinfantry_level16_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gundabad_axe_a03" />
+				<equipment slot="Head" id="Item.sk_gb_uruk_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_c" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables -->
+
+	<!-- Merchant 1: Cautious pale orc trader -->
+	<NPCCharacter id="spc_notable_gundabad_0" name="{=aom_gb_notable_0}Cautious pale orc trader" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 2: Cunning Gundabad haggler -->
+	<NPCCharacter id="spc_notable_gundabad_0b" name="{=aom_gb_notable_0b}Cunning Gundabad haggler" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 3: Ruthless orc provisioner -->
+	<NPCCharacter id="spc_notable_gundabad_1" name="{=aom_gb_notable_1}Ruthless orc provisioner" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Generosity" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 4: Cold Gundabad quartermaster -->
+	<NPCCharacter id="spc_notable_gundabad_1b" name="{=aom_gb_notable_1b}Cold Gundabad quartermaster" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Generosity" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 5: Shrewd pale orc supply master -->
+	<NPCCharacter id="spc_notable_gundabad_2" name="{=aom_gb_notable_2}Shrewd pale orc supply master" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 6: Wary Gundabad hoarder -->
+	<NPCCharacter id="spc_notable_gundabad_2b" name="{=aom_gb_notable_2b}Wary Gundabad hoarder" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 7: Self-made orc dealer -->
+	<NPCCharacter id="spc_notable_gundabad_3" name="{=aom_gb_notable_3}Self-made orc dealer" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 8: Jovial Gundabad peddler -->
+	<NPCCharacter id="spc_notable_gundabad_3b" name="{=aom_gb_notable_3b}Jovial Gundabad peddler" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 9: Scheming pale orc profiteer -->
+	<NPCCharacter id="spc_notable_gundabad_4" name="{=aom_gb_notable_4}Scheming pale orc profiteer" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchant 10: Devious Gundabad trader -->
+	<NPCCharacter id="spc_notable_gundabad_4b" name="{=aom_gb_notable_4b}Devious Gundabad trader" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Preacher 1: Fanatical Gundabad war-chanter -->
+	<NPCCharacter id="spc_notable_gundabad_5" name="{=aom_gb_notable_5}Fanatical Gundabad war-chanter" race="pale_uruk" is_template="true" voice="earnest" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="1" />
+			<Trait id="Generosity" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Preacher 2: Stern pale orc taskmaster -->
+	<NPCCharacter id="spc_notable_gundabad_6" name="{=aom_gb_notable_6}Stern pale orc taskmaster" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="1" />
+			<Trait id="Generosity" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Preacher 3: Brooding orc mystic -->
+	<NPCCharacter id="spc_notable_gundabad_7" name="{=aom_gb_notable_7}Brooding orc mystic" race="pale_uruk" is_template="true" voice="earnest" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Mercy" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Artisan 1: Gruff pale orc smith -->
+	<NPCCharacter id="spc_notable_gundabad_8" name="{=aom_gb_notable_8}Gruff pale orc smith" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Generosity" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Artisan 2: Outgoing Gundabad forgemaster -->
+	<NPCCharacter id="spc_notable_gundabad_9" name="{=aom_gb_notable_9}Outgoing Gundabad forgemaster" race="pale_uruk" is_template="true" voice="earnest" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Generosity" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 1: Protective Gundabad pit lord -->
+	<NPCCharacter id="spc_notable_gundabad_gl1" name="{=aom_gb_notable_gl1}Protective Gundabad pit lord" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="1" />
+			<Trait id="Generosity" value="1" />
+			<Trait id="Honor" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 2: Snarling orc enforcer -->
+	<NPCCharacter id="spc_notable_gundabad_10" name="{=aom_gb_notable_10}Snarling orc enforcer" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="1" />
+			<Trait id="Calculating" value="1" />
+			<Trait id="Mercy" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 3: Intimidating pale orc brute -->
+	<NPCCharacter id="spc_notable_gundabad_11" name="{=aom_gb_notable_11}Intimidating pale orc brute" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="1" />
+			<Trait id="Generosity" value="-1" />
+			<Trait id="Mercy" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 4: Bestial Gundabad thug -->
+	<NPCCharacter id="spc_notable_gundabad_gl4" name="{=aom_gb_notable_gl4}Bestial Gundabad thug" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="-1" />
+			<Trait id="Mercy" value="-1" />
+			<Trait id="Calculating" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 5: Scheming orc racketeer -->
+	<NPCCharacter id="spc_notable_gundabad_12" name="{=aom_gb_notable_12}Scheming orc racketeer" race="pale_uruk" is_template="true" voice="ironic" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="1" />
+			<Trait id="Honor" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- GangLeader 6: Menacing Gundabad cutthroat -->
+	<NPCCharacter id="spc_notable_gundabad_13" name="{=aom_gb_notable_13}Menacing Gundabad cutthroat" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Calculating" value="1" />
+			<Trait id="Generosity" value="-1" />
+			<Trait id="Mercy" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- RuralNotable 1: Gruff pale orc overseer -->
+	<NPCCharacter id="spc_notable_gundabad_21" name="{=aom_gb_notable_21}Gruff pale orc overseer" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- RuralNotable 2: Agreeable Gundabad field boss -->
+	<NPCCharacter id="spc_notable_gundabad_22" name="{=aom_gb_notable_22}Agreeable Gundabad field boss" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Headman 1: Rebellious Gundabad captain -->
+	<NPCCharacter id="spc_gundabad_headman_1" name="{=aom_gb_headman_1}Rebellious Gundabad captain" race="pale_uruk" is_template="true" voice="earnest" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="1" />
+			<Trait id="Calculating" value="-1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_gb_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Headman 2: Conservative orc elder -->
+	<NPCCharacter id="spc_gundabad_headman_2" name="{=aom_gb_headman_2}Conservative orc elder" race="pale_uruk" is_template="true" voice="curt" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Valor" value="-1" />
+			<Trait id="Generosity" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_gb_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Headman 3: Devious Gundabad headman -->
+	<NPCCharacter id="spc_gundabad_headman_3" name="{=aom_gb_headman_3}Devious Gundabad headman" race="pale_uruk" is_template="true" voice="softspoken" default_group="Infantry" is_hero="false" culture="Culture.gundabad" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Traits>
+			<Trait id="Honor" value="-1" />
+			<Trait id="Calculating" value="1" />
+		</Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Beggars / Dancers -->
+	<NPCCharacter id="beggar_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.gundabad" name="{=aom_gb_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_beggar_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.gundabad" name="{=aom_gb_female_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_dancer_gundabad" race="pale_uruk" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.gundabad" name="{=aom_gb_dancer}Dancer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Town Population -->
+	<NPCCharacter id="townsman_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townsman}Townsman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_infant_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townsman_infant}Townsman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_child_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townsman_child}Townsman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_teenager_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townsman_teen}Townsman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townswoman}Townswoman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_infant_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townswoman_infant}Townswoman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_child_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townswoman_child}Townswoman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_teenager_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_townswoman_teen}Townswoman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Village Population -->
+	<NPCCharacter id="village_woman_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_village_woman}Village Woman" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_woman_child_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_village_woman_child}Village Child" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_woman_teenager_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_village_woman_teen}Village Teenager" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_child_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_villager_child}Village Child" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_teenager_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_villager_teen}Village Teenager" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Practice Dummies -->
+	<NPCCharacter id="gear_practice_dummy_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_practice_dummy}Practice Dummy" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_1_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_practice_1}Practice Fighter" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_2_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_practice_2}Practice Fighter" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_3_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_practice_3}Practice Fighter" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_heavy_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="gear_dummy_gundabad" race="pale_uruk" default_group="Infantry" name="{=aom_gb_gear_dummy}Gear Dummy" occupation="Townsfolk" culture="Culture.gundabad" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gb_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_gb_uruk_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+</NPCCharacters>

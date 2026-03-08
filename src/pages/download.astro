@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Download" description="Download and install TAOM - Tales From the Age of Men for Bannerlord">
+  <div class="page-content" style="max-width: 800px;">
+    <h1 class="page-title">Download & Install</h1>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Requirements</h3>
+      <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text-secondary);">
+        <li>Mount & Blade II: Bannerlord (v1.3.x)</li>
+        <li>Steam or GOG version</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Download Links</h3>
+      <p style="margin-bottom: 0.75rem;">Download the latest release from one of these sources:</p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary">Nexus Mods</a>
+        <a href="#" class="btn btn-secondary">ModDB</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem;">
+        Links will be updated when the mod is publicly released.
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <h3>Installation</h3>
+      <ol style="list-style: decimal; padding-left: 1.5rem; color: var(--text-secondary);">
+        <li style="margin-bottom: 0.5rem;">Download and extract the mod archive</li>
+        <li style="margin-bottom: 0.5rem;">Copy the <code style="background: var(--bg-tertiary); padding: 0.15rem 0.4rem; border-radius: 3px;">TAOM</code> folder to your Bannerlord Modules directory:
+          <code style="display: block; background: var(--bg-tertiary); padding: 0.5rem; border-radius: 3px; margin-top: 0.25rem; font-size: 0.8rem;">
+            Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\
+          </code>
+        </li>
+        <li style="margin-bottom: 0.5rem;">Launch Bannerlord and enable TAOM in the Mods menu</li>
+        <li style="margin-bottom: 0.5rem;">Ensure TAOM is loaded after the base game modules</li>
+        <li>Start a new campaign</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>Troubleshooting</h3>
+      <p>Having issues? Join our Discord for help and support.</p>
+      <a href="/community" class="btn btn-secondary" style="margin-top: 0.5rem;">Join Discord</a>
+    </div>
+  </div>
+</BaseLayout>
