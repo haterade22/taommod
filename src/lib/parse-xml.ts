@@ -32,7 +32,7 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
 };
 
 // Cultures to exclude from display
-const HIDDEN_CULTURES = new Set(['lothlorien']);
+const HIDDEN_CULTURES = new Set(['lothlorien', 'sturgia']);
 
 export function getCultureDisplayName(culture: string): string {
   return CULTURE_DISPLAY_NAMES[culture] || culture.charAt(0).toUpperCase() + culture.slice(1);
@@ -139,20 +139,6 @@ export function parseTroops(): Troop[] {
     if (!npcs) continue;
     for (const npc of npcs) {
       troops.push(parseNpc(npc));
-    }
-  }
-
-  // Parse NPC files (notables, merchants, etc.)
-  if (fs.existsSync(charsDir)) {
-    const npcFiles = fs.readdirSync(charsDir).filter(f => f.startsWith('npcs_') && f.endsWith('.xml'));
-    for (const file of npcFiles) {
-      const xml = fs.readFileSync(path.join(charsDir, file), 'utf-8');
-      const parsed = parser.parse(xml);
-      const npcs = parsed?.NPCCharacters?.NPCCharacter;
-      if (!npcs) continue;
-      for (const npc of npcs) {
-        troops.push(parseNpc(npc));
-      }
     }
   }
 
