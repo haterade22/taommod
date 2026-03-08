@@ -151,10 +151,19 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
     resultCount.textContent = `${visible} troops`;
   }
 
+  // Apply URL query params on load
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('culture')) cultureFilter.value = params.get('culture')!;
+  if (params.get('group')) groupFilter.value = params.get('group')!;
+  if (params.get('search')) searchInput.value = params.get('search')!;
+
   searchInput.addEventListener('input', filterRows);
   cultureFilter.addEventListener('change', filterRows);
   groupFilter.addEventListener('change', filterRows);
   occupationFilter.addEventListener('change', filterRows);
+
+  // Run initial filter (picks up URL params)
+  filterRows();
 
   // Column sorting
   const headers = table.querySelectorAll('th[data-col]');
