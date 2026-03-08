@@ -168,7 +168,7 @@ a:hover {
   cursor: pointer;
   user-select: none;
   position: sticky;
-  top: 0;
+  top: 48px;
   z-index: 10;
 }
 
@@ -207,14 +207,14 @@ a:hover {
 }
 
 /* Per-skill color coding */
-.skill-athletics { color: #e67e22; }
-.skill-riding { color: #8e44ad; }
-.skill-onehanded { color: #e74c3c; }
-.skill-twohanded { color: #c0392b; }
-.skill-polearm { color: #2ecc71; }
-.skill-bow { color: #3498db; }
-.skill-crossbow { color: #1abc9c; }
-.skill-throwing { color: #f39c12; }
+.data-table td.skill-athletics { color: #e67e22; }
+.data-table td.skill-riding { color: #8e44ad; }
+.data-table td.skill-onehanded { color: #e74c3c; }
+.data-table td.skill-twohanded { color: #c0392b; }
+.data-table td.skill-polearm { color: #2ecc71; }
+.data-table td.skill-bow { color: #3498db; }
+.data-table td.skill-crossbow { color: #1abc9c; }
+.data-table td.skill-throwing { color: #f39c12; }
 
 /* Dim zero values */
 .skill-zero {
