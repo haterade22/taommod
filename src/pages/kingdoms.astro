@@ -1,48 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseKingdomsFromXslt } from '../lib/parse-xml';
+import { parseKingdomsFromXslt, getCultureDisplayName } from '../lib/parse-xml';
 
 const kingdoms = parseKingdomsFromXslt();
+
+// Map kingdom culture IDs to background images
+const KINGDOM_IMAGES: Record<string, string> = {
+  gondor: '/images/faction-gondor.png',
+  mordor: '/images/faction-mordor.jpg',
+  erebor: '/images/faction-erebor.jpg',
+  isengard: '/images/faction-isengard.jpg',
+  gundabad: '/images/faction-gundabad.webp',
+  khuzait: '/images/faction-rhun.webp',
+  empire: '/images/faction-dunland.jpg',
+};
 ---
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
   <div class="page-content">
     <h1 class="page-title">Kingdoms of Middle-earth</h1>
 
-    <div class="card-grid">
-      {kingdoms.map(k => (
-        <div class="card">
-          <h3>{k.name}</h3>
-          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
-            {k.color && (
-              <span
-                style={`display: inline-block; width: 16px; height: 16px; border-radius: 3px; background: #${k.color.replace(/^(0x|#)?(FF)?/i, '')};`}
-                title={`Primary: ${k.color}`}
-              />
-            )}
-            {k.color2 && (
-              <span
-                style={`display: inline-block; width: 16px; height: 16px; border-radius: 3px; background: #${k.color2.replace(/^(0x|#)?(FF)?/i, '')};`}
-                title={`Secondary: ${k.color2}`}
-              />
-            )}
-            <span style="color: var(--text-muted); font-size: 0.8rem;">
-              {k.title}
-            </span>
+    <div class="kingdom-grid">
+      {kingdoms.map(k => {
+        const bgImage = KINGDOM_IMAGES[k.culture];
+        return (
+          <div
+            class:list={['kingdom-card', { 'has-bg': !!bgImage }]}
+            style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
+          >
+            <div class="kingdom-overlay"></div>
+            <div class="kingdom-content">
+              <h3>{k.name}</h3>
+              <div class="kingdom-meta">
+                {k.color && (
+                  <span
+                    class="color-swatch"
+                    style={`background: #${k.color.replace(/^(0x|#)?(FF)?/i, '')};`}
+                    title={`Primary: ${k.color}`}
+                  />
+                )}
+                {k.color2 && (
+                  <span
+                    class="color-swatch"
+                    style={`background: #${k.color2.replace(/^(0x|#)?(FF)?/i, '')};`}
+                    title={`Secondary: ${k.color2}`}
+                  />
+                )}
+                <span class="kingdom-title">{k.title}</span>
+              </div>
+              <p><strong>Ruler:</strong> {k.rulerTitle}</p>
+              <p><strong>Culture:</strong> {getCultureDisplayName(k.culture)}</p>
+              {k.description && (
+                <p class="kingdom-desc">
+                  {k.description.length > 200 ? k.description.slice(0, 200) + '...' : k.description}
+                </p>
+              )}
+            </div>
           </div>
-          <p style="margin-bottom: 0.5rem;">
-            <strong style="color: var(--text-secondary);">Ruler:</strong> {k.rulerTitle}
-          </p>
-          <p style="margin-bottom: 0.5rem;">
-            <strong style="color: var(--text-secondary);">Culture:</strong> {k.culture}
-          </p>
-          {k.description && (
-            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">
-              {k.description.length > 200 ? k.description.slice(0, 200) + '...' : k.description}
-            </p>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
 
     {kingdoms.length === 0 && (
@@ -50,3 +66,101 @@ const kingdoms = parseKingdomsFromXslt();
     )}
   </div>
 </BaseLayout>
+
+<style>
+  .kingdom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kingdom-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 220px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .kingdom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .kingdom-card.has-bg {
+    background: var(--bg-image) center center / cover no-repeat;
+  }
+
+  .kingdom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.2s;
+  }
+
+  .kingdom-card:hover .kingdom-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .kingdom-card:not(.has-bg) .kingdom-overlay {
+    background: transparent;
+  }
+
+  .kingdom-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+  }
+
+  .kingdom-content h3 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .kingdom-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .color-swatch {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .kingdom-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+  }
+
+  .kingdom-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .kingdom-content p strong {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .kingdom-desc {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-top: 0.5rem !important;
+  }
+
+  @media (max-width: 600px) {
+    .kingdom-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
