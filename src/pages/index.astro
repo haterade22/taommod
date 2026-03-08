@@ -4,15 +4,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Home">
   <section class="hero">
-    <img src="/images/logo.png" alt="Tales From the Age of Men" class="hero-logo" />
-    <p class="subtitle">A Lord of the Rings Total Conversion Mod for Bannerlord</p>
-    <p class="tagline">
-      Experience Middle-earth in Mount &amp; Blade II: Bannerlord. Command the armies of Gondor, Rohan, Erebor,
-      Mordor, and more across 16 factions with hundreds of unique troops, lords, and equipment.
-    </p>
-    <div style="display: flex; gap: 1rem; justify-content: center;">
-      <a href="/download" class="btn btn-primary">Download</a>
-      <a href="/troops" class="btn btn-secondary">Browse Troops</a>
+    <div class="hero-split">
+      <div class="hero-text">
+        <img src="/images/logo.png" alt="Tales From the Age of Men" class="hero-logo" />
+        <p class="subtitle">A Lord of the Rings Total Conversion Mod for Bannerlord</p>
+        <p class="tagline">
+          Experience Middle-earth in Mount &amp; Blade II: Bannerlord. Command the armies of Gondor, Rohan, Erebor,
+          Mordor, and more across 16 factions with hundreds of unique troops, lords, and equipment.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="/download" class="btn btn-primary">Download</a>
+          <a href="/troops" class="btn btn-secondary">Browse Troops</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="/images/easterling-horsemen.png" alt="Easterling Horsemen" class="hero-illustration" />
+      </div>
     </div>
   </section>
 
@@ -43,5 +50,99 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>Built for Bannerlord v1.3. Regular updates with new content, balance changes, and features.</p>
       </div>
     </div>
+
+    <!-- Award Section -->
+    <section class="award-section">
+      <div class="award-content">
+        <img src="/images/moddb-award.png" alt="ModDB Mod of the Year 2025 - Best Upcoming" class="award-badge" />
+        <div class="award-text">
+          <h2>Best Upcoming Mod of 2025</h2>
+          <p>Voted by the ModDB community as the Best Upcoming Mod in the 2025 Mod of the Year awards.</p>
+          <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="btn btn-secondary" target="_blank" rel="noopener">View on ModDB</a>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
+
+<style>
+  .hero-split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    text-align: center;
+    flex: 1;
+  }
+
+  .hero-art {
+    flex: 0 0 auto;
+    max-width: 450px;
+  }
+
+  .hero-illustration {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+  }
+
+  .award-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .award-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .award-badge {
+    width: 180px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .award-text h2 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .award-text p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-split {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero-art {
+      max-width: 300px;
+    }
+
+    .award-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .award-badge {
+      width: 140px;
+    }
+  }
+</style>
