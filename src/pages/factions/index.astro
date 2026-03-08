@@ -19,25 +19,123 @@ for (const t of troops) {
 const factions = Array.from(factionMap.entries())
   .map(([name, data]) => ({ name, displayName: getCultureDisplayName(name), ...data, groups: Array.from(data.groups) }))
   .sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+// Map culture IDs to background images
+const FACTION_IMAGES: Record<string, string> = {
+  mordor: '/images/faction-mordor.jpg',
+  dolguldur: '/images/faction-dolguldur.webp',
+  erebor: '/images/faction-erebor.jpg',
+  khuzait: '/images/faction-rhun.webp',
+  gundabad: '/images/faction-gundabad.webp',
+};
 ---
 
 <BaseLayout title="Factions" description="All factions in TAOM with troop counts and compositions">
   <div class="page-content">
     <h1 class="page-title">Factions</h1>
 
-    <div class="card-grid">
-      {factions.map(f => (
-        <a href={`/troops?culture=${f.name}`} class="card" style="text-decoration: none;">
-          <h3>{f.displayName}</h3>
-          <p>
-            <strong>{f.count}</strong> units &middot;
-            Levels {f.minLevel}-{f.maxLevel}
-          </p>
-          <p style="margin-top: 0.25rem;">
-            {f.groups.join(', ')}
-          </p>
-        </a>
-      ))}
+    <div class="faction-grid">
+      {factions.map(f => {
+        const bgImage = FACTION_IMAGES[f.name];
+        return (
+          <a
+            href={`/troops?culture=${f.name}`}
+            class:list={['faction-card', { 'has-bg': !!bgImage }]}
+            style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
+          >
+            <div class="faction-overlay"></div>
+            <div class="faction-content">
+              <h3>{f.displayName}</h3>
+              <p>
+                <strong>{f.count}</strong> units &middot;
+                Levels {f.minLevel}-{f.maxLevel}
+              </p>
+              <p class="faction-groups">
+                {f.groups.join(', ')}
+              </p>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .faction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .faction-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 180px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .faction-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .faction-card.has-bg {
+    background: var(--bg-image) center center / cover no-repeat;
+  }
+
+  .faction-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    transition: background 0.2s;
+  }
+
+  .faction-card:hover .faction-overlay {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .faction-card:not(.has-bg) .faction-overlay {
+    background: transparent;
+  }
+
+  .faction-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 180px;
+  }
+
+  .faction-content h3 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .faction-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .faction-groups {
+    margin-top: 0.25rem;
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  @media (max-width: 600px) {
+    .faction-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
