@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- empire -->
+    <Item
+        id="thenn_boots"
+        name="{=aom_thenn_boots_name} Thenn Boots"
+        mesh="thenn_boots"
+        culture="Culture.empire"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="15"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="thenn_boots_fur"
+        name="{=aom_thenn_boots_fur_name} Thenn Boots Fur"
+        mesh="thenn_boots_fur"
+        culture="Culture.empire"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="20"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <!-- #endregion -->
+</Items>

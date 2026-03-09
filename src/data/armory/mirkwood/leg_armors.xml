@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Mirkwood -->
+    <Item
+        id="mirkwood_boots"
+        name="{=aom_mirkwood_boots_name}[Mirkwood] Palace Guard Boots"
+        mesh="mirkwood_boots"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="26"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="thranduil_boots"
+        name="{=aom_thranduil_boots_name}[Mirkwood] Thranduil Plate Boots"
+        mesh="thranduil_boots"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="46"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="legolas_boots"
+        name="{=aom_legolas_boots_name}[Mirkwood] Legolas Plate Boots"
+        mesh="legolas_boots"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="46"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="mkwd_inf3_greaves"
+        name="{=aom_mkwd_inf3_greaves_name}[Mirkwood] Greaves I"
+        mesh="mkwd_inf3_greave"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="26"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="mkwd_inf3_greaves_silver"
+        name="{=aom_mkwd_inf3_greaves_silver_name}[Mirkwood] Greaves II"
+        mesh="mkwd_inf3_greave_silver"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="26"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="mkwd_inf3_greaves_bronze"
+        name="{=aom_mkwd_inf3_greaves_bronze_name}[Mirkwood] Greaves III"
+        mesh="mkwd_inf3_greave_bronze"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="26"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <!-- #endregion -->
+</Items>

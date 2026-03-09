@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- [Arnor] Hand Armor -->
+    <Item
+        id="sk_ar_art_gloves_a"
+        name="{=aom_sk_ar_art_gloves_a_name}[Arnor] Leather Gloves"
+        mesh="sk_ar_art_gloves_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="10"
+                covers_hands="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="sk_ar_art_bracer_inf_med_a"
+        name="{=aom_sk_ar_art_bracer_inf_med_a_name}[Arnor] Infantry Bracers"
+        mesh="sk_ar_art_bracer_inf_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="15"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="sk_ar_art_bracer_noble_med_a"
+        name="{=aom_sk_ar_art_bracer_noble_med_a_name}[Arnor] Noble Bracers"
+        mesh="sk_ar_art_bracer_noble_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="20"
+                covers_hands="false"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="sk_ar_art_bracer_noble_heavy_a"
+        name="{=aom_sk_ar_art_bracer_noble_heavy_a_name}[Arnor] Noble Heavy Bracers"
+        mesh="sk_ar_art_bracer_noble_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="sk_ar_art_bracer_noble_elite_a"
+        name="{=aom_sk_ar_art_bracer_noble_elite_a_name}[Arnor] Noble Elite Bracers"
+        mesh="sk_ar_art_bracer_noble_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="30"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+</Items>

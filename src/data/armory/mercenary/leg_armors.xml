@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- [Northern] Leg Armor -->
+    <Item
+        id="sk_northern_boots_a"
+        name="{=aom_sk_northern_boots_a_name}[Northern] Leather Boots"
+        mesh="sk_northern_boots_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="12"
+                covers_legs="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="sk_northern_boots_medium_a"
+        name="{=aom_sk_northern_boots_medium_a_name}[Northern] Boots"
+        mesh="sk_northern_boots_medium_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.6"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor
+                leg_armor="20"
+                covers_legs="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+</Items>

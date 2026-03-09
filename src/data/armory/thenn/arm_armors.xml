@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Mirkwood -->
+    <Item
+        id="thenn_glv"
+        name="{=aom_thenn_glv_name} Thenn Gloves I"
+        mesh="thenn_glv"
+        culture="Culture.empire"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="thenn_glv2"
+        name="{=aom_thenn_glv2_name} Thenn Gloves II"
+        mesh="thenn_glv2"
+        culture="Culture.empire"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <!-- #endregion -->
+</Items>

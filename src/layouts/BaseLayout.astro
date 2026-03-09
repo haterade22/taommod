@@ -12,6 +12,8 @@ const navLinks = [
   { href: '/factions', label: 'Factions' },
   { href: '/clans', label: 'Clans' },
   { href: '/troops', label: 'Troops' },
+  { href: '/armoury', label: 'Armoury' },
+  { href: '/weaponry', label: 'Weaponry' },
   { href: '/community', label: 'Community' },
   { href: '/download', label: 'Download' },
   { href: '/credits', label: 'Credits' },
@@ -28,6 +30,9 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description} />
     <title>{title} | TAOM</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <nav class="site-nav">

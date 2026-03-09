@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Gondor -->
+    <Item
+        id="citidel_guard_bracers"
+        name="{=aom_citidel_guard_bracers_name}[Gondor] Bracers I"
+        mesh="citidel_guard_bracers"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="citidel_guard_bracers_shield"
+        name="{=aom_citidel_guard_bracers_shield_name}[Gondor] Bracers I - Shield"
+        mesh="citidel_guard_bracers_shield"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="citidel_guard_gloves"
+        name="{=aom_citidel_guard_gloves_name}[Gondor] Leather Gloves"
+        mesh="citidel_guard_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="10"
+                covers_hands="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="faramir_bracers"
+        name="{=aom_faramir_bracers_name}[Gondor] Faramir's Bracers"
+        mesh="faramir_bracers"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="20"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="ithilien_bracers"
+        name="{=aom_ithilien_bracers_name}[Gondor] Ithilien Bracers"
+        mesh="ithilien_bracers"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="15"
+                covers_hands="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="gondor_king_bracers"
+        name="{=aom_gondor_king_bracers_name}[Gondor] King's Bracers"
+        mesh="gondor_king_bracers"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="false"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="gondor_nobke_bracers"
+        name="{=aom_gondor_nobke_bracers_name}[Gondor] Noble Bracers"
+        mesh="gondor_nobke_bracers"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="false"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="golasgil_gloves"
+        name="{=aom_golasgil_gloves_name}[Gondor] Golasgil's Bracers"
+        mesh="golasgil_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="35"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="imrahil_gloves"
+        name="{=aom_imrahil_gloves_name}[Gondor] Imrahil's Bracers"
+        mesh="imrahil_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="35"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="hirluin_gloves"
+        name="{=aom_hirluin_gloves_name}[Gondor] Hirluin's Bracers"
+        mesh="hirluin_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="35"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="angbor_gloves"
+        name="{=aom_angbor_gloves_name}[Gondor] Angbor's Bracers"
+        mesh="angbor_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="35"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swanknight_gloves"
+        name="{=aom_swanknight_gloves_name}[Gondor] Swan Knight Gauntlets"
+        mesh="swan_knight_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="40"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="boromir_gloves"
+        name="{=aom_boromir_gloves_name}[Gondor] Boromir's Gloves"
+        mesh="boromir_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="forlong_gloves"
+        name="{=aom_forlong_gloves_name}[Gondor] Forlong's Gloves"
+        mesh="forlong_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="35"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="pg_spearman_glove"
+        name="{=aom_pg_spearman_glove_name}[Gondor] Pinneth Gelin Leather Gloves"
+        mesh="pg_spearman_glove"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="12"
+                covers_hands="true"
+                modifier_group="leathher"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="lrd_marines_gondor_1_gloves"
+        name="{=aom_lrd_marines_gondor_1_gloves_name}[Gondor] Pelargir Leather Gloves I"
+        mesh="lrd_marines_gondor_1_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="12"
+                covers_hands="true"
+                modifier_group="leathher"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="lrd_marines_gondor_2_gloves"
+        name="{=aom_lrd_marines_gondor_2_gloves_name}[Gondor] Pelargir Leather Gloves II"
+        mesh="lrd_marines_gondor_2_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="16"
+                covers_hands="true"
+                modifier_group="leathher"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="lrd_marines_gondor_3_gloves"
+        name="{=aom_lrd_marines_gondor_3_gloves_name}[Gondor] Pelargir Leather Gloves III"
+        mesh="lrd_marines_gondor_3_gloves"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="16"
+                covers_hands="true"
+                modifier_group="leathher"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_bracer_a"
+        name="{=aom_swan_bracer_a_name}[Gondor] Swan Bracer A"
+        mesh="swan_bracer_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="16"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_bracer_b"
+        name="{=aom_swan_bracer_b_name}[Gondor] Swan Bracer B"
+        mesh="swan_bracer_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="16"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_bracer_reinforced_a"
+        name="{=aom_swan_bracer_reinforced_a_name}[Gondor] Swan Reinforced Bracer A"
+        mesh="swan_bracer_reinforced_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_bracer_reinforced_b"
+        name="{=aom_swan_bracer_reinforced_b_name}[Gondor] Swan Reinforced Bracer B"
+        mesh="swan_bracer_reinforced_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="25"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_gauntlet_b"
+        name="{=aom_swan_gauntlet_b_name}[Gondor] Swan Gauntlet B"
+        mesh="swan_gauntlet_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="30"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item
+        id="swan_gauntlet_a"
+        name="{=aom_swan_gauntlet_a_name}[Gondor] Swan Gauntlet A"
+        mesh="swan_gauntlet_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor
+                arm_armor="30"
+                covers_hands="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <!-- #endregion -->
+</Items>

@@ -1,0 +1,3145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Rhun -->
+    <Item
+        id="easterling_torso"
+        name="{=aom_easterling_torso_name}[Rhûn] Easterling Armour V"
+        subtype="body_armor"
+        mesh="easterling_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="48"
+                arm_armor="20"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors01_torso"
+        name="{=aom_easterlingwarriors01_torso_name}[Rhûn] Easterling Armour III"
+        subtype="body_armor"
+        mesh="easterlingwarriors01_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                arm_armor="15"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors02_torso"
+        name="{=aom_easterlingwarriors02_torso_name}[Rhûn] Easterling Armour IV"
+        subtype="body_armor"
+        mesh="easterlingwarriors02_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                arm_armor="15"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors03_torso"
+        name="{=aom_easterlingwarriors03_torso_name}[Rhûn] Easterling Armour II"
+        subtype="body_armor"
+        mesh="easterlingwarriors03_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="15"
+                leg_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors04_torso"
+        name="{=aom_easterlingwarriors04_torso_name}[Rhûn] Easterling Armour I"
+        subtype="body_armor"
+        mesh="easterlingwarriors04_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="15"
+                leg_armor="8"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterling02_v1_torso"
+        name="{=aom_easterling02_v1_torso_name}[Rhûn] Easterling Archer Armour I"
+        subtype="body_armor"
+        mesh="easterling02_v1_torso"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="15"
+                leg_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== LOKE-RIM CHEST ARMORS (Gold-Bronze) ==================== -->
+
+    <!-- Loke-Rim Tunics -->
+    <Item
+        id="sk_rh_loke_tunic_a"
+        name="{=aom_sk_rh_loke_tunic_a_name}[Rhûn] Loke-Rim Tunic"
+        subtype="body_armor"
+        mesh="sk_rh_loke_tunic_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="4"
+                leg_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="cloth"
+                material_type="Cloth" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Spiky Armors -->
+    <Item
+        id="sk_rh_loke_chest_light_c"
+        name="{=aom_sk_rh_loke_chest_light_c_name}[Rhûn] Loke-Rim Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="8"
+                leg_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_light_d"
+        name="{=aom_sk_rh_loke_chest_light_d_name}[Rhûn] Loke-Rim Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_light_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="10"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+   
+    <Item
+        id="sk_rh_loke_chest_med_c"
+        name="{=aom_sk_rh_loke_chest_med_c_name}[Rhûn] Loke-Rim Spiky Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                leg_armor="15"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_med_d"
+        name="{=aom_sk_rh_loke_chest_med_d_name}[Rhûn] Loke-Rim Spiky Armor IV"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_med_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_heavy_c"
+        name="{=aom_sk_rh_loke_chest_heavy_c_name}[Rhûn] Loke-Rim Heavy Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="16"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_heavy_d"
+        name="{=aom_sk_rh_loke_chest_heavy_d_name}[Rhûn] Loke-Rim Heavy Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_heavy_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Scalemail Armors -->
+    <Item
+        id="sk_rh_loke_scalemail_light_a"
+        name="{=aom_sk_rh_loke_scalemail_light_a_name}[Rhûn] Loke-Rim Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_light_b"
+        name="{=aom_sk_rh_loke_scalemail_light_b_name}[Rhûn] Loke-Rim Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="26"
+                arm_armor="12"
+                leg_armor="13"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_med_a"
+        name="{=aom_sk_rh_loke_scalemail_med_a_name}[Rhûn] Loke-Rim Scalemail III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_med_b"
+        name="{=aom_sk_rh_loke_scalemail_med_b_name}[Rhûn] Loke-Rim Scalemail IV"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="12.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="36"
+                arm_armor="16"
+                leg_armor="18"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_heavy_a"
+        name="{=aom_sk_rh_loke_scalemail_heavy_a_name}[Rhûn] Loke-Rim Heavy Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_heavy_b"
+        name="{=aom_sk_rh_loke_scalemail_heavy_b_name}[Rhûn] Loke-Rim Heavy Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="46"
+                arm_armor="20"
+                leg_armor="23"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+   
+    <Item
+        id="sk_rh_loke_scalemail_elite_a"
+        name="{=aom_sk_rh_loke_scalemail_elite_a_name}[Rhûn] Loke-Rim Elite Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_elite_b"
+        name="{=aom_sk_rh_loke_scalemail_elite_b_name}[Rhûn] Loke-Rim Elite Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="22"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_scalemail_lord_a"
+        name="{=aom_sk_rh_loke_scalemail_lord_a_name}[Rhûn] Loke-Rim Lord Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_loke_scalemail_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Lamellar Armors -->
+    <Item
+        id="sk_rh_loke_chest_light_a"
+        name="{=aom_sk_rh_loke_chest_light_a_name}[Rhûn] Loke-Rim Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="8"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_light_b"
+        name="{=aom_sk_rh_loke_chest_light_b_name}[Rhûn] Loke-Rim Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_med_a"
+        name="{=aom_sk_rh_loke_chest_med_a_name}[Rhûn] Loke-Rim Lamellar Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="12"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_med_b"
+        name="{=aom_sk_rh_loke_chest_med_b_name}[Rhûn] Loke-Rim Lamellar Armor IV"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_heavy_a"
+        name="{=aom_sk_rh_loke_chest_heavy_a_name}[Rhûn] Loke-Rim Heavy Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="16"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_heavy_b"
+        name="{=aom_sk_rh_loke_chest_heavy_b_name}[Rhûn] Loke-Rim Heavy Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_elite_a"
+        name="{=aom_sk_rh_loke_chest_elite_a_name}[Rhûn] Loke-Rim Elite Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="18"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_elite_b"
+        name="{=aom_sk_rh_loke_chest_elite_b_name}[Rhûn] Loke-Rim Elite Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_lord_a"
+        name="{=aom_sk_rh_loke_chest_lord_a_name}[Rhûn] Loke-Rim Lord Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="20"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_chest_lord_b"
+        name="{=aom_sk_rh_loke_chest_lord_b_name}[Rhûn] Loke-Rim Lord Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_chest_lord_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Half Plate Armors -->
+    <Item
+        id="sk_rh_loke_hplate_light_a"
+        name="{=aom_sk_rh_loke_hplate_light_a_name}[Rhûn] Loke-Rim Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="12"
+                leg_armor="14"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_med_a"
+        name="{=aom_sk_rh_loke_hplate_med_a_name}[Rhûn] Loke-Rim Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="38"
+                arm_armor="16"
+                leg_armor="19"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_med_b"
+        name="{=aom_sk_rh_loke_hplate_med_b_name}[Rhûn] Loke-Rim Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="18"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_heavy_a"
+        name="{=aom_sk_rh_loke_hplate_heavy_a_name}[Rhûn] Loke-Rim Heavy Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="48"
+                arm_armor="20"
+                leg_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_heavy_b"
+        name="{=aom_sk_rh_loke_hplate_heavy_b_name}[Rhûn] Loke-Rim Heavy Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="22"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_elite_a"
+        name="{=aom_sk_rh_loke_hplate_elite_a_name}[Rhûn] Loke-Rim Elite Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="22"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_elite_b"
+        name="{=aom_sk_rh_loke_hplate_elite_b_name}[Rhûn] Loke-Rim Elite Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="24"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_hplate_elite_c"
+        name="{=aom_sk_rh_loke_hplate_elite_c_name}[Rhûn] Loke-Rim Elite Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_hplate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Plate Armors -->
+    <Item
+        id="sk_rh_loke_plate_light_a"
+        name="{=aom_sk_rh_loke_plate_light_a_name}[Rhûn] Loke-Rim Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_med_a"
+        name="{=aom_sk_rh_loke_plate_med_a_name}[Rhûn] Loke-Rim Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_heavy_a"
+        name="{=aom_sk_rh_loke_plate_heavy_a_name}[Rhûn] Loke-Rim Heavy Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="22"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_heavy_b"
+        name="{=aom_sk_rh_loke_plate_heavy_b_name}[Rhûn] Loke-Rim Heavy Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="24"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_elite_a"
+        name="{=aom_sk_rh_loke_plate_elite_a_name}[Rhûn] Loke-Rim Elite Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_elite_b"
+        name="{=aom_sk_rh_loke_plate_elite_b_name}[Rhûn] Loke-Rim Elite Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="24.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="62"
+                arm_armor="26"
+                leg_armor="31"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_plate_elite_c"
+        name="{=aom_sk_rh_loke_plate_elite_c_name}[Rhûn] Loke-Rim Elite Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_loke_plate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="25.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="64"
+                arm_armor="26"
+                leg_armor="32"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== DRAGON WRATH CHEST ARMORS (Black-Gold) ==================== -->
+
+    <!-- Dragon Wrath Chainmail -->
+    <Item
+        id="sk_rh_drag_chainmail_a"
+        name="{=aom_sk_rh_drag_chainmail_a_name}[Rhûn] Dragon Wrath Chainmail"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chainmail_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Spiky Armors -->
+    <Item
+        id="sk_rh_drag_chest_light_c"
+        name="{=aom_sk_rh_drag_chest_light_c_name}[Rhûn] Dragon Wrath Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="8"
+                leg_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_light_d"
+        name="{=aom_sk_rh_drag_chest_light_d_name}[Rhûn] Dragon Wrath Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_light_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="10"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_med_c"
+        name="{=aom_sk_rh_drag_chest_med_c_name}[Rhûn] Dragon Wrath Spiky Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                leg_armor="15"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_med_d"
+        name="{=aom_sk_rh_drag_chest_med_d_name}[Rhûn] Dragon Wrath Spiky Armor IV"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_med_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_heavy_c"
+        name="{=aom_sk_rh_drag_chest_heavy_c_name}[Rhûn] Dragon Wrath Heavy Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="16"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_heavy_d"
+        name="{=aom_sk_rh_drag_chest_heavy_d_name}[Rhûn] Dragon Wrath Heavy Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_heavy_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Scalemail Armors -->
+    <Item
+        id="sk_rh_drag_scalemail_light_a"
+        name="{=aom_sk_rh_drag_scalemail_light_a_name}[Rhûn] Dragon Wrath Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_light_b"
+        name="{=aom_sk_rh_drag_scalemail_light_b_name}[Rhûn] Dragon Wrath Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="26"
+                arm_armor="12"
+                leg_armor="13"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_med_a"
+        name="{=aom_sk_rh_drag_scalemail_med_a_name}[Rhûn] Dragon Wrath Scalemail III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_med_b"
+        name="{=aom_sk_rh_drag_scalemail_med_b_name}[Rhûn] Dragon Wrath Scalemail IV"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="12.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="36"
+                arm_armor="16"
+                leg_armor="18"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_heav_a"
+        name="{=aom_sk_rh_drag_scalemail_heav_a_name}[Rhûn] Dragon Wrath Heavy Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_heav_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_heav_b"
+        name="{=aom_sk_rh_drag_scalemail_heav_b_name}[Rhûn] Dragon Wrath Heavy Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_heav_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="46"
+                arm_armor="20"
+                leg_armor="23"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_elite_a"
+        name="{=aom_sk_rh_drag_scalemail_elite_a_name}[Rhûn] Dragon Wrath Elite Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_elite_b"
+        name="{=aom_sk_rh_drag_scalemail_elite_b_name}[Rhûn] Dragon Wrath Elite Scalemail II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="22"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_scalemail_lord_a"
+        name="{=aom_sk_rh_drag_scalemail_lord_a_name}[Rhûn] Dragon Wrath Lord Scalemail"
+        subtype="body_armor"
+        mesh="sk_rh_drag_scalemail_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Lamellar Armors -->
+    <Item
+        id="sk_rh_drag_chest_light_a"
+        name="{=aom_sk_rh_drag_chest_light_a_name}[Rhûn] Dragon Wrath Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="8"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_light_b"
+        name="{=aom_sk_rh_drag_chest_light_b_name}[Rhûn] Dragon Wrath Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_med_a"
+        name="{=aom_sk_rh_drag_chest_med_a_name}[Rhûn] Dragon Wrath Lamellar Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="12"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_med_b"
+        name="{=aom_sk_rh_drag_chest_med_b_name}[Rhûn] Dragon Wrath Lamellar Armor IV"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_heavy_a"
+        name="{=aom_sk_rh_drag_chest_heavy_a_name}[Rhûn] Dragon Wrath Heavy Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="16"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_heavy_b"
+        name="{=aom_sk_rh_drag_chest_heavy_b_name}[Rhûn] Dragon Wrath Heavy Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_elite_a"
+        name="{=aom_sk_rh_drag_chest_elite_a_name}[Rhûn] Dragon Wrath Elite Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="18"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_elite_b"
+        name="{=aom_sk_rh_drag_chest_elite_b_name}[Rhûn] Dragon Wrath Elite Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_lord_a"
+        name="{=aom_sk_rh_drag_chest_lord_a_name}[Rhûn] Dragon Wrath Lord Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="20"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_chest_lord_b"
+        name="{=aom_sk_rh_drag_chest_lord_b_name}[Rhûn] Dragon Wrath Lord Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_chest_lord_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Half Plate Armors -->
+    <Item
+        id="sk_rh_drag_hplate_light_a"
+        name="{=aom_sk_rh_drag_hplate_light_a_name}[Rhûn] Dragon Wrath Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="12"
+                leg_armor="14"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_med_a"
+        name="{=aom_sk_rh_drag_hplate_med_a_name}[Rhûn] Dragon Wrath Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="38"
+                arm_armor="16"
+                leg_armor="19"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_med_b"
+        name="{=aom_sk_rh_drag_hplate_med_b_name}[Rhûn] Dragon Wrath Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="18"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_heavy_a"
+        name="{=aom_sk_rh_drag_hplate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="48"
+                arm_armor="20"
+                leg_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_heavy_b"
+        name="{=aom_sk_rh_drag_hplate_heavy_b_name}[Rhûn] Dragon Wrath Heavy Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="22"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_elite_a"
+        name="{=aom_sk_rh_drag_hplate_elite_a_name}[Rhûn] Dragon Wrath Elite Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="22"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_elite_b"
+        name="{=aom_sk_rh_drag_hplate_elite_b_name}[Rhûn] Dragon Wrath Elite Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="24"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_hplate_elite_c"
+        name="{=aom_sk_rh_drag_hplate_elite_c_name}[Rhûn] Dragon Wrath Elite Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_hplate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Plate Armors -->
+    <Item
+        id="sk_rh_drag_plate_light_a"
+        name="{=aom_sk_rh_drag_plate_light_a_name}[Rhûn] Dragon Wrath Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_med_a"
+        name="{=aom_sk_rh_drag_plate_med_a_name}[Rhûn] Dragon Wrath Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_heavy_a"
+        name="{=aom_sk_rh_drag_plate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="22"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_heavy_b"
+        name="{=aom_sk_rh_drag_plate_heavy_b_name}[Rhûn] Dragon Wrath Heavy Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="24"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_elite_a"
+        name="{=aom_sk_rh_drag_plate_elite_a_name}[Rhûn] Dragon Wrath Elite Plate Armor"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_elite_b"
+        name="{=aom_sk_rh_drag_plate_elite_b_name}[Rhûn] Dragon Wrath Elite Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="24.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="62"
+                arm_armor="26"
+                leg_armor="31"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_plate_elite_c"
+        name="{=aom_sk_rh_drag_plate_elite_c_name}[Rhûn] Dragon Wrath Elite Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_rh_drag_plate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="25.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="64"
+                arm_armor="26"
+                leg_armor="32"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== KHAMUL CHEST ARMORS (Black-Silver) ==================== -->
+
+    <!-- Khamul Chainmail -->
+    <Item
+        id="sk_dg_khml_chainmail_a"
+        name="{=aom_sk_dg_khml_chainmail_a_name}[Rhûn] Khamul Chainmail"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chainmail_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Spiky Armors -->
+    <Item
+        id="sk_dg_khml_chest_light_c"
+        name="{=aom_sk_dg_khml_chest_light_c_name}[Rhûn] Khamul Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="8"
+                leg_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_light_d"
+        name="{=aom_sk_dg_khml_chest_light_d_name}[Rhûn] Khamul Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_light_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="10"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_med_c"
+        name="{=aom_sk_dg_khml_chest_med_c_name}[Rhûn] Khamul Spiky Armor III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                leg_armor="15"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_med_d"
+        name="{=aom_sk_dg_khml_chest_med_d_name}[Rhûn] Khamul Spiky Armor IV"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_med_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_heavy_c"
+        name="{=aom_sk_dg_khml_chest_heavy_c_name}[Rhûn] Khamul Heavy Spiky Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="16"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_heavy_d"
+        name="{=aom_sk_dg_khml_chest_heavy_d_name}[Rhûn] Khamul Heavy Spiky Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_heavy_d"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Scalemail Armors -->
+    <Item
+        id="sk_dg_khml_scalemail_light_a"
+        name="{=aom_sk_dg_khml_scalemail_light_a_name}[Rhûn] Khamul Scalemail"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_light_b"
+        name="{=aom_sk_dg_khml_scalemail_light_b_name}[Rhûn] Khamul Scalemail II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="26"
+                arm_armor="12"
+                leg_armor="13"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_med_a"
+        name="{=aom_sk_dg_khml_scalemail_med_a_name}[Rhûn] Khamul Scalemail III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_med_b"
+        name="{=aom_sk_dg_khml_scalemail_med_b_name}[Rhûn] Khamul Scalemail IV"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="12.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="36"
+                arm_armor="16"
+                leg_armor="18"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_heavy_a"
+        name="{=aom_sk_dg_khml_scalemail_heavy_a_name}[Rhûn] Khamul Heavy Scalemail"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_heavy_b"
+        name="{=aom_sk_dg_khml_scalemail_heavy_b_name}[Rhûn] Khamul Heavy Scalemail II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="46"
+                arm_armor="20"
+                leg_armor="23"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_elite_a"
+        name="{=aom_sk_dg_khml_scalemail_elite_a_name}[Rhûn] Khamul Elite Scalemail"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_elite_b"
+        name="{=aom_sk_dg_khml_scalemail_elite_b_name}[Rhûn] Khamul Elite Scalemail II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="22"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_scalemail_lord_a"
+        name="{=aom_sk_dg_khml_scalemail_lord_a_name}[Rhûn] Khamul Lord Scalemail"
+        subtype="body_armor"
+        mesh="sk_dg_khml_scalemail_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Lamellar Armors -->
+    <Item
+        id="sk_dg_khml_chest_light_a"
+        name="{=aom_sk_dg_khml_chest_light_a_name}[Rhûn] Khamul Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="8"
+                leg_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_light_b"
+        name="{=aom_sk_dg_khml_chest_light_b_name}[Rhûn] Khamul Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="10"
+                leg_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_med_a"
+        name="{=aom_sk_dg_khml_chest_med_a_name}[Rhûn] Khamul Lamellar Armor III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="12"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_med_b"
+        name="{=aom_sk_dg_khml_chest_med_b_name}[Rhûn] Khamul Lamellar Armor IV"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="11.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="14"
+                leg_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_heavy_a"
+        name="{=aom_sk_dg_khml_chest_heavy_a_name}[Rhûn] Khamul Heavy Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="16"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_heavy_b"
+        name="{=aom_sk_dg_khml_chest_heavy_b_name}[Rhûn] Khamul Heavy Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="18"
+                leg_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_elite_a"
+        name="{=aom_sk_dg_khml_chest_elite_a_name}[Rhûn] Khamul Elite Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="18"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_elite_b"
+        name="{=aom_sk_dg_khml_chest_elite_b_name}[Rhûn] Khamul Elite Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="20"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_lord_a"
+        name="{=aom_sk_dg_khml_chest_lord_a_name}[Rhûn] Khamul Lord Lamellar Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_lord_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="20"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_chest_lord_b"
+        name="{=aom_sk_dg_khml_chest_lord_b_name}[Rhûn] Khamul Lord Lamellar Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_chest_lord_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="22"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Half Plate Armors -->
+    <Item
+        id="sk_dg_khml_hplate_light_a"
+        name="{=aom_sk_dg_khml_hplate_light_a_name}[Rhûn] Khamul Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="12"
+                leg_armor="14"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_med_a"
+        name="{=aom_sk_dg_khml_hplate_med_a_name}[Rhûn] Khamul Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="38"
+                arm_armor="16"
+                leg_armor="19"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_med_b"
+        name="{=aom_sk_dg_khml_hplate_med_b_name}[Rhûn] Khamul Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="14.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="18"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_heavy_a"
+        name="{=aom_sk_dg_khml_hplate_heavy_a_name}[Rhûn] Khamul Heavy Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="48"
+                arm_armor="20"
+                leg_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_heavy_b"
+        name="{=aom_sk_dg_khml_hplate_heavy_b_name}[Rhûn] Khamul Heavy Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                arm_armor="22"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_elite_a"
+        name="{=aom_sk_dg_khml_hplate_elite_a_name}[Rhûn] Khamul Elite Half Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="56"
+                arm_armor="22"
+                leg_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_elite_b"
+        name="{=aom_sk_dg_khml_hplate_elite_b_name}[Rhûn] Khamul Elite Half Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="58"
+                arm_armor="24"
+                leg_armor="29"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_hplate_elite_c"
+        name="{=aom_sk_dg_khml_hplate_elite_c_name}[Rhûn] Khamul Elite Half Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_hplate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Plate Armors -->
+    <Item
+        id="sk_dg_khml_plate_light_a"
+        name="{=aom_sk_dg_khml_plate_light_a_name}[Rhûn] Khamul Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="10.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="14"
+                leg_armor="16"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_med_a"
+        name="{=aom_sk_dg_khml_plate_med_a_name}[Rhûn] Khamul Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="15.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="18"
+                leg_armor="21"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_heavy_a"
+        name="{=aom_sk_dg_khml_plate_heavy_a_name}[Rhûn] Khamul Heavy Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="19.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="52"
+                arm_armor="22"
+                leg_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_heavy_b"
+        name="{=aom_sk_dg_khml_plate_heavy_b_name}[Rhûn] Khamul Heavy Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                arm_armor="24"
+                leg_armor="27"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_elite_a"
+        name="{=aom_sk_dg_khml_plate_elite_a_name}[Rhûn] Khamul Elite Plate Armor"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_elite_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                leg_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_elite_b"
+        name="{=aom_sk_dg_khml_plate_elite_b_name}[Rhûn] Khamul Elite Plate Armor II"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_elite_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="24.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="62"
+                arm_armor="26"
+                leg_armor="31"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_plate_elite_c"
+        name="{=aom_sk_dg_khml_plate_elite_c_name}[Rhûn] Khamul Elite Plate Armor III"
+        subtype="body_armor"
+        mesh="sk_dg_khml_plate_elite_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="25.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="64"
+                arm_armor="26"
+                leg_armor="32"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+</Items>

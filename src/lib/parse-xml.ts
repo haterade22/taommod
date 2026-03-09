@@ -5,7 +5,7 @@ import path from 'path';
 const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '@_',
-  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction'].includes(name),
+  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction', 'Item', 'CraftedItem', 'Piece'].includes(name),
 });
 
 function getDataDir(): string {
@@ -329,4 +329,174 @@ export function getCultureList(): string[] {
   const troops = parseTroops();
   const cultures = new Set(troops.map(t => t.culture).filter(Boolean));
   return Array.from(cultures).sort();
+}
+
+// --- Armor ---
+
+export interface ArmorItem {
+  id: string;
+  name: string;
+  culture: string;
+  type: string;       // HeadArmor, BodyArmor, LegArmor, HandArmor, Cape
+  slot: string;       // head, body, leg, arm, shoulder
+  weight: number;
+  appearance: number;
+  headArmor: number;
+  bodyArmor: number;
+  armArmor: number;
+  legArmor: number;
+  materialType: string;
+  modifierGroup: string;
+  isMerchandise: boolean;
+}
+
+// Map subfolder name to slot display name
+const ARMOR_SLOT_MAP: Record<string, string> = {
+  head_armors: 'Head',
+  body_armors: 'Body',
+  leg_armors: 'Leg',
+  arm_armors: 'Arm',
+  shoulder_armors: 'Shoulder',
+};
+
+export function parseArmory(): ArmorItem[] {
+  const dataDir = getDataDir();
+  const armoryDir = path.join(dataDir, 'armory');
+  if (!fs.existsSync(armoryDir)) return [];
+
+  const items: ArmorItem[] = [];
+  const cultureDirs = fs.readdirSync(armoryDir).filter(d => {
+    const full = path.join(armoryDir, d);
+    return fs.statSync(full).isDirectory();
+  });
+
+  for (const culture of cultureDirs) {
+    const cultureDir = path.join(armoryDir, culture);
+    const files = fs.readdirSync(cultureDir).filter(f => f.endsWith('.xml'));
+    for (const file of files) {
+      const slotKey = file.replace('.xml', '');
+      const slot = ARMOR_SLOT_MAP[slotKey] || slotKey;
+      const xml = fs.readFileSync(path.join(cultureDir, file), 'utf-8');
+      const parsed = parser.parse(xml);
+      const xmlItems = parsed?.Items?.Item || [];
+      for (const item of xmlItems) {
+        const armor = item.ItemComponent?.Armor;
+        items.push({
+          id: item['@_id'] || '',
+          name: stripLocKey(item['@_name'] || ''),
+          culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+          type: item['@_Type'] || '',
+          slot,
+          weight: parseFloat(item['@_weight']) || 0,
+          appearance: parseFloat(item['@_appearance']) || 0,
+          headArmor: parseInt(armor?.['@_head_armor']) || 0,
+          bodyArmor: parseInt(armor?.['@_body_armor']) || 0,
+          armArmor: parseInt(armor?.['@_arm_armor']) || 0,
+          legArmor: parseInt(armor?.['@_leg_armor']) || 0,
+          materialType: armor?.['@_material_type'] || '',
+          modifierGroup: armor?.['@_modifier_group'] || '',
+          isMerchandise: item['@_is_merchandise'] === 'true',
+        });
+      }
+    }
+  }
+
+  return items;
+}
+
+// --- Weapons & Shields ---
+
+export interface WeaponItem {
+  id: string;
+  name: string;
+  culture: string;
+  weaponClass: string;
+  type: string;           // CraftedItem or Shield
+  craftingTemplate: string;
+  weight: number;
+  appearance: number;
+  swingSpeed: number;
+  swingDamage: number;
+  swingDamageType: string;
+  thrustSpeed: number;
+  thrustDamage: number;
+  thrustDamageType: string;
+  weaponLength: number;
+  handling: number;
+  bodyArmor: number;      // shields only
+  hitPoints: number;      // shields only
+  isMerchandise: boolean;
+}
+
+export function parseWeaponry(): WeaponItem[] {
+  const dataDir = getDataDir();
+  const armoryDir = path.join(dataDir, 'armory');
+  if (!fs.existsSync(armoryDir)) return [];
+
+  const items: WeaponItem[] = [];
+
+  // Parse weapons file (CraftedItem elements)
+  const weaponsPath = path.join(armoryDir, 'LOTRAOM_weapons.xml');
+  if (fs.existsSync(weaponsPath)) {
+    const xml = fs.readFileSync(weaponsPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const craftedItems = parsed?.Items?.CraftedItem || [];
+    for (const item of craftedItems) {
+      items.push({
+        id: item['@_id'] || '',
+        name: stripLocKey(item['@_name'] || ''),
+        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+        weaponClass: item['@_crafting_template'] || '',
+        type: 'Weapon',
+        craftingTemplate: item['@_crafting_template'] || '',
+        weight: parseFloat(item['@_weight']) || 0,
+        appearance: parseFloat(item['@_appearance']) || 0,
+        swingSpeed: 0,
+        swingDamage: 0,
+        swingDamageType: '',
+        thrustSpeed: 0,
+        thrustDamage: 0,
+        thrustDamageType: '',
+        weaponLength: 0,
+        handling: 0,
+        bodyArmor: 0,
+        hitPoints: 0,
+        isMerchandise: item['@_is_merchandise'] === 'true',
+      });
+    }
+  }
+
+  // Parse shields file (Item elements with Weapon component)
+  const shieldsPath = path.join(armoryDir, 'LOTRAOM_shields.xml');
+  if (fs.existsSync(shieldsPath)) {
+    const xml = fs.readFileSync(shieldsPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const xmlItems = parsed?.Items?.Item || [];
+    for (const item of xmlItems) {
+      const weapon = item.ItemComponent?.Weapon;
+      items.push({
+        id: item['@_id'] || '',
+        name: stripLocKey(item['@_name'] || ''),
+        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+        weaponClass: weapon?.['@_weapon_class'] || 'Shield',
+        type: 'Shield',
+        craftingTemplate: '',
+        weight: parseFloat(item['@_weight']) || 0,
+        appearance: parseFloat(item['@_appearance']) || 0,
+        swingSpeed: 0,
+        swingDamage: 0,
+        swingDamageType: '',
+        thrustSpeed: parseInt(weapon?.['@_thrust_speed']) || 0,
+        thrustDamage: 0,
+        thrustDamageType: weapon?.['@_thrust_damage_type'] || '',
+        weaponLength: parseInt(weapon?.['@_weapon_length']) || 0,
+        handling: parseInt(weapon?.['@_speed_rating']) || 0,
+        bodyArmor: parseInt(weapon?.['@_body_armor']) || 0,
+        hitPoints: parseInt(weapon?.['@_hit_points']) || 0,
+        isMerchandise: item['@_is_merchandise'] === 'true',
+      });
+    }
+  }
+
+  return items;
 }

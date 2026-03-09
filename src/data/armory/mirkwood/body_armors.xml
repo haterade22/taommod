@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Mirkwood -->
+    <Item
+        id="mirkwood_body"
+        name="{=aom_mirkwood_body_name}[Mirkwood] Palace Guard Body Armor"
+        subtype="body_armor"
+        mesh="mirkwood_body"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="10.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="48"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="thranduil_body"
+        name="{=aom_thranduil_body_name}[Mirkwood] Thranduil Body Armor"
+        subtype="body_armor"
+        mesh="thranduil_body"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="10.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="90"
+                arm_armor="90"
+                leg_armor="90"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="legolas_body"
+        name="{=aom_legolas_body_name}[Mirkwood] Legolas Body Armor"
+        subtype="body_armor"
+        mesh="legolas_body"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="90"
+                arm_armor="90"
+                leg_armor="90"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="mkwd_inf3_chest"
+        name="{=aom_mkwd_inf3_chest_name}[Mirkwood] Infantry Chestplate I"
+        subtype="body_armor"
+        mesh="mkwd_inf3_chest"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="10.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="10"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="mkwd_inf3_chest_silver"
+        name="{=aom_mkwd_inf3_chest_silver_name}[Mirkwood] Infantry Chestplate II"
+        subtype="body_armor"
+        mesh="mkwd_inf3_chest_silver"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="10.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="10"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="mkwd_inf3_chest_bronze"
+        name="{=aom_mkwd_inf3_chest_bronze_name}[Mirkwood] Infantry Chestplate III"
+        subtype="body_armor"
+        mesh="mkwd_inf3_chest_bronze"
+        culture="Culture.mirkwood"
+        is_merchandise="true"
+        weight="10.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="10"
+                leg_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <!-- #endregion -->
+    <!-- #endregion -->
+</Items>

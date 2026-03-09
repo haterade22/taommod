@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- [Arnor] Shoulder Armor / Capes -->
+    <Item
+        id="sk_ar_art_cape_a"
+        name="{=aom_sk_ar_art_cape_a_name}[Arnor] Cape"
+        mesh="sk_ar_art_cape_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="0.5"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="1"
+                modifier_group="cloth"
+                material_type="Cloth" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_cape_b"
+        name="{=aom_sk_ar_art_cape_b_name}[Arnor] Cape"
+        mesh="sk_ar_art_cape_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="0.5"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="1"
+                modifier_group="cloth"
+                material_type="Cloth" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_light_a"
+        name="{=aom_sk_ar_art_pauld_inf_light_a_name}[Arnor] Infantry Light Pauldrons"
+        mesh="sk_ar_art_pauld_inf_light_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="3.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_light_b"
+        name="{=aom_sk_ar_art_pauld_inf_light_b_name}[Arnor] Infantry Light Pauldrons"
+        mesh="sk_ar_art_pauld_inf_light_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="3.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_med_a"
+        name="{=aom_sk_ar_art_pauld_inf_med_a_name}[Arnor] Infantry Pauldrons"
+        mesh="sk_ar_art_pauld_inf_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="5.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="8"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_med_b"
+        name="{=aom_sk_ar_art_pauld_inf_med_b_name}[Arnor] Infantry Pauldrons"
+        mesh="sk_ar_art_pauld_inf_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="5.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="8"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_heavy_a"
+        name="{=aom_sk_ar_art_pauld_inf_heavy_a_name}[Arnor] Infantry Heavy Pauldrons"
+        mesh="sk_ar_art_pauld_inf_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="7.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_elite_a"
+        name="{=aom_sk_ar_art_pauld_inf_elite_a_name}[Arnor] Infantry Elite Pauldrons"
+        mesh="sk_ar_art_pauld_inf_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_inf_elite_b"
+        name="{=aom_sk_ar_art_pauld_inf_elite_b_name}[Arnor] Infantry Elite Pauldrons"
+        mesh="sk_ar_art_pauld_inf_elite_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_cape_inf_elite_a"
+        name="{=aom_sk_ar_art_pauld_cape_inf_elite_a_name}[Arnor] Infantry Elite Pauldrons with Cape"
+        mesh="sk_ar_art_pauld_cape_inf_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="16"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_cape_inf_elite_b"
+        name="{=aom_sk_ar_art_pauld_cape_inf_elite_b_name}[Arnor] Infantry Elite Pauldrons with Cape"
+        mesh="sk_ar_art_pauld_cape_inf_elite_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="16"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_cape_inf_elite_c"
+        name="{=aom_sk_ar_art_pauld_cape_inf_elite_c_name}[Arnor] Infantry Elite Pauldrons with Cape"
+        mesh="sk_ar_art_pauld_cape_inf_elite_c"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="16"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_med_a"
+        name="{=aom_sk_ar_art_pauld_noble_med_a_name}[Arnor] Noble Pauldrons"
+        mesh="sk_ar_art_pauld_noble_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="6.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_med_b"
+        name="{=aom_sk_ar_art_pauld_noble_med_b_name}[Arnor] Noble Pauldrons"
+        mesh="sk_ar_art_pauld_noble_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="6.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_med_c"
+        name="{=aom_sk_ar_art_pauld_noble_med_c_name}[Arnor] Noble Pauldrons"
+        mesh="sk_ar_art_pauld_noble_med_c"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="6.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_heavy_a"
+        name="{=aom_sk_ar_art_pauld_noble_heavy_a_name}[Arnor] Noble Heavy Pauldrons"
+        mesh="sk_ar_art_pauld_noble_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="8.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="16"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_heavy_b"
+        name="{=aom_sk_ar_art_pauld_noble_heavy_b_name}[Arnor] Noble Heavy Pauldrons"
+        mesh="sk_ar_art_pauld_noble_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="8.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="16"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_elite_a"
+        name="{=aom_sk_ar_art_pauld_noble_elite_a_name}[Arnor] Noble Elite Pauldrons"
+        mesh="sk_ar_art_pauld_noble_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="10.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_noble_elite_b"
+        name="{=aom_sk_ar_art_pauld_noble_elite_b_name}[Arnor] Noble Elite Pauldrons"
+        mesh="sk_ar_art_pauld_noble_elite_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="10.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_cape_noble_elite_a"
+        name="{=aom_sk_ar_art_pauld_cape_noble_elite_a_name}[Arnor] Noble Elite Pauldrons with Cape"
+        mesh="sk_ar_art_pauld_cape_noble_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="10.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_ar_art_pauld_cape_noble_elite_b"
+        name="{=aom_sk_ar_art_pauld_cape_noble_elite_b_name}[Arnor] Noble Elite Pauldrons with Cape"
+        mesh="sk_ar_art_pauld_cape_noble_elite_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="10.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+</Items>

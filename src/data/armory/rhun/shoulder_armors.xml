@@ -1,0 +1,1805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Rhun -->
+    <Item
+        id="easterling_cape"
+        name="{=aom_easterling_cape_name}[Rhûn] Easterling Cape V"
+        mesh="easterling_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors01_cape"
+        name="{=aom_easterlingwarriors01_cape_name}[Rhûn] Easterling Cape I"
+        mesh="easterlingwarriors01_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="5"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors02_cape"
+        name="{=aom_easterlingwarriors02_cape_name}[Rhûn] Easterling Cape III"
+        mesh="easterlingwarriors02_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors03_cape"
+        name="{=aom_easterlingwarriors03_cape_name}[Rhûn] Easterling Cape IV"
+        mesh="easterlingwarriors03_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterlingwarriors04_cape"
+        name="{=aom_easterlingwarriors04_cape_name}[Rhûn] Easterling Cape II"
+        mesh="easterlingwarriors04_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="easterling02_v1_cape"
+        name="{=aom_easterling02_v1_cape_name}[Rhûn] Easterling Pauldrons II"
+        mesh="easterling02_v1_cape"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== LOKE-RIM PAULDRONS/CAPES (Gold-Bronze) ==================== -->
+
+    <!-- Loke-Rim Noble Capes -->
+    <Item
+        id="sk_rh_loke_cape_a"
+        name="{=aom_sk_rh_loke_cape_a_name}[Rhûn] Loke-Rim Noble Cape"
+        mesh="sk_rh_loke_cape_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="4"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_cape_b"
+        name="{=aom_sk_rh_loke_cape_b_name}[Rhûn] Loke-Rim Noble Cape II"
+        mesh="sk_rh_loke_cape_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="5"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Spiky Pauldrons -->
+    <Item
+        id="sk_rh_loke_pauldron_light_a"
+        name="{=aom_sk_rh_loke_pauldron_light_a_name}[Rhûn] Loke-Rim Spiky Pauldrons"
+        mesh="sk_rh_loke_pauldron_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="6"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_light_b"
+        name="{=aom_sk_rh_loke_pauldron_light_b_name}[Rhûn] Loke-Rim Spiky Pauldrons II"
+        mesh="sk_rh_loke_pauldron_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_light_c"
+        name="{=aom_sk_rh_loke_pauldron_light_c_name}[Rhûn] Loke-Rim Spiky Pauldrons III"
+        mesh="sk_rh_loke_pauldron_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_med_a"
+        name="{=aom_sk_rh_loke_pauldron_med_a_name}[Rhûn] Loke-Rim Spiky Pauldrons IV"
+        mesh="sk_rh_loke_pauldron_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_med_b"
+        name="{=aom_sk_rh_loke_pauldron_med_b_name}[Rhûn] Loke-Rim Spiky Pauldrons V"
+        mesh="sk_rh_loke_pauldron_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_med_c"
+        name="{=aom_sk_rh_loke_pauldron_med_c_name}[Rhûn] Loke-Rim Spiky Pauldrons VI"
+        mesh="sk_rh_loke_pauldron_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_heavy_a"
+        name="{=aom_sk_rh_loke_pauldron_heavy_a_name}[Rhûn] Loke-Rim Heavy Spiky Pauldrons"
+        mesh="sk_rh_loke_pauldron_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_heavy_b"
+        name="{=aom_sk_rh_loke_pauldron_heavy_b_name}[Rhûn] Loke-Rim Heavy Spiky Pauldrons II"
+        mesh="sk_rh_loke_pauldron_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_heavy_c"
+        name="{=aom_sk_rh_loke_pauldron_heavy_c_name}[Rhûn] Loke-Rim Heavy Spiky Pauldrons III"
+        mesh="sk_rh_loke_pauldron_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Spiky Capes -->
+    <Item
+        id="sk_rh_loke_cape_heavy_a"
+        name="{=aom_sk_rh_loke_cape_heavy_a_name}[Rhûn] Loke-Rim Heavy Spiky Cape"
+        mesh="sk_rh_loke_cape_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_cape_heavy_b"
+        name="{=aom_sk_rh_loke_cape_heavy_b_name}[Rhûn] Loke-Rim Heavy Spiky Cape II"
+        mesh="sk_rh_loke_cape_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="11"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Scale Pauldrons -->
+    <Item
+        id="sk_rh_loke_pauldron_scale_heavy_a"
+        name="{=aom_sk_rh_loke_pauldron_scale_heavy_a_name}[Rhûn] Loke-Rim Heavy Scale Pauldrons"
+        mesh="sk_rh_loke_pauldron_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Lamellar Pauldrons -->
+    <Item
+        id="sk_rh_loke_pauldron_lam_light_a"
+        name="{=aom_sk_rh_loke_pauldron_lam_light_a_name}[Rhûn] Loke-Rim Lamellar Pauldrons"
+        mesh="sk_rh_loke_pauldron_lam_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="8"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_lam_med_a"
+        name="{=aom_sk_rh_loke_pauldron_lam_med_a_name}[Rhûn] Loke-Rim Lamellar Pauldrons II"
+        mesh="sk_rh_loke_pauldron_lam_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="11"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_lam_heavy_a"
+        name="{=aom_sk_rh_loke_pauldron_lam_heavy_a_name}[Rhûn] Loke-Rim Heavy Lamellar Pauldrons"
+        mesh="sk_rh_loke_pauldron_lam_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Scale Cape -->
+    <Item
+        id="sk_rh_loke_cape_scale_heavy_a"
+        name="{=aom_sk_rh_loke_cape_scale_heavy_a_name}[Rhûn] Loke-Rim Heavy Scale Cape"
+        mesh="sk_rh_loke_cape_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Half Plate Pauldrons -->
+    <Item
+        id="sk_rh_loke_pauldron_hplate_light_a"
+        name="{=aom_sk_rh_loke_pauldron_hplate_light_a_name}[Rhûn] Loke-Rim Half Plate Pauldrons"
+        mesh="sk_rh_loke_pauldron_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_hplate_med_a"
+        name="{=aom_sk_rh_loke_pauldron_hplate_med_a_name}[Rhûn] Loke-Rim Half Plate Pauldrons II"
+        mesh="sk_rh_loke_pauldron_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_hplate_heavy_a"
+        name="{=aom_sk_rh_loke_pauldron_hplate_heavy_a_name}[Rhûn] Loke-Rim Heavy Half Plate Pauldrons"
+        mesh="sk_rh_loke_pauldron_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Half Plate Cape -->
+    <Item
+        id="sk_rh_loke_cape_hplate_heavy_a"
+        name="{=aom_sk_rh_loke_cape_hplate_heavy_a_name}[Rhûn] Loke-Rim Heavy Half Plate Cape"
+        mesh="sk_rh_loke_cape_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Plate Pauldrons -->
+    <Item
+        id="sk_rh_loke_pauldron_plate_light_a"
+        name="{=aom_sk_rh_loke_pauldron_plate_light_a_name}[Rhûn] Loke-Rim Plate Pauldrons"
+        mesh="sk_rh_loke_pauldron_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_plate_light_b"
+        name="{=aom_sk_rh_loke_pauldron_plate_light_b_name}[Rhûn] Loke-Rim Plate Pauldrons II"
+        mesh="sk_rh_loke_pauldron_plate_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_plate_heavy_a"
+        name="{=aom_sk_rh_loke_pauldron_plate_heavy_a_name}[Rhûn] Loke-Rim Heavy Plate Pauldrons"
+        mesh="sk_rh_loke_pauldron_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="13"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_loke_pauldron_plate_heavy_b"
+        name="{=aom_sk_rh_loke_pauldron_plate_heavy_b_name}[Rhûn] Loke-Rim Heavy Plate Pauldrons II"
+        mesh="sk_rh_loke_pauldron_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Loke-Rim Plate Cape -->
+    <Item
+        id="sk_rh_loke_cape_plate_heavy_a"
+        name="{=aom_sk_rh_loke_cape_plate_heavy_a_name}[Rhûn] Loke-Rim Heavy Plate Cape"
+        mesh="sk_rh_loke_cape_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== DRAGON WRATH PAULDRONS/CAPES (Black-Gold) ==================== -->
+
+    <!-- Dragon Wrath Noble Capes -->
+    <Item
+        id="sk_rh_drag_cape_a"
+        name="{=aom_sk_rh_drag_cape_a_name}[Rhûn] Dragon Wrath Noble Cape"
+        mesh="sk_rh_drag_cape_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="4"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_cape_b"
+        name="{=aom_sk_rh_drag_cape_b_name}[Rhûn] Dragon Wrath Noble Cape II"
+        mesh="sk_rh_drag_cape_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="5"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Spiky Pauldrons -->
+    <Item
+        id="sk_rh_drag_pauldron_light_a"
+        name="{=aom_sk_rh_drag_pauldron_light_a_name}[Rhûn] Dragon Wrath Spiky Pauldrons"
+        mesh="sk_rh_drag_pauldron_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="6"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_light_b"
+        name="{=aom_sk_rh_drag_pauldron_light_b_name}[Rhûn] Dragon Wrath Spiky Pauldrons II"
+        mesh="sk_rh_drag_pauldron_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_light_c"
+        name="{=aom_sk_rh_drag_pauldron_light_c_name}[Rhûn] Dragon Wrath Spiky Pauldrons III"
+        mesh="sk_rh_drag_pauldron_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_med_a"
+        name="{=aom_sk_rh_drag_pauldron_med_a_name}[Rhûn] Dragon Wrath Spiky Pauldrons IV"
+        mesh="sk_rh_drag_pauldron_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_med_b"
+        name="{=aom_sk_rh_drag_pauldron_med_b_name}[Rhûn] Dragon Wrath Spiky Pauldrons V"
+        mesh="sk_rh_drag_pauldron_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_med_c"
+        name="{=aom_sk_rh_drag_pauldron_med_c_name}[Rhûn] Dragon Wrath Spiky Pauldrons VI"
+        mesh="sk_rh_drag_pauldron_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_heavy_a"
+        name="{=aom_sk_rh_drag_pauldron_heavy_a_name}[Rhûn] Dragon Wrath Heavy Spiky Pauldrons"
+        mesh="sk_rh_drag_pauldron_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_heavy_b"
+        name="{=aom_sk_rh_drag_pauldron_heavy_b_name}[Rhûn] Dragon Wrath Heavy Spiky Pauldrons II"
+        mesh="sk_rh_drag_pauldron_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_heavy_c"
+        name="{=aom_sk_rh_drag_pauldron_heavy_c_name}[Rhûn] Dragon Wrath Heavy Spiky Pauldrons III"
+        mesh="sk_rh_drag_pauldron_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Spiky Capes -->
+    <Item
+        id="sk_rh_drag_cape_heavy_a"
+        name="{=aom_sk_rh_drag_cape_heavy_a_name}[Rhûn] Dragon Wrath Heavy Spiky Cape"
+        mesh="sk_rh_drag_cape_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_cape_heavy_b"
+        name="{=aom_sk_rh_drag_cape_heavy_b_name}[Rhûn] Dragon Wrath Heavy Spiky Cape II"
+        mesh="sk_rh_drag_cape_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="11"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Scale Pauldrons -->
+    <Item
+        id="sk_rh_drag_pauldron_scale_heavy_a"
+        name="{=aom_sk_rh_drag_pauldron_scale_heavy_a_name}[Rhûn] Dragon Wrath Heavy Scale Pauldrons"
+        mesh="sk_rh_drag_pauldron_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Lamellar Pauldrons -->
+    <Item
+        id="sk_rh_drag_pauldron_lam_light_a"
+        name="{=aom_sk_rh_drag_pauldron_lam_light_a_name}[Rhûn] Dragon Wrath Lamellar Pauldrons"
+        mesh="sk_rh_drag_pauldron_lam_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="8"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_lam_med_a"
+        name="{=aom_sk_rh_drag_pauldron_lam_med_a_name}[Rhûn] Dragon Wrath Lamellar Pauldrons II"
+        mesh="sk_rh_drag_pauldron_lam_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="11"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_lam_heavy_a"
+        name="{=aom_sk_rh_drag_pauldron_lam_heavy_a_name}[Rhûn] Dragon Wrath Heavy Lamellar Pauldrons"
+        mesh="sk_rh_drag_pauldron_lam_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Scale Cape -->
+    <Item
+        id="sk_rh_drag_cape_scale_heavy_a"
+        name="{=aom_sk_rh_drag_cape_scale_heavy_a_name}[Rhûn] Dragon Wrath Heavy Scale Cape"
+        mesh="sk_rh_drag_cape_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Half Plate Pauldrons -->
+    <Item
+        id="sk_rh_drag_pauldron_hplate_light_a"
+        name="{=aom_sk_rh_drag_pauldron_hplate_light_a_name}[Rhûn] Dragon Wrath Half Plate Pauldrons"
+        mesh="sk_rh_drag_pauldron_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_hplate_med_a"
+        name="{=aom_sk_rh_drag_pauldron_hplate_med_a_name}[Rhûn] Dragon Wrath Half Plate Pauldrons II"
+        mesh="sk_rh_drag_pauldron_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_hplate_heavy_a"
+        name="{=aom_sk_rh_drag_pauldron_hplate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Half Plate Pauldrons"
+        mesh="sk_rh_drag_pauldron_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Half Plate Cape -->
+    <Item
+        id="sk_rh_drag_cape_hplate_heavy_a"
+        name="{=aom_sk_rh_drag_cape_hplate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Half Plate Cape"
+        mesh="sk_rh_drag_cape_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Plate Pauldrons -->
+    <Item
+        id="sk_rh_drag_pauldron_plate_light_a"
+        name="{=aom_sk_rh_drag_pauldron_plate_light_a_name}[Rhûn] Dragon Wrath Plate Pauldrons"
+        mesh="sk_rh_drag_pauldron_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_plate_light_b"
+        name="{=aom_sk_rh_drag_pauldron_plate_light_b_name}[Rhûn] Dragon Wrath Plate Pauldrons II"
+        mesh="sk_rh_drag_pauldron_plate_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_plate_heavy_a"
+        name="{=aom_sk_rh_drag_pauldron_plate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Plate Pauldrons"
+        mesh="sk_rh_drag_pauldron_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="13"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_rh_drag_pauldron_plate_heavy_b"
+        name="{=aom_sk_rh_drag_pauldron_plate_heavy_b_name}[Rhûn] Dragon Wrath Heavy Plate Pauldrons II"
+        mesh="sk_rh_drag_pauldron_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Dragon Wrath Plate Cape -->
+    <Item
+        id="sk_rh_drag_cape_plate_heavy_a"
+        name="{=aom_sk_rh_drag_cape_plate_heavy_a_name}[Rhûn] Dragon Wrath Heavy Plate Cape"
+        mesh="sk_rh_drag_cape_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== KHAMUL PAULDRONS/CAPES (Black-Silver) ==================== -->
+
+    <!-- Khamul Noble Capes -->
+    <Item
+        id="sk_dg_khml_cape_a"
+        name="{=aom_sk_dg_khml_cape_a_name}[Rhûn] Khamul Noble Cape"
+        mesh="sk_dg_khml_cape_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="4"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_cape_b"
+        name="{=aom_sk_dg_khml_cape_b_name}[Rhûn] Khamul Noble Cape II"
+        mesh="sk_dg_khml_cape_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="5"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Spiky Pauldrons -->
+    <Item
+        id="sk_dg_khml_pauldron_light_a"
+        name="{=aom_sk_dg_khml_pauldron_light_a_name}[Rhûn] Khamul Spiky Pauldrons"
+        mesh="sk_dg_khml_pauldron_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="6"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_light_b"
+        name="{=aom_sk_dg_khml_pauldron_light_b_name}[Rhûn] Khamul Spiky Pauldrons II"
+        mesh="sk_dg_khml_pauldron_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.6"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="3"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_light_c"
+        name="{=aom_sk_dg_khml_pauldron_light_c_name}[Rhûn] Khamul Spiky Pauldrons III"
+        mesh="sk_dg_khml_pauldron_light_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="1.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="7"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_med_a"
+        name="{=aom_sk_dg_khml_pauldron_med_a_name}[Rhûn] Khamul Spiky Pauldrons IV"
+        mesh="sk_dg_khml_pauldron_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_med_b"
+        name="{=aom_sk_dg_khml_pauldron_med_b_name}[Rhûn] Khamul Spiky Pauldrons V"
+        mesh="sk_dg_khml_pauldron_med_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_med_c"
+        name="{=aom_sk_dg_khml_pauldron_med_c_name}[Rhûn] Khamul Spiky Pauldrons VI"
+        mesh="sk_dg_khml_pauldron_med_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_heavy_a"
+        name="{=aom_sk_dg_khml_pauldron_heavy_a_name}[Rhûn] Khamul Heavy Spiky Pauldrons"
+        mesh="sk_dg_khml_pauldron_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_heavy_b"
+        name="{=aom_sk_dg_khml_pauldron_heavy_b_name}[Rhûn] Khamul Heavy Spiky Pauldrons II"
+        mesh="sk_dg_khml_pauldron_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_heavy_c"
+        name="{=aom_sk_dg_khml_pauldron_heavy_c_name}[Rhûn] Khamul Heavy Spiky Pauldrons III"
+        mesh="sk_dg_khml_pauldron_heavy_c"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="5.4"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="9"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Spiky Capes -->
+    <Item
+        id="sk_dg_khml_cape_heavy_a"
+        name="{=aom_sk_dg_khml_cape_heavy_a_name}[Rhûn] Khamul Heavy Spiky Cape"
+        mesh="sk_dg_khml_cape_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_cape_heavy_b"
+        name="{=aom_sk_dg_khml_cape_heavy_b_name}[Rhûn] Khamul Heavy Spiky Cape II"
+        mesh="sk_dg_khml_cape_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="11"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Scale Pauldrons -->
+    <Item
+        id="sk_dg_khml_pauldron_scale_heavy_a"
+        name="{=aom_sk_dg_khml_pauldron_scale_heavy_a_name}[Rhûn] Khamul Heavy Scale Pauldrons"
+        mesh="sk_dg_khml_pauldron_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Lamellar Pauldrons -->
+    <Item
+        id="sk_dg_khml_pauldron_lam_light_a"
+        name="{=aom_sk_dg_khml_pauldron_lam_light_a_name}[Rhûn] Khamul Lamellar Pauldrons"
+        mesh="sk_dg_khml_pauldron_lam_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="4"
+                arm_armor="8"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_lam_med_a"
+        name="{=aom_sk_dg_khml_pauldron_lam_med_a_name}[Rhûn] Khamul Lamellar Pauldrons II"
+        mesh="sk_dg_khml_pauldron_lam_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="11"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_lam_heavy_a"
+        name="{=aom_sk_dg_khml_pauldron_lam_heavy_a_name}[Rhûn] Khamul Heavy Lamellar Pauldrons"
+        mesh="sk_dg_khml_pauldron_lam_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="6.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Scale Cape -->
+    <Item
+        id="sk_dg_khml_cape_scale_heavy_a"
+        name="{=aom_sk_dg_khml_cape_scale_heavy_a_name}[Rhûn] Khamul Heavy Scale Cape"
+        mesh="sk_dg_khml_cape_scale_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Half Plate Pauldrons -->
+    <Item
+        id="sk_dg_khml_pauldron_hplate_light_a"
+        name="{=aom_sk_dg_khml_pauldron_hplate_light_a_name}[Rhûn] Khamul Half Plate Pauldrons"
+        mesh="sk_dg_khml_pauldron_hplate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="9"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_hplate_med_a"
+        name="{=aom_sk_dg_khml_pauldron_hplate_med_a_name}[Rhûn] Khamul Half Plate Pauldrons II"
+        mesh="sk_dg_khml_pauldron_hplate_med_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="8"
+                arm_armor="12"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_hplate_heavy_a"
+        name="{=aom_sk_dg_khml_pauldron_hplate_heavy_a_name}[Rhûn] Khamul Heavy Half Plate Pauldrons"
+        mesh="sk_dg_khml_pauldron_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Half Plate Cape -->
+    <Item
+        id="sk_dg_khml_cape_hplate_heavy_a"
+        name="{=aom_sk_dg_khml_cape_hplate_heavy_a_name}[Rhûn] Khamul Heavy Half Plate Cape"
+        mesh="sk_dg_khml_cape_hplate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Plate Pauldrons -->
+    <Item
+        id="sk_dg_khml_pauldron_plate_light_a"
+        name="{=aom_sk_dg_khml_pauldron_plate_light_a_name}[Rhûn] Khamul Plate Pauldrons"
+        mesh="sk_dg_khml_pauldron_plate_light_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_plate_light_b"
+        name="{=aom_sk_dg_khml_pauldron_plate_light_b_name}[Rhûn] Khamul Plate Pauldrons II"
+        mesh="sk_dg_khml_pauldron_plate_light_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="3.2"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="7"
+                arm_armor="10"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_plate_heavy_a"
+        name="{=aom_sk_dg_khml_pauldron_plate_heavy_a_name}[Rhûn] Khamul Heavy Plate Pauldrons"
+        mesh="sk_dg_khml_pauldron_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.5"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="13"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dg_khml_pauldron_plate_heavy_b"
+        name="{=aom_sk_dg_khml_pauldron_plate_heavy_b_name}[Rhûn] Khamul Heavy Plate Pauldrons II"
+        mesh="sk_dg_khml_pauldron_plate_heavy_b"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="7.7"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="14"
+                arm_armor="16"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <!-- Khamul Plate Cape -->
+    <Item
+        id="sk_dg_khml_cape_plate_heavy_a"
+        name="{=aom_sk_dg_khml_cape_plate_heavy_a_name}[Rhûn] Khamul Heavy Plate Cape"
+        mesh="sk_dg_khml_cape_plate_heavy_a"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        weight="9.0"
+        difficulty="0"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="15"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+</Items>

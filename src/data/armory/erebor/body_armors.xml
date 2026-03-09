@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- [Erebor] -->
+    <Item
+        id="sk_dwarf_erebor_chest_chain_a"
+        name="{=aom_sk_dwarf_erebor_chest_chain_a_name}[Erebor] Chainmail Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_chain_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="22"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_leather_light_a"
+        name="{=aom_sk_dwarf_erebor_chest_leather_light_a_name}[Erebor] Leather Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_leather_light_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_leather_light_b"
+        name="{=aom_sk_dwarf_erebor_chest_leather_light_b_name}[Erebor] Leather Armour II"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_leather_light_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_leather_light_c"
+        name="{=aom_sk_dwarf_erebor_chest_leather_light_c_name}[Erebor] Leather Armour III"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_leather_light_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="15.8"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                arm_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_leather_med_a"
+        name="{=aom_sk_dwarf_erebor_chest_leather_med_a_name}[Erebor] Medium Leather Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_leather_med_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_leather_med_b"
+        name="{=aom_sk_dwarf_erebor_chest_leather_med_b_name}[Erebor] Medium Leather Armour II"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_leather_med_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="11"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_a"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_a_name}[Erebor] Elite Platemail Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_b"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_b_name}[Erebor] Elite Platemail Armour II"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_c"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_c_name}[Erebor] Elite Platemail Armour III"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_d"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_d_name}[Erebor] Elite Platemail Armour IV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_e"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_e_name}[Erebor] Elite Platemail Armour V"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_e"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_f"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_f_name}[Erebor] Elite Platemail Armour VI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_f"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_a"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_a_name}[Erebor] Heavy Platemail Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="20.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_b"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_b_name}[Erebor] Heavy Platemail Armour II"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="36"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_c"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_c_name}[Erebor] Heavy Platemail Armour III"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="23.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="38"
+                arm_armor="25"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_d"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_d_name}[Erebor] Heavy Platemail Armour IV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="23.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_e"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_e_name}[Erebor] Heavy Platemail Armour V"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_e"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="24.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_heavy_f"
+        name="{=aom_sk_dwarf_erebor_chest_plate_heavy_f_name}[Erebor] Heavy Platemail Armour VI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_heavy_f"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="24.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                arm_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_scale_a"
+        name="{=aom_sk_dwarf_erebor_chest_scale_a_name}[Erebor] Scale Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_scale_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="18.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="35"
+                arm_armor="28"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <!--Gold
+[Erebor] Lord Armor-->
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_a2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_a2_name}[Erebor] Gold Platemail Armour I"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_a2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_b2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_b2_name}[Erebor] Gold Platemail Armour II"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_b2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_c2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_c2_name}[Erebor] Gold Platemail Armour III"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_c2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_d2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_d2_name}[Erebor] Gold Platemail Armour IV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_d2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_e2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_e2_name}[Erebor] Gold Platemail Armour V"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_e2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_f2"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_f2_name}[Erebor] Gold Platemail Armour VI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_f2"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="60"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_a_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_a_blue_name}[Erebor] Elite Platemail Armour VII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_a2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_b_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_b_blue_name}[Erebor] Elite Platemail Armour VIII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_b2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_c_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_c_blue_name}[Erebor] Elite Platemail Armour IX"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_c2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_d_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_d_blue_name}[Erebor] Elite Platemail Armour X"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_d2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_e_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_e_blue_name}[Erebor] Elite Platemail Armour XI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_e2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_f_blue"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_f_blue_name}[Erebor] Elite Platemail Armour XII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_f2_blue"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_a_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_a_green_name}[Erebor] Elite Platemail Armour XIII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_a2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_b_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_b_green_name}[Erebor] Elite Platemail Armour XIV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_b2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_c_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_c_green_name}[Erebor] Elite Platemail Armour XV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_c2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_d_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_d_green_name}[Erebor] Elite Platemail Armour XVI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_d2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_e_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_e_green_name}[Erebor] Elite Platemail Armour XVII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_e2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_f_green"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_f_green_name}[Erebor] Elite Platemail Armour XVIII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_f2_green"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_a_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_a_red_name}[Iron Hills] Elite Platemail Armour XIII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_a2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="16.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_b_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_b_red_name}[Iron Hills] Elite Platemail Armour XIV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_b2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="30"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_c_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_c_red_name}[Iron Hills] Elite Platemail Armour XV"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_c2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="17.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="26"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_d_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_d_red_name}[Iron Hills] Elite Platemail Armour XVI"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_d2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                arm_armor="24"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_e_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_e_red_name}[Iron Hills] Elite Platemail Armour XVII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_e2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="21.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="42"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_erebor_chest_plate_elite_f_red"
+        name="{=aom_sk_dwarf_erebor_chest_plate_elite_f_red_name}[Iron Hills] Elite Platemail Armour XVIII"
+        subtype="body_armor"
+        mesh="sk_dwarf_erebor_chest_plate_elite_f2_red"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                arm_armor="17"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <!-- #endregion -->
+    <!-- Dwarf Dress Normal (a-i) -->
+    <Item
+        id="sk_dwarf_dress_normal_a"
+        name="{=aom_sk_dwarf_dress_normal_a_name}[Erebor] Civilian Female Dress A"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_b"
+        name="{=aom_sk_dwarf_dress_normal_b_name}[Erebor] Civilian Female Dress B"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_c"
+        name="{=aom_sk_dwarf_dress_normal_c_name}[Erebor] Civilian Female Dress C"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_d"
+        name="{=aom_sk_dwarf_dress_normal_d_name}[Erebor] Civilian Female Dress D"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_e"
+        name="{=aom_sk_dwarf_dress_normal_e_name}[Erebor] Civilian Female Dress E"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_e"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_f"
+        name="{=aom_sk_dwarf_dress_normal_f_name}[Erebor] Civilian Female Dress F"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_f"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_g"
+        name="{=aom_sk_dwarf_dress_normal_g_name}[Erebor] Civilian Female Dress G"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_g"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_h"
+        name="{=aom_sk_dwarf_dress_normal_h_name}[Erebor] Civilian Female Dress H"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_h"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_dress_normal_i"
+        name="{=aom_sk_dwarf_dress_normal_i_name}[Erebor] Civilian Female Dress I"
+        subtype="body_armor"
+        mesh="sk_dwarf_dress_normal_j"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <!-- Dwarf Tunic Noble (a-c) -->
+    <Item
+        id="sk_dwarf_tunic_noble_a"
+        name="{=aom_sk_dwarf_tunic_noble_a_name}[Erebor] Noble Tunic A"
+        subtype="body_armor"
+        mesh="sk_dwarf_tunic_noble_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_tunic_noble_b"
+        name="{=aom_sk_dwarf_tunic_noble_b_name}[Erebor] Noble Tunic B"
+        subtype="body_armor"
+        mesh="sk_dwarf_tunic_noble_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_tunic_noble_c"
+        name="{=aom_sk_dwarf_tunic_noble_c_name}[Erebor] Noble Tunic C"
+        subtype="body_armor"
+        mesh="sk_dwarf_tunic_noble_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <!-- Dwarf Tunic Normal (a-b) -->
+    <Item
+        id="sk_dwarf_tunic_normal_a"
+        name="{=aom_sk_dwarf_tunic_normal_a_name}[Erebor] Civilian Tunic A"
+        subtype="body_armor"
+        mesh="sk_dwarf_tunic_normal_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_dwarf_tunic_normal_b"
+        name="{=aom_sk_dwarf_tunic_normal_b_name}[Erebor] Civilian Tunic B"
+        subtype="body_armor"
+        mesh="sk_dwarf_tunic_normal_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="5"
+                arm_armor="4"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="chain"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+</Items>

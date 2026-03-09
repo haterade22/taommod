@@ -88,6 +88,9 @@ a:hover {
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.85rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   transition: background 0.15s, color 0.15s;
 }
 
@@ -220,15 +223,6 @@ a:hover {
   color: var(--text-muted) !important;
 }
 
-/* Skill column headers match their color */
-th[data-col="athletics"] { color: #e67e22 !important; }
-th[data-col="riding"] { color: #8e44ad !important; }
-th[data-col="oneHanded"] { color: #e74c3c !important; }
-th[data-col="twoHanded"] { color: #c0392b !important; }
-th[data-col="polearm"] { color: #2ecc71 !important; }
-th[data-col="bow"] { color: #3498db !important; }
-th[data-col="crossbow"] { color: #1abc9c !important; }
-th[data-col="throwing"] { color: #f39c12 !important; }
 
 .data-table .col-id {
   color: var(--text-secondary);
