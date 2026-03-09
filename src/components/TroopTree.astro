@@ -179,7 +179,7 @@ const GROUP_COLORS: Record<string, string> = {
   <div class="tree-scroll">
     <svg class="tree-lines" id={`tree-svg-${culture}`}></svg>
     <div class="tree-grid" style={`
-      grid-template-columns: 70px repeat(${totalCols}, minmax(110px, 1fr));
+      grid-template-columns: 70px repeat(${totalCols}, minmax(130px, 1fr));
       grid-template-rows: repeat(${totalRows}, auto);
     `}>
       {/* Header row — merged column headers */}
@@ -321,22 +321,24 @@ const GROUP_COLORS: Record<string, string> = {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 0.25rem;
+    padding: 0.4rem 0.2rem;
     min-height: 52px;
     border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
   }
 
   .tree-node {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.3rem 0.5rem;
+    padding: 0.25rem 0.4rem;
     background: var(--node-color-dim);
     border: 1px solid var(--node-color);
     border-left: 3px solid var(--node-color);
     border-radius: 4px;
     cursor: default;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
     transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
     position: relative;
     z-index: 2;
@@ -349,11 +351,12 @@ const GROUP_COLORS: Record<string, string> = {
   }
 
   .node-name {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
     text-align: center;
+    word-break: break-word;
   }
 
   .node-level {
