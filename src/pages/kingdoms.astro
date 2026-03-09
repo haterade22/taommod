@@ -168,13 +168,13 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.25rem;
+    grid-auto-rows: 280px;
   }
 
   .kingdom-card {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    height: 280px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     transition: transform 0.2s, box-shadow 0.2s;
