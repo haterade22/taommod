@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Mod Information" description="Races, creatures, and planned content for Tales From the Age of Men">
+  <div class="page-content mod-info">
+    <h1 class="page-title">Mod Information</h1>
+
+    <!-- Playable & Planned Races -->
+    <section class="info-section">
+      <h2>Playable & Planned Races</h2>
+      <div class="race-grid">
+        <div class="race-card race-good">
+          <h3>Men</h3>
+          <p>The most widespread race of Middle-earth. Men are adaptable and varied, forming the bulk of human populations across most factions. Their strength lies in versatility, allowing them to excel in many roles depending on culture, training, and environment.</p>
+        </div>
+        <div class="race-card race-good">
+          <h3>Dunedain</h3>
+          <p>Descendants of the Numenoreans who settled in Middle-earth. The Dunedain are longer-lived and more resilient than ordinary Men, often serving as elite warriors, leaders, and guardians. Though diminished in number, they retain strong martial traditions and discipline.</p>
+        </div>
+        <div class="race-card race-good">
+          <h3>Numenorean</h3>
+          <p>Men of pure or near-pure Numenorean lineage. Taller, stronger, and longer-lived than other Men, Numenoreans represent the height of human achievement in craftsmanship, warfare, and leadership. They are rare and typically appear as elites, nobles, or ruling classes rather than common troops.</p>
+        </div>
+        <div class="race-card race-good">
+          <h3>Elf</h3>
+          <p>The standard Elven race found across all Elven realms. Elves are agile, disciplined, and long-lived, excelling in archery.</p>
+        </div>
+        <div class="race-card race-good">
+          <h3>Dwarf</h3>
+          <p>The standard Dwarven race. Stocky, resilient, and heavily armored, Dwarves excel in defensive warfare, heavy infantry roles, and siege combat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Generic Orc-ish Races -->
+    <section class="info-section">
+      <h2>Generic Orc-ish Races</h2>
+      <p class="section-desc">These races form the backbone of Orcish armies throughout Middle-earth. Their appearance, equipment, and discipline may differ by faction, but their origins are shared. Common across most orc factions, with cultural and visual variations.</p>
+      <div class="race-grid">
+        <div class="race-card race-evil">
+          <h3>Snaga</h3>
+          <p>Small, weak, and expendable Orcs used primarily as skirmishers, laborers, and disposable frontline troops. They rely on numbers rather than strength or armor and often suffer from low morale.</p>
+        </div>
+        <div class="race-card race-evil">
+          <h3>Goblin</h3>
+          <p>Smaller and more cunning than standard Orcs, Goblins favor ambush tactics, ranged combat, and underground warfare. They are commonly found in mountains, caves, and tunnel networks.</p>
+        </div>
+        <div class="race-card race-evil">
+          <h3>Orc</h3>
+          <p>The most widespread and balanced Orc breed. Capable of wearing proper armor and wielding standard weapons, Orcs form the backbone of most Orcish infantry forces.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specific & Faction-Bound Breeds -->
+    <section class="info-section">
+      <h2>Specific & Faction-Bound Breeds</h2>
+      <p class="section-desc">These races are not universal and only appear within their associated factions/regions. They often represent elite troops and regional adaptations.</p>
+      <div class="race-grid">
+        <div class="race-card race-evil faction-mordor">
+          <h3>Black Uruk <span class="faction-tag">Mordor</span></h3>
+          <p>Large, disciplined Orcs bred for endurance and obedience. Black Uruks serve as Mordor's heavy infantry and professional garrison troops.</p>
+        </div>
+        <div class="race-card race-evil faction-isengard">
+          <h3>Uruk-Hai <span class="faction-tag">Isengard</span></h3>
+          <p>Strong, disciplined hybrid warriors bred for warfare in daylight. Uruk-Hai are trained for formation fighting and aggressive battlefield roles.</p>
+        </div>
+        <div class="race-card race-evil faction-isengard">
+          <h3>Uruk-Hai Berserker <span class="faction-tag">Isengard</span></h3>
+          <p>Frenzied shock troops with minimal armor and extreme aggression. Berserkers are designed to break enemy lines through brute force and terror.</p>
+        </div>
+        <div class="race-card race-evil faction-gundabad">
+          <h3>Pale Uruk <span class="faction-tag">Gundabad</span></h3>
+          <p>Massive, pale-skinned Orcs adapted to cold and mountainous regions. They are physically powerful frontline fighters with a brutal combat style.</p>
+        </div>
+        <div class="race-card race-evil faction-gundabad planned">
+          <h3>Snow Orc <span class="faction-tag">Gundabad</span> <span class="planned-tag">Planned</span></h3>
+          <p>A cold-adapted Orc strain native to high mountain regions. Snow Orcs focus on endurance, resilience, and survival in extreme climates.</p>
+        </div>
+        <div class="race-card race-evil faction-gundabad planned">
+          <h3>Half-Troll <span class="faction-tag">Gundabad</span> <span class="planned-tag">Planned</span></h3>
+          <p>Rare Orc-Troll hybrids of enormous size and strength. Half-Trolls function as elite terror units rather than standard troops.</p>
+        </div>
+        <div class="race-card race-evil faction-dolguldur">
+          <h3>Guldur Uruks <span class="faction-tag">Dol Guldur</span></h3>
+          <p>Dark Uruks corrupted by necromantic influence. They are often heavily armored and serve as elite shock or guard units.</p>
+        </div>
+        <div class="race-card race-evil planned">
+          <h3>Mountain Uruk <span class="faction-tag">Misty Mountains</span> <span class="planned-tag">Planned</span></h3>
+          <p>Large, powerful Orcs adapted to rocky highlands and mountain passes. Less disciplined but physically imposing.</p>
+        </div>
+        <div class="race-card race-evil planned">
+          <h3>Hob-Goblins <span class="faction-tag">Misty Mountains</span> <span class="planned-tag">Planned</span></h3>
+          <p>A more organized and cunning Goblin strain. Hob-Goblins emphasize ambush tactics, traps, and overwhelming numbers.</p>
+        </div>
+        <div class="race-card race-evil faction-harad planned">
+          <h3>Troll-Men <span class="faction-tag">Harad</span> <span class="planned-tag">Planned</span></h3>
+          <p>Corrupted Men infused with Troll-like strength and resilience. Troll-Men serve as elite heavy infantry and enforcers within Harad factions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planned Creatures -->
+    <section class="info-section">
+      <h2>Planned Creatures</h2>
+      <p class="section-desc">Large units, mounts, war beasts, and special battlefield assets planned across various factions. These creatures are intended to add visual variety, tactical diversity, and regional flavor without being universally available.</p>
+
+      <h3 class="creature-category">Trolls</h3>
+      <div class="race-grid">
+        <div class="race-card race-creature">
+          <h3>Mountain Troll</h3>
+          <p>Large, heavily built Trolls adapted to rocky and mountainous terrain. Strong frontline shock units.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Hill Troll</h3>
+          <p>Leaner and faster Trolls commonly found in hilly and forested regions. Less armored but more aggressive.</p>
+        </div>
+        <div class="race-card race-creature planned">
+          <h3>Snow Troll <span class="planned-tag">Planned</span></h3>
+          <p>Cold-adapted Trolls native to frozen and high-altitude regions. Focused on endurance and resilience.</p>
+        </div>
+        <div class="race-card race-creature planned">
+          <h3>Cave Troll <span class="planned-tag">Planned</span></h3>
+          <p>Massive Trolls bred or captured for underground warfare and siege assaults.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Olog-Hai</h3>
+          <p>Highly disciplined and intelligent Trolls capable of wearing armor and fighting in formation.</p>
+        </div>
+      </div>
+
+      <h3 class="creature-category">Wargs & Spiders</h3>
+      <div class="race-grid">
+        <div class="race-card race-creature">
+          <h3>Isengard Warg</h3>
+          <p>Bred for discipline and battlefield control. Used primarily by Isengard's mounted Orc units.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Fell Warg</h3>
+          <p>Larger, more vicious Wargs found in the wild or corrupted regions. Less disciplined but extremely aggressive.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Forest Spider</h3>
+          <p>Giant spiders native to dense forests. Effective ambush predators.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Mountain Spider</h3>
+          <p>Larger and more heavily armored spiders adapted to rocky terrain and highlands.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Spider Brood-Mother</h3>
+          <p>Enormous spiders capable of spawning or commanding lesser spiders. Rare terror units.</p>
+        </div>
+      </div>
+
+      <h3 class="creature-category">War Beasts & Vehicles</h3>
+      <div class="race-grid">
+        <div class="race-card race-creature">
+          <h3>War Elephants</h3>
+          <p>Armored elephants equipped with platforms for archers or spear troops. While currently associated primarily with Harad, their use may expand to other southern or eastern factions in the future.</p>
+        </div>
+        <div class="race-card race-creature">
+          <h3>Oliphaunts</h3>
+          <p>Colossal beasts of war used primarily for terror and huge effect on the battlefield.</p>
+        </div>
+        <div class="race-card race-creature planned">
+          <h3>Chariots <span class="planned-tag">Planned</span></h3>
+          <p>Fast, high-impact units designed for open terrain and shock warfare. Multiple factions may field unique chariot variants, including Khand, Rhun, Harad, Erebor, some Elven factions, and some Orc factions. Variations may include light skirmisher chariots, heavy war chariots, or ceremonial elite units.</p>
+        </div>
+      </div>
+
+      <h3 class="creature-category">Flying Creatures (Under Consideration)</h3>
+      <div class="callout callout-warning">
+        <p>Flying creatures such as Fell Beasts, Great Bats, and Dragons are being considered for the future. However, due to technical limitations within Bannerlord's battle AI, flying units can significantly disrupt pathfinding, targeting, and formation logic. Because of this, the inclusion of flying creatures is currently undecided and will depend on long-term AI stability, technical solutions, and gameplay balance. These units are not planned at this moment, but can be considered in the future.</p>
+      </div>
+
+      <h3 class="creature-category">Future Creature Considerations</h3>
+      <div class="callout callout-info">
+        <p>Certain creatures are not currently planned for early development but may be explored over the long term as systems and scope evolve. These include Were-Wolves, Giant Wolves, Siege Beasts, and wingless dragons similar in concept to Glaurung, as well as other large or specialized creatures. Their inclusion will depend on gameplay needs, technical feasibility, and faction identity development.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .mod-info {
+    max-width: 1100px;
+  }
+
+  .info-section {
+    margin-bottom: 3rem;
+  }
+
+  .info-section > h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-dim);
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .creature-category {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.75rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--accent-dim);
+  }
+
+  .race-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .race-card {
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .race-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .race-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .race-card p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+  }
+
+  /* Card color themes */
+  .race-good {
+    background: rgba(93, 174, 93, 0.2);
+    border-color: rgba(93, 174, 93, 0.35);
+  }
+
+  .race-evil {
+    background: rgba(224, 80, 80, 0.2);
+    border-color: rgba(224, 80, 80, 0.35);
+  }
+
+  .race-creature {
+    background: rgba(160, 130, 109, 0.2);
+    border-color: rgba(160, 130, 109, 0.35);
+  }
+
+  .race-card.planned {
+    opacity: 0.75;
+    border-style: dashed;
+  }
+
+  /* Faction tags */
+  .faction-tag {
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    vertical-align: middle;
+  }
+
+  .planned-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(232, 213, 108, 0.3);
+    color: #E8D56C;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Callout boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .callout p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .callout-warning {
+    background: rgba(212, 162, 76, 0.15);
+    border: 1px dashed rgba(212, 162, 76, 0.4);
+  }
+
+  .callout-info {
+    background: rgba(126, 200, 227, 0.15);
+    border: 1px dashed rgba(126, 200, 227, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    .race-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
