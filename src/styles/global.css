@@ -209,7 +209,7 @@ a:hover {
 
 .data-table th {
   background: var(--bg-secondary);
-  color: var(--text-primary);
+  color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
   text-align: left;
@@ -257,8 +257,15 @@ a:hover {
 .data-table .col-num {
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+.data-table td.col-num {
   color: #000 !important;
   font-weight: 700;
+}
+
+.data-table th.col-num {
+  color: #fff !important;
 }
 
 /* Per-skill color coding */

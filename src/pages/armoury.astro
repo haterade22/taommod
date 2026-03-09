@@ -3,7 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseArmory, getCultureDisplayName } from '../lib/parse-xml';
 
 const allItems = parseArmory();
-allItems.sort((a, b) => a.name.localeCompare(b.name));
+// Sort alphabetically, but push Thenn/Mercenary items to the bottom
+const BOTTOM_CULTURES = new Set(['thenn', 'mercenary']);
+allItems.sort((a, b) => {
+  const aBottom = BOTTOM_CULTURES.has(a.culture) ? 1 : 0;
+  const bBottom = BOTTOM_CULTURES.has(b.culture) ? 1 : 0;
+  if (aBottom !== bBottom) return aBottom - bBottom;
+  return a.name.localeCompare(b.name);
+});
 
 // Split by slot in order: Head, Shoulder, Body, Arm, Leg
 const ARMOR_SECTIONS = [
