@@ -3,195 +3,270 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 interface Feature {
   title: string;
-  icon: string;
   desc: string;
   details: string[];
-  technical: string;
+  status?: 'live' | 'wip';
 }
 
-const features: Feature[] = [
-  {
-    title: 'Custom Race System',
-    icon: '🧬',
-    desc: 'Full support for non-human races — dwarves, orcs, uruk-hai, half-trolls, and goblins — with correct proportions, animations, eye heights, and portraits throughout the entire game.',
-    details: [
-      'Race-specific body proportions and movement animations in battles, towns, and the world map',
-      'Correct character portrait rendering with per-race zoom, positioning, and eye height',
-      'Race data persists across save/load cycles — your dwarf stays a dwarf',
-      'Mounted positioning adjustments so dwarves ride horses correctly',
-      'Custom action sets for each race during character creation',
-    ],
-    technical: 'Harmony patches on CharacterSpawner, CharacterTableau, FaceGen, and BodyGenerator. Reflection-based access to sealed TaleWorlds types. Race assignments serialized via CampaignBehavior save data.',
-  },
-  {
-    title: 'Banner Injection',
-    icon: '🏴',
-    desc: 'Custom banner designs for all 8 kingdoms and 73+ clans are automatically re-applied every session, preventing Bannerlord from reverting them to vanilla defaults.',
-    details: [
-      'Parses banner keys from both XML and XSLT configuration files',
-      'Applies custom banners on every campaign load — no manual re-entry needed',
-      'Tracks player-modified banners and respects manual edits',
-      'Visual invalidation ensures war parties and UI update immediately',
-    ],
-    technical: 'CampaignBehavior fires on session launch. Banner exclusion tracking via IDataStore serialization. Harmony postfix on GauntletUI banner editor to detect player edits.',
-  },
-  {
-    title: 'Custom Battle Scenes',
-    icon: '⚔️',
-    desc: 'All battles use custom scene definitions designed for the Middle-earth map, replacing vanilla Bannerlord battle maps with terrain that matches each region.',
-    details: [
-      'Custom sp_battle_scenes.xml loaded before vanilla initialization',
-      'Region-appropriate terrain for battles across Middle-earth',
-      'Diagnostic hooks for debugging scene loading issues',
-    ],
-    technical: 'Harmony prefix on Campaign.InitializeScenes that loads custom battle scenes in an early patch category before vanilla code runs.',
-  },
-  {
-    title: '16 Playable Factions',
-    icon: '🗺️',
-    desc: 'Middle-earth is divided into 16 distinct factions, each with unique cultures, troop trees, equipment, lords, and recruitment pools.',
-    details: [
-      '10 custom cultures defined in XML (Erebor, Gondor, Mordor, Isengard, Gundabad, Mirkwood, Rivendell, Umbar, Dol Guldur, Lothlorien)',
-      '6 remapped vanilla cultures via XSLT (Rohan, Dunland, Harad, Rhun, Khand, Dale)',
-      'Each faction has unique notable NPCs (26 per culture) — merchants, preachers, artisans, gang leaders, headmen',
-      'Custom name pools for lords, heroes, and settlements per culture',
-    ],
-    technical: 'XSLT transformations override vanilla Bannerlord XML at load time. Custom XML files add new entities not in vanilla. Culture attributes wire up faction-specific notables.',
-  },
-  {
-    title: '380+ Custom Lords',
-    icon: '👑',
-    desc: 'Every lord in the game has been replaced with a Tolkien-inspired character, complete with custom skills, traits, appearance, and backstory.',
-    details: [
-      '380+ lords with custom BodyProperties (unique appearances)',
-      'Hand-tuned skill distributions across 16 skill categories',
-      '8 trait assignments per lord (valor, honor, mercy, etc.)',
-      '415+ heroes with custom biographies',
-      'Gender-balanced where lore-appropriate',
-    ],
-    technical: 'Lords defined via XSLT transformations (lords.xslt) and direct XML (lords.xml). Heroes with biographies in heroes.xslt and heroes.xml.',
-  },
-  {
-    title: 'Four-Tier Recruitment',
-    icon: '🛡️',
-    desc: 'A new recruitment structure replaces the vanilla "basic/noble" system with Regular, Noble, Regional, and Unique troop tiers tied to specific settlements and regions.',
-    details: [
-      'Regular troops (40-50%) available at all faction settlements',
-      'Noble troops (10-20%) globally recruitable but rare',
-      'Regional troops (30-40%) tied to specific cities, castles, or villages',
-      'Unique troops locked to one or two key settlements per faction',
-      'Encourages strategic expansion to unlock full military potential',
-    ],
-    technical: 'Settlement-based recruitment pools configured via culture XML attributes and notable templates. Each culture wires specific troop types to settlement occupations.',
-  },
-  {
-    title: 'Custom Map — 658 Settlements',
-    icon: '🏰',
-    desc: 'A sprawling Middle-earth campaign map with 658 unique settlements, from Minas Tirith to Erebor, each placed according to Tolkien geography.',
-    details: [
-      '658 settlements generated from scene entity data',
-      'Towns, castles, and villages distributed across all 16 faction territories',
-      'Region codes map to geographic areas (EN=Rohan, ES=Mordor, A=Harad, etc.)',
-      'Distance cache with 862 settlement entries for pathfinding optimization',
-    ],
-    technical: 'Settlements generated via PowerShell script from scene.xscene entity positions. Distance cache stored as binary file for fast pathfinding.',
-  },
-  {
-    title: 'Custom Equipment',
-    icon: '🗡️',
-    desc: 'Faction-specific armor sets, weapons, and mounts. Dwarven plate, Elven mail, Orcish crude iron, Gondorian steel — each faction has a distinct visual identity.',
-    details: [
-      'Hundreds of custom armor pieces across all factions',
-      'Faction-specific weapons — swords, spears, bows, maces, halberds',
-      'Culture-colored equipment that visually distinguishes each army',
-      'Tiered equipment progression matching the troop upgrade tree',
-    ],
-    technical: 'Equipment defined in troop XML files per culture. Each troop has up to 4 item slots plus head, body, leg, and glove armor slots.',
-  },
-];
+interface FeatureCategory {
+  category: string;
+  features: Feature[];
+}
 
-const architecture = [
-  { label: 'Adapter Pattern', desc: 'All sealed TaleWorlds types (Kingdom, Clan, Hero, FaceGen) wrapped behind testable interfaces' },
-  { label: 'Dependency Injection', desc: 'DryIoc container with singleton registration — no static service locators' },
-  { label: 'Harmony Patching', desc: 'Categorized prefix/postfix/transpiler patches with staged loading order' },
-  { label: 'Campaign Behaviors', desc: 'Thin behaviors that delegate to services and sync save/load data' },
-  { label: 'TDD Workflow', desc: 'Red-green-refactor with MSTest + NSubstitute — 13 test suites and growing' },
-  { label: 'XSLT Transformations', desc: 'Override vanilla XML at load time without replacing files — safe, modular, mergeable' },
+const categories: FeatureCategory[] = [
+  {
+    category: 'Strategic Campaign Systems',
+    features: [
+      {
+        title: 'War Momentum System',
+        desc: 'Victory is earned through meaningful military campaigns, not just conquest grinding. A momentum tracker measures each faction\'s strategic dominance across the campaign map.',
+        details: [
+          'Four event types build momentum: battle victories, siege conquests, village raids, and army mustering',
+          'Momentum decays over 21 days — factions must sustain pressure to win',
+          'Player involvement multiplies momentum by 1.5x — your actions matter',
+          'Victory requires player participation in 5+ major events',
+          'Soft-cap display formula prevents runaway snowballing',
+          'All 16 cultures balanced with equal multipliers',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Garrison Patrol System',
+        desc: 'AI garrisons no longer sit idle behind walls. Settlements actively patrol surrounding territory, creating a living, breathing war front.',
+        details: [
+          'Settlements spawn patrol parties from their garrison (30% patrol, 70% stay)',
+          'Configurable patrol radius — up to 100 units for major fortresses',
+          'Max 1-2 patrol parties per settlement with 16-hour patrol cycles',
+          'Minimum 70-troop garrison before patrols are dispatched',
+          'Applies to castles, towns, and major cities',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Startup Influence Distribution',
+        desc: 'Every faction starts with meaningful political influence, ensuring even small kingdoms like Rivendell or Lothlorien can participate in council decisions from day one.',
+        details: [
+          'Major power centers (Rivendell, Lothlorien, Gundabad, Isengard) start with 2,000 influence',
+          'Mid-tier factions like Rhun start with 1,000',
+          'Prevents early-game influence starvation for smaller factions',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Battle & Combat Systems',
+    features: [
+      {
+        title: 'Enhanced Auto-Resolve',
+        desc: 'A completely overhauled battle resolution system with seven weighted factors, replacing vanilla\'s simplistic strength comparison with deep tactical calculations.',
+        details: [
+          'Troop Count (1.5x weight) — army size is the most important factor',
+          'Troop Quality (1.3x weight) — elite tier troops have real advantages',
+          'Special Units (1.3x weight) — rock-paper-scissors counter system',
+          'Terrain Effects (1.0x weight) — environment bonuses for unit types',
+          'Culture Bonuses (1.0x weight) — racial and cultural combat strengths',
+          'Commander Skills (1.0x weight) — leadership matters',
+          'Morale (0.9x weight) — army morale state affects outcomes',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Culture Combat Matchups',
+        desc: '30+ lore-driven tactical matchups that make every faction fight differently. Isengard\'s Uruks are bred to counter Rohan\'s cavalry; Elves devastate Mordor\'s hordes.',
+        details: [
+          'Dunland vs Rohan: +15% attack (historical hatred of the Rohirrim)',
+          'Isengard vs Rohan: +15% attack, +8% defense (Uruks bred to counter cavalry)',
+          'Elves vs Mordor: +20% attack, +15% defense (ancient enmity)',
+          'Dwarves vs Mordor: +15% attack, +20% defense (siege expertise)',
+          'Gondor vs Mordor: +10% attack, +15% defense (ancestral duty)',
+          'Matchups include morale effects — some fights inspire or terrify',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Casualty & Mercy System',
+        desc: 'Death rates vary by culture alignment. Evil factions execute the wounded; good factions provide medical care — creating fundamentally different army growth rates.',
+        details: [
+          'Global death rate: 60-70% (vs vanilla 20-40%) — combat is brutal',
+          'Evil cultures (Mordor, Dol Guldur): only 40% survival rate — orcs execute prisoners',
+          'Good cultures (Gondor, Elves): 70-80% survival — medical care preserves troops',
+          'Siege battles: 80% of base casualties (walls provide some protection)',
+          'Hideout raids: 60-70% base = higher casualty ambushes',
+          'Heroes never die by default — protect your lords',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Race & Creature Systems',
+    features: [
+      {
+        title: 'Playable Races',
+        desc: 'Play as Dwarves, Orcs, Uruk-hai, and more with correct proportions, animations, voices, and camera heights. Not just cosmetic — races affect gameplay.',
+        details: [
+          'Full race system: Human, Dwarf, Elf, Orc, Uruk, Uruk-Hai, Berserker, Cave Troll, Half-Troll, Goblin',
+          'Race-specific body proportions, action sets, and skeleton scaling',
+          'Custom voice acting for Dwarves, Uruk-hai, and Orcs (430+ sound files)',
+          'Correct eye height and camera positioning per race',
+          'Race data persists across save/load cycles',
+          'Character creation supports all custom races',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Race-Based Perk System',
+        desc: 'Character perks scale differently per race. Dwarves excel at smithing, Elves dominate archery, Trolls are unstoppable two-handed fighters — every race has a playstyle.',
+        details: [
+          '12 races with unique multipliers across 90+ perks',
+          'Dwarves: +30% smithing, +20% crafting perks',
+          'Elves: +30-40% archery bonuses',
+          'Trolls: +100% two-handed strength, -30% tactics',
+          'Orcs/Uruks: strength bonuses, social skill penalties',
+          'Fully configurable via JSON — moddable by sub-modders',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Warg Riders & Creature Units',
+        desc: 'Command fantasy creatures in battle. Warg riders serve as savage cavalry for orc factions, while cave trolls and half-trolls tower over the battlefield as living siege engines.',
+        details: [
+          'Warg riders for Gundabad, Dol Guldur, and Isengard with unique saddle equipment',
+          'Cave Trolls: 4.0x unit weight — massive impact on party movement and supply',
+          'Half-Trolls: monstrous warriors wielding two-handed mauls',
+          'Warg units at 2.0x weight — heavier than standard cavalry',
+          'Creature units have unique racial perk multipliers in combat',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Troop Weight System',
+        desc: 'Not all units are equal in logistics. Heavy creatures slow your army and consume more supplies, forcing strategic decisions about army composition.',
+        details: [
+          'Cave Trolls: 4.0x weight (massive supply drain)',
+          'Elven units: 2.0x weight (elite soldiers require more resources)',
+          'Warg Riders: 2.0x weight (creature mounts are expensive)',
+          'Standard troops: 1.0x weight baseline',
+          'Affects party movement speed and supply consumption',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Faction & Culture Systems',
+    features: [
+      {
+        title: '16 Unique Factions',
+        desc: 'Every faction plays fundamentally differently thanks to culture-specific combat profiles, economic bonuses, and military strengths drawn from Tolkien lore.',
+        details: [
+          'Erebor: +15% infantry attack, +30% defense, +35% rout resistance — impenetrable formations',
+          'Rohan: +15% cavalry attack, +12% charge bonus — open field dominance',
+          'Lothlorien: Highest archer bonus (+35%), elite all-around — strongest elite troops',
+          'Isengard: +22% infantry attack, +25% rout resistance — disciplined shock troops',
+          'Rhun: +25% horse archer attack, +20% open field — steppe cavalry masters',
+          'Dunland: +20% infantry attack, +20% morale — berserker tactics',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Four-Tier Recruitment',
+        desc: 'Armies are built from Regular, Noble, Regional, and Unique troop tiers. Regional units are tied to specific homelands, and Unique troops are locked to one or two key settlements.',
+        details: [
+          'Regular troops (40-50%): available everywhere in faction territory',
+          'Noble troops (10-20%): globally recruitable but rare',
+          'Regional troops (30-40%): tied to specific cities, castles, or villages',
+          'Unique troops: locked to 1-2 key settlements — control them or lose access',
+          'Encourages strategic expansion into key regions',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Culture Economic Bonuses',
+        desc: 'Faction identity extends beyond the battlefield. Some cultures have cheaper garrisons, siege discounts, or influence penalties that shape long-term strategy.',
+        details: [
+          'Wage reductions: some cultures maintain garrisons 20-25% cheaper',
+          'Siege discounts: Erebor and Isengard get 20-25% cheaper siege equipment',
+          'Morale bonuses: Dunland gets +20% morale in battles',
+          'Influence penalties: Lothlorien gets -25% influence from battles — elves care less for politics',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Content & World',
+    features: [
+      {
+        title: 'Custom Middle-earth Map',
+        desc: '658 settlements placed across a sprawling Middle-earth, from the Shire to Mordor. Region-appropriate battle terrain ensures every fight feels geographically authentic.',
+        details: [
+          '658 named settlements (towns, castles, villages) across all 16 faction territories',
+          '256 battle scene definitions mapped to terrain types (plains, desert, mountain, water, canyon)',
+          'Forest density variation and special terrain features',
+          'Distance cache for optimized pathfinding across the massive map',
+        ],
+        status: 'live',
+      },
+      {
+        title: '500+ Custom Lords & Heroes',
+        desc: 'Every lord and hero replaced with a Tolkien-inspired character. 504 lords with custom skills and traits, 415 heroes with biographies, 149 wanderer companions.',
+        details: [
+          '504 lords with custom appearances, skills, and trait distributions',
+          '415 heroes with lore-accurate biographies',
+          '149 wanderer companions (10 archetypes per kingdom)',
+          '73+ clans with custom names and banner keys',
+          'Gender-balanced where lore-appropriate',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Banner Persistence',
+        desc: 'Custom banner designs for all kingdoms and clans survive save/load cycles. Player-edited banners are tracked and never overwritten.',
+        details: [
+          'Auto-applies 73+ custom clan/kingdom banners every session',
+          'Detects when players manually edit banners and respects those changes',
+          'Visual invalidation ensures war parties update immediately',
+        ],
+        status: 'live',
+      },
+    ],
+  },
 ];
 ---
 
-<BaseLayout title="Coding Features" description="Technical features and custom systems powering TAOM">
+<BaseLayout title="Coding Features" description="Gameplay systems and custom features powering TAOM">
   <div class="page-content mod-info">
     <nav class="breadcrumb">
       <a href="/mod-info">&larr; Mod Info</a>
     </nav>
 
-    <h1 class="page-title">Coding Features</h1>
-    <p class="page-subtitle">The custom systems that power Tales From the Age of Men</p>
+    <h1 class="page-title">Features</h1>
+    <p class="page-subtitle">The gameplay systems that make every faction, battle, and campaign unique</p>
 
-    <section class="features-grid">
-      {features.map(f => (
-        <div class="feature-card">
-          <div class="feature-header">
-            <span class="feature-icon">{f.icon}</span>
-            <h2>{f.title}</h2>
-          </div>
-          <p class="feature-desc">{f.desc}</p>
-          <ul class="feature-details">
-            {f.details.map(d => (
-              <li>{d}</li>
-            ))}
-          </ul>
-          <details class="feature-technical">
-            <summary>Technical Details</summary>
-            <p>{f.technical}</p>
-          </details>
+    {categories.map(cat => (
+      <section class="feature-category">
+        <h2 class="category-title">{cat.category}</h2>
+        <div class="features-grid">
+          {cat.features.map(f => (
+            <div class="feature-card">
+              <div class="feature-header">
+                <h3>{f.title}</h3>
+                {f.status === 'live' && <span class="status-badge live">Live</span>}
+                {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
+              </div>
+              <p class="feature-desc">{f.desc}</p>
+              <ul class="feature-details">
+                {f.details.map(d => (
+                  <li>{d}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      ))}
-    </section>
-
-    <section class="architecture-section">
-      <h2>Architecture</h2>
-      <p class="section-desc">TAOM is built with clean architecture principles — testable, maintainable, and safe to extend.</p>
-      <div class="arch-grid">
-        {architecture.map(a => (
-          <div class="arch-item">
-            <h3>{a.label}</h3>
-            <p>{a.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="stack-section">
-      <h2>Tech Stack</h2>
-      <div class="stack-grid">
-        <div class="stack-item">
-          <span class="stack-label">Framework</span>
-          <span class="stack-value">.NET Framework 4.7.2</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-label">Game Version</span>
-          <span class="stack-value">Bannerlord v1.3.12</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-label">Patching</span>
-          <span class="stack-value">Harmony 2.x</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-label">IoC Container</span>
-          <span class="stack-value">DryIoc</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-label">Testing</span>
-          <span class="stack-value">MSTest + NSubstitute</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-label">Data</span>
-          <span class="stack-value">XML + XSLT Transforms</span>
-        </div>
-      </div>
-    </section>
+      </section>
+    ))}
   </div>
 </BaseLayout>
 
@@ -220,11 +295,22 @@ const architecture = [
     margin-bottom: 2.5rem;
   }
 
+  .feature-category {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-title {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 3rem;
+    gap: 1rem;
   }
 
   .feature-card {
@@ -238,17 +324,33 @@ const architecture = [
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
   }
 
-  .feature-icon {
-    font-size: 1.4rem;
-  }
-
-  .feature-header h2 {
-    color: var(--accent);
-    font-size: 1.15rem;
+  .feature-header h3 {
+    color: var(--text-primary);
+    font-size: 1.05rem;
     margin: 0;
+  }
+
+  .status-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .status-badge.live {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+  }
+
+  .status-badge.wip {
+    background: rgba(255, 167, 38, 0.2);
+    color: #FFA726;
   }
 
   .feature-desc {
@@ -261,7 +363,7 @@ const architecture = [
   .feature-details {
     list-style: none;
     padding: 0;
-    margin: 0 0 0.75rem 0;
+    margin: 0;
   }
 
   .feature-details li {
@@ -279,133 +381,9 @@ const architecture = [
     left: 0.2rem;
   }
 
-  .feature-technical {
-    border-top: 1px solid var(--border-color);
-    padding-top: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .feature-technical summary {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    cursor: pointer;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .feature-technical summary:hover {
-    color: var(--accent);
-  }
-
-  .feature-technical p {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    line-height: 1.5;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
-  }
-
-  .architecture-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .architecture-section h2 {
-    color: var(--accent);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .section-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .arch-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .arch-item {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-  }
-
-  .arch-item h3 {
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .arch-item p {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  .stack-section {
-    margin-bottom: 2rem;
-  }
-
-  .stack-section h2 {
-    color: var(--accent);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .stack-item {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
-
-  .stack-label {
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-  }
-
-  .stack-value {
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
   @media (max-width: 600px) {
     .features-grid {
       grid-template-columns: 1fr;
-    }
-
-    .arch-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .stack-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
