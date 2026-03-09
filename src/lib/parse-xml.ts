@@ -34,6 +34,13 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   arnor: 'Arnor',
   troll: 'Troll',
   mercenary: 'Mercenary',
+  // Armory folder-name aliases
+  dunland: 'Dunland',
+  dol_guldur: 'Dol Guldur',
+  harad: 'Harad',
+  rohan: 'Rohan',
+  rhun: 'Rhun',
+  lothlorien: 'Lothlorien',
 };
 
 // Cultures to exclude from display

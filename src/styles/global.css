@@ -259,6 +259,11 @@ a:hover {
 .data-table tr[data-culture="mercenary"] td { background: rgba(176, 160, 144, 0.90); }  /* Mercenary - tan */
 .data-table tr[data-culture="neutral_culture"] td { background: rgba(153, 153, 153, 0.90); } /* Neutral */
 .data-table tr[data-culture="rhun"] td      { background: rgba(212, 162, 76, 0.90); }   /* Rhun - gold */
+/* Armory folder-name aliases (armory uses folder names instead of vanilla culture IDs) */
+.data-table tr[data-culture="dunland"] td   { background: rgba(160, 130, 109, 0.90); }  /* Dunland = empire */
+.data-table tr[data-culture="dol_guldur"] td{ background: rgba(107, 142, 107, 0.90); }  /* Dol Guldur = dolguldur */
+.data-table tr[data-culture="harad"] td     { background: rgba(220, 20, 60, 0.90); }    /* Harad = aserai */
+.data-table tr[data-culture="rohan"] td     { background: rgba(93, 174, 93, 0.90); }    /* Rohan = vlandia */
 
 /* Section headers in table */
 .data-table th.section-start {
