@@ -6,7 +6,6 @@ const kingdoms = parseKingdomsFromXslt();
 
 // Map kingdom culture IDs to background images
 const KINGDOM_IMAGES: Record<string, string> = {
-  gondor: '/images/faction-gondor.jpg',
   mordor: '/images/faction-mordor.jpg',
   erebor: '/images/faction-erebor.jpg',
   isengard: '/images/faction-isengard.jpg',
@@ -14,11 +13,13 @@ const KINGDOM_IMAGES: Record<string, string> = {
   khuzait: '/images/faction-rhun.webp',
   empire: '/images/faction-dunland.jpg',
   dolguldur: '/images/faction-dolguldur.jpg',
-  aserai: '/images/faction-harad.jpg',
 };
 
-// Emblem-style images (icons on light bg) — displayed as centered emblems, not full bg cover
-const EMBLEM_IMAGES = new Set(['gondor', 'mordor']);
+// Emblem-style images — displayed as decorative banner overlays
+const EMBLEM_IMAGES: Record<string, string> = {
+  gondor: '/images/kingdom-gondor-banner.png',
+  aserai: '/images/kingdom-harad-banner.png',
+};
 ---
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
@@ -34,13 +35,13 @@ const EMBLEM_IMAGES = new Set(['gondor', 'mordor']);
     <div class="kingdom-grid">
       {kingdoms.map(k => {
         const bgImage = KINGDOM_IMAGES[k.culture];
-        const isEmblem = EMBLEM_IMAGES.has(k.culture);
+        const emblemImage = EMBLEM_IMAGES[k.culture];
         return (
           <div
-            class:list={['kingdom-card', { 'has-bg': !!bgImage && !isEmblem, 'has-emblem': isEmblem }]}
-            style={bgImage && !isEmblem ? `--bg-image: url('${bgImage}')` : ''}
+            class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
+            style={bgImage && !emblemImage ? `--bg-image: url('${bgImage}')` : ''}
           >
-            {isEmblem && bgImage && <img src={bgImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
+            {emblemImage && <img src={emblemImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
             <div class="kingdom-overlay"></div>
             <div class="kingdom-content">
               <h3>{k.name}</h3>
@@ -162,19 +163,18 @@ const EMBLEM_IMAGES = new Set(['gondor', 'mordor']);
 
   .kingdom-emblem {
     position: absolute;
-    right: 1rem;
+    right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    height: 65%;
+    height: 85%;
     width: auto;
-    opacity: 0.2;
+    opacity: 0.35;
     z-index: 0;
-    filter: brightness(0) invert(1);
     pointer-events: none;
   }
 
   .kingdom-card.has-emblem:hover .kingdom-emblem {
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
   .kingdom-overlay {
