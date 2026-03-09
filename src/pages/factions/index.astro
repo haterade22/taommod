@@ -33,8 +33,13 @@ const FACTION_IMAGES: Record<string, string> = {
 ---
 
 <BaseLayout title="Factions" description="All factions in TAOM with troop counts and compositions">
+  <section class="page-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <h1>Factions</h1>
+    </div>
+  </section>
   <div class="page-content">
-    <h1 class="page-title">Factions</h1>
 
     <div class="faction-grid">
       {factions.map(f => {
@@ -64,6 +69,41 @@ const FACTION_IMAGES: Record<string, string> = {
 </BaseLayout>
 
 <style>
+  .page-banner {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/banner-factions.jpg') center center / cover no-repeat;
+    overflow: hidden;
+  }
+
+  .banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(25, 25, 25, 0.9) 100%
+    );
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .banner-content h1 {
+    color: var(--accent);
+    font-size: 2.2rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  }
+
   .faction-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
