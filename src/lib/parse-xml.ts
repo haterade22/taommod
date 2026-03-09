@@ -229,6 +229,29 @@ export function parseKingdomsFromXslt(): Kingdom[] {
     });
   }
 
+  // Also parse taom_spkingdoms.xml for custom kingdoms
+  const xmlPath = path.join(dataDir, 'taom_spkingdoms.xml');
+  if (fs.existsSync(xmlPath)) {
+    const xml = fs.readFileSync(xmlPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const xmlKingdoms = parsed?.Kingdoms?.Kingdom || [];
+    for (const k of xmlKingdoms) {
+      kingdoms.push({
+        id: k['@_id'] || '',
+        name: stripLocKey(k['@_name'] || ''),
+        shortName: stripLocKey(k['@_short_name'] || ''),
+        title: stripLocKey(k['@_title'] || ''),
+        rulerTitle: stripLocKey(k['@_ruler_title'] || ''),
+        description: stripLocKey(k['@_text'] || ''),
+        culture: stripPrefix(k['@_culture'] || '', 'Culture.'),
+        owner: stripPrefix(k['@_owner'] || '', 'Hero.'),
+        color: k['@_color'] || '',
+        color2: k['@_color2'] || '',
+        bannerKey: k['@_banner_key'] || '',
+      });
+    }
+  }
+
   return kingdoms;
 }
 
