@@ -4,20 +4,20 @@ import { parseKingdomsFromXslt, getCultureDisplayName } from '../lib/parse-xml';
 
 const kingdoms = parseKingdomsFromXslt();
 
-// Map kingdom culture IDs to background images
+// Map kingdom IDs to background images
 const KINGDOM_IMAGES: Record<string, string> = {
-  mordor: '/images/faction-mordor.jpg',
+  empire: '/images/faction-dunland.jpg',
+  empire_s: '/images/faction-mordor.jpg',
   erebor: '/images/faction-erebor.jpg',
   isengard: '/images/faction-isengard.jpg',
   gundabad: '/images/faction-gundabad.webp',
   khuzait: '/images/faction-rhun.webp',
-  empire: '/images/faction-dunland.jpg',
   dolguldur: '/images/faction-dolguldur.jpg',
 };
 
-// Emblem-style images — displayed as decorative banner overlays
+// Emblem-style images — displayed as decorative banner overlays (keyed by kingdom ID)
 const EMBLEM_IMAGES: Record<string, string> = {
-  gondor: '/images/kingdom-gondor-banner.png',
+  empire_w: '/images/kingdom-gondor-banner.png',
   aserai: '/images/kingdom-harad-banner.png',
 };
 ---
@@ -34,8 +34,8 @@ const EMBLEM_IMAGES: Record<string, string> = {
 
     <div class="kingdom-grid">
       {kingdoms.map(k => {
-        const bgImage = KINGDOM_IMAGES[k.culture];
-        const emblemImage = EMBLEM_IMAGES[k.culture];
+        const bgImage = KINGDOM_IMAGES[k.id];
+        const emblemImage = EMBLEM_IMAGES[k.id];
         return (
           <div
             class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
@@ -163,18 +163,19 @@ const EMBLEM_IMAGES: Record<string, string> = {
 
   .kingdom-emblem {
     position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 85%;
+    right: 0;
+    top: 0;
+    height: 100%;
     width: auto;
-    opacity: 0.35;
+    opacity: 0.6;
     z-index: 0;
     pointer-events: none;
+    object-fit: contain;
+    object-position: right center;
   }
 
   .kingdom-card.has-emblem:hover .kingdom-emblem {
-    opacity: 0.5;
+    opacity: 0.75;
   }
 
   .kingdom-overlay {
