@@ -16,6 +16,9 @@ const KINGDOM_IMAGES: Record<string, string> = {
   dolguldur: '/images/faction-dolguldur.png',
   aserai: '/images/faction-harad.png',
 };
+
+// Emblem-style images (icons on light bg) — displayed as centered emblems, not full bg cover
+const EMBLEM_IMAGES = new Set(['gondor', 'mordor']);
 ---
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
@@ -31,11 +34,13 @@ const KINGDOM_IMAGES: Record<string, string> = {
     <div class="kingdom-grid">
       {kingdoms.map(k => {
         const bgImage = KINGDOM_IMAGES[k.culture];
+        const isEmblem = EMBLEM_IMAGES.has(k.culture);
         return (
           <div
-            class:list={['kingdom-card', { 'has-bg': !!bgImage }]}
-            style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
+            class:list={['kingdom-card', { 'has-bg': !!bgImage && !isEmblem, 'has-emblem': isEmblem }]}
+            style={bgImage && !isEmblem ? `--bg-image: url('${bgImage}')` : ''}
           >
+            {isEmblem && bgImage && <img src={bgImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
             <div class="kingdom-overlay"></div>
             <div class="kingdom-content">
               <h3>{k.name}</h3>
@@ -138,6 +143,27 @@ const KINGDOM_IMAGES: Record<string, string> = {
 
   .kingdom-card.has-bg {
     background: var(--bg-image) center center / cover no-repeat;
+  }
+
+  .kingdom-card.has-emblem {
+    background: var(--bg-secondary);
+  }
+
+  .kingdom-emblem {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 65%;
+    width: auto;
+    opacity: 0.2;
+    z-index: 0;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+  }
+
+  .kingdom-card.has-emblem:hover .kingdom-emblem {
+    opacity: 0.3;
   }
 
   .kingdom-overlay {
