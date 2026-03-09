@@ -154,7 +154,8 @@ a:hover {
 
 .data-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 3px;
   font-size: 0.8rem;
   white-space: nowrap;
 }
@@ -187,8 +188,15 @@ a:hover {
 
 .data-table td {
   padding: 0.4rem 0.75rem;
-  border-bottom: 1px solid var(--border-color);
   color: var(--text-primary);
+}
+
+.data-table tbody tr td:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.data-table tbody tr td:last-child {
+  border-radius: 0 6px 6px 0;
 }
 
 .data-table tbody tr:nth-child(even) td {
@@ -230,30 +238,31 @@ a:hover {
   font-size: 0.75rem;
 }
 
-/* Culture/Kingdom color coding (scoped to td for specificity over .data-table td) */
-.data-table td.culture-gondor { color: #C0C0C0; }        /* Silver - White Tree */
-.data-table td.culture-mordor { color: #E05050; }         /* Dark red */
-.data-table td.culture-empire { color: #A0826D; }         /* Dunland - brown/earth */
-.data-table td.culture-vlandia { color: #5DAE5D; }        /* Rohan - green */
-.data-table td.culture-khuzait { color: #D4A24C; }        /* Rhun - gold/bronze */
-.data-table td.culture-aserai { color: #D4944C; }         /* Harad - desert orange */
-.data-table td.culture-sturgia { color: #6EA8D9; }        /* Dale - ice blue */
-.data-table td.culture-battania { color: #8B7355; }       /* Khand - tan */
-.data-table td.culture-erebor { color: #C9A44A; }         /* Erebor - dwarf gold */
-.data-table td.culture-isengard { color: #909090; }       /* Isengard - iron grey */
-.data-table td.culture-gundabad { color: #7A6A8A; }       /* Gundabad - dark purple */
-.data-table td.culture-mirkwood { color: #4CAF50; }       /* Mirkwood - forest green */
-.data-table td.culture-rivendell { color: #7EC8E3; }      /* Rivendell - elven blue */
-.data-table td.culture-umbar { color: #B85C5C; }          /* Umbar - corsair red */
-.data-table td.culture-dolguldur { color: #6B8E6B; }      /* Dol Guldur - sickly green */
-.data-table td.culture-lothlorien { color: #E8D56C; }     /* Lothlorien - golden light */
-.data-table td.culture-thenn { color: #B0A090; }          /* Mercenary - neutral tan */
-.data-table td.culture-iron_hills { color: #A0885A; }     /* Iron Hills - bronze */
-.data-table td.culture-arnor { color: #8BAEC4; }          /* Arnor - faded blue */
-.data-table td.culture-troll { color: #7A7A5A; }          /* Troll - muddy green */
-.data-table td.culture-mercenary { color: #B0A090; }      /* Mercenary - neutral tan */
-.data-table td.culture-neutral_culture { color: #999; }   /* Neutral - grey */
-.data-table td.culture-rhun { color: #D4A24C; }           /* Rhun - gold/bronze */
+/* Culture/Kingdom row color coding — colored row background with white text */
+.data-table tr[data-culture] td { color: #fff; }
+.data-table tr[data-culture="gondor"]    { background: rgba(192, 192, 192, 0.15); }  /* Silver */
+.data-table tr[data-culture="mordor"]    { background: rgba(224, 80, 80, 0.18); }    /* Dark red */
+.data-table tr[data-culture="empire"]    { background: rgba(160, 130, 109, 0.18); }  /* Dunland - brown */
+.data-table tr[data-culture="vlandia"]   { background: rgba(93, 174, 93, 0.18); }    /* Rohan - green */
+.data-table tr[data-culture="khuzait"]   { background: rgba(212, 162, 76, 0.18); }   /* Rhun - gold */
+.data-table tr[data-culture="aserai"]    { background: rgba(220, 20, 60, 0.18); }    /* Harad - crimson */
+.data-table tr[data-culture="sturgia"]   { background: rgba(110, 168, 217, 0.18); }  /* Dale - ice blue */
+.data-table tr[data-culture="battania"]  { background: rgba(139, 115, 85, 0.18); }   /* Khand - tan */
+.data-table tr[data-culture="erebor"]    { background: rgba(201, 164, 74, 0.18); }   /* Erebor - gold */
+.data-table tr[data-culture="isengard"]  { background: rgba(144, 144, 144, 0.18); }  /* Isengard - grey */
+.data-table tr[data-culture="gundabad"]  { background: rgba(122, 106, 138, 0.18); }  /* Gundabad - purple */
+.data-table tr[data-culture="mirkwood"]  { background: rgba(76, 175, 80, 0.18); }    /* Mirkwood - green */
+.data-table tr[data-culture="rivendell"] { background: rgba(126, 200, 227, 0.18); }  /* Rivendell - blue */
+.data-table tr[data-culture="umbar"]     { background: rgba(184, 92, 92, 0.18); }    /* Umbar - red */
+.data-table tr[data-culture="dolguldur"] { background: rgba(107, 142, 107, 0.18); }  /* Dol Guldur - green */
+.data-table tr[data-culture="lothlorien"]{ background: rgba(232, 213, 108, 0.18); }  /* Lothlorien - gold */
+.data-table tr[data-culture="thenn"]     { background: rgba(176, 160, 144, 0.18); }  /* Mercenary - tan */
+.data-table tr[data-culture="iron_hills"]{ background: rgba(160, 136, 90, 0.18); }   /* Iron Hills - bronze */
+.data-table tr[data-culture="arnor"]     { background: rgba(139, 174, 196, 0.18); }  /* Arnor - blue */
+.data-table tr[data-culture="troll"]     { background: rgba(122, 122, 90, 0.18); }   /* Troll - muddy */
+.data-table tr[data-culture="mercenary"] { background: rgba(176, 160, 144, 0.18); }  /* Mercenary - tan */
+.data-table tr[data-culture="neutral_culture"] { background: rgba(153, 153, 153, 0.15); } /* Neutral */
+.data-table tr[data-culture="rhun"]      { background: rgba(212, 162, 76, 0.18); }   /* Rhun - gold */
 
 /* Section headers in table */
 .data-table th.section-start {
