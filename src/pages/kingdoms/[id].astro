@@ -109,60 +109,34 @@ const colors = KINGDOM_COLORS[kingdom.id];
         {clans.map(clan => {
           const lords = clanLords.get(clan.id) || [];
           return (
+            <a href={`/clans/${clan.id}`} class="clan-card-link">
             <div class="clan-card">
               <div class="clan-header">
                 <h3>{clan.name}</h3>
                 {clan.tier > 0 && <span class="clan-tier">Tier {clan.tier}</span>}
               </div>
               {lords.length > 0 && lords.map(lord => (
-                <div class="lord-detail">
-                  <div class="lord-title-row">
-                    <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
-                    <span class="lord-role">Clan Leader</span>
-                    {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
-                  </div>
-
+                <div class="lord-summary">
+                  <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
+                  <span class="lord-role">Leader</span>
+                  {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
                   {Object.keys(lord.skills).length > 0 && (
-                    <div class="lord-section">
-                      <h4>Skills</h4>
-                      <div class="skills-grid">
-                        {Object.entries(lord.skills)
-                          .filter(([_, v]) => v > 0)
-                          .sort(([, a], [, b]) => b - a)
-                          .map(([skill, value]) => (
-                            <div class="skill-row">
-                              <span class="skill-name">{skill}</span>
-                              <div class="skill-bar-container">
-                                <div class="skill-bar" style={`width: ${Math.min(value / 3, 100)}%`} />
-                              </div>
-                              <span class="skill-value">{value}</span>
-                            </div>
-                          ))
-                        }
-                      </div>
-                    </div>
-                  )}
-
-                  {Object.keys(lord.traits).length > 0 && (
-                    <div class="lord-section">
-                      <h4>Traits</h4>
-                      <div class="traits-list">
-                        {Object.entries(lord.traits)
-                          .filter(([_, v]) => v !== 0)
-                          .sort(([, a], [, b]) => Math.abs(b) - Math.abs(a))
-                          .map(([trait, value]) => (
-                            <span class:list={['trait-badge', { positive: value > 0, negative: value < 0 }]}>
-                              {trait} {value > 0 ? `+${value}` : value}
-                            </span>
-                          ))
-                        }
-                      </div>
+                    <div class="lord-top-skills">
+                      {Object.entries(lord.skills)
+                        .filter(([_, v]) => v > 0)
+                        .sort(([, a], [, b]) => b - a)
+                        .slice(0, 3)
+                        .map(([skill, value]) => (
+                          <span class="skill-badge">{skill} {value}</span>
+                        ))
+                      }
                     </div>
                   )}
                 </div>
               ))}
               {lords.length === 0 && <p class="no-lord">Leader data not available</p>}
             </div>
+            </a>
           );
         })}
       </div>
@@ -177,7 +151,7 @@ const colors = KINGDOM_COLORS[kingdom.id];
     position: relative;
     overflow: hidden;
     padding: 3rem 2rem;
-    background: linear-gradient(135deg, var(--kc2, #1a1a1a) 0%, var(--kc1, #333) 50%, var(--kc2, #1a1a1a) 100%);
+    background: var(--kc2, #1a1a1a);
     border-bottom: 1px solid var(--border-color);
   }
 
@@ -260,9 +234,14 @@ const colors = KINGDOM_COLORS[kingdom.id];
   }
 
   .clans-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
+  }
+
+  .clan-card-link {
+    text-decoration: none;
+    color: inherit;
   }
 
   .clan-card {
@@ -270,6 +249,13 @@ const colors = KINGDOM_COLORS[kingdom.id];
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+    height: 100%;
+  }
+
+  .clan-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
   }
 
   .clan-header {
@@ -277,13 +263,11 @@ const colors = KINGDOM_COLORS[kingdom.id];
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
   }
 
   .clan-header h3 {
     color: var(--accent);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin: 0;
   }
 
@@ -295,30 +279,25 @@ const colors = KINGDOM_COLORS[kingdom.id];
     border-radius: 4px;
   }
 
-  .lord-detail {
-    padding: 0.5rem 0;
-  }
-
-  .lord-title-row {
+  .lord-summary {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .lord-name {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 1rem;
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
   }
 
   .lord-role {
     color: var(--accent);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     background: rgba(218, 165, 32, 0.1);
-    padding: 0.15rem 0.5rem;
+    padding: 0.1rem 0.4rem;
     border-radius: 3px;
   }
 
@@ -330,79 +309,19 @@ const colors = KINGDOM_COLORS[kingdom.id];
     border-radius: 3px;
   }
 
-  .lord-section {
-    margin-top: 0.75rem;
+  .lord-top-skills {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    width: 100%;
   }
 
-  .lord-section h4 {
-    color: rgba(255, 255, 255, 0.5);
+  .skill-badge {
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.4rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.3rem 1.5rem;
-  }
-
-  .skill-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .skill-name {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8rem;
-    min-width: 80px;
-  }
-
-  .skill-bar-container {
-    flex: 1;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.4rem;
     border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .skill-bar {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 3px;
-    transition: width 0.3s;
-  }
-
-  .skill-value {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.8rem;
-    min-width: 28px;
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .traits-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .trait-badge {
-    font-size: 0.8rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .trait-badge.positive {
-    color: #7dcea0;
-    background: rgba(125, 206, 160, 0.1);
-  }
-
-  .trait-badge.negative {
-    color: #e74c3c;
-    background: rgba(231, 76, 60, 0.1);
   }
 
   .no-lord {
@@ -430,7 +349,7 @@ const colors = KINGDOM_COLORS[kingdom.id];
     .kingdom-header {
       padding: 2rem 1rem;
     }
-    .skills-grid {
+    .clans-list {
       grid-template-columns: 1fr;
     }
   }

@@ -5,7 +5,7 @@ import path from 'path';
 const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '@_',
-  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction', 'Item', 'CraftedItem', 'Piece', 'CraftingPiece'].includes(name),
+  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction', 'Item', 'CraftedItem', 'Piece', 'CraftingPiece', 'Hero'].includes(name),
 });
 
 function getDataDir(): string {
@@ -479,6 +479,30 @@ export function parseAllLords(): Lord[] {
   }
 
   return lords;
+}
+
+// Parse hero-to-clan mappings from heroes.xml and heroes.xslt
+// Returns a map of hero/lord ID → clan ID
+export function parseHeroClanMap(): Map<string, string> {
+  const map = new Map<string, string>();
+  const dataDir = getDataDir();
+
+  // Parse heroes.xml (has faction="Faction.clan_X" attributes)
+  const heroesXmlPath = path.join(dataDir, 'characters', 'heroes.xml');
+  if (fs.existsSync(heroesXmlPath)) {
+    const xml = fs.readFileSync(heroesXmlPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const heroes = parsed?.Heroes?.Hero || [];
+    for (const h of heroes) {
+      const id = h['@_id'] || '';
+      const faction = stripPrefix(h['@_faction'] || '', 'Faction.');
+      if (id && faction) {
+        map.set(id, faction);
+      }
+    }
+  }
+
+  return map;
 }
 
 export function getCultureList(): string[] {

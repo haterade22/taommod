@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseAllClans, parseAllLords, parseHeroClanMap, parseKingdomsFromXslt, getCultureDisplayName } from '../../lib/parse-xml';
+import type { Clan, Lord } from '../../lib/parse-xml';
+
+export function getStaticPaths() {
+  const clans = parseAllClans();
+  return clans.map(c => ({
+    params: { id: c.id },
+    props: { clan: c },
+  }));
+}
+
+const { clan } = Astro.props as { clan: Clan };
+const allLords = parseAllLords();
+const heroClanMap = parseHeroClanMap();
+const kingdoms = parseKingdomsFromXslt();
+
+// Find the kingdom for this clan
+const kingdom = kingdoms.find(k => k.id === clan.kingdomId);
+
+// Build lord lookup
+const lordById = new Map<string, Lord>();
+for (const lord of allLords) {
+  lordById.set(lord.id, lord);
+}
+
+// Get all lords in this clan via heroes.xml faction mapping
+const clanLordIds = new Set<string>();
+for (const [heroId, clanId] of heroClanMap) {
+  if (clanId === clan.id) {
+    clanLordIds.add(heroId);
+  }
+}
+// Also add the clan owner
+if (clan.owner) clanLordIds.add(clan.owner);
+
+// Match lord IDs to parsed lord data
+const lords: (Lord & { isLeader: boolean })[] = [];
+for (const lordId of clanLordIds) {
+  const lord = lordById.get(lordId);
+  if (lord) {
+    lords.push({ ...lord, isLeader: lordId === clan.owner });
+  }
+}
+// Sort: leader first, then by name
+lords.sort((a, b) => {
+  if (a.isLeader && !b.isLeader) return -1;
+  if (!a.isLeader && b.isLeader) return 1;
+  return a.name.localeCompare(b.name);
+});
+
+const CULTURE_OVERRIDES: Record<string, string> = {
+  empire_w: 'Gondor', empire_s: 'Mordor', empire: 'Dunland',
+  sturgia: 'Dale', aserai: 'Harad', vlandia: 'Rohan',
+  battania: 'Variag', khuzait: 'Rhun',
+};
+
+const kingdomName = kingdom
+  ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name
+  : clan.kingdom;
+---
+
+<BaseLayout title={clan.name} description={`${clan.name} — a clan of ${kingdomName}`}>
+  <div class="page-content">
+    <nav class="breadcrumb">
+      <a href="/kingdoms">Kingdoms</a>
+      {kingdom && <><span>/</span><a href={`/kingdoms/${kingdom.id}`}>{kingdomName}</a></>}
+      <span>/</span>
+      <span>{clan.name}</span>
+    </nav>
+
+    <header class="clan-header">
+      <h1>{clan.name}</h1>
+      <div class="clan-meta">
+        <span><strong>Kingdom:</strong> {kingdomName}</span>
+        {clan.tier > 0 && <span><strong>Tier:</strong> {clan.tier}</span>}
+        {clan.culture && <span><strong>Culture:</strong> {getCultureDisplayName(clan.culture)}</span>}
+      </div>
+    </header>
+
+    <section class="lords-section">
+      <h2>Lords ({lords.length})</h2>
+      {lords.length === 0 && <p class="muted">No lord data available for this clan.</p>}
+      <div class="lords-list">
+        {lords.map(lord => (
+          <div class:list={['lord-card', { leader: lord.isLeader }]}>
+            <div class="lord-header">
+              <div class="lord-title">
+                <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
+                {lord.isLeader && <span class="leader-badge">Clan Leader</span>}
+                {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
+              </div>
+            </div>
+
+            {Object.keys(lord.skills).length > 0 && (
+              <div class="lord-section">
+                <h4>Skills</h4>
+                <div class="skills-grid">
+                  {Object.entries(lord.skills)
+                    .filter(([_, v]) => v > 0)
+                    .sort(([, a], [, b]) => b - a)
+                    .map(([skill, value]) => (
+                      <div class="skill-row">
+                        <span class="skill-name">{skill}</span>
+                        <div class="skill-bar-bg">
+                          <div class="skill-bar" style={`width: ${Math.min(value / 3, 100)}%`} />
+                        </div>
+                        <span class="skill-value">{value}</span>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            )}
+
+            {Object.keys(lord.traits).length > 0 && (
+              <div class="lord-section">
+                <h4>Traits</h4>
+                <div class="traits-list">
+                  {Object.entries(lord.traits)
+                    .filter(([_, v]) => v !== 0)
+                    .sort(([, a], [, b]) => Math.abs(b) - Math.abs(a))
+                    .map(([trait, value]) => (
+                      <span class:list={['trait-badge', { positive: value > 0, negative: value < 0 }]}>
+                        {trait} {value > 0 ? `+${value}` : value}
+                      </span>
+                    ))
+                  }
+                </div>
+              </div>
+            )}
+
+            {Object.keys(lord.skills).length === 0 && Object.keys(lord.traits).length === 0 && (
+              <p class="no-data">Detailed stats not available</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--accent);
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .clan-header {
+    margin-bottom: 2rem;
+  }
+
+  .clan-header h1 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .clan-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .clan-meta strong {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .lords-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .lords-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lord-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .lord-card.leader {
+    border-color: var(--accent-dim);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(218, 165, 32, 0.05) 100%);
+  }
+
+  .lord-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .lord-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .lord-name {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .leader-badge {
+    color: var(--accent);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(218, 165, 32, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .lord-group {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  .lord-section {
+    margin-top: 0.75rem;
+  }
+
+  .lord-section h4 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.3rem 1.5rem;
+  }
+
+  .skill-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-name {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    min-width: 85px;
+  }
+
+  .skill-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .skill-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  .skill-value {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    min-width: 28px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .traits-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .trait-badge {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .trait-badge.positive {
+    color: #7dcea0;
+    background: rgba(125, 206, 160, 0.1);
+  }
+
+  .trait-badge.negative {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+  }
+
+  .no-data {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .muted {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
