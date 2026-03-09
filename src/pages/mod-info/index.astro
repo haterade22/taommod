@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    href: '/mod-info/races',
+    title: 'Races & Creatures',
+    desc: 'Playable races, Orc breeds, faction-bound elites, and planned creatures including trolls, wargs, spiders, and war beasts.',
+    color: 'rgba(93, 174, 93, 0.2)',
+    border: 'rgba(93, 174, 93, 0.35)',
+  },
+  {
+    href: '/mod-info/recruitment',
+    title: 'Recruitment System',
+    desc: 'How troop recruitment works across factions, including culture-specific mechanics and progression.',
+    color: 'rgba(212, 162, 76, 0.2)',
+    border: 'rgba(212, 162, 76, 0.35)',
+  },
+  {
+    href: '/mod-info/features',
+    title: 'Coding Features',
+    desc: 'Technical features and custom systems built for TAOM, including AI behaviors, battle mechanics, and campaign systems.',
+    color: 'rgba(126, 200, 227, 0.2)',
+    border: 'rgba(126, 200, 227, 0.35)',
+  },
+];
+---
+
+<BaseLayout title="Mod Information" description="Detailed information about TAOM - races, recruitment, and features">
+  <div class="page-content mod-info">
+    <h1 class="page-title">Mod Information</h1>
+    <p class="overview-desc">Explore the systems, races, and features that make up Tales From the Age of Men.</p>
+
+    <div class="section-grid">
+      {sections.map(s => (
+        <a href={s.href} class="section-card" style={`--card-bg: ${s.color}; --card-border: ${s.border}`}>
+          <h2>{s.title}</h2>
+          <p>{s.desc}</p>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .mod-info {
+    max-width: 1100px;
+  }
+
+  .overview-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .section-card {
+    display: block;
+    padding: 1.75rem;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+  }
+
+  .section-card h2 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.25rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .section-card:hover .card-arrow {
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .section-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

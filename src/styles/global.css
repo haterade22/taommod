@@ -101,6 +101,53 @@ a:hover {
   text-decoration: none;
 }
 
+/* Dropdown nav */
+.site-nav .nav-links li.has-dropdown {
+  position: relative;
+}
+
+.site-nav .nav-links .dropdown-arrow {
+  font-size: 0.6rem;
+  margin-left: 0.2rem;
+  vertical-align: middle;
+}
+
+.site-nav .nav-links .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.35rem 0;
+  min-width: 200px;
+  list-style: none;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.site-nav .nav-links li.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+.site-nav .nav-links .dropdown li {
+  padding: 0;
+}
+
+.site-nav .nav-links .dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.site-nav .nav-links .dropdown a:hover,
+.site-nav .nav-links .dropdown a.active {
+  background: var(--bg-tertiary);
+}
+
 /* Page content */
 .page-content {
   padding: 1.5rem 2rem;

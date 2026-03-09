@@ -6,7 +6,9 @@ interface Props {
 
 const { title, description = 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II' } = Astro.props;
 
-const navLinks = [
+type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/kingdoms', label: 'Kingdoms' },
   { href: '/factions', label: 'Factions' },
@@ -14,7 +16,12 @@ const navLinks = [
   { href: '/troops', label: 'Troops' },
   { href: '/armoury', label: 'Armoury' },
   { href: '/weaponry', label: 'Weaponry' },
-  { href: '/mod-info', label: 'Mod Info' },
+  { href: '/mod-info', label: 'Mod Info', children: [
+    { href: '/mod-info', label: 'Overview' },
+    { href: '/mod-info/races', label: 'Races & Creatures' },
+    { href: '/mod-info/recruitment', label: 'Recruitment System' },
+    { href: '/mod-info/features', label: 'Coding Features' },
+  ]},
   { href: '/community', label: 'Community' },
   { href: '/download', label: 'Download' },
   { href: '/credits', label: 'Credits' },
@@ -40,13 +47,28 @@ const currentPath = Astro.url.pathname;
       <a class="logo" href="/"><img src="/images/logo.png" alt="TAOM" class="nav-logo" /></a>
       <ul class="nav-links">
         {navLinks.map(link => (
-          <li>
+          <li class:list={[{ 'has-dropdown': !!link.children }]}>
             <a
               href={link.href}
               class:list={[{ active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
             >
               {link.label}
+              {link.children && <span class="dropdown-arrow">&#9662;</span>}
             </a>
+            {link.children && (
+              <ul class="dropdown">
+                {link.children.map(child => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class:list={[{ active: currentPath === child.href }]}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
