@@ -5,21 +5,21 @@ import { parseAllClans } from '../lib/parse-xml';
 const clans = parseAllClans();
 
 // Override Gondor clans with exact order from game UI
-const GONDOR_CLANS = [
-  'House of Húrinionath',
-  'House of Imrazôrionath',
-  'House of Eärnurionath',
-  'House of Ausirionath',
-  'House of Barahirionath',
-  'House of Halboronionath',
-  'House of Malandilionath',
-  'House of Olindurionath',
-  'House of Danuhirionath',
-  'House of Hyarthulionath',
-  'House of Caladionath',
-  'House of Hirilionath',
-  'House of Baranionath',
-  'House of Garvirionath',
+const GONDOR_CLANS: { name: string; region?: string }[] = [
+  { name: 'House of Húrinionath', region: 'Anórien' },
+  { name: 'House of Imrazôrionath', region: 'Belfalas' },
+  { name: 'House of Eärnurionath', region: 'Lebennin' },
+  { name: 'House of Ausirionath', region: 'Lossarnach' },
+  { name: 'House of Barahirionath', region: 'Anfalas' },
+  { name: 'House of Halboronionath', region: 'Pinnath Gelin' },
+  { name: 'House of Malandilionath', region: 'Lamedon' },
+  { name: 'House of Olindurionath' },
+  { name: 'House of Danuhirionath' },
+  { name: 'House of Hyarthulionath' },
+  { name: 'House of Caladionath' },
+  { name: 'House of Hirilionath' },
+  { name: 'House of Baranionath' },
+  { name: 'House of Garvirionath' },
 ];
 
 // Kingdom banner images
@@ -27,12 +27,14 @@ const KINGDOM_IMAGES: Record<string, string> = {
   Gondor: '/images/clans-gondor.png',
 };
 
+type ClanEntry = { name: string; region?: string };
+
 // Group clans by kingdom
-const clansByKingdom = new Map<string, string[]>();
+const clansByKingdom = new Map<string, ClanEntry[]>();
 for (const clan of clans) {
   const kingdom = clan.kingdom || 'Unknown';
   if (!clansByKingdom.has(kingdom)) clansByKingdom.set(kingdom, []);
-  clansByKingdom.get(kingdom)!.push(clan.name);
+  clansByKingdom.get(kingdom)!.push({ name: clan.name });
 }
 
 // Override Gondor with exact list
@@ -43,9 +45,9 @@ const sortedKingdoms = Array.from(clansByKingdom.entries())
   .filter(([k]) => k !== 'Unknown' && k !== '')
   .sort(([a], [b]) => a.localeCompare(b));
 
-for (const [kingdom, names] of sortedKingdoms) {
+for (const [kingdom, entries] of sortedKingdoms) {
   if (kingdom !== 'Gondor') {
-    names.sort((a, b) => a.localeCompare(b));
+    entries.sort((a, b) => a.name.localeCompare(b.name));
   }
 }
 ---
@@ -54,15 +56,15 @@ for (const [kingdom, names] of sortedKingdoms) {
   <div class="page-content" style="max-width: 900px;">
     <h1 class="page-title">Clans of Middle-earth</h1>
 
-    {sortedKingdoms.map(([kingdom, names]) => (
+    {sortedKingdoms.map(([kingdom, entries]) => (
       <section class="clan-section">
         <h2>{kingdom}</h2>
         {KINGDOM_IMAGES[kingdom] && (
           <img src={KINGDOM_IMAGES[kingdom]} alt={`${kingdom} clans`} class="clan-banner" />
         )}
         <ul>
-          {names.map(name => (
-            <li>{name}</li>
+          {entries.map(c => (
+            <li>{c.name}{c.region && <span class="clan-region"> ({c.region})</span>}</li>
           ))}
         </ul>
       </section>
@@ -106,5 +108,11 @@ for (const [kingdom, names] of sortedKingdoms) {
     color: var(--text-primary);
     font-size: 0.95rem;
     padding: 0.2rem 0;
+  }
+
+  .clan-region {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-style: italic;
   }
 </style>
