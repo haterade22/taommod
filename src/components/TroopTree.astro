@@ -1,0 +1,487 @@
+---
+import type { Troop } from '../lib/parse-xml';
+
+interface Props {
+  troops: Troop[];
+  culture: string;
+}
+
+const { troops, culture } = Astro.props;
+
+// Build lookup maps
+const troopById = new Map<string, Troop>();
+for (const t of troops) {
+  troopById.set(t.id, t);
+}
+
+// Find parent for each troop (who upgrades into this troop)
+const parentMap = new Map<string, string[]>();
+for (const t of troops) {
+  for (const targetId of t.upgradeTo) {
+    if (!parentMap.has(targetId)) parentMap.set(targetId, []);
+    parentMap.get(targetId)!.push(t.id);
+  }
+}
+
+// Find root troops (no parent within this culture's troops)
+const rootTroops = troops.filter(t => {
+  const parents = parentMap.get(t.id) || [];
+  return parents.length === 0;
+});
+
+// Assign tiers based on level ranges
+const TIER_LEVELS = [1, 6, 11, 16, 21, 26, 31, 36, 41, 46];
+function getTier(level: number): number {
+  for (let i = TIER_LEVELS.length - 1; i >= 0; i--) {
+    if (level >= TIER_LEVELS[i]) return i;
+  }
+  return 0;
+}
+
+// Build tree nodes with positioning
+interface TreeNode {
+  troop: Troop;
+  tier: number;
+  children: TreeNode[];
+  column: number;
+}
+
+function buildTree(troopId: string, visited: Set<string> = new Set()): TreeNode | null {
+  if (visited.has(troopId)) return null;
+  const troop = troopById.get(troopId);
+  if (!troop) return null;
+
+  visited.add(troopId);
+  const children: TreeNode[] = [];
+  for (const targetId of troop.upgradeTo) {
+    const child = buildTree(targetId, visited);
+    if (child) children.push(child);
+  }
+
+  return {
+    troop,
+    tier: getTier(troop.level),
+    children,
+    column: 0,
+  };
+}
+
+// Build forest from all roots
+const trees: TreeNode[] = [];
+const visited = new Set<string>();
+// Sort roots by level, then name
+rootTroops.sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+for (const root of rootTroops) {
+  const tree = buildTree(root.id, visited);
+  if (tree) trees.push(tree);
+}
+
+// Also add any orphans (troops with no parent AND no children in the set)
+for (const t of troops) {
+  if (!visited.has(t.id)) {
+    const tree = buildTree(t.id, visited);
+    if (tree) trees.push(tree);
+  }
+}
+
+// Flatten all nodes by tier for grid layout
+interface FlatNode {
+  id: string;
+  name: string;
+  level: number;
+  tier: number;
+  group: string;
+  childIds: string[];
+  parentIds: string[];
+}
+
+const flatNodes: FlatNode[] = [];
+function flattenTree(node: TreeNode) {
+  flatNodes.push({
+    id: node.troop.id,
+    name: node.troop.name,
+    level: node.troop.level,
+    tier: node.tier,
+    group: node.troop.defaultGroup || 'Infantry',
+    childIds: node.children.map(c => c.troop.id),
+    parentIds: parentMap.get(node.troop.id) || [],
+  });
+  for (const child of node.children) {
+    flattenTree(child);
+  }
+}
+for (const tree of trees) {
+  flattenTree(tree);
+}
+
+// Deduplicate
+const seen = new Set<string>();
+const uniqueNodes = flatNodes.filter(n => {
+  if (seen.has(n.id)) return false;
+  seen.add(n.id);
+  return true;
+});
+
+// Group by tier
+const tierMap = new Map<number, FlatNode[]>();
+for (const node of uniqueNodes) {
+  if (!tierMap.has(node.tier)) tierMap.set(node.tier, []);
+  tierMap.get(node.tier)!.push(node);
+}
+
+// Sort tiers
+const tiers = Array.from(tierMap.entries()).sort((a, b) => a[0] - b[0]);
+
+// Serialize node data for client-side line drawing
+const nodeData = uniqueNodes.map(n => ({
+  id: n.id,
+  childIds: n.childIds,
+}));
+
+// Color map for default_group
+const GROUP_COLORS: Record<string, string> = {
+  Infantry: '#E08080',
+  Cavalry: '#B39DDB',
+  Ranged: '#6DBF8A',
+  HorseArcher: '#D4C96A',
+  General: '#c9a44a',
+};
+
+function stripBracketPrefix(name: string): string {
+  return name.replace(/^\[.*?\]\s*/, '');
+}
+---
+
+<div class="troop-tree-container" data-culture={culture}>
+  <div class="tree-legend">
+    {Object.entries(GROUP_COLORS).map(([group, color]) => (
+      <span class="legend-item">
+        <span class="legend-dot" style={`background: ${color}`}></span>
+        {group}
+      </span>
+    ))}
+  </div>
+
+  <div class="tree-scroll">
+    <svg class="tree-lines" id={`tree-svg-${culture}`}></svg>
+    <div class="tree-grid">
+      {tiers.map(([tier, nodes]) => (
+        <div class="tree-tier" data-tier={tier}>
+          <div class="tier-label">
+            <span class="tier-num">T{tier}</span>
+            <span class="tier-level">Lv {TIER_LEVELS[tier]}</span>
+          </div>
+          <div class="tier-nodes">
+            {nodes.map(node => {
+              const color = GROUP_COLORS[node.group] || '#999';
+              return (
+                <div
+                  class="tree-node"
+                  id={`node-${node.id}`}
+                  data-id={node.id}
+                  data-children={node.childIds.join(',')}
+                  style={`--node-color: ${color}; --node-color-dim: ${color}33`}
+                >
+                  <span class="node-name">{stripBracketPrefix(node.name)}</span>
+                  <span class="node-level">Lv {node.level}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .troop-tree-container {
+    position: relative;
+    margin: 1rem 0;
+  }
+
+  .tree-legend {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .tree-scroll {
+    overflow-x: auto;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .tree-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .tree-grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: fit-content;
+  }
+
+  .tree-tier {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border-color);
+    min-height: 56px;
+  }
+
+  .tree-tier:last-child {
+    border-bottom: none;
+  }
+
+  .tier-label {
+    width: 70px;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+  }
+
+  .tier-num {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .tier-level {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .tier-nodes {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .tree-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    background: var(--node-color-dim);
+    border: 1px solid var(--node-color);
+    border-left: 3px solid var(--node-color);
+    border-radius: 4px;
+    cursor: default;
+    white-space: nowrap;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    z-index: 2;
+  }
+
+  .tree-node:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+
+  .node-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .node-level {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  .tree-node.highlighted {
+    box-shadow: 0 0 8px var(--node-color);
+    transform: scale(1.05);
+  }
+
+  .tree-node.dimmed {
+    opacity: 0.3;
+  }
+</style>
+
+<script>
+  // Draw SVG lines connecting parent → child nodes
+  function drawTreeLines() {
+    document.querySelectorAll('.troop-tree-container').forEach(container => {
+      const svg = container.querySelector('.tree-lines') as SVGSVGElement;
+      if (!svg) return;
+
+      const scroll = container.querySelector('.tree-scroll') as HTMLElement;
+      const grid = container.querySelector('.tree-grid') as HTMLElement;
+      if (!grid) return;
+
+      // Size SVG to match grid
+      const rect = grid.getBoundingClientRect();
+      const scrollRect = scroll.getBoundingClientRect();
+      svg.setAttribute('width', String(grid.scrollWidth));
+      svg.setAttribute('height', String(grid.scrollHeight));
+      svg.innerHTML = '';
+
+      const nodes = container.querySelectorAll('.tree-node');
+      const gridOffset = grid.getBoundingClientRect();
+
+      nodes.forEach(nodeEl => {
+        const el = nodeEl as HTMLElement;
+        const childIds = (el.dataset.children || '').split(',').filter(Boolean);
+
+        for (const childId of childIds) {
+          const childEl = container.querySelector(`#node-${CSS.escape(childId)}`) as HTMLElement;
+          if (!childEl) continue;
+
+          const parentRect = el.getBoundingClientRect();
+          const childRect = childEl.getBoundingClientRect();
+
+          const x1 = parentRect.left + parentRect.width / 2 - gridOffset.left;
+          const y1 = parentRect.bottom - gridOffset.top;
+          const x2 = childRect.left + childRect.width / 2 - gridOffset.left;
+          const y2 = childRect.top - gridOffset.top;
+
+          const midY = (y1 + y2) / 2;
+
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', `M${x1},${y1} C${x1},${midY} ${x2},${midY} ${x2},${y2}`);
+          path.setAttribute('stroke', getComputedStyle(el).getPropertyValue('--node-color').trim() || '#555');
+          path.setAttribute('stroke-width', '1.5');
+          path.setAttribute('fill', 'none');
+          path.setAttribute('opacity', '0.5');
+          path.setAttribute('data-parent', el.dataset.id || '');
+          path.setAttribute('data-child', childId);
+          svg.appendChild(path);
+        }
+      });
+    });
+  }
+
+  // Highlight upgrade path on hover
+  function setupHighlighting() {
+    document.querySelectorAll('.troop-tree-container').forEach(container => {
+      const allNodes = container.querySelectorAll('.tree-node');
+      const svg = container.querySelector('.tree-lines');
+
+      allNodes.forEach(nodeEl => {
+        const el = nodeEl as HTMLElement;
+        const nodeId = el.dataset.id || '';
+
+        el.addEventListener('mouseenter', () => {
+          // Find all connected nodes (ancestors + descendants)
+          const connected = new Set<string>();
+          connected.add(nodeId);
+
+          // Walk descendants
+          function addDescendants(id: string) {
+            const node = container.querySelector(`[data-id="${CSS.escape(id)}"]`) as HTMLElement;
+            if (!node) return;
+            const children = (node.dataset.children || '').split(',').filter(Boolean);
+            for (const child of children) {
+              if (!connected.has(child)) {
+                connected.add(child);
+                addDescendants(child);
+              }
+            }
+          }
+
+          // Walk ancestors
+          function addAncestors(id: string) {
+            allNodes.forEach(n => {
+              const nEl = n as HTMLElement;
+              const children = (nEl.dataset.children || '').split(',').filter(Boolean);
+              if (children.includes(id) && !connected.has(nEl.dataset.id || '')) {
+                connected.add(nEl.dataset.id || '');
+                addAncestors(nEl.dataset.id || '');
+              }
+            });
+          }
+
+          addDescendants(nodeId);
+          addAncestors(nodeId);
+
+          // Dim non-connected, highlight connected
+          allNodes.forEach(n => {
+            const nEl = n as HTMLElement;
+            if (connected.has(nEl.dataset.id || '')) {
+              nEl.classList.add('highlighted');
+              nEl.classList.remove('dimmed');
+            } else {
+              nEl.classList.add('dimmed');
+              nEl.classList.remove('highlighted');
+            }
+          });
+
+          // Highlight connected lines
+          if (svg) {
+            svg.querySelectorAll('path').forEach(path => {
+              const parent = path.getAttribute('data-parent') || '';
+              const child = path.getAttribute('data-child') || '';
+              if (connected.has(parent) && connected.has(child)) {
+                path.setAttribute('opacity', '1');
+                path.setAttribute('stroke-width', '2.5');
+              } else {
+                path.setAttribute('opacity', '0.1');
+              }
+            });
+          }
+        });
+
+        el.addEventListener('mouseleave', () => {
+          allNodes.forEach(n => {
+            (n as HTMLElement).classList.remove('highlighted', 'dimmed');
+          });
+          if (svg) {
+            svg.querySelectorAll('path').forEach(path => {
+              path.setAttribute('opacity', '0.5');
+              path.setAttribute('stroke-width', '1.5');
+            });
+          }
+        });
+      });
+    });
+  }
+
+  // Run after DOM ready + small delay for layout
+  function init() {
+    drawTreeLines();
+    setupHighlighting();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(init, 100));
+  } else {
+    setTimeout(init, 100);
+  }
+
+  // Redraw on resize
+  window.addEventListener('resize', () => {
+    drawTreeLines();
+  });
+</script>
