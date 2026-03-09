@@ -18,6 +18,7 @@ const KINGDOM_IMAGES: Record<string, string> = {
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
   <section class="page-banner">
+    <img src="/images/banner-kingdoms.jpg" alt="Kingdoms of Middle-earth" class="banner-img" />
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <h1>Kingdoms of Middle-earth</h1>
@@ -76,12 +77,13 @@ const KINGDOM_IMAGES: Record<string, string> = {
   .page-banner {
     position: relative;
     width: 100%;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('/images/banner-kingdoms.jpg') center center / cover no-repeat;
     overflow: hidden;
+  }
+
+  .banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .banner-overlay {
@@ -89,17 +91,20 @@ const KINGDOM_IMAGES: Record<string, string> = {
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(25, 25, 25, 0.9) 100%
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.15) 60%,
+      rgba(25, 25, 25, 0.95) 100%
     );
   }
 
   .banner-content {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     text-align: center;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .banner-content h1 {
