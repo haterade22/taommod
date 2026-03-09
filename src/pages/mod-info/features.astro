@@ -52,6 +52,18 @@ const categories: FeatureCategory[] = [
         ],
         status: 'live',
       },
+      {
+        title: 'Regional Bandit Factions',
+        desc: 'Outlaws aren\'t generic — each region spawns culturally distinct bandits with unique equipment, fighting styles, and regional strongholds across Middle-earth.',
+        details: [
+          '77 bandit NPC templates across 7 regional variants',
+          'Sea Raiders (Rohan coast), Gondor Bandits, Pale Uruk Bandits, Mountain/Forest/Desert/Steppe Bandits',
+          'Each variant has 12-15 unique equipment loadouts with regional weapons',
+          'Bandit boss parties for each region with elite troops',
+          'Looters and deserters as low-tier universal bandits',
+        ],
+        status: 'live',
+      },
     ],
   },
   {
@@ -97,18 +109,44 @@ const categories: FeatureCategory[] = [
         ],
         status: 'live',
       },
+      {
+        title: 'Faction Battle AI',
+        desc: 'When enabled, each faction fights with a distinct tactical personality. Rohan charges with cavalry, Erebor holds shield walls, Mirkwood skirmishes from range — battles feel different every time.',
+        details: [
+          'Culture-specific army compositions drive AI tactics automatically',
+          'Rohan: aggressive cavalry charges with heavy rider emphasis (25-60 elite cavalry)',
+          'Gondor/Lossarnach: disciplined shield walls and defensive infantry formations',
+          'Mirkwood/Lothlorien: ranged harassment with heavy archer emphasis (10-60 archers)',
+          'Dunland: guerrilla hit-and-run tactics with skirmisher/raider focus',
+          'Mordor/Dol Guldur: aggressive melee swarms with overwhelming orc numbers',
+          'Erebor: slow-moving heavy dwarf formations with axe and hammer specialization',
+        ],
+        status: 'live',
+      },
+      {
+        title: '81 Battle Terrain Scenes',
+        desc: 'Battles take place on terrain that matches the campaign map location. Fight across plains, deserts, swamps, mountains, and forests — each with distinct tactical advantages.',
+        details: [
+          '81 battle terrain scenes mapped to specific map regions',
+          'Terrain types: Plains (40 scenes), Steppe (27), Desert (8), Swamp (6)',
+          'Forest density modifiers (low/high) affect visibility and archery',
+          'Mountain, river, canyon, and lake features shape battlefield flow',
+          'Map indices tie each scene to specific settlements for geographic accuracy',
+        ],
+        status: 'live',
+      },
     ],
   },
   {
     category: 'Race & Creature Systems',
     features: [
       {
-        title: 'Playable Races',
+        title: '12 Playable Races',
         desc: 'Play as Dwarves, Orcs, Uruk-hai, and more with correct proportions, animations, voices, and camera heights. Not just cosmetic — races affect gameplay.',
         details: [
-          'Full race system: Human, Dwarf, Elf, Orc, Uruk, Uruk-Hai, Berserker, Cave Troll, Half-Troll, Goblin',
+          'Full race system: Human, Dwarf, Elf, Orc, Uruk, Uruk-Hai, Berserker, Cave Troll, Half-Troll, Goblin, Hill Troll, Pale Uruk',
+          '58 body property templates defining racial characteristics',
           'Race-specific body proportions, action sets, and skeleton scaling',
-          'Custom voice acting for Dwarves, Uruk-hai, and Orcs (430+ sound files)',
           'Correct eye height and camera positioning per race',
           'Race data persists across save/load cycles',
           'Character creation supports all custom races',
@@ -119,11 +157,12 @@ const categories: FeatureCategory[] = [
         title: 'Race-Based Perk System',
         desc: 'Character perks scale differently per race. Dwarves excel at smithing, Elves dominate archery, Trolls are unstoppable two-handed fighters — every race has a playstyle.',
         details: [
-          '12 races with unique multipliers across 90+ perks',
+          '12 races with unique multipliers across 156+ perks',
           'Dwarves: +30% smithing, +20% crafting perks',
           'Elves: +30-40% archery bonuses',
-          'Trolls: +100% two-handed strength, -30% tactics',
+          'Trolls: +80-100% two-handed bashing, -30% tactics',
           'Orcs/Uruks: strength bonuses, social skill penalties',
+          'Covers all 16 skill trees: One-Handed through Steward',
           'Fully configurable via JSON — moddable by sub-modders',
         ],
         status: 'live',
@@ -183,6 +222,20 @@ const categories: FeatureCategory[] = [
         status: 'live',
       },
       {
+        title: 'Settlement-Based Recruitment',
+        desc: 'Recruitment follows a Settlement > Clan > Culture hierarchy. Travel to specific regions to recruit their troops — Pelargir fields marines, Lossarnach musters axemen, the Wold breeds riders.',
+        details: [
+          '69+ settlement-specific and clan-specific party templates',
+          'Pelargir: heavy marine/naval focus (sailors, marines, archers)',
+          'Lossarnach: pure infantry emphasis (axemen, heavy axemen, wrathbearers)',
+          'Rohan settlements: cavalry-dominant armies (6 cavalry types, minimal infantry)',
+          'Erebor variants: axe-focus or spear-focus specialization templates',
+          'Clan lords inherit recruitment pools from their assigned settlement template',
+          'Regional recruitment cost bonuses: Dunland infantry 25% cheaper, Erebor infantry 15% cheaper',
+        ],
+        status: 'live',
+      },
+      {
         title: 'Culture Economic Bonuses',
         desc: 'Faction identity extends beyond the battlefield. Some cultures have cheaper garrisons, siege discounts, or influence penalties that shape long-term strategy.',
         details: [
@@ -190,6 +243,44 @@ const categories: FeatureCategory[] = [
           'Siege discounts: Erebor and Isengard get 20-25% cheaper siege equipment',
           'Morale bonuses: Dunland gets +20% morale in battles',
           'Influence penalties: Lothlorien gets -25% influence from battles — elves care less for politics',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Culture-Specific Caravans',
+        desc: 'Trade caravans are customized per faction with culture-appropriate equipment and leaders, making the economic layer feel authentically Middle-earth.',
+        details: [
+          '7 caravan leader templates with culture-specific gear',
+          'Faction-appropriate weapons: Eastern spears for Rhun, noble swords for Harad',
+          'Caravan guards drawn from local troop pools',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Audio & Immersion',
+    features: [
+      {
+        title: 'Custom Voice Acting',
+        desc: 'Races don\'t just look different — they sound different. 750+ custom audio files bring Uruk-hai battle cries, Dwarf war chants, and creature roars to life.',
+        details: [
+          '302 custom sound entries across 5 audio categories',
+          'Isengard/Uruk-hai: 207 sounds — deaths, grunts, yells, laughs, victory cries, attack commands',
+          'Dwarf: 118 unique voice lines for combat and ambient dialogue',
+          'Monster/creature sounds: 242 audio files for trolls, wargs, and beasts',
+          'Rohan: 176 sounds including culture-specific horn calls',
+          'Custom Lurtz voice samples for Isengard characters',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Custom Music',
+        desc: 'The vanilla Bannerlord soundtrack is replaced with a Middle-earth score. Custom LOTR-inspired tracks set the tone from the main menu onward.',
+        details: [
+          'Custom main menu theme replaces vanilla title screen music',
+          '6+ original soundtrack tracks',
+          'Music system integrated via XSLT transformation',
         ],
         status: 'live',
       },
@@ -203,9 +294,21 @@ const categories: FeatureCategory[] = [
         desc: '658 settlements placed across a sprawling Middle-earth, from the Shire to Mordor. Region-appropriate battle terrain ensures every fight feels geographically authentic.',
         details: [
           '658 named settlements (towns, castles, villages) across all 16 faction territories',
-          '256 battle scene definitions mapped to terrain types (plains, desert, mountain, water, canyon)',
+          '81 battle scene definitions mapped to terrain types (plains, steppe, desert, swamp)',
           'Forest density variation and special terrain features',
           'Distance cache for optimized pathfinding across the massive map',
+        ],
+        status: 'live',
+      },
+      {
+        title: '648 Custom Troop Types',
+        desc: 'Every faction fields a unique military with culture-specific troops, equipment, and upgrade paths. 648 distinct unit types across 338 party templates create armies that feel authentically Middle-earth.',
+        details: [
+          '648 unique troop types across all 16 factions',
+          '338 party templates defining militia, garrison, bandit, and army compositions',
+          '1,260 troop composition entries controlling unit ratios per party',
+          'Culture-specific party templates: villagers, militia, garrison, patrols',
+          '198 equipment rosters with culture-appropriate armor and weapons',
         ],
         status: 'live',
       },
@@ -222,12 +325,66 @@ const categories: FeatureCategory[] = [
         status: 'live',
       },
       {
-        title: 'Banner Persistence',
-        desc: 'Custom banner designs for all kingdoms and clans survive save/load cycles. Player-edited banners are tracked and never overwritten.',
+        title: '453 Custom Banner Icons',
+        desc: 'Hundreds of custom banner designs drawn from Tolkien heraldry. Every kingdom and clan has a lore-accurate insignia that persists across save/load cycles.',
         details: [
+          '453 custom banner icons across 3+ icon packs',
           'Auto-applies 73+ custom clan/kingdom banners every session',
           'Detects when players manually edit banners and respects those changes',
           'Visual invalidation ensures war parties update immediately',
+          'Lore-accurate designs: White Tree of Gondor, Eye of Sauron, and more',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Custom Items & Equipment',
+        desc: 'Uruk-hai crossbows, faction-specific armor sets, and lore-accurate weapons replace vanilla gear. Each culture equips troops with gear that matches their identity.',
+        details: [
+          '20+ custom Uruk-hai items: crossbows, helms, armor, shoulder guards',
+          '198 equipment rosters for battle, civilian, and noble loadouts',
+          'Culture-specific crafting templates for Uruk pikes, swords, and polearms',
+          'Detailed weapon stats: damage, speed, weight, accuracy, missile speed',
+          'Named hero equipment sets (Boromir, Faramir, and more)',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Settlement Locations',
+        desc: 'Towns, castles, and villages feature expanded interior locations. Visit taverns, arenas, lord\'s halls, and dungeons — each with prosperity-scaled population.',
+        details: [
+          '21 location types across 5 settlement complex templates',
+          'Towns: 8 locations — center, arena, tavern, alley, lord\'s hall, prison, houses',
+          'Castles: 3 locations — courtyard, lord\'s hall, dungeon',
+          'Lord\'s halls scale with prosperity (up to 3 difficulty levels)',
+          '16 passage connections between town locations',
+        ],
+        status: 'live',
+      },
+    ],
+  },
+  {
+    category: 'Character & Progression',
+    features: [
+      {
+        title: 'Culture Education Paths',
+        desc: 'Character backstory and development are culture-specific. Choose from 6 branching education paths during character creation, each tied to a Middle-earth culture.',
+        details: [
+          '61 education character templates across 6 cultures',
+          'Cultures: Mordor, Gondor, Erebor, Rivendell, Mirkwood, Dol Guldur',
+          '6 branches per culture with unique skill and equipment progressions',
+          '1,976 equipment roster configurations for development stages',
+          'Culture-appropriate armor sets reflect your character\'s origin',
+        ],
+        status: 'live',
+      },
+      {
+        title: '14 Language Localization',
+        desc: 'Play TAOM in your language. Full localization support across 14 languages covers all custom culture names, troop types, lord names, and UI text.',
+        details: [
+          '14 languages: English, German, French, Spanish, Italian, Polish, Russian, Turkish, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese, and more',
+          '29 localization XML files covering all custom content',
+          'Culture definitions, clan names, kingdom names, troop types all translated',
+          'Special character support for non-Latin scripts',
         ],
         status: 'live',
       },
@@ -236,7 +393,7 @@ const categories: FeatureCategory[] = [
 ];
 ---
 
-<BaseLayout title="Coding Features" description="Gameplay systems and custom features powering TAOM">
+<BaseLayout title="Features" description="Gameplay systems and custom features powering TAOM">
   <div class="page-content mod-info">
     <nav class="breadcrumb">
       <a href="/mod-info">&larr; Mod Info</a>
