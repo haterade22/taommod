@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TroopTree from '../../components/TroopTree.astro';
 import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
+import { FACTION_TROOPS } from '../../data/faction-troops';
 
 export const PLANNED_FACTIONS: Record<string, string> = {
   lothlorien: 'Lothlorien',
@@ -64,6 +65,14 @@ const FACTION_IMAGES: Record<string, string> = {
 };
 
 const bgImage = FACTION_IMAGES[culture];
+const troopBranches = FACTION_TROOPS[culture] || [];
+
+const TYPE_COLORS: Record<string, string> = {
+  regular: '#4CAF50',
+  noble: '#AB47BC',
+  regional: '#42A5F5',
+  unique: '#FFA726',
+};
 ---
 
 <BaseLayout title={displayName} description={`${displayName} faction details - troops, lore, and composition in TAOM`}>
@@ -147,12 +156,37 @@ const bgImage = FACTION_IMAGES[culture];
           ))}
         </section>
 
-        <section class="faction-section faction-lore">
-          <h2>About {displayName}</h2>
-          <div class="coming-soon">
-            <p>Detailed faction lore and history coming soon.</p>
-          </div>
-        </section>
+        {troopBranches.length > 0 ? (
+          <section class="faction-section">
+            <h2>Troop Branches</h2>
+            <p class="section-desc">The military branches of {displayName}, from common fodder to elite warriors.</p>
+            <div class="branch-cards">
+              {troopBranches.map(branch => (
+                <div class="branch-card" style={`--branch-color: ${TYPE_COLORS[branch.type]}`}>
+                  <div class="branch-card-header">
+                    <div class="branch-title-row">
+                      <h3>{branch.name}</h3>
+                      {branch.status === 'done' && <span class="branch-status done">Done</span>}
+                    </div>
+                    <div class="branch-meta">
+                      <span class="branch-tier">{branch.tiers}</span>
+                      <span class="branch-type">{branch.type.charAt(0).toUpperCase() + branch.type.slice(1)}</span>
+                      {branch.region && <span class="branch-region">{branch.region}</span>}
+                    </div>
+                  </div>
+                  <p class="branch-desc">{branch.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <section class="faction-section faction-lore">
+            <h2>About {displayName}</h2>
+            <div class="coming-soon">
+              <p>Detailed faction lore and troop branch information coming soon.</p>
+            </div>
+          </section>
+        )}
       </>
     )}
   </div>
@@ -261,6 +295,81 @@ const bgImage = FACTION_IMAGES[culture];
     padding: 3rem 1rem;
     color: var(--text-secondary);
     font-size: 1rem;
+  }
+
+  .branch-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+
+  .branch-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--branch-color);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .branch-card-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .branch-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .branch-card-header h3 {
+    color: var(--branch-color);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .branch-status.done {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    letter-spacing: 0.5px;
+  }
+
+  .branch-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .branch-tier {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .branch-type {
+    color: var(--branch-color);
+    font-weight: 600;
+  }
+
+  .branch-region {
+    color: var(--text-secondary);
+  }
+
+  .branch-region::before {
+    content: '📍 ';
+  }
+
+  .branch-desc {
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .planned-badge {
