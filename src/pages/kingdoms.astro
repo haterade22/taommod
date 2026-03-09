@@ -20,6 +20,34 @@ const EMBLEM_IMAGES: Record<string, string> = {
   empire_w: '/images/kingdom-gondor-banner.png',
   aserai: '/images/kingdom-harad-banner.png',
 };
+
+// Override culture display names for kingdoms that share a vanilla culture ID
+const CULTURE_OVERRIDES: Record<string, string> = {
+  empire_w: 'Gondor',
+  empire_s: 'Mordor',
+  empire: 'Dunland',
+  sturgia: 'Dale',
+  aserai: 'Harad',
+  vlandia: 'Rohan',
+  battania: 'Variag',
+  khuzait: 'Rhun',
+};
+
+// Lore-appropriate kingdom colors [primary, secondary]
+const KINGDOM_COLORS: Record<string, [string, string]> = {
+  empire_w: ['#C0C0C0', '#1A1A2E'],  // Gondor: silver + dark blue
+  empire_s: ['#8B0000', '#1A1A1A'],   // Mordor: dark red + black
+  empire:   ['#8B6914', '#2D1B00'],   // Dunland: brown/gold + dark brown
+  sturgia:  ['#4169E1', '#C0C0C0'],   // Dale: royal blue + silver
+  aserai:   ['#DC143C', '#2D0A0A'],   // Harad: crimson + dark red
+  vlandia:  ['#228B22', '#C8A951'],   // Rohan: forest green + gold
+  battania: ['#8B4513', '#4A0E0E'],   // Variag: saddle brown + dark red
+  khuzait:  ['#DAA520', '#4B0082'],   // Rhun: goldenrod + indigo
+  erebor:   ['#B8860B', '#4A4A4A'],   // Erebor: dark gold + stone grey
+  isengard: ['#2F2F2F', '#F5F5F5'],   // Isengard: dark iron + white hand
+  gundabad: ['#6B7B8D', '#1C1C1C'],   // Gundabad: cold steel + black
+  dolguldur:['#4A0E4A', '#1A1A1A'],   // Dol Guldur: dark purple + black
+};
 ---
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
@@ -36,6 +64,7 @@ const EMBLEM_IMAGES: Record<string, string> = {
       {kingdoms.map(k => {
         const bgImage = KINGDOM_IMAGES[k.id];
         const emblemImage = EMBLEM_IMAGES[k.id];
+        const colors = KINGDOM_COLORS[k.id];
         return (
           <div
             class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
@@ -46,24 +75,24 @@ const EMBLEM_IMAGES: Record<string, string> = {
             <div class="kingdom-content">
               <h3>{k.name}</h3>
               <div class="kingdom-meta">
-                {k.color && (
+                {colors && (
                   <span
                     class="color-swatch"
-                    style={`background: #${k.color.replace(/^(0x|#)?(FF)?/i, '')};`}
-                    title={`Primary: ${k.color}`}
+                    style={`background: ${colors[0]};`}
+                    title={`Primary`}
                   />
                 )}
-                {k.color2 && (
+                {colors && (
                   <span
                     class="color-swatch"
-                    style={`background: #${k.color2.replace(/^(0x|#)?(FF)?/i, '')};`}
-                    title={`Secondary: ${k.color2}`}
+                    style={`background: ${colors[1]};`}
+                    title={`Secondary`}
                   />
                 )}
                 <span class="kingdom-title">{k.title}</span>
               </div>
               <p><strong>Ruler:</strong> {k.rulerTitle}</p>
-              <p><strong>Culture:</strong> {getCultureDisplayName(k.culture)}</p>
+              <p><strong>Culture:</strong> {CULTURE_OVERRIDES[k.id] || getCultureDisplayName(k.culture)}</p>
               {k.description && (
                 <p class="kingdom-desc">
                   {k.description.length > 200 ? k.description.slice(0, 200) + '...' : k.description}
