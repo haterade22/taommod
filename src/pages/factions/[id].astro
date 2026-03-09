@@ -3,17 +3,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TroopTree from '../../components/TroopTree.astro';
 import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
 
+export const PLANNED_FACTIONS: Record<string, string> = {
+  lothlorien: 'Lothlorien',
+  battania: 'Khand',
+};
+
 export function getStaticPaths() {
   const troops = parseTroops().filter(t => !isHiddenCulture(t.culture));
   const cultures = [...new Set(troops.map(t => t.culture).filter(Boolean))];
-  return cultures.map(culture => ({
+  const paths = cultures.map(culture => ({
     params: { id: culture },
     props: { culture },
   }));
+  // Add planned faction pages
+  for (const id of Object.keys(PLANNED_FACTIONS)) {
+    if (!cultures.includes(id)) {
+      paths.push({ params: { id }, props: { culture: id } });
+    }
+  }
+  return paths;
 }
 
 const { culture } = Astro.props;
-const displayName = getCultureDisplayName(culture);
+const isPlanned = culture in PLANNED_FACTIONS;
+const displayName = isPlanned ? PLANNED_FACTIONS[culture] : getCultureDisplayName(culture);
 
 const allTroops = parseTroops().filter(t => t.culture === culture);
 const troopsByGroup = new Map<string, typeof allTroops>();
@@ -56,12 +69,14 @@ const bgImage = FACTION_IMAGES[culture];
   <div class="faction-hero" style={bgImage ? `background-image: url('${bgImage}')` : ''}>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>{displayName}</h1>
-      <div class="hero-stats">
-        <span><strong>{totalTroops}</strong> units</span>
-        <span>Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong></span>
-        <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
-      </div>
+      <h1>{displayName} {isPlanned && <span class="planned-badge">Planned</span>}</h1>
+      {!isPlanned && (
+        <div class="hero-stats">
+          <span><strong>{totalTroops}</strong> units</span>
+          <span>Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong></span>
+          <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
+        </div>
+      )}
     </div>
   </div>
 
@@ -70,63 +85,75 @@ const bgImage = FACTION_IMAGES[culture];
       <a href="/factions">&larr; All Factions</a>
     </nav>
 
-    <section class="faction-section">
-      <h2>Troop Tree</h2>
-      <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
-      <TroopTree troops={allTroops} culture={culture} />
-    </section>
-
-    <section class="faction-section">
-      <h2>Troop Roster</h2>
-      <p class="section-desc">All {displayName} units organized by role.</p>
-
-      {sortedGroups.map(([group, troops]) => (
-        <div class="group-block">
-          <h3>{group} <span class="group-count">({troops.length})</span></h3>
-          <div class="data-table-wrapper">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th class="col-num">Level</th>
-                  <th class="col-num">1H</th>
-                  <th class="col-num">2H</th>
-                  <th class="col-num">Pole</th>
-                  <th class="col-num">Bow</th>
-                  <th class="col-num">XBow</th>
-                  <th class="col-num">Throw</th>
-                  <th class="col-num">Ath</th>
-                  <th class="col-num">Ride</th>
-                </tr>
-              </thead>
-              <tbody>
-                {troops.map(t => (
-                  <tr data-culture={culture}>
-                    <td>{t.name}</td>
-                    <td class="col-num">{t.level}</td>
-                    <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
-                    <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
-                    <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
-                    <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
-                    <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
-                    <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
-                    <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
-                    <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+    {isPlanned ? (
+      <section class="faction-section">
+        <div class="planned-notice">
+          <h2>Planned Faction</h2>
+          <p>{displayName} is a planned faction for a future update of TAOM. Troops, equipment, and lore are currently in development.</p>
+          <a href="/factions" class="btn btn-secondary">&larr; Back to Factions</a>
         </div>
-      ))}
-    </section>
+      </section>
+    ) : (
+      <>
+        <section class="faction-section">
+          <h2>Troop Tree</h2>
+          <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
+          <TroopTree troops={allTroops} culture={culture} />
+        </section>
 
-    <section class="faction-section faction-lore">
-      <h2>About {displayName}</h2>
-      <div class="coming-soon">
-        <p>Detailed faction lore and history coming soon.</p>
-      </div>
-    </section>
+        <section class="faction-section">
+          <h2>Troop Roster</h2>
+          <p class="section-desc">All {displayName} units organized by role.</p>
+
+          {sortedGroups.map(([group, troops]) => (
+            <div class="group-block">
+              <h3>{group} <span class="group-count">({troops.length})</span></h3>
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th class="col-num">Level</th>
+                      <th class="col-num">1H</th>
+                      <th class="col-num">2H</th>
+                      <th class="col-num">Pole</th>
+                      <th class="col-num">Bow</th>
+                      <th class="col-num">XBow</th>
+                      <th class="col-num">Throw</th>
+                      <th class="col-num">Ath</th>
+                      <th class="col-num">Ride</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {troops.map(t => (
+                      <tr data-culture={culture}>
+                        <td>{t.name}</td>
+                        <td class="col-num">{t.level}</td>
+                        <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
+                        <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
+                        <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
+                        <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
+                        <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
+                        <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
+                        <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
+                        <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section class="faction-section faction-lore">
+          <h2>About {displayName}</h2>
+          <div class="coming-soon">
+            <p>Detailed faction lore and history coming soon.</p>
+          </div>
+        </section>
+      </>
+    )}
   </div>
 </BaseLayout>
 
@@ -232,5 +259,39 @@ const bgImage = FACTION_IMAGES[culture];
     padding: 3rem 1rem;
     color: var(--text-secondary);
     font-size: 1rem;
+  }
+
+  .planned-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.7rem;
+    border: 2px dashed #d4a24c;
+    border-radius: 4px;
+    color: #d4a24c;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .planned-notice {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .planned-notice h2 {
+    color: #d4a24c;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border: none;
+  }
+
+  .planned-notice p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
   }
 </style>
