@@ -69,6 +69,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
         const emblemImage = EMBLEM_IMAGES[k.id];
         const colors = KINGDOM_COLORS[k.id];
         return (
+          <a href={`/kingdoms/${k.id}`} class="kingdom-card-link">
           <div
             class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
             style={bgImage && !emblemImage ? `--bg-image: url('${bgImage}')` : ''}
@@ -103,6 +104,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
               )}
             </div>
           </div>
+          </a>
         );
       })}
     </div>
@@ -171,10 +173,18 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     grid-auto-rows: 280px;
   }
 
+  .kingdom-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
   .kingdom-card {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    height: 100%;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     transition: transform 0.2s, box-shadow 0.2s;

@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseKingdomsFromXslt, parseAllClans, parseAllLords, getCultureDisplayName } from '../../lib/parse-xml';
+import type { Kingdom, Clan, Lord } from '../../lib/parse-xml';
+
+export function getStaticPaths() {
+  const kingdoms = parseKingdomsFromXslt();
+  return kingdoms.map(k => ({
+    params: { id: k.id },
+    props: { kingdom: k },
+  }));
+}
+
+const { kingdom } = Astro.props as { kingdom: Kingdom };
+const allClans = parseAllClans();
+const allLords = parseAllLords();
+
+// Get clans for this kingdom
+const clans = allClans.filter(c => c.kingdomId === kingdom.id);
+clans.sort((a, b) => a.name.localeCompare(b.name));
+
+// Build lord lookup by ID for clan owners
+const lordById = new Map<string, Lord>();
+for (const lord of allLords) {
+  lordById.set(lord.id, lord);
+}
+
+// Build clan-to-lords mapping using clan owner field
+const clanLords = new Map<string, Lord[]>();
+for (const clan of clans) {
+  const lords: Lord[] = [];
+  if (clan.owner && lordById.has(clan.owner)) {
+    lords.push(lordById.get(clan.owner)!);
+  }
+  clanLords.set(clan.id, lords);
+}
+
+// Culture override for display
+const CULTURE_OVERRIDES: Record<string, string> = {
+  empire_w: 'Gondor', empire_s: 'Mordor', empire: 'Dunland',
+  sturgia: 'Dale', aserai: 'Harad', vlandia: 'Rohan',
+  battania: 'Variag', khuzait: 'Rhun',
+};
+
+const cultureName = CULTURE_OVERRIDES[kingdom.id] || getCultureDisplayName(kingdom.culture);
+
+// Kingdom emblem images
+const EMBLEM_IMAGES: Record<string, string> = {
+  empire_w: '/images/kingdom-gondor-banner.png',
+  aserai: '/images/kingdom-harad-banner.png',
+  dolguldur: '/images/kingdom-dolguldur-banner.png',
+  rivendell: '/images/kingdom-rivendell-banner.png',
+  lothlorien: '/images/kingdom-lothlorien-banner.png',
+  isengard: '/images/kingdom-isengard-banner.png',
+  umbar: '/images/kingdom-umbar-banner.png',
+  erebor: '/images/kingdom-erebor-banner.png',
+  gundabad: '/images/kingdom-gundabad-banner.png',
+};
+
+const KINGDOM_COLORS: Record<string, [string, string]> = {
+  empire_w: ['#C0C0C0', '#1A1A2E'],
+  empire_s: ['#8B0000', '#1A1A1A'],
+  empire:   ['#8B6914', '#2D1B00'],
+  sturgia:  ['#4169E1', '#C0C0C0'],
+  aserai:   ['#DC143C', '#2D0A0A'],
+  vlandia:  ['#228B22', '#C8A951'],
+  battania: ['#8B4513', '#4A0E0E'],
+  khuzait:  ['#DAA520', '#4B0082'],
+  erebor:   ['#B8860B', '#4A4A4A'],
+  isengard: ['#2F2F2F', '#F5F5F5'],
+  gundabad: ['#6B7B8D', '#1C1C1C'],
+  dolguldur:['#5B8C3A', '#1A1A1A'],
+  rivendell:['#2E86AB', '#C0C0C0'],
+  lothlorien:['#DAA520', '#F5F5F5'],
+  umbar:    ['#8B0000', '#DAA520'],
+  mirkwood: ['#2E5A1E', '#8B6914'],
+};
+
+const emblem = EMBLEM_IMAGES[kingdom.id];
+const colors = KINGDOM_COLORS[kingdom.id];
+---
+
+<BaseLayout title={kingdom.name} description={kingdom.description}>
+  <section class="kingdom-header" style={colors ? `--kc1: ${colors[0]}; --kc2: ${colors[1]}` : ''}>
+    {emblem && <img src={emblem} alt={`${kingdom.name} emblem`} class="header-emblem" />}
+    <div class="header-content">
+      <h1>{kingdom.name}</h1>
+      <p class="kingdom-title">{kingdom.title}</p>
+      <div class="kingdom-info">
+        <span><strong>Ruler:</strong> {kingdom.rulerTitle}</span>
+        <span><strong>Culture:</strong> {cultureName}</span>
+        {colors && (
+          <span class="colors">
+            <span class="swatch" style={`background: ${colors[0]}`} />
+            <span class="swatch" style={`background: ${colors[1]}`} />
+          </span>
+        )}
+      </div>
+      {kingdom.description && <p class="kingdom-desc">{kingdom.description}</p>}
+    </div>
+  </section>
+
+  <div class="page-content">
+    <section class="clans-section">
+      <h2>Clans ({clans.length})</h2>
+      {clans.length === 0 && <p class="muted">No clans found for this kingdom.</p>}
+      <div class="clans-grid">
+        {clans.map(clan => {
+          const lords = clanLords.get(clan.id) || [];
+          return (
+            <div class="clan-card">
+              <div class="clan-header">
+                <h3>{clan.name}</h3>
+                {clan.tier > 0 && <span class="clan-tier">Tier {clan.tier}</span>}
+              </div>
+              {lords.length > 0 && (
+                <div class="clan-lords">
+                  <h4>Clan Leader</h4>
+                  {lords.map(lord => (
+                    <div class="lord-entry">
+                      <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
+                      {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {Object.keys(lords[0]?.skills || {}).length > 0 && (
+                <div class="lord-skills">
+                  {Object.entries(lords[0].skills)
+                    .filter(([_, v]) => v > 0)
+                    .sort(([, a], [, b]) => b - a)
+                    .slice(0, 4)
+                    .map(([skill, value]) => (
+                      <span class="skill-badge">{skill} {value}</span>
+                    ))
+                  }
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <a href="/kingdoms" class="back-link">&larr; Back to Kingdoms</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .kingdom-header {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--kc2, #1a1a1a) 0%, var(--kc1, #333) 50%, var(--kc2, #1a1a1a) 100%);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .header-emblem {
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    height: 100%;
+    width: auto;
+    opacity: 0.15;
+    pointer-events: none;
+    object-fit: contain;
+    object-position: right top;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+
+  .header-content h1 {
+    color: var(--accent);
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  }
+
+  .kingdom-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .kingdom-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .kingdom-info strong {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .colors {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  .swatch {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .kingdom-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .clans-section {
+    margin-top: 2rem;
+  }
+
+  .clans-section h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .clans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .clan-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+
+  .clan-card:hover {
+    border-color: var(--accent-dim);
+  }
+
+  .clan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .clan-header h3 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .clan-tier {
+    color: var(--accent);
+    font-size: 0.75rem;
+    background: rgba(218, 165, 32, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .clan-lords h4 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .lord-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+  }
+
+  .lord-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+  }
+
+  .lord-group {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  .lord-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+  }
+
+  .skill-badge {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  .muted {
+    color: var(--text-muted);
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .kingdom-header {
+      padding: 2rem 1rem;
+    }
+    .clans-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

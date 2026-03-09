@@ -107,9 +107,21 @@ export interface Clan {
   id: string;
   name: string;
   kingdom: string;
+  kingdomId: string;
   culture: string;
   tier: number;
+  owner: string;
   bannerKey: string;
+}
+
+export interface Lord {
+  id: string;
+  name: string;
+  culture: string;
+  defaultGroup: string;
+  isFemale: boolean;
+  skills: Record<string, number>;
+  traits: Record<string, number>;
 }
 
 // --- Helpers ---
@@ -294,9 +306,28 @@ const KINGDOM_ID_TO_NAME: Record<string, string> = {
   dolguldur: 'Dol Guldur',
 };
 
+// Map clan ID prefix to kingdom ID
+const CLAN_ID_TO_KINGDOM_ID: Record<string, string> = {
+  empire_north: 'empire',
+  empire_west: 'empire_w',
+  empire_south: 'empire_s',
+  sturgia: 'sturgia',
+  aserai: 'aserai',
+  vlandia: 'vlandia',
+  battania: 'battania',
+  khuzait: 'khuzait',
+};
+
 function getKingdomFromClanId(clanId: string): string {
   for (const [prefix, kingdom] of Object.entries(CLAN_ID_TO_KINGDOM)) {
     if (clanId.startsWith(`clan_${prefix}_`)) return kingdom;
+  }
+  return '';
+}
+
+function getKingdomIdFromClanId(clanId: string): string {
+  for (const [prefix, kingdomId] of Object.entries(CLAN_ID_TO_KINGDOM_ID)) {
+    if (clanId.startsWith(`clan_${prefix}_`)) return kingdomId;
   }
   return '';
 }
@@ -325,8 +356,10 @@ export function parseAllClans(): Clan[] {
           id,
           name: stripLocKey(nameMatch[1].trim()),
           kingdom: getKingdomFromClanId(id),
+          kingdomId: getKingdomIdFromClanId(id),
           culture: '',
           tier: 0,
+          owner: '',
           bannerKey: bannerMatch ? bannerMatch[1].trim() : '',
         });
       }
@@ -346,8 +379,10 @@ export function parseAllClans(): Clan[] {
         id: f['@_id'] || '',
         name: stripLocKey(f['@_name'] || ''),
         kingdom,
+        kingdomId: superFaction,
         culture: stripPrefix(f['@_culture'] || '', 'Culture.'),
         tier: parseInt(f['@_tier'], 10) || 0,
+        owner: stripPrefix(f['@_owner'] || '', 'Hero.'),
         bannerKey: f['@_banner_key'] || '',
       });
     }
@@ -358,6 +393,92 @@ export function parseAllClans(): Clan[] {
 
 export function parseClansFromXslt(): Clan[] {
   return parseAllClans();
+}
+
+export function parseAllLords(): Lord[] {
+  const lords: Lord[] = [];
+  const dataDir = getDataDir();
+
+  // 1. Parse XSLT lords (vanilla overrides with full skill/trait data)
+  const xsltPath = path.join(dataDir, 'lords.xslt');
+  if (fs.existsSync(xsltPath)) {
+    const content = fs.readFileSync(xsltPath, 'utf-8');
+    const templateRegex = /match="NPCCharacter\[@id='([^']+)'\]"[\s\S]*?<\/xsl:template>/g;
+    let match;
+    while ((match = templateRegex.exec(content)) !== null) {
+      const id = match[1];
+      const block = match[0];
+
+      const nameMatch = block.match(/name="name">([^<]+)<\/xsl:attribute>/);
+      if (!nameMatch) continue;
+
+      const groupMatch = block.match(/name="default_group">([^<]+)<\/xsl:attribute>/);
+      const femaleMatch = block.match(/name="is_female">([^<]+)<\/xsl:attribute>/);
+
+      // Parse skills
+      const skills: Record<string, number> = {};
+      const skillRegex = /<skill\s+id="([^"]+)"\s+value="(\d+)"/g;
+      let skillMatch;
+      while ((skillMatch = skillRegex.exec(block)) !== null) {
+        skills[skillMatch[1]] = parseInt(skillMatch[2], 10);
+      }
+
+      // Parse traits
+      const traits: Record<string, number> = {};
+      const traitRegex = /<Trait\s+id="([^"]+)"\s+value="(-?\d+)"/g;
+      let traitMatch;
+      while ((traitMatch = traitRegex.exec(block)) !== null) {
+        traits[traitMatch[1]] = parseInt(traitMatch[2], 10);
+      }
+
+      lords.push({
+        id,
+        name: stripLocKey(nameMatch[1].trim()),
+        culture: '',
+        defaultGroup: groupMatch ? groupMatch[1].trim() : '',
+        isFemale: femaleMatch ? femaleMatch[1].trim() === 'true' : false,
+        skills,
+        traits,
+      });
+    }
+  }
+
+  // 2. Parse lords.xml (new custom lords)
+  const lordsXmlPath = path.join(dataDir, 'characters', 'lords.xml');
+  if (fs.existsSync(lordsXmlPath)) {
+    const xml = fs.readFileSync(lordsXmlPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const npcs = parsed?.NPCCharacters?.NPCCharacter || [];
+    for (const npc of npcs) {
+      const skillsList = npc.skills?.skill || [];
+      const skills: Record<string, number> = {};
+      for (const s of skillsList) {
+        if (s['@_id'] && s['@_value']) {
+          skills[s['@_id']] = parseInt(s['@_value'], 10) || 0;
+        }
+      }
+
+      const traitsList = npc.Traits?.Trait || [];
+      const traits: Record<string, number> = {};
+      for (const t of traitsList) {
+        if (t['@_id'] && t['@_value'] !== undefined) {
+          traits[t['@_id']] = parseInt(t['@_value'], 10) || 0;
+        }
+      }
+
+      lords.push({
+        id: npc['@_id'] || '',
+        name: stripLocKey(npc['@_name'] || ''),
+        culture: stripPrefix(npc['@_culture'] || '', 'Culture.'),
+        defaultGroup: npc['@_default_group'] || '',
+        isFemale: npc['@_is_female'] === 'true',
+        skills,
+        traits,
+      });
+    }
+  }
+
+  return lords;
 }
 
 export function getCultureList(): string[] {
