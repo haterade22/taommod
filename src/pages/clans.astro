@@ -4,8 +4,10 @@ import { parseAllClans } from '../lib/parse-xml';
 
 const clans = parseAllClans();
 
+type ClanEntry = { name: string; region?: string };
+
 // Override Gondor clans with exact order from game UI
-const GONDOR_CLANS: { name: string; region?: string }[] = [
+const GONDOR_CLANS: ClanEntry[] = [
   { name: 'House of Húrinionath', region: 'Anórien' },
   { name: 'House of Imrazôrionath', region: 'Belfalas' },
   { name: 'House of Eärnurionath', region: 'Lebennin' },
@@ -22,12 +24,24 @@ const GONDOR_CLANS: { name: string; region?: string }[] = [
   { name: 'House of Garvirionath' },
 ];
 
+// Override Umbar clans with exact order from game UI
+const UMBAR_CLANS: ClanEntry[] = [
+  { name: 'House of Casimirioni' },
+  { name: 'House of Jarjâx' },
+  { name: 'House of Heshlâ' },
+  { name: 'House of Bel Inzûl' },
+  { name: 'House of Halrax' },
+  { name: 'House of Khatûg' },
+];
+
 // Kingdom banner images
 const KINGDOM_IMAGES: Record<string, string> = {
   Gondor: '/images/clans-gondor.png',
+  Umbar: '/images/clans-umbar.png',
 };
 
-type ClanEntry = { name: string; region?: string };
+// Kingdoms with manual overrides (skip auto-sort)
+const OVERRIDE_KINGDOMS = new Set(['Gondor', 'Umbar']);
 
 // Group clans by kingdom
 const clansByKingdom = new Map<string, ClanEntry[]>();
@@ -37,16 +51,17 @@ for (const clan of clans) {
   clansByKingdom.get(kingdom)!.push({ name: clan.name });
 }
 
-// Override Gondor with exact list
+// Override with exact lists
 clansByKingdom.set('Gondor', GONDOR_CLANS);
+clansByKingdom.set('Umbar', UMBAR_CLANS);
 
-// Sort kingdoms alphabetically, sort clans within each kingdom by name (except Gondor which has fixed order)
+// Sort kingdoms alphabetically, sort clans within each kingdom by name (except overridden ones)
 const sortedKingdoms = Array.from(clansByKingdom.entries())
   .filter(([k]) => k !== 'Unknown' && k !== '')
   .sort(([a], [b]) => a.localeCompare(b));
 
 for (const [kingdom, entries] of sortedKingdoms) {
-  if (kingdom !== 'Gondor') {
+  if (!OVERRIDE_KINGDOMS.has(kingdom)) {
     entries.sort((a, b) => a.name.localeCompare(b.name));
   }
 }
