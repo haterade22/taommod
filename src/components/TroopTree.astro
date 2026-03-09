@@ -10,17 +10,15 @@ const { troops, culture } = Astro.props;
 
 // Build lookup maps
 const troopById = new Map<string, Troop>();
-for (const t of troops) {
-  troopById.set(t.id, t);
-}
+for (const t of troops) troopById.set(t.id, t);
 
-// Find parent for each troop
+// Parent map
 const parentMap = new Map<string, string[]>();
 for (const t of troops) {
-  for (const targetId of t.upgradeTo) {
-    if (troopById.has(targetId)) {
-      if (!parentMap.has(targetId)) parentMap.set(targetId, []);
-      parentMap.get(targetId)!.push(t.id);
+  for (const cid of t.upgradeTo) {
+    if (troopById.has(cid)) {
+      if (!parentMap.has(cid)) parentMap.set(cid, []);
+      parentMap.get(cid)!.push(t.id);
     }
   }
 }
@@ -34,162 +32,131 @@ function getTier(level: number): number {
   return 0;
 }
 
-// Find root troops (no parent within this faction)
-const rootTroops = troops.filter(t => {
-  const parents = parentMap.get(t.id) || [];
-  return parents.length === 0;
-}).sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+// Root troops (no parents within this faction)
+const rootTroops = troops
+  .filter(t => !(parentMap.get(t.id)?.length))
+  .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
 
-// --- Build branches ---
-// A "branch" starts at each child of a root (or at a root with no children that splits)
-// We trace each branch all the way down
+// === Column Layout Algorithm ===
+// Each leaf gets its own column. Parents span their children's columns.
+// Single-child parents stay in the same column as their child.
 
-interface Branch {
-  label: string;
-  nodes: Map<number, Troop[]>; // tier → troops at that tier
-  allIds: Set<string>;
+interface NodePos {
+  troopId: string;
+  col: number;
+  span: number;
+  tier: number;
+}
+
+const positions: NodePos[] = [];
+let nextCol = 0;
+const assigned = new Set<string>();
+
+function layoutSubtree(nodeId: string): { start: number; width: number } {
+  if (assigned.has(nodeId)) {
+    const p = positions.find(p => p.troopId === nodeId);
+    return p ? { start: p.col, width: p.span } : { start: nextCol, width: 0 };
+  }
+  assigned.add(nodeId);
+
+  const node = troopById.get(nodeId)!;
+  const tier = getTier(node.level);
+  const unvisitedChildren = node.upgradeTo.filter(id => troopById.has(id) && !assigned.has(id));
+
+  if (unvisitedChildren.length === 0) {
+    // Leaf node — gets its own column
+    const col = nextCol++;
+    positions.push({ troopId: nodeId, col, span: 1, tier });
+    return { start: col, width: 1 };
+  }
+
+  // Layout children first (bottom-up)
+  const childResults = unvisitedChildren.map(cid => layoutSubtree(cid));
+  const valid = childResults.filter(r => r.width > 0);
+
+  if (valid.length === 0) {
+    const col = nextCol++;
+    positions.push({ troopId: nodeId, col, span: 1, tier });
+    return { start: col, width: 1 };
+  }
+
+  const start = valid[0].start;
+  const end = valid[valid.length - 1].start + valid[valid.length - 1].width;
+  const span = end - start;
+
+  positions.push({ troopId: nodeId, col: start, span, tier });
+  return { start, width: span };
+}
+
+for (const root of rootTroops) {
+  if (!assigned.has(root.id)) layoutSubtree(root.id);
+}
+
+// Pick up orphans
+for (const t of troops) {
+  if (!assigned.has(t.id)) {
+    assigned.add(t.id);
+    positions.push({ troopId: t.id, col: nextCol++, span: 1, tier: getTier(t.level) });
+  }
+}
+
+const totalCols = nextCol;
+
+// === Column Headers ===
+// Derive from the first span-1 troop in each column, then merge adjacent same-label headers
+
+function stripBrackets(name: string): string {
+  return name.replace(/^\[.*?\]\s*/, '');
 }
 
 function deriveBranchLabel(troop: Troop): string {
-  let name = troop.name.replace(/^\[.*?\]\s*/, '');
-  // Try to extract a regional name (first word if multi-word, unless generic)
-  const genericWords = new Set(['Recruit', 'Militia', 'Militiaman', 'Levyman', 'Footman', 'Warrior', 'Scout', 'Soldier', 'Peasant']);
+  const name = stripBrackets(troop.name);
+  const generic = new Set(['Recruit', 'Militia', 'Militiaman', 'Levyman', 'Footman', 'Warrior', 'Scout', 'Soldier', 'Peasant']);
   const words = name.split(/\s+/);
-  if (words.length >= 2 && !genericWords.has(words[0])) {
-    return words[0];
-  }
+  if (words.length >= 2 && !generic.has(words[0])) return words[0];
   return name;
 }
 
-function traceBranch(startId: string, visited: Set<string>): Troop[] {
-  const chain: Troop[] = [];
-  const queue = [startId];
-  while (queue.length > 0) {
-    const id = queue.shift()!;
-    if (visited.has(id)) continue;
-    const troop = troopById.get(id);
-    if (!troop) continue;
-    visited.add(id);
-    chain.push(troop);
-    for (const childId of troop.upgradeTo) {
-      if (troopById.has(childId) && !visited.has(childId)) {
-        queue.push(childId);
-      }
-    }
-  }
-  return chain;
-}
-
-const branches: Branch[] = [];
-const globalVisited = new Set<string>();
-
-// Shared roots go into a special "root" section, then each of their children starts a branch
-for (const root of rootTroops) {
-  if (globalVisited.has(root.id)) continue;
-
-  const childIds = root.upgradeTo.filter(id => troopById.has(id));
-
-  if (childIds.length === 0) {
-    // Standalone troop — its own branch
-    globalVisited.add(root.id);
-    const b: Branch = {
-      label: deriveBranchLabel(root),
-      nodes: new Map(),
-      allIds: new Set([root.id]),
-    };
-    const tier = getTier(root.level);
-    b.nodes.set(tier, [root]);
-    branches.push(b);
-  } else if (childIds.length === 1) {
-    // Single chain — trace it as one branch
-    const chain = traceBranch(root.id, globalVisited);
-    const b: Branch = {
-      label: deriveBranchLabel(root),
-      nodes: new Map(),
-      allIds: new Set(chain.map(t => t.id)),
-    };
-    for (const t of chain) {
-      const tier = getTier(t.level);
-      if (!b.nodes.has(tier)) b.nodes.set(tier, []);
-      b.nodes.get(tier)!.push(t);
-    }
-    branches.push(b);
+const rawColHeaders: string[] = [];
+for (let c = 0; c < totalCols; c++) {
+  const nodes = positions.filter(p => p.col === c && p.span === 1).sort((a, b) => a.tier - b.tier);
+  if (nodes.length > 0) {
+    rawColHeaders.push(deriveBranchLabel(troopById.get(nodes[0].troopId)!));
   } else {
-    // Root splits into multiple branches
-    globalVisited.add(root.id);
-    for (const childId of childIds) {
-      if (globalVisited.has(childId)) continue;
-      const child = troopById.get(childId)!;
-      const chain = traceBranch(childId, globalVisited);
-      const b: Branch = {
-        label: deriveBranchLabel(child),
-        nodes: new Map(),
-        allIds: new Set(chain.map(t => t.id)),
-      };
-      // Include root in this branch
-      b.allIds.add(root.id);
-      const rootTier = getTier(root.level);
-      if (!b.nodes.has(rootTier)) b.nodes.set(rootTier, []);
-      // Only add root to the first branch to avoid duplication in rendering
-      // We'll handle root display specially
-
-      for (const t of chain) {
-        const tier = getTier(t.level);
-        if (!b.nodes.has(tier)) b.nodes.set(tier, []);
-        b.nodes.get(tier)!.push(t);
-      }
-      branches.push(b);
-    }
+    rawColHeaders.push('');
   }
 }
 
-// Pick up any remaining orphans
-for (const t of troops) {
-  if (!globalVisited.has(t.id)) {
-    globalVisited.add(t.id);
-    const chain = traceBranch(t.id, globalVisited);
-    const b: Branch = {
-      label: deriveBranchLabel(t),
-      nodes: new Map(),
-      allIds: new Set(chain.map(tr => tr.id)),
-    };
-    for (const tr of chain) {
-      const tier = getTier(tr.level);
-      if (!b.nodes.has(tier)) b.nodes.set(tier, []);
-      b.nodes.get(tier)!.push(tr);
-    }
-    branches.push(b);
+// Merge adjacent same-label headers
+interface MergedHeader {
+  label: string;
+  colStart: number;
+  colSpan: number;
+}
+const mergedHeaders: MergedHeader[] = [];
+for (let c = 0; c < totalCols; c++) {
+  const label = rawColHeaders[c];
+  if (mergedHeaders.length > 0 && mergedHeaders[mergedHeaders.length - 1].label === label) {
+    mergedHeaders[mergedHeaders.length - 1].colSpan++;
+  } else {
+    mergedHeaders.push({ label, colStart: c, colSpan: 1 });
   }
 }
 
-// Collect all tiers used
-const allTiers = new Set<number>();
-for (const b of branches) {
-  for (const tier of b.nodes.keys()) {
-    allTiers.add(tier);
-  }
-}
-// Also add root tiers
-for (const root of rootTroops) {
-  allTiers.add(getTier(root.level));
-}
-const sortedTiers = Array.from(allTiers).sort((a, b) => a - b);
+// Tiers and row mapping
+const sortedTiers = [...new Set(positions.map(p => p.tier))].sort((a, b) => a - b);
+const tierToRow = new Map(sortedTiers.map((t, i) => [t, i + 2])); // row 1 = header
+const totalRows = sortedTiers.length + 1;
 
-// Build edge map for SVG: parent id → child ids (only within this faction)
+// Edges for SVG lines
 const edges: { parentId: string; childId: string }[] = [];
 for (const t of troops) {
-  for (const childId of t.upgradeTo) {
-    if (troopById.has(childId)) {
-      edges.push({ parentId: t.id, childId });
-    }
+  for (const cid of t.upgradeTo) {
+    if (troopById.has(cid)) edges.push({ parentId: t.id, childId: cid });
   }
 }
 
-// Collect root troops that split (shown spanning across top)
-const sharedRoots = rootTroops.filter(r => r.upgradeTo.filter(id => troopById.has(id)).length > 1);
-const sharedRootIds = new Set(sharedRoots.map(r => r.id));
-
-// Color map for default_group
+// Color map
 const GROUP_COLORS: Record<string, string> = {
   Infantry: '#E08080',
   Cavalry: '#B39DDB',
@@ -197,10 +164,6 @@ const GROUP_COLORS: Record<string, string> = {
   HorseArcher: '#D4C96A',
   General: '#c9a44a',
 };
-
-function stripBracketPrefix(name: string): string {
-  return name.replace(/^\[.*?\]\s*/, '');
-}
 ---
 
 <div class="troop-tree-container" data-culture={culture}>
@@ -215,88 +178,56 @@ function stripBracketPrefix(name: string): string {
 
   <div class="tree-scroll">
     <svg class="tree-lines" id={`tree-svg-${culture}`}></svg>
-    <div class="tree-grid" style={`--num-branches: ${branches.length}`}>
-      {/* Header row with branch labels */}
-      <div class="tree-row tree-header">
-        <div class="tier-label"></div>
-        {branches.map(b => (
-          <div class="branch-header">{b.label}</div>
-        ))}
-      </div>
-
-      {/* Shared roots row (if any) */}
-      {sharedRoots.length > 0 && (
-        <div class="tree-row root-row">
-          <div class="tier-label">
-            <span class="tier-num">T{getTier(sharedRoots[0].level)}</span>
-            <span class="tier-level">Lv {TIER_LEVELS[getTier(sharedRoots[0].level)]}</span>
-          </div>
-          <div class="root-span" style={`grid-column: 2 / -1`}>
-            {sharedRoots.map(root => {
-              const color = GROUP_COLORS[root.defaultGroup] || '#999';
-              return (
-                <div
-                  class="tree-node"
-                  id={`node-${root.id}`}
-                  data-id={root.id}
-                  data-children={root.upgradeTo.filter(id => troopById.has(id)).join(',')}
-                  style={`--node-color: ${color}; --node-color-dim: ${color}33`}
-                >
-                  <span class="node-name">{stripBracketPrefix(root.name)}</span>
-                  <span class="node-level">Lv {root.level}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* Tier rows */}
-      {sortedTiers.filter(tier => {
-        // Skip the shared root tier if all troops at that tier are shared roots
-        if (sharedRoots.length > 0 && tier === getTier(sharedRoots[0].level)) {
-          // Check if there are non-root troops at this tier
-          return branches.some(b => {
-            const nodesAtTier = b.nodes.get(tier) || [];
-            return nodesAtTier.some(t => !sharedRootIds.has(t.id));
-          });
-        }
-        return true;
-      }).map(tier => (
-        <div class="tree-row" data-tier={tier}>
-          <div class="tier-label">
-            <span class="tier-num">T{tier}</span>
-            <span class="tier-level">Lv {TIER_LEVELS[tier]}</span>
-          </div>
-          {branches.map(b => {
-            const nodesAtTier = (b.nodes.get(tier) || []).filter(t => !sharedRootIds.has(t.id));
-            return (
-              <div class="branch-cell">
-                {nodesAtTier.map(t => {
-                  const color = GROUP_COLORS[t.defaultGroup] || '#999';
-                  const childIds = t.upgradeTo.filter(id => troopById.has(id));
-                  return (
-                    <div
-                      class="tree-node"
-                      id={`node-${t.id}`}
-                      data-id={t.id}
-                      data-children={childIds.join(',')}
-                      style={`--node-color: ${color}; --node-color-dim: ${color}33`}
-                    >
-                      <span class="node-name">{stripBracketPrefix(t.name)}</span>
-                      <span class="node-level">Lv {t.level}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
+    <div class="tree-grid" style={`
+      grid-template-columns: 70px repeat(${totalCols}, minmax(110px, 1fr));
+      grid-template-rows: repeat(${totalRows}, auto);
+    `}>
+      {/* Header row — merged column headers */}
+      <div class="header-label" style="grid-row: 1; grid-column: 1"></div>
+      {mergedHeaders.map(h => (
+        <div
+          class="branch-header"
+          style={`grid-row: 1; grid-column: ${h.colStart + 2} / span ${h.colSpan}`}
+        >
+          {h.label}
         </div>
       ))}
+
+      {/* Tier labels */}
+      {sortedTiers.map(tier => (
+        <div class="tier-label" style={`grid-row: ${tierToRow.get(tier)}; grid-column: 1`}>
+          <span class="tier-num">T{tier}</span>
+          <span class="tier-level">Lv {TIER_LEVELS[tier]}</span>
+        </div>
+      ))}
+
+      {/* Troop nodes — each placed explicitly in the grid */}
+      {positions.map(pos => {
+        const troop = troopById.get(pos.troopId)!;
+        const color = GROUP_COLORS[troop.defaultGroup] || '#999';
+        const row = tierToRow.get(pos.tier)!;
+        const childIds = troop.upgradeTo.filter(id => troopById.has(id));
+        return (
+          <div
+            class="tree-cell"
+            style={`grid-row: ${row}; grid-column: ${pos.col + 2} / span ${pos.span}`}
+          >
+            <div
+              class="tree-node"
+              id={`node-${troop.id}`}
+              data-id={troop.id}
+              data-children={childIds.join(',')}
+              style={`--node-color: ${color}; --node-color-dim: ${color}33`}
+            >
+              <span class="node-name">{stripBrackets(troop.name)}</span>
+              <span class="node-level">Lv {troop.level}</span>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 
-  {/* Edge data for JS line drawing */}
   <script type="application/json" class="tree-edges">{JSON.stringify(edges)}</script>
 </div>
 
@@ -345,15 +276,15 @@ function stripBracketPrefix(name: string): string {
   .tree-grid {
     position: relative;
     display: grid;
-    grid-template-columns: 70px repeat(var(--num-branches), minmax(140px, 1fr));
     min-width: fit-content;
   }
 
-  .tree-row {
-    display: contents;
+  .header-label {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--accent-dim);
   }
 
-  .tree-header .branch-header {
+  .branch-header {
     padding: 0.5rem 0.5rem;
     font-size: 0.75rem;
     font-weight: 700;
@@ -364,17 +295,12 @@ function stripBracketPrefix(name: string): string {
     white-space: nowrap;
   }
 
-  .tree-header .tier-label {
-    border-bottom: 2px solid var(--accent-dim);
-    background: var(--bg-secondary);
-  }
-
   .tier-label {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem;
     background: var(--bg-secondary);
     border-right: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -391,37 +317,20 @@ function stripBracketPrefix(name: string): string {
     color: var(--text-muted);
   }
 
-  .root-span {
+  .tree-cell {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    gap: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .branch-cell {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    padding: 0.4rem 0.35rem;
     align-items: center;
     justify-content: center;
+    padding: 0.4rem 0.25rem;
+    min-height: 52px;
     border-bottom: 1px solid var(--border-color);
-    border-right: 1px dashed rgba(51, 51, 51, 0.5);
-    min-height: 48px;
-  }
-
-  .branch-cell:last-child {
-    border-right: none;
   }
 
   .tree-node {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.35rem 0.6rem;
+    padding: 0.3rem 0.5rem;
     background: var(--node-color-dim);
     border: 1px solid var(--node-color);
     border-left: 3px solid var(--node-color);

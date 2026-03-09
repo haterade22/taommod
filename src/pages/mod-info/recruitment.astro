@@ -2,30 +2,275 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Recruitment System" description="How troop recruitment works in TAOM">
+<BaseLayout title="Recruitment System" description="How troop recruitment works in TAOM - the four-tier structure">
   <div class="page-content mod-info">
-    <h1 class="page-title">Recruitment System</h1>
-    <div class="coming-soon">
-      <p>Content coming soon.</p>
-      <a href="/mod-info" class="btn btn-secondary">&larr; Back to Mod Info</a>
-    </div>
+    <nav class="breadcrumb">
+      <a href="/mod-info">&larr; Mod Info</a>
+    </nav>
+
+    <h1 class="page-title">Recruitment System Overview</h1>
+    <p class="page-subtitle">A New Four-Tier Structure</p>
+
+    <section class="intro-section">
+      <p>
+        To better reflect regional diversity and faction identity, <em>Tales from the Age of Men</em> introduces a
+        <strong>new four-tier recruitment structure</strong> that applies to <strong>every faction</strong> in the mod.
+        Troops no longer fall into just "standard" and "noble" categories; instead, armies are formed through a
+        layered system of <span class="tier-tag regular">Regular</span>, <span class="tier-tag noble">Noble</span>,
+        <span class="tier-tag regional">Regional</span>, and <span class="tier-tag unique">Unique</span> units,
+        each with its own availability and rarity.
+      </p>
+    </section>
+
+    <section class="tier-cards">
+      <div class="tier-card">
+        <div class="tier-card-header regular">
+          <h2>Regular Units</h2>
+          <span class="tier-pct">40-50%</span>
+        </div>
+        <p>
+          Form the foundation of every army. These are the most common troops and can be recruited consistently
+          across <strong>all settlements</strong> within their faction's territory.
+        </p>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-card-header noble">
+          <h2>Noble Units</h2>
+          <span class="tier-pct">10-20%</span>
+        </div>
+        <p>
+          Follow the classic Bannerlord rule: they remain <strong>globally recruitable</strong> within their faction's
+          lands, but appear in <strong>small numbers</strong> and represent elite households, officer retinues, or
+          aristocratic warriors.
+        </p>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-card-header regional">
+          <h2>Regional Units</h2>
+          <span class="tier-pct">30-40%</span>
+        </div>
+        <p>
+          Tied to <strong>specific homelands</strong> &mdash; certain cities, castles, or villages based on their
+          cultural or geographic origins. They are <strong>more specialized</strong> and <strong>rarer</strong>,
+          making up a significant but location-dependent portion of a settlement's recruits.
+        </p>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-card-header unique">
+          <h2>Unique Units</h2>
+          <span class="tier-pct">Rare</span>
+        </div>
+        <p>
+          Tied to <strong>only one or two settlements</strong> in the entire game. These represent exceptional
+          formations, sacred orders, or legendary warriors. While not every faction currently fields one,
+          future updates will expand this category.
+        </p>
+      </div>
+    </section>
+
+    <section class="gameplay-section">
+      <h2>In Practice</h2>
+      <p>
+        A typical garrison or settlement recruit pool might appear as roughly
+        <strong class="regular-text">40-50% Regular</strong> troops,
+        <strong class="noble-text">10-20% Noble</strong> troops, and
+        <strong class="regional-text">30-40% Regional</strong> troops,
+        with <strong class="unique-text">Unique</strong> units being extremely limited and tied to specific
+        strategic locations.
+      </p>
+      <p>
+        This structure creates deeper faction identity and encourages players to expand into &mdash; or defend &mdash;
+        key regions to unlock their full military potential.
+      </p>
+    </section>
+
+    <section class="bar-chart-section">
+      <h3>Typical Settlement Recruit Composition</h3>
+      <div class="bar-chart">
+        <div class="bar-segment regular" style="flex: 45">
+          <span>Regular</span>
+          <span>~45%</span>
+        </div>
+        <div class="bar-segment noble" style="flex: 15">
+          <span>Noble</span>
+          <span>~15%</span>
+        </div>
+        <div class="bar-segment regional" style="flex: 35">
+          <span>Regional</span>
+          <span>~35%</span>
+        </div>
+        <div class="bar-segment unique" style="flex: 5">
+          <span>Unique</span>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
 <style>
   .mod-info {
-    max-width: 1100px;
+    max-width: 900px;
   }
 
-  .coming-soon {
-    text-align: center;
-    padding: 4rem 1rem;
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 0.85rem;
   }
 
-  .coming-soon a {
-    display: inline-block;
-    margin-top: 1.5rem;
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .page-subtitle {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .intro-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .tier-tag {
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+  }
+
+  .tier-tag.regular { color: #4CAF50; }
+  .tier-tag.noble { color: #AB47BC; }
+  .tier-tag.regional { color: #42A5F5; }
+  .tier-tag.unique { color: #FFA726; }
+
+  .tier-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tier-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .tier-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .tier-card-header h2 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .tier-pct {
+    font-size: 0.85rem;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+
+  .tier-card-header.regular { border-left: 4px solid #4CAF50; }
+  .tier-card-header.regular h2 { color: #4CAF50; }
+  .tier-card-header.regular .tier-pct { color: #4CAF50; }
+
+  .tier-card-header.noble { border-left: 4px solid #AB47BC; }
+  .tier-card-header.noble h2 { color: #AB47BC; }
+  .tier-card-header.noble .tier-pct { color: #AB47BC; }
+
+  .tier-card-header.regional { border-left: 4px solid #42A5F5; }
+  .tier-card-header.regional h2 { color: #42A5F5; }
+  .tier-card-header.regional .tier-pct { color: #42A5F5; }
+
+  .tier-card-header.unique { border-left: 4px solid #FFA726; }
+  .tier-card-header.unique h2 { color: #FFA726; }
+  .tier-card-header.unique .tier-pct { color: #FFA726; }
+
+  .tier-card p {
+    padding: 1rem 1.25rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .gameplay-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .gameplay-section h2 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .gameplay-section p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .regular-text { color: #4CAF50; }
+  .noble-text { color: #AB47BC; }
+  .regional-text { color: #42A5F5; }
+  .unique-text { color: #FFA726; }
+
+  .bar-chart-section {
+    margin-bottom: 2rem;
+  }
+
+  .bar-chart-section h3 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .bar-chart {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 48px;
+  }
+
+  .bar-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    gap: 0.1rem;
+  }
+
+  .bar-segment.regular { background: #4CAF50; }
+  .bar-segment.noble { background: #AB47BC; }
+  .bar-segment.regional { background: #42A5F5; }
+  .bar-segment.unique { background: #FFA726; }
+
+  @media (max-width: 600px) {
+    .tier-cards {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
