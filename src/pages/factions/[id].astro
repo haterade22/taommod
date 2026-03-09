@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
+
+export function getStaticPaths() {
+  const troops = parseTroops().filter(t => !isHiddenCulture(t.culture));
+  const cultures = [...new Set(troops.map(t => t.culture).filter(Boolean))];
+  return cultures.map(culture => ({
+    params: { id: culture },
+    props: { culture },
+  }));
+}
+
+const { culture } = Astro.props;
+const displayName = getCultureDisplayName(culture);
+
+const allTroops = parseTroops().filter(t => t.culture === culture);
+const troopsByGroup = new Map<string, typeof allTroops>();
+for (const t of allTroops) {
+  const group = t.defaultGroup || 'Other';
+  if (!troopsByGroup.has(group)) troopsByGroup.set(group, []);
+  troopsByGroup.get(group)!.push(t);
+}
+// Sort troops within each group by level
+for (const troops of troopsByGroup.values()) {
+  troops.sort((a, b) => a.level - b.level);
+}
+
+const GROUP_ORDER = ['Infantry', 'Cavalry', 'Ranged', 'HorseArcher', 'General'];
+const sortedGroups = Array.from(troopsByGroup.entries()).sort((a, b) => {
+  const ai = GROUP_ORDER.indexOf(a[0]);
+  const bi = GROUP_ORDER.indexOf(b[0]);
+  return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+});
+
+const totalTroops = allTroops.length;
+const minLevel = Math.min(...allTroops.map(t => t.level));
+const maxLevel = Math.max(...allTroops.map(t => t.level));
+
+// Faction images
+const FACTION_IMAGES: Record<string, string> = {
+  mordor: '/images/faction-mordor.jpg',
+  dolguldur: '/images/faction-dolguldur.webp',
+  erebor: '/images/faction-erebor.jpg',
+  khuzait: '/images/faction-rhun.webp',
+  gundabad: '/images/faction-gundabad.webp',
+  isengard: '/images/faction-isengard.jpg',
+  empire: '/images/faction-dunland.jpg',
+};
+
+const bgImage = FACTION_IMAGES[culture];
+---
+
+<BaseLayout title={displayName} description={`${displayName} faction details - troops, lore, and composition in TAOM`}>
+  <div class="faction-hero" style={bgImage ? `background-image: url('${bgImage}')` : ''}>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{displayName}</h1>
+      <div class="hero-stats">
+        <span><strong>{totalTroops}</strong> units</span>
+        <span>Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong></span>
+        <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content faction-page">
+    <nav class="faction-breadcrumb">
+      <a href="/factions">&larr; All Factions</a>
+    </nav>
+
+    <section class="faction-section">
+      <h2>Troop Roster</h2>
+      <p class="section-desc">All {displayName} units organized by role.</p>
+
+      {sortedGroups.map(([group, troops]) => (
+        <div class="group-block">
+          <h3>{group} <span class="group-count">({troops.length})</span></h3>
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="col-num">Level</th>
+                  <th class="col-num">1H</th>
+                  <th class="col-num">2H</th>
+                  <th class="col-num">Pole</th>
+                  <th class="col-num">Bow</th>
+                  <th class="col-num">XBow</th>
+                  <th class="col-num">Throw</th>
+                  <th class="col-num">Ath</th>
+                  <th class="col-num">Ride</th>
+                </tr>
+              </thead>
+              <tbody>
+                {troops.map(t => (
+                  <tr data-culture={culture}>
+                    <td>{t.name}</td>
+                    <td class="col-num">{t.level}</td>
+                    <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
+                    <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
+                    <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
+                    <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
+                    <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
+                    <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
+                    <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
+                    <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="faction-section faction-lore">
+      <h2>About {displayName}</h2>
+      <div class="coming-soon">
+        <p>Detailed faction lore and history coming soon.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .faction-hero {
+    position: relative;
+    min-height: 200px;
+    background: var(--bg-secondary) center center / cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(25, 25, 25, 0.95) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    color: var(--accent);
+    font-size: 2.5rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .faction-page {
+    max-width: 1200px;
+  }
+
+  .faction-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .faction-breadcrumb a {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  .faction-breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .faction-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .faction-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .group-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .group-block h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .group-count {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+
+  .faction-lore {
+    margin-top: 2rem;
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+</style>
