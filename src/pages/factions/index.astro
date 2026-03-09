@@ -67,6 +67,14 @@ const FACTION_IMAGES: Record<string, string> = {
         );
       })}
     </div>
+
+    <section class="full-map">
+      <h2>Map of Middle-earth</h2>
+      <a href="/images/banner-factions.jpg" target="_blank" class="map-link">
+        <img src="/images/banner-factions.jpg" alt="Map of Middle-earth" class="map-img" />
+        <span class="map-hint">Click to view full size</span>
+      </a>
+    </section>
   </div>
 </BaseLayout>
 
@@ -189,6 +197,49 @@ const FACTION_IMAGES: Record<string, string> = {
     margin-top: 0.25rem;
     font-size: 0.8rem !important;
     color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .full-map {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .full-map h2 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .map-link {
+    display: block;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s;
+  }
+
+  .map-link:hover {
+    border-color: var(--accent-dim);
+    text-decoration: none;
+  }
+
+  .map-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .map-hint {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
   }
 
   @media (max-width: 600px) {
