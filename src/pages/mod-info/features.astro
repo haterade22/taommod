@@ -1,14 +1,197 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Feature {
+  title: string;
+  icon: string;
+  desc: string;
+  details: string[];
+  technical: string;
+}
+
+const features: Feature[] = [
+  {
+    title: 'Custom Race System',
+    icon: '🧬',
+    desc: 'Full support for non-human races — dwarves, orcs, uruk-hai, half-trolls, and goblins — with correct proportions, animations, eye heights, and portraits throughout the entire game.',
+    details: [
+      'Race-specific body proportions and movement animations in battles, towns, and the world map',
+      'Correct character portrait rendering with per-race zoom, positioning, and eye height',
+      'Race data persists across save/load cycles — your dwarf stays a dwarf',
+      'Mounted positioning adjustments so dwarves ride horses correctly',
+      'Custom action sets for each race during character creation',
+    ],
+    technical: 'Harmony patches on CharacterSpawner, CharacterTableau, FaceGen, and BodyGenerator. Reflection-based access to sealed TaleWorlds types. Race assignments serialized via CampaignBehavior save data.',
+  },
+  {
+    title: 'Banner Injection',
+    icon: '🏴',
+    desc: 'Custom banner designs for all 8 kingdoms and 73+ clans are automatically re-applied every session, preventing Bannerlord from reverting them to vanilla defaults.',
+    details: [
+      'Parses banner keys from both XML and XSLT configuration files',
+      'Applies custom banners on every campaign load — no manual re-entry needed',
+      'Tracks player-modified banners and respects manual edits',
+      'Visual invalidation ensures war parties and UI update immediately',
+    ],
+    technical: 'CampaignBehavior fires on session launch. Banner exclusion tracking via IDataStore serialization. Harmony postfix on GauntletUI banner editor to detect player edits.',
+  },
+  {
+    title: 'Custom Battle Scenes',
+    icon: '⚔️',
+    desc: 'All battles use custom scene definitions designed for the Middle-earth map, replacing vanilla Bannerlord battle maps with terrain that matches each region.',
+    details: [
+      'Custom sp_battle_scenes.xml loaded before vanilla initialization',
+      'Region-appropriate terrain for battles across Middle-earth',
+      'Diagnostic hooks for debugging scene loading issues',
+    ],
+    technical: 'Harmony prefix on Campaign.InitializeScenes that loads custom battle scenes in an early patch category before vanilla code runs.',
+  },
+  {
+    title: '16 Playable Factions',
+    icon: '🗺️',
+    desc: 'Middle-earth is divided into 16 distinct factions, each with unique cultures, troop trees, equipment, lords, and recruitment pools.',
+    details: [
+      '10 custom cultures defined in XML (Erebor, Gondor, Mordor, Isengard, Gundabad, Mirkwood, Rivendell, Umbar, Dol Guldur, Lothlorien)',
+      '6 remapped vanilla cultures via XSLT (Rohan, Dunland, Harad, Rhun, Khand, Dale)',
+      'Each faction has unique notable NPCs (26 per culture) — merchants, preachers, artisans, gang leaders, headmen',
+      'Custom name pools for lords, heroes, and settlements per culture',
+    ],
+    technical: 'XSLT transformations override vanilla Bannerlord XML at load time. Custom XML files add new entities not in vanilla. Culture attributes wire up faction-specific notables.',
+  },
+  {
+    title: '380+ Custom Lords',
+    icon: '👑',
+    desc: 'Every lord in the game has been replaced with a Tolkien-inspired character, complete with custom skills, traits, appearance, and backstory.',
+    details: [
+      '380+ lords with custom BodyProperties (unique appearances)',
+      'Hand-tuned skill distributions across 16 skill categories',
+      '8 trait assignments per lord (valor, honor, mercy, etc.)',
+      '415+ heroes with custom biographies',
+      'Gender-balanced where lore-appropriate',
+    ],
+    technical: 'Lords defined via XSLT transformations (lords.xslt) and direct XML (lords.xml). Heroes with biographies in heroes.xslt and heroes.xml.',
+  },
+  {
+    title: 'Four-Tier Recruitment',
+    icon: '🛡️',
+    desc: 'A new recruitment structure replaces the vanilla "basic/noble" system with Regular, Noble, Regional, and Unique troop tiers tied to specific settlements and regions.',
+    details: [
+      'Regular troops (40-50%) available at all faction settlements',
+      'Noble troops (10-20%) globally recruitable but rare',
+      'Regional troops (30-40%) tied to specific cities, castles, or villages',
+      'Unique troops locked to one or two key settlements per faction',
+      'Encourages strategic expansion to unlock full military potential',
+    ],
+    technical: 'Settlement-based recruitment pools configured via culture XML attributes and notable templates. Each culture wires specific troop types to settlement occupations.',
+  },
+  {
+    title: 'Custom Map — 658 Settlements',
+    icon: '🏰',
+    desc: 'A sprawling Middle-earth campaign map with 658 unique settlements, from Minas Tirith to Erebor, each placed according to Tolkien geography.',
+    details: [
+      '658 settlements generated from scene entity data',
+      'Towns, castles, and villages distributed across all 16 faction territories',
+      'Region codes map to geographic areas (EN=Rohan, ES=Mordor, A=Harad, etc.)',
+      'Distance cache with 862 settlement entries for pathfinding optimization',
+    ],
+    technical: 'Settlements generated via PowerShell script from scene.xscene entity positions. Distance cache stored as binary file for fast pathfinding.',
+  },
+  {
+    title: 'Custom Equipment',
+    icon: '🗡️',
+    desc: 'Faction-specific armor sets, weapons, and mounts. Dwarven plate, Elven mail, Orcish crude iron, Gondorian steel — each faction has a distinct visual identity.',
+    details: [
+      'Hundreds of custom armor pieces across all factions',
+      'Faction-specific weapons — swords, spears, bows, maces, halberds',
+      'Culture-colored equipment that visually distinguishes each army',
+      'Tiered equipment progression matching the troop upgrade tree',
+    ],
+    technical: 'Equipment defined in troop XML files per culture. Each troop has up to 4 item slots plus head, body, leg, and glove armor slots.',
+  },
+];
+
+const architecture = [
+  { label: 'Adapter Pattern', desc: 'All sealed TaleWorlds types (Kingdom, Clan, Hero, FaceGen) wrapped behind testable interfaces' },
+  { label: 'Dependency Injection', desc: 'DryIoc container with singleton registration — no static service locators' },
+  { label: 'Harmony Patching', desc: 'Categorized prefix/postfix/transpiler patches with staged loading order' },
+  { label: 'Campaign Behaviors', desc: 'Thin behaviors that delegate to services and sync save/load data' },
+  { label: 'TDD Workflow', desc: 'Red-green-refactor with MSTest + NSubstitute — 13 test suites and growing' },
+  { label: 'XSLT Transformations', desc: 'Override vanilla XML at load time without replacing files — safe, modular, mergeable' },
+];
 ---
 
-<BaseLayout title="Coding Features" description="Technical features and custom systems in TAOM">
+<BaseLayout title="Coding Features" description="Technical features and custom systems powering TAOM">
   <div class="page-content mod-info">
+    <nav class="breadcrumb">
+      <a href="/mod-info">&larr; Mod Info</a>
+    </nav>
+
     <h1 class="page-title">Coding Features</h1>
-    <div class="coming-soon">
-      <p>Content coming soon.</p>
-      <a href="/mod-info" class="btn btn-secondary">&larr; Back to Mod Info</a>
-    </div>
+    <p class="page-subtitle">The custom systems that power Tales From the Age of Men</p>
+
+    <section class="features-grid">
+      {features.map(f => (
+        <div class="feature-card">
+          <div class="feature-header">
+            <span class="feature-icon">{f.icon}</span>
+            <h2>{f.title}</h2>
+          </div>
+          <p class="feature-desc">{f.desc}</p>
+          <ul class="feature-details">
+            {f.details.map(d => (
+              <li>{d}</li>
+            ))}
+          </ul>
+          <details class="feature-technical">
+            <summary>Technical Details</summary>
+            <p>{f.technical}</p>
+          </details>
+        </div>
+      ))}
+    </section>
+
+    <section class="architecture-section">
+      <h2>Architecture</h2>
+      <p class="section-desc">TAOM is built with clean architecture principles — testable, maintainable, and safe to extend.</p>
+      <div class="arch-grid">
+        {architecture.map(a => (
+          <div class="arch-item">
+            <h3>{a.label}</h3>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <h2>Tech Stack</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-label">Framework</span>
+          <span class="stack-value">.NET Framework 4.7.2</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Game Version</span>
+          <span class="stack-value">Bannerlord v1.3.12</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Patching</span>
+          <span class="stack-value">Harmony 2.x</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">IoC Container</span>
+          <span class="stack-value">DryIoc</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Testing</span>
+          <span class="stack-value">MSTest + NSubstitute</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-label">Data</span>
+          <span class="stack-value">XML + XSLT Transforms</span>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -17,15 +200,212 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     max-width: 1100px;
   }
 
-  .coming-soon {
-    text-align: center;
-    padding: 4rem 1rem;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
+  .breadcrumb {
+    margin-bottom: 1.5rem;
   }
 
-  .coming-soon a {
-    display: inline-block;
-    margin-top: 1.5rem;
+  .breadcrumb a {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .page-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-icon {
+    font-size: 1.4rem;
+  }
+
+  .feature-header h2 {
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  .feature-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .feature-details li {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    padding: 0.2rem 0 0.2rem 1.2rem;
+    position: relative;
+  }
+
+  .feature-details li::before {
+    content: '\2022';
+    color: var(--accent-dim);
+    position: absolute;
+    left: 0.2rem;
+  }
+
+  .feature-technical {
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .feature-technical summary {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .feature-technical summary:hover {
+    color: var(--accent);
+  }
+
+  .feature-technical p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .architecture-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .architecture-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .arch-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+  }
+
+  .arch-item h3 {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .arch-item p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .stack-section {
+    margin-bottom: 2rem;
+  }
+
+  .stack-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .stack-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .stack-label {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .stack-value {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .arch-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stack-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>
