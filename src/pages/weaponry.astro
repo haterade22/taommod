@@ -9,16 +9,29 @@ const weapons = allItems.filter(i => i.type === 'Weapon').sort((a, b) => a.name.
 const bows = allItems.filter(i => i.type === 'Bow').sort((a, b) => a.name.localeCompare(b.name));
 const shields = allItems.filter(i => i.type === 'Shield').sort((a, b) => a.name.localeCompare(b.name));
 
+// Split melee weapons by class
+const WEAPON_SECTIONS = [
+  { key: 'OneHandedSword', label: 'One-Handed Swords' },
+  { key: 'TwoHandedSword', label: 'Two-Handed Swords' },
+  { key: 'OneHandedAxe', label: 'One-Handed Axes' },
+  { key: 'TwoHandedAxe', label: 'Two-Handed Axes' },
+  { key: 'Mace', label: 'Maces' },
+  { key: 'TwoHandedMace', label: 'Two-Handed Maces' },
+  { key: 'TwoHandedPolearm', label: 'Polearms' },
+  { key: 'Pike', label: 'Pikes' },
+  { key: 'Javelin', label: 'Javelins' },
+];
+
+const weaponsByClass = WEAPON_SECTIONS.map(s => ({
+  ...s,
+  items: weapons.filter(w => w.weaponClass === s.key),
+})).filter(s => s.items.length > 0);
+
 // Get unique cultures for filter
 const cultures = [...new Set(allItems.map(i => i.culture).filter(Boolean))].sort();
 
 function z(val: number): string {
   return val === 0 ? 'col-num skill-zero' : 'col-num';
-}
-
-function dmg(damage: number, type: string): string {
-  if (!damage) return '';
-  return type ? `${damage} ${type}` : `${damage}`;
 }
 ---
 
@@ -35,42 +48,44 @@ function dmg(damage: number, type: string): string {
       <span class="result-count" id="result-count">{allItems.length} items</span>
     </div>
 
-    <!-- Melee Weapons -->
-    <h2 class="section-title">Melee Weapons <span class="section-count">({weapons.length})</span></h2>
-    <div class="data-table-wrapper">
-      <table class="data-table weapon-section" data-section="weapon">
-        <thead>
-          <tr>
-            <th data-col="name">Name</th>
-            <th data-col="culture">Culture</th>
-            <th data-col="weaponClass">Class</th>
-            <th data-col="swingDamage" class="col-num">Swing Dmg</th>
-            <th data-col="swingType">Swing Type</th>
-            <th data-col="thrustDamage" class="col-num">Thrust Dmg</th>
-            <th data-col="thrustType">Thrust Type</th>
-            <th data-col="weaponLength" class="col-num">Length</th>
-            <th data-col="weight" class="col-num">Weight</th>
-            <th data-col="id" class="col-id-header">Id</th>
-          </tr>
-        </thead>
-        <tbody>
-          {weapons.map(item => (
-            <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
-              <td>{item.name}</td>
-              <td>{getCultureDisplayName(item.culture)}</td>
-              <td>{item.weaponClass}</td>
-              <td class={z(item.swingDamage)}>{item.swingDamage}</td>
-              <td>{item.swingDamageType}</td>
-              <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
-              <td>{item.thrustDamageType}</td>
-              <td class={z(item.weaponLength)}>{item.weaponLength}</td>
-              <td class={z(item.weight)}>{item.weight}</td>
-              <td class="col-id">{item.id}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <!-- Melee Weapon Sections -->
+    {weaponsByClass.map(section => (
+      <div>
+        <h2 class="section-title">{section.label} <span class="section-count">({section.items.length})</span></h2>
+        <div class="data-table-wrapper">
+          <table class="data-table weapon-section" data-section={section.key}>
+            <thead>
+              <tr>
+                <th data-col="name">Name</th>
+                <th data-col="culture">Culture</th>
+                <th data-col="swingDamage" class="col-num">Swing Dmg</th>
+                <th data-col="swingType">Swing Type</th>
+                <th data-col="thrustDamage" class="col-num">Thrust Dmg</th>
+                <th data-col="thrustType">Thrust Type</th>
+                <th data-col="weaponLength" class="col-num">Length</th>
+                <th data-col="weight" class="col-num">Weight</th>
+                <th data-col="id" class="col-id-header">Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              {section.items.map(item => (
+                <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
+                  <td>{item.name}</td>
+                  <td>{getCultureDisplayName(item.culture)}</td>
+                  <td class={z(item.swingDamage)}>{item.swingDamage}</td>
+                  <td>{item.swingDamageType}</td>
+                  <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
+                  <td>{item.thrustDamageType}</td>
+                  <td class={z(item.weaponLength)}>{item.weaponLength}</td>
+                  <td class={z(item.weight)}>{item.weight}</td>
+                  <td class="col-id">{item.id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
 
     <!-- Bows -->
     <h2 class="section-title">Bows <span class="section-count">({bows.length})</span></h2>
