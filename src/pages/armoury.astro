@@ -3,14 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseArmory, getCultureDisplayName } from '../lib/parse-xml';
 
 const allItems = parseArmory();
-
-// Sort by name by default
 allItems.sort((a, b) => a.name.localeCompare(b.name));
 
-// Get unique cultures and slots for filters
+// Split by slot in order: Head, Shoulder, Body, Arm, Leg
+const ARMOR_SECTIONS = [
+  { key: 'Head', label: 'Head Armour' },
+  { key: 'Shoulder', label: 'Shoulder Armour' },
+  { key: 'Body', label: 'Body Armour' },
+  { key: 'Arm', label: 'Arm Armour' },
+  { key: 'Leg', label: 'Leg Armour' },
+];
+
+const armorBySlot = ARMOR_SECTIONS.map(s => ({
+  ...s,
+  items: allItems.filter(i => i.slot === s.key),
+})).filter(s => s.items.length > 0);
+
+// Get unique cultures and materials for filters
 const cultures = [...new Set(allItems.map(i => i.culture).filter(Boolean))].sort();
-const slots = [...new Set(allItems.map(i => i.slot).filter(Boolean))].sort();
 const materials = [...new Set(allItems.map(i => i.materialType).filter(Boolean))].sort();
+
+function z(val: number): string {
+  return val === 0 ? 'col-num skill-zero' : 'col-num';
+}
 ---
 
 <BaseLayout title="Armoury" description="Complete armour database for TAOM - all cultures, armour values, and materials">
@@ -23,10 +38,6 @@ const materials = [...new Set(allItems.map(i => i.materialType).filter(Boolean))
         <option value="">All Cultures</option>
         {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
       </select>
-      <select id="filter-slot">
-        <option value="">All Slots</option>
-        {slots.map(s => <option value={s}>{s}</option>)}
-      </select>
       <select id="filter-material">
         <option value="">All Materials</option>
         {materials.map(m => <option value={m}>{m}</option>)}
@@ -34,82 +45,101 @@ const materials = [...new Set(allItems.map(i => i.materialType).filter(Boolean))
       <span class="result-count" id="result-count">{allItems.length} items</span>
     </div>
 
-    <div class="data-table-wrapper">
-      <table class="data-table" id="armour-table">
-        <thead>
-          <tr>
-            <th data-col="name">Name</th>
-            <th data-col="culture">Culture</th>
-            <th data-col="slot">Slot</th>
-            <th data-col="headArmor" class="col-num">Head</th>
-            <th data-col="bodyArmor" class="col-num">Body</th>
-            <th data-col="armArmor" class="col-num">Arm</th>
-            <th data-col="legArmor" class="col-num">Leg</th>
-            <th data-col="weight" class="col-num">Weight</th>
-            <th data-col="materialType">Material</th>
-            <th data-col="id" class="col-id-header">Id</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allItems.map(item => (
-            <tr
-              data-name={item.name.toLowerCase()}
-              data-id={item.id.toLowerCase()}
-              data-culture={item.culture}
-              data-slot={item.slot}
-              data-material={item.materialType}
-            >
-              <td>{item.name}</td>
-              <td>{getCultureDisplayName(item.culture)}</td>
-              <td>{item.slot}</td>
-              <td class={`col-num${item.headArmor === 0 ? ' skill-zero' : ''}`}>{item.headArmor}</td>
-              <td class={`col-num${item.bodyArmor === 0 ? ' skill-zero' : ''}`}>{item.bodyArmor}</td>
-              <td class={`col-num${item.armArmor === 0 ? ' skill-zero' : ''}`}>{item.armArmor}</td>
-              <td class={`col-num${item.legArmor === 0 ? ' skill-zero' : ''}`}>{item.legArmor}</td>
-              <td class="col-num">{item.weight}</td>
-              <td>{item.materialType}</td>
-              <td class="col-id">{item.id}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    {armorBySlot.map(section => (
+      <div>
+        <h2 class="section-title">{section.label} <span class="section-count">({section.items.length})</span></h2>
+        <div class="data-table-wrapper">
+          <table class="data-table armor-section" data-section={section.key}>
+            <thead>
+              <tr>
+                <th data-col="name">Name</th>
+                <th data-col="culture">Culture</th>
+                <th data-col="headArmor" class="col-num">Head</th>
+                <th data-col="bodyArmor" class="col-num">Body</th>
+                <th data-col="armArmor" class="col-num">Arm</th>
+                <th data-col="legArmor" class="col-num">Leg</th>
+                <th data-col="weight" class="col-num">Weight</th>
+                <th data-col="materialType">Material</th>
+                <th data-col="id" class="col-id-header">Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              {section.items.map(item => (
+                <tr
+                  data-name={item.name.toLowerCase()}
+                  data-id={item.id.toLowerCase()}
+                  data-culture={item.culture}
+                  data-material={item.materialType}
+                >
+                  <td class={`culture-${item.culture}`}>{item.name}</td>
+                  <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
+                  <td class={z(item.headArmor)}>{item.headArmor}</td>
+                  <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
+                  <td class={z(item.armArmor)}>{item.armArmor}</td>
+                  <td class={z(item.legArmor)}>{item.legArmor}</td>
+                  <td class="col-num">{item.weight}</td>
+                  <td>{item.materialType}</td>
+                  <td class="col-id">{item.id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
   </div>
 </BaseLayout>
 
+<style>
+  .section-title {
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-title:first-of-type {
+    margin-top: 1rem;
+  }
+
+  .section-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+</style>
+
 <script>
-  const table = document.getElementById('armour-table') as HTMLTableElement;
-  const tbody = table.querySelector('tbody')!;
-  const rows = Array.from(tbody.querySelectorAll('tr'));
   const searchInput = document.getElementById('search') as HTMLInputElement;
   const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
-  const slotFilter = document.getElementById('filter-slot') as HTMLSelectElement;
   const materialFilter = document.getElementById('filter-material') as HTMLSelectElement;
   const resultCount = document.getElementById('result-count')!;
 
-  let sortCol = '';
-  let sortAsc = true;
+  const tables = document.querySelectorAll('table.armor-section');
+  const allRows: HTMLTableRowElement[] = [];
+  tables.forEach(t => {
+    allRows.push(...Array.from(t.querySelectorAll('tbody tr')));
+  });
 
   function filterRows() {
     const search = searchInput.value.toLowerCase();
     const culture = cultureFilter.value;
-    const slot = slotFilter.value;
     const material = materialFilter.value;
     let visible = 0;
 
-    for (const row of rows) {
+    for (const row of allRows) {
       const name = row.dataset.name || '';
       const id = row.dataset.id || '';
       const rowCulture = row.dataset.culture || '';
-      const rowSlot = row.dataset.slot || '';
       const rowMaterial = row.dataset.material || '';
 
       const matchesSearch = !search || name.includes(search) || id.includes(search);
       const matchesCulture = !culture || rowCulture === culture;
-      const matchesSlot = !slot || rowSlot === slot;
       const matchesMaterial = !material || rowMaterial === material;
 
-      const show = matchesSearch && matchesCulture && matchesSlot && matchesMaterial;
+      const show = matchesSearch && matchesCulture && matchesMaterial;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
     }
@@ -119,56 +149,61 @@ const materials = [...new Set(allItems.map(i => i.materialType).filter(Boolean))
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('culture')) cultureFilter.value = params.get('culture')!;
-  if (params.get('slot')) slotFilter.value = params.get('slot')!;
   if (params.get('search')) searchInput.value = params.get('search')!;
 
   searchInput.addEventListener('input', filterRows);
   cultureFilter.addEventListener('change', filterRows);
-  slotFilter.addEventListener('change', filterRows);
   materialFilter.addEventListener('change', filterRows);
 
   filterRows();
 
-  // Column sorting
-  const headers = table.querySelectorAll('th[data-col]');
-  headers.forEach(th => {
-    th.addEventListener('click', () => {
-      const col = (th as HTMLElement).dataset.col!;
-      if (sortCol === col) {
-        sortAsc = !sortAsc;
-      } else {
-        sortCol = col;
-        sortAsc = true;
-      }
+  // Column sorting per table
+  tables.forEach(table => {
+    const headers = table.querySelectorAll('th[data-col]');
+    const tbody = table.querySelector('tbody')!;
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    let sortCol = '';
+    let sortAsc = true;
 
-      headers.forEach(h => {
-        const indicator = h.querySelector('.sort-indicator');
-        if (indicator) indicator.remove();
-      });
-      const indicator = document.createElement('span');
-      indicator.className = 'sort-indicator';
-      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-      th.appendChild(indicator);
-
-      const colIndex = Array.from(headers).indexOf(th);
-      const isNumeric = th.classList.contains('col-num');
-
-      rows.sort((a, b) => {
-        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-        if (isNumeric) {
-          const aNum = parseFloat(aVal) || 0;
-          const bNum = parseFloat(bVal) || 0;
-          return sortAsc ? aNum - bNum : bNum - aNum;
+    headers.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.col!;
+        if (sortCol === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortCol = col;
+          sortAsc = true;
         }
 
-        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      });
+        headers.forEach(h => {
+          const indicator = h.querySelector('.sort-indicator');
+          if (indicator) indicator.remove();
+        });
+        const indicator = document.createElement('span');
+        indicator.className = 'sort-indicator';
+        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+        th.appendChild(indicator);
 
-      for (const row of rows) {
-        tbody.appendChild(row);
-      }
+        const colIndex = Array.from(headers).indexOf(th);
+        const isNumeric = th.classList.contains('col-num');
+
+        rows.sort((a, b) => {
+          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+          if (isNumeric) {
+            const aNum = parseFloat(aVal) || 0;
+            const bNum = parseFloat(bVal) || 0;
+            return sortAsc ? aNum - bNum : bNum - aNum;
+          }
+
+          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        });
+
+        for (const row of rows) {
+          tbody.appendChild(row);
+        }
+      });
     });
   });
 </script>
