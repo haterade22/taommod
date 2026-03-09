@@ -4,13 +4,22 @@ import { parseWeaponry, getCultureDisplayName } from '../lib/parse-xml';
 
 const allItems = parseWeaponry();
 
-// Sort by name by default
-allItems.sort((a, b) => a.name.localeCompare(b.name));
+// Group by type
+const weapons = allItems.filter(i => i.type === 'Weapon').sort((a, b) => a.name.localeCompare(b.name));
+const bows = allItems.filter(i => i.type === 'Bow').sort((a, b) => a.name.localeCompare(b.name));
+const shields = allItems.filter(i => i.type === 'Shield').sort((a, b) => a.name.localeCompare(b.name));
 
-// Get unique cultures, types, and weapon classes for filters
+// Get unique cultures for filter
 const cultures = [...new Set(allItems.map(i => i.culture).filter(Boolean))].sort();
-const types = [...new Set(allItems.map(i => i.type).filter(Boolean))].sort();
-const weaponClasses = [...new Set(allItems.map(i => i.weaponClass).filter(Boolean))].sort();
+
+function z(val: number): string {
+  return val === 0 ? 'col-num skill-zero' : 'col-num';
+}
+
+function dmg(damage: number, type: string): string {
+  if (!damage) return '';
+  return type ? `${damage} ${type}` : `${damage}`;
+}
 ---
 
 <BaseLayout title="Weaponry" description="Complete weapons and shields database for TAOM - all cultures and stats">
@@ -23,51 +32,111 @@ const weaponClasses = [...new Set(allItems.map(i => i.weaponClass).filter(Boolea
         <option value="">All Cultures</option>
         {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
       </select>
-      <select id="filter-type">
-        <option value="">All Types</option>
-        {types.map(t => <option value={t}>{t}</option>)}
-      </select>
-      <select id="filter-class">
-        <option value="">All Classes</option>
-        {weaponClasses.map(c => <option value={c}>{c}</option>)}
-      </select>
       <span class="result-count" id="result-count">{allItems.length} items</span>
     </div>
 
+    <!-- Melee Weapons -->
+    <h2 class="section-title">Melee Weapons <span class="section-count">({weapons.length})</span></h2>
     <div class="data-table-wrapper">
-      <table class="data-table" id="weapon-table">
+      <table class="data-table weapon-section" data-section="weapon">
         <thead>
           <tr>
             <th data-col="name">Name</th>
             <th data-col="culture">Culture</th>
-            <th data-col="type">Type</th>
             <th data-col="weaponClass">Class</th>
-            <th data-col="weight" class="col-num">Weight</th>
+            <th data-col="swingDamage" class="col-num">Swing Dmg</th>
+            <th data-col="swingType">Swing Type</th>
+            <th data-col="thrustDamage" class="col-num">Thrust Dmg</th>
+            <th data-col="thrustType">Thrust Type</th>
             <th data-col="weaponLength" class="col-num">Length</th>
-            <th data-col="handling" class="col-num">Handling</th>
-            <th data-col="bodyArmor" class="col-num">Armor</th>
-            <th data-col="hitPoints" class="col-num">HP</th>
+            <th data-col="weight" class="col-num">Weight</th>
             <th data-col="id" class="col-id-header">Id</th>
           </tr>
         </thead>
         <tbody>
-          {allItems.map(item => (
-            <tr
-              data-name={item.name.toLowerCase()}
-              data-id={item.id.toLowerCase()}
-              data-culture={item.culture}
-              data-type={item.type}
-              data-class={item.weaponClass}
-            >
+          {weapons.map(item => (
+            <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
               <td>{item.name}</td>
               <td>{getCultureDisplayName(item.culture)}</td>
-              <td>{item.type}</td>
               <td>{item.weaponClass}</td>
-              <td class={`col-num${item.weight === 0 ? ' skill-zero' : ''}`}>{item.weight}</td>
-              <td class={`col-num${item.weaponLength === 0 ? ' skill-zero' : ''}`}>{item.weaponLength}</td>
-              <td class={`col-num${item.handling === 0 ? ' skill-zero' : ''}`}>{item.handling}</td>
-              <td class={`col-num${item.bodyArmor === 0 ? ' skill-zero' : ''}`}>{item.bodyArmor}</td>
-              <td class={`col-num${item.hitPoints === 0 ? ' skill-zero' : ''}`}>{item.hitPoints}</td>
+              <td class={z(item.swingDamage)}>{item.swingDamage}</td>
+              <td>{item.swingDamageType}</td>
+              <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
+              <td>{item.thrustDamageType}</td>
+              <td class={z(item.weaponLength)}>{item.weaponLength}</td>
+              <td class={z(item.weight)}>{item.weight}</td>
+              <td class="col-id">{item.id}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bows -->
+    <h2 class="section-title">Bows <span class="section-count">({bows.length})</span></h2>
+    <div class="data-table-wrapper">
+      <table class="data-table weapon-section" data-section="bow">
+        <thead>
+          <tr>
+            <th data-col="name">Name</th>
+            <th data-col="culture">Culture</th>
+            <th data-col="thrustDamage" class="col-num">Damage</th>
+            <th data-col="accuracy" class="col-num">Accuracy</th>
+            <th data-col="missileSpeed" class="col-num">Missile Speed</th>
+            <th data-col="speed" class="col-num">Speed</th>
+            <th data-col="difficulty" class="col-num">Difficulty</th>
+            <th data-col="weaponLength" class="col-num">Length</th>
+            <th data-col="weight" class="col-num">Weight</th>
+            <th data-col="id" class="col-id-header">Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          {bows.map(item => (
+            <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
+              <td>{item.name}</td>
+              <td>{getCultureDisplayName(item.culture)}</td>
+              <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
+              <td class={z(item.accuracy)}>{item.accuracy}</td>
+              <td class={z(item.missileSpeed)}>{item.missileSpeed}</td>
+              <td class={z(item.speed)}>{item.speed}</td>
+              <td class={z(item.difficulty)}>{item.difficulty}</td>
+              <td class={z(item.weaponLength)}>{item.weaponLength}</td>
+              <td class={z(item.weight)}>{item.weight}</td>
+              <td class="col-id">{item.id}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Shields -->
+    <h2 class="section-title">Shields <span class="section-count">({shields.length})</span></h2>
+    <div class="data-table-wrapper">
+      <table class="data-table weapon-section" data-section="shield">
+        <thead>
+          <tr>
+            <th data-col="name">Name</th>
+            <th data-col="culture">Culture</th>
+            <th data-col="weaponClass">Class</th>
+            <th data-col="bodyArmor" class="col-num">Armor</th>
+            <th data-col="hitPoints" class="col-num">HP</th>
+            <th data-col="speed" class="col-num">Speed</th>
+            <th data-col="weaponLength" class="col-num">Length</th>
+            <th data-col="weight" class="col-num">Weight</th>
+            <th data-col="id" class="col-id-header">Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          {shields.map(item => (
+            <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
+              <td>{item.name}</td>
+              <td>{getCultureDisplayName(item.culture)}</td>
+              <td>{item.weaponClass}</td>
+              <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
+              <td class={z(item.hitPoints)}>{item.hitPoints}</td>
+              <td class={z(item.speed)}>{item.speed}</td>
+              <td class={z(item.weaponLength)}>{item.weaponLength}</td>
+              <td class={z(item.weight)}>{item.weight}</td>
               <td class="col-id">{item.id}</td>
             </tr>
           ))}
@@ -77,39 +146,52 @@ const weaponClasses = [...new Set(allItems.map(i => i.weaponClass).filter(Boolea
   </div>
 </BaseLayout>
 
+<style>
+  .section-title {
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-title:first-of-type {
+    margin-top: 1rem;
+  }
+
+  .section-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+</style>
+
 <script>
-  const table = document.getElementById('weapon-table') as HTMLTableElement;
-  const tbody = table.querySelector('tbody')!;
-  const rows = Array.from(tbody.querySelectorAll('tr'));
   const searchInput = document.getElementById('search') as HTMLInputElement;
   const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
-  const typeFilter = document.getElementById('filter-type') as HTMLSelectElement;
-  const classFilter = document.getElementById('filter-class') as HTMLSelectElement;
   const resultCount = document.getElementById('result-count')!;
 
-  let sortCol = '';
-  let sortAsc = true;
+  const tables = document.querySelectorAll('table.weapon-section');
+  const allRows: HTMLTableRowElement[] = [];
+  tables.forEach(t => {
+    allRows.push(...Array.from(t.querySelectorAll('tbody tr')));
+  });
 
   function filterRows() {
     const search = searchInput.value.toLowerCase();
     const culture = cultureFilter.value;
-    const type = typeFilter.value;
-    const weaponClass = classFilter.value;
     let visible = 0;
 
-    for (const row of rows) {
+    for (const row of allRows) {
       const name = row.dataset.name || '';
       const id = row.dataset.id || '';
       const rowCulture = row.dataset.culture || '';
-      const rowType = row.dataset.type || '';
-      const rowClass = row.dataset.class || '';
 
       const matchesSearch = !search || name.includes(search) || id.includes(search);
       const matchesCulture = !culture || rowCulture === culture;
-      const matchesType = !type || rowType === type;
-      const matchesClass = !weaponClass || rowClass === weaponClass;
 
-      const show = matchesSearch && matchesCulture && matchesType && matchesClass;
+      const show = matchesSearch && matchesCulture;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
     }
@@ -119,56 +201,60 @@ const weaponClasses = [...new Set(allItems.map(i => i.weaponClass).filter(Boolea
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('culture')) cultureFilter.value = params.get('culture')!;
-  if (params.get('type')) typeFilter.value = params.get('type')!;
   if (params.get('search')) searchInput.value = params.get('search')!;
 
   searchInput.addEventListener('input', filterRows);
   cultureFilter.addEventListener('change', filterRows);
-  typeFilter.addEventListener('change', filterRows);
-  classFilter.addEventListener('change', filterRows);
 
   filterRows();
 
-  // Column sorting
-  const headers = table.querySelectorAll('th[data-col]');
-  headers.forEach(th => {
-    th.addEventListener('click', () => {
-      const col = (th as HTMLElement).dataset.col!;
-      if (sortCol === col) {
-        sortAsc = !sortAsc;
-      } else {
-        sortCol = col;
-        sortAsc = true;
-      }
+  // Column sorting per table
+  tables.forEach(table => {
+    const headers = table.querySelectorAll('th[data-col]');
+    const tbody = table.querySelector('tbody')!;
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    let sortCol = '';
+    let sortAsc = true;
 
-      headers.forEach(h => {
-        const indicator = h.querySelector('.sort-indicator');
-        if (indicator) indicator.remove();
-      });
-      const indicator = document.createElement('span');
-      indicator.className = 'sort-indicator';
-      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-      th.appendChild(indicator);
-
-      const colIndex = Array.from(headers).indexOf(th);
-      const isNumeric = th.classList.contains('col-num');
-
-      rows.sort((a, b) => {
-        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-        if (isNumeric) {
-          const aNum = parseFloat(aVal) || 0;
-          const bNum = parseFloat(bVal) || 0;
-          return sortAsc ? aNum - bNum : bNum - aNum;
+    headers.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.col!;
+        if (sortCol === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortCol = col;
+          sortAsc = true;
         }
 
-        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      });
+        headers.forEach(h => {
+          const indicator = h.querySelector('.sort-indicator');
+          if (indicator) indicator.remove();
+        });
+        const indicator = document.createElement('span');
+        indicator.className = 'sort-indicator';
+        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+        th.appendChild(indicator);
 
-      for (const row of rows) {
-        tbody.appendChild(row);
-      }
+        const colIndex = Array.from(headers).indexOf(th);
+        const isNumeric = th.classList.contains('col-num');
+
+        rows.sort((a, b) => {
+          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+          if (isNumeric) {
+            const aNum = parseFloat(aVal) || 0;
+            const bNum = parseFloat(bVal) || 0;
+            return sortAsc ? aNum - bNum : bNum - aNum;
+          }
+
+          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        });
+
+        for (const row of rows) {
+          tbody.appendChild(row);
+        }
+      });
     });
   });
 </script>

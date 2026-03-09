@@ -5,7 +5,7 @@ import path from 'path';
 const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '@_',
-  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction', 'Item', 'CraftedItem', 'Piece'].includes(name),
+  isArray: (name) => ['NPCCharacter', 'skill', 'equipment', 'EquipmentRoster', 'upgrade_target', 'Trait', 'Kingdom', 'Culture', 'Faction', 'Item', 'CraftedItem', 'Piece', 'CraftingPiece'].includes(name),
 });
 
 function getDataDir(): string {
@@ -29,6 +29,11 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   rivendell: 'Rivendell',
   umbar: 'Umbar',
   dolguldur: 'Dol Guldur',
+  thenn: 'Mercenary',
+  iron_hills: 'Iron Hills',
+  arnor: 'Arnor',
+  troll: 'Troll',
+  mercenary: 'Mercenary',
 };
 
 // Cultures to exclude from display
@@ -381,10 +386,11 @@ export function parseArmory(): ArmorItem[] {
       const xmlItems = parsed?.Items?.Item || [];
       for (const item of xmlItems) {
         const armor = item.ItemComponent?.Armor;
+        // Use folder name as culture — it's the real grouping (e.g. thenn, iron_hills)
         items.push({
           id: item['@_id'] || '',
           name: stripLocKey(item['@_name'] || ''),
-          culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+          culture: culture,
           type: item['@_Type'] || '',
           slot,
           weight: parseFloat(item['@_weight']) || 0,
@@ -411,21 +417,55 @@ export interface WeaponItem {
   name: string;
   culture: string;
   weaponClass: string;
-  type: string;           // CraftedItem or Shield
+  type: string;           // Weapon, Bow, or Shield
   craftingTemplate: string;
   weight: number;
+  difficulty: number;
   appearance: number;
-  swingSpeed: number;
   swingDamage: number;
   swingDamageType: string;
-  thrustSpeed: number;
   thrustDamage: number;
   thrustDamageType: string;
   weaponLength: number;
-  handling: number;
+  speed: number;
+  missileSpeed: number;   // bows only
+  accuracy: number;       // bows only
   bodyArmor: number;      // shields only
   hitPoints: number;      // shields only
   isMerchandise: boolean;
+}
+
+interface BladeDamage {
+  swingDamage: number;
+  swingDamageType: string;
+  thrustDamage: number;
+  thrustDamageType: string;
+  length: number;
+}
+
+function parseCraftingPieces(armoryDir: string): Map<string, BladeDamage> {
+  const bladeMap = new Map<string, BladeDamage>();
+  const piecesPath = path.join(armoryDir, 'LOTRLOME_crafting_pieces.xml');
+  if (!fs.existsSync(piecesPath)) return bladeMap;
+
+  const xml = fs.readFileSync(piecesPath, 'utf-8');
+  const parsed = parser.parse(xml);
+  const pieces = parsed?.CraftingPieces?.CraftingPiece || [];
+  for (const piece of pieces) {
+    if (piece['@_piece_type'] !== 'Blade') continue;
+    const blade = piece.BladeData;
+    if (!blade) continue;
+    const swing = blade.Swing;
+    const thrust = blade.Thrust;
+    bladeMap.set(piece['@_id'] || '', {
+      swingDamage: parseFloat(swing?.['@_damage_factor']) || 0,
+      swingDamageType: swing?.['@_damage_type'] || '',
+      thrustDamage: parseFloat(thrust?.['@_damage_factor']) || 0,
+      thrustDamageType: thrust?.['@_damage_type'] || '',
+      length: parseFloat(piece['@_length']) || 0,
+    });
+  }
+  return bladeMap;
 }
 
 export function parseWeaponry(): WeaponItem[] {
@@ -433,15 +473,22 @@ export function parseWeaponry(): WeaponItem[] {
   const armoryDir = path.join(dataDir, 'armory');
   if (!fs.existsSync(armoryDir)) return [];
 
+  const bladeMap = parseCraftingPieces(armoryDir);
   const items: WeaponItem[] = [];
 
-  // Parse weapons file (CraftedItem elements)
+  // Parse weapons file (CraftedItem + Item elements)
   const weaponsPath = path.join(armoryDir, 'LOTRAOM_weapons.xml');
   if (fs.existsSync(weaponsPath)) {
     const xml = fs.readFileSync(weaponsPath, 'utf-8');
     const parsed = parser.parse(xml);
+
+    // CraftedItem weapons - look up blade damage from crafting pieces
     const craftedItems = parsed?.Items?.CraftedItem || [];
     for (const item of craftedItems) {
+      const pieces = item.Pieces?.Piece || [];
+      const bladePiece = pieces.find((p: any) => p['@_Type'] === 'Blade');
+      const blade = bladePiece ? bladeMap.get(bladePiece['@_id'] || '') : undefined;
+
       items.push({
         id: item['@_id'] || '',
         name: stripLocKey(item['@_name'] || ''),
@@ -450,15 +497,46 @@ export function parseWeaponry(): WeaponItem[] {
         type: 'Weapon',
         craftingTemplate: item['@_crafting_template'] || '',
         weight: parseFloat(item['@_weight']) || 0,
+        difficulty: parseInt(item['@_difficulty']) || 0,
         appearance: parseFloat(item['@_appearance']) || 0,
-        swingSpeed: 0,
+        swingDamage: blade?.swingDamage || 0,
+        swingDamageType: blade?.swingDamageType || '',
+        thrustDamage: blade?.thrustDamage || 0,
+        thrustDamageType: blade?.thrustDamageType || '',
+        weaponLength: blade?.length || 0,
+        speed: 0,
+        missileSpeed: 0,
+        accuracy: 0,
+        bodyArmor: 0,
+        hitPoints: 0,
+        isMerchandise: item['@_is_merchandise'] === 'true',
+      });
+    }
+
+    // Item weapons (bows, etc.) - stats directly on Weapon component
+    const xmlItems = parsed?.Items?.Item || [];
+    for (const item of xmlItems) {
+      const weapon = item.ItemComponent?.Weapon;
+      if (!weapon) continue;
+      const wClass = weapon['@_weapon_class'] || '';
+      items.push({
+        id: item['@_id'] || '',
+        name: stripLocKey(item['@_name'] || ''),
+        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+        weaponClass: wClass,
+        type: 'Bow',
+        craftingTemplate: '',
+        weight: parseFloat(item['@_weight']) || 0,
+        difficulty: parseInt(item['@_difficulty']) || 0,
+        appearance: parseFloat(item['@_appearance']) || 0,
         swingDamage: 0,
         swingDamageType: '',
-        thrustSpeed: 0,
-        thrustDamage: 0,
-        thrustDamageType: '',
-        weaponLength: 0,
-        handling: 0,
+        thrustDamage: parseInt(weapon['@_thrust_damage']) || 0,
+        thrustDamageType: weapon['@_thrust_damage_type'] || '',
+        weaponLength: parseInt(weapon['@_weapon_length']) || 0,
+        speed: parseInt(weapon['@_speed_rating']) || 0,
+        missileSpeed: parseInt(weapon['@_missile_speed']) || 0,
+        accuracy: parseInt(weapon['@_accuracy']) || 0,
         bodyArmor: 0,
         hitPoints: 0,
         isMerchandise: item['@_is_merchandise'] === 'true',
@@ -482,15 +560,16 @@ export function parseWeaponry(): WeaponItem[] {
         type: 'Shield',
         craftingTemplate: '',
         weight: parseFloat(item['@_weight']) || 0,
+        difficulty: parseInt(item['@_difficulty']) || 0,
         appearance: parseFloat(item['@_appearance']) || 0,
-        swingSpeed: 0,
         swingDamage: 0,
         swingDamageType: '',
-        thrustSpeed: parseInt(weapon?.['@_thrust_speed']) || 0,
         thrustDamage: 0,
-        thrustDamageType: weapon?.['@_thrust_damage_type'] || '',
+        thrustDamageType: '',
         weaponLength: parseInt(weapon?.['@_weapon_length']) || 0,
-        handling: parseInt(weapon?.['@_speed_rating']) || 0,
+        speed: parseInt(weapon?.['@_speed_rating']) || 0,
+        missileSpeed: 0,
+        accuracy: 0,
         bodyArmor: parseInt(weapon?.['@_body_armor']) || 0,
         hitPoints: parseInt(weapon?.['@_hit_points']) || 0,
         isMerchandise: item['@_is_merchandise'] === 'true',
