@@ -13,9 +13,11 @@ const navLinks: NavLink[] = [
   { href: '/kingdoms', label: 'Kingdoms' },
   { href: '/factions', label: 'Factions' },
   { href: '/clans', label: 'Clans' },
-  { href: '/troops', label: 'Troops' },
-  { href: '/armoury', label: 'Armoury' },
-  { href: '/weaponry', label: 'Weaponry' },
+  { href: '/database', label: 'Database', children: [
+    { href: '/troops', label: 'Troops' },
+    { href: '/armoury', label: 'Armoury' },
+    { href: '/weaponry', label: 'Weaponry' },
+  ]},
   { href: '/mod-info', label: 'Mod Info', children: [
     { href: '/mod-info', label: 'Overview' },
     { href: '/mod-info/races', label: 'Races & Creatures' },
@@ -50,7 +52,7 @@ const currentPath = Astro.url.pathname;
           <li class:list={[{ 'has-dropdown': !!link.children }]}>
             <a
               href={link.href}
-              class:list={[{ active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+              class:list={[{ active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) || (link.children && link.children.some(c => currentPath === c.href || currentPath.startsWith(c.href + '/'))) }]}
             >
               {link.label}
               {link.children && <span class="dropdown-arrow">&#9662;</span>}
