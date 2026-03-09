@@ -481,13 +481,28 @@ export function parseAllLords(): Lord[] {
   return lords;
 }
 
-// Parse hero-to-clan mappings from heroes.xml and heroes.xslt
+// Parse hero-to-clan mappings from vanilla + custom heroes.xml
 // Returns a map of hero/lord ID → clan ID
 export function parseHeroClanMap(): Map<string, string> {
   const map = new Map<string, string>();
   const dataDir = getDataDir();
 
-  // Parse heroes.xml (has faction="Faction.clan_X" attributes)
+  // 1. Parse vanilla heroes.xml (base game hero-to-clan mappings)
+  const vanillaPath = path.join(dataDir, 'vanilla_heroes.xml');
+  if (fs.existsSync(vanillaPath)) {
+    const xml = fs.readFileSync(vanillaPath, 'utf-8');
+    const parsed = parser.parse(xml);
+    const heroes = parsed?.Heroes?.Hero || [];
+    for (const h of heroes) {
+      const id = h['@_id'] || '';
+      const faction = stripPrefix(h['@_faction'] || '', 'Faction.');
+      if (id && faction) {
+        map.set(id, faction);
+      }
+    }
+  }
+
+  // 2. Parse custom heroes.xml (overrides/additions for custom cultures)
   const heroesXmlPath = path.join(dataDir, 'characters', 'heroes.xml');
   if (fs.existsSync(heroesXmlPath)) {
     const xml = fs.readFileSync(heroesXmlPath, 'utf-8');
@@ -497,7 +512,7 @@ export function parseHeroClanMap(): Map<string, string> {
       const id = h['@_id'] || '';
       const faction = stripPrefix(h['@_faction'] || '', 'Faction.');
       if (id && faction) {
-        map.set(id, faction);
+        map.set(id, faction); // Custom overrides vanilla
       }
     }
   }
