@@ -108,24 +108,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h3 class="creature-category">Trolls</h3>
       <div class="race-grid">
-        <div class="race-card race-creature">
-          <h3>Mountain Troll</h3>
+        <div class="race-card race-creature wip">
+          <h3>Mountain Troll <span class="wip-tag">WIP</span></h3>
           <p>Large, heavily built Trolls adapted to rocky and mountainous terrain. Strong frontline shock units.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Hill Troll</h3>
+        <div class="race-card race-creature planned">
+          <h3>Hill Troll <span class="planned-tag">Planned</span></h3>
           <p>Leaner and faster Trolls commonly found in hilly and forested regions. Less armored but more aggressive.</p>
         </div>
         <div class="race-card race-creature planned">
           <h3>Snow Troll <span class="planned-tag">Planned</span></h3>
           <p>Cold-adapted Trolls native to frozen and high-altitude regions. Focused on endurance and resilience.</p>
         </div>
-        <div class="race-card race-creature planned">
-          <h3>Cave Troll <span class="planned-tag">Planned</span></h3>
+        <div class="race-card race-creature wip">
+          <h3>Cave Troll <span class="wip-tag">WIP</span></h3>
           <p>Massive Trolls bred or captured for underground warfare and siege assaults.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Olog-Hai</h3>
+        <div class="race-card race-creature planned">
+          <h3>Olog-Hai <span class="planned-tag">Planned</span></h3>
           <p>Highly disciplined and intelligent Trolls capable of wearing armor and fighting in formation.</p>
         </div>
       </div>
@@ -136,32 +136,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3>Isengard Warg</h3>
           <p>Bred for discipline and battlefield control. Used primarily by Isengard's mounted Orc units.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Fell Warg</h3>
+        <div class="race-card race-creature wip">
+          <h3>Fell Warg <span class="wip-tag">WIP</span></h3>
           <p>Larger, more vicious Wargs found in the wild or corrupted regions. Less disciplined but extremely aggressive.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Forest Spider</h3>
+        <div class="race-card race-creature wip">
+          <h3>Forest Spider <span class="wip-tag">WIP</span></h3>
           <p>Giant spiders native to dense forests. Effective ambush predators.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Mountain Spider</h3>
+        <div class="race-card race-creature wip">
+          <h3>Mountain Spider <span class="wip-tag">WIP</span></h3>
           <p>Larger and more heavily armored spiders adapted to rocky terrain and highlands.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Spider Brood-Mother</h3>
+        <div class="race-card race-creature wip">
+          <h3>Spider Brood-Mother <span class="wip-tag">WIP</span></h3>
           <p>Enormous spiders capable of spawning or commanding lesser spiders. Rare terror units.</p>
         </div>
       </div>
 
       <h3 class="creature-category">War Beasts & Vehicles</h3>
       <div class="race-grid">
-        <div class="race-card race-creature">
-          <h3>War Elephants</h3>
+        <div class="race-card race-creature wip">
+          <h3>War Elephants <span class="wip-tag">WIP</span></h3>
           <p>Armored elephants equipped with platforms for archers or spear troops. While currently associated primarily with Harad, their use may expand to other southern or eastern factions in the future.</p>
         </div>
-        <div class="race-card race-creature">
-          <h3>Oliphaunts</h3>
+        <div class="race-card race-creature wip">
+          <h3>Oliphaunts <span class="wip-tag">WIP</span></h3>
           <p>Colossal beasts of war used primarily for terror and huge effect on the battlefield.</p>
         </div>
         <div class="race-card race-creature planned">
@@ -270,6 +270,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-style: dashed;
   }
 
+  .race-card.wip {
+    border-style: solid;
+    border-color: rgba(126, 200, 227, 0.5);
+  }
+
   /* Faction tags */
   .faction-tag {
     font-size: 0.7rem;
@@ -288,6 +293,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 3px;
     background: rgba(232, 213, 108, 0.3);
     color: #E8D56C;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .wip-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(126, 200, 227, 0.3);
+    color: #7EC8E3;
     vertical-align: middle;
     text-transform: uppercase;
     letter-spacing: 0.5px;
