@@ -4,21 +4,49 @@ import { parseAllClans } from '../lib/parse-xml';
 
 const clans = parseAllClans();
 
+// Override Gondor clans with exact order from game UI
+const GONDOR_CLANS = [
+  'House of Húrinionath',
+  'House of Imrazôrionath',
+  'House of Eärnurionath',
+  'House of Ausirionath',
+  'House of Barahirionath',
+  'House of Halboronionath',
+  'House of Malandilionath',
+  'House of Olindurionath',
+  'House of Danuhirionath',
+  'House of Hyarthulionath',
+  'House of Caladionath',
+  'House of Hirilionath',
+  'House of Baranionath',
+  'House of Garvirionath',
+];
+
+// Kingdom banner images
+const KINGDOM_IMAGES: Record<string, string> = {
+  Gondor: '/images/clans-gondor.png',
+};
+
 // Group clans by kingdom
-const clansByKingdom = new Map<string, typeof clans>();
+const clansByKingdom = new Map<string, string[]>();
 for (const clan of clans) {
   const kingdom = clan.kingdom || 'Unknown';
   if (!clansByKingdom.has(kingdom)) clansByKingdom.set(kingdom, []);
-  clansByKingdom.get(kingdom)!.push(clan);
+  clansByKingdom.get(kingdom)!.push(clan.name);
 }
 
-// Sort kingdoms alphabetically, sort clans within each kingdom by name
+// Override Gondor with exact list
+clansByKingdom.set('Gondor', GONDOR_CLANS);
+
+// Sort kingdoms alphabetically, sort clans within each kingdom by name (except Gondor which has fixed order)
 const sortedKingdoms = Array.from(clansByKingdom.entries())
   .filter(([k]) => k !== 'Unknown' && k !== '')
   .sort(([a], [b]) => a.localeCompare(b));
 
-for (const [, kClans] of sortedKingdoms) {
-  kClans.sort((a, b) => a.name.localeCompare(b.name));
+for (const [kingdom, names] of sortedKingdoms) {
+  if (kingdom !== 'Gondor') {
+    names.sort((a, b) => a.localeCompare(b));
+  }
 }
 ---
 
@@ -26,12 +54,15 @@ for (const [, kClans] of sortedKingdoms) {
   <div class="page-content" style="max-width: 900px;">
     <h1 class="page-title">Clans of Middle-earth</h1>
 
-    {sortedKingdoms.map(([kingdom, kClans]) => (
+    {sortedKingdoms.map(([kingdom, names]) => (
       <section class="clan-section">
         <h2>{kingdom}</h2>
+        {KINGDOM_IMAGES[kingdom] && (
+          <img src={KINGDOM_IMAGES[kingdom]} alt={`${kingdom} clans`} class="clan-banner" />
+        )}
         <ul>
-          {kClans.map(c => (
-            <li>{c.name}</li>
+          {names.map(name => (
+            <li>{name}</li>
           ))}
         </ul>
       </section>
@@ -55,6 +86,14 @@ for (const [, kClans] of sortedKingdoms) {
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
+  }
+
+  .clan-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 1rem;
   }
 
   .clan-section ul {
