@@ -303,7 +303,7 @@ const cultures = [
     id: 'umbar',
     name: 'Umbarean',
     color: '#5a8a8a',
-    alignment: 'evil',
+    alignment: 'neutral',
     race: 'Men',
     troops: 14,
     identity: 'The people of Umbar are the heirs of a divided legacy. A seafaring people above all else, the Umbareans command swift corsair fleets that prowl the coasts. Trade and piracy walk hand in hand, and few vessels pass the Bay of Belfalas without paying heed to its black-sailed ships. They measure worth in strength and dominance.',
@@ -322,7 +322,7 @@ const cultures = [
     id: 'khand',
     name: 'Variags',
     color: '#c4873c',
-    alignment: 'evil',
+    alignment: 'neutral',
     race: 'Men',
     troops: 0,
     identity: 'The Variags of Khand are a fierce and warlike people from the arid lands east of Mordor. Bound to the Dark Lord through tribute and ancient alliance, they are renowned for their chariots, swift horsemen and brutal close-quarters fighting. Khand produces some of the most feared mercenary warriors in all of Middle-earth.',
@@ -418,7 +418,7 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           <div class="culture-header">
             <h3 style={`color: ${c.color}`}>{c.name}</h3>
             <div class="culture-meta">
-              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
+              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : c.alignment === 'neutral' ? 'Neutral Kingdom' : 'Forces of Darkness'}</span>
               <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.race}</span>
               {c.troops > 0 && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.troops} troops</span>}
             </div>

@@ -244,7 +244,7 @@ const cultures = [
     id: 'umbar',
     name: 'Umbarean',
     color: '#5a8a8a',
-    alignment: 'evil',
+    alignment: 'neutral',
     race: 'Men',
     items: 0,
     protection: '-1',
@@ -278,7 +278,7 @@ const cultures = [
     id: 'khand',
     name: 'Variags',
     color: '#c4873c',
-    alignment: 'evil',
+    alignment: 'neutral',
     race: 'Men',
     items: 0,
     protection: '—',
@@ -380,7 +380,7 @@ const tierOrder = ['civilian', 'light', 'medium', 'heavy', 'elite', 'lord'];
           <div class="culture-header">
             <h3 style={`color: ${c.color}`}>{c.name}</h3>
             <div class="culture-meta">
-              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
+              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : c.alignment === 'neutral' ? 'Neutral Kingdom' : 'Forces of Darkness'}</span>
               <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.race}</span>
               {c.items > 0 && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.items} items</span>}
             </div>
@@ -537,10 +537,6 @@ const tierOrder = ['civilian', 'light', 'medium', 'heavy', 'elite', 'lord'];
           </tbody>
         </table>
       </div>
-      <p class="section-desc" style="margin-top: 0.75rem;">
-        Items without tier keywords use a value-based fallback: the current primary armor stat determines the tier assignment.
-        The rebalancing tool (<code>tools/rebalance_armor.py</code>) supports <code>--dry-run</code>, <code>--apply</code>, and <code>--export-csv</code> modes.
-      </p>
     </section>
   </div>
 </BaseLayout>

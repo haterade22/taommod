@@ -1,0 +1,345 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { parseAllLords, getCultureDisplayName, isHiddenCulture } from '../lib/parse-xml';
+
+const allLords = parseAllLords().filter(l => !isHiddenCulture(l.culture));
+
+// Build name lookup for family references
+const lordNameMap = new Map<string, string>();
+for (const l of allLords) lordNameMap.set(l.id, l.name);
+
+// Sort by name
+allLords.sort((a, b) => a.name.localeCompare(b.name));
+
+// Get unique values for filters
+const cultures = [...new Set(allLords.map(l => l.culture).filter(Boolean))].sort();
+const kingdoms = [...new Set(allLords.map(l => l.kingdom).filter(Boolean))].sort();
+
+function lookupName(id: string): string {
+  return lordNameMap.get(id) || id;
+}
+
+function traitClass(val: number): string {
+  if (val > 0) return 'trait-positive';
+  if (val < 0) return 'trait-negative';
+  return '';
+}
+
+const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
+---
+
+<BaseLayout title="Lords" description="Complete lord database for TAOM - all lords, family trees, skills, and traits">
+  <div class="page-content">
+    <h1 class="page-title">Lord Database</h1>
+    <p class="page-desc">All lords across Middle-earth. Search for marriage candidates, view family trees, skills, and traits.</p>
+
+    <div class="table-controls">
+      <input type="text" id="search" placeholder="Search by name or ID..." />
+      <select id="filter-culture">
+        <option value="">All Cultures</option>
+        {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
+      </select>
+      <select id="filter-kingdom">
+        <option value="">All Kingdoms</option>
+        {kingdoms.map(k => <option value={k}>{k}</option>)}
+      </select>
+      <select id="filter-gender">
+        <option value="">All Genders</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <select id="filter-married">
+        <option value="">All</option>
+        <option value="single">Single (Marriageable)</option>
+        <option value="married">Married</option>
+      </select>
+      <span class="result-count" id="result-count">{allLords.length} lords</span>
+    </div>
+
+    <div class="data-table-wrapper">
+      <table class="data-table" id="lord-table">
+        <thead>
+          <tr>
+            <th data-col="name">Name</th>
+            <th data-col="culture">Culture</th>
+            <th data-col="kingdom">Kingdom</th>
+            <th data-col="clan">Clan</th>
+            <th data-col="gender">Gender</th>
+            <th data-col="age" class="col-num">Age</th>
+            <th data-col="spouse" class="section-start">Spouse</th>
+            <th data-col="father">Father</th>
+            <th data-col="mother">Mother</th>
+            <th data-col="children">Children</th>
+            <th data-col="defaultGroup" class="section-start">Group</th>
+            <th data-col="oneHanded" class="col-num">1H</th>
+            <th data-col="twoHanded" class="col-num">2H</th>
+            <th data-col="polearm" class="col-num">Pole</th>
+            <th data-col="bow" class="col-num">Bow</th>
+            <th data-col="riding" class="col-num">Ride</th>
+            <th data-col="athletics" class="col-num">Ath</th>
+            <th data-col="tactics" class="col-num">Tac</th>
+            <th data-col="leadership" class="col-num">Lead</th>
+            <th data-col="charm" class="col-num">Chrm</th>
+            <th data-col="steward" class="col-num">Stew</th>
+            <th data-col="honor" class="col-num section-start">Hon</th>
+            <th data-col="generosity" class="col-num">Gen</th>
+            <th data-col="mercy" class="col-num">Merc</th>
+            <th data-col="valor" class="col-num">Val</th>
+            <th data-col="calculating" class="col-num">Calc</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allLords.map(l => {
+            const gender = l.isFemale ? 'Female' : 'Male';
+            const spouseName = l.spouse ? lookupName(l.spouse) : '';
+            const fatherName = l.father ? lookupName(l.father) : '';
+            const motherName = l.mother ? lookupName(l.mother) : '';
+            const childNames = l.children.map(c => lookupName(c)).join(', ');
+            const clanDisplay = l.clan ? l.clan.replace(/^clan_/, '').replace(/_/g, ' ') : '';
+            return (
+              <tr
+                data-name={l.name.toLowerCase()}
+                data-id={l.id.toLowerCase()}
+                data-culture={l.culture}
+                data-kingdom={l.kingdom}
+                data-gender={l.isFemale ? 'female' : 'male'}
+                data-married={l.spouse ? 'married' : 'single'}
+                data-bio={l.biography}
+              >
+                <td class="lord-name-cell">
+                  <span class="lord-name">{l.name}</span>
+                  {!l.alive && <span class="dead-badge">Dead</span>}
+                </td>
+                <td>{getCultureDisplayName(l.culture)}</td>
+                <td>{l.kingdom}</td>
+                <td class="col-clan">{clanDisplay}</td>
+                <td>{gender}</td>
+                <td class="col-num">{l.age || ''}</td>
+                <td class="col-family section-start">{spouseName}</td>
+                <td class="col-family">{fatherName}</td>
+                <td class="col-family">{motherName}</td>
+                <td class="col-family">{childNames}</td>
+                <td class="section-start">{l.defaultGroup}</td>
+                <td class="col-num">{l.skills.OneHanded || ''}</td>
+                <td class="col-num">{l.skills.TwoHanded || ''}</td>
+                <td class="col-num">{l.skills.Polearm || ''}</td>
+                <td class="col-num">{l.skills.Bow || ''}</td>
+                <td class="col-num">{l.skills.Riding || ''}</td>
+                <td class="col-num">{l.skills.Athletics || ''}</td>
+                <td class="col-num">{l.skills.Tactics || ''}</td>
+                <td class="col-num">{l.skills.Leadership || ''}</td>
+                <td class="col-num">{l.skills.Charm || ''}</td>
+                <td class="col-num">{l.skills.Steward || ''}</td>
+                <td class={`col-num section-start ${traitClass(l.traits.Honor || 0)}`}>{l.traits.Honor ?? ''}</td>
+                <td class={`col-num ${traitClass(l.traits.Generosity || 0)}`}>{l.traits.Generosity ?? ''}</td>
+                <td class={`col-num ${traitClass(l.traits.Mercy || 0)}`}>{l.traits.Mercy ?? ''}</td>
+                <td class={`col-num ${traitClass(l.traits.Valor || 0)}`}>{l.traits.Valor ?? ''}</td>
+                <td class={`col-num ${traitClass(l.traits.Calculating || 0)}`}>{l.traits.Calculating ?? ''}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const table = document.getElementById('lord-table') as HTMLTableElement;
+  const tbody = table.querySelector('tbody')!;
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
+  const kingdomFilter = document.getElementById('filter-kingdom') as HTMLSelectElement;
+  const genderFilter = document.getElementById('filter-gender') as HTMLSelectElement;
+  const marriedFilter = document.getElementById('filter-married') as HTMLSelectElement;
+  const resultCount = document.getElementById('result-count')!;
+
+  let sortCol = '';
+  let sortAsc = true;
+
+  function filterRows() {
+    const search = searchInput.value.toLowerCase();
+    const culture = cultureFilter.value;
+    const kingdom = kingdomFilter.value;
+    const gender = genderFilter.value;
+    const married = marriedFilter.value;
+    let visible = 0;
+
+    for (const row of rows) {
+      const name = row.dataset.name || '';
+      const id = row.dataset.id || '';
+      const bio = row.dataset.bio || '';
+      const rowCulture = row.dataset.culture || '';
+      const rowKingdom = row.dataset.kingdom || '';
+      const rowGender = row.dataset.gender || '';
+      const rowMarried = row.dataset.married || '';
+
+      const matchesSearch = !search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search);
+      const matchesCulture = !culture || rowCulture === culture;
+      const matchesKingdom = !kingdom || rowKingdom === kingdom;
+      const matchesGender = !gender || rowGender === gender;
+      const matchesMarried = !married || rowMarried === married;
+
+      const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
+    }
+
+    resultCount.textContent = `${visible} lords`;
+  }
+
+  // Apply URL query params on load
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('culture')) cultureFilter.value = params.get('culture')!;
+  if (params.get('kingdom')) kingdomFilter.value = params.get('kingdom')!;
+  if (params.get('gender')) genderFilter.value = params.get('gender')!;
+  if (params.get('married')) marriedFilter.value = params.get('married')!;
+  if (params.get('search')) searchInput.value = params.get('search')!;
+
+  searchInput.addEventListener('input', filterRows);
+  cultureFilter.addEventListener('change', filterRows);
+  kingdomFilter.addEventListener('change', filterRows);
+  genderFilter.addEventListener('change', filterRows);
+  marriedFilter.addEventListener('change', filterRows);
+
+  filterRows();
+
+  // Column sorting
+  const headers = table.querySelectorAll('th[data-col]');
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const col = (th as HTMLElement).dataset.col!;
+      if (sortCol === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortCol = col;
+        sortAsc = true;
+      }
+
+      headers.forEach(h => {
+        const indicator = h.querySelector('.sort-indicator');
+        if (indicator) indicator.remove();
+      });
+      const indicator = document.createElement('span');
+      indicator.className = 'sort-indicator';
+      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+      th.appendChild(indicator);
+
+      const colIndex = Array.from(headers).indexOf(th);
+      const isNumeric = th.classList.contains('col-num');
+
+      rows.sort((a, b) => {
+        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+        if (isNumeric) {
+          const aNum = parseFloat(aVal) || 0;
+          const bNum = parseFloat(bVal) || 0;
+          return sortAsc ? aNum - bNum : bNum - aNum;
+        }
+
+        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      });
+
+      for (const row of rows) {
+        tbody.appendChild(row);
+      }
+    });
+  });
+
+  // Row click to show biography
+  rows.forEach(row => {
+    row.addEventListener('click', () => {
+      const bio = row.dataset.bio;
+      const existing = row.nextElementSibling;
+      if (existing?.classList.contains('bio-row')) {
+        existing.remove();
+        return;
+      }
+      // Remove any other open bio rows
+      document.querySelectorAll('.bio-row').forEach(r => r.remove());
+      if (bio) {
+        const bioRow = document.createElement('tr');
+        bioRow.className = 'bio-row';
+        const td = document.createElement('td');
+        td.colSpan = row.cells.length;
+        td.className = 'bio-cell';
+        td.textContent = bio;
+        bioRow.appendChild(td);
+        row.after(bioRow);
+      }
+    });
+  });
+</script>
+
+<style>
+  .page-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .lord-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .lord-name {
+    font-weight: 600;
+  }
+
+  .dead-badge {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: rgba(180, 60, 60, 0.3);
+    color: #e07070;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .col-family {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .col-clan {
+    font-size: 0.78rem;
+    text-transform: capitalize;
+  }
+
+  .trait-positive {
+    color: #6dbf8a !important;
+  }
+
+  .trait-negative {
+    color: #e08080 !important;
+  }
+
+  .bio-row {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .bio-cell {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+    border-left: 3px solid var(--accent-dim);
+  }
+
+  tr {
+    cursor: pointer;
+  }
+
+  tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+</style>

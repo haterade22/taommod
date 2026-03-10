@@ -109,7 +109,7 @@ const TYPE_COLORS: Record<string, string> = {
       </section>
     ) : (
       <>
-        <section class="faction-section">
+        <section class="faction-section troop-tree-section">
           <h2>Troop Tree</h2>
           <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
           <TroopTree troops={allTroops} culture={culture} />
@@ -240,7 +240,15 @@ const TYPE_COLORS: Record<string, string> = {
   }
 
   .faction-page {
+    max-width: 100%;
+  }
+
+  .faction-page > :not(.troop-tree-section) {
     max-width: 1200px;
+  }
+
+  .troop-tree-section {
+    max-width: 100%;
   }
 
   .faction-breadcrumb {
