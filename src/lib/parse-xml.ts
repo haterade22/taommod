@@ -642,9 +642,9 @@ export function parseAllLords(): Lord[] {
     }
   }
 
-  // Derive culture from clan ID prefix for lords that still have no culture
+  // Derive or refine culture from clan ID prefix
   for (const lord of lords) {
-    if (!lord.culture && lord.clan) {
+    if (lord.clan) {
       const clanCulture = deriveCultureFromClanId(lord.clan);
       if (clanCulture) lord.culture = clanCulture;
     }
@@ -968,9 +968,6 @@ export function parseWeaponry(): WeaponItem[] {
 
   // Parse LOTRAOM weapons
   items.push(...parseCraftedWeapons(path.join(armoryDir, 'LOTRAOM_weapons.xml'), bladeMap, false));
-
-  // Parse vanilla weapons
-  items.push(...parseCraftedWeapons(path.join(armoryDir, 'vanilla_weapons.xml'), bladeMap, true));
 
   // Parse shields file (Item elements with Weapon component)
   const shieldsPath = path.join(armoryDir, 'LOTRAOM_shields.xml');
