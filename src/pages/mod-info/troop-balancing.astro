@@ -5,6 +5,7 @@ const cultures = [
   {
     id: 'gondor',
     name: 'Gondor',
+    color: '#c8d0d8',
     alignment: 'good',
     race: 'Men',
     troops: 71,
@@ -25,6 +26,7 @@ const cultures = [
   {
     id: 'rohan',
     name: 'Rohan',
+    color: '#6db36d',
     alignment: 'good',
     race: 'Men',
     troops: 57,
@@ -45,6 +47,7 @@ const cultures = [
   {
     id: 'erebor',
     name: 'Erebor',
+    color: '#d4a24c',
     alignment: 'good',
     race: 'Dwarf',
     troops: 47,
@@ -65,6 +68,7 @@ const cultures = [
   {
     id: 'iron_hills',
     name: 'Iron Hills',
+    color: '#8a9aad',
     alignment: 'good',
     race: 'Dwarf',
     troops: 0,
@@ -86,6 +90,7 @@ const cultures = [
   {
     id: 'rivendell',
     name: 'Rivendell',
+    color: '#7ec8e3',
     alignment: 'good',
     race: 'Elf',
     troops: 28,
@@ -107,6 +112,7 @@ const cultures = [
   {
     id: 'mirkwood',
     name: 'Mirkwood',
+    color: '#4a9e6d',
     alignment: 'good',
     race: 'Elf',
     troops: 17,
@@ -128,6 +134,7 @@ const cultures = [
   {
     id: 'lothlorien',
     name: 'Lothlorien',
+    color: '#c9a84c',
     alignment: 'good',
     race: 'Elf',
     troops: 0,
@@ -149,6 +156,7 @@ const cultures = [
   {
     id: 'isengard',
     name: 'Isengard',
+    color: '#a0a0a0',
     alignment: 'evil',
     race: 'Uruk-Hai',
     troops: 38,
@@ -169,6 +177,7 @@ const cultures = [
   {
     id: 'mordor',
     name: 'Mordor',
+    color: '#b44444',
     alignment: 'evil',
     race: 'Orc',
     troops: 28,
@@ -190,6 +199,7 @@ const cultures = [
   {
     id: 'gundabad',
     name: 'Gundabad',
+    color: '#8a7a6a',
     alignment: 'evil',
     race: 'Orc',
     troops: 30,
@@ -211,6 +221,7 @@ const cultures = [
   {
     id: 'dolguldur',
     name: 'Dol Guldur',
+    color: '#7a9a5a',
     alignment: 'evil',
     race: 'Orc',
     troops: 50,
@@ -230,6 +241,7 @@ const cultures = [
   {
     id: 'harad',
     name: 'Harad',
+    color: '#c76a3a',
     alignment: 'evil',
     race: 'Men',
     troops: 29,
@@ -249,6 +261,7 @@ const cultures = [
   {
     id: 'rhun',
     name: 'Rhun',
+    color: '#5a7abd',
     alignment: 'evil',
     race: 'Men',
     troops: 91,
@@ -269,6 +282,7 @@ const cultures = [
   {
     id: 'dunland',
     name: 'Dunland',
+    color: '#9a7a5a',
     alignment: 'evil',
     race: 'Men',
     troops: 45,
@@ -288,21 +302,21 @@ const cultures = [
   {
     id: 'umbar',
     name: 'Umbar',
+    color: '#5a8a8a',
     alignment: 'evil',
     race: 'Men',
     troops: 14,
-    identity: 'The Corsairs of Umbar are pirate warriors who excel in close-quarters sword fighting and boarding actions. Their infantry is competent with blade and spear, but they lack cavalry and archery traditions.',
+    identity: 'The Corsairs of Umbar are pirate warriors who excel in close-quarters sword fighting and boarding actions. Their infantry is strong with blade and shield, but they are terrible horsemen — sailors through and through.',
     strengths: [
-      { skill: 'Athletics', mod: '+5', note: 'Seafaring stamina' },
-      { skill: 'OneHanded', mod: '+5', note: 'Cutlass and boarding sword' },
-      { skill: 'Polearm', mod: '+5', note: 'Harpoon and pike expertise' },
+      { skill: 'Athletics', mod: '+10', note: 'Seafaring stamina' },
+      { skill: 'OneHanded', mod: '+10', note: 'Cutlass and boarding sword' },
+      { skill: 'TwoHanded', mod: '+5', note: 'Heavy boarding weapons' },
     ],
     weaknesses: [
-      { skill: 'Riding', mod: '-5', note: 'Sailors, not horsemen' },
-      { skill: 'Bow', mod: '-5', note: 'Prefer close combat' },
+      { skill: 'Riding', mod: '-15', note: 'Sailors, not horsemen' },
     ],
     groups: ['Infantry', 'Ranged'],
-    notes: 'Umbar has the smallest troop roster (14 troops) and is focused entirely on infantry combat. They are a niche faction best suited for siege defense and close-quarters engagements.',
+    notes: 'Umbar has the smallest troop roster (14 troops) and is focused entirely on infantry combat. Their significant riding penalty (-15) reflects a seafaring culture with no cavalry tradition. Best suited for siege defense and close-quarters engagements.',
   },
 ];
 
@@ -366,9 +380,9 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           </thead>
           <tbody>
             {cultures.map(c => (
-              <tr class={`align-${c.alignment}`}>
-                <td><a href={`#${c.id}`}>{c.name}</a></td>
-                <td class="center">{c.troops || '—'}</td>
+              <tr>
+                <td><a href={`#${c.id}`} style={`color: ${c.color}`}>{c.name}</a></td>
+                <td class="center" style={`color: ${c.color}`}>{c.troops || '—'}</td>
                 {skillOrder.map(skill => {
                   const str = c.strengths.find(s => s.skill === skill);
                   const wk = c.weaknesses.find(s => s.skill === skill);
@@ -389,7 +403,7 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
       {cultures.map(c => (
         <div id={c.id} class={`culture-card align-${c.alignment}`}>
           <div class="culture-header">
-            <h3>{c.name}</h3>
+            <h3 style={`color: ${c.color}`}>{c.name}</h3>
             <div class="culture-meta">
               <span class={`alignment-badge ${c.alignment}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
               <span class="race-badge">{c.race}</span>
@@ -639,13 +653,9 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
   .mod-zero { color: rgba(255, 255, 255, 0.3); }
 
   .comparison-table a {
-    color: var(--accent);
     text-decoration: none;
   }
   .comparison-table a:hover { text-decoration: underline; }
-
-  .align-good td:first-child a { color: #5dae5d; }
-  .align-evil td:first-child a { color: #d46a6a; }
 
   /* Culture cards */
   .culture-card {
