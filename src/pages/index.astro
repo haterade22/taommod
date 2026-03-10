@@ -50,6 +50,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
+    <!-- Video Showcase -->
+    <section class="video-section">
+      <video autoplay loop muted playsinline class="showcase-video">
+        <source src="/images/sauron.mp4" type="video/mp4" />
+      </video>
+    </section>
+
     <!-- Award Section -->
     <section class="award-section">
       <div class="award-content">
@@ -133,6 +140,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     max-width: 800px;
     margin: 0 auto 2rem;
     line-height: 1.6;
+  }
+
+  .video-section {
+    margin-top: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+
+  .showcase-video {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .award-section {
