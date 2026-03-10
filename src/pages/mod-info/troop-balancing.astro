@@ -1,0 +1,766 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const cultures = [
+  {
+    id: 'gondor',
+    name: 'Gondor',
+    alignment: 'good',
+    race: 'Men',
+    troops: 71,
+    identity: 'The disciplined armies of the White Tower. Gondor fields balanced, well-trained soldiers with a slight edge in swordplay and polearm formations. Their weakness is a lack of skirmisher tradition — Gondorian soldiers rely on steel and discipline, not thrown weapons.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+5', note: 'Numenorean sword tradition' },
+      { skill: 'Polearm', mod: '+5', note: 'Disciplined spear formations' },
+    ],
+    weaknesses: [
+      { skill: 'Throwing', mod: '-5', note: 'Minimal skirmisher tradition' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Gondor is the baseline "average" faction. Other cultures are measured against Gondor\'s balanced profile. Their troops are versatile but lack a dramatic specialty.',
+  },
+  {
+    id: 'rohan',
+    name: 'Rohan',
+    alignment: 'good',
+    race: 'Men',
+    troops: 57,
+    identity: 'The horse-lords of the Riddermark. Rohan\'s strength is their legendary cavalry — lancers, mounted archers, and heavy riders who dominate the open plains. On foot, their infantry is capable but unremarkable.',
+    strengths: [
+      { skill: 'Riding', mod: '+10', note: 'Horse-lord heritage' },
+      { skill: 'Polearm', mod: '+10', note: 'Lance and spear mastery' },
+    ],
+    weaknesses: [
+      { skill: 'Crossbow', mod: '-5', note: 'No crossbow tradition' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
+    notes: 'Rohan cavalry is significantly stronger than other human factions in mounted combat. Their infantry is solid but meant to support the cavalry, not lead charges.',
+  },
+  {
+    id: 'erebor',
+    name: 'Erebor',
+    alignment: 'good',
+    race: 'Dwarf',
+    troops: 47,
+    identity: 'The Dwarves of the Lonely Mountain are devastating melee fighters who favor axes and throwing axes. Their heavy armor and stocky builds make them excellent infantry, but their short stature limits mounted combat.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+10', note: 'Axe-wielding tradition' },
+      { skill: 'TwoHanded', mod: '+10', note: 'Great-axe specialists' },
+      { skill: 'Throwing', mod: '+10', note: 'Throwing axe mastery' },
+    ],
+    weaknesses: [
+      { skill: 'Riding', mod: '-5', note: 'Dwarves rarely ride' },
+      { skill: 'Bow', mod: '-5', note: 'Prefer thrown weapons' },
+    ],
+    groups: ['Infantry', 'Ranged'],
+    notes: 'Erebor shares the troop file with Iron Hills but uses different cultural modifiers. Erebor favors throwing axes while Iron Hills favors crossbows.',
+  },
+  {
+    id: 'iron_hills',
+    name: 'Iron Hills',
+    alignment: 'good',
+    race: 'Dwarf',
+    troops: 0,
+    identity: 'The Iron Hills Dwarves are the most militarized of the Dwarven clans. They field elite infantry with superior polearm and crossbow capability — the heavy siege troops of the Dwarven world.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+10', note: 'Melee expertise' },
+      { skill: 'Polearm', mod: '+10', note: 'Pike and mattock formations' },
+      { skill: 'Crossbow', mod: '+10', note: 'Dwarven crossbow tradition' },
+    ],
+    weaknesses: [
+      { skill: 'Riding', mod: '-5', note: 'Dwarves rarely ride' },
+      { skill: 'Bow', mod: '-5', note: 'Prefer crossbows' },
+    ],
+    groups: ['Infantry', 'Ranged'],
+    notes: 'Iron Hills troops are in the Erebor troop file. They share the same baseline but get crossbow bonuses instead of throwing axe bonuses.',
+  },
+  {
+    id: 'rivendell',
+    name: 'Rivendell',
+    alignment: 'good',
+    race: 'Elf',
+    troops: 28,
+    identity: 'The High Elves of Imladris are the finest warriors in Middle-earth. Millennia of martial training gives them unmatched combat prowess across every discipline. A single Rivendell swordsman outclasses an entire squad of lesser troops.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+50', note: 'Millennia of sword mastery' },
+      { skill: 'TwoHanded', mod: '+50', note: 'Great-blade expertise' },
+      { skill: 'Polearm', mod: '+50', note: 'Spear and glaive mastery' },
+      { skill: 'Bow', mod: '+50', note: 'Elven archery supremacy' },
+      { skill: 'Athletics', mod: '+45', note: 'Supernatural agility' },
+      { skill: 'Riding', mod: '+45', note: 'Elven horsemanship' },
+      { skill: 'Throwing', mod: '+45', note: 'Precision throwing' },
+    ],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Rivendell is the most elite faction in TAOM. Their troops are 25-50 skill points above standard factions at every tier. This reflects High Elves as an ancient, diminished but supremely skilled warrior culture. They compensate for low numbers with individual excellence.',
+  },
+  {
+    id: 'mirkwood',
+    name: 'Mirkwood',
+    alignment: 'good',
+    race: 'Elf',
+    troops: 17,
+    identity: 'The Woodland Elves of Thranduil\'s realm are supreme archers and agile woodland fighters. They favor hit-and-run tactics, ambushes, and devastating ranged volleys from the forest canopy.',
+    strengths: [
+      { skill: 'Bow', mod: '+40', note: 'Legendary woodland archery' },
+      { skill: 'Athletics', mod: '+30', note: 'Forest agility' },
+      { skill: 'OneHanded', mod: '+25', note: 'Elven blade work' },
+      { skill: 'TwoHanded', mod: '+25', note: 'Two-handed expertise' },
+      { skill: 'Polearm', mod: '+25', note: 'Spear proficiency' },
+      { skill: 'Riding', mod: '+20', note: 'Elk and horse riders' },
+      { skill: 'Throwing', mod: '+20', note: 'Thrown javelin skill' },
+    ],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Mirkwood specializes in ranged combat more than Rivendell. Their archers are the deadliest in the game, but their melee troops are slightly below Rivendell\'s. The best faction for ranged-focused armies.',
+  },
+  {
+    id: 'lothlorien',
+    name: 'Lothlorien',
+    alignment: 'good',
+    race: 'Elf',
+    troops: 0,
+    identity: 'The Galadhrim of the Golden Wood are balanced elite warriors. Under Galadriel\'s guidance, they maintain excellence across all combat disciplines — equally deadly with bow, blade, and spear.',
+    strengths: [
+      { skill: 'Bow', mod: '+35', note: 'Golden Wood archery' },
+      { skill: 'OneHanded', mod: '+35', note: 'Elven sword mastery' },
+      { skill: 'TwoHanded', mod: '+35', note: 'Great-blade proficiency' },
+      { skill: 'Polearm', mod: '+35', note: 'Glaive and spear mastery' },
+      { skill: 'Athletics', mod: '+30', note: 'Elven agility' },
+      { skill: 'Riding', mod: '+25', note: 'Horse and stag riders' },
+      { skill: 'Throwing', mod: '+25', note: 'Precision throwing' },
+    ],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Lothlorien sits between Rivendell and Mirkwood — not quite as dominant in any single area, but the most well-rounded elven faction. Their troops have no weaknesses and perform well in any role.',
+  },
+  {
+    id: 'isengard',
+    name: 'Isengard',
+    alignment: 'evil',
+    race: 'Uruk-Hai',
+    troops: 38,
+    identity: 'Saruman\'s Uruk-hai are bred for war. They are physically superior to other orcs — stronger, faster, and able to fight in daylight. Isengard troops excel in brutal melee combat and aggressive charges.',
+    strengths: [
+      { skill: 'Athletics', mod: '+5', note: 'Bred for endurance' },
+      { skill: 'OneHanded', mod: '+10', note: 'Scimitar and sword mastery' },
+      { skill: 'TwoHanded', mod: '+10', note: 'Berserker great-weapons' },
+    ],
+    weaknesses: [
+      { skill: 'Bow', mod: '-5', note: 'Prefer melee combat' },
+      { skill: 'Riding', mod: '-5', note: 'Rarely mounted (warg riders excepted)' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Isengard\'s infantry is among the strongest non-elven melee troops in the game. Their crossbowmen are competent, but their real strength is the devastating Uruk-hai charge. Warg riders provide limited cavalry support.',
+  },
+  {
+    id: 'mordor',
+    name: 'Mordor',
+    alignment: 'evil',
+    race: 'Orc',
+    troops: 28,
+    identity: 'The armies of the Dark Lord rely on overwhelming numbers rather than individual skill. Mordor orcs are individually weaker than most factions but compensate with throwing weapons and sheer volume. Their elite Black Uruks are the exception.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+5', note: 'Basic sword/cleaver skill' },
+      { skill: 'Throwing', mod: '+10', note: 'Rock and javelin throwing' },
+    ],
+    weaknesses: [
+      { skill: 'Athletics', mod: '-5', note: 'Poor stamina and discipline' },
+      { skill: 'Riding', mod: '-5', note: 'Limited cavalry tradition' },
+      { skill: 'Bow', mod: '-5', note: 'Inaccurate archers' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Mordor is intentionally weaker per-troop than other factions. They win battles through attrition and numbers. Their throwing weapon bonus reflects the orc habit of hurling rocks and javelins before charging.',
+  },
+  {
+    id: 'gundabad',
+    name: 'Gundabad',
+    alignment: 'evil',
+    race: 'Orc',
+    troops: 30,
+    identity: 'The orcs of Mount Gundabad are the biggest and most brutal of all orc-kind. Pale Uruks and mountain orcs fight with raw physical power, wielding massive two-handed weapons and crushing their enemies through brute force.',
+    strengths: [
+      { skill: 'Athletics', mod: '+10', note: 'Mountain-bred endurance' },
+      { skill: 'TwoHanded', mod: '+10', note: 'Massive weapon specialists' },
+    ],
+    weaknesses: [
+      { skill: 'Riding', mod: '-5', note: 'Too heavy for most mounts' },
+      { skill: 'Bow', mod: '-5', note: 'Prefer close combat' },
+    ],
+    groups: ['Infantry', 'Ranged'],
+    notes: 'Gundabad\'s heavy infantry is the strongest orc melee force in the game. Their two-handed weapon bonus makes them devastating in open-field charges. They lack cavalry and ranged versatility.',
+  },
+  {
+    id: 'dolguldur',
+    name: 'Dol Guldur',
+    alignment: 'evil',
+    race: 'Orc',
+    troops: 50,
+    identity: 'The shadow fortress of southern Mirkwood fields a mixed force of goblins, orcs, and warg riders. Dol Guldur\'s specialty is their warg cavalry — fast, vicious mounted units that harry enemy flanks.',
+    strengths: [
+      { skill: 'Riding', mod: '+5', note: 'Warg-rider tradition' },
+    ],
+    weaknesses: [
+      { skill: 'Athletics', mod: '-5', note: 'Goblin weakness on foot' },
+      { skill: 'Polearm', mod: '-5', note: 'Poor formation discipline' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Dol Guldur is the weakest evil faction in raw infantry skill, but their warg cavalry gives them unique tactical options. They are a skirmish-oriented faction that relies on speed and disruption.',
+  },
+  {
+    id: 'harad',
+    name: 'Harad',
+    alignment: 'evil',
+    race: 'Men',
+    troops: 29,
+    identity: 'The Haradrim are desert warriors renowned for their cavalry and archery. Their mounted archers and Mumakil-riding elites make them the premier ranged cavalry faction among the evil races.',
+    strengths: [
+      { skill: 'Riding', mod: '+10', note: 'Desert cavalry tradition' },
+      { skill: 'Bow', mod: '+10', note: 'Legendary Haradrim archery' },
+    ],
+    weaknesses: [
+      { skill: 'Athletics', mod: '-5', note: 'Prefer mounted combat' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
+    notes: 'Harad is the evil counterpart to Rohan — cavalry-focused with excellent archers. Their horse archers are particularly dangerous with both Riding and Bow bonuses stacking.',
+  },
+  {
+    id: 'rhun',
+    name: 'Rhun',
+    alignment: 'evil',
+    race: 'Men',
+    troops: 91,
+    identity: 'The Easterlings of Rhun fight with disciplined polearm formations and heavy two-handed weapons. Their armies are organized, well-drilled, and favor defensive combat with long-reaching weapons.',
+    strengths: [
+      { skill: 'Polearm', mod: '+10', note: 'Easterling pike tradition' },
+      { skill: 'TwoHanded', mod: '+5', note: 'Heavy weapon proficiency' },
+    ],
+    weaknesses: [
+      { skill: 'Bow', mod: '-5', note: 'Limited ranged tradition' },
+      { skill: 'Throwing', mod: '-5', note: 'Prefer melee engagement' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
+    notes: 'Rhun has the largest troop roster (91 troops) and fields the most diverse army among evil factions. Their polearm infantry is excellent at holding defensive positions and breaking cavalry charges.',
+  },
+  {
+    id: 'dunland',
+    name: 'Dunland',
+    alignment: 'evil',
+    race: 'Men',
+    troops: 45,
+    identity: 'The wild Dunlendings are fierce raiders who fight with thrown weapons and two-handed axes. They lack the discipline of other factions but make up for it with ferocious aggression and skirmishing ability.',
+    strengths: [
+      { skill: 'Throwing', mod: '+10', note: 'Javelin and throwing axe tradition' },
+      { skill: 'TwoHanded', mod: '+5', note: 'Two-handed axe fighters' },
+    ],
+    weaknesses: [
+      { skill: 'Riding', mod: '-5', note: 'Hill-folk, not horsemen' },
+    ],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes: 'Dunland excels at skirmishing — their throwing weapon bonus makes their infantry dangerous at range before closing for melee. They struggle in prolonged mounted engagements.',
+  },
+  {
+    id: 'umbar',
+    name: 'Umbar',
+    alignment: 'evil',
+    race: 'Men',
+    troops: 14,
+    identity: 'The Corsairs of Umbar are pirate warriors who excel in close-quarters sword fighting and boarding actions. Their infantry is competent with blade and spear, but they lack cavalry and archery traditions.',
+    strengths: [
+      { skill: 'OneHanded', mod: '+5', note: 'Cutlass and boarding sword' },
+      { skill: 'Polearm', mod: '+5', note: 'Harpoon and pike expertise' },
+    ],
+    weaknesses: [
+      { skill: 'Riding', mod: '-5', note: 'Sailors, not horsemen' },
+      { skill: 'Bow', mod: '-5', note: 'Prefer close combat' },
+    ],
+    groups: ['Infantry', 'Ranged'],
+    notes: 'Umbar has the smallest troop roster (14 troops) and is focused entirely on infantry combat. They are a niche faction best suited for siege defense and close-quarters engagements.',
+  },
+];
+
+const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing'];
+---
+
+<BaseLayout title="Troop Balancing" description="Detailed breakdown of troop skill balancing across all 15 TAOM cultures">
+  <div class="page-content mod-info">
+    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Troop Balancing</nav>
+    <h1 class="page-title">Troop Balancing</h1>
+
+    <section class="info-section">
+      <h2>Overview</h2>
+      <p class="section-desc">
+        TAOM rebalances all <strong>545 troops</strong> across <strong>15 cultures</strong> using a uniform formula:
+        every troop's 8 combat skills are calculated from a <strong>level-based baseline</strong> plus a
+        <strong>cultural modifier</strong>. This ensures all same-tier troops are within 5-10 skill points of each other,
+        while giving each culture a distinct tactical identity.
+      </p>
+      <p class="section-desc">
+        Elven factions (Rivendell, Mirkwood, Lothlorien) are elite — their troops are 25-50 skill points above standard
+        factions per skill, reflecting millennia of martial training.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2>The Formula</h2>
+      <div class="formula-box">
+        <code>Final Skill = Baseline[level][group][skill] + Cultural Modifier[culture][skill]</code>
+      </div>
+      <div class="formula-details">
+        <div class="detail-card">
+          <h3>Baselines</h3>
+          <p>Defined per level tier (1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51) and per troop group (Infantry, Ranged, Cavalry, Horse Archer). Baselines scale smoothly — a level 1 recruit has ~25 in primary skills, while a level 51 elite has ~350.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Cultural Modifiers</h3>
+          <p>Each culture adds or subtracts 5-10 points per skill (25-50 for elves). These flat modifiers apply at every level, maintaining consistent faction identity from recruits to veterans.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Weapon Specialization</h3>
+          <p>Troops with specific weapon types in their names (Crossbowman, Pikeman, Swordsman) get automatic skill swaps — e.g., a Crossbowman swaps Bow and Crossbow values.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Militia Fix</h3>
+          <p>Previously, 40+ militia troops had zero in every skill. They now inherit their culture's level 21 baseline, making them functional garrison troops.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Quick Comparison</h2>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Culture</th>
+              <th>Troops</th>
+              {skillOrder.map(s => <th class="skill-col">{s.substring(0, 3)}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {cultures.map(c => (
+              <tr class={`align-${c.alignment}`}>
+                <td><a href={`#${c.id}`}>{c.name}</a></td>
+                <td class="center">{c.troops || '—'}</td>
+                {skillOrder.map(skill => {
+                  const str = c.strengths.find(s => s.skill === skill);
+                  const wk = c.weaknesses.find(s => s.skill === skill);
+                  const val = str ? str.mod : wk ? wk.mod : '0';
+                  const cls = str ? 'mod-pos' : wk ? 'mod-neg' : 'mod-zero';
+                  return <td class={`center ${cls}`}>{val}</td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Culture Details</h2>
+
+      {cultures.map(c => (
+        <div id={c.id} class={`culture-card align-${c.alignment}`}>
+          <div class="culture-header">
+            <h3>{c.name}</h3>
+            <div class="culture-meta">
+              <span class={`alignment-badge ${c.alignment}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
+              <span class="race-badge">{c.race}</span>
+              {c.troops > 0 && <span class="troop-count">{c.troops} troops</span>}
+            </div>
+          </div>
+
+          <p class="culture-identity">{c.identity}</p>
+
+          <div class="modifiers-grid">
+            {c.strengths.length > 0 && (
+              <div class="mod-section strengths">
+                <h4>Strengths</h4>
+                <ul>
+                  {c.strengths.map(s => (
+                    <li>
+                      <span class="mod-skill">{s.skill}</span>
+                      <span class="mod-value pos">{s.mod}</span>
+                      <span class="mod-note">{s.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {c.weaknesses.length > 0 && (
+              <div class="mod-section weaknesses">
+                <h4>Weaknesses</h4>
+                <ul>
+                  {c.weaknesses.map(w => (
+                    <li>
+                      <span class="mod-skill">{w.skill}</span>
+                      <span class="mod-value neg">{w.mod}</span>
+                      <span class="mod-note">{w.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div class="culture-groups">
+            <strong>Troop Groups:</strong> {c.groups.join(', ')}
+          </div>
+
+          {c.notes && <p class="culture-notes">{c.notes}</p>}
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Baseline Skill Tables</h2>
+      <p class="section-desc">
+        These are the center values before cultural modifiers are applied. Each troop group has its own progression curve.
+      </p>
+
+      <h3>Infantry Baselines</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th>Thr</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>25</td><td>5</td><td>25</td><td>15</td><td>20</td><td>5</td><td>0</td><td>10</td></tr>
+            <tr><td>6</td><td>33</td><td>5</td><td>28</td><td>18</td><td>28</td><td>5</td><td>0</td><td>10</td></tr>
+            <tr><td>11</td><td>48</td><td>10</td><td>60</td><td>55</td><td>70</td><td>10</td><td>5</td><td>20</td></tr>
+            <tr><td>16</td><td>80</td><td>15</td><td>90</td><td>85</td><td>95</td><td>15</td><td>10</td><td>30</td></tr>
+            <tr><td>21</td><td>95</td><td>15</td><td>125</td><td>110</td><td>130</td><td>15</td><td>10</td><td>50</td></tr>
+            <tr><td>26</td><td>100</td><td>20</td><td>175</td><td>155</td><td>170</td><td>20</td><td>15</td><td>70</td></tr>
+            <tr><td>31</td><td>120</td><td>25</td><td>230</td><td>210</td><td>235</td><td>25</td><td>20</td><td>80</td></tr>
+            <tr><td>36</td><td>140</td><td>30</td><td>270</td><td>250</td><td>275</td><td>30</td><td>25</td><td>90</td></tr>
+            <tr><td>41</td><td>160</td><td>35</td><td>310</td><td>290</td><td>310</td><td>35</td><td>25</td><td>100</td></tr>
+            <tr><td>46</td><td>175</td><td>40</td><td>330</td><td>310</td><td>330</td><td>40</td><td>30</td><td>100</td></tr>
+            <tr><td>51</td><td>190</td><td>40</td><td>350</td><td>330</td><td>350</td><td>40</td><td>30</td><td>100</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ranged Baselines</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th>Thr</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>11</td><td>50</td><td>10</td><td>30</td><td>25</td><td>30</td><td>55</td><td>15</td><td>20</td></tr>
+            <tr><td>16</td><td>85</td><td>15</td><td>70</td><td>45</td><td>45</td><td>85</td><td>25</td><td>30</td></tr>
+            <tr><td>21</td><td>95</td><td>15</td><td>100</td><td>65</td><td>70</td><td>130</td><td>30</td><td>40</td></tr>
+            <tr><td>26</td><td>105</td><td>20</td><td>140</td><td>85</td><td>90</td><td>170</td><td>35</td><td>50</td></tr>
+            <tr><td>31</td><td>115</td><td>25</td><td>165</td><td>100</td><td>100</td><td>205</td><td>40</td><td>60</td></tr>
+            <tr><td>36</td><td>130</td><td>30</td><td>195</td><td>120</td><td>120</td><td>245</td><td>50</td><td>70</td></tr>
+            <tr><td>41</td><td>150</td><td>35</td><td>220</td><td>140</td><td>140</td><td>280</td><td>55</td><td>80</td></tr>
+            <tr><td>46</td><td>165</td><td>40</td><td>240</td><td>160</td><td>160</td><td>300</td><td>60</td><td>80</td></tr>
+            <tr><td>51</td><td>180</td><td>40</td><td>260</td><td>170</td><td>170</td><td>320</td><td>65</td><td>80</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cavalry Baselines</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th>Thr</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6</td><td>50</td><td>50</td><td>30</td><td>10</td><td>30</td><td>5</td><td>0</td><td>10</td></tr>
+            <tr><td>11</td><td>60</td><td>65</td><td>55</td><td>35</td><td>60</td><td>10</td><td>5</td><td>15</td></tr>
+            <tr><td>16</td><td>85</td><td>95</td><td>80</td><td>50</td><td>100</td><td>15</td><td>10</td><td>25</td></tr>
+            <tr><td>21</td><td>100</td><td>120</td><td>115</td><td>60</td><td>145</td><td>25</td><td>15</td><td>30</td></tr>
+            <tr><td>26</td><td>115</td><td>160</td><td>170</td><td>80</td><td>195</td><td>30</td><td>20</td><td>40</td></tr>
+            <tr><td>31</td><td>130</td><td>210</td><td>220</td><td>100</td><td>250</td><td>35</td><td>25</td><td>50</td></tr>
+            <tr><td>36</td><td>150</td><td>270</td><td>270</td><td>130</td><td>300</td><td>45</td><td>30</td><td>60</td></tr>
+            <tr><td>41</td><td>170</td><td>320</td><td>310</td><td>160</td><td>340</td><td>50</td><td>35</td><td>70</td></tr>
+            <tr><td>46</td><td>185</td><td>360</td><td>340</td><td>180</td><td>370</td><td>55</td><td>40</td><td>70</td></tr>
+            <tr><td>51</td><td>200</td><td>400</td><td>370</td><td>200</td><td>400</td><td>60</td><td>40</td><td>80</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Horse Archer Baselines</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th>Thr</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6</td><td>50</td><td>50</td><td>25</td><td>10</td><td>20</td><td>40</td><td>0</td><td>10</td></tr>
+            <tr><td>11</td><td>65</td><td>75</td><td>40</td><td>25</td><td>40</td><td>65</td><td>10</td><td>20</td></tr>
+            <tr><td>16</td><td>90</td><td>110</td><td>70</td><td>40</td><td>65</td><td>100</td><td>15</td><td>30</td></tr>
+            <tr><td>21</td><td>110</td><td>150</td><td>100</td><td>55</td><td>80</td><td>145</td><td>20</td><td>45</td></tr>
+            <tr><td>26</td><td>125</td><td>200</td><td>140</td><td>75</td><td>110</td><td>195</td><td>25</td><td>55</td></tr>
+            <tr><td>31</td><td>145</td><td>255</td><td>180</td><td>95</td><td>140</td><td>245</td><td>30</td><td>65</td></tr>
+            <tr><td>36</td><td>160</td><td>310</td><td>215</td><td>115</td><td>165</td><td>290</td><td>35</td><td>75</td></tr>
+            <tr><td>41</td><td>175</td><td>350</td><td>250</td><td>140</td><td>200</td><td>320</td><td>40</td><td>85</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .mod-info {
+    max-width: 1200px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .info-section {
+    margin-bottom: 3rem;
+  }
+
+  .info-section h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(212, 162, 76, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* Formula section */
+  .formula-box {
+    background: rgba(212, 162, 76, 0.1);
+    border: 1px solid rgba(212, 162, 76, 0.3);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .formula-box code {
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .formula-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .detail-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .detail-card h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .detail-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Comparison table */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table, .baseline-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .comparison-table th, .comparison-table td,
+  .baseline-table th, .baseline-table td {
+    padding: 0.5rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+
+  .comparison-table th, .baseline-table th {
+    background: rgba(212, 162, 76, 0.15);
+    color: var(--accent);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+
+  .comparison-table tbody tr:hover, .baseline-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .center { text-align: center; }
+  .skill-col { text-align: center; min-width: 40px; }
+
+  .mod-pos { color: #5dae5d; font-weight: 600; }
+  .mod-neg { color: #d46a6a; font-weight: 600; }
+  .mod-zero { color: rgba(255, 255, 255, 0.3); }
+
+  .comparison-table a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .comparison-table a:hover { text-decoration: underline; }
+
+  .align-good td:first-child a { color: #5dae5d; }
+  .align-evil td:first-child a { color: #d46a6a; }
+
+  /* Culture cards */
+  .culture-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .culture-card.align-good { border-left: 3px solid rgba(93, 174, 93, 0.5); }
+  .culture-card.align-evil { border-left: 3px solid rgba(212, 106, 106, 0.5); }
+
+  .culture-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .culture-header h3 {
+    color: var(--accent);
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .culture-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .alignment-badge, .race-badge, .troop-count {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .alignment-badge.good { background: rgba(93, 174, 93, 0.2); color: #5dae5d; }
+  .alignment-badge.evil { background: rgba(212, 106, 106, 0.2); color: #d46a6a; }
+  .race-badge { background: rgba(126, 200, 227, 0.15); color: #7ec8e3; }
+  .troop-count { background: rgba(212, 162, 76, 0.15); color: var(--accent); }
+
+  .culture-identity {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .modifiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .mod-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .mod-section.strengths { border-top: 2px solid rgba(93, 174, 93, 0.4); }
+  .mod-section.weaknesses { border-top: 2px solid rgba(212, 106, 106, 0.4); }
+
+  .mod-section h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+  .strengths h4 { color: #5dae5d; }
+  .weaknesses h4 { color: #d46a6a; }
+
+  .mod-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mod-section li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.875rem;
+  }
+
+  .mod-skill {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    min-width: 90px;
+  }
+  .mod-value {
+    font-weight: 700;
+    font-family: monospace;
+    min-width: 40px;
+  }
+  .mod-value.pos { color: #5dae5d; }
+  .mod-value.neg { color: #d46a6a; }
+  .mod-note {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+  }
+
+  .culture-groups {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+  .culture-groups strong { color: rgba(255, 255, 255, 0.7); }
+
+  .culture-notes {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Baseline tables */
+  .info-section h3 {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .baseline-table td {
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+  .baseline-table td:first-child {
+    font-weight: 600;
+    color: var(--accent);
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .culture-header { flex-direction: column; align-items: flex-start; }
+    .modifiers-grid { grid-template-columns: 1fr; }
+    .formula-details { grid-template-columns: 1fr; }
+  }
+</style>
