@@ -1,6 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import fs from 'fs';
 import path from 'path';
+import { estimateSwingDamage, estimateThrustDamage } from './damage-calc';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -655,8 +656,8 @@ export function parseAllLords(): Lord[] {
 function deriveCultureFromClanId(clanId: string): string {
   const prefixMap: Record<string, string> = {
     clan_empire_north: 'empire',
-    clan_empire_west: 'empire',
-    clan_empire_south: 'empire',
+    clan_empire_west: 'gondor',
+    clan_empire_south: 'mordor',
     clan_sturgia: 'sturgia',
     clan_aserai: 'aserai',
     clan_vlandia: 'vlandia',
@@ -821,6 +822,9 @@ export interface WeaponItem {
   bodyArmor: number;      // shields only
   hitPoints: number;      // shields only
   isMerchandise: boolean;
+  estimatedSwingDamage: number;
+  estimatedThrustDamage: number;
+  isVanilla: boolean;
 }
 
 interface BladeDamage {
@@ -829,14 +833,12 @@ interface BladeDamage {
   thrustDamage: number;
   thrustDamageType: string;
   length: number;
+  bladeWeight: number;
 }
 
-function parseCraftingPieces(armoryDir: string): Map<string, BladeDamage> {
-  const bladeMap = new Map<string, BladeDamage>();
-  const piecesPath = path.join(armoryDir, 'LOTRLOME_crafting_pieces.xml');
-  if (!fs.existsSync(piecesPath)) return bladeMap;
-
-  const xml = fs.readFileSync(piecesPath, 'utf-8');
+function parseCraftingPiecesFromFile(filePath: string, bladeMap: Map<string, BladeDamage>): void {
+  if (!fs.existsSync(filePath)) return;
+  const xml = fs.readFileSync(filePath, 'utf-8');
   const parsed = parser.parse(xml);
   const pieces = parsed?.CraftingPieces?.CraftingPiece || [];
   for (const piece of pieces) {
@@ -851,9 +853,109 @@ function parseCraftingPieces(armoryDir: string): Map<string, BladeDamage> {
       thrustDamage: parseFloat(thrust?.['@_damage_factor']) || 0,
       thrustDamageType: thrust?.['@_damage_type'] || '',
       length: parseFloat(piece['@_length']) || 0,
+      bladeWeight: parseFloat(piece['@_weight']) || 0,
     });
   }
+}
+
+function parseCraftingPieces(armoryDir: string): Map<string, BladeDamage> {
+  const bladeMap = new Map<string, BladeDamage>();
+  // LOTRAOM crafting pieces
+  parseCraftingPiecesFromFile(path.join(armoryDir, 'LOTRLOME_crafting_pieces.xml'), bladeMap);
+  // Vanilla crafting pieces
+  parseCraftingPiecesFromFile(path.join(armoryDir, 'vanilla_crafting_pieces.xml'), bladeMap);
   return bladeMap;
+}
+
+function parseCraftedWeapons(
+  filePath: string,
+  bladeMap: Map<string, BladeDamage>,
+  isVanilla: boolean,
+): WeaponItem[] {
+  if (!fs.existsSync(filePath)) return [];
+  const xml = fs.readFileSync(filePath, 'utf-8');
+  const parsed = parser.parse(xml);
+  const items: WeaponItem[] = [];
+
+  const craftedItems = parsed?.Items?.CraftedItem || [];
+  for (const item of craftedItems) {
+    const pieces = item.Pieces?.Piece || [];
+    const bladePiece = pieces.find((p: any) => p['@_Type'] === 'Blade');
+    const blade = bladePiece ? bladeMap.get(bladePiece['@_id'] || '') : undefined;
+
+    const swingFactor = blade?.swingDamage || 0;
+    const thrustFactor = blade?.thrustDamage || 0;
+    const bladeWeight = blade?.bladeWeight || 0;
+
+    items.push({
+      id: item['@_id'] || '',
+      name: stripLocKey(item['@_name'] || ''),
+      culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+      weaponClass: item['@_crafting_template'] || '',
+      type: 'Weapon',
+      craftingTemplate: item['@_crafting_template'] || '',
+      weight: bladeWeight,
+      difficulty: parseInt(item['@_difficulty']) || 0,
+      appearance: parseFloat(item['@_appearance']) || 0,
+      swingDamage: swingFactor,
+      swingDamageType: blade?.swingDamageType || '',
+      thrustDamage: thrustFactor,
+      thrustDamageType: blade?.thrustDamageType || '',
+      weaponLength: blade?.length || 0,
+      speed: 0,
+      missileSpeed: 0,
+      accuracy: 0,
+      bodyArmor: 0,
+      hitPoints: 0,
+      isMerchandise: item['@_is_merchandise'] === 'true',
+      estimatedSwingDamage: estimateSwingDamage(bladeWeight, swingFactor),
+      estimatedThrustDamage: estimateThrustDamage(bladeWeight, thrustFactor),
+      isVanilla,
+    });
+  }
+
+  // Item weapons (bows, crossbows, etc.) with direct stats
+  const xmlItems = parsed?.Items?.Item || [];
+  for (const item of xmlItems) {
+    const weapon = item.ItemComponent?.Weapon;
+    if (!weapon) continue;
+    const wClass = weapon['@_weapon_class'] || '';
+    const thrustDmg = parseInt(weapon['@_thrust_damage']) || 0;
+    const swingDmg = parseInt(weapon['@_swing_damage']) || 0;
+
+    items.push({
+      id: item['@_id'] || '',
+      name: stripLocKey(item['@_name'] || ''),
+      culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
+      weaponClass: wClass,
+      type: isBowClass(wClass) ? 'Bow' : 'Weapon',
+      craftingTemplate: '',
+      weight: parseFloat(item['@_weight']) || 0,
+      difficulty: parseInt(item['@_difficulty']) || 0,
+      appearance: parseFloat(item['@_appearance']) || 0,
+      swingDamage: swingDmg,
+      swingDamageType: weapon['@_swing_damage_type'] || '',
+      thrustDamage: thrustDmg,
+      thrustDamageType: weapon['@_thrust_damage_type'] || '',
+      weaponLength: parseInt(weapon['@_weapon_length']) || 0,
+      speed: parseInt(weapon['@_speed_rating']) || 0,
+      missileSpeed: parseInt(weapon['@_missile_speed']) || 0,
+      accuracy: parseInt(weapon['@_accuracy']) || 0,
+      bodyArmor: 0,
+      hitPoints: 0,
+      isMerchandise: item['@_is_merchandise'] === 'true',
+      // For Item weapons, the damage stat IS the estimated damage
+      estimatedSwingDamage: swingDmg,
+      estimatedThrustDamage: thrustDmg,
+      isVanilla,
+    });
+  }
+
+  return items;
+}
+
+function isBowClass(weaponClass: string): boolean {
+  return ['Bow', 'Crossbow', 'Arrow', 'Bolt'].includes(weaponClass);
 }
 
 export function parseWeaponry(): WeaponItem[] {
@@ -864,73 +966,11 @@ export function parseWeaponry(): WeaponItem[] {
   const bladeMap = parseCraftingPieces(armoryDir);
   const items: WeaponItem[] = [];
 
-  // Parse weapons file (CraftedItem + Item elements)
-  const weaponsPath = path.join(armoryDir, 'LOTRAOM_weapons.xml');
-  if (fs.existsSync(weaponsPath)) {
-    const xml = fs.readFileSync(weaponsPath, 'utf-8');
-    const parsed = parser.parse(xml);
+  // Parse LOTRAOM weapons
+  items.push(...parseCraftedWeapons(path.join(armoryDir, 'LOTRAOM_weapons.xml'), bladeMap, false));
 
-    // CraftedItem weapons - look up blade damage from crafting pieces
-    const craftedItems = parsed?.Items?.CraftedItem || [];
-    for (const item of craftedItems) {
-      const pieces = item.Pieces?.Piece || [];
-      const bladePiece = pieces.find((p: any) => p['@_Type'] === 'Blade');
-      const blade = bladePiece ? bladeMap.get(bladePiece['@_id'] || '') : undefined;
-
-      items.push({
-        id: item['@_id'] || '',
-        name: stripLocKey(item['@_name'] || ''),
-        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
-        weaponClass: item['@_crafting_template'] || '',
-        type: 'Weapon',
-        craftingTemplate: item['@_crafting_template'] || '',
-        weight: parseFloat(item['@_weight']) || 0,
-        difficulty: parseInt(item['@_difficulty']) || 0,
-        appearance: parseFloat(item['@_appearance']) || 0,
-        swingDamage: blade?.swingDamage || 0,
-        swingDamageType: blade?.swingDamageType || '',
-        thrustDamage: blade?.thrustDamage || 0,
-        thrustDamageType: blade?.thrustDamageType || '',
-        weaponLength: blade?.length || 0,
-        speed: 0,
-        missileSpeed: 0,
-        accuracy: 0,
-        bodyArmor: 0,
-        hitPoints: 0,
-        isMerchandise: item['@_is_merchandise'] === 'true',
-      });
-    }
-
-    // Item weapons (bows, etc.) - stats directly on Weapon component
-    const xmlItems = parsed?.Items?.Item || [];
-    for (const item of xmlItems) {
-      const weapon = item.ItemComponent?.Weapon;
-      if (!weapon) continue;
-      const wClass = weapon['@_weapon_class'] || '';
-      items.push({
-        id: item['@_id'] || '',
-        name: stripLocKey(item['@_name'] || ''),
-        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
-        weaponClass: wClass,
-        type: 'Bow',
-        craftingTemplate: '',
-        weight: parseFloat(item['@_weight']) || 0,
-        difficulty: parseInt(item['@_difficulty']) || 0,
-        appearance: parseFloat(item['@_appearance']) || 0,
-        swingDamage: 0,
-        swingDamageType: '',
-        thrustDamage: parseInt(weapon['@_thrust_damage']) || 0,
-        thrustDamageType: weapon['@_thrust_damage_type'] || '',
-        weaponLength: parseInt(weapon['@_weapon_length']) || 0,
-        speed: parseInt(weapon['@_speed_rating']) || 0,
-        missileSpeed: parseInt(weapon['@_missile_speed']) || 0,
-        accuracy: parseInt(weapon['@_accuracy']) || 0,
-        bodyArmor: 0,
-        hitPoints: 0,
-        isMerchandise: item['@_is_merchandise'] === 'true',
-      });
-    }
-  }
+  // Parse vanilla weapons
+  items.push(...parseCraftedWeapons(path.join(armoryDir, 'vanilla_weapons.xml'), bladeMap, true));
 
   // Parse shields file (Item elements with Weapon component)
   const shieldsPath = path.join(armoryDir, 'LOTRAOM_shields.xml');
@@ -961,6 +1001,9 @@ export function parseWeaponry(): WeaponItem[] {
         bodyArmor: parseInt(weapon?.['@_body_armor']) || 0,
         hitPoints: parseInt(weapon?.['@_hit_points']) || 0,
         isMerchandise: item['@_is_merchandise'] === 'true',
+        estimatedSwingDamage: 0,
+        estimatedThrustDamage: 0,
+        isVanilla: false,
       });
     }
   }
