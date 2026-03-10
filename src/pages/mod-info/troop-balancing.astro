@@ -9,7 +9,7 @@ const cultures = [
     alignment: 'good',
     race: 'Men',
     troops: 71,
-    identity: 'The Men of Gondor, the Land of Stone, are among the last remaining remnants of old Númenor. Albeit far diminished from their ancient sires, they and their leaders, the Ruling Stewards in Minas Tirith, are a hardy folk. Gondorian soldiers rely on steel and discipline, fielding balanced, well-trained armies with a slight edge in swordplay and polearm formations.',
+    identity: 'The Men of Gondor, the Land of Stone, are among the last remaining remnants of old Númenor. Infantry is the backbone of the Gondorian army, though each region provides its own unique bonuses and specializations. From the knights of Dol Amroth to the rangers of Ithilien, Gondorian soldiers rely on steel and discipline.',
     strengths: [
       { skill: 'OneHanded', mod: '+10', note: 'Numenorean sword tradition' },
       { skill: 'Athletics', mod: '+5', note: 'Disciplined training' },
@@ -21,7 +21,7 @@ const cultures = [
       { skill: 'Throwing', mod: '-10', note: 'Minimal skirmisher tradition' },
     ],
     groups: ['Infantry', 'Ranged', 'Cavalry'],
-    notes: 'Gondor is the baseline "average" faction. Other cultures are measured against Gondor\'s balanced profile. Their troops are versatile but lack a dramatic specialty.',
+    notes: 'Gondor is the baseline "average" faction. Infantry forms the backbone, but each region — Lamedon, Anfalas, Ithilien, Dol Amroth — brings its own specializations. Versatile but lacking a dramatic specialty.',
   },
   {
     id: 'rohan',
@@ -30,7 +30,7 @@ const cultures = [
     alignment: 'good',
     race: 'Men',
     troops: 57,
-    identity: 'The Men of Rohan, the Rohirrim, are steadfast, distrusting of strangers and highly pastoral. From the House of Eorl, they have steadily ruled the land between the Anduin and the Isen. Few things mean more to Rohan than the keeping of Oaths, their horses and the loyalty to their friends. Their legendary cavalry dominates the open plains.',
+    identity: 'The Men of Rohan, the Rohirrim, are steadfast, distrusting of strangers and highly pastoral. Few things mean more to Rohan than the keeping of Oaths, their horses and the loyalty to their friends. Rohan fields one of the strongest cavalry forces in the game, but their infantry and archers are weaker — the Rohirrim fight best from the saddle.',
     strengths: [
       { skill: 'Riding', mod: '+20', note: 'Horse-lord heritage' },
       { skill: 'Polearm', mod: '+10', note: 'Lance and spear mastery' },
@@ -42,7 +42,7 @@ const cultures = [
       { skill: 'Bow', mod: '-5', note: 'Moderate archery' },
     ],
     groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
-    notes: 'Rohan cavalry is significantly stronger than other human factions in mounted combat. Their infantry is solid but meant to support the cavalry, not lead charges.',
+    notes: 'Rohan has one of the strongest cavalry forces in the game. Their infantry and archers are weaker by comparison — meant to hold the line while the cavalry delivers the decisive blow, not to lead charges on their own.',
   },
   {
     id: 'erebor',
@@ -51,7 +51,7 @@ const cultures = [
     alignment: 'good',
     race: 'Dwarf',
     troops: 47,
-    identity: 'Durin\'s Folk, the most well known clan of the dwarves. After the death of the dragon under the Lonely Mountain and the ascension of Dáin Ironfoot to King, the Iron Hills have been integrated into the Kingdom of Erebor. Devastating melee fighters who favor axes and throwing axes, their heavy armor makes them excellent infantry.',
+    identity: 'Durin\'s Folk, the most well known clan of the dwarves. After the death of the dragon under the Lonely Mountain and the ascension of Dáin Ironfoot to King, the Iron Hills have been integrated into the Kingdom of Erebor. The Longbeards favor one-handed axes with shield, polearms and bows — disciplined, heavily armored infantry.',
     strengths: [
       { skill: 'TwoHanded', mod: '+20', note: 'Great-axe specialists' },
       { skill: 'Athletics', mod: '+10', note: 'Dwarven endurance' },
@@ -63,7 +63,7 @@ const cultures = [
       { skill: 'Riding', mod: '-20', note: 'Dwarves rarely ride' },
     ],
     groups: ['Infantry', 'Ranged'],
-    notes: 'Erebor shares the troop file with Iron Hills but uses different cultural modifiers. Erebor favors throwing axes while Iron Hills favors crossbows.',
+    notes: 'Erebor shares the troop file with Iron Hills but uses different cultural modifiers. Longbeards favor one-handed axes with shield, polearms and bows, while Ironfists favor two-handed axes, maces, mattocks and crossbows.',
   },
   {
     id: 'iron_hills',
@@ -72,7 +72,7 @@ const cultures = [
     alignment: 'good',
     race: 'Dwarf',
     troops: 0,
-    identity: 'The Folk of Sindri the Rich, the Ironfists are the wealthiest of all the dwarven clans. Renowned across all of Middle-earth for their great weaponcraft, the forges of the Ironfists are running hot. They field elite infantry with superior polearm and crossbow capability — the heavy siege troops of the Dwarven world.',
+    identity: 'The Folk of Sindri the Rich, the Ironfists are the wealthiest of all the dwarven clans. Renowned across all of Middle-earth for their great weaponcraft, the forges of the Ironfists are running hot. They favor two-handed axes, maces, mattocks and crossbows — the heavy siege troops of the Dwarven world.',
     strengths: [
       { skill: 'TwoHanded', mod: '+20', note: 'Great-axe mastery' },
       { skill: 'Polearm', mod: '+20', note: 'Pike and mattock formations' },
@@ -85,7 +85,7 @@ const cultures = [
       { skill: 'Riding', mod: '-5', note: 'Dwarves rarely ride' },
     ],
     groups: ['Infantry', 'Ranged'],
-    notes: 'Iron Hills troops are in the Erebor troop file. They share the same baseline but get crossbow bonuses instead of throwing axe bonuses.',
+    notes: 'Ironfists favor two-handed axes, maces, mattocks and crossbows — heavy hitting siege infantry. They share the Erebor troop file but use different cultural modifiers.',
   },
   {
     id: 'rivendell',
@@ -194,7 +194,7 @@ const cultures = [
       { skill: 'Crossbow', mod: '-5', note: 'No engineering tradition' },
     ],
     groups: ['Infantry', 'Ranged', 'Cavalry'],
-    notes: 'Mordor is intentionally weaker per-troop than other factions. They win battles through attrition and numbers. Their throwing weapon bonus reflects the orc habit of hurling rocks and javelins before charging.',
+    notes: 'Mordor is intentionally weaker per-troop than other factions — they win through attrition and sheer numbers. In the future, creatures such as trolls, fell beasts and other horrors will add unique gameplay to compensate for their individual weaknesses.',
   },
   {
     id: 'gundabad',
@@ -216,7 +216,7 @@ const cultures = [
       { skill: 'Riding', mod: '-5', note: 'Too heavy for most mounts' },
     ],
     groups: ['Infantry', 'Ranged'],
-    notes: 'Gundabad\'s heavy infantry is the strongest orc melee force in the game. Their two-handed weapon bonus makes them devastating in open-field charges. They lack cavalry and ranged versatility.',
+    notes: 'Gundabad\'s heavy infantry is the strongest orc melee force in the game, devastating in open-field charges. In the future, creatures such as cave trolls, great bats and other mountain horrors will add unique gameplay to compensate for their ranged and cavalry weaknesses.',
   },
   {
     id: 'dolguldur',
@@ -236,7 +236,7 @@ const cultures = [
       { skill: 'Crossbow', mod: '-5', note: 'No engineering tradition' },
     ],
     groups: ['Infantry', 'Ranged', 'Cavalry'],
-    notes: 'Dol Guldur is the weakest evil faction in raw infantry skill, but their warg cavalry gives them unique tactical options. They are a skirmish-oriented faction that relies on speed and disruption.',
+    notes: 'Dol Guldur is the weakest evil faction in raw infantry skill, but their warg cavalry gives them unique tactical options. In the future, creatures such as giant spiders, wargs and other Mirkwood horrors will add unique gameplay to compensate for their individual weaknesses.',
   },
   {
     id: 'harad',
@@ -401,13 +401,13 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
       <h2>Culture Details</h2>
 
       {cultures.map(c => (
-        <div id={c.id} class={`culture-card align-${c.alignment}`}>
+        <div id={c.id} class="culture-card" style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}>
           <div class="culture-header">
             <h3 style={`color: ${c.color}`}>{c.name}</h3>
             <div class="culture-meta">
-              <span class={`alignment-badge ${c.alignment}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
-              <span class="race-badge">{c.race}</span>
-              {c.troops > 0 && <span class="troop-count">{c.troops} troops</span>}
+              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
+              <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.race}</span>
+              {c.troops > 0 && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.troops} troops</span>}
             </div>
           </div>
 
@@ -663,14 +663,10 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
 
   /* Culture cards */
   .culture-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 1.75rem;
     margin-bottom: 1.5rem;
   }
-  .culture-card.align-good { border-left: 3px solid rgba(93, 174, 93, 0.5); }
-  .culture-card.align-evil { border-left: 3px solid rgba(212, 106, 106, 0.5); }
 
   .culture-header {
     display: flex;
@@ -693,16 +689,12 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
     flex-wrap: wrap;
   }
 
-  .alignment-badge, .race-badge, .troop-count {
+  .culture-badge {
     font-size: 0.75rem;
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
   }
-  .alignment-badge.good { background: rgba(93, 174, 93, 0.2); color: #5dae5d; }
-  .alignment-badge.evil { background: rgba(212, 106, 106, 0.2); color: #d46a6a; }
-  .race-badge { background: rgba(126, 200, 227, 0.15); color: #7ec8e3; }
-  .troop-count { background: rgba(212, 162, 76, 0.15); color: var(--accent); }
 
   .culture-identity {
     color: var(--text-secondary);
