@@ -4,12 +4,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const cultures = [
   {
     id: 'gondor',
-    name: 'Gondor',
+    name: 'Gondorians',
     color: '#c8d0d8',
     alignment: 'good',
     race: 'Men',
     troops: 71,
-    identity: 'The disciplined armies of the White Tower. Gondor fields balanced, well-trained soldiers with a slight edge in swordplay and polearm formations. Their weakness is a lack of skirmisher tradition — Gondorian soldiers rely on steel and discipline, not thrown weapons.',
+    identity: 'The Men of Gondor, the Land of Stone, are among the last remaining remnants of old Númenor. Albeit far diminished from their ancient sires, they and their leaders, the Ruling Stewards in Minas Tirith, are a hardy folk. Gondorian soldiers rely on steel and discipline, fielding balanced, well-trained armies with a slight edge in swordplay and polearm formations.',
     strengths: [
       { skill: 'OneHanded', mod: '+10', note: 'Numenorean sword tradition' },
       { skill: 'Athletics', mod: '+5', note: 'Disciplined training' },
@@ -25,12 +25,12 @@ const cultures = [
   },
   {
     id: 'rohan',
-    name: 'Rohan',
+    name: 'Rohirrim',
     color: '#6db36d',
     alignment: 'good',
     race: 'Men',
     troops: 57,
-    identity: 'The horse-lords of the Riddermark. Rohan\'s strength is their legendary cavalry — lancers, mounted archers, and heavy riders who dominate the open plains. On foot, their infantry is capable but unremarkable.',
+    identity: 'The Men of Rohan, the Rohirrim, are steadfast, distrusting of strangers and highly pastoral. From the House of Eorl, they have steadily ruled the land between the Anduin and the Isen. Few things mean more to Rohan than the keeping of Oaths, their horses and the loyalty to their friends. Their legendary cavalry dominates the open plains.',
     strengths: [
       { skill: 'Riding', mod: '+20', note: 'Horse-lord heritage' },
       { skill: 'Polearm', mod: '+10', note: 'Lance and spear mastery' },
@@ -46,12 +46,12 @@ const cultures = [
   },
   {
     id: 'erebor',
-    name: 'Erebor',
+    name: 'Longbeards',
     color: '#d4a24c',
     alignment: 'good',
     race: 'Dwarf',
     troops: 47,
-    identity: 'The Dwarves of the Lonely Mountain are devastating melee fighters who favor axes and throwing axes. Their heavy armor and stocky builds make them excellent infantry, but their short stature limits mounted combat.',
+    identity: 'Durin\'s Folk, the most well known clan of the dwarves. After the death of the dragon under the Lonely Mountain and the ascension of Dáin Ironfoot to King, the Iron Hills have been integrated into the Kingdom of Erebor. Devastating melee fighters who favor axes and throwing axes, their heavy armor makes them excellent infantry.',
     strengths: [
       { skill: 'TwoHanded', mod: '+20', note: 'Great-axe specialists' },
       { skill: 'Athletics', mod: '+10', note: 'Dwarven endurance' },
@@ -67,12 +67,12 @@ const cultures = [
   },
   {
     id: 'iron_hills',
-    name: 'Iron Hills',
+    name: 'Ironfists',
     color: '#8a9aad',
     alignment: 'good',
     race: 'Dwarf',
     troops: 0,
-    identity: 'The Iron Hills Dwarves are the most militarized of the Dwarven clans. They field elite infantry with superior polearm and crossbow capability — the heavy siege troops of the Dwarven world.',
+    identity: 'The Folk of Sindri the Rich, the Ironfists are the wealthiest of all the dwarven clans. Renowned across all of Middle-earth for their great weaponcraft, the forges of the Ironfists are running hot. They field elite infantry with superior polearm and crossbow capability — the heavy siege troops of the Dwarven world.',
     strengths: [
       { skill: 'TwoHanded', mod: '+20', note: 'Great-axe mastery' },
       { skill: 'Polearm', mod: '+20', note: 'Pike and mattock formations' },
@@ -89,12 +89,12 @@ const cultures = [
   },
   {
     id: 'rivendell',
-    name: 'Rivendell',
+    name: 'Noldorin',
     color: '#7ec8e3',
     alignment: 'good',
     race: 'Elf',
     troops: 28,
-    identity: 'The High Elves of Imladris are the finest warriors in Middle-earth. Millennia of martial training gives them unmatched combat prowess across every discipline. A single Rivendell swordsman outclasses an entire squad of lesser troops.',
+    identity: 'The Noldor of Lindon and Imladris are among the last of the High Elves remaining in Middle-earth. Once mighty princes of Beleriand and jewel-smiths without equal, their glory is tempered by sorrow. Proud but no longer wrathful, they are implacable to enemies. Millennia of martial training gives them unmatched combat prowess across every discipline.',
     strengths: [
       { skill: 'TwoHanded', mod: '+40', note: 'Great-blade expertise' },
       { skill: 'Polearm', mod: '+40', note: 'Spear and glaive mastery' },
@@ -111,12 +111,12 @@ const cultures = [
   },
   {
     id: 'mirkwood',
-    name: 'Mirkwood',
+    name: 'Silvan',
     color: '#4a9e6d',
     alignment: 'good',
     race: 'Elf',
     troops: 17,
-    identity: 'The Woodland Elves of Thranduil\'s realm are supreme archers and agile woodland fighters. They favor hit-and-run tactics, ambushes, and devastating ranged volleys from the forest canopy.',
+    identity: 'The Silvan Elves of Mirkwood are a woodland folk in the truest sense — hunters, foresters and wardens of Greenwood the Great. Under King Thranduil, they favor strong drink, hearty feasts and skilled archery. Having endured the shadow of Dol Guldur, the Silvan Elves are wary and resolute.',
     strengths: [
       { skill: 'Bow', mod: '+50', note: 'Legendary woodland archery' },
       { skill: 'Crossbow', mod: '+50', note: 'Precision ranged mastery' },
@@ -133,12 +133,12 @@ const cultures = [
   },
   {
     id: 'lothlorien',
-    name: 'Lothlorien',
+    name: 'Sindar',
     color: '#c9a84c',
     alignment: 'good',
     race: 'Elf',
     troops: 0,
-    identity: 'The Galadhrim of the Golden Wood are balanced elite warriors. Under Galadriel\'s guidance, they maintain excellence across all combat disciplines — equally deadly with bow, blade, and spear.',
+    identity: 'The Sindar of Lothlórien dwell beneath golden leaves and timeless boughs. Though ruled by Galadriel of the Noldor and Celeborn of Doriath, the woodland realm is largely Silvan and Sindarin in custom. Beneath their serenity lies vigilance — none cross the borders of Lórien unseen. Balanced elite warriors, equally deadly with bow, blade, and spear.',
     strengths: [
       { skill: 'Athletics', mod: '+35', note: 'Elven agility' },
       { skill: 'Bow', mod: '+35', note: 'Golden Wood archery' },
@@ -155,12 +155,12 @@ const cultures = [
   },
   {
     id: 'isengard',
-    name: 'Isengard',
+    name: 'Uruk-Hai',
     color: '#a0a0a0',
     alignment: 'evil',
     race: 'Uruk-Hai',
     troops: 38,
-    identity: 'Saruman\'s Uruk-hai are bred for war. They are physically superior to other orcs — stronger, faster, and able to fight in daylight. Isengard troops excel in brutal melee combat and aggressive charges.',
+    identity: 'The Uruk-hai are the pinnacle of Orc-kind\'s breeding, wrought for war and discipline. Larger, stronger and more enduring beneath the sun than lesser Orcs, they fight in ordered companies. Strength commands obedience; weakness invites death. Where they march, they do so for conquest and slaughter.',
     strengths: [
       { skill: 'TwoHanded', mod: '+15', note: 'Berserker great-weapons' },
       { skill: 'Polearm', mod: '+15', note: 'Pike formation discipline' },
@@ -176,12 +176,12 @@ const cultures = [
   },
   {
     id: 'mordor',
-    name: 'Mordor',
+    name: 'Mordor Orcs',
     color: '#b44444',
     alignment: 'evil',
     race: 'Orc',
     troops: 28,
-    identity: 'The armies of the Dark Lord rely on overwhelming numbers rather than individual skill. Mordor orcs are individually weaker than most factions but compensate with throwing weapons and sheer volume. Their elite Black Uruks are the exception.',
+    identity: 'The Orcs of Mordor are as harsh and varied as the land that birthed them. Drawn from many breeds and tribes, they gather beneath the Dark Tower in uneasy unity. Cruel, cunning and ever watchful for advantage, they survive through brutality and hierarchy. In siege and attrition, they excel. The Black Land shapes its children well.',
     strengths: [
       { skill: 'TwoHanded', mod: '+5', note: 'Brute cleaving weapons' },
       { skill: 'Throwing', mod: '+5', note: 'Rock and javelin throwing' },
@@ -198,12 +198,12 @@ const cultures = [
   },
   {
     id: 'gundabad',
-    name: 'Gundabad',
+    name: 'Gundabad Orcs',
     color: '#8a7a6a',
     alignment: 'evil',
     race: 'Orc',
     troops: 30,
-    identity: 'The orcs of Mount Gundabad are the biggest and most brutal of all orc-kind. Pale Uruks and mountain orcs fight with raw physical power, wielding massive two-handed weapons and crushing their enemies through brute force.',
+    identity: 'The Orcs of Mount Gundabad are among the oldest tribes of their kind in the North. Hardy and numerous, they thrive in cold caverns and high crags. They favor strength of numbers and savage assault. Their hatred for Dwarves burns brightest, for Gundabad itself is a place of ancient grievance.',
     strengths: [
       { skill: 'TwoHanded', mod: '+10', note: 'Massive weapon specialists' },
       { skill: 'Athletics', mod: '+5', note: 'Mountain-bred endurance' },
@@ -220,12 +220,12 @@ const cultures = [
   },
   {
     id: 'dolguldur',
-    name: 'Dol Guldur',
+    name: 'Goblins',
     color: '#7a9a5a',
     alignment: 'evil',
     race: 'Orc',
     troops: 50,
-    identity: 'The shadow fortress of southern Mirkwood fields a mixed force of goblins, orcs, and warg riders. Dol Guldur\'s specialty is their warg cavalry — fast, vicious mounted units that harry enemy flanks.',
+    identity: 'The Goblins of Dol Guldur and the Misty Mountains are among the most numerous and persistent of Orc-kind. A subterranean folk, more cunning than bold and more treacherous than disciplined. They favor ambush, traps and overwhelming numbers. Small in stature but quick in movement, they are adept at navigating darkness and narrow ways.',
     strengths: [
       { skill: 'OneHanded', mod: '+5', note: 'Goblin blade work' },
       { skill: 'TwoHanded', mod: '+5', note: 'Crude heavy weapons' },
@@ -240,12 +240,12 @@ const cultures = [
   },
   {
     id: 'harad',
-    name: 'Harad',
+    name: 'Haruze',
     color: '#c76a3a',
     alignment: 'evil',
     race: 'Men',
     troops: 29,
-    identity: 'The Haradrim are desert warriors renowned for their cavalry and archery. Their mounted archers and Mumakil-riding elites make them the premier ranged cavalry faction among the evil races.',
+    identity: 'The Haruze are the product of the constant intermingling of many different tribes of Harad. Many are simple herders and oasis farmers, able to traverse the deadly Dune Sea with ease. Their pack animals and horses they call Târag — Windwalkers. Like the wind their cavalry and light infantry can wash over entire armies.',
     strengths: [
       { skill: 'Riding', mod: '+15', note: 'Desert cavalry tradition' },
       { skill: 'Bow', mod: '+10', note: 'Legendary Haradrim archery' },
@@ -260,12 +260,12 @@ const cultures = [
   },
   {
     id: 'rhun',
-    name: 'Rhun',
+    name: 'Easterlings',
     color: '#5a7abd',
     alignment: 'evil',
     race: 'Men',
     troops: 91,
-    identity: 'The Easterlings of Rhun fight with disciplined polearm formations and heavy two-handed weapons. Their armies are organized, well-drilled, and favor defensive combat with long-reaching weapons.',
+    identity: 'The Easterlings of Rhûn hail from the vast lands beyond the Sea of Rhûn. Chief among their realms is the Medlóshukain — a dominion of wealth, pageantry and disciplined might. Their armies are no rabble host: shielded infantry, chariots and armored horsemen march in measured ranks, drilled for cohesion.',
     strengths: [
       { skill: 'Riding', mod: '+18', note: 'Easterling cavalry tradition' },
       { skill: 'Polearm', mod: '+15', note: 'Easterling pike tradition' },
@@ -281,12 +281,12 @@ const cultures = [
   },
   {
     id: 'dunland',
-    name: 'Dunland',
+    name: 'Dunlending',
     color: '#9a7a5a',
     alignment: 'evil',
     race: 'Men',
     troops: 45,
-    identity: 'The wild Dunlendings are fierce raiders who fight with thrown weapons and two-handed axes. They lack the discipline of other factions but make up for it with ferocious aggression and skirmishing ability.',
+    identity: 'The Dunlendings are a proud and ancient folk of the White Mountains and the wild hills of Dunland. Clannish and fiercely independent, they dwell in timber halls and hill-forts, bound tightly by blood and oath. They are herdsmen, hunters and raiders in equal measure. Old grudges die hard in Dunland and the hills remember.',
     strengths: [
       { skill: 'Athletics', mod: '+20', note: 'Hill-bred endurance' },
       { skill: 'Throwing', mod: '+15', note: 'Javelin and throwing axe tradition' },
@@ -301,12 +301,12 @@ const cultures = [
   },
   {
     id: 'umbar',
-    name: 'Umbar',
+    name: 'Umbarean',
     color: '#5a8a8a',
     alignment: 'evil',
     race: 'Men',
     troops: 14,
-    identity: 'The Corsairs of Umbar are pirate warriors who excel in close-quarters sword fighting and boarding actions. Their infantry is strong with blade and shield, but they are terrible horsemen — sailors through and through.',
+    identity: 'The people of Umbar are the heirs of a divided legacy. A seafaring people above all else, the Umbareans command swift corsair fleets that prowl the coasts. Trade and piracy walk hand in hand, and few vessels pass the Bay of Belfalas without paying heed to its black-sailed ships. They measure worth in strength and dominance.',
     strengths: [
       { skill: 'Athletics', mod: '+10', note: 'Seafaring stamina' },
       { skill: 'OneHanded', mod: '+10', note: 'Cutlass and boarding sword' },
