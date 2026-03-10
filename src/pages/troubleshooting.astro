@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Troubleshooting" description="Troubleshooting guide for TAOM - Tales From the Age of Men">
+  <div class="page-content">
+    <h1>Troubleshooting</h1>
+    <p class="intro">Having issues with TAOM? Check the guides below for common problems and solutions.</p>
+
+    <section class="load-order-section">
+      <h2>Load Order</h2>
+      <p class="version-note">Bannerlord Version <strong>1.2.12</strong></p>
+      <ol class="load-order">
+        <li><span class="mod-name">Harmony</span> <span class="mod-version">v2.3.6.220</span></li>
+        <li><span class="mod-name">Palatinr Debugger</span> <span class="mod-note">Writes to a log on crash — share the log with us to help diagnose</span></li>
+        <li><span class="mod-name">BetterExceptionWindow</span> <span class="mod-version">v7.1.1.0</span></li>
+        <li><span class="mod-name">ButterLib</span> <span class="mod-version">v2.10.0.0</span></li>
+        <li><span class="mod-name">UIExtenderEx</span> <span class="mod-version">v2.13.0.0</span></li>
+        <li><span class="mod-name">MCM</span> <span class="mod-version">v5.11.3.0</span></li>
+        <li><span class="mod-name">Native</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Sandbox Core</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Sandbox</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">StoryMode</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">CustomBattle</span> <span class="mod-version">1.2.12.X</span></li>
+        <li><span class="mod-name">Birth and Aging Options</span></li>
+        <li><span class="mod-name">LOTR_Map</span></li>
+        <li><span class="mod-name">LOTRAOM_Armory</span></li>
+        <li><span class="mod-name">Alliance.Wargs</span></li>
+        <li><span class="mod-name">LOTRAOM</span> <span class="mod-version">0.69.39</span></li>
+      </ol>
+    </section>
+
+    <section class="tip-section">
+      <h2>Delete Cached Shaders</h2>
+      <p>If you have played this mod before, it is recommended you delete your cached shaders to avoid graphical issues.</p>
+      <div class="path-block">
+        <code>C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map</code>
+      </div>
+      <p class="tip-note"><strong>Note:</strong> <code>ProgramData</code> is a hidden folder. You can paste the path directly into File Explorer's address bar to navigate to it.</p>
+      <p class="tip-note">Delete this entire folder, then launch the game. Shaders will be regenerated automatically.</p>
+    </section>
+
+    <section class="tip-section">
+      <h2>Texture Creation Failure</h2>
+      <p>If you see the following error on launch:</p>
+      <img src="/images/troubleshooting-texture-error.png" alt="GPU_device::create_texture_array failed error" class="error-screenshot" />
+      <h3>Fix</h3>
+      <p>Set <strong>Terrain Quality</strong> in your game settings to <strong>Medium</strong> or higher.</p>
+      <h3>Other GPU / Texture Errors</h3>
+      <p>If you encounter any other GPU or texture-related errors, delete the entire Shaders folder:</p>
+      <div class="path-block">
+        <code>C:\ProgramData\Mount and Blade II Bannerlord\Shaders</code>
+      </div>
+      <p class="tip-note"><strong>Note:</strong> <code>ProgramData</code> is a hidden folder. Paste the path directly into File Explorer's address bar.</p>
+    </section>
+
+    <section class="tip-section">
+      <h2>DLL File Error — "Cannot load"</h2>
+      <p>If you see an error like this:</p>
+      <img src="/images/troubleshooting-dll-error.png" alt="Cannot load DLL file error" class="error-screenshot" />
+      <p>This means Windows has blocked the mod's DLL files. You need to unblock them.</p>
+      <h3>Fix (PowerShell — Recommended)</h3>
+      <p>Open PowerShell <strong>as Administrator</strong> and run:</p>
+      <div class="path-block">
+        <code>gci -Path "C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules" -Recurse | Unblock-File</code>
+      </div>
+      <p class="tip-note"><strong>Note:</strong> Change the drive letter if your game is installed on a different drive.</p>
+      <h3>Fix (Manual)</h3>
+      <p>You can also unblock files individually:</p>
+      <ol class="steps-list">
+        <li>Navigate to the DLL file shown in the error</li>
+        <li>Right-click the file and select <strong>Properties</strong></li>
+        <li>At the bottom of the General tab, check <strong>Unblock</strong></li>
+        <li>Click <strong>Apply</strong></li>
+      </ol>
+    </section>
+
+    <section class="tip-section">
+      <h2>Names Replaced with Native Bannerlord Names</h2>
+      <p><strong>Q: Why are the names in the mod replaced with ones from native Bannerlord?</strong></p>
+      <ul class="steps-list">
+        <li>The mod is currently only supported in <strong>English</strong>. Make sure your game language is set to English.</li>
+        <li>If your language is already set to English and you still have this problem, you are most likely missing files and need to <strong>redownload the mod</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="tip-section">
+      <h2>Performance Issues</h2>
+      <h3>Campaign Map FPS Drop</h3>
+      <p>If you experience low FPS or stuttering on the campaign map:</p>
+      <ol class="steps-list">
+        <li>Open the game <strong>Options</strong> menu</li>
+        <li>Start by unchecking <strong>Strategic AI</strong></li>
+        <li>If that doesn't help, re-enable it and try disabling other options one by one</li>
+        <li>This will help you identify which setting is causing the performance issue</li>
+      </ol>
+    </section>
+
+    <section class="tip-section">
+      <h2>Long Loading Screen / Horse Stopped Moving</h2>
+      <p><strong>Q: I'm stuck on a loading screen, is this normal?</strong></p>
+      <p><strong>Q: I load the game and the horse in the bottom right has stopped moving, is that normal?</strong></p>
+      <p>Yes — each time you run the mod after a new or fresh download, the game needs to compile all of the files, shaders, and code. This is a one-time process and can take anywhere from <strong>ten minutes to two hours</strong> depending on your hardware.</p>
+      <p>Be patient and let it finish. Subsequent launches will be much faster.</p>
+    </section>
+
+    <section class="tip-section">
+      <h2>My Game is Crashing</h2>
+      <p>If your game crashes, follow these steps so we can help diagnose the issue:</p>
+      <ol class="steps-list">
+        <li>When the crash report appears, <strong>save the report as HTML</strong></li>
+        <li>Go to our <a href="/community">Discord server</a></li>
+        <li>Open a <strong>support ticket</strong></li>
+        <li>Include your <strong>load order</strong>, what you were doing when it crashed (context), and attach the crash report</li>
+      </ol>
+      <p>We will help you as we are available.</p>
+    </section>
+
+    <section class="tip-section">
+      <h2>Where is the Music?</h2>
+      <p><strong>Q: The game has no music / where is the custom soundtrack?</strong></p>
+      <p>We are actively working on a custom soundtrack. Unfortunately, Bannerlord 1.2.12 requires replacing the <em>entire</em> soundtrack to add custom music — there's no way to add tracks individually. This limitation may change in version 1.3.</p>
+      <p>For now, the mod ships without custom music. Stay tuned for updates.</p>
+    </section>
+
+    <div class="topics-grid">
+      <!-- Subpages will be added here as cards -->
+    </div>
+
+    <p class="still-stuck">Still stuck? Join our <a href="/community">Discord community</a> for help.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .load-order-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .load-order-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .version-note {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .load-order {
+    list-style: none;
+    counter-reset: load-order;
+    padding: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .load-order li {
+    counter-increment: load-order;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+  }
+
+  .load-order li:last-child {
+    border-bottom: none;
+  }
+
+  .load-order li::before {
+    content: counter(load-order);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 1.5rem;
+    text-align: center;
+    opacity: 0.6;
+  }
+
+  .mod-name {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+  }
+
+  .mod-version {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    font-family: monospace;
+  }
+
+  .mod-note {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  .tip-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .tip-section h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .tip-section p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .path-block {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .path-block code {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-family: monospace;
+    white-space: nowrap;
+  }
+
+  .tip-section h3 {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .error-screenshot {
+    display: block;
+    max-width: 450px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin: 0.75rem 0;
+  }
+
+  .steps-list {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .steps-list li {
+    margin-bottom: 0.4rem;
+  }
+
+  .tip-note {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .still-stuck {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+
+  .still-stuck a {
+    color: var(--accent);
+  }
+
+  .still-stuck a:hover {
+    text-decoration: underline;
+  }
+</style>
