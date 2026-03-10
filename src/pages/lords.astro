@@ -8,12 +8,25 @@ const allLords = parseAllLords().filter(l => !isHiddenCulture(l.culture));
 const lordNameMap = new Map<string, string>();
 for (const l of allLords) lordNameMap.set(l.id, l.name);
 
-// Sort by name
-allLords.sort((a, b) => a.name.localeCompare(b.name));
+// Sort by culture, then name within each culture
+allLords.sort((a, b) => {
+  const ca = getCultureDisplayName(a.culture);
+  const cb = getCultureDisplayName(b.culture);
+  if (ca !== cb) return ca.localeCompare(cb);
+  return a.name.localeCompare(b.name);
+});
 
 // Get unique values for filters
 const cultures = [...new Set(allLords.map(l => l.culture).filter(Boolean))].sort();
 const kingdoms = [...new Set(allLords.map(l => l.kingdom).filter(Boolean))].sort();
+
+// Group lords by culture display name for section headers
+const cultureGroups = new Map<string, typeof allLords>();
+for (const l of allLords) {
+  const display = getCultureDisplayName(l.culture) || 'Unknown';
+  if (!cultureGroups.has(display)) cultureGroups.set(display, []);
+  cultureGroups.get(display)!.push(l);
+}
 
 function lookupName(id: string): string {
   return lordNameMap.get(id) || id;
@@ -89,55 +102,62 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
           </tr>
         </thead>
         <tbody>
-          {allLords.map(l => {
-            const gender = l.isFemale ? 'Female' : 'Male';
-            const spouseName = l.spouse ? lookupName(l.spouse) : '';
-            const fatherName = l.father ? lookupName(l.father) : '';
-            const motherName = l.mother ? lookupName(l.mother) : '';
-            const childNames = l.children.map(c => lookupName(c)).join(', ');
-            const clanDisplay = l.clan ? l.clan.replace(/^clan_/, '').replace(/_/g, ' ') : '';
-            return (
-              <tr
-                data-name={l.name.toLowerCase()}
-                data-id={l.id.toLowerCase()}
-                data-culture={l.culture}
-                data-kingdom={l.kingdom}
-                data-gender={l.isFemale ? 'female' : 'male'}
-                data-married={l.spouse ? 'married' : 'single'}
-                data-bio={l.biography}
-              >
-                <td class="lord-name-cell">
-                  <span class="lord-name">{l.name}</span>
-                  {!l.alive && <span class="dead-badge">Dead</span>}
-                </td>
-                <td>{getCultureDisplayName(l.culture)}</td>
-                <td>{l.kingdom}</td>
-                <td class="col-clan">{clanDisplay}</td>
-                <td>{gender}</td>
-                <td class="col-num">{l.age || ''}</td>
-                <td class="col-family section-start">{spouseName}</td>
-                <td class="col-family">{fatherName}</td>
-                <td class="col-family">{motherName}</td>
-                <td class="col-family">{childNames}</td>
-                <td class="section-start">{l.defaultGroup}</td>
-                <td class="col-num">{l.skills.OneHanded || ''}</td>
-                <td class="col-num">{l.skills.TwoHanded || ''}</td>
-                <td class="col-num">{l.skills.Polearm || ''}</td>
-                <td class="col-num">{l.skills.Bow || ''}</td>
-                <td class="col-num">{l.skills.Riding || ''}</td>
-                <td class="col-num">{l.skills.Athletics || ''}</td>
-                <td class="col-num">{l.skills.Tactics || ''}</td>
-                <td class="col-num">{l.skills.Leadership || ''}</td>
-                <td class="col-num">{l.skills.Charm || ''}</td>
-                <td class="col-num">{l.skills.Steward || ''}</td>
-                <td class={`col-num section-start ${traitClass(l.traits.Honor || 0)}`}>{l.traits.Honor ?? ''}</td>
-                <td class={`col-num ${traitClass(l.traits.Generosity || 0)}`}>{l.traits.Generosity ?? ''}</td>
-                <td class={`col-num ${traitClass(l.traits.Mercy || 0)}`}>{l.traits.Mercy ?? ''}</td>
-                <td class={`col-num ${traitClass(l.traits.Valor || 0)}`}>{l.traits.Valor ?? ''}</td>
-                <td class={`col-num ${traitClass(l.traits.Calculating || 0)}`}>{l.traits.Calculating ?? ''}</td>
+          {[...cultureGroups.entries()].map(([cultureName, lords]) => (
+            <>
+              <tr class="culture-group-header" data-culture-group={lords[0].culture}>
+                <td colspan="26">{cultureName} <span class="group-lord-count">({lords.length})</span></td>
               </tr>
-            );
-          })}
+              {lords.map(l => {
+                const gender = l.isFemale ? 'Female' : 'Male';
+                const spouseName = l.spouse ? lookupName(l.spouse) : '';
+                const fatherName = l.father ? lookupName(l.father) : '';
+                const motherName = l.mother ? lookupName(l.mother) : '';
+                const childNames = l.children.map(c => lookupName(c)).join(', ');
+                const clanDisplay = l.clan ? l.clan.replace(/^clan_/, '').replace(/_/g, ' ') : '';
+                return (
+                  <tr
+                    data-name={l.name.toLowerCase()}
+                    data-id={l.id.toLowerCase()}
+                    data-culture={l.culture}
+                    data-kingdom={l.kingdom}
+                    data-gender={l.isFemale ? 'female' : 'male'}
+                    data-married={l.spouse ? 'married' : 'single'}
+                    data-bio={l.biography}
+                  >
+                    <td class="lord-name-cell">
+                      <span class="lord-name">{l.name}</span>
+                      {!l.alive && <span class="dead-badge">Dead</span>}
+                    </td>
+                    <td>{getCultureDisplayName(l.culture)}</td>
+                    <td>{l.kingdom}</td>
+                    <td class="col-clan">{clanDisplay}</td>
+                    <td>{gender}</td>
+                    <td class="col-num">{l.age || ''}</td>
+                    <td class="col-family section-start">{spouseName}</td>
+                    <td class="col-family">{fatherName}</td>
+                    <td class="col-family">{motherName}</td>
+                    <td class="col-family">{childNames}</td>
+                    <td class="section-start">{l.defaultGroup}</td>
+                    <td class="col-num">{l.skills.OneHanded || ''}</td>
+                    <td class="col-num">{l.skills.TwoHanded || ''}</td>
+                    <td class="col-num">{l.skills.Polearm || ''}</td>
+                    <td class="col-num">{l.skills.Bow || ''}</td>
+                    <td class="col-num">{l.skills.Riding || ''}</td>
+                    <td class="col-num">{l.skills.Athletics || ''}</td>
+                    <td class="col-num">{l.skills.Tactics || ''}</td>
+                    <td class="col-num">{l.skills.Leadership || ''}</td>
+                    <td class="col-num">{l.skills.Charm || ''}</td>
+                    <td class="col-num">{l.skills.Steward || ''}</td>
+                    <td class={`col-num section-start ${traitClass(l.traits.Honor || 0)}`}>{l.traits.Honor ?? ''}</td>
+                    <td class={`col-num ${traitClass(l.traits.Generosity || 0)}`}>{l.traits.Generosity ?? ''}</td>
+                    <td class={`col-num ${traitClass(l.traits.Mercy || 0)}`}>{l.traits.Mercy ?? ''}</td>
+                    <td class={`col-num ${traitClass(l.traits.Valor || 0)}`}>{l.traits.Valor ?? ''}</td>
+                    <td class={`col-num ${traitClass(l.traits.Calculating || 0)}`}>{l.traits.Calculating ?? ''}</td>
+                  </tr>
+                );
+              })}
+            </>
+          ))}
         </tbody>
       </table>
     </div>
@@ -147,7 +167,8 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
 <script>
   const table = document.getElementById('lord-table') as HTMLTableElement;
   const tbody = table.querySelector('tbody')!;
-  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const rows = Array.from(tbody.querySelectorAll('tr:not(.culture-group-header)'));
+  const groupHeaders = Array.from(tbody.querySelectorAll('tr.culture-group-header'));
   const searchInput = document.getElementById('search') as HTMLInputElement;
   const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
   const kingdomFilter = document.getElementById('filter-kingdom') as HTMLSelectElement;
@@ -184,6 +205,13 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
       const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
+    }
+
+    // Show/hide culture group headers based on visible lords
+    for (const header of groupHeaders) {
+      const cultureGroup = header.dataset.cultureGroup || '';
+      const hasVisible = rows.some(r => r.dataset.culture === cultureGroup && r.style.display !== 'none');
+      header.style.display = hasVisible ? '' : 'none';
     }
 
     resultCount.textContent = `${visible} lords`;
@@ -335,11 +363,27 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
     border-left: 3px solid var(--accent-dim);
   }
 
+  .culture-group-header td {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.75rem 0.5rem 0.4rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-dim);
+    background: rgba(255, 255, 255, 0.02);
+    cursor: default;
+  }
+
+  .group-lord-count {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+
   tr {
     cursor: pointer;
   }
 
-  tr:hover {
+  tr:hover:not(.culture-group-header) {
     background: rgba(255, 255, 255, 0.03);
   }
 </style>
