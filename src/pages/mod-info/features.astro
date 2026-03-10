@@ -73,13 +73,32 @@ const categories: FeatureCategory[] = [
         mcm: [{ name: 'Momentum', default: 'on', group: 'Diplomacy' }],
       },
       {
-        title: 'Alignment & Execution System',
-        desc: 'Good and Evil aren\'t just labels — they shape diplomacy, relations, and consequences. Executing an orc warlord won\'t upset the Free Peoples, but betraying your allies will.',
+        title: 'Alignment System',
+        desc: 'Good and Evil shape diplomacy and relations across Middle-earth. Factions of the same alignment form bonds while opposing sides are locked in enmity.',
         details: [
           'Good-Evil faction pairs forced to -50 to -10 relations',
           'Same-alignment factions form friendships (15% chance, +5 to +20 relation)',
+          'Alignment drives war declarations, alliances, and faction behavior',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Execution System',
+        desc: 'Executing an orc warlord won\'t upset the Free Peoples, but betraying your allies will. Execution consequences are driven by alignment.',
+        details: [
           'Execution penalties adjusted by alignment — killing evil heroes may carry no penalty for good factions',
-          'Culture desertion: troops of opposing alignment desert from your party (toggleable)',
+          'Executing same-alignment heroes carries heavy relation penalties',
+          'AI factions factor alignment into their execution decisions',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Culture Desertion',
+        desc: 'Troops of opposing alignment will desert from your party. Evil orcs won\'t march alongside Gondorian knights — and vice versa.',
+        details: [
+          'Troops with opposite cultural alignment (good vs evil) desert from parties',
+          'AI Only mode available — exempt your party while AI still follows the rules',
+          'Disable entirely to allow mixed-alignment armies',
         ],
         status: 'live',
         mcm: [
