@@ -46,6 +46,10 @@ const cultures = [...new Set(allItems.map(i => i.culture).filter(Boolean))].sort
 function z(val: number): string {
   return val === 0 ? 'col-num skill-zero' : 'col-num';
 }
+
+function estClass(val: number): string {
+  return val === 0 ? 'col-num col-est skill-zero' : 'col-num col-est';
+}
 ---
 
 <BaseLayout title="Weaponry" description="Complete weapons and shields database for TAOM - all cultures and stats">
@@ -61,6 +65,12 @@ function z(val: number): string {
       <span class="result-count" id="result-count">{allItems.length} items</span>
     </div>
 
+    <p class="est-note">
+      <strong>Est. Damage</strong> is a simplified estimate based on TaleWorlds' physics engine
+      (blade weight &times; damage factor &times; calibrated constant). Actual in-game damage varies
+      with swing speed, impact point, perks, and armor.
+    </p>
+
     <!-- Melee Weapon Sections -->
     {weaponsByClass.map(section => (
       <div>
@@ -73,8 +83,10 @@ function z(val: number): string {
                 <th data-col="culture">Culture</th>
                 {section.showSwing && <th data-col="swingDamage" class="col-num">Swing Dmg</th>}
                 {section.showSwing && <th data-col="swingType">Swing Type</th>}
+                {section.showSwing && <th data-col="estSwing" class="col-num col-est">Est. Swing</th>}
                 {section.showThrust && <th data-col="thrustDamage" class="col-num">Thrust Dmg</th>}
                 {section.showThrust && <th data-col="thrustType">Thrust Type</th>}
+                {section.showThrust && <th data-col="estThrust" class="col-num col-est">Est. Thrust</th>}
                 <th data-col="weaponLength" class="col-num">Length</th>
                 <th data-col="weight" class="col-num">Weight</th>
                 <th data-col="id" class="col-id-header">Id</th>
@@ -87,8 +99,10 @@ function z(val: number): string {
                   <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
                   {section.showSwing && <td class={z(item.swingDamage)}>{item.swingDamage}</td>}
                   {section.showSwing && <td>{item.swingDamageType}</td>}
+                  {section.showSwing && <td class={estClass(item.estimatedSwingDamage)}>{item.estimatedSwingDamage}</td>}
                   {section.showThrust && <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>}
                   {section.showThrust && <td>{item.thrustDamageType}</td>}
+                  {section.showThrust && <td class={estClass(item.estimatedThrustDamage)}>{item.estimatedThrustDamage}</td>}
                   <td class={z(item.weaponLength)}>{item.weaponLength}</td>
                   <td class={z(item.weight)}>{item.weight}</td>
                   <td class="col-id">{item.id}</td>
@@ -111,6 +125,7 @@ function z(val: number): string {
                 <th data-col="name">Name</th>
                 <th data-col="culture">Culture</th>
                 <th data-col="thrustDamage" class="col-num">Damage</th>
+                <th data-col="estThrust" class="col-num col-est">Est. Damage</th>
                 <th data-col="accuracy" class="col-num">Accuracy</th>
                 <th data-col="missileSpeed" class="col-num">Missile Speed</th>
                 <th data-col="speed" class="col-num">Speed</th>
@@ -126,6 +141,7 @@ function z(val: number): string {
                   <td class={`culture-${item.culture}`}>{item.name}</td>
                   <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
                   <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
+                  <td class={estClass(item.estimatedThrustDamage)}>{item.estimatedThrustDamage}</td>
                   <td class={z(item.accuracy)}>{item.accuracy}</td>
                   <td class={z(item.missileSpeed)}>{item.missileSpeed}</td>
                   <td class={z(item.speed)}>{item.speed}</td>
@@ -197,6 +213,25 @@ function z(val: number): string {
     font-size: 0.9rem;
     font-weight: 400;
   }
+
+  .est-note {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0.5rem 0 1rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-secondary, rgba(255,255,255,0.03));
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .col-est {
+    background: rgba(255, 193, 7, 0.06);
+  }
+
+  th.col-est {
+    color: #ffc107;
+  }
+
 </style>
 
 <script>
