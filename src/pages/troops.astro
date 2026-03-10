@@ -21,6 +21,7 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
 <BaseLayout title="Troops" description="Complete troop database for TAOM - all factions, skills, and equipment">
   <div class="page-content">
     <h1 class="page-title">Troop Database</h1>
+    <p class="page-subtitle-link">See how troop skills are balanced: <a href="/mod-info/troop-balancing">Troop Balancing &rarr;</a></p>
 
     <div class="table-controls">
       <input type="text" id="search" placeholder="Search by name or ID..." />
@@ -212,3 +213,21 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
     });
   });
 </script>
+
+<style>
+  .page-subtitle-link {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle-link a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .page-subtitle-link a:hover {
+    color: var(--accent-hover);
+  }
+</style>
