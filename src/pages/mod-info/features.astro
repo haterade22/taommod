@@ -6,6 +6,7 @@ interface Feature {
   desc: string;
   details: string[];
   status?: 'live' | 'wip';
+  mcm?: { name: string; default: 'on' | 'off'; group: string }[];
 }
 
 interface FeatureCategory {
@@ -29,6 +30,7 @@ const categories: FeatureCategory[] = [
           'Settlement priority system: Strategic, Economic, Defensive, Offensive targets',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable AI Strategic Intelligence', default: 'on', group: 'Diplomacy' }],
       },
       {
         title: 'Lore-Accurate Diplomacy',
@@ -41,6 +43,7 @@ const categories: FeatureCategory[] = [
           'Disallowed kingdom decisions prevent premature peace with enemies',
         ],
         status: 'live',
+        mcm: [{ name: 'AoM Diplomacy', default: 'on', group: 'Diplomacy' }],
       },
       {
         title: 'Strategic Diplomacy Engine',
@@ -53,6 +56,7 @@ const categories: FeatureCategory[] = [
           'Culture-specific rivalries: Mordor aggressive toward Gondor/Rohan, Lothlorien very passive',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Strategic Diplomacy', default: 'off', group: 'Diplomacy' }],
       },
       {
         title: 'War Momentum System',
@@ -66,6 +70,7 @@ const categories: FeatureCategory[] = [
           'Full UI with momentum indicator, breakdown view, and event history',
         ],
         status: 'live',
+        mcm: [{ name: 'Momentum', default: 'on', group: 'Diplomacy' }],
       },
       {
         title: 'Alignment & Execution System',
@@ -77,6 +82,10 @@ const categories: FeatureCategory[] = [
           'Culture desertion: troops of opposing alignment desert from your party (toggleable)',
         ],
         status: 'live',
+        mcm: [
+          { name: 'Enable Culture Desertion', default: 'on', group: 'Battle Settings' },
+          { name: 'Culture Desertion AI Only', default: 'off', group: 'Battle Settings' },
+        ],
       },
       {
         title: 'Garrison Patrol System',
@@ -107,6 +116,7 @@ const categories: FeatureCategory[] = [
           'Final damage clamped to 0.4-2.5x range to prevent extreme outcomes',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Auto Resolve', default: 'off', group: 'Battle Settings' }],
       },
       {
         title: 'Culture Formation AI',
@@ -120,6 +130,7 @@ const categories: FeatureCategory[] = [
           'Tactical context system: adapts behavior for Overwhelming/Winning/Losing/Desperate phases',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable TAOM Culture AI', default: 'off', group: 'Battle Settings' }],
       },
       {
         title: 'Enhanced Siege AI',
@@ -132,6 +143,7 @@ const categories: FeatureCategory[] = [
           'Morale effects tied to siege progress and race',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable TAOM Siege AI', default: 'off', group: 'Battle Settings' }],
       },
       {
         title: 'Advanced Tactics',
@@ -145,6 +157,7 @@ const categories: FeatureCategory[] = [
           'Battle stats display showing real-time combat information',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Advanced Tactics', default: 'off', group: 'Battle Settings' }],
       },
       {
         title: 'Culture Combat Matchups',
@@ -169,6 +182,7 @@ const categories: FeatureCategory[] = [
           'Configurable hero death rate (default: heroes never die)',
         ],
         status: 'live',
+        mcm: [{ name: 'Disable Friendly Fire Notifications', default: 'on', group: 'Battle Settings' }],
       },
       {
         title: '81 Battle Terrain Scenes',
@@ -209,6 +223,10 @@ const categories: FeatureCategory[] = [
           'Covers combat, economy, settlement management, and social interactions',
         ],
         status: 'live',
+        mcm: [
+          { name: 'Enable Race Bonuses', default: 'off', group: 'Battle Settings' },
+          { name: 'Use Additive Race Bonuses', default: 'on', group: 'Battle Settings' },
+        ],
       },
       {
         title: 'Race-Based Perk Multipliers',
@@ -222,6 +240,7 @@ const categories: FeatureCategory[] = [
           'Fully configurable via JSON — moddable by sub-modders',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Race Perk Multipliers', default: 'off', group: 'Perks' }],
       },
       {
         title: 'Warg Riders & Creature Units',
@@ -246,6 +265,7 @@ const categories: FeatureCategory[] = [
           'Patches party member counts and roster displays to reflect weighted values',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Troop Weight', default: 'off', group: 'Battle Settings' }],
       },
     ],
   },
@@ -340,6 +360,7 @@ const categories: FeatureCategory[] = [
           'Custom models for settlement food, loyalty, and prosperity',
         ],
         status: 'live',
+        mcm: [{ name: 'Enable Food Management', default: 'on', group: 'Food Management' }],
       },
       {
         title: 'Reinforcement Messenger System',
@@ -352,6 +373,11 @@ const categories: FeatureCategory[] = [
           'Tier-limited quantities per request',
         ],
         status: 'live',
+        mcm: [
+          { name: 'Enable Reinforcements', default: 'on', group: 'Reinforcements' },
+          { name: 'Instant Delivery', default: 'off', group: 'Reinforcements' },
+          { name: 'Culture Restricted', default: 'on', group: 'Reinforcements' },
+        ],
       },
       {
         title: 'Messenger System',
@@ -362,6 +388,10 @@ const categories: FeatureCategory[] = [
           'Random accident chance during travel',
         ],
         status: 'live',
+        mcm: [
+          { name: 'Enable Messengers', default: 'on', group: 'Messengers' },
+          { name: 'Messenger Accidents', default: 'on', group: 'Messengers' },
+        ],
       },
       {
         title: 'Enhanced Tournaments',
@@ -380,6 +410,7 @@ const categories: FeatureCategory[] = [
           'Fully configurable via MCM settings',
         ],
         status: 'live',
+        mcm: [{ name: 'Disable Stamina', default: 'off', group: 'Crafting' }],
       },
       {
         title: 'Enhanced Loot System',
@@ -389,6 +420,10 @@ const categories: FeatureCategory[] = [
           'Option to loot from prisoners, not just dead troops',
         ],
         status: 'live',
+        mcm: [
+          { name: 'Enable Better Loot Calc', default: 'off', group: 'Loot' },
+          { name: 'Enable Loot from Prisoners', default: 'off', group: 'Loot' },
+        ],
       },
     ],
   },
@@ -429,6 +464,7 @@ const categories: FeatureCategory[] = [
           'Each variant has unique equipment loadouts with regional weapons',
         ],
         status: 'live',
+        mcm: [{ name: 'Use Custom Bandit Settings', default: 'off', group: 'Bandit Settings' }],
       },
     ],
   },
@@ -564,18 +600,92 @@ const categories: FeatureCategory[] = [
     category: 'MCM Configuration',
     features: [
       {
-        title: '30+ Toggleable Systems',
-        desc: 'Nearly every gameplay system can be toggled on or off via the Mod Configuration Menu. Customize your experience from hardcore to casual.',
+        title: 'Diplomacy Settings',
+        desc: 'Control the War of the Ring and faction AI behavior.',
         details: [
-          'Lore-Accurate Diplomacy: ON by default — forces Good vs Evil wars',
-          'War Momentum: ON by default — strategic victory tracking',
-          'AI Strategic Intelligence: ON by default — smart faction decisions',
-          'Food Management: ON by default — prevents AI starvation',
-          'Culture AI, Siege AI, Advanced Tactics, Race Bonuses: OFF by default — enable for deeper gameplay',
-          'Global movement speed multiplier: 1.9x default (configurable)',
-          'Reinforcements and Messengers: ON by default',
-          'Friendly fire: disabled by default (notifications only)',
-          'Culture Desertion: ON by default — opposing alignment troops desert',
+          'AoM Diplomacy — ON: Restricted diplomacy leading to the War of the Ring (Good vs Evil)',
+          'Momentum — ON: War momentum mechanic during the War of the Ring (requires AoM Diplomacy)',
+          'AI Strategic Intelligence — ON: Enhanced AI faction targeting with strategic analysis',
+          'Strategic Diplomacy — OFF: Enhanced AI war declaration logic (disabled for stability)',
+          'Isengard attack timing: earliest/latest date sliders (default: 21-84 days)',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Battle Settings',
+        desc: '13 toggleable battle systems for fine-tuned combat.',
+        details: [
+          'Friendly Fire Notifications — ON: Removes friendly fire warnings',
+          'Culture Desertion — ON: Opposing-alignment troops desert from parties',
+          'Culture Desertion AI Only — OFF: Exclude player from desertion',
+          'TAOM Culture AI — OFF: Culture-specific formation tactics per faction',
+          'TAOM Siege AI — OFF: Race-specific siege behaviors and mechanics',
+          'Advanced Tactics — OFF: Physics-based momentum damage (0.5*m*v^2)',
+          'Race Bonuses — OFF: 52+ race-based stat bonuses across all systems',
+          'Additive Race Bonuses — ON: Add bonuses instead of multiplying',
+          'Troop Weight — OFF: Weighted party size by troop type',
+          'Advanced Combat — OFF: Bone collision detection system',
+          'Auto Resolve — OFF: Culture-aware auto-resolve with terrain matchups',
+          'Velocity Damage Multiplier: 0.1-1.0 (default 0.3)',
+          'Max Speed Contribution: 5-20 m/s (default 10.0)',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Messenger & Reinforcement Settings',
+        desc: 'Configure the messenger and reinforcement delivery systems.',
+        details: [
+          'Enable Messengers — ON: Send messengers instead of traveling to NPCs',
+          'Messenger Cost: 10-500 gold (default 50)',
+          'Travel Days: 1-10 (default 3)',
+          'Messenger Accidents — ON: Chance of ambush during travel',
+          'Enable Reinforcements — ON: Request culture-specific troop deliveries',
+          'Instant Delivery — OFF: Skip the delivery timer',
+          'Culture Restricted — ON: Only recruit from your own faction',
+          'Tier cost multipliers: T3 (1.5x), T4 (2.0x), T5 (2.5x), T6+ (3.0x)',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Economy & Progression Settings',
+        desc: 'Customize food management, loot, crafting, tournaments, aging, and campaign speed.',
+        details: [
+          'Food Management — ON: Prevents AI settlement starvation',
+          'Food Surplus Target: 0-100 (default 10)',
+          'Better Loot Calc — OFF: Skill-based loot quality improvements',
+          'Loot from Prisoners — OFF: Check prisoners for loot, not just dead',
+          'Disable Crafting Stamina — OFF: Unlimited smithing sessions',
+          'Tournament XP Multiplier: 0.1-10x (default 3.0 = 100% XP)',
+          'Arena XP Multiplier: 0.1-10x (default 16.0 = 100% XP)',
+          'Max Tournament Bet: 150-50,000 gold (default 1,000)',
+          'Become Old Age: 50-200 (default 100)',
+          'Maximum Age: 150-500 (default 300)',
+          'Global Movement Speed: 1.0-5.0x (default 1.9x)',
+          'Race Perk Multipliers — OFF: Race-specific perk effectiveness',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Bandit & World Settings',
+        desc: 'Customize bandit spawning for the massive Middle-earth map.',
+        details: [
+          'Custom Bandit Settings — OFF: Override default LOTR bandit values',
+          'Bandit Density Multiplier: 0.1-3.0x (default 1.0)',
+          'Maximum Bandit Parties: 100-20,000 (LOTR default 200)',
+          'Max Hideouts Per Faction: 10-1,000 (LOTR default 100)',
+          'Initial Hideouts Per Faction: 10-500 (LOTR default 30)',
+          'Parties to Infest Hideout: 1-10 (LOTR default 2)',
+          'Max Parties Per Hideout: 1-10 (default 4)',
+          'Dwarven Eye Height: -1.0 to 0 (visual adjustment)',
+        ],
+        status: 'live',
+      },
+      {
+        title: 'Debug & Testing',
+        desc: 'Development and testing tools for troubleshooting.',
+        details: [
+          'Debug Mode — OFF: Enables debug console and detailed logging',
+          'Custom Player Switcher — OFF: Select an existing character at game start',
         ],
         status: 'live',
       },
@@ -610,6 +720,16 @@ const categories: FeatureCategory[] = [
                   <li>{d}</li>
                 ))}
               </ul>
+              {f.mcm && f.mcm.length > 0 && (
+                <div class="mcm-toggles">
+                  <span class="mcm-label">MCM</span>
+                  {f.mcm.map(m => (
+                    <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
+                      {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -727,6 +847,43 @@ const categories: FeatureCategory[] = [
     color: var(--accent-dim);
     position: absolute;
     left: 0.2rem;
+  }
+
+  .mcm-toggles {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mcm-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-right: 0.2rem;
+  }
+
+  .mcm-toggle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .mcm-on {
+    background: rgba(76, 175, 80, 0.15);
+    color: #66BB6A;
+  }
+
+  .mcm-off {
+    background: rgba(255, 167, 38, 0.12);
+    color: #FFB74D;
   }
 
   @media (max-width: 600px) {
