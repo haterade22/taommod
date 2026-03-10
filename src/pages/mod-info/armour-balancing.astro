@@ -1,0 +1,799 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const cultures = [
+  {
+    id: 'gondor',
+    name: 'Gondorians',
+    color: '#c8d0d8',
+    alignment: 'good',
+    race: 'Men',
+    items: 247,
+    protection: '+0',
+    weightMult: '1.00x',
+    identity: 'Gondorian armour reflects Numenorean craftsmanship — balanced, disciplined and reliable. Their plate is well-forged but not extravagant, designed for prolonged campaigns and versatile deployment across the many regions of the realm.',
+    strengths: [],
+    weaknesses: [],
+    notes: 'Gondor is the baseline reference culture for armour stats. All other cultures are measured against Gondorian values. Their armour is neither the heaviest nor the lightest — functional and dependable.',
+  },
+  {
+    id: 'rohan',
+    name: 'Rohirrim',
+    color: '#6db36d',
+    alignment: 'good',
+    race: 'Men',
+    items: 104,
+    protection: '-2',
+    weightMult: '0.90x',
+    identity: 'Rohirrim armour is lighter than most human factions, designed to be worn comfortably on horseback for extended campaigns. Protection is sacrificed for mobility — the Rohirrim rely on speed and the lance charge rather than standing in heavy plate.',
+    strengths: [
+      { stat: 'Weight', mod: '0.90x', note: 'Lighter for mounted combat' },
+    ],
+    weaknesses: [
+      { stat: 'Protection', mod: '-2', note: 'Lighter armour overall' },
+    ],
+    notes: 'Rohan armour is intentionally lighter — their cavalry doctrine prioritizes speed over protection. Infantry armour is also lighter, reflecting a culture that fights from the saddle.',
+  },
+  {
+    id: 'erebor',
+    name: 'Longbeards',
+    color: '#6a9fd4',
+    alignment: 'good',
+    race: 'Dwarf',
+    items: 211,
+    protection: '+4',
+    weightMult: '1.05x',
+    identity: 'Dwarven armour from the forges of Erebor is among the finest in Middle-earth. The Longbeards were some of the greatest smiths ever to walk the world, and their craft shows in every link and plate. Heavy, well-made and resilient — Erebor armour is built to outlast any siege.',
+    strengths: [
+      { stat: 'Protection', mod: '+4', note: 'Master dwarven smithcraft' },
+    ],
+    weaknesses: [
+      { stat: 'Weight', mod: '1.05x', note: 'Slightly heavier construction' },
+    ],
+    notes: 'Erebor armour is the second-best among non-elven factions, reflecting their legendary smithing tradition. Slightly heavier than standard but with significantly better protection.',
+  },
+  {
+    id: 'iron_hills',
+    name: 'Ironfists',
+    color: '#a04030',
+    alignment: 'good',
+    race: 'Dwarf',
+    items: 146,
+    protection: '+5',
+    weightMult: '1.10x',
+    identity: 'The armour of the Iron Hills is the heaviest among all dwarven clans. Forged in the great war-smithies of the Ironfists, every piece is designed for frontline combat — thick plate, reinforced joints and unyielding construction. It is armour built for siege warfare and head-on assaults.',
+    strengths: [
+      { stat: 'Protection', mod: '+5', note: 'Heaviest dwarven armour' },
+    ],
+    weaknesses: [
+      { stat: 'Weight', mod: '1.10x', note: 'Noticeably heavier' },
+    ],
+    notes: 'Iron Hills produce the best non-elven armour in the game. Their +5 protection modifier means every tier of armour is better than the equivalent from any human or orc faction.',
+  },
+  {
+    id: 'rivendell',
+    name: 'Noldorin',
+    color: '#7ec8e3',
+    alignment: 'good',
+    race: 'Elf',
+    items: 179,
+    protection: '+6',
+    weightMult: '0.70x',
+    identity: 'Noldorin armour is the pinnacle of craftsmanship in Middle-earth. Forged by techniques passed down from the great smiths of Valinor, it combines supreme protection with astonishing lightness. Rivendell armour is as much art as it is defence — every piece is a masterwork.',
+    strengths: [
+      { stat: 'Protection', mod: '+6', note: 'Finest elven masterwork' },
+      { stat: 'Weight', mod: '0.70x', note: 'Remarkably light' },
+    ],
+    weaknesses: [],
+    notes: 'Rivendell armour has the highest protection modifier in the game (+6) AND the lightest weight (0.70x). A Noldorin elite body armour provides 56 protection at only 15.4 weight, compared to Gondor\'s 50 at 22.0. This reflects the Noldor\'s unmatched smithcraft.',
+  },
+  {
+    id: 'mirkwood',
+    name: 'Silvan',
+    color: '#4a9e6d',
+    alignment: 'good',
+    race: 'Elf',
+    items: 45,
+    protection: '+5',
+    weightMult: '0.65x',
+    identity: 'Silvan armour from Thranduil\'s halls is crafted from forest materials combined with elven metalwork. It is the lightest armour in the game — designed for woodland warfare where stealth and speed matter more than heavy plate. Despite its featherweight construction, elven craft ensures excellent protection.',
+    strengths: [
+      { stat: 'Protection', mod: '+5', note: 'Elven craft quality' },
+      { stat: 'Weight', mod: '0.65x', note: 'Lightest in the game' },
+    ],
+    weaknesses: [],
+    notes: 'Mirkwood armour is the lightest in the game at 0.65x weight multiplier. Their small roster (45 items) reflects a woodland kingdom with fewer armor variants than Rivendell, but what they have is exceptional.',
+  },
+  {
+    id: 'lothlorien',
+    name: 'Sindar',
+    color: '#c9a84c',
+    alignment: 'good',
+    race: 'Elf',
+    items: 0,
+    protection: '+5',
+    weightMult: '0.70x',
+    identity: 'The armour of Lothlorien is crafted beneath the golden mallorn trees by Sindarin and Silvan smiths guided by Noldorin knowledge. Balanced between the supreme protection of Rivendell and the featherlight craft of Mirkwood, it excels in all roles without dominating any single one.',
+    strengths: [
+      { stat: 'Protection', mod: '+5', note: 'Golden wood craft' },
+      { stat: 'Weight', mod: '0.70x', note: 'Elven lightness' },
+    ],
+    weaknesses: [],
+    notes: 'Lothlorien armour items are planned but not yet implemented. Cultural modifiers are defined and ready for when the armour set is created.',
+  },
+  {
+    id: 'isengard',
+    name: 'Uruk-Hai',
+    color: '#a0a0a0',
+    alignment: 'evil',
+    race: 'Uruk-Hai',
+    items: 137,
+    protection: '+2',
+    weightMult: '1.15x',
+    identity: 'Isengard armour is forged in the great pits beneath Orthanc — industrial mass production of heavy plate and war-gear. It is crude by elven or dwarven standards, but effective. Thick, heavy and designed to absorb punishment in pike formations and shock charges.',
+    strengths: [
+      { stat: 'Protection', mod: '+2', note: 'Industrial heavy armour' },
+    ],
+    weaknesses: [
+      { stat: 'Weight', mod: '1.15x', note: 'Heaviest in the game' },
+    ],
+    notes: 'Isengard armour is the heaviest in the game (1.15x weight) but also provides above-average protection (+2). This reflects Saruman\'s industrial war machine — mass-produced but brutally effective.',
+  },
+  {
+    id: 'mordor',
+    name: 'Mordor Orcs',
+    color: '#b44444',
+    alignment: 'evil',
+    race: 'Orc',
+    items: 136,
+    protection: '-1',
+    weightMult: '1.10x',
+    identity: 'Orc armour from the Dark Land is crude, heavy and mass-produced. Forged in the furnaces of Barad-dur and the slag pits of Gorgoroth, it is functional but lacks finesse. Heavy iron plates riveted together — effective enough for the expendable hordes of Mordor.',
+    strengths: [],
+    weaknesses: [
+      { stat: 'Protection', mod: '-1', note: 'Crude construction' },
+      { stat: 'Weight', mod: '1.10x', note: 'Poorly fitted, heavy' },
+    ],
+    notes: 'Mordor armour is slightly worse than baseline and heavier. This reflects mass-produced orc equipment — quantity over quality. In the future, unique creature armour (troll plate, fell beast harness) will add variety.',
+  },
+  {
+    id: 'gundabad',
+    name: 'Gundabad Orcs',
+    color: '#7a8a9a',
+    alignment: 'evil',
+    race: 'Orc',
+    items: 101,
+    protection: '-2',
+    weightMult: '1.15x',
+    identity: 'Gundabad armour is the crudest orc-work in the game — thick, heavy and poorly made. What it lacks in craftsmanship it attempts to make up for in sheer bulk. The orcs of Mount Gundabad favor massive iron plates bolted together, sacrificing protection for intimidation.',
+    strengths: [],
+    weaknesses: [
+      { stat: 'Protection', mod: '-2', note: 'Poorest quality armour' },
+      { stat: 'Weight', mod: '1.15x', note: 'Heaviest construction' },
+    ],
+    notes: 'Gundabad has the worst protection-to-weight ratio in the game: -2 protection at 1.15x weight. In the future, cave trolls and other mountain creatures will compensate for their infantry\'s poor equipment.',
+  },
+  {
+    id: 'dolguldur',
+    name: 'Goblins',
+    color: '#7a9a5a',
+    alignment: 'evil',
+    race: 'Orc',
+    items: 113,
+    protection: '-1',
+    weightMult: '1.10x',
+    identity: 'Goblin armour from Dol Guldur is crafted in the dark forges beneath the old fortress. Similar to Mordor\'s output, it is crude and heavy, but the proximity to Mirkwood\'s resources provides slightly better materials than Gundabad\'s mountain slag.',
+    strengths: [],
+    weaknesses: [
+      { stat: 'Protection', mod: '-1', note: 'Dark forge quality' },
+      { stat: 'Weight', mod: '1.10x', note: 'Heavy and crude' },
+    ],
+    notes: 'Dol Guldur armour is mechanically identical to Mordor — same protection modifier and weight multiplier. Giant spiders, wargs and other Mirkwood horrors will provide unique tactical options in future updates.',
+  },
+  {
+    id: 'harad',
+    name: 'Haruze',
+    color: '#c43c3c',
+    alignment: 'evil',
+    race: 'Men',
+    items: 56,
+    protection: '-3',
+    weightMult: '0.85x',
+    identity: 'Haradrim armour is designed for the scorching deserts of the South. Light fabrics, leather and minimal plate — protection is sacrificed for mobility and heat management. Serpent Guard elite armour is the exception, incorporating more metal for ceremonial and front-line use.',
+    strengths: [
+      { stat: 'Weight', mod: '0.85x', note: 'Desert-light construction' },
+    ],
+    weaknesses: [
+      { stat: 'Protection', mod: '-3', note: 'Lightest protection' },
+    ],
+    notes: 'Harad has the lowest protection modifier (-3) but also very light armour (0.85x). This reflects desert warfare — light, fast troops that rely on cavalry and archery rather than standing in heavy plate.',
+  },
+  {
+    id: 'rhun',
+    name: 'Easterlings',
+    color: '#d4a24c',
+    alignment: 'evil',
+    race: 'Men',
+    items: 603,
+    protection: '+0',
+    weightMult: '1.00x',
+    identity: 'Easterling armour from the realms of Rhun is diverse and well-crafted. From the lacquered plates of the Loke-rim to the scale armour of the common soldier, Rhun produces competent equipment in large quantities. Their armour is balanced — neither exceptionally heavy nor light.',
+    strengths: [],
+    weaknesses: [],
+    notes: 'Rhun is baseline-equivalent to Gondor in armour quality. Their massive item count (603) reflects the largest culture roster in the game, with multiple regional sub-styles (Loke-rim, standard Easterling, etc.).',
+  },
+  {
+    id: 'dunland',
+    name: 'Dunlending',
+    color: '#9a7a5a',
+    alignment: 'evil',
+    race: 'Men',
+    items: 152,
+    protection: '-2',
+    weightMult: '0.95x',
+    identity: 'Dunlending armour is rough hill-folk equipment — fur, leather, and scavenged mail. Functional but primitive compared to the forges of Gondor or Erebor. What the Dunlendings lack in protection they gain in mobility, fighting as light skirmishers and raiders.',
+    strengths: [
+      { stat: 'Weight', mod: '0.95x', note: 'Slightly lighter' },
+    ],
+    weaknesses: [
+      { stat: 'Protection', mod: '-2', note: 'Primitive construction' },
+    ],
+    notes: 'Dunland armour is slightly below average in protection but marginally lighter. This matches their infantry-focused, skirmishing warfare style.',
+  },
+  {
+    id: 'umbar',
+    name: 'Umbarean',
+    color: '#5a8a8a',
+    alignment: 'evil',
+    race: 'Men',
+    items: 0,
+    protection: '-1',
+    weightMult: '0.90x',
+    identity: 'Corsair armour is built for life at sea — medium weight, designed for boarding actions and close-quarters fighting on ship decks. Lighter than mainland plate to prevent drowning, but sturdy enough for the brutal melee of naval combat.',
+    strengths: [
+      { stat: 'Weight', mod: '0.90x', note: 'Maritime-light' },
+    ],
+    weaknesses: [
+      { stat: 'Protection', mod: '-1', note: 'Lighter for naval use' },
+    ],
+    notes: 'Umbar armour items are planned but not yet implemented. Cultural modifiers are defined for when the corsair armour set is created.',
+  },
+  {
+    id: 'arnor',
+    name: 'Arnorians',
+    color: '#8baec4',
+    alignment: 'good',
+    race: 'Men',
+    items: 76,
+    protection: '+2',
+    weightMult: '1.00x',
+    identity: 'The armour of Arnor recalls the ancient Numenorean heritage of the Northern Kingdom. Though the realm has fallen, the Rangers and remnants of Arnor still maintain quality equipment — well-crafted, balanced, and carrying echoes of a greater age.',
+    strengths: [
+      { stat: 'Protection', mod: '+2', note: 'Ancient Numenorean quality' },
+    ],
+    weaknesses: [],
+    notes: 'Arnor armour is above average, reflecting their Numenorean heritage. Baseline weight with +2 protection places them between Gondor and the dwarven factions.',
+  },
+  {
+    id: 'khand',
+    name: 'Variags',
+    color: '#c4873c',
+    alignment: 'evil',
+    race: 'Men',
+    items: 0,
+    protection: '—',
+    weightMult: '—',
+    identity: 'The Variags of Khand are a fierce and warlike people from the arid lands east of Mordor. Their armour and equipment are not yet available in the current version of TAOM.',
+    strengths: [],
+    weaknesses: [],
+    notes: 'Khand armour is planned but not yet implemented. Cultural modifiers will be defined when the faction armour set is created.',
+  },
+];
+
+const tierOrder = ['civilian', 'light', 'medium', 'heavy', 'elite', 'lord'];
+---
+
+<BaseLayout title="Armour Balancing" description="Detailed breakdown of armour stat balancing across all TAOM cultures">
+  <div class="page-content mod-info">
+    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Armour Balancing</nav>
+    <h1 class="page-title">Armour Balancing</h1>
+
+    <section class="info-section">
+      <h2>Overview</h2>
+      <p class="section-desc">
+        TAOM rebalances all <strong>2,368 armour items</strong> across <strong>17 cultures</strong> using a uniform formula:
+        every item's protection values and weight are calculated from a <strong>tier-based baseline</strong> plus a
+        <strong>cultural modifier</strong>. This ensures consistent progression within each culture while giving each faction
+        a distinct armour identity.
+      </p>
+      <p class="section-desc">
+        Elven factions (Rivendell, Mirkwood, Lothlorien) produce masterwork armour — high protection at dramatically
+        reduced weight. Dwarven factions (Erebor, Iron Hills) produce the strongest non-elven armour. Orc factions
+        produce crude, heavy equipment with lower protection.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2>The Formula</h2>
+      <div class="formula-box">
+        <code>Final Protection = Baseline[tier][slot] + Cultural Modifier + Variant Number</code>
+        <br />
+        <code>Final Weight = Baseline Weight[tier][slot] &times; Cultural Weight Multiplier</code>
+      </div>
+      <div class="formula-details">
+        <div class="detail-card">
+          <h3>6 Armour Tiers</h3>
+          <p>Items are classified into Civilian, Light, Medium, Heavy, Elite, and Lord tiers based on keywords in their names. Each tier has defined baseline values per slot.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Cultural Modifiers</h3>
+          <p>Each culture adds or subtracts protection points and applies a weight multiplier. Dwarves get +4-5 protection, elves get +5-6 protection at 0.65-0.70x weight, while orcs get -1 to -2 protection at 1.10-1.15x weight.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Variant Progression</h3>
+          <p>Numbered variants (I, II, III...) get +1 protection per step within the same tier. Chest I has base protection, Chest II gets +1, Chest III gets +2, etc. Color variants are cosmetic only.</p>
+        </div>
+        <div class="detail-card">
+          <h3>Material Type Fix</h3>
+          <p>Material types are corrected by tier: Civilian = Cloth, Light = Leather, Medium = Chainmail, Heavy/Elite/Lord = Plate. Previously many items had incorrect "Plate" from template copy-paste.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Quick Comparison</h2>
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Culture</th>
+              <th>Items</th>
+              <th class="skill-col">Prot</th>
+              <th class="skill-col">Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cultures.map(c => {
+              const protVal = c.protection;
+              const protCls = protVal.startsWith('+') && protVal !== '+0' ? 'mod-pos' : protVal.startsWith('-') ? 'mod-neg' : 'mod-zero';
+              const weightNum = parseFloat(c.weightMult);
+              const weightCls = isNaN(weightNum) ? 'mod-zero' : weightNum < 1.0 ? 'mod-pos' : weightNum > 1.0 ? 'mod-neg' : 'mod-zero';
+              return (
+                <tr>
+                  <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}><a href={`#${c.id}`}>{c.name}</a></td>
+                  <td class="center culture-cell" style={`background: ${c.color}15`}>{c.items || '—'}</td>
+                  <td class={`center ${protCls}`}>{protVal}</td>
+                  <td class={`center ${weightCls}`}>{c.weightMult}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Culture Details</h2>
+
+      {cultures.map(c => (
+        <div id={c.id} class="culture-card" style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}>
+          <div class="culture-header">
+            <h3 style={`color: ${c.color}`}>{c.name}</h3>
+            <div class="culture-meta">
+              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : 'Forces of Darkness'}</span>
+              <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.race}</span>
+              {c.items > 0 && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.items} items</span>}
+            </div>
+          </div>
+
+          <p class="culture-identity">{c.identity}</p>
+
+          <div class="modifiers-grid">
+            {c.strengths.length > 0 && (
+              <div class="mod-section strengths">
+                <h4>Strengths</h4>
+                <ul>
+                  {c.strengths.map(s => (
+                    <li>
+                      <span class="mod-skill">{s.stat}</span>
+                      <span class="mod-value pos">{s.mod}</span>
+                      <span class="mod-note">{s.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {c.weaknesses.length > 0 && (
+              <div class="mod-section weaknesses">
+                <h4>Weaknesses</h4>
+                <ul>
+                  {c.weaknesses.map(w => (
+                    <li>
+                      <span class="mod-skill">{w.stat}</span>
+                      <span class="mod-value neg">{w.mod}</span>
+                      <span class="mod-note">{w.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {c.notes && <p class="culture-notes">{c.notes}</p>}
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Baseline Armour Tables</h2>
+      <p class="section-desc">
+        These are the center values before cultural modifiers are applied. Each armour slot has its own baseline progression across 6 tiers.
+      </p>
+
+      <h3>Body Armour</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Body</th><th>Leg</th><th>Weight</th><th>Material</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>5</td><td>3</td><td>3.0</td><td>Cloth</td></tr>
+            <tr><td>Light</td><td>20</td><td>10</td><td>8.0</td><td>Leather</td></tr>
+            <tr><td>Medium</td><td>32</td><td>16</td><td>13.0</td><td>Chainmail</td></tr>
+            <tr><td>Heavy</td><td>42</td><td>22</td><td>18.0</td><td>Plate</td></tr>
+            <tr><td>Elite</td><td>50</td><td>28</td><td>22.0</td><td>Plate</td></tr>
+            <tr><td>Lord</td><td>60</td><td>34</td><td>24.0</td><td>Plate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Head Armour</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Head</th><th>Weight</th><th>Material</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>5</td><td>0.5</td><td>Cloth</td></tr>
+            <tr><td>Light</td><td>15</td><td>1.5</td><td>Leather</td></tr>
+            <tr><td>Medium</td><td>24</td><td>2.5</td><td>Chainmail</td></tr>
+            <tr><td>Heavy</td><td>32</td><td>3.5</td><td>Plate</td></tr>
+            <tr><td>Elite</td><td>40</td><td>4.5</td><td>Plate</td></tr>
+            <tr><td>Lord</td><td>48</td><td>5.0</td><td>Plate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Arm Armour</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Arm</th><th>Weight</th><th>Material</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>3</td><td>0.3</td><td>Cloth</td></tr>
+            <tr><td>Light</td><td>8</td><td>0.6</td><td>Leather</td></tr>
+            <tr><td>Medium</td><td>14</td><td>1.0</td><td>Chainmail</td></tr>
+            <tr><td>Heavy</td><td>20</td><td>1.5</td><td>Plate</td></tr>
+            <tr><td>Elite</td><td>26</td><td>2.0</td><td>Plate</td></tr>
+            <tr><td>Lord</td><td>32</td><td>2.5</td><td>Plate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Leg Armour</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Leg</th><th>Weight</th><th>Material</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>4</td><td>0.5</td><td>Cloth</td></tr>
+            <tr><td>Light</td><td>12</td><td>1.5</td><td>Leather</td></tr>
+            <tr><td>Medium</td><td>20</td><td>2.5</td><td>Chainmail</td></tr>
+            <tr><td>Heavy</td><td>28</td><td>3.5</td><td>Plate</td></tr>
+            <tr><td>Elite</td><td>34</td><td>4.0</td><td>Plate</td></tr>
+            <tr><td>Lord</td><td>40</td><td>4.5</td><td>Plate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Shoulder / Cape</h3>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Body</th><th>Arm</th><th>Weight</th><th>Material</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>2</td><td>2</td><td>1.0</td><td>Cloth</td></tr>
+            <tr><td>Light</td><td>5</td><td>5</td><td>3.0</td><td>Leather</td></tr>
+            <tr><td>Medium</td><td>8</td><td>8</td><td>5.0</td><td>Chainmail</td></tr>
+            <tr><td>Heavy</td><td>12</td><td>10</td><td>7.0</td><td>Plate</td></tr>
+            <tr><td>Elite</td><td>15</td><td>12</td><td>9.0</td><td>Plate</td></tr>
+            <tr><td>Lord</td><td>18</td><td>15</td><td>11.0</td><td>Plate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Tier Classification</h2>
+      <p class="section-desc">
+        Each armour item is classified into a tier based on keywords in its name. The tier determines its baseline stats, material type and modifier group.
+      </p>
+      <div class="table-wrapper">
+        <table class="baseline-table">
+          <thead>
+            <tr><th>Tier</th><th>Keywords</th><th>Material</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Civilian</td><td>Dress, Tunic, Jerkin, Noble Coat</td><td>Cloth</td><td>Noble Dress, Civilian Tunic</td></tr>
+            <tr><td>Light</td><td>Light, Leather, Scout, Militia, Padded</td><td>Leather</td><td>Leather Armour I, Light Chest</td></tr>
+            <tr><td>Medium</td><td>Medium, Chainmail, Chain, Scale</td><td>Chainmail</td><td>Chainmail Armour, Scale Armour</td></tr>
+            <tr><td>Heavy</td><td>Heavy, Platemail, Plate</td><td>Plate</td><td>Heavy Plate Helmet, Platemail I</td></tr>
+            <tr><td>Elite</td><td>Elite, Gold, Palace Guard, Citadel, Fountain, Swan Knight</td><td>Plate</td><td>Elite Chest III, Citadel Armour</td></tr>
+            <tr><td>Lord</td><td>Lord, King's, Captain's, hero names</td><td>Plate</td><td>Sauron Armour, Lord Chest I</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-desc" style="margin-top: 0.75rem;">
+        Items without tier keywords use a value-based fallback: the current primary armor stat determines the tier assignment.
+        The rebalancing tool (<code>tools/rebalance_armor.py</code>) supports <code>--dry-run</code>, <code>--apply</code>, and <code>--export-csv</code> modes.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .mod-info {
+    max-width: 1200px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .info-section {
+    margin-bottom: 3rem;
+  }
+
+  .info-section h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(212, 162, 76, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .section-desc code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+  }
+
+  /* Formula section */
+  .formula-box {
+    background: rgba(212, 162, 76, 0.1);
+    border: 1px solid rgba(212, 162, 76, 0.3);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 2;
+  }
+  .formula-box code {
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .formula-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .detail-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .detail-card h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .detail-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Comparison table */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table, .baseline-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .comparison-table th, .comparison-table td,
+  .baseline-table th, .baseline-table td {
+    padding: 0.5rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+
+  .comparison-table th, .baseline-table th {
+    background: rgba(212, 162, 76, 0.15);
+    color: var(--accent);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+
+  .comparison-table tbody tr:hover, .baseline-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .center { text-align: center; }
+  .skill-col { text-align: center; min-width: 60px; }
+
+  .mod-pos { color: #5dae5d; font-weight: 600; }
+  .mod-neg { color: #d46a6a; font-weight: 600; }
+  .mod-zero { color: rgba(255, 255, 255, 0.3); }
+
+  .culture-cell {
+    font-weight: 600;
+  }
+  .culture-cell a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+  }
+  .culture-cell a:hover { text-decoration: underline; }
+
+  /* Culture cards */
+  .culture-card {
+    border-radius: 10px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .culture-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .culture-header h3 {
+    color: var(--accent);
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .culture-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .culture-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .culture-identity {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .modifiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .mod-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .mod-section.strengths { border-top: 2px solid rgba(93, 174, 93, 0.4); }
+  .mod-section.weaknesses { border-top: 2px solid rgba(212, 106, 106, 0.4); }
+
+  .mod-section h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+  .strengths h4 { color: #5dae5d; }
+  .weaknesses h4 { color: #d46a6a; }
+
+  .mod-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .mod-section li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.875rem;
+  }
+
+  .mod-skill {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    min-width: 90px;
+  }
+  .mod-value {
+    font-weight: 700;
+    font-family: monospace;
+    min-width: 50px;
+  }
+  .mod-value.pos { color: #5dae5d; }
+  .mod-value.neg { color: #d46a6a; }
+  .mod-note {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+  }
+
+  .culture-notes {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Baseline tables */
+  .info-section h3 {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .baseline-table td {
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+  .baseline-table td:first-child {
+    font-weight: 600;
+    color: var(--accent);
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .culture-header { flex-direction: column; align-items: flex-start; }
+    .modifiers-grid { grid-template-columns: 1fr; }
+    .formula-details { grid-template-columns: 1fr; }
+  }
+</style>
