@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
     <Item
         id="lotr_troll_helmet"
         name="{=aom_lotr_troll_helmet_name}Cave Troll Helmet"
@@ -7,13 +9,13 @@
         mesh="lotr_troll_helmet"
         culture="Culture.mordor"
         is_merchandise="false"
-        weight="0.5"
+        weight="10.0"
         difficulty="0"
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="95"
+                head_armor="56"
                 has_gender_variations="false"
                 covers_head="false"
                 modifier_group="plate"
@@ -22,11 +24,18 @@
         <Flags
             Civilian="true"
             UseTeamColor="true" />
-    </Item>
-    <!-- #region Armors -->
-    <!-- #region Aserai Armors -->
-    <!-- #region Aserai Head Armors -->
-    <!-- #region Aserai Light Head Armors -->
-    <!-- #endregion -->
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #region Armors -->
+
+    <!-- #region Aserai Armors -->
+
+    <!-- #region Aserai Head Armors -->
+
+    <!-- #region Aserai Light Head Armors -->
+
+    <!-- #endregion -->
+
+    <!-- #endregion -->
+
 </Items>

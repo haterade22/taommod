@@ -1,41 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- Thenn -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- Thenn -->
+
     <Item
         id="thenn_cloak"
         name="{=aom_thenn_cloak_name}Thenn Cloak"
         mesh="thenn_cloak"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="1"
+                arm_armor="1"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_necklace"
         name="{=aom_thenn_necklace_name}Thenn Necklace"
         mesh="thenn_necklace"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="1"
+                arm_armor="1"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

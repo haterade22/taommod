@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Isengard] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Isengard] -->
+
     <Item
         id="sk_uruk_hai_skirt_a1"
         name="{=aom_sk_uruk_hai_skirt_a1_name}[Isengard] Uruk-Hai Berserker Skirt"
@@ -8,15 +11,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="1.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="52"
                 arm_armor="30"
-                leg_armor="10"
+                leg_armor="29"
                 has_gender_variations="false"
                 covers_body="false"
                 modifier_group="plate"
@@ -24,7 +27,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_tunic_a1"
         name="{=aom_sk_uruk_hai_tunic_a1_name}[Isengard] Uruk-Hai Tunic I"
@@ -32,23 +36,24 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="1.5"
+        weight="3.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="8"
+                body_armor="7"
                 arm_armor="5"
-                leg_armor="5"
+                leg_armor="4"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_tunic_a2"
         name="{=aom_sk_uruk_hai_tunic_a2_name}[Isengard] Uruk-Hai Tunic II"
@@ -56,23 +61,24 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="1.5"
+        weight="3.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="9"
+                body_armor="7"
                 arm_armor="5"
-                leg_armor="5"
+                leg_armor="4"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_chainmail_a1"
         name="{=aom_sk_uruk_hai_chainmail_a1_name}[Isengard] Uruk-Hai Chainmail I"
@@ -80,23 +86,24 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="2.5"
+        weight="14.9"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="15"
+                body_armor="34"
                 arm_armor="11"
-                leg_armor="10"
+                leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_chainmail_a2"
         name="{=aom_sk_uruk_hai_chainmail_a2_name}[Isengard] Uruk-Hai Chainmail II"
@@ -104,23 +111,24 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="2.5"
+        weight="14.9"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="16"
+                body_armor="34"
                 arm_armor="11"
-                leg_armor="9"
+                leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_light_a1"
         name="{=aom_sk_uruk_hai_plate_light_a1_name}[Isengard] Uruk-Hai Light Plate Armor I"
@@ -128,15 +136,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="4.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="44"
                 arm_armor="11"
-                leg_armor="10"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -144,7 +152,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_light_a2"
         name="{=aom_sk_uruk_hai_plate_light_a2_name}[Isengard] Uruk-Hai Light Plate Armor II"
@@ -152,15 +161,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="4.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="44"
                 arm_armor="11"
-                leg_armor="10"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -168,7 +177,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_light_b1"
         name="{=aom_sk_uruk_hai_plate_light_b1_name}[Isengard] Uruk-Hai Light Plate Armor III"
@@ -176,15 +186,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="2.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="20"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="13"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -192,7 +202,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_light_b2"
         name="{=aom_sk_uruk_hai_plate_light_b2_name}[Isengard] Uruk-Hai Light Plate Armor IV"
@@ -200,15 +211,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="2.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="20"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="13"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -216,7 +227,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_med_a1"
         name="{=aom_sk_uruk_hai_plate_med_a1_name}[Isengard] Uruk-Hai Medium Plate Armor I"
@@ -224,15 +236,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="6.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="44"
                 arm_armor="12"
-                leg_armor="11"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -240,7 +252,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_med_a2"
         name="{=aom_sk_uruk_hai_plate_med_a2_name}[Isengard] Uruk-Hai Medium Plate Armor II"
@@ -248,15 +261,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="6.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="44"
                 arm_armor="12"
-                leg_armor="11"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -264,7 +277,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_med_b1"
         name="{=aom_sk_uruk_hai_plate_med_b1_name}[Isengard] Uruk-Hai Medium Plate Armor III"
@@ -272,15 +286,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="6.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="15"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -288,7 +302,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_med_b2"
         name="{=aom_sk_uruk_hai_plate_med_b2_name}[Isengard] Uruk-Hai Medium Plate Armor IV"
@@ -296,15 +311,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="6.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="15"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -312,7 +327,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_heavy_a1"
         name="{=aom_sk_uruk_hai_plate_heavy_a1_name}[Isengard] Uruk-Hai Heavy Plate Armor I"
@@ -320,15 +336,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="8.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="44"
                 arm_armor="12"
-                leg_armor="12"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -336,7 +352,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_heavy_a2"
         name="{=aom_sk_uruk_hai_plate_heavy_a2_name}[Isengard] Uruk-Hai Heavy Plate Armor II"
@@ -344,15 +361,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="8.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="44"
                 arm_armor="12"
-                leg_armor="12"
+                leg_armor="23"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -360,7 +377,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_heavy_b1"
         name="{=aom_sk_uruk_hai_plate_heavy_b1_name}[Isengard] Uruk-Hai Heavy Plate Armor III"
@@ -368,15 +386,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="8.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="15"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -384,7 +402,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_heavy_b2"
         name="{=aom_sk_uruk_hai_plate_heavy_b2_name}[Isengard] Uruk-Hai Heavy Plate Armor IV"
@@ -392,15 +411,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="8.5"
+        weight="20.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="45"
                 arm_armor="15"
-                leg_armor="15"
+                leg_armor="24"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -408,7 +427,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_a1"
         name="{=aom_sk_uruk_hai_plate_elite_a1_name}[Isengard] Uruk-Hai Elite Plate Armor I"
@@ -416,15 +436,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="52"
                 arm_armor="13"
-                leg_armor="13"
+                leg_armor="29"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -432,7 +452,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_a2"
         name="{=aom_sk_uruk_hai_plate_elite_a2_name}[Isengard] Uruk-Hai Elite Plate Armor II"
@@ -440,15 +461,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="52"
                 arm_armor="13"
-                leg_armor="13"
+                leg_armor="29"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -456,7 +477,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_a3"
         name="{=aom_sk_uruk_hai_plate_elite_a3_name}[Isengard] Uruk-Hai Elite Plate Armor IV"
@@ -464,15 +486,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="37"
+                body_armor="52"
                 arm_armor="13"
-                leg_armor="13"
+                leg_armor="29"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -480,7 +502,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_b1"
         name="{=aom_sk_uruk_hai_plate_elite_b1_name}[Isengard] Uruk-Hai Elite Plate Armor III"
@@ -488,15 +511,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="53"
                 arm_armor="16"
-                leg_armor="16"
+                leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -504,7 +527,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_b2"
         name="{=aom_sk_uruk_hai_plate_elite_b2_name}[Isengard] Uruk-Hai Elite Plate Armor IV"
@@ -512,15 +536,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="53"
                 arm_armor="16"
-                leg_armor="16"
+                leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -528,7 +552,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_uruk_hai_plate_elite_b3"
         name="{=aom_sk_uruk_hai_plate_elite_b3_name}[Isengard] Uruk-Hai Elite Plate Armor V"
@@ -536,15 +561,15 @@
         subtype="body_armor"
         culture="Culture.isengard"
         is_merchandise="true"
-        weight="10.5"
+        weight="25.3"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="37"
+                body_armor="53"
                 arm_armor="16"
-                leg_armor="16"
+                leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -552,6 +577,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

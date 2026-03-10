@@ -1,119 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- Mirkwood -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- Mirkwood -->
+
     <Item
         id="mirkwood_gloves"
         name="{=aom_mirkwood_gloves_name}[Mirkwood] Palace Guard Glovves"
         mesh="mirkwood_gloves"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.3"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="25"
+                arm_armor="31"
                 covers_hands="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="thranduil_gloves"
         name="{=aom_thranduil_gloves_name}[Mirkwood] Thranduil Gloves"
         mesh="thranduil_gloves"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.6"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="90"
+                arm_armor="37"
                 covers_hands="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="legolas_gloves"
         name="{=aom_legolas_gloves_name}[Mirkwood] Legolas Gloves"
         mesh="legolas gloves"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.6"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="90"
+                arm_armor="37"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_vambraces"
         name="{=aom_mkwd_inf3_vambraces_name}[Mirkwood] Infantry Vambraces I"
         mesh="mkwd_inf3_vambrace"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="27"
+                arm_armor="13"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_vambraces_silver"
         name="{=aom_mkwd_inf3_vambraces_silver_name}[Mirkwood] Infantry Vambraces II"
         mesh="mkwd_inf3_vambrace_silver"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="26"
+                arm_armor="13"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_vambraces_bronze"
         name="{=aom_mkwd_inf3_vambraces_bronze_name}[Mirkwood] Infantry Vambraces III"
         mesh="mkwd_inf3_vambrace_bronze"
         culture="Culture.mirkwood"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="25"
+                arm_armor="13"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- empire -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- empire -->
+
     <Item
         id="thenn_helm1"
         name="{=aom_thenn_helm1_name} Thenn Helm I"
@@ -8,22 +11,23 @@
         mesh="thenn_helm1"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.5"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="20"
+                head_armor="2"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="cloth"
+                material_type="Cloth"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm2"
         name="{=aom_thenn_helm2_name} Thenn Helm II"
@@ -31,22 +35,23 @@
         mesh="thenn_helm2"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.5"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="21"
+                head_armor="2"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="cloth"
+                material_type="Cloth"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm3"
         name="{=aom_thenn_helm3_name} Thenn Helm III"
@@ -54,22 +59,23 @@
         mesh="thenn_helm3"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.5"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="22"
+                head_armor="2"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="cloth"
+                material_type="Cloth"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm4"
         name="{=aom_thenn_helm4_name} Thenn Helm IV"
@@ -77,22 +83,23 @@
         mesh="thenn_helm4"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.5"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="25"
+                head_armor="2"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="cloth"
+                material_type="Cloth"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm5"
         name="{=aom_thenn_helm5_name} Thenn Helm V"
@@ -100,22 +107,23 @@
         mesh="thenn_helm5"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.6"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="26"
+                head_armor="12"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="leather"
+                material_type="Leather"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm6"
         name="{=aom_thenn_helm6_name} Thenn Helm V"
@@ -123,22 +131,23 @@
         mesh="thenn_helm6"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.6"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="26"
+                head_armor="12"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="leather"
+                material_type="Leather"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_helm7"
         name="{=aom_thenn_helm7_name} Thenn Helm VII"
@@ -146,21 +155,23 @@
         mesh="thenn_helm7"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.6"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="30"
+                head_armor="12"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="leather"
+                material_type="Leather"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

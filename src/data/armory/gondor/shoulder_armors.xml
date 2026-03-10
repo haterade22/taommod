@@ -1,545 +1,579 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Gondor] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Gondor] -->
+
     <Item
         id="gondor_pauldrons"
         name="{=aom_gondor_pauldrons_name}[Gondor] Shoulder Armor"
         mesh="gondor_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="9.0"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="10"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="2"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="citidel_guard_armor_pauldrons_light"
         name="{=aom_citidel_guard_armor_pauldrons_light_name}[Gondor] Light Pauldrons"
         mesh="citidel_guard_armor_pauldrons_light"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
+                body_armor="15"
                 arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="lossarnach_pauldrons"
         name="{=aom_lossarnach_pauldrons_name}[Gondor] Lossarnach Pauldrons I"
         mesh="lossarnach_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="2"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_gondor_pauldrons"
         name="{=aom_cts_gondor_pauldrons_name}[Gondor] Lamedon Pauldrons I"
         mesh="cts_gondor_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="2"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="citidel_guard_armor_pauldrons"
         name="{=aom_citidel_guard_armor_pauldrons_name}[Gondor] Pauldrons"
         mesh="citidel_guard_armor_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
+                body_armor="15"
                 arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="fountain_guard_pauldrons"
         name="{=aom_fountain_guard_pauldrons_name}[Gondor] Fountain Guard Pauldrons "
         mesh="fountain_guard_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="14"
-                arm_armor="14"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="ithilien_cloak"
         name="{=aom_ithilien_cloak_name}[Gondor] Ithilien Cloak"
         mesh="ithilien_cloak"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="0.5"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
+                body_armor="2"
+                arm_armor="2"
                 modifier_group="cloth"
                 material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="ithilien_cloak_var"
         name="{=aom_ithilien_cloak_var_name}[Gondor] Ithilien Cloak Two"
         mesh="ithilien_cloak_var"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="0.5"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
+                body_armor="2"
+                arm_armor="2"
                 modifier_group="cloth"
                 material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="gondor_king_pauldrons"
         name="{=aom_gondor_king_pauldrons_name}[Gondor] King's Pauldrons"
         mesh="gondor_king_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="9.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="10"
+                body_armor="18"
+                arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="gondor_nobke_pauldrons"
         name="{=aom_gondor_nobke_pauldrons_name}[Gondor] Noble Pauldrons"
         mesh="gondor_nobke_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="9.0"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="10"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="2"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="gondor_shldr_plt_ld"
         name="{=aom_gondor_shldr_plt_ld_name}[Gondor] Shoulder Pauldrons Tabard"
         mesh="gond_shldr_plt_ld"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="9.0"
+        weight="1.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="10"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="2"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="fountain_shoulders2"
         name="{=aom_fountain_shoulders2_name}[Gondor] Fountain Guard Pauldrons I"
         mesh="fountain_shoulders2"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="14"
-                arm_armor="14"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="fountain_shoulders3"
         name="{=aom_fountain_shoulders3_name}[Gondor] Fountain Guard Pauldrons II"
         mesh="fountain_shoulders3"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="14"
-                arm_armor="14"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="fountain_shoulders1"
         name="{=aom_fountain_shoulders1_name}[Gondor] Fountain Guard Pauldrons III"
         mesh="fountain_shoulders1"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
+                body_armor="15"
                 arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="imrahil_shoulder"
         name="{=aom_imrahil_shoulder_name}[Gondor] Imrahil's Pauldrons"
         mesh="imrahil_shoulder"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="golasgil_shoulder"
         name="{=aom_golasgil_shoulder_name}[Gondor] Golasgil's Pauldrons"
         mesh="golasgil_shoulder"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="hirluin_shoulder"
         name="{=aom_hirluin_shoulder_name}[Gondor] Hirluin's Pauldrons"
         mesh="hirluin_shoulder"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="angbor_shoulder"
         name="{=aom_angbor_shoulder_name}[Gondor] Angbor's Pauldrons"
         mesh="angbor_shoulder"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swanknight_shoulders_a"
         name="{=aom_swanknight_shoulders_a_name}[Gondor] Swan Knight Pauldrons"
         mesh="swan_knight_pauldrons"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="4.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
-                arm_armor="15"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swanknight_shoulders_b"
         name="{=aom_swanknight_shoulders_b_name}[Gondor] Swan Knight Pauldrons II"
         mesh="swan_knight_pauldrons_light"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="4.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
-                arm_armor="15"
+                body_armor="16"
+                arm_armor="13"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="boromir_pauldrons"
         name="{=aom_boromir_pauldrons_name}[Gondor] Boromir's Pauldrons"
         mesh="boromir_shoulders"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="4.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="boromir_cloak"
         name="{=aom_boromir_cloak_name}[Gondor] Boromir's Cloak"
         mesh="boromir_cloak"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="4.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="10"
-                arm_armor="5"
+                body_armor="18"
+                arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="forlong_shoulder"
         name="{=aom_forlong_shoulder_name}[Gondor] Forlong's Cloak"
         mesh="forlong_shoulder"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
+                body_armor="18"
                 arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_a1"
         name="{=aom_swan_knight_pauldrons_a1_name}[Gondor] Swan Knight Pauldrons I"
         mesh="swan_knight_pauldrons_a1"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="30"
-                arm_armor="14"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_a2"
         name="{=aom_swan_knight_pauldrons_a2_name}[Gondor] Swan Knight Pauldrons II"
         mesh="swan_knight_pauldrons_a2"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="22"
+                body_armor="15"
                 arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_a3"
         name="{=aom_swan_knight_pauldrons_a3_name}[Gondor] Swan Knight Pauldrons III"
         mesh="swan_knight_pauldrons_a3"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
-                arm_armor="10"
+                body_armor="15"
+                arm_armor="12"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_b1"
         name="{=aom_swan_knight_pauldrons_b1_name}[Gondor] Swan Knight Pauldrons B1"
         mesh="swan_knight_pauldrons_b1"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="30"
-                arm_armor="18"
+                body_armor="16"
+                arm_armor="13"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_b2"
         name="{=aom_swan_knight_pauldrons_b2_name}[Gondor] Swan Knight Pauldrons B2"
         mesh="swan_knight_pauldrons_b2"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="24"
-                arm_armor="12"
+                body_armor="16"
+                arm_armor="13"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_c1"
         name="{=aom_swan_knight_pauldrons_c1_name}[Gondor] Swan Knight Pauldrons C1"
         mesh="swan_knight_pauldrons_c1"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="24"
-                arm_armor="15"
+                body_armor="17"
+                arm_armor="14"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="swan_knight_pauldrons_c2"
         name="{=aom_swan_knight_pauldrons_c2_name}[Gondor] Swan Knight Pauldrons C2"
         mesh="swan_knight_pauldrons_c2"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="5.0"
+        weight="9.0"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
-                arm_armor="10"
+                body_armor="17"
+                arm_armor="14"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

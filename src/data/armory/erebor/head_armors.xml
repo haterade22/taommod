@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Erebor] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Erebor] -->
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_light_a"
         name="{=aom_sk_dwarf_erebor_helmet_leather_light_a_name}[Erebor] Leather Helmet Light I"
@@ -8,13 +11,13 @@
         mesh="sk_dwarf_erebor_helmet_leather_light_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.6"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="22"
+                head_armor="19"
                 has_gender_variations="false"
                 hair_cover_type="all"
                 modifier_group="leather"
@@ -23,67 +26,71 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_light_b"
         name="{=aom_sk_dwarf_erebor_helmet_leather_light_b_name}[Erebor] Light Leather Helmet II"
         mesh="sk_dwarf_erebor_helmet_leather_light_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="3.0"
+        weight="1.6"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="18"
+                head_armor="20"
                 hair_cover_type="all"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_med_a"
         name="{=aom_sk_dwarf_erebor_helmet_leather_med_a_name}[Erebor] Medium Leather Helmet I"
         mesh="sk_dwarf_erebor_helmet_leather_med_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="4.0"
+        weight="2.6"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="22"
+                head_armor="28"
                 hair_cover_type="all"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_med_b"
         name="{=aom_sk_dwarf_erebor_helmet_leather_med_b_name}[Erebor] Medium Leather Helmet II"
         mesh="sk_dwarf_erebor_helmet_leather_med_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="4.2"
+        weight="2.6"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="24"
+                head_armor="29"
                 hair_cover_type="all"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_heavy_a"
         name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_a_name}[Erebor] Leather Helmet Heavy I"
@@ -91,13 +98,13 @@
         mesh="sk_dwarf_erebor_helmet_leather_heavy_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="2.0"
+        weight="3.7"
         difficulty="0"
         appearance="2"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="32"
+                head_armor="36"
                 has_gender_variations="false"
                 hair_cover_type="all"
                 modifier_group="plate"
@@ -106,94 +113,15 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_leather_heavy_b"
         name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_b_name}[Erebor] Heavy Leather Helmet II"
         mesh="sk_dwarf_erebor_helmet_leather_heavy_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="26"
-                hair_cover_type="all"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_leather_heavy_c"
-        name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_c_name}[Erebor] Heavy Leather Helmet III"
-        mesh="sk_dwarf_erebor_helmet_leather_heavy_c"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.2"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="28"
-                hair_cover_type="all"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_leather_heavy_d"
-        name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_d_name}[Erebor] Heavy Leather Helmet IV"
-        mesh="sk_dwarf_erebor_helmet_leather_heavy_d"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.4"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="30"
-                hair_cover_type="all"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_light_a"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_light_a_name}[Erebor] Light Plate Helmet I"
-        mesh="sk_dwarf_erebor_helmet_plate_light_a"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="35"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_light_b"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_light_b_name}[Erebor] Light Plate Helmet II"
-        mesh="sk_dwarf_erebor_helmet_plate_light_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.2"
+        weight="3.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -206,14 +134,36 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
-        id="sk_dwarf_erebor_helmet_plate_light_c"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_light_c_name}[Erebor] Light Plate Helmet III"
-        mesh="sk_dwarf_erebor_helmet_plate_light_c"
+        id="sk_dwarf_erebor_helmet_leather_heavy_c"
+        name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_c_name}[Erebor] Heavy Leather Helmet III"
+        mesh="sk_dwarf_erebor_helmet_leather_heavy_c"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="6.5"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="38"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_leather_heavy_d"
+        name="{=aom_sk_dwarf_erebor_helmet_leather_heavy_d_name}[Erebor] Heavy Leather Helmet IV"
+        mesh="sk_dwarf_erebor_helmet_leather_heavy_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -226,54 +176,267 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_light_a"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_light_a_name}[Erebor] Light Plate Helmet I"
+        mesh="sk_dwarf_erebor_helmet_plate_light_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="36"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_light_b"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_light_b_name}[Erebor] Light Plate Helmet II"
+        mesh="sk_dwarf_erebor_helmet_plate_light_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="37"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_light_c"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_light_c_name}[Erebor] Light Plate Helmet III"
+        mesh="sk_dwarf_erebor_helmet_plate_light_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="38"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_light_d"
         name="{=aom_sk_dwarf_erebor_helmet_plate_light_d_name}[Erebor] Light Plate Helmet IV"
         mesh="sk_dwarf_erebor_helmet_plate_light_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="6.8"
+        weight="3.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="41"
+                head_armor="39"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_med_a"
         name="{=aom_sk_dwarf_erebor_helmet_plate_med_a_name}[Erebor] Medium Plate Helmet I"
         mesh="sk_dwarf_erebor_helmet_plate_med_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="7.0"
+        weight="3.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="42"
+                head_armor="36"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_med_b"
         name="{=aom_sk_dwarf_erebor_helmet_plate_med_b_name}[Erebor] Medium Plate Helmet II"
         mesh="sk_dwarf_erebor_helmet_plate_med_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="7.2"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="37"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_med_c"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_med_c_name}[Erebor] Medium Plate Helmet III"
+        mesh="sk_dwarf_erebor_helmet_plate_med_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="38"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_med_d"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_med_d_name}[Erebor] Medium Plate Helmet IV"
+        mesh="sk_dwarf_erebor_helmet_plate_med_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="39"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_heavy_a"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_a_name}[Erebor] Heavy Plate Helmet I"
+        mesh="sk_dwarf_erebor_helmet_plate_heavy_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="36"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_heavy_b"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_b_name}[Erebor] Heavy Plate Helmet II"
+        mesh="sk_dwarf_erebor_helmet_plate_heavy_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="37"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_heavy_c"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_c_name}[Erebor] Heavy Plate Helmet III"
+        mesh="sk_dwarf_erebor_helmet_plate_heavy_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="38"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_heavy_d"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_d_name}[Erebor] Heavy Plate Helmet IV"
+        mesh="sk_dwarf_erebor_helmet_plate_heavy_d"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="3.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="39"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_elite_a"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_a_name}[Erebor] Elite Plate Helmet I"
+        mesh="sk_dwarf_erebor_helmet_plate_elite_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -286,14 +449,36 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
-        id="sk_dwarf_erebor_helmet_plate_med_c"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_med_c_name}[Erebor] Medium Plate Helmet III"
-        mesh="sk_dwarf_erebor_helmet_plate_med_c"
+        id="sk_dwarf_erebor_helmet_plate_elite_b"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_b_name}[Erebor] Elite Plate Helmet II"
+        mesh="sk_dwarf_erebor_helmet_plate_elite_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="7.5"
+        weight="4.7"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="45"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_elite_c"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_c_name}[Erebor] Elite Plate Helmet III"
+        mesh="sk_dwarf_erebor_helmet_plate_elite_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -306,54 +491,36 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
-        id="sk_dwarf_erebor_helmet_plate_med_d"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_med_d_name}[Erebor] Medium Plate Helmet IV"
-        mesh="sk_dwarf_erebor_helmet_plate_med_d"
+        id="sk_dwarf_erebor_helmet_plate_elite_d"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_d_name}[Erebor] Elite Plate Helmet IV"
+        mesh="sk_dwarf_erebor_helmet_plate_elite_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="7.8"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="48"
+                head_armor="47"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
-        id="sk_dwarf_erebor_helmet_plate_heavy_a"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_a_name}[Erebor] Heavy Plate Helmet I"
-        mesh="sk_dwarf_erebor_helmet_plate_heavy_a"
+        id="sk_dwarf_erebor_helmet_plate_lord_a"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a_name}[Erebor] Lord Plate Helmet I"
+        mesh="sk_dwarf_erebor_helmet_plate_lord_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="8.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="50"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_heavy_b"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_b_name}[Erebor] Heavy Plate Helmet II"
-        mesh="sk_dwarf_erebor_helmet_plate_heavy_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="8.8"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -366,14 +533,36 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
-        id="sk_dwarf_erebor_helmet_plate_heavy_c"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_c_name}[Erebor] Heavy Plate Helmet III"
-        mesh="sk_dwarf_erebor_helmet_plate_heavy_c"
+        id="sk_dwarf_erebor_helmet_plate_lord_b"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b_name}[Erebor] Lord Plate Helmet II"
+        mesh="sk_dwarf_erebor_helmet_plate_lord_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.2"
+        weight="5.2"
+        difficulty="0"
+        appearance="1.5"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor
+                head_armor="53"
+                hair_cover_type="all"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_dwarf_erebor_helmet_plate_lord_c"
+        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c_name}[Erebor] Lord Plate Helmet III"
+        mesh="sk_dwarf_erebor_helmet_plate_lord_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
@@ -386,747 +575,617 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_heavy_d"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_heavy_d_name}[Erebor] Heavy Plate Helmet IV"
-        mesh="sk_dwarf_erebor_helmet_plate_heavy_d"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="56"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_elite_a"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_a_name}[Erebor] Elite Plate Helmet I"
-        mesh="sk_dwarf_erebor_helmet_plate_elite_a"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="60"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_elite_b"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_b_name}[Erebor] Elite Plate Helmet II"
-        mesh="sk_dwarf_erebor_helmet_plate_elite_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.3"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="62"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_elite_c"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_c_name}[Erebor] Elite Plate Helmet III"
-        mesh="sk_dwarf_erebor_helmet_plate_elite_c"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.6"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="64"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_elite_d"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_elite_d_name}[Erebor] Elite Plate Helmet IV"
-        mesh="sk_dwarf_erebor_helmet_plate_elite_d"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.9"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="66"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_lord_a"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a_name}[Erebor] Lord Plate Helmet I"
-        mesh="sk_dwarf_erebor_helmet_plate_lord_a"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="70"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_lord_b"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b_name}[Erebor] Lord Plate Helmet II"
-        mesh="sk_dwarf_erebor_helmet_plate_lord_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.6"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="72"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_helmet_plate_lord_c"
-        name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c_name}[Erebor] Lord Plate Helmet III"
-        mesh="sk_dwarf_erebor_helmet_plate_lord_c"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="9.7"
-        difficulty="0"
-        appearance="1.5"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="75"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_d"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_d_name}[Erebor] Lord Plate Helmet IV"
         mesh="sk_dwarf_erebor_helmet_plate_lord_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.8"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="78"
+                head_armor="55"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_a2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a2_name}[Erebor] Lord Plate Helmet V"
         mesh="sk_dwarf_erebor_helmet_plate_lord_a2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.5"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="70"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_b2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b2_name}[Erebor] Lord Plate Helmet VI"
         mesh="sk_dwarf_erebor_helmet_plate_lord_b2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.6"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="72"
+                head_armor="53"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_c2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c2_name}[Erebor] Lord Plate Helmet VII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_c2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.7"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="75"
+                head_armor="54"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_d2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_d2_name}[Erebor] Lord Plate Helmet VIII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_d2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.8"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="78"
+                head_armor="55"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_a"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_a_name}[Erebor] Legionary Helmet I"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_a2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_a2_name}[Erebor] Legionary Helmet I"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_a2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_b"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_b_name}[Erebor] Legionary Helmet II"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_b2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_b2_name}[Erebor] Legionary Helmet II"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_b2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_c"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_c_name}[Erebor] Legionary Helmet III"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_c"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="46"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_c2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_c2_name}[Erebor] Legionary Helmet III"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_c2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="46"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_d"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_d_name}[Erebor] Legionary Helmet IV"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="47"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_d2"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_d2_name}[Erebor] Legionary Helmet IV"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_d2"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="47"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_a2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_a2_blue_name}[Erebor] Legionary Helmet V"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_a2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_b2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_b2_blue_name}[Erebor] Legionary Helmet VI"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_b2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_c2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_c2_blue_name}[Erebor] Legionary Helmet VII"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_c2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_d2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_d2_blue_name}[Erebor] Legionary Helmet VIII"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_d2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_a2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a2_blue_name}[Erebor] Lord Plate Helmet V"
         mesh="sk_dwarf_erebor_helmet_plate_lord_a2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.5"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="70"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_b2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b2_blue_name}[Erebor] Lord Plate Helmet VI"
         mesh="sk_dwarf_erebor_helmet_plate_lord_b2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.6"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="72"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_c2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c2_blue_name}[Erebor] Lord Plate Helmet VII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_c2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.7"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="75"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_d2_blue"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_d2_blue_name}[Erebor] Lord Plate Helmet VIII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_d2_blue"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.8"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="78"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_a2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_a2_green_name}[Erebor] Legionary Helmet VIX"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_a2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_b2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_b2_green_name}[Erebor] Legionary Helmet X"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_b2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_c2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_c2_green_name}[Erebor] Legionary Helmet XI"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_c2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_d2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_d2_green_name}[Erebor] Legionary Helmet XII"
         mesh="sk_dwarf_erebor_helmet_plate_legionary_d2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="4.7"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="44"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_a2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a2_green_name}[Erebor] Lord Plate Helmet IX"
         mesh="sk_dwarf_erebor_helmet_plate_lord_a2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.5"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="70"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_b2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b2_green_name}[Erebor] Lord Plate Helmet X"
         mesh="sk_dwarf_erebor_helmet_plate_lord_b2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.6"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="72"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_c2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c2_green_name}[Erebor] Lord Plate Helmet XI"
         mesh="sk_dwarf_erebor_helmet_plate_lord_c2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.7"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="75"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_d2_green"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_d2_green_name}[Erebor] Lord Plate Helmet XII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_d2_green"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.8"
+        weight="5.2"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="78"
+                head_armor="52"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_a2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_a2_red_name}[Iron Hills] Legionary Helmet VIX"
@@ -1139,14 +1198,15 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_b2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_b2_red_name}[Iron Hills] Legionary Helmet X"
@@ -1159,14 +1219,15 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_c2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_c2_red_name}[Iron Hills] Legionary Helmet XI"
@@ -1179,14 +1240,15 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_legionary_d2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_legionary_d2_red_name}[Iron Hills] Legionary Helmet XII"
@@ -1199,93 +1261,99 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="65"
+                head_armor="45"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_a2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_a2_red_name}[Iron Hills] Lord Plate Helmet IX"
         mesh="sk_dwarf_erebor_helmet_plate_lord_a2_red"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.5"
+        weight="5.5"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="70"
+                head_armor="53"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_b2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_b2_red_name}[Iron Hills] Lord Plate Helmet X"
         mesh="sk_dwarf_erebor_helmet_plate_lord_b2_red"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.6"
+        weight="5.5"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="72"
+                head_armor="53"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_c2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_c2_red_name}[Iron Hills] Lord Plate Helmet XI"
         mesh="sk_dwarf_erebor_helmet_plate_lord_c2_red"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.7"
+        weight="5.5"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="75"
+                head_armor="53"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_erebor_helmet_plate_lord_d2_red"
         name="{=aom_sk_dwarf_erebor_helmet_plate_lord_d2_red_name}[Iron Hills] Lord Plate Helmet XII"
         mesh="sk_dwarf_erebor_helmet_plate_lord_d2_red"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="9.8"
+        weight="5.5"
         difficulty="0"
         appearance="1.5"
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="78"
+                head_armor="53"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

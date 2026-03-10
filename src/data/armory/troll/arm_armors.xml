@@ -1,25 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
     <Item
         id="lotr_troll_bracers"
         name="{=aom_lotr_troll_bracers_name}Cave Troll Bracers"
         mesh="lotr_troll_bracers"
         culture="Culture.mordor"
-        weight="0.6"
+        weight="3.0"
         difficulty="0"
         appearance="1"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="95"
+                arm_armor="28"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
-    <!-- #region Aserai Arm Armors -->
-    <!-- #region Aserai Medium Arm Armors -->
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #region Aserai Arm Armors -->
+
+    <!-- #region Aserai Medium Arm Armors -->
+
+    <!-- #endregion -->
+
 </Items>

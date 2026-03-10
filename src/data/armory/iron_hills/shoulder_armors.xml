@@ -1,64 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Iron Hills] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Iron Hills] -->
+
     <Item
         id="sk_dwarf_iron_pauldron_elite_a"
         name="{=aom_sk_dwarf_iron_pauldron_elite_a_name}[Iron Hills] Elite Pauldrons A"
         mesh="sk_dwarf_iron_pauldron_elite_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.2"
+        weight="9.9"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="22"
-                arm_armor="24"
+                body_armor="20"
+                arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_elite_cape_a"
         name="{=aom_sk_dwarf_iron_pauldron_elite_cape_a_name}[Iron Hills] Elite Pauldrons Cape A"
         mesh="sk_dwarf_iron_pauldron_elite_cape_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.3"
+        weight="9.9"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="23"
-                arm_armor="25"
+                body_armor="20"
+                arm_armor="15"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_elite_cape_b"
         name="{=aom_sk_dwarf_iron_pauldron_elite_cape_b_name}[Iron Hills] Elite Pauldrons Cape B"
         mesh="sk_dwarf_iron_pauldron_elite_cape_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.4"
+        weight="9.9"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="24"
-                arm_armor="26"
+                body_armor="21"
+                arm_armor="16"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_heavy_a"
         name="{=aom_sk_dwarf_iron_pauldron_heavy_a_name}[Iron Hills] Heavy Pauldrons A"
         mesh="sk_dwarf_iron_pauldron_heavy_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="7.7"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="17"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="sk_dwarf_iron_pauldron_heavy_b"
+        name="{=aom_sk_dwarf_iron_pauldron_heavy_b_name}[Iron Hills] Heavy Pauldrons B"
+        mesh="sk_dwarf_iron_pauldron_heavy_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="7.7"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="sk_dwarf_iron_pauldron_heavy_cape_a"
+        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_a_name}[Iron Hills] Heavy Pauldrons Cape A"
+        mesh="sk_dwarf_iron_pauldron_heavy_cape_a"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="7.7"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="17"
+                arm_armor="13"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="sk_dwarf_iron_pauldron_heavy_cape_b"
+        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_b_name}[Iron Hills] Heavy Pauldrons Cape B"
+        mesh="sk_dwarf_iron_pauldron_heavy_cape_b"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="7.7"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="14"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="sk_dwarf_iron_pauldron_heavy_cape_c"
+        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_c_name}[Iron Hills] Heavy Pauldrons Cape C"
+        mesh="sk_dwarf_iron_pauldron_heavy_cape_c"
+        culture="Culture.erebor"
+        is_merchandise="true"
+        weight="7.7"
+        appearance="6"
+        Type="Cape">
+        <ItemComponent>
+            <Armor
+                body_armor="19"
+                arm_armor="15"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="sk_dwarf_iron_pauldron_medium_a"
+        name="{=aom_sk_dwarf_iron_pauldron_medium_a_name}[Iron Hills] Medium Pauldrons A"
+        mesh="sk_dwarf_iron_pauldron_med_a"
         culture="Culture.erebor"
         is_merchandise="true"
         weight="5.5"
@@ -66,354 +167,280 @@
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
-                arm_armor="27"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="13"
+                arm_armor="11"
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_iron_pauldron_heavy_b"
-        name="{=aom_sk_dwarf_iron_pauldron_heavy_b_name}[Iron Hills] Heavy Pauldrons B"
-        mesh="sk_dwarf_iron_pauldron_heavy_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.6"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="26"
-                arm_armor="28"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_iron_pauldron_heavy_cape_a"
-        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_a_name}[Iron Hills] Heavy Pauldrons Cape A"
-        mesh="sk_dwarf_iron_pauldron_heavy_cape_a"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.7"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="27"
-                arm_armor="29"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_iron_pauldron_heavy_cape_b"
-        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_b_name}[Iron Hills] Heavy Pauldrons Cape B"
-        mesh="sk_dwarf_iron_pauldron_heavy_cape_b"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.8"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="28"
-                arm_armor="30"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_iron_pauldron_heavy_cape_c"
-        name="{=aom_sk_dwarf_iron_pauldron_heavy_cape_c_name}[Iron Hills] Heavy Pauldrons Cape C"
-        mesh="sk_dwarf_iron_pauldron_heavy_cape_c"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="5.9"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="29"
-                arm_armor="31"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_iron_pauldron_medium_a"
-        name="{=aom_sk_dwarf_iron_pauldron_medium_a_name}[Iron Hills] Medium Pauldrons A"
-        mesh="sk_dwarf_iron_pauldron_med_a"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="4.8"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
-                arm_armor="18"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_medium_b"
         name="{=aom_sk_dwarf_iron_pauldron_medium_b_name}[Iron Hills] Medium Pauldrons B"
         mesh="sk_dwarf_iron_pauldron_med_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="4.9"
+        weight="5.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="19"
-                arm_armor="19"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="14"
+                arm_armor="12"
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_medium_c"
         name="{=aom_sk_dwarf_iron_pauldron_medium_c_name}[Iron Hills] Medium Pauldrons C"
         mesh="sk_dwarf_iron_pauldron_med_c"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="5.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
-                arm_armor="20"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="15"
+                arm_armor="13"
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_medium_d"
         name="{=aom_sk_dwarf_iron_pauldron_medium_d_name}[Iron Hills] Medium Pauldrons D"
         mesh="sk_dwarf_iron_pauldron_med_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.1"
+        weight="5.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="21"
-                arm_armor="21"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="16"
+                arm_armor="14"
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_light_a"
         name="{=aom_sk_dwarf_iron_pauldron_light_a_name}[Iron Hills] Light Pauldrons A"
         mesh="sk_dwarf_iron_pauldron_light_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="4.5"
+        weight="3.3"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="10"
+                arm_armor="8"
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_pauldron_light_b"
         name="{=aom_sk_dwarf_iron_pauldron_light_b_name}[Iron Hills] Light Pauldrons B"
         mesh="sk_dwarf_iron_pauldron_light_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="4.6"
+        weight="3.3"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="16"
-                arm_armor="16"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="11"
+                arm_armor="9"
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_heavy_a"
         name="{=aom_sk_dwarf_dain_pauldron_heavy_a_name}[Erebor] Dain Heavy Pauldron A"
         mesh="sk_dwarf_dain_pauldron_heavy_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="12"
+                body_armor="22"
+                arm_armor="17"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_heavy_b"
         name="{=aom_sk_dwarf_dain_pauldron_heavy_b_name}[Erebor] Dain Heavy Pauldron B"
         mesh="sk_dwarf_dain_pauldron_heavy_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="12"
+                body_armor="23"
+                arm_armor="18"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_heavy_c"
         name="{=aom_sk_dwarf_dain_pauldron_heavy_c_name}[Erebor] Dain Heavy Pauldron C"
         mesh="sk_dwarf_dain_pauldron_heavy_c"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="12"
+                body_armor="24"
+                arm_armor="19"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_heavy_d"
         name="{=aom_sk_dwarf_dain_pauldron_heavy_d_name}[Erebor] Dain Heavy Pauldron D"
         mesh="sk_dwarf_dain_pauldron_heavy_d"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="12"
+                body_armor="25"
+                arm_armor="20"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_heavy_e"
         name="{=aom_sk_dwarf_dain_pauldron_heavy_e_name}[Erebor] Dain Heavy Pauldron E"
         mesh="sk_dwarf_dain_pauldron_heavy_e"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="12"
+                body_armor="26"
+                arm_armor="21"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_med_a"
         name="{=aom_sk_dwarf_dain_pauldron_med_a_name}[Erebor] Dain Medium Pauldron A"
         mesh="sk_dwarf_dain_pauldron_med_a"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="28"
-                arm_armor="8"
+                body_armor="22"
+                arm_armor="17"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_med_b"
         name="{=aom_sk_dwarf_dain_pauldron_med_b_name}[Erebor] Dain Medium Pauldron B"
         mesh="sk_dwarf_dain_pauldron_med_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="28"
-                arm_armor="8"
+                body_armor="23"
+                arm_armor="18"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_pauldron_med_c"
         name="{=aom_sk_dwarf_dain_pauldron_med_c_name}[Erebor] Dain Medium Pauldron C"
         mesh="sk_dwarf_dain_pauldron_med_c"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="5.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="28"
-                arm_armor="8"
+                body_armor="24"
+                arm_armor="19"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_cape_fur_a"
         name="{=aom_sk_dwarf_dain_cape_fur_a_name}[Erebor] Dain Fur Cloak I"
         mesh="sk_dwarf_dain_pauldron_heavy_b"
         culture="Culture.erebor"
         is_merchandise="true"
-        weight="2.0"
+        weight="11.6"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="20"
-                arm_armor="5"
+                body_armor="22"
+                arm_armor="17"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

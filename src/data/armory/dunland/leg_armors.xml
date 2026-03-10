@@ -1,481 +1,511 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Dunland] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Dunland] -->
+
     <Item
         id="dunland_caerdh_boots_light_a"
         name="{=aom_dunland_caerdh_boots_light_a_name}[Dunland] Leather Caerdh Boots I"
         mesh="dunland_caerdh_boots_light_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="5"
+                leg_armor="10"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_light_b"
         name="{=aom_dunland_caerdh_boots_light_b_name}[Dunland] Leather Caerdh Boots II"
         mesh="dunland_caerdh_boots_light_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="5"
+                leg_armor="11"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_medium_a"
         name="{=aom_dunland_caerdh_boots_medium_a_name}[Dunland] Leather Caerdh Boots III"
         mesh="dunland_caerdh_boots_medium_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="18"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_medium_b"
         name="{=aom_dunland_caerdh_boots_medium_b_name}[Dunland] Leather Caerdh Boots IV"
         mesh="dunland_caerdh_boots_medium_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="19"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_medium_c"
         name="{=aom_dunland_caerdh_boots_medium_c_name}[Dunland] Leather Caerdh Boots V"
         mesh="dunland_caerdh_boots_medium_c"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="20"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_medium_d"
         name="{=aom_dunland_caerdh_boots_medium_d_name}[Dunland] Leather Caerdh Boots VI"
         mesh="dunland_caerdh_boots_medium_d"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="21"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_heavy_a"
         name="{=aom_dunland_caerdh_boots_heavy_a_name}[Dunland] Heavy Caerdh Greaves I"
         mesh="dunland_caerdh_boots_heavy_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="26"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_heavy_b"
         name="{=aom_dunland_caerdh_boots_heavy_b_name}[Dunland] Heavy Caerdh Greaves II"
         mesh="dunland_caerdh_boots_heavy_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="27"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_heavy_c"
         name="{=aom_dunland_caerdh_boots_heavy_c_name}[Dunland] Heavy Caerdh Greaves III"
         mesh="dunland_caerdh_boots_heavy_c"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="28"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_caerdh_boots_heavy_d"
         name="{=aom_dunland_caerdh_boots_heavy_d_name}[Dunland] Heavy Caerdh Greaves IV"
         mesh="dunland_caerdh_boots_heavy_d"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="29"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- Wulf -->
+    </Item>
+
+    <!-- Wulf -->
+
     <Item
         id="dunland_wulf_boots_light_a"
         name="{=aom_dunland_wulf_boots_light_a_name}[Dunland] Leather Wulf Boots I"
         mesh="dunland_wulf_boots_light_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="5"
+                leg_armor="10"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_light_b"
         name="{=aom_dunland_wulf_boots_light_b_name}[Dunland] Leather Wulf Boots II"
         mesh="dunland_wulf_boots_light_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="5"
+                leg_armor="11"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_light_c"
         name="{=aom_dunland_wulf_boots_light_c_name}[Dunland] Leather Wulf Boots III"
         mesh="dunland_wulf_boots_light_c"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="5"
+                leg_armor="12"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_a"
         name="{=aom_dunland_wulf_boots_medium_a_name}[Dunland] Medium Wulf Boots I"
         mesh="dunland_wulf_boots_medium_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="18"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_b"
         name="{=aom_dunland_wulf_boots_medium_b_name}[Dunland] Medium Wulf Boots II"
         mesh="dunland_wulf_boots_medium_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="19"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_c"
         name="{=aom_dunland_wulf_boots_medium_c_name}[Dunland] Medium Wulf Boots III"
         mesh="dunland_wulf_boots_medium_c"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="20"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_d"
         name="{=aom_dunland_wulf_boots_medium_d_name}[Dunland] Medium Wulf Boots IV"
         mesh="dunland_wulf_boots_medium_d"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="21"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_e"
         name="{=aom_dunland_wulf_boots_medium_e_name}[Dunland] Medium Wulf Boots V"
         mesh="dunland_wulf_boots_medium_e"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="22"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_medium_f"
         name="{=aom_dunland_wulf_boots_medium_f_name}[Dunland] Medium Wulf Boots VI"
         mesh="dunland_wulf_boots_medium_f"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="1.9"
+        weight="2.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="8"
+                leg_armor="23"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_a"
         name="{=aom_dunland_wulf_boots_heavy_a_name}[Dunland] Heavy Wulf Greaves I"
         mesh="dunland_wulf_boots_heavy_a"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="26"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_b"
         name="{=aom_dunland_wulf_boots_heavy_b_name}[Dunland] Heavy Wulf Greaves II"
         mesh="dunland_wulf_boots_heavy_b"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="27"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_c"
         name="{=aom_dunland_wulf_boots_heavy_c_name}[Dunland] Heavy Wulf Greaves III"
         mesh="dunland_wulf_boots_heavy_c"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="28"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_d"
         name="{=aom_dunland_wulf_boots_heavy_d_name}[Dunland] Heavy Wulf Greaves IV"
         mesh="dunland_wulf_boots_heavy_d"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="29"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_e"
         name="{=aom_dunland_wulf_boots_heavy_e_name}[Dunland] Heavy Wulf Greaves V"
         mesh="dunland_wulf_boots_heavy_e"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="30"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="dunland_wulf_boots_heavy_f"
         name="{=aom_dunland_wulf_boots_heavy_f_name}[Dunland] Heavy Wulf Greaves VI"
         mesh="dunland_wulf_boots_heavy_f"
         culture="Culture.empire"
         is_merchandise="true"
-        weight="3"
+        weight="3.3"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="10"
+                leg_armor="31"
                 covers_legs="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

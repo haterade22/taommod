@@ -1,271 +1,289 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Rivendell] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Rivendell] -->
+
     <Item
         id="rivendell_gloves_gold"
         name="{=aom_rivendell_gloves_gold_name}[Noldor] Gloves - Gold"
         mesh="rivendell_gloves_gold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="35"
+                arm_armor="14"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_gloves_silver"
         name="{=aom_rivendell_gloves_silver_name}[Noldor] Gloves - Silver"
         mesh="rivendell_gloves_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="35"
+                arm_armor="14"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_gloves1"
         name="{=aom_rivendell_vambraces_gloves1_name}[Noldor] Leather Vambrace I"
         mesh="rivendell_vambraces_gloves1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="25"
+                arm_armor="14"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_1"
         name="{=aom_rivendell_vambraces_1_name}[Noldor] Gold Vambrace I"
         mesh="rivendell_vambraces_1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="40"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_2"
         name="{=aom_rivendell_vambraces_2_name}[Noldor] Gold Vambrace II"
         mesh="rivendell_vambraces_2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="50"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_3"
         name="{=aom_rivendell_vambraces_3_name}[Noldor] Gold Vambrace III"
         mesh="rivendell_vambraces_3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.0"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="60"
+                arm_armor="26"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_1_silver"
         name="{=aom_rivendell_vambraces_1_silver_name}[Noldor] Silver Vambrace I"
         mesh="rivendell_vambraces_1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="40"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_2_silver"
         name="{=aom_rivendell_vambraces_2_silver_name}[Noldor] Silver Vambrace II"
         mesh="rivendell_vambraces_2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="50"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_3_silver"
         name="{=aom_rivendell_vambraces_3_silver_name}[Noldor] Silver Vambrace III"
         mesh="rivendell_vambraces_3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.0"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="60"
+                arm_armor="26"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_1_silvergold"
         name="{=aom_rivendell_vambraces_1_silvergold_name}[Noldor] Silver-Gold Vambrace I"
         mesh="rivendell_vambraces_1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="40"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_2_silvergold"
         name="{=aom_rivendell_vambraces_2_silvergold_name}[Noldor] Silver-Gold Vambrace II"
         mesh="rivendell_vambraces_2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.7"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="50"
+                arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_vambraces_3_silvergold"
         name="{=aom_rivendell_vambraces_3_silvergold_name}[Noldor] Silver-Gold Vambrace III"
         mesh="rivendell_vambraces_3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.0"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="60"
+                arm_armor="26"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="glorfindel_gauntlets"
         name="{=aom_glorfindel_gauntlets_name}[Noldor] Glorfindel Gauntlets"
         mesh="am_glorfindel_gauntlets"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.8"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="45"
+                arm_armor="38"
                 covers_hands="true"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="gf_gauntlets"
         name="{=aom_gf_gauntlets_name}[Noldor] Golden Flower Knight Gauntlets"
         mesh="am_golden_flower_knight_gauntlets"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.6"
+        weight="0.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="34"
+                arm_armor="14"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

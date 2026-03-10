@@ -1,480 +1,509 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Noldor] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Noldor] -->
+
     <Item
         id="rivendell_cape_a"
         name="{=aom_rivendell_cape_a_name}[Noldor] Cape I"
         mesh="rivendell_cape_a"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_cape_b"
         name="{=aom_rivendell_cape_b_name}[Noldor] Cape II"
         mesh="rivendell_cape_b"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="9"
+                arm_armor="7"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_cape"
         name="{=aom_rivendell_pauldron_cape_name}[Noldor] Pauldron Cape I"
         mesh="rivendell_pauldron_cape"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_elite_robe"
         name="{=aom_rivendell_pauldron_elite_robe_name}[Noldor] Pauldron Elite Robe I"
         mesh="rivendell_pauldron_elite_robe"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="6.3"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="20"
+                body_armor="21"
+                arm_armor="16"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_leather_cape"
         name="{=aom_rivendell_pauldron_leather_cape_name}[Noldor] Pauldron Leather Cape I"
         mesh="rivendell_pauldron_leather_cape"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="2.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="11"
+                arm_armor="9"
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_leather_robe"
         name="{=aom_rivendell_pauldron_leather_robe_name}[Noldor] Pauldron Leather Robe I"
         mesh="rivendell_pauldron_leather_robe"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="2.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="11"
+                arm_armor="9"
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_cape"
         name="{=aom_rivendell_pauldron_tier1_cape_name}[Noldor] Tier One Cape"
         mesh="rivendell_pauldron_tier1_cape"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_cape"
         name="{=aom_rivendell_pauldron_tier2_cape_name}[Noldor] Tier Two Cape"
         mesh="rivendell_pauldron_tier2_cape"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_robe"
         name="{=aom_rivendell_pauldron_tier1_robe_name}[Noldor] Tier One Robe"
         mesh="rivendell_pauldron_tier1_robe"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_robe"
         name="{=aom_rivendell_pauldron_tier2_robe_name}[Noldor] Tier Two Robe"
         mesh="rivendell_pauldron_tier2_robe"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_elite_robe_silver"
         name="{=aom_rivendell_pauldron_elite_robe_silver_name}[Noldor] Silver Pauldron Elite Robe I"
         mesh="rivendell_pauldron_elite_robe_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="6.3"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="20"
+                body_armor="21"
+                arm_armor="16"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_cape_silver"
         name="{=aom_rivendell_pauldron_tier1_cape_silver_name}[Noldor] Silver Tier One Cape"
         mesh="rivendell_pauldron_tier1_cape_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_cape_silver"
         name="{=aom_rivendell_pauldron_tier2_cape_silver_name}[Noldor] Silver Tier Two Cape"
         mesh="rivendell_pauldron_tier2_cape_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_robe_silver"
         name="{=aom_rivendell_pauldron_tier1_robe_silver_name}[Noldor]Silver Tier One Robe"
         mesh="rivendell_pauldron_tier1_robe_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_robe_silver"
         name="{=aom_rivendell_pauldron_tier2_robe_silver_name}[Noldor] Silver Tier Two Robe"
         mesh="rivendell_pauldron_tier2_robe_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_elite_robe_silvergold"
         name="{=aom_rivendell_pauldron_elite_robe_silvergold_name}[Noldor] Silver-Gold Pauldron Elite Robe I"
         mesh="rivendell_pauldron_elite_robe_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="6.3"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="20"
+                body_armor="21"
+                arm_armor="16"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_cape_silvergold"
         name="{=aom_rivendell_pauldron_tier1_cape_silvergold_name}[Noldor] Silver-Gold Tier One Cape"
         mesh="rivendell_pauldron_tier1_cape_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_cape_silvergold"
         name="{=aom_rivendell_pauldron_tier2_cape_silvergold_name}[Noldor] Silver-Gold Tier Two Cape"
         mesh="rivendell_pauldron_tier2_cape_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier1_robe_silvergold"
         name="{=aom_rivendell_pauldron_tier1_robe_silvergold_name}[Noldor]Silver-Gold Tier One Robe"
         mesh="rivendell_pauldron_tier1_robe_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_pauldron_tier2_robe_silvergold"
         name="{=aom_rivendell_pauldron_tier2_robe_silvergold_name}[Noldor] Silver-Gold Tier Two Robe"
         mesh="rivendell_pauldron_tier2_robe_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="17"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="glorfindel_pauldrons"
         name="{=aom_glorfindel_pauldrons_name}[Noldor] Glorfindel Pauldrons"
         mesh="am_glorfindel_pauldrons"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="7.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="10"
+                body_armor="24"
+                arm_armor="19"
                 modifier_group="plate"
                 material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_pauldrons_1"
         name="{=aom_gf_pauldrons_1_name}[Noldor] Golden Flower Knight Gorget Pauldrons I"
         mesh="am_golden_flower_knight_pauldrons_a01"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
-                arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_pauldrons_2"
         name="{=aom_gf_pauldrons_2_name}[Noldor] Golden Flower Knight Gorget Pauldrons II"
         mesh="am_golden_flower_knight_pauldrons_grey_a01"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="2.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="25"
-                arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_pauldrons_3"
         name="{=aom_gf_pauldrons_3_name}[Noldor] Golden Flower Knight Pauldrons I"
         mesh="am_golden_flower_knight_pauldrons_a02"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_pauldrons_4"
         name="{=aom_gf_pauldrons_4_name}[Noldor] Golden Flower Knight Pauldrons II"
         mesh="am_golden_flower_knight_pauldrons_grey_a02"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="8"
+                arm_armor="6"
+                modifier_group="cloth"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>
