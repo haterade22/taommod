@@ -87,17 +87,6 @@ const categories: FeatureCategory[] = [
           { name: 'Culture Desertion AI Only', default: 'off', group: 'Battle Settings' },
         ],
       },
-      {
-        title: 'Garrison Patrol System',
-        desc: 'AI garrisons no longer sit idle behind walls. Settlements actively patrol surrounding territory, creating a living, breathing war front.',
-        details: [
-          'Settlements spawn patrol parties from their garrison (30% patrol, 70% stay)',
-          'Configurable patrol radius — up to 100 units for major fortresses',
-          'Max 1-2 patrol parties per settlement with 16-hour patrol cycles',
-          'Minimum 70-troop garrison before patrols are dispatched',
-        ],
-        status: 'live',
-      },
     ],
   },
   {
@@ -702,6 +691,7 @@ const categories: FeatureCategory[] = [
 
     <h1 class="page-title">Features</h1>
     <p class="page-subtitle">The gameplay systems that make every faction, battle, and campaign unique</p>
+    <p class="mcm-note"><span class="mcm-toggle mcm-on">ON</span> and <span class="mcm-toggle mcm-off">OFF</span> badges show the default MCM setting for each feature. All toggleable systems can be changed in-game via the Mod Configuration Menu.</p>
 
     {categories.map(cat => (
       <section class="feature-category">
@@ -761,6 +751,18 @@ const categories: FeatureCategory[] = [
     font-size: 1rem;
     margin-top: -0.5rem;
     margin-bottom: 2.5rem;
+  }
+
+  .mcm-note {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.82rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .mcm-note .mcm-toggle {
+    display: inline;
+    vertical-align: baseline;
   }
 
   .feature-category {
