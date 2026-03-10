@@ -8,11 +8,14 @@ const allLords = parseAllLords().filter(l => !isHiddenCulture(l.culture));
 const lordNameMap = new Map<string, string>();
 for (const l of allLords) lordNameMap.set(l.id, l.name);
 
-// Sort by culture, then name within each culture
+// Sort by culture, then clan, then name
 allLords.sort((a, b) => {
   const ca = getCultureDisplayName(a.culture);
   const cb = getCultureDisplayName(b.culture);
   if (ca !== cb) return ca.localeCompare(cb);
+  const clanA = a.clan || '';
+  const clanB = b.clan || '';
+  if (clanA !== clanB) return clanA.localeCompare(clanB);
   return a.name.localeCompare(b.name);
 });
 
@@ -104,8 +107,8 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
         <tbody>
           {[...cultureGroups.entries()].map(([cultureName, lords]) => (
             <>
-              <tr class="culture-group-header" data-culture-group={lords[0].culture}>
-                <td colspan="26">{cultureName} <span class="group-lord-count">({lords.length})</span></td>
+              <tr class="culture-group-header" data-culture-group={lords[0].culture} data-collapsed="false">
+                <td colspan="26"><span class="collapse-arrow">&#9660;</span> {cultureName} <span class="group-lord-count">({lords.length})</span></td>
               </tr>
               {lords.map(l => {
                 const gender = l.isFemale ? 'Female' : 'Male';
@@ -203,7 +206,8 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
       const matchesMarried = !married || rowMarried === married;
 
       const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
-      row.style.display = show ? '' : 'none';
+      const hiddenByCollapse = row.dataset.hiddenByCollapse === 'true';
+      row.style.display = show && !hiddenByCollapse ? '' : 'none';
       if (show) visible++;
     }
 
@@ -272,6 +276,29 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
 
       for (const row of rows) {
         tbody.appendChild(row);
+      }
+    });
+  });
+
+  // Culture group collapse/expand
+  groupHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const culture = header.dataset.cultureGroup || '';
+      const collapsed = header.dataset.collapsed === 'true';
+      header.dataset.collapsed = collapsed ? 'false' : 'true';
+      const arrow = header.querySelector('.collapse-arrow')!;
+      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+      for (const row of rows) {
+        if (row.dataset.culture === culture) {
+          if (collapsed) {
+            // Re-expanding: show only if it passes current filters
+            row.dataset.hiddenByCollapse = '';
+            filterRows();
+          } else {
+            row.dataset.hiddenByCollapse = 'true';
+            row.style.display = 'none';
+          }
+        }
       }
     });
   });
@@ -370,7 +397,15 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
     color: var(--accent);
     border-bottom: 2px solid var(--accent-dim);
     background: rgba(255, 255, 255, 0.02);
-    cursor: default;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .collapse-arrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    margin-right: 0.3rem;
+    transition: transform 0.15s;
   }
 
   .group-lord-count {
