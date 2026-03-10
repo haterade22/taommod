@@ -381,8 +381,8 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           <tbody>
             {cultures.map(c => (
               <tr>
-                <td><a href={`#${c.id}`} style={`color: ${c.color}`}>{c.name}</a></td>
-                <td class="center" style={`color: ${c.color}`}>{c.troops || '—'}</td>
+                <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}><a href={`#${c.id}`}>{c.name}</a></td>
+                <td class="center culture-cell" style={`background: ${c.color}15`}>{c.troops || '—'}</td>
                 {skillOrder.map(skill => {
                   const str = c.strengths.find(s => s.skill === skill);
                   const wk = c.weaknesses.find(s => s.skill === skill);
@@ -652,10 +652,14 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
   .mod-neg { color: #d46a6a; font-weight: 600; }
   .mod-zero { color: rgba(255, 255, 255, 0.3); }
 
-  .comparison-table a {
+  .culture-cell {
+    font-weight: 600;
+  }
+  .culture-cell a {
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
   }
-  .comparison-table a:hover { text-decoration: underline; }
+  .culture-cell a:hover { text-decoration: underline; }
 
   /* Culture cards */
   .culture-card {
