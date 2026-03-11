@@ -73,9 +73,9 @@ function estClass(val: number): string {
 
     <!-- Melee Weapon Sections -->
     {weaponsByClass.map(section => (
-      <div>
-        <h2 class="section-title">{section.label} <span class="section-count">({section.items.length})</span></h2>
-        <div class="data-table-wrapper">
+      <div class="collapsible-section" data-collapsed="true">
+        <h2 class="section-title section-toggle"><span class="collapse-arrow">&#9654;</span> {section.label} <span class="section-count">({section.items.length})</span></h2>
+        <div class="data-table-wrapper" style="display:none">
           <table class="data-table weapon-section" data-section={section.key}>
             <thead>
               <tr>
@@ -116,9 +116,9 @@ function estClass(val: number): string {
 
     <!-- Ranged Sections (Bows, Crossbows, Arrows, Bolts) -->
     {rangedByClass.map(section => (
-      <div>
-        <h2 class="section-title">{section.label} <span class="section-count">({section.items.length})</span></h2>
-        <div class="data-table-wrapper">
+      <div class="collapsible-section" data-collapsed="true">
+        <h2 class="section-title section-toggle"><span class="collapse-arrow">&#9654;</span> {section.label} <span class="section-count">({section.items.length})</span></h2>
+        <div class="data-table-wrapper" style="display:none">
           <table class="data-table weapon-section" data-section={section.key}>
             <thead>
               <tr>
@@ -158,8 +158,9 @@ function estClass(val: number): string {
     ))}
 
     <!-- Shields -->
-    <h2 class="section-title">Shields <span class="section-count">({shields.length})</span></h2>
-    <div class="data-table-wrapper">
+    <div class="collapsible-section" data-collapsed="true">
+    <h2 class="section-title section-toggle"><span class="collapse-arrow">&#9654;</span> Shields <span class="section-count">({shields.length})</span></h2>
+    <div class="data-table-wrapper" style="display:none">
       <table class="data-table weapon-section" data-section="shield">
         <thead>
           <tr>
@@ -191,6 +192,7 @@ function estClass(val: number): string {
         </tbody>
       </table>
     </div>
+    </div>
   </div>
 </BaseLayout>
 
@@ -212,6 +214,21 @@ function estClass(val: number): string {
     color: var(--text-muted);
     font-size: 0.9rem;
     font-weight: 400;
+  }
+
+  .section-toggle {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-toggle:hover {
+    color: var(--text-primary);
+  }
+
+  .collapse-arrow {
+    display: inline-block;
+    font-size: 0.8em;
+    transition: transform 0.2s;
   }
 
   .est-note {
@@ -274,6 +291,19 @@ function estClass(val: number): string {
   cultureFilter.addEventListener('change', filterRows);
 
   filterRows();
+
+  // Section collapse/expand
+  document.querySelectorAll('.section-toggle').forEach(title => {
+    title.addEventListener('click', () => {
+      const section = title.closest('.collapsible-section') as HTMLElement;
+      const wrapper = section.querySelector('.data-table-wrapper') as HTMLElement;
+      const arrow = title.querySelector('.collapse-arrow')!;
+      const collapsed = section.dataset.collapsed === 'true';
+      section.dataset.collapsed = collapsed ? 'false' : 'true';
+      wrapper.style.display = collapsed ? '' : 'none';
+      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+    });
+  });
 
   // Column sorting per table
   tables.forEach(table => {
