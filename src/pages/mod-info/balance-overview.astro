@@ -497,39 +497,42 @@ const gradeColors: Record<string, string> = {
       </div>
     </section>
 
-    <section class="info-section">
-      <h2>Infantry Power Rankings</h2>
-      <p class="section-desc">
-        Ranked by combined melee skill bonuses (1H, 2H, Polearm), Athletics, armor protection, and weapon damage.
-        Elven factions would rank S+ across the board but are excluded — they are balanced by population, not by stats.
-      </p>
-      <h3 class="subsection-title">Overall Infantry</h3>
-      {infantryTiers.map(t => (
-        <div class="tier-row">
-          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
-            <span class="tier-letter">{t.tier}</span>
-            <span class="tier-desc">{t.label}</span>
+    <section class="info-section collapsible-section">
+      <details>
+        <summary><h2>Infantry Power Rankings</h2></summary>
+        <p class="section-desc">
+          Ranked by combined melee skill bonuses (1H, 2H, Polearm), Athletics, armor protection, and weapon damage.
+          Elven factions would rank S+ across the board but are excluded — they are balanced by population, not by stats.
+        </p>
+        <h3 class="subsection-title">Overall Infantry</h3>
+        {infantryTiers.map(t => (
+          <div class="tier-row">
+            <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+              <span class="tier-letter">{t.tier}</span>
+              <span class="tier-desc">{t.label}</span>
+            </div>
+            <div class="tier-cultures">
+              {t.cultures.map(c => (
+                <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                  <strong style={`color: ${c.color}`}>{c.name}</strong>
+                  <span class="tier-reason">{c.reason}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="tier-cultures">
-            {t.cultures.map(c => (
-              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                <strong style={`color: ${c.color}`}>{c.name}</strong>
-                <span class="tier-reason">{c.reason}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
+      </details>
     </section>
 
-    <section class="info-section">
-      <h2>Infantry Subcategories</h2>
-      <p class="section-desc">
-        Infantry is broken down into four combat roles. A faction may excel at one role while being poor at another —
-        Dunland's skirmishers are S-tier but their frontline is B-tier, while Erebor dominates every role except skirmishing.
-      </p>
+    <section class="info-section collapsible-section">
+      <details>
+        <summary><h2>Infantry Subcategories</h2></summary>
+        <p class="section-desc">
+          Infantry is broken down into four combat roles. A faction may excel at one role while being poor at another —
+          Dunland's skirmishers are S-tier but their frontline is B-tier, while Erebor dominates every role except skirmishing.
+        </p>
 
-      <h3 class="subsection-title">Front Line <span class="role-tag">Shield Wall / Defensive</span></h3>
+        <h3 class="subsection-title">Front Line <span class="role-tag">Shield Wall / Defensive</span></h3>
       <p class="role-desc">1H + Polearm skill, heavy armor protection — troops that hold the line with shield and spear.</p>
       {frontLineTiers.map(t => (
         <div class="tier-row tier-compact">
@@ -600,10 +603,12 @@ const gradeColors: Record<string, string> = {
           </div>
         </div>
       ))}
+      </details>
     </section>
 
-    <section class="info-section">
-      <h2>Cavalry Power Rankings</h2>
+    <section class="info-section collapsible-section">
+      <details>
+        <summary><h2>Cavalry Power Rankings</h2></summary>
       <p class="section-desc">
         Ranked by Riding skill, Polearm/OneHanded combat, armor weight (lighter = faster mounts), and weapon damage.
         Includes both traditional cavalry and warg/beast riders where applicable.
@@ -624,10 +629,12 @@ const gradeColors: Record<string, string> = {
           </div>
         </div>
       ))}
+      </details>
     </section>
 
-    <section class="info-section">
-      <h2>Ranged Power Rankings</h2>
+    <section class="info-section collapsible-section">
+      <details>
+        <summary><h2>Ranged Power Rankings</h2></summary>
       <p class="section-desc">
         Ranked by Bow, Crossbow, and Throwing skill bonuses, armor weight (mobility for kiting), and relevant weapon damage.
         Elven factions would dominate — Mirkwood has +50 Bow, Rivendell +40 Bow, Lothlorien +35 Bow.
@@ -648,10 +655,12 @@ const gradeColors: Record<string, string> = {
           </div>
         </div>
       ))}
+      </details>
     </section>
 
-    <section class="info-section">
-      <h2>Detailed Balancing Pages</h2>
+    <section class="info-section collapsible-section">
+      <details>
+        <summary><h2>Detailed Balancing Pages</h2></summary>
       <div class="links-grid">
         <a href="/mod-info/troop-balancing" class="link-card" style="--lc-color: rgba(180, 120, 200, 0.35)">
           <strong>Troop Balancing</strong>
@@ -666,6 +675,7 @@ const gradeColors: Record<string, string> = {
           <span>Damage analysis from TaleWorlds physics, cultural modifiers, and per-weapon breakdowns</span>
         </a>
       </div>
+      </details>
     </section>
   </div>
 </BaseLayout>
@@ -977,6 +987,36 @@ const gradeColors: Record<string, string> = {
 
   .tier-compact .tier-letter {
     font-size: 1.2rem;
+  }
+
+  /* Collapsible sections */
+  .collapsible-section details summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .collapsible-section details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .collapsible-section details summary h2 {
+    display: inline;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .collapsible-section details summary h2::before {
+    content: '\25B6';
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .collapsible-section details[open] summary h2::before {
+    transform: translateY(-50%) rotate(90deg);
   }
 
   @media (max-width: 768px) {
