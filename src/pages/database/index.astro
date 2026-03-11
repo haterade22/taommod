@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    href: '/troops',
+    title: 'Troops',
+    desc: 'Full troop trees for all 16 cultures — upgrade paths, levels, equipment, and skills from recruit to elite.',
+    color: 'rgba(93, 174, 93, 0.2)',
+    border: 'rgba(93, 174, 93, 0.35)',
+  },
+  {
+    href: '/lords',
+    title: 'Lords',
+    desc: 'All lords across Middle-earth. Search for marriage candidates, view family trees, skills, and traits.',
+    color: 'rgba(212, 162, 76, 0.2)',
+    border: 'rgba(212, 162, 76, 0.35)',
+  },
+  {
+    href: '/armoury',
+    title: 'Armoury',
+    desc: 'Browse armour and equipment across all cultures — protection values, weight, tier, and culture assignments.',
+    color: 'rgba(126, 200, 227, 0.2)',
+    border: 'rgba(126, 200, 227, 0.35)',
+  },
+  {
+    href: '/weaponry',
+    title: 'Weaponry',
+    desc: 'Weapon database with damage values, speed, reach, and handling — compare across weapon types and cultures.',
+    color: 'rgba(180, 120, 200, 0.2)',
+    border: 'rgba(180, 120, 200, 0.35)',
+  },
+];
+---
+
+<BaseLayout title="Database" description="Browse the complete TAOM database - troops, lords, armoury, and weaponry">
+  <div class="page-content database-overview">
+    <h1 class="page-title">Database</h1>
+    <p class="overview-desc">Browse the complete data behind Tales From the Age of Men.</p>
+
+    <div class="section-grid">
+      {sections.map(s => (
+        <a href={s.href} class="section-card" style={`--card-bg: ${s.color}; --card-border: ${s.border}`}>
+          <h2>{s.title}</h2>
+          <p>{s.desc}</p>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .database-overview {
+    max-width: 1100px;
+  }
+
+  .overview-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .section-card {
+    display: block;
+    padding: 1.75rem;
+    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+  }
+
+  .section-card h2 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.25rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .section-card:hover .card-arrow {
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .section-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
