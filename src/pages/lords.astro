@@ -107,8 +107,8 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
         <tbody>
           {[...cultureGroups.entries()].map(([cultureName, lords]) => (
             <>
-              <tr class="culture-group-header" data-culture-group={lords[0].culture} data-collapsed="false">
-                <td colspan="26"><span class="collapse-arrow">&#9660;</span> {cultureName} <span class="group-lord-count">({lords.length})</span></td>
+              <tr class="culture-group-header" data-culture-group={lords[0].culture} data-collapsed="true">
+                <td colspan="26"><span class="collapse-arrow">&#9654;</span> {cultureName} <span class="group-lord-count">({lords.length})</span></td>
               </tr>
               {lords.map(l => {
                 const gender = l.isFemale ? 'Female' : 'Male';
@@ -126,6 +126,8 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
                     data-gender={l.isFemale ? 'female' : 'male'}
                     data-married={l.spouse ? 'married' : 'single'}
                     data-bio={l.biography}
+                    data-hidden-by-collapse="true"
+                    style="display:none"
                   >
                     <td class="lord-name-cell">
                       <span class="lord-name">{l.name}</span>
