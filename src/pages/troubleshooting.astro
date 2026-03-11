@@ -30,6 +30,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ol>
     </section>
 
+    <section class="tip-section warning-section">
+      <h2>Disable Naval DLC</h2>
+      <p>The Naval DLC is <strong>not compatible</strong> with TAOM and can cause crashes or broken gameplay. Steam sometimes re-enables it automatically after updates.</p>
+      <p><strong>Before every play session</strong>, check your Bannerlord launcher and make sure the Naval DLC module is <strong>unchecked / disabled</strong>. While you're there, verify your full load order matches the one above.</p>
+      <p class="tip-note"><strong>Tip:</strong> If you're experiencing unexplained crashes after a Steam update, this is the first thing to check.</p>
+    </section>
+
     <section class="tip-section">
       <h2>Delete Cached Shaders</h2>
       <p>If you have played this mod before, it is recommended you delete your cached shaders to avoid graphical issues.</p>
@@ -222,6 +229,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .tip-section {
     margin-bottom: 2.5rem;
+  }
+
+  .warning-section {
+    background: rgba(212, 162, 76, 0.08);
+    border: 1px solid rgba(212, 162, 76, 0.25);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
   }
 
   .tip-section h2 {
