@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import fs from 'fs';
 import path from 'path';
-import { estimateSwingDamage, estimateThrustDamage } from './damage-calc';
+import { computeCraftedWeaponDamage, type CraftingPieceData, type WeaponFlags, DESCRIPTION_FLAGS, TEMPLATE_DESCRIPTIONS } from './damage-calc';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -827,50 +827,124 @@ export interface WeaponItem {
   isVanilla: boolean;
 }
 
-interface BladeDamage {
-  swingDamage: number;
-  swingDamageType: string;
-  thrustDamage: number;
-  thrustDamageType: string;
-  length: number;
-  bladeWeight: number;
-}
-
-function parseCraftingPiecesFromFile(filePath: string, bladeMap: Map<string, BladeDamage>): void {
+function parseAllCraftingPiecesFromFile(filePath: string, pieceMap: Map<string, CraftingPieceData>): void {
   if (!fs.existsSync(filePath)) return;
   const xml = fs.readFileSync(filePath, 'utf-8');
   const parsed = parser.parse(xml);
   const pieces = parsed?.CraftingPieces?.CraftingPiece || [];
   for (const piece of pieces) {
-    if (piece['@_piece_type'] !== 'Blade') continue;
-    const blade = piece.BladeData;
-    if (!blade) continue;
-    const swing = blade.Swing;
-    const thrust = blade.Thrust;
-    bladeMap.set(piece['@_id'] || '', {
-      swingDamage: parseFloat(swing?.['@_damage_factor']) || 0,
-      swingDamageType: swing?.['@_damage_type'] || '',
-      thrustDamage: parseFloat(thrust?.['@_damage_factor']) || 0,
-      thrustDamageType: thrust?.['@_damage_type'] || '',
-      length: parseFloat(piece['@_length']) || 0,
-      bladeWeight: parseFloat(piece['@_weight']) || 0,
+    const id = piece['@_id'] || '';
+    if (pieceMap.has(id)) continue; // Don't override LOTRAOM with vanilla
+    const pieceType = piece['@_piece_type'] || '';
+    const lengthCm = parseFloat(piece['@_length']) || 0;
+    const length = lengthCm * 0.01;
+    const weight = parseFloat(piece['@_weight']) || 0;
+    const fullScale = piece['@_full_scale'] === 'true' ||
+      pieceType === 'Guard' || pieceType === 'Pommel';
+    const comFactor = parseFloat(piece['@_center_of_mass']) || 0.5;
+    const centerOfMass = length * comFactor;
+    const inertia = (1 / 12) * weight * length * length;
+
+    let distToNext: number, distToPrev: number;
+    if (lengthCm > 0) {
+      distToNext = length / 2;
+      distToPrev = length / 2;
+    } else {
+      distToNext = (parseFloat(piece['@_distance_to_next_piece']) || 0) * 0.01;
+      distToPrev = (parseFloat(piece['@_distance_to_previous_piece']) || 0) * 0.01;
+    }
+
+    const buildData = piece.BuildData;
+    const pieceOffset = (parseFloat(buildData?.['@_piece_offset']) || 0) * 0.01;
+
+    // Blade-specific data
+    let swingDamageFactor = 0, swingDamageType = '', thrustDamageFactor = 0, thrustDamageType = '';
+    if (pieceType === 'Blade' && piece.BladeData) {
+      const bd = piece.BladeData;
+      swingDamageFactor = parseFloat(bd.Swing?.['@_damage_factor']) || 0;
+      swingDamageType = bd.Swing?.['@_damage_type'] || '';
+      thrustDamageFactor = parseFloat(bd.Thrust?.['@_damage_factor']) || 0;
+      thrustDamageType = bd.Thrust?.['@_damage_type'] || '';
+    }
+
+    pieceMap.set(id, {
+      id, pieceType, weight, length, centerOfMass, inertia, fullScale,
+      distToNext, distToPrev, pieceOffset,
+      swingDamageFactor, swingDamageType, thrustDamageFactor, thrustDamageType,
     });
   }
 }
 
-function parseCraftingPieces(armoryDir: string): Map<string, BladeDamage> {
-  const bladeMap = new Map<string, BladeDamage>();
-  // LOTRAOM crafting pieces
-  parseCraftingPiecesFromFile(path.join(armoryDir, 'LOTRLOME_crafting_pieces.xml'), bladeMap);
-  // Vanilla crafting pieces
-  parseCraftingPiecesFromFile(path.join(armoryDir, 'vanilla_crafting_pieces.xml'), bladeMap);
-  return bladeMap;
+function parseAllCraftingPieces(armoryDir: string): Map<string, CraftingPieceData> {
+  const pieceMap = new Map<string, CraftingPieceData>();
+  parseAllCraftingPiecesFromFile(path.join(armoryDir, 'LOTRLOME_crafting_pieces.xml'), pieceMap);
+  parseAllCraftingPiecesFromFile(path.join(armoryDir, 'vanilla_crafting_pieces.xml'), pieceMap);
+  return pieceMap;
+}
+
+/**
+ * Parse the LOTRAOM weapon_descriptions.xslt to build a map of
+ * descriptionId → Set<pieceId> for each weapon description.
+ * This determines which descriptions a weapon's pieces match,
+ * which in turn determines the primary weapon mode and its flags.
+ */
+function parseWeaponDescriptionsXslt(armoryDir: string): Map<string, Set<string>> {
+  const xsltPath = path.join(armoryDir, 'weapon_descriptions.xslt');
+  if (!fs.existsSync(xsltPath)) return new Map();
+
+  const xslt = fs.readFileSync(xsltPath, 'utf-8');
+  const descPieces = new Map<string, Set<string>>();
+
+  // Match each xsl:template that targets a WeaponDescription's AvailablePieces
+  const templateRegex = /xsl:template\s+match="WeaponDescription\[@id='([^']+)'\]\/AvailablePieces">([\s\S]*?)<\/xsl:template>/g;
+  let match;
+  while ((match = templateRegex.exec(xslt)) !== null) {
+    const descId = match[1];
+    const body = match[2];
+    const pieceSet = new Set<string>();
+
+    // Extract all AvailablePiece ids from this template body
+    const pieceRegex = /AvailablePiece\s+id="([^"]+)"/g;
+    let pieceMatch;
+    while ((pieceMatch = pieceRegex.exec(body)) !== null) {
+      pieceSet.add(pieceMatch[1]);
+    }
+
+    descPieces.set(descId, pieceSet);
+  }
+
+  return descPieces;
+}
+
+/**
+ * Determine the primary weapon description flags for a crafted weapon.
+ * Checks the template's descriptions in order — the first description where
+ * ALL of the weapon's pieces are registered as AvailablePieces is the primary.
+ */
+function resolvePrimaryFlags(
+  template: string,
+  pieceIds: string[],
+  descPieces: Map<string, Set<string>>,
+): WeaponFlags | undefined {
+  const descriptions = TEMPLATE_DESCRIPTIONS[template];
+  if (!descriptions || descriptions.length <= 1) return undefined; // Single-description: use default
+
+  for (const descId of descriptions) {
+    const available = descPieces.get(descId);
+    if (!available) continue;
+    const allMatch = pieceIds.every(pid => available.has(pid));
+    if (allMatch) {
+      return DESCRIPTION_FLAGS[descId];
+    }
+  }
+  return undefined; // No match found, fall back to template default
 }
 
 function parseCraftedWeapons(
   filePath: string,
-  bladeMap: Map<string, BladeDamage>,
+  allPieces: Map<string, CraftingPieceData>,
   isVanilla: boolean,
+  descPieces?: Map<string, Set<string>>,
 ): WeaponItem[] {
   if (!fs.existsSync(filePath)) return [];
   const xml = fs.readFileSync(filePath, 'utf-8');
@@ -879,37 +953,53 @@ function parseCraftedWeapons(
 
   const craftedItems = parsed?.Items?.CraftedItem || [];
   for (const item of craftedItems) {
-    const pieces = item.Pieces?.Piece || [];
-    const bladePiece = pieces.find((p: any) => p['@_Type'] === 'Blade');
-    const blade = bladePiece ? bladeMap.get(bladePiece['@_id'] || '') : undefined;
+    const xmlPieces = item.Pieces?.Piece || [];
+    const template = item['@_crafting_template'] || '';
 
-    const swingFactor = blade?.swingDamage || 0;
-    const thrustFactor = blade?.thrustDamage || 0;
-    const bladeWeight = blade?.bladeWeight || 0;
+    // Gather all pieces for physics calc
+    const weaponPieces: { pieceType: string; piece: CraftingPieceData; scalePercent: number }[] = [];
+    let bladePieceData: CraftingPieceData | undefined;
+    for (const xp of xmlPieces) {
+      const pieceId = xp['@_id'] || '';
+      const pieceType = xp['@_Type'] || '';
+      const scalePercent = parseInt(xp['@_scale_factor']) || 100;
+      const pieceData = allPieces.get(pieceId);
+      if (pieceData) {
+        weaponPieces.push({ pieceType, piece: pieceData, scalePercent });
+        if (pieceType === 'Blade') bladePieceData = pieceData;
+      }
+    }
+
+    // Resolve primary weapon description flags for multi-mode templates
+    const pieceIds = xmlPieces.map((xp: any) => xp['@_id'] || '');
+    const primaryFlags = descPieces ? resolvePrimaryFlags(template, pieceIds, descPieces) : undefined;
+
+    // Full TaleWorlds damage calculation
+    const dmg = computeCraftedWeaponDamage(template, weaponPieces, primaryFlags);
 
     items.push({
       id: item['@_id'] || '',
       name: stripLocKey(item['@_name'] || ''),
       culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
-      weaponClass: item['@_crafting_template'] || '',
+      weaponClass: template,
       type: 'Weapon',
-      craftingTemplate: item['@_crafting_template'] || '',
-      weight: bladeWeight,
+      craftingTemplate: template,
+      weight: dmg?.totalWeight || 0,
       difficulty: parseInt(item['@_difficulty']) || 0,
       appearance: parseFloat(item['@_appearance']) || 0,
-      swingDamage: swingFactor,
-      swingDamageType: blade?.swingDamageType || '',
-      thrustDamage: thrustFactor,
-      thrustDamageType: blade?.thrustDamageType || '',
-      weaponLength: blade?.length || 0,
-      speed: 0,
+      swingDamage: bladePieceData?.swingDamageFactor || 0,
+      swingDamageType: bladePieceData?.swingDamageType || '',
+      thrustDamage: bladePieceData?.thrustDamageFactor || 0,
+      thrustDamageType: bladePieceData?.thrustDamageType || '',
+      weaponLength: dmg?.weaponReach || 0,
+      speed: dmg?.swingSpeed || 0,
       missileSpeed: 0,
       accuracy: 0,
       bodyArmor: 0,
       hitPoints: 0,
       isMerchandise: item['@_is_merchandise'] === 'true',
-      estimatedSwingDamage: estimateSwingDamage(bladeWeight, swingFactor),
-      estimatedThrustDamage: estimateThrustDamage(bladeWeight, thrustFactor),
+      estimatedSwingDamage: dmg?.swingDamage || 0,
+      estimatedThrustDamage: dmg?.thrustDamage || 0,
       isVanilla,
     });
   }
@@ -963,11 +1053,12 @@ export function parseWeaponry(): WeaponItem[] {
   const armoryDir = path.join(dataDir, 'armory');
   if (!fs.existsSync(armoryDir)) return [];
 
-  const bladeMap = parseCraftingPieces(armoryDir);
+  const allPieces = parseAllCraftingPieces(armoryDir);
+  const descPieces = parseWeaponDescriptionsXslt(armoryDir);
   const items: WeaponItem[] = [];
 
   // Parse LOTRAOM weapons
-  items.push(...parseCraftedWeapons(path.join(armoryDir, 'LOTRAOM_weapons.xml'), bladeMap, false));
+  items.push(...parseCraftedWeapons(path.join(armoryDir, 'LOTRAOM_weapons.xml'), allPieces, false, descPieces));
 
   // Parse shields file (Item elements with Weapon component)
   const shieldsPath = path.join(armoryDir, 'LOTRAOM_shields.xml');
