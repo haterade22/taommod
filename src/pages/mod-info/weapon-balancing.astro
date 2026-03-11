@@ -420,27 +420,94 @@ const balanceConcerns = [
     </section>
 
     <section class="info-section">
-      <h2>The Formula</h2>
-      <div class="formula-box">
-        <code>Damage = f(blade weight, damage factor, swing speed, weapon reach, impact point)</code>
+      <h2>How Bannerlord Calculates Damage</h2>
+      <p class="section-desc">
+        Bannerlord doesn't use simple stat tables — it runs a <strong>full physics simulation</strong> for every weapon.
+        The damage numbers you see in-game are the result of a multi-step pipeline extracted from decompiled game code (v1.3.12).
+        Our calculations match in-game values to within 1-2 points.
+      </p>
+
+      <div class="formula-pipeline">
+        <div class="pipeline-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Weapon Assembly</h3>
+            <p>Each crafted weapon is built from <strong>4 pieces</strong> (blade, guard, handle, pommel). The engine computes the weapon's total <strong>weight</strong>, <strong>reach</strong>, <strong>center of mass</strong>, and <strong>moment of inertia</strong> using the parallel axis theorem — just like real physics.</p>
+            <div class="formula-inline">
+              <code>I<sub>total</sub> = &Sigma;(I<sub>piece</sub> + m<sub>piece</sub> &times; d&sup2;)</code>
+              <span class="formula-label">where d = distance from piece center to weapon center of mass</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Swing &amp; Thrust Speed</h3>
+            <p>Speed is calculated via a <strong>3-layer muscle torque simulation</strong>. Each layer models a muscle group (shoulder, arm, wrist) applying torque against the weapon's inertia with drag.</p>
+            <div class="formula-inline">
+              <code>torque = min(power / speed, max_torque) - speed &times; drag</code>
+              <span class="formula-label">Iterated at 0.01s timesteps until target angle/distance is reached</span>
+            </div>
+            <p class="step-note">Two-handed weapons get <strong>+40% arm inertia</strong> and <strong>+50% stopping torque</strong> from the second hand. Polearms (wide grip) get additional multipliers on top of that. This is why the same blade deals different damage in one-handed vs two-handed mode.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Energy Transfer (Swing)</h3>
+            <p>Swing damage uses <strong>rotational kinetic energy transfer</strong> at the impact point. The engine computes KE before and after the collision:</p>
+            <div class="formula-inline">
+              <code>magnitude = 0.067 &times; (KE<sub>before</sub> - KE<sub>after</sub>)</code>
+              <span class="formula-label">KE = &frac12;mv&sup2; + &frac12;I&omega;&sup2; (translational + rotational)</span>
+            </div>
+            <p class="step-note">The game sweeps across <strong>5 impact points</strong> near the blade tip (0.93 to sweet spot) and takes the maximum — simulating the optimal hit zone on the blade.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Energy Transfer (Thrust)</h3>
+            <p>Thrust uses <strong>linear kinetic energy</strong> with the arm's weight added to the weapon mass:</p>
+            <div class="formula-inline">
+              <code>magnitude = 0.125 &times; &frac12; &times; (weight + 2.5) &times; speed&sup2;</code>
+              <span class="formula-label">The 2.5 kg represents arm mass behind the thrust</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Damage Factor</h3>
+            <p>The physics magnitude is multiplied by the blade's <strong>damage factor</strong> — a float value set per crafting piece that represents the blade's cutting/piercing efficiency.</p>
+            <div class="formula-inline">
+              <code>displayed damage = round(magnitude &times; damage_factor)</code>
+              <span class="formula-label">This is the number you see in the inventory screen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline-step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Armor Reduction (Combat)</h3>
+            <p>During combat, raw damage is reduced by armor using damage-type-specific formulas:</p>
+            <div class="formula-inline">
+              <code>reduction = 50 / (50 + armor)</code><br/>
+              <code>damage = blunt_component + sharp_component</code>
+              <span class="formula-label">Cut: 10% blunt pass-through, 50% armor threshold · Pierce: 25% / 33% · Blunt: 60% / 20%</span>
+            </div>
+            <p class="step-note"><strong>Cut</strong> damage is most affected by armor (only 10% passes through as blunt). <strong>Blunt</strong> damage ignores armor the most (60% pass-through). <strong>Pierce</strong> is in between.</p>
+          </div>
+        </div>
       </div>
-      <div class="formula-details">
-        <div class="detail-card">
-          <h3>Full Physics Simulation</h3>
-          <p>Damage values are computed using the full TaleWorlds physics model extracted from decompiled game code, including rotational momentum, impact point calculations, and speed modifiers.</p>
-        </div>
-        <div class="detail-card">
-          <h3>Blade Weight &amp; Damage Factor</h3>
-          <p>From the weapon's blade crafting piece. Heavier blades and higher damage factors produce more kinetic energy transfer on impact.</p>
-        </div>
-        <div class="detail-card">
-          <h3>Swing vs Thrust</h3>
-          <p>Swing damage uses rotational momentum (higher potential). Thrust damage uses linear momentum (lower but more consistent). Both are computed separately per weapon.</p>
-        </div>
-        <div class="detail-card">
-          <h3>Average Melee</h3>
-          <p>Each weapon's "melee damage" is its average across swing and thrust values. Culture averages are the mean across all weapons in that culture's arsenal.</p>
-        </div>
+
+      <div class="formula-summary">
+        <h3>Weapon Description Modes</h3>
+        <p>Some crafting templates produce <strong>multiple weapon modes</strong>. For example, the TwoHandedSword template creates 3 descriptions: <em>OneHandedBastardSword</em>, <em>TwoHandedSword</em>, and <em>OneHandedBastardSwordAlternative</em>. The game checks each description in order — the first one where all blade pieces are registered becomes the primary mode shown in the inventory. This is why Anduril (a bastard sword) shows one-handed stats despite being on a two-handed template.</p>
       </div>
     </section>
 
@@ -651,43 +718,102 @@ const balanceConcerns = [
     font-size: 0.85em;
   }
 
-  /* Formula section */
-  .formula-box {
-    background: rgba(212, 162, 76, 0.1);
-    border: 1px solid rgba(212, 162, 76, 0.3);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    line-height: 2;
-  }
-  .formula-box code {
-    font-size: 1.05rem;
-    color: var(--accent);
-    font-weight: 600;
+  /* Formula pipeline */
+  .formula-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 2rem;
   }
 
-  .formula-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1rem;
+  .pipeline-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
   }
-  .detail-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 1.25rem;
-  }
-  .detail-card h3 {
+  .pipeline-step:last-child { border-bottom: none; }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(212, 162, 76, 0.15);
+    border: 1px solid rgba(212, 162, 76, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--accent);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
   }
-  .detail-card p {
+
+  .step-content {
+    flex: 1;
+  }
+  .step-content h3 {
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem 0;
+  }
+  .step-content p {
     color: var(--text-secondary);
     font-size: 0.875rem;
-    line-height: 1.6;
+    line-height: 1.65;
+    margin: 0 0 0.6rem 0;
+  }
+  .step-note {
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.825rem !important;
+    font-style: italic;
+  }
+
+  .formula-inline {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid rgba(212, 162, 76, 0.4);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin: 0.6rem 0;
+    line-height: 1.8;
+  }
+  .formula-inline code {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .formula-inline code sub, .formula-inline code sup {
+    font-size: 0.7em;
+  }
+  .formula-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.78rem;
+    margin-top: 0.25rem;
+  }
+
+  .formula-summary {
+    background: rgba(212, 162, 76, 0.08);
+    border: 1px solid rgba(212, 162, 76, 0.2);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .formula-summary h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  .formula-summary p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .formula-summary em {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   /* Comparison table */
@@ -963,7 +1089,10 @@ const balanceConcerns = [
   @media (max-width: 768px) {
     .culture-header { flex-direction: column; align-items: flex-start; }
     .modifiers-grid { grid-template-columns: 1fr; }
-    .formula-details { grid-template-columns: 1fr; }
     .table-legend { flex-direction: column; gap: 0.5rem; }
+    .pipeline-step { gap: 0.75rem; padding: 1rem 0; }
+    .step-number { width: 28px; height: 28px; font-size: 0.8rem; }
+    .formula-inline { padding: 0.5rem 0.75rem; }
+    .formula-inline code { font-size: 0.8rem; }
   }
 </style>
