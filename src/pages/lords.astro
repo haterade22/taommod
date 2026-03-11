@@ -213,11 +213,21 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
       if (show) visible++;
     }
 
-    // Show/hide culture group headers based on visible lords
+    // Show/hide culture group headers based on lords matching filters (not collapse state)
     for (const header of groupHeaders) {
       const cultureGroup = header.dataset.cultureGroup || '';
-      const hasVisible = rows.some(r => r.dataset.culture === cultureGroup && r.style.display !== 'none');
-      header.style.display = hasVisible ? '' : 'none';
+      const hasMatching = rows.some(r => {
+        if (r.dataset.culture !== cultureGroup) return false;
+        const name = r.dataset.name || '';
+        const id = r.dataset.id || '';
+        const bio = r.dataset.bio || '';
+        return (!search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search))
+          && (!culture || r.dataset.culture === culture)
+          && (!kingdom || r.dataset.kingdom === kingdom)
+          && (!gender || r.dataset.gender === gender)
+          && (!married || r.dataset.married === married);
+      });
+      header.style.display = hasMatching ? '' : 'none';
     }
 
     resultCount.textContent = `${visible} lords`;
