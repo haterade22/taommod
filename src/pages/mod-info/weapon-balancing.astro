@@ -404,8 +404,9 @@ const balanceConcerns = [
     <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Weapon Balancing</nav>
     <h1 class="page-title">Weapon Balancing</h1>
 
-    <section class="info-section">
-      <h2>Overview</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
+      <div class="collapsible-content" style="display:none">
       <p class="section-desc">
         TAOM includes <strong>300 custom melee weapons</strong> across <strong>13 cultures</strong> (with 3 more planned).
         Each weapon has unique blade weight, damage factors and crafting pieces. <strong>Cultural weapon modifiers</strong> adjust
@@ -417,6 +418,7 @@ const balanceConcerns = [
         while cultures with weak troops and armor receive weapon buffs (Dol Guldur: +10%, Dunland: +15%).
         Hero/legendary weapons are exempt from cultural modifiers.
       </p>
+      </div>
     </section>
 
     <section class="info-section collapsible-section" data-collapsed="true">
@@ -511,10 +513,12 @@ const balanceConcerns = [
         <p>Some crafting templates produce <strong>multiple weapon modes</strong>. For example, the TwoHandedSword template creates 3 descriptions: <em>OneHandedBastardSword</em>, <em>TwoHandedSword</em>, and <em>OneHandedBastardSwordAlternative</em>. The game checks each description in order — the first one where all blade pieces are registered becomes the primary mode shown in the inventory. This is why Anduril (a bastard sword) shows one-handed stats despite being on a two-handed template.</p>
       </div>
       </div>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Quick Comparison</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
+      <div class="collapsible-content" style="display:none">
       <div class="table-wrapper">
         <table class="comparison-table">
           <thead>
@@ -551,10 +555,12 @@ const balanceConcerns = [
         <span class="legend-item"><span class="dot mod-neg-bg"></span> 70-90% — Below average</span>
         <span class="legend-item"><span class="dot mod-crit-bg"></span> &lt;70% — Potentially underpowered</span>
       </p>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Balance Concerns</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Balance Concerns</h2>
+      <div class="collapsible-content" style="display:none">
       <div class="concerns-list">
         {balanceConcerns.map(concern => (
           <div class={`concern-item concern-${concern.severity}`}>
@@ -567,10 +573,12 @@ const balanceConcerns = [
           </div>
         ))}
       </div>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Culture Details</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
+      <div class="collapsible-content" style="display:none">
 
       {cultures.map(c => (
         <div id={c.id} class="culture-card" style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}>
@@ -627,10 +635,12 @@ const balanceConcerns = [
           {c.notes && <p class="culture-notes">{c.notes}</p>}
         </div>
       ))}
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Weapon Class Averages</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Weapon Class Averages</h2>
+      <div class="collapsible-content" style="display:none">
       <p class="section-desc">
         Cross-culture average estimated damage per weapon class after cultural modifiers. These represent the global baseline for each weapon type.
       </p>
@@ -658,10 +668,12 @@ const balanceConcerns = [
           </tbody>
         </table>
       </div>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Damage Distribution</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Damage Distribution</h2>
+      <div class="collapsible-content" style="display:none">
       <p class="section-desc">
         Expected damage hierarchy based on weapon physics. Two-handed weapons should deal roughly 1.5-2x the damage of their one-handed counterparts due to higher blade weight and longer swing arcs.
       </p>
@@ -678,6 +690,7 @@ const balanceConcerns = [
             <tr><td>Thrust-Focused</td><td>Pikes</td><td>40-70</td><td>40/55 swing/thrust</td><td class="status-ok">OK</td></tr>
           </tbody>
         </table>
+      </div>
       </div>
     </section>
   </div>

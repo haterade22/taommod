@@ -341,8 +341,9 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
     <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Troop Balancing</nav>
     <h1 class="page-title">Troop Balancing</h1>
 
-    <section class="info-section">
-      <h2>Overview</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
+      <div class="collapsible-content" style="display:none">
       <p class="section-desc">
         TAOM rebalances all <strong>545 troops</strong> across <strong>15 cultures</strong> using a uniform formula:
         every troop's 8 combat skills are calculated from a <strong>level-based baseline</strong> plus a
@@ -353,10 +354,12 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
         Elven factions (Rivendell, Mirkwood, Lothlorien) are elite — their troops are 25-50 skill points above standard
         factions per skill, reflecting millennia of martial training.
       </p>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>The Formula</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> The Formula</h2>
+      <div class="collapsible-content" style="display:none">
       <div class="formula-box">
         <code>Final Skill = Baseline[level][group][skill] + Cultural Modifier[culture][skill]</code>
       </div>
@@ -378,10 +381,12 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           <p>Previously, 40+ militia troops had zero in every skill. They now inherit their culture's level 21 baseline, making them functional garrison troops.</p>
         </div>
       </div>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Quick Comparison</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
+      <div class="collapsible-content" style="display:none">
       <div class="table-wrapper">
         <table class="comparison-table">
           <thead>
@@ -408,10 +413,12 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           </tbody>
         </table>
       </div>
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Culture Details</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
+      <div class="collapsible-content" style="display:none">
 
       {cultures.map(c => (
         <div id={c.id} class="culture-card" style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}>
@@ -465,10 +472,12 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
           {c.notes && <p class="culture-notes">{c.notes}</p>}
         </div>
       ))}
+      </div>
     </section>
 
-    <section class="info-section">
-      <h2>Baseline Skill Tables</h2>
+    <section class="info-section collapsible-section" data-collapsed="true">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Baseline Skill Tables</h2>
+      <div class="collapsible-content" style="display:none">
       <p class="section-desc">
         These are the center values before cultural modifiers are applied. Each troop group has its own progression curve.
       </p>
@@ -553,6 +562,7 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
             <tr><td>41</td><td>175</td><td>350</td><td>250</td><td>140</td><td>200</td><td>320</td><td>40</td><td>85</td></tr>
           </tbody>
         </table>
+      </div>
       </div>
     </section>
   </div>
@@ -809,4 +819,33 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
     .modifiers-grid { grid-template-columns: 1fr; }
     .formula-details { grid-template-columns: 1fr; }
   }
+
+  .section-toggle {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-toggle:hover {
+    color: var(--text-primary);
+  }
+
+  .collapse-arrow {
+    display: inline-block;
+    font-size: 0.8em;
+    transition: transform 0.2s;
+  }
 </style>
+
+<script>
+  document.querySelectorAll('.section-toggle').forEach(title => {
+    title.addEventListener('click', () => {
+      const section = title.closest('.collapsible-section') as HTMLElement;
+      const content = section.querySelector('.collapsible-content') as HTMLElement;
+      const arrow = title.querySelector('.collapse-arrow')!;
+      const collapsed = section.dataset.collapsed === 'true';
+      section.dataset.collapsed = collapsed ? 'false' : 'true';
+      content.style.display = collapsed ? '' : 'none';
+      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+    });
+  });
+</script>
