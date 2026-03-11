@@ -99,7 +99,170 @@ const elvenCultures = [
   },
 ];
 
-// Infantry tier list
+// Infantry subcategory: Front Line (Shield Wall)
+const frontLineTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '1H+15, Pol+20, best non-elven armor (+5) — the definitive shield wall faction' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '1H+10, Pol+10, excellent armor (+4) — dwarven shield-bearers hold any line' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Isengard', color: '#a0a0a0', reason: '1H+10, Pol+15, good armor (+2) — disciplined Uruk shield formations' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '1H+10, Pol+5, reliable armor (baseline) — Tower Guard and Citadel infantry' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Rhun', color: '#d4a24c', reason: 'Pol+15, baseline armor — disciplined Easterling spear walls' },
+      { name: 'Dunland', color: '#9a7a5a', reason: '1H+5, weapons 108% — crude shield-and-spear line, compensated by weapon buff' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Mordor', color: '#b44444', reason: 'Pol-5 but 120% weapons — orc shield walls are numerous but unskilled' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Pol+5 but worst armor (-2, 1.15x) — mountain orcs prefer aggression over defense' },
+      { name: 'Umbar', color: '#5a8a8a', reason: '1H+10 but weapons pending — corsair shield troops planned' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'Poor',
+    cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '1H+5 only, poor armor — goblins lack discipline for shield formations' },
+      { name: 'Rohan', color: '#6db36d', reason: 'No frontline bonuses — Rohirrim fight from horseback, not in shield walls' },
+      { name: 'Harad', color: '#c43c3c', reason: 'Pol-5, worst armor (-3) — desert warriors avoid heavy infantry' },
+    ],
+  },
+];
+
+// Infantry subcategory: Shock Troops (2H Charge)
+const shockTroopTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '2H+20, Ath+10, weapons 118% — ironbreaker charge demolishes formations' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '2H+20, Ath+10, weapons 118% — dwarven berserkers with great-axes' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Isengard', color: '#a0a0a0', reason: '2H+15, Ath+10, weapons 94% — Uruk berserkers are feared shock troops' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '2H+5 only but 140% weapons — goblin great-axe troops hit incredibly hard' },
+      { name: 'Mordor', color: '#b44444', reason: '2H+5, weapons 120% — Black Uruk heavy infantry pack a punch' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '2H+10, weapons 103% — mountain orc warriors with heavy weapons' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Gondor', color: '#c8d0d8', reason: '2H+5, weapons 100% — some great-sword troops but not a shock identity' },
+      { name: 'Dunland', color: '#9a7a5a', reason: '2H+5, weapons 108% — hill-clan champions with great-axes' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'Poor',
+    cultures: [
+      { name: 'Rhun', color: '#d4a24c', reason: '2H+0, baseline — Easterlings fight in formation, not as berserkers' },
+      { name: 'Rohan', color: '#6db36d', reason: '2H+0 — cavalry culture has no 2H infantry tradition' },
+      { name: 'Harad', color: '#c43c3c', reason: '2H-10 — Haradrim disdain heavy infantry weapons' },
+    ],
+  },
+];
+
+// Infantry subcategory: Line Breakers (Anti-Armor / Heavy Weapons)
+const lineBreakerTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Erebor', color: '#6a9fd4', reason: '2H+20, 25 axes/maces in roster, weapons 118% — blunt damage bypasses armor, dwarves are THE anti-armor faction' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '2H+20, weapons 118% — war-hammer specialists that crack any plate' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '140% weapons with 2H maces (100 avg) and axes (108 avg) — raw crushing power despite low skill' },
+      { name: 'Mordor', color: '#b44444', reason: '120% weapons with heavy maces (102 avg) — orc war-clubs ignore armor' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Isengard', color: '#a0a0a0', reason: '2H+15, 2H axes at 134 avg swing — Uruk great-axes cleave through shields' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '2H+10, maces at 101 avg — mountain orc mace troops' },
+      { name: 'Rhun', color: '#d4a24c', reason: '2H maces at 140 avg, 2H axes at 114 avg — Easterling heavy weapon specialists' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Gondor', color: '#c8d0d8', reason: '2H+5, limited heavy weapon options — Gondor favors swords over maces' },
+      { name: 'Dunland', color: '#9a7a5a', reason: '2H axes at 130 avg but only 4 — hill-folk have some heavy hitters' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'Poor',
+    cultures: [
+      { name: 'Rohan', color: '#6db36d', reason: 'No heavy weapon tradition — Rohirrim fight mounted, not on foot with maces' },
+      { name: 'Harad', color: '#c43c3c', reason: 'No heavy weapons — desert warfare favors speed over crushing power' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Weapons not yet implemented — boarding axes planned' },
+    ],
+  },
+];
+
+// Infantry subcategory: Skirmishers (Javelin/Throwing)
+const skirmisherTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Thr+15, Ath+20 — supreme javelin skirmishers, fastest foot troops in the game' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Thr+10, Ath+10 — dwarven throwing axes are devastating at short range' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Thr+10, Ath+10 — iron-forged throwing hammers' },
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Thr+10, Ath+10 — Uruk javelin troops soften formations before the charge' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Thr+5, Ath+5, javelins in arsenal — mountain orcs use ranged harassment' },
+      { name: 'Mordor', color: '#b44444', reason: 'Thr+5, weapons 120% — orc javelin troops pack extra damage per throw' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Rohan', color: '#6db36d', reason: 'Thr+2 — minimal throwing capability, cavalry focus' },
+      { name: 'Harad', color: '#c43c3c', reason: 'Thr+0 — no javelin tradition, rely on bows instead' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Thr+0 — goblins lack organized skirmisher tactics' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Thr-5 — Easterlings fight in disciplined formations, not as skirmishers' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'Poor',
+    cultures: [
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Thr-10 — Numenorean tradition disdains thrown weapons, preferring bow or melee' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Weapons not yet implemented — throwing knives planned' },
+    ],
+  },
+];
+
+// Infantry tier list (overall)
 const infantryTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
@@ -338,15 +501,92 @@ const gradeColors: Record<string, string> = {
         Ranked by combined melee skill bonuses (1H, 2H, Polearm), Athletics, armor protection, and weapon damage.
         Elven factions would rank S+ across the board but are excluded — they are balanced by population, not by stats.
       </p>
-      <p class="section-desc coming-soon">
-        Infantry subcategories coming soon: <strong>Front Line</strong> (shield wall), <strong>Shock Troops</strong> (charge damage),
-        <strong>Line Breakers</strong> (anti-armor), <strong>Skirmishers</strong> (javelin/throwing).
-      </p>
+      <h3 class="subsection-title">Overall Infantry</h3>
       {infantryTiers.map(t => (
         <div class="tier-row">
           <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
             <span class="tier-letter">{t.tier}</span>
             <span class="tier-desc">{t.label}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Infantry Subcategories</h2>
+      <p class="section-desc">
+        Infantry is broken down into four combat roles. A faction may excel at one role while being poor at another —
+        Dunland's skirmishers are S-tier but their frontline is B-tier, while Erebor dominates every role except skirmishing.
+      </p>
+
+      <h3 class="subsection-title">Front Line <span class="role-tag">Shield Wall / Defensive</span></h3>
+      <p class="role-desc">1H + Polearm skill, heavy armor protection — troops that hold the line with shield and spear.</p>
+      {frontLineTiers.map(t => (
+        <div class="tier-row tier-compact">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <h3 class="subsection-title">Shock Troops <span class="role-tag">2H Charge / Berserker</span></h3>
+      <p class="role-desc">2H skill + Athletics + weapon damage — troops that charge with two-handed weapons to break formations.</p>
+      {shockTroopTiers.map(t => (
+        <div class="tier-row tier-compact">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <h3 class="subsection-title">Line Breakers <span class="role-tag">Anti-Armor / Blunt</span></h3>
+      <p class="role-desc">Heavy 2H axes and maces — troops with crushing weapons that bypass armor. Blunt damage ignores 60% of armor.</p>
+      {lineBreakerTiers.map(t => (
+        <div class="tier-row tier-compact">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <h3 class="subsection-title">Skirmishers <span class="role-tag">Javelin / Throwing</span></h3>
+      <p class="role-desc">Throwing skill + Athletics — mobile troops that harass with javelins before closing to melee.</p>
+      {skirmisherTiers.map(t => (
+        <div class="tier-row tier-compact">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
           </div>
           <div class="tier-cultures">
             {t.cultures.map(c => (
@@ -691,6 +931,50 @@ const gradeColors: Record<string, string> = {
     color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.5;
+  }
+
+  /* Subcategory styles */
+  .subsection-title {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .subsection-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .role-tag {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    vertical-align: middle;
+  }
+
+  .role-desc {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.825rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .tier-compact {
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-compact .tier-label {
+    width: 50px;
+    padding: 0.35rem;
+  }
+
+  .tier-compact .tier-letter {
+    font-size: 1.2rem;
   }
 
   @media (max-width: 768px) {
