@@ -24,7 +24,7 @@ const cultures = [
   {
     id: 'gondor', name: 'Gondorians', color: '#c8d0d8', race: 'Men', alignment: 'good',
     troops: { grade: 'B', detail: '1H+10, Ath+5, Rid+5, 2H+5, Pol+5' },
-    armor: { grade: 'B', protection: 0, weight: '1.00x', detail: 'Baseline — Numenorean craft' },
+    armor: { grade: 'B', protection: +1, weight: '1.00x', detail: 'Numenorean craft, above baseline' },
     weapons: { grade: 'B', percent: '100%', modifier: '+0%', detail: 'Baseline reference' },
   },
   {
@@ -60,13 +60,13 @@ const cultures = [
   {
     id: 'gundabad', name: 'Gundabad Orcs', color: '#7a8a9a', race: 'Orc', alignment: 'evil',
     troops: { grade: 'C', detail: '2H+10, Ath+5, Pol+5, Thr+5' },
-    armor: { grade: 'D', protection: -2, weight: '1.15x', detail: 'Worst armor overall' },
+    armor: { grade: 'B', protection: 0, weight: '1.15x', detail: 'Dwarven forges, heavy' },
     weapons: { grade: 'B', percent: '103%', modifier: '+5%', detail: 'Mountain-orc arms' },
   },
   {
     id: 'dolguldur', name: 'Goblins', color: '#7a9a5a', race: 'Orc', alignment: 'evil',
     troops: { grade: 'D', detail: '1H+5, 2H+5, most skills -5 to -10' },
-    armor: { grade: 'C', protection: -1, weight: '1.10x', detail: 'Scavenged armor' },
+    armor: { grade: 'B', protection: 0, weight: '1.10x', detail: 'Fortress-forged plate' },
     weapons: { grade: 'S', percent: '140%', modifier: '+10%', detail: 'Highest in game' },
   },
   {
@@ -82,7 +82,7 @@ const elvenCultures = [
   {
     id: 'rivendell', name: 'Noldorin', color: '#7ec8e3', race: 'Elf',
     troops: { grade: 'S+', detail: '+35-40 all combat skills' },
-    armor: { grade: 'S+', protection: +6, weight: '0.70x', detail: 'Best protection, lightest' },
+    armor: { grade: 'S', protection: +5, weight: '0.70x', detail: 'On par with dwarves, lightest' },
     weapons: { grade: 'D', percent: '78%', modifier: '-20%', detail: 'Skill compensates' },
   },
   {
@@ -120,13 +120,13 @@ const frontLineTiers = [
     cultures: [
       { name: 'Rohan', color: '#6db36d', reason: '18 infantry shield troops — Westfold Axemen line (sword+shield), Westmarches Spearmen, Edoras Swordsmen/Meduseld Spearmen. Light armor (-2) but solid numbers' },
       { name: 'Rhun', color: '#d4a24c', reason: '14 shield troops — Easterling Spear Bearer, Halberdier, Pillar, Chosen (spear+shield) plus Footman, Swordsman (sword+shield). Disciplined phalanx' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: '17 shield troops — Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Worst armor holds them back' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '17 shield troops — Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Dwarven-forged armor (0 prot, 1.15x weight)' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Quantity over quality, weak skills (+5)' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Fortress-forged armor (0 prot), weak skills (+5)' },
       { name: 'Mordor', color: '#b44444', reason: '11 shield troops — Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). 120% weapons compensate' },
       { name: 'Harad', color: '#c43c3c', reason: '9 shield troops — Levy, Militia, Spearfighter, Swordfighter, Spearguard, Footman, Champion (sword+shield), 2 militia spear. Worst armor (-3) undermines frontline' },
       { name: 'Umbar', color: '#5a8a8a', reason: '7 shield troops — small roster of corsair frontline infantry. Weapons not yet implemented' },
@@ -291,7 +291,7 @@ const infantryTiers = [
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Mixed skills (2H+10), worst armor (-2, 1.15x weight), average weapons (103%)' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Mixed skills (2H+10), dwarven-forged armor (0 prot, 1.15x weight), average weapons (103%)' },
       { name: 'Umbar', color: '#5a8a8a', reason: 'Decent skills (1H+10, Ath+10) but no weapons yet — corsair infantry planned' },
       { name: 'Rohan', color: '#6db36d', reason: 'Infantry is an afterthought — cavalry culture with light armor and below-average weapons' },
       { name: 'Harad', color: '#c43c3c', reason: 'Infantry not their identity — worst armor in game (-3 prot), cavalry/archery focus' },
