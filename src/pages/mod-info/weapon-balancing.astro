@@ -34,21 +34,21 @@ const cultures = [
     race: 'Men',
     meleeWeapons: 17,
     rangedWeapons: 0,
-    avgMelee: 58,
+    avgMelee: 60,
     avgRanged: 0,
-    meleePercent: '89%',
-    identity: 'Rohirrim weaponry is built for mounted warfare — lances, spears and cavalry swords dominate their arsenal. Their one-handed swords are among the finest of the human factions, and their great-axes are formidable. Polearms favour thrust damage for the lance charge.',
+    meleePercent: '92%',
+    identity: 'Rohirrim weaponry is built for mounted warfare — lances, spears and cavalry swords dominate their arsenal. A +5% cultural weapon modifier reflects solid Rohirric smithcraft. Their one-handed swords are among the finest of the human factions, and their great-axes are formidable.',
     primaryWeapons: ['Polearms (8)', 'One-Handed Swords (6)', 'Two-Handed Axes (2)', 'One-Handed Axe (1)'],
     strengths: [
-      { stat: '1H Sword Damage', mod: '84 avg swing', note: 'Fine cavalry swords' },
-      { stat: '2H Axe Damage', mod: '131 avg swing', note: 'Powerful great-axes' },
+      { stat: '1H Sword Damage', mod: '88 avg swing', note: 'Fine cavalry swords (+5%)' },
+      { stat: '2H Axe Damage', mod: '138 avg swing', note: 'Powerful great-axes (+5%)' },
     ],
     weaknesses: [
       { stat: 'Weapon Variety', mod: '17 melee', note: 'Smaller roster' },
-      { stat: '1H Axe Damage', mod: '39 avg swing', note: 'Weak hand-axe' },
-      { stat: 'Polearm Damage', mod: '14/38 swing/thrust', note: 'Low swing on lance-type polearms' },
+      { stat: '1H Axe Damage', mod: '41 avg swing', note: 'Weak hand-axe' },
+      { stat: 'Polearm Damage', mod: '15/40 swing/thrust', note: 'Low swing on lance-type polearms' },
     ],
-    notes: 'Rohan is 11% below Gondor baseline in overall melee damage. Their polearm roster includes lance-type weapons with good thrust damage (avg 38) for cavalry charges, but low swing values bring the average down. Limited weapon variety reflects a cavalry-focused culture.',
+    notes: 'Rohan at 92% with +5% weapon modifier. Light armor (-2 prot, 0.90x weight) is compensated by superior cavalry skills (+20 Riding) and slightly buffed weapons. Hero swords (Theoden, Eomer, Eowyn) are exempt from the modifier.',
   },
   {
     id: 'erebor',
@@ -58,22 +58,22 @@ const cultures = [
     race: 'Dwarf',
     meleeWeapons: 36,
     rangedWeapons: 0,
-    avgMelee: 97,
+    avgMelee: 77,
     avgRanged: 0,
-    meleePercent: '149%',
-    identity: 'Dwarven weapons from the forges of Erebor are devastating. Heavy axes, war-hammers and great-maces dominate — built for the crushing power that dwarven arms can deliver. The Longbeards favour sheer damage output over finesse, with two-handed weapons forming the backbone of their arsenal.',
+    meleePercent: '118%',
+    identity: 'Dwarven weapons from the forges of Erebor are heavy and durable. A -20% weapon modifier reflects that dwarven combat power comes from endurance and skill (+20 2H, +10 melee skills) rather than raw blade sharpness. Heavy axes and war-hammers still hit hard, backed by the best non-elven armor (+4 prot).',
     primaryWeapons: ['Two-Handed Axes (13)', 'Two-Handed Maces (12)', 'One-Handed Axes (7)', 'One-Handed Swords (2)', 'Polearms (2)'],
     strengths: [
-      { stat: '2H Mace Damage', mod: '120 avg swing', note: 'Heavy war-hammers' },
-      { stat: '2H Axe Damage', mod: '118 avg swing', note: 'Master axe-smiths' },
-      { stat: '1H Axe Damage', mod: '71 avg swing', note: 'Finest 1H axes in game' },
-      { stat: '1H Sword Damage', mod: '73/68 swing/thrust', note: 'Rare but balanced blades' },
+      { stat: '2H Mace Damage', mod: '96 avg swing', note: 'Heavy war-hammers (-20%)' },
+      { stat: '2H Axe Damage', mod: '94 avg swing', note: 'Master axe-smiths (-20%)' },
+      { stat: '1H Axe Damage', mod: '57 avg swing', note: 'Solid 1H axes' },
+      { stat: 'Troop Skills', mod: '+20 2H, +10 all melee', note: 'Best melee skill bonuses' },
     ],
     weaknesses: [
-      { stat: 'Polearm Damage', mod: '32/35 swing/thrust', note: 'Few polearm options' },
+      { stat: 'Polearm Damage', mod: '26/28 swing/thrust', note: 'Few polearm options' },
       { stat: 'Weapon Speed', mod: '78 avg', note: 'Slowest weapons overall' },
     ],
-    notes: 'Erebor melee damage is 49% above baseline, the highest of all cultures. This reflects legendary dwarven smithcraft. Their two-handed maces (120 avg) and axes (118 avg) are the backbone of the arsenal.',
+    notes: 'Erebor at 118% after -20% weapon modifier (was 149%). Still the highest non-legendary damage, but dwarven dominance now comes from the balance of strong skills (+20 2H), heavy armor (+4 prot), and solid weapons rather than overwhelming damage alone.',
   },
   {
     id: 'rivendell',
@@ -83,21 +83,22 @@ const cultures = [
     race: 'Elf',
     meleeWeapons: 20,
     rangedWeapons: 0,
-    avgMelee: 63,
+    avgMelee: 51,
     avgRanged: 0,
-    meleePercent: '97%',
-    identity: 'Noldorin blades are among the finest in Middle-earth — forged by techniques passed down from the great smiths of Valinor. Elven swords favour elegant thrust-and-slash combat with excellent balance between swing and thrust damage. Polearms provide reach with strong thrust capability.',
+    meleePercent: '78%',
+    identity: 'Noldorin blades are elegant and precise, not brutish. A -20% weapon modifier reflects that elven combat superiority comes from skill and technique (+35-40 all skills) and masterwork armor (+6 prot, lightest weight), not raw cutting power. Every swing is placed with precision.',
     primaryWeapons: ['One-Handed Swords (13)', 'Polearms (5)', 'Two-Handed Swords (2)'],
     strengths: [
-      { stat: '2H Sword Damage', mod: '110/66 swing/thrust', note: 'Great-swords of the Noldor' },
-      { stat: '1H Sword Damage', mod: '75/55 swing/thrust', note: 'Valinorean blade tradition' },
-      { stat: 'Thrust Capability', mod: '58 avg thrust', note: 'Best thrust across all cultures' },
+      { stat: 'Troop Skills', mod: '+35-40 all', note: 'Highest skill bonuses in game' },
+      { stat: 'Armor', mod: '+6 prot, 0.70x weight', note: 'Best protection, lightest weight' },
+      { stat: 'Thrust Capability', mod: '46 avg thrust', note: 'Strong thrust across all weapons' },
     ],
     weaknesses: [
+      { stat: 'Raw Damage', mod: '78% of baseline', note: 'Compensated by elite skills' },
       { stat: 'No Axes/Maces', mod: '0 types', note: 'Elves disdain crude weapons' },
-      { stat: 'Polearm Swing', mod: '38 avg swing', note: 'Thrust-focused polearms' },
+      { stat: 'Polearm Swing', mod: '30 avg swing', note: 'Thrust-focused polearms' },
     ],
-    notes: 'Rivendell melee is 3% below baseline — lower than the old estimate. Their real strength is exceptional thrust damage (58 avg, highest of any culture). The lack of axes, maces or heavy weapons is lore-appropriate but limits raw damage output.',
+    notes: 'Rivendell at 78% after -20% weapon modifier (was 97%). Their massive skill bonuses (+35-40 across all combat skills) and supreme armor (+6 prot) make them the strongest faction overall despite lower per-hit damage. Hero weapons (Glamdring) are exempt.',
   },
   {
     id: 'mirkwood',
@@ -110,17 +111,18 @@ const cultures = [
     avgMelee: 66,
     avgRanged: 0,
     meleePercent: '102%',
-    identity: 'Silvan elves carry elegant woodland blades. Their melee arsenal is tiny — just two swords — but those swords have excellent thrust capability, reflecting elven fencing traditions. Mirkwood fights at range in lore, but ranged weapons are not yet in the physics data.',
-    primaryWeapons: ['One-Handed Swords (2)'],
+    identity: 'Silvan elves carry elegant woodland blades with a -20% weapon modifier. Their melee arsenal is small but their combat superiority comes from unmatched ranged skills (+50 Bow) and excellent melee technique (+40-45 skills). Hero weapons (Legolas, Thranduil) are exempt from the modifier.',
+    primaryWeapons: ['One-Handed Swords (2)', 'Spears (2)', 'Glaive (1)'],
     strengths: [
-      { stat: '1H Sword Thrust', mod: '64 avg thrust', note: 'Highest 1H sword thrust in game' },
+      { stat: 'Troop Skills', mod: '+50 Bow, +40 melee', note: 'Best ranged skills in game' },
       { stat: 'Weapon Speed', mod: '92 avg', note: 'Fastest weapons overall' },
+      { stat: 'Armor', mod: '+5 prot, 0.65x weight', note: 'Lightest armor in game' },
     ],
     weaknesses: [
       { stat: 'Melee Variety', mod: '2 weapons', note: 'Minimal melee options' },
       { stat: 'No Heavy Weapons', mod: '0 types', note: 'No axes, maces or 2H' },
     ],
-    notes: 'Mirkwood has the smallest melee roster in the game (2 swords). Their focus is entirely on ranged combat, but ranged weapons are not yet reflected in this physics data. Additional melee weapons would improve their infantry viability.',
+    notes: 'Mirkwood hero weapons (Legolas, Thranduil) are exempt from the -20% modifier, keeping the displayed average at 102%. New Mirkwood weapons will receive the -20% reduction. Their dominance comes from unmatched ranged skills (+50), not melee damage.',
   },
   {
     id: 'lothlorien',
@@ -145,7 +147,7 @@ const cultures = [
       { stat: 'No Ranged', mod: '0 bows', note: 'Bows not yet implemented' },
       { stat: 'No Variety', mod: '1 class', note: 'Swords only' },
     ],
-    notes: 'Lothlorien weapons are planned but barely implemented. The 4 existing swords are strong at 108% of baseline. When the full arsenal is added, damage levels should be comparable to Rivendell\'s balanced approach.',
+    notes: 'Lothlorien has a -20% weapon modifier, but all 4 current weapons are hero-exempt (Galadriel, Aranruth variants). When regular Lothlorien weapons are added, they will receive the -20% reduction. Elite skills (+25-35) and strong armor (+5 prot) compensate.',
   },
   {
     id: 'isengard',
@@ -155,22 +157,22 @@ const cultures = [
     race: 'Uruk-Hai',
     meleeWeapons: 11,
     rangedWeapons: 0,
-    avgMelee: 58,
+    avgMelee: 61,
     avgRanged: 0,
-    meleePercent: '89%',
-    identity: 'Uruk-hai weaponry is forged in the pits of Orthanc — crude but devastatingly effective. Two-handed axes dominate for raw damage, designed for their brutal shock infantry tactics. Pikes and polearms provide tactical versatility for defensive formations.',
+    meleePercent: '94%',
+    identity: 'Uruk-hai weaponry is forged in the pits of Orthanc — crude but devastatingly effective. A +5% weapon modifier reflects industrial quality — not elegant but reliable. Two-handed axes dominate for raw damage, with pikes providing tactical versatility.',
     primaryWeapons: ['Two-Handed Axes (3)', 'One-Handed Swords (3)', 'Pikes (2)', 'Polearms (2)', 'Two-Handed Sword (1)'],
     strengths: [
-      { stat: '2H Axe Damage', mod: '128 avg swing', note: 'Devastating Uruk great-axes' },
-      { stat: '2H Sword Damage', mod: '69/22 swing/thrust', note: 'Heavy cleaving sword' },
-      { stat: 'Pike Thrust', mod: '55 avg thrust', note: 'Strong pike wall capability' },
+      { stat: '2H Axe Damage', mod: '134 avg swing', note: 'Devastating Uruk great-axes (+5%)' },
+      { stat: '2H Sword Damage', mod: '72/23 swing/thrust', note: 'Heavy cleaving sword (+5%)' },
+      { stat: 'Pike Thrust', mod: '58 avg thrust', note: 'Strong pike wall capability (+5%)' },
     ],
     weaknesses: [
-      { stat: '1H Sword Damage', mod: '68/21 swing/thrust', note: 'Below-average swords' },
-      { stat: 'Polearm Swing', mod: '32 avg swing', note: 'Low swing damage on polearms' },
+      { stat: '1H Sword Damage', mod: '71/22 swing/thrust', note: 'Below-average swords' },
+      { stat: 'Polearm Swing', mod: '34 avg swing', note: 'Low swing damage on polearms' },
       { stat: 'Weapon Speed', mod: '68 avg', note: 'Second slowest arsenal' },
     ],
-    notes: 'Isengard is 11% below baseline at 89%. Their two-handed axes (128 avg) are where the Uruk-hai excel, but low polearm swing values and below-average swords bring the overall average down. Slow weapon speeds reflect the heavy, brutal design.',
+    notes: 'Isengard at 94% after +5% weapon modifier (was 89%). Solid troops (+10-15 skills) with good armor (+2 prot, but 1.15x weight) and now competitive weapons. Their heavy weapon speed penalty reflects the brutal Uruk-hai fighting style.',
   },
   {
     id: 'mordor',
@@ -180,23 +182,22 @@ const cultures = [
     race: 'Orc',
     meleeWeapons: 41,
     rangedWeapons: 0,
-    avgMelee: 75,
+    avgMelee: 78,
     avgRanged: 0,
-    meleePercent: '115%',
-    identity: 'Orc weaponry from Mordor ranges from crude iron to legendary Dark Lord armaments. The average is inflated by hero weapons — Sauron\'s Mace (190 swing), heavy halberds (up to 158 swing) and massive war-clubs. Regular orc swords are moderate, but the heavy polearms dominate the statistics.',
+    meleePercent: '120%',
+    identity: 'Orc weaponry from Mordor is crude but brutal. A +5% weapon modifier compensates for the weakest troop skills (-5 most) and poor armor (-1 prot, 1.10x weight). Mordor relies on numbers and raw weapon damage to overwhelm — individually weak but devastating in mass.',
     primaryWeapons: ['Polearms (17)', 'One-Handed Swords (11)', 'Maces (6)', 'Two-Handed Maces (3)', 'Two-Handed Swords (2)', 'One-Handed Axes (2)'],
     strengths: [
-      { stat: 'Polearm Damage', mod: '133 avg swing', note: 'Devastating orc halberds' },
-      { stat: '2H Mace Damage', mod: '97 avg swing', note: 'Heavy war-clubs' },
-      { stat: '2H Sword Damage', mod: '83/57 swing/thrust', note: 'Nazgul and Witch-King blades' },
+      { stat: 'Polearm Damage', mod: '140 avg swing', note: 'Devastating orc halberds (+5%)' },
+      { stat: '2H Mace Damage', mod: '102 avg swing', note: 'Heavy war-clubs (+5%)' },
       { stat: 'Weapon Count', mod: '41 melee', note: 'Largest roster overall' },
     ],
     weaknesses: [
-      { stat: '1H Sword Damage', mod: '68/38 swing/thrust', note: 'Average orc swords' },
-      { stat: '1H Axe Damage', mod: '50 avg swing', note: 'Crude orc axes' },
+      { stat: 'Troop Skills', mod: '-5 most skills', note: 'Weakest troops after Dol Guldur' },
+      { stat: '1H Sword Damage', mod: '71/40 swing/thrust', note: 'Average orc swords' },
       { stat: 'Weapon Speed', mod: '77 avg', note: 'Heavy, slow weapons' },
     ],
-    notes: 'Mordor at 115% is more moderate than the old estimate. The polearms (17 halberds averaging 133 swing) are the standout — these are two-handed polearms with excellent swing damage. Sauron\'s Mace (190 swing) is the single highest-damage weapon but doesn\'t skew the average as much in the physics model.',
+    notes: 'Mordor at 120% after +5% weapon modifier (was 115%). Hero weapons (Sauron\'s Mace, Witch-King, Nazgul swords) are exempt. The high weapon damage compensates for the worst troop skills and poor armor in the balance triangle.',
   },
   {
     id: 'gundabad',
@@ -206,10 +207,10 @@ const cultures = [
     race: 'Orc',
     meleeWeapons: 14,
     rangedWeapons: 0,
-    avgMelee: 64,
+    avgMelee: 67,
     avgRanged: 0,
-    meleePercent: '98%',
-    identity: 'Gundabad weapons are heavy, crude mountain-orc armaments. Their maces are powerful blunt weapons and their polearms have both swing and thrust capability. A small but varied arsenal including javelins for ranged harassment.',
+    meleePercent: '103%',
+    identity: 'Gundabad weapons are heavy, crude mountain-orc armaments boosted by a +5% cultural weapon modifier. Their maces are powerful blunt weapons and their polearms have both swing and thrust capability. A small but varied arsenal including javelins for ranged harassment.',
     primaryWeapons: ['One-Handed Swords (4)', 'One-Handed Axes (3)', 'Polearms (3)', 'Maces (2)', 'Javelins (2)'],
     strengths: [
       { stat: 'Polearm Damage', mod: '134/59 swing/thrust', note: 'Strongest polearm swing' },
@@ -221,7 +222,7 @@ const cultures = [
       { stat: 'Small Roster', mod: '14 melee', note: 'Limited variety' },
       { stat: 'No 2H Weapons', mod: '0 types', note: 'No two-handed options' },
     ],
-    notes: 'Gundabad at 98% is near baseline — much lower than the old estimate of 115%. Their polearms (134 avg swing) are excellent, but the weak swords (60/15 swing/thrust) bring the average down significantly. Maces remain strong at 101 avg swing.',
+    notes: 'Gundabad at 103% after +5% weapon modifier (was 98%). The worst armor in the game (-2 protection, 1.15x weight penalty) is partially compensated by slightly stronger weapons. Polearms (134 avg swing) remain excellent, while weak swords (60/15) keep the average in check.',
   },
   {
     id: 'dolguldur',
@@ -231,10 +232,10 @@ const cultures = [
     race: 'Orc',
     meleeWeapons: 19,
     rangedWeapons: 0,
-    avgMelee: 83,
+    avgMelee: 91,
     avgRanged: 0,
-    meleePercent: '128%',
-    identity: 'Dol Guldur weapons are forged in the dark pits beneath the old fortress. Surprisingly effective — their polearms deliver devastating swing damage. The Goblins of Mirkwood favour heavy two-handed weapons, relying on brute force to compensate for poor skill.',
+    meleePercent: '140%',
+    identity: 'Dol Guldur weapons are forged in the dark pits beneath the old fortress, boosted by a +10% cultural weapon modifier. The Goblins of Mirkwood favour heavy two-handed weapons, relying on brute force to compensate for the weakest troop skills in the game.',
     primaryWeapons: ['Polearms (5)', 'Two-Handed Axes (4)', 'Two-Handed Maces (4)', 'One-Handed Swords (3)', 'Maces (3)'],
     strengths: [
       { stat: 'Polearm Damage', mod: '167 avg swing', note: 'Highest polearm damage in game' },
@@ -246,7 +247,7 @@ const cultures = [
       { stat: 'Mace Damage', mod: '58 avg swing', note: 'Crude 1H maces' },
       { stat: 'No Ranged', mod: '0 bows', note: 'No bows or crossbows' },
     ],
-    notes: 'Dol Guldur at 128% is notably high for a goblin faction. Their polearms (avg 167 swing) are the strongest in the game, which may be a balance concern given that goblins are meant to be individually weaker. Consider reviewing polearm damage factors.',
+    notes: 'Dol Guldur at 140% after +10% weapon modifier (was 128%). The highest weapon damage in the game is intentional — Dol Guldur has the weakest troop skills (+5 only) and poor armor (-1 protection, 1.10x weight). Raw weapon damage is their only advantage in the balance triangle.',
   },
   {
     id: 'harad',
@@ -256,10 +257,10 @@ const cultures = [
     race: 'Men',
     meleeWeapons: 8,
     rangedWeapons: 0,
-    avgMelee: 56,
+    avgMelee: 62,
     avgRanged: 0,
-    meleePercent: '86%',
-    identity: 'Haradrim weapons are designed for desert warfare — curved swords and light spears for mounted combat. Their melee damage is below average, reflecting lighter weapons suited to speed rather than heavy blows. Their weapon speed is above average, matching the Haradrim preference for quick strikes.',
+    meleePercent: '95%',
+    identity: 'Haradrim weapons are designed for desert warfare — curved swords and light spears for mounted combat, boosted by a +10% cultural weapon modifier. Their melee damage is slightly below average, reflecting lighter weapons suited to speed rather than heavy blows.',
     primaryWeapons: ['Polearms (5)', 'One-Handed Swords (2)', 'Two-Handed Sword (1)'],
     strengths: [
       { stat: '1H Sword Damage', mod: '71/53 swing/thrust', note: 'Fine curved swords' },
@@ -271,7 +272,7 @@ const cultures = [
       { stat: 'Polearm Swing', mod: '71 avg swing', note: 'Moderate polearm swing' },
       { stat: '2H Sword Damage', mod: '55/38 swing/thrust', note: 'Single weak great-sword' },
     ],
-    notes: 'Harad is 14% below baseline in melee damage, appropriate for a cavalry/archery culture. Their 2 one-handed swords are decent (71/53 swing/thrust), but the polearms and lone two-handed sword drag the average down. More weapon variety would help.',
+    notes: 'Harad at 95% after +10% weapon modifier (was 86%). The worst armor protection in the game (-3) and cavalry-focused skills are compensated by stronger weapons. Still slightly below baseline, appropriate for a culture that relies on mounted archery.',
   },
   {
     id: 'rhun',
@@ -284,7 +285,7 @@ const cultures = [
     avgMelee: 65,
     avgRanged: 0,
     meleePercent: '100%',
-    identity: 'Easterling weaponry is the most numerous in the game — from lacquered Loke-rim blades to heavy war-maces. Rhun fields a massive sword roster (26 types) alongside balanced two-handed weapons (6 of each). Their two-handed maces and axes deal devastating damage, but many one-handed swords are light.',
+    identity: 'Easterling weaponry is the most numerous in the game — from lacquered Loke-rim blades to heavy war-maces. Rhun fields a massive sword roster (26 types) alongside balanced two-handed weapons (6 of each). A +5% cultural weapon modifier is applied but the large roster keeps the average at baseline.',
     primaryWeapons: ['One-Handed Swords (26)', 'One-Handed Axes (6)', 'Maces (6)', 'Two-Handed Axes (6)', 'Two-Handed Maces (6)', 'Polearms (3)'],
     strengths: [
       { stat: '2H Mace Damage', mod: '140 avg swing', note: 'Devastating war-maces' },
@@ -295,7 +296,7 @@ const cultures = [
       { stat: '1H Sword Damage', mod: '62/35 swing/thrust', note: 'Many light swords dilute average' },
       { stat: 'Polearm Swing', mod: '78/44 swing/thrust', note: 'Only 3 polearms' },
     ],
-    notes: 'Rhun at 100% matches Gondor baseline exactly when combining both khuzait and rhun culture weapons. Their two-handed weapons (114-140 avg swing) are strong but the large number of light one-handed swords (26 total, avg 62 swing) keeps the overall average in check.',
+    notes: 'Rhun at 100% after +5% weapon modifier — matches Gondor baseline exactly. Their two-handed weapons (114-140 avg swing) are strong but the large number of light one-handed swords (26 total, avg 62 swing) keeps the overall average in check. A balanced cavalry culture.',
   },
   {
     id: 'dunland',
@@ -305,22 +306,22 @@ const cultures = [
     race: 'Men',
     meleeWeapons: 38,
     rangedWeapons: 0,
-    avgMelee: 49,
+    avgMelee: 70,
     avgRanged: 0,
-    meleePercent: '75%',
-    identity: 'Dunlending weapons are crude hill-folk armaments. The vast majority are simple thrust-only spears with very low swing damage — reflecting a culture that relies on numbers and throwing weapons rather than melee prowess. Their few axes and swords are actually decent.',
+    meleePercent: '108%',
+    identity: 'Dunlending weapons are crude but effective hill-folk armaments with a +15% cultural weapon modifier — the highest buff in the game. Five spear heads were also manually raised from 1.9 to 2.8 damage_factor before the modifier, fixing a structural underpowering issue.',
     primaryWeapons: ['Polearms (29)', 'One-Handed Axes (4)', 'Two-Handed Axes (4)', 'Two-Handed Sword (1)'],
     strengths: [
       { stat: '2H Axe Damage', mod: '130 avg swing', note: 'Powerful great-axes' },
       { stat: '2H Sword Damage', mod: '104/62 swing/thrust', note: 'Solid great-sword' },
-      { stat: '1H Axe Damage', mod: '66 avg swing', note: 'Decent hand-axes' },
+      { stat: 'Weapon Modifier', mod: '+15%', note: 'Highest cultural weapon buff' },
     ],
     weaknesses: [
       { stat: 'Polearm Swing', mod: '0 avg swing', note: '29 thrust-only spears' },
-      { stat: 'Polearm Thrust', mod: '33 avg thrust', note: 'Low thrust damage on spears' },
+      { stat: 'Polearm Thrust', mod: '57 avg thrust', note: 'Improved but still thrust-only' },
       { stat: 'No Ranged', mod: '0 bows', note: 'No bows or crossbows' },
     ],
-    notes: 'Dunland at 75% is a significant balance concern. 29 of 38 weapons are thrust-only polearms averaging 33 thrust damage with zero swing capability. These spears drag the overall average down substantially. The axes and lone great-sword are competitive but too few to offset the polearm weakness.',
+    notes: 'Dunland at 108% after spear fix + 15% weapon modifier (was 75%). The biggest improvement of any culture. Five structurally underpowered spear heads were raised from 1.9 to 2.8 damage_factor, then the +15% modifier — the highest in the game — compensates for poor armor (-2 protection, 0.95x weight) and skirmisher-only troop skills.',
   },
   {
     id: 'umbar',
@@ -390,13 +391,11 @@ const weaponClassAverages = [
 
 // Balance concerns identified from analysis
 const balanceConcerns = [
-  { severity: 'high', culture: 'Dol Guldur', issue: 'Polearms at 167 avg swing — highest in game for a goblin faction', recommendation: 'Reduce swing damage factor on goblin polearms' },
-  { severity: 'high', culture: 'Erebor', issue: 'Overall melee at 149% of baseline — highest of all cultures', recommendation: 'May be intentional for dwarven smithcraft, but review 2H mace/axe damage if too dominant' },
-  { severity: 'medium', culture: 'Dunland', issue: '29 thrust-only polearms averaging 33 thrust (0 swing) — drags culture to 75%', recommendation: 'Review whether polearms should have swing capability or higher thrust values' },
-  { severity: 'medium', culture: 'Mordor', issue: 'Sauron\'s Mace at 190 swing — 2.7x mace class average', recommendation: 'Intended as artifact — exclude from balance calculations' },
-  { severity: 'low', culture: 'Lothlorien', issue: 'Only 4 weapons total, no bows or polearms', recommendation: 'Expand arsenal with bows and polearms' },
-  { severity: 'low', culture: 'Mirkwood', issue: 'Only 2 melee weapons', recommendation: 'Add woodland blades and spears' },
-  { severity: 'low', culture: 'Harad', issue: 'Only 8 melee weapons at 86% of baseline', recommendation: 'Add curved swords and cavalry weapons' },
+  { severity: 'medium', culture: 'Dol Guldur', issue: 'At 140% after +10% modifier — highest in game, but intentional', recommendation: 'By design: weakest troops (+5 skills) and poor armor need raw weapon damage to compensate' },
+  { severity: 'medium', culture: 'Rivendell', issue: 'At 78% after -20% modifier — lowest of active cultures', recommendation: 'By design: elite skills (+40) and best armor (+6 prot, 0.70x weight) make up for lower weapons' },
+  { severity: 'low', culture: 'Lothlorien', issue: 'All 4 weapons are hero weapons (exempt from -20% modifier)', recommendation: 'Modifier applies to no current pieces — will activate when regular Lothlorien weapons are added' },
+  { severity: 'low', culture: 'Mirkwood', issue: 'Only 2 melee weapons (both hero weapons, exempt from -20%)', recommendation: 'Add woodland blades and spears — modifier will activate for new weapons' },
+  { severity: 'low', culture: 'Harad', issue: 'Only 8 melee weapons — small arsenal limits variety', recommendation: 'Add curved swords and cavalry weapons' },
 ];
 ---
 
@@ -409,13 +408,14 @@ const balanceConcerns = [
       <h2>Overview</h2>
       <p class="section-desc">
         TAOM includes <strong>300 custom melee weapons</strong> across <strong>13 cultures</strong> (with 3 more planned).
-        Unlike armour and troop skills, weapons are individually designed — each has unique blade weight, damage factors
-        and crafting pieces. This analysis computes <strong>estimated damage</strong> using the full TaleWorlds physics simulation
-        to assess balance across cultures.
+        Each weapon has unique blade weight, damage factors and crafting pieces. <strong>Cultural weapon modifiers</strong> adjust
+        damage_factor values to complete the balance triangle alongside troop skills and armor protection.
+        This analysis computes <strong>estimated damage</strong> using the full TaleWorlds physics simulation.
       </p>
       <p class="section-desc">
-        Gondor is the baseline (100%). Cultures above 130% may have weapons that are too powerful relative to their
-        lore position. Cultures below 70% likely have placeholder or incomplete weapon data.
+        Gondor is the baseline (100%). Cultures with strong troop skills and armor receive weapon penalties (elves: -20%),
+        while cultures with weak troops and armor receive weapon buffs (Dol Guldur: +10%, Dunland: +15%).
+        Hero/legendary weapons are exempt from cultural modifiers.
       </p>
     </section>
 
@@ -632,7 +632,7 @@ const balanceConcerns = [
     <section class="info-section">
       <h2>Weapon Class Averages</h2>
       <p class="section-desc">
-        Cross-culture average estimated damage per weapon class. These represent the global baseline for each weapon type.
+        Cross-culture average estimated damage per weapon class after cultural modifiers. These represent the global baseline for each weapon type.
       </p>
       <div class="table-wrapper">
         <table class="baseline-table">
