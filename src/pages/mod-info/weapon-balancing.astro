@@ -283,9 +283,9 @@ const cultures = [
     race: 'Men',
     meleeWeapons: 53,
     rangedWeapons: 0,
-    avgMelee: 66,
+    avgMelee: 69,
     avgRanged: 0,
-    meleePercent: '97%',
+    meleePercent: '101%',
     identity: 'Easterling weaponry is the most numerous in the game — from lacquered Loke-rim blades to heavy war-maces. At +2 points above average, Easterling smithcraft is decent. The massive roster (53 melee weapons) and heavy two-handed weapons anchor their arsenal.',
     primaryWeapons: ['One-Handed Swords (26)', 'One-Handed Axes (6)', 'Maces (6)', 'Two-Handed Axes (6)', 'Two-Handed Maces (6)', 'Polearms (3)'],
     strengths: [
@@ -297,7 +297,7 @@ const cultures = [
       { stat: '1H Sword Damage', mod: '65/37 swing/thrust', note: 'Many light swords dilute average' },
       { stat: 'Polearm Swing', mod: '82/46 swing/thrust', note: 'Only 3 polearms' },
     ],
-    notes: 'Rhun at +2 points (97% of average). Decent Easterling smithcraft with the largest weapon roster in the game. Their two-handed weapons (119-146 avg swing) are strong but many light one-handed swords (26 total) keep the overall average modest. A balanced cavalry culture.',
+    notes: 'Rhun at +2 points (101% of average). Decent Easterling smithcraft with the largest weapon roster in the game. Their two-handed weapons (119-146 avg swing) are strong but many light one-handed swords (26 total) keep the overall average modest. A balanced cavalry culture.',
   },
   {
     id: 'dunland',
@@ -415,8 +415,8 @@ const balanceConcerns = [
         This analysis computes <strong>estimated damage</strong> using the full TaleWorlds physics simulation.
       </p>
       <p class="section-desc">
-        Gondor is the baseline (100%). Cultures with strong troop skills and armor receive weapon penalties (elves: -20%),
-        while cultures with weak troops and armor receive weapon buffs (Dol Guldur: +10%, Dunland: +15%).
+        Weapon quality reflects each culture's craftsmanship. Noldor elves forge the finest blades (+10 points above average),
+        while crude orc-work from Dol Guldur sits at the bottom (-3 points). Isengard's industrial forges serve as the baseline (0 points).
         Hero/legendary weapons are exempt from cultural modifiers.
       </p>
       </div>

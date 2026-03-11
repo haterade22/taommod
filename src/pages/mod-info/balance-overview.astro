@@ -31,7 +31,7 @@ const cultures = [
     id: 'rhun', name: 'Easterlings', color: '#d4a24c', race: 'Men', alignment: 'evil',
     troops: { grade: 'B', detail: 'Rid+18, Pol+15, Ath+5' },
     armor: { grade: 'B', protection: 0, weight: '1.00x', detail: 'Baseline quality' },
-    weapons: { grade: 'B', percent: '97%', modifier: '+2 pts', detail: 'Massive arsenal (53)' },
+    weapons: { grade: 'B', percent: '101%', modifier: '+2 pts', detail: 'Massive arsenal (53)' },
   },
   {
     id: 'rohan', name: 'Rohirrim', color: '#6db36d', race: 'Men', alignment: 'good',
@@ -121,13 +121,13 @@ const frontLineTiers = [
       { name: 'Rohan', color: '#6db36d', reason: '18 infantry shield troops — Westfold Axemen line (sword+shield), Westmarches Spearmen, Edoras Swordsmen/Meduseld Spearmen. Light armor (-2) but solid numbers' },
       { name: 'Rhun', color: '#d4a24c', reason: '14 shield troops — Easterling Spear Bearer, Halberdier, Pillar, Chosen (spear+shield) plus Footman, Swordsman (sword+shield). Disciplined phalanx' },
       { name: 'Gundabad', color: '#7a8a9a', reason: '17 shield troops — Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Dwarven-forged armor (0 prot, 1.15x weight)' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Most shield troops outside Gondor. Fortress-forged armor (0 prot), 140% weapons compensate weak skills' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Most shield troops outside Gondor. Fortress-forged armor (0 prot), crude weapons (-3 pts) offset by sheer numbers' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Mordor', color: '#b44444', reason: '11 shield troops — Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). 120% weapons compensate' },
+      { name: 'Mordor', color: '#b44444', reason: '11 shield troops — Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). Crude weapons (-2 pts) but strong numbers' },
       { name: 'Harad', color: '#c43c3c', reason: '9 shield troops — Levy, Militia, Spearfighter, Swordfighter, Spearguard, Footman, Champion (sword+shield), 2 militia spear. Worst armor (-3) undermines frontline' },
       { name: 'Umbar', color: '#5a8a8a', reason: '7 shield troops — small roster of corsair frontline infantry. Weapons not yet implemented' },
     ],
@@ -146,21 +146,21 @@ const shockTroopTiers = [
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
       { name: 'Iron Hills', color: '#5a7a9a', reason: '11 unshielded 1H mace/hammer/axe/mattock troops — Veteran Hammer Guard, Durin\'s Hammers, Dain\'s Reavers, Mattock Guard, Thorin\'s Mithril Piercers, Royal Guard, King\'s Chosen. 2H+20 skill' },
-      { name: 'Erebor', color: '#6a9fd4', reason: '4 dedicated 2H troops — Axe Guard, Veteran Axe Guard, Wyrm Slayers, Khazad Royal Guard (2H axe) plus Shield Breaker (1H mace). 2H+20 skill, 118% weapons' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '4 dedicated 2H troops — Axe Guard, Veteran Axe Guard, Wyrm Slayers, Khazad Royal Guard (2H axe) plus Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
       { name: 'Gondor', color: '#c8d0d8', reason: '7 shock troops — Lamedon Bladeguard/Highland Defender/Knight/Noble (2H sword), Dol Amroth Men/Sergeants/Captains-at-Arms (2H sword). Strong skill baseline' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 linebreakers double as shock — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer (2H axe). 140% weapon damage + fortress-forged armor (0 prot) compensates weak skills' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 linebreakers double as shock — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer (2H axe). Crude weapons (-3 pts) and weak skills (+5) limit effectiveness despite numbers' },
       { name: 'Isengard', color: '#a0a0a0', reason: '4 shock troops — Uruk Champion (2H sword), Uruk Feller/Slayer/Reaver (2H axe), plus Berserker (unshielded sword). 2H+15 skill' },
-      { name: 'Mordor', color: '#b44444', reason: '3 shock troops — Uruk Ravager, Executioner, Darkblade (2H sword). Plus 5 halberd/polearm troops (Feller, Halberdier, Reaper, Deathwarden). 120% weapons' },
+      { name: 'Mordor', color: '#b44444', reason: '3 shock troops — Uruk Ravager, Executioner, Darkblade (2H sword). Plus 5 halberd/polearm troops (Feller, Halberdier, Reaper, Deathwarden). Crude weapons (-2 pts)' },
     ],
   },
   {
@@ -187,18 +187,13 @@ const lineBreakerTiers = [
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
       { name: 'Iron Hills', color: '#5a7a9a', reason: '11 heavy weapon troops — Hammer Guard, Durin\'s Hammers (1H hammer), Axeguard, Dain\'s Reavers (1H axe), Mattock Guard, Thorin\'s Mithril Piercers (mattock), Royal Guard, King\'s Chosen (Dain\'s axe). THE anti-armor faction' },
-      { name: 'Erebor', color: '#6a9fd4', reason: '5 dedicated breakers — Axe Guard/Veteran (2H axe), Wyrm Slayers, Khazad Royal Guard (2H axe), Shield Breaker (1H mace). 2H+20 skill, 118% weapons' },
-    ],
-  },
-  {
-    tier: 'A', color: '#5dae5d', label: 'Strong',
-    cultures: [
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 dedicated linebreakers — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer all equip 2H axes. 140% weapon modifier makes them devastating' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '5 dedicated breakers — Axe Guard/Veteran (2H axe), Wyrm Slayers, Khazad Royal Guard (2H axe), Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 dedicated linebreakers — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer all equip 2H axes. Good numbers but crude weapons (-3 pts) and weak skills (+5) limit impact' },
       { name: 'Isengard', color: '#a0a0a0', reason: '3 Uruk axe troops — Feller, Slayer, Reaver (2H axe). Berserker with unshielded sword. 2H+15 skill' },
       { name: 'Gondor', color: '#c8d0d8', reason: '2 Lossarnach troops — Heavy Axemen and Wrathbearers (2H axe). Limited but elite anti-armor option' },
       { name: 'Rohan', color: '#6db36d', reason: '2 Westfold troops — 2H Axeman and Veteran 2H Axeman. Small but present anti-armor capability' },
@@ -268,25 +263,25 @@ const infantryTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Best melee skills (2H+20, Pol+20, 1H+15), strongest non-elven armor (+5), powerful weapons (118%)' },
-      { name: 'Erebor', color: '#6a9fd4', reason: 'Elite melee skills (2H+20, 1H+10, Pol+10), excellent armor (+4), powerful weapons (118%)' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Best melee skills (2H+20, Pol+20, 1H+15), strongest non-elven armor (+5), dwarven-forged weapons (+5 pts)' },
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Elite melee skills (2H+20, 1H+10, Pol+10), excellent armor (+4), dwarven-forged weapons (+5 pts)' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Isengard', color: '#a0a0a0', reason: 'Well-rounded skills (2H+15, Pol+15, 1H+10), good armor (+2), competitive weapons (94%)' },
-      { name: 'Gondor', color: '#c8d0d8', reason: 'Solid skills (1H+10, 2H+5, Pol+5), above-baseline armor (+1 prot), baseline weapons (100%)' },
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Well-rounded skills (2H+15, Pol+15, 1H+10), good armor (+2), baseline weapons (0 pts)' },
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Solid skills (1H+10, 2H+5, Pol+5), above-baseline armor (+1 prot), Numenorean weapons (+3 pts)' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Dunland', color: '#9a7a5a', reason: 'Excellent mobility (Ath+20), weak armor (-2), strong weapons (108%) — skirmisher infantry' },
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Excellent mobility (Ath+20), weak armor (-2), crude weapons (-2 pts) — skirmisher infantry relying on speed' },
       { name: 'Rhun', color: '#d4a24c', reason: 'Good polearm skills (Pol+15), baseline armor, baseline weapons — disciplined spearmen' },
-      { name: 'Mordor', color: '#b44444', reason: 'Weak skills (-5 most) but massive weapon damage (120%) — relies on numbers and brute force' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Mixed skills (2H+10), dwarven-forged armor (0 prot, 1.15x weight), average weapons (103%) — armor boost makes complete package' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Weakest skills (+5 only) but extreme weapon damage (140%) and fortress-forged armor (0 prot) — cannon fodder with deadly weapons and decent plate' },
+      { name: 'Mordor', color: '#b44444', reason: 'Weak skills (-5 most) with crude weapons (-2 pts) — relies on sheer numbers and weight of arms' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Mixed skills (2H+10), dwarven-forged armor (0 prot, 1.15x weight), slightly crude weapons (-1 pt) — armor boost makes complete package' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Weakest skills (+5 only), crude weapons (-3 pts), and fortress-forged armor (0 prot) — cannon fodder balanced by cheap cost and numbers' },
     ],
   },
   {
@@ -465,7 +460,7 @@ const gradeColors: Record<string, string> = {
         <h3>* Elven Factions <span class="elven-subtitle">— intentionally elite, balanced by rarity and cost</span></h3>
         <p class="section-desc">
           Elven factions operate on a different power scale. Their troops have +25 to +50 skill bonuses, the best armor in the game,
-          and a -20% weapon modifier to compensate. They are balanced by <strong>extremely low population</strong>, high recruitment costs,
+          and the finest weapons in Middle-earth (+9 to +10 points). They are balanced by <strong>extremely low population</strong>, high recruitment costs,
           and slow replenishment — not by statistical parity with other factions.
         </p>
         <div class="table-wrapper">
