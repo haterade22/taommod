@@ -1,0 +1,713 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Non-elven cultures with balance triangle data
+const cultures = [
+  {
+    id: 'iron_hills', name: 'Ironfists', color: '#5a7a9a', race: 'Dwarf', alignment: 'good',
+    troops: { grade: 'S', detail: '2H+20, Pol+20, 1H+15, Ath+10, Xbow+5' },
+    armor: { grade: 'S', protection: +5, weight: '1.10x', detail: 'Heaviest non-elven armor' },
+    weapons: { grade: 'A', percent: '118%', modifier: '-20%', detail: 'Shared Erebor forges' },
+  },
+  {
+    id: 'erebor', name: 'Longbeards', color: '#6a9fd4', race: 'Dwarf', alignment: 'good',
+    troops: { grade: 'A', detail: '2H+20, 1H+10, Pol+10, Ath+10, Thr+10' },
+    armor: { grade: 'A', protection: +4, weight: '1.05x', detail: 'Dwarven plate' },
+    weapons: { grade: 'A', percent: '118%', modifier: '-20%', detail: 'Dwarven smithcraft' },
+  },
+  {
+    id: 'isengard', name: 'Uruk-Hai', color: '#a0a0a0', race: 'Uruk-Hai', alignment: 'evil',
+    troops: { grade: 'A', detail: '2H+15, Pol+15, Ath+10, 1H+10, Xbow+10' },
+    armor: { grade: 'B', protection: +2, weight: '1.15x', detail: 'Industrial plate, heavy' },
+    weapons: { grade: 'B', percent: '94%', modifier: '+5%', detail: 'Crude but effective' },
+  },
+  {
+    id: 'gondor', name: 'Gondorians', color: '#c8d0d8', race: 'Men', alignment: 'good',
+    troops: { grade: 'B', detail: '1H+10, Ath+5, Rid+5, 2H+5, Pol+5' },
+    armor: { grade: 'B', protection: 0, weight: '1.00x', detail: 'Baseline — Numenorean craft' },
+    weapons: { grade: 'B', percent: '100%', modifier: '+0%', detail: 'Baseline reference' },
+  },
+  {
+    id: 'rhun', name: 'Easterlings', color: '#d4a24c', race: 'Men', alignment: 'evil',
+    troops: { grade: 'B', detail: 'Rid+18, Pol+15, Ath+5' },
+    armor: { grade: 'B', protection: 0, weight: '1.00x', detail: 'Baseline quality' },
+    weapons: { grade: 'B', percent: '100%', modifier: '+5%', detail: 'Massive arsenal (53)' },
+  },
+  {
+    id: 'rohan', name: 'Rohirrim', color: '#6db36d', race: 'Men', alignment: 'good',
+    troops: { grade: 'B', detail: 'Rid+20, Pol+10, Thr+2' },
+    armor: { grade: 'C', protection: -2, weight: '0.90x', detail: 'Light cavalry armor' },
+    weapons: { grade: 'C', percent: '92%', modifier: '+5%', detail: 'Cavalry-focused blades' },
+  },
+  {
+    id: 'dunland', name: 'Dunlendings', color: '#9a7a5a', race: 'Men', alignment: 'evil',
+    troops: { grade: 'B', detail: 'Ath+20, Thr+15, 1H+5, 2H+5' },
+    armor: { grade: 'C', protection: -2, weight: '0.95x', detail: 'Hide and fur' },
+    weapons: { grade: 'A', percent: '108%', modifier: '+15%', detail: 'Highest weapon buff' },
+  },
+  {
+    id: 'harad', name: 'Haruze', color: '#c43c3c', race: 'Men', alignment: 'evil',
+    troops: { grade: 'C', detail: 'Rid+15, Bow+10, 1H+5' },
+    armor: { grade: 'D', protection: -3, weight: '0.85x', detail: 'Worst protection, lightest' },
+    weapons: { grade: 'B', percent: '95%', modifier: '+10%', detail: 'Desert-forged blades' },
+  },
+  {
+    id: 'mordor', name: 'Mordor Orcs', color: '#b44444', race: 'Orc', alignment: 'evil',
+    troops: { grade: 'D', detail: '2H+5, Thr+5, most skills -5' },
+    armor: { grade: 'C', protection: -1, weight: '1.10x', detail: 'Crude iron plate' },
+    weapons: { grade: 'A', percent: '120%', modifier: '+5%', detail: 'Brutal orc weapons' },
+  },
+  {
+    id: 'gundabad', name: 'Gundabad Orcs', color: '#7a8a9a', race: 'Orc', alignment: 'evil',
+    troops: { grade: 'C', detail: '2H+10, Ath+5, Pol+5, Thr+5' },
+    armor: { grade: 'D', protection: -2, weight: '1.15x', detail: 'Worst armor overall' },
+    weapons: { grade: 'B', percent: '103%', modifier: '+5%', detail: 'Mountain-orc arms' },
+  },
+  {
+    id: 'dolguldur', name: 'Goblins', color: '#7a9a5a', race: 'Orc', alignment: 'evil',
+    troops: { grade: 'D', detail: '1H+5, 2H+5, most skills -5 to -10' },
+    armor: { grade: 'C', protection: -1, weight: '1.10x', detail: 'Scavenged armor' },
+    weapons: { grade: 'S', percent: '140%', modifier: '+10%', detail: 'Highest in game' },
+  },
+  {
+    id: 'umbar', name: 'Umbareans', color: '#5a8a8a', race: 'Men', alignment: 'neutral',
+    troops: { grade: 'C', detail: 'Ath+10, 1H+10, 2H+5, Rid-15' },
+    armor: { grade: 'C', protection: -1, weight: '0.90x', detail: 'Light corsair gear' },
+    weapons: { grade: '—', percent: '—', modifier: '—', detail: 'Not yet implemented' },
+  },
+];
+
+// Elven cultures (shown separately)
+const elvenCultures = [
+  {
+    id: 'rivendell', name: 'Noldorin', color: '#7ec8e3', race: 'Elf',
+    troops: { grade: 'S+', detail: '+35-40 all combat skills' },
+    armor: { grade: 'S+', protection: +6, weight: '0.70x', detail: 'Best protection, lightest' },
+    weapons: { grade: 'D', percent: '78%', modifier: '-20%', detail: 'Skill compensates' },
+  },
+  {
+    id: 'mirkwood', name: 'Silvan', color: '#4a9e6d', race: 'Elf',
+    troops: { grade: 'S+', detail: 'Bow+50, 1H+40, Ath+45' },
+    armor: { grade: 'S', protection: +5, weight: '0.65x', detail: 'Lightest in game' },
+    weapons: { grade: 'B', percent: '102%', modifier: '-20%*', detail: 'Hero weapons exempt' },
+  },
+  {
+    id: 'lothlorien', name: 'Sindar', color: '#c9a84c', race: 'Elf',
+    troops: { grade: 'S+', detail: '+25-35 all combat skills' },
+    armor: { grade: 'S', protection: +5, weight: '0.70x', detail: 'Elven masterwork' },
+    weapons: { grade: 'A', percent: '108%', modifier: '-20%*', detail: 'All hero exempt' },
+  },
+];
+
+// Infantry tier list
+const infantryTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Best melee skills (2H+20, Pol+20, 1H+15), strongest non-elven armor (+5), powerful weapons (118%)' },
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Elite melee skills (2H+20, 1H+10, Pol+10), excellent armor (+4), powerful weapons (118%)' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Well-rounded skills (2H+15, Pol+15, 1H+10), good armor (+2), competitive weapons (94%)' },
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Solid skills (1H+10, 2H+5, Pol+5), reliable armor (baseline), baseline weapons (100%)' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Excellent mobility (Ath+20), weak armor (-2), strong weapons (108%) — skirmisher infantry' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Good polearm skills (Pol+15), baseline armor, baseline weapons — disciplined spearmen' },
+      { name: 'Mordor', color: '#b44444', reason: 'Weak skills (-5 most) but massive weapon damage (120%) — relies on numbers and brute force' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Weakest skills (+5 only) but extreme weapon damage (140%) — cannon fodder with deadly weapons' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Mixed skills (2H+10), worst armor (-2, 1.15x weight), average weapons (103%)' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Decent skills (1H+10, Ath+10) but no weapons yet — corsair infantry planned' },
+      { name: 'Rohan', color: '#6db36d', reason: 'Infantry is an afterthought — cavalry culture with light armor and below-average weapons' },
+      { name: 'Harad', color: '#c43c3c', reason: 'Infantry not their identity — worst armor in game (-3 prot), cavalry/archery focus' },
+    ],
+  },
+];
+
+// Cavalry tier list
+const cavalryTiers = [
+  {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Rohan', color: '#6db36d', reason: 'Best riding (+20), strong polearm (+10), lightest human armor (0.90x) — definitive cavalry culture' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Excellent riding (+18), best polearm (+15), baseline armor — disciplined lancers' },
+    ],
+  },
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Harad', color: '#c43c3c', reason: 'Strong riding (+15), bow capable (+10), lightest armor (0.85x) — desert raiders and horse archers' },
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Solid riding (+5), balanced skills, reliable armor — knights of Dol Amroth and Gondorian cavalry' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Capable',
+    cultures: [
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Some riding (+5), warg riders provide unique mounted shock troops' },
+      { name: 'Mordor', color: '#b44444', reason: 'Warg riders compensate for poor riding (-5), brutal mounted weapons (120%)' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Limited',
+    cultures: [
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Riding -5, hill-folk culture has minimal cavalry tradition' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Riding -5, mountain orcs have limited mounted options' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Riding -10, goblins fight on foot — spider riders planned' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Riding -15, corsairs fight on ships and on foot' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'None',
+    cultures: [
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Riding -20, dwarves do not ride — war goats planned' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Riding -5 but still dwarves — iron boar chariots planned' },
+    ],
+  },
+];
+
+// Archer tier list
+const archerTiers = [
+  {
+    tier: 'A', color: '#5dae5d', label: 'Strong',
+    cultures: [
+      { name: 'Harad', color: '#c43c3c', reason: 'Bow+10, Riding+15 — horse archers and longbowmen, light armor for mobility' },
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Xbow+10, Thr+10 — industrial crossbow production, heaviest armored ranged' },
+    ],
+  },
+  {
+    tier: 'B', color: '#6a9fd4', label: 'Competent',
+    cultures: [
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Thr+15, Ath+20 — best javelin skirmishers in the game, extreme mobility' },
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Baseline archers with solid armor — Rangers of Ithilien provide elite options' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Some horse archer capability, Riding+18 offsets Bow-10 for mounted harassment' },
+    ],
+  },
+  {
+    tier: 'C', color: '#a0a0a0', label: 'Weak',
+    cultures: [
+      { name: 'Mordor', color: '#b44444', reason: 'Thr+5 only, relies on volume of fire — orc archers are numerous but inaccurate' },
+      { name: 'Rohan', color: '#6db36d', reason: 'Bow-5, some mounted archery from cavalrymen but not a ranged culture' },
+      { name: 'Erebor', color: '#6a9fd4', reason: 'No ranged bonuses — dwarves use crossbows by tradition, not by skill' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Xbow+5, minimal ranged capability — heavy crossbow support troops' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'No ranged bonuses — corsair archers planned' },
+    ],
+  },
+  {
+    tier: 'D', color: '#d46a6a', label: 'Poor',
+    cultures: [
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Bow-10, Xbow-10 — mountain orcs disdain ranged combat' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Bow-5, Xbow-5 — goblins have crude ranged options at best' },
+    ],
+  },
+];
+
+// Grade color mapping
+const gradeColors: Record<string, string> = {
+  'S+': '#ff9800',
+  'S': '#d4a24c',
+  'A': '#5dae5d',
+  'B': '#6a9fd4',
+  'C': '#a0a0a0',
+  'D': '#d46a6a',
+  '—': 'rgba(255,255,255,0.2)',
+};
+---
+
+<BaseLayout title="Balance Overview" description="Comprehensive faction power rankings across troop skills, armor, and weapons">
+  <div class="page-content mod-info">
+    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Balance Overview</nav>
+    <h1 class="page-title">Balance Overview</h1>
+
+    <section class="info-section">
+      <h2>The Balance Triangle</h2>
+      <p class="section-desc">
+        Every faction in TAOM is balanced across <strong>three axes</strong>: troop skills, armor protection, and weapon damage.
+        Factions strong in one axis are deliberately weaker in others, creating asymmetric but balanced gameplay.
+        No faction dominates all three — except elves, who are <strong>intentionally elite</strong> and balanced by extreme rarity and cost.
+      </p>
+      <div class="triangle-visual">
+        <div class="triangle-axis">
+          <div class="axis-icon">&#9876;</div>
+          <div class="axis-info">
+            <strong>Troop Skills</strong>
+            <span>Cultural modifiers to combat skills — affects hit chance, block ability, and movement speed</span>
+          </div>
+        </div>
+        <div class="triangle-axis">
+          <div class="axis-icon">&#128737;</div>
+          <div class="axis-info">
+            <strong>Armor Protection</strong>
+            <span>Cultural protection bonuses and weight multipliers — affects damage taken and mobility</span>
+          </div>
+        </div>
+        <div class="triangle-axis">
+          <div class="axis-icon">&#9876;</div>
+          <div class="axis-info">
+            <strong>Weapon Damage</strong>
+            <span>Cultural damage_factor modifiers — affects raw damage output per hit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Faction Power Comparison</h2>
+      <p class="section-desc">
+        Grades reflect relative strength within each axis. <strong>S</strong> = dominant, <strong>A</strong> = strong, <strong>B</strong> = solid, <strong>C</strong> = below average, <strong>D</strong> = weak.
+        See individual balancing pages for detailed numbers.
+      </p>
+      <div class="table-wrapper">
+        <table class="power-table">
+          <thead>
+            <tr>
+              <th>Culture</th>
+              <th>Race</th>
+              <th class="grade-col">Troops</th>
+              <th class="grade-col">Armor</th>
+              <th class="grade-col">Weapons</th>
+              <th class="detail-col">Key Strength</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cultures.map(c => (
+              <tr>
+                <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
+                  <span style={`color: ${c.color}`}>{c.name}</span>
+                </td>
+                <td class="race-cell">{c.race}</td>
+                <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>{c.troops.grade}</span></td>
+                <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>{c.armor.grade}</span></td>
+                <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>{c.weapons.grade}</span></td>
+                <td class="detail-cell">{c.troops.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="elven-note">
+        <h3>* Elven Factions <span class="elven-subtitle">— intentionally elite, balanced by rarity and cost</span></h3>
+        <p class="section-desc">
+          Elven factions operate on a different power scale. Their troops have +25 to +50 skill bonuses, the best armor in the game,
+          and a -20% weapon modifier to compensate. They are balanced by <strong>extremely low population</strong>, high recruitment costs,
+          and slow replenishment — not by statistical parity with other factions.
+        </p>
+        <div class="table-wrapper">
+          <table class="power-table elven-table">
+            <thead>
+              <tr>
+                <th>Culture</th>
+                <th class="grade-col">Troops</th>
+                <th class="grade-col">Armor</th>
+                <th class="grade-col">Weapons</th>
+                <th class="detail-col">Key Strength</th>
+              </tr>
+            </thead>
+            <tbody>
+              {elvenCultures.map(c => (
+                <tr>
+                  <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
+                    <span style={`color: ${c.color}`}>{c.name} *</span>
+                  </td>
+                  <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>{c.troops.grade}</span></td>
+                  <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>{c.armor.grade}</span></td>
+                  <td class="grade-cell"><span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>{c.weapons.grade}</span></td>
+                  <td class="detail-cell">{c.troops.detail}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Infantry Power Rankings</h2>
+      <p class="section-desc">
+        Ranked by combined melee skill bonuses (1H, 2H, Polearm), Athletics, armor protection, and weapon damage.
+        Elven factions would rank S+ across the board but are excluded — they are balanced by population, not by stats.
+      </p>
+      <p class="section-desc coming-soon">
+        Infantry subcategories coming soon: <strong>Front Line</strong> (shield wall), <strong>Shock Troops</strong> (charge damage),
+        <strong>Line Breakers</strong> (anti-armor), <strong>Skirmishers</strong> (javelin/throwing).
+      </p>
+      {infantryTiers.map(t => (
+        <div class="tier-row">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+            <span class="tier-desc">{t.label}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Cavalry Power Rankings</h2>
+      <p class="section-desc">
+        Ranked by Riding skill, Polearm/OneHanded combat, armor weight (lighter = faster mounts), and weapon damage.
+        Includes both traditional cavalry and warg/beast riders where applicable.
+      </p>
+      {cavalryTiers.map(t => (
+        <div class="tier-row">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+            <span class="tier-desc">{t.label}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Ranged Power Rankings</h2>
+      <p class="section-desc">
+        Ranked by Bow, Crossbow, and Throwing skill bonuses, armor weight (mobility for kiting), and relevant weapon damage.
+        Elven factions would dominate — Mirkwood has +50 Bow, Rivendell +40 Bow, Lothlorien +35 Bow.
+      </p>
+      {archerTiers.map(t => (
+        <div class="tier-row">
+          <div class="tier-label" style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}>
+            <span class="tier-letter">{t.tier}</span>
+            <span class="tier-desc">{t.label}</span>
+          </div>
+          <div class="tier-cultures">
+            {t.cultures.map(c => (
+              <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                <strong style={`color: ${c.color}`}>{c.name}</strong>
+                <span class="tier-reason">{c.reason}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="info-section">
+      <h2>Detailed Balancing Pages</h2>
+      <div class="links-grid">
+        <a href="/mod-info/troop-balancing" class="link-card" style="--lc-color: rgba(180, 120, 200, 0.35)">
+          <strong>Troop Balancing</strong>
+          <span>Cultural skill modifiers, baseline tables, and troop progression for all 16 cultures</span>
+        </a>
+        <a href="/mod-info/armour-balancing" class="link-card" style="--lc-color: rgba(200, 160, 100, 0.35)">
+          <strong>Armour Balancing</strong>
+          <span>Protection bonuses, weight multipliers, and tier breakdowns across 17 cultures</span>
+        </a>
+        <a href="/mod-info/weapon-balancing" class="link-card" style="--lc-color: rgba(220, 130, 130, 0.35)">
+          <strong>Weapon Balancing</strong>
+          <span>Damage analysis from TaleWorlds physics, cultural modifiers, and per-weapon breakdowns</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .mod-info {
+    max-width: 1200px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .info-section {
+    margin-bottom: 3rem;
+  }
+
+  .info-section h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(212, 162, 76, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .coming-soon {
+    background: rgba(212, 162, 76, 0.08);
+    border: 1px solid rgba(212, 162, 76, 0.2);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Triangle visual */
+  .triangle-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .triangle-axis {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .axis-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .axis-info strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .axis-info span {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* Power comparison table */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .power-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .power-table th, .power-table td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+
+  .power-table th {
+    background: rgba(212, 162, 76, 0.15);
+    color: var(--accent);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+
+  .power-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .culture-cell {
+    font-weight: 600;
+    padding-left: 0.75rem !important;
+  }
+
+  .race-cell {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+  }
+
+  .grade-col {
+    text-align: center;
+    width: 70px;
+  }
+
+  .grade-cell {
+    text-align: center;
+  }
+
+  .grade {
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: monospace;
+  }
+
+  .detail-col {
+    min-width: 200px;
+  }
+
+  .detail-cell {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    font-family: monospace;
+  }
+
+  /* Elven section */
+  .elven-note {
+    background: rgba(126, 200, 227, 0.05);
+    border: 1px solid rgba(126, 200, 227, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .elven-note h3 {
+    color: #7ec8e3;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .elven-subtitle {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: rgba(126, 200, 227, 0.6);
+  }
+
+  .elven-table {
+    font-size: 0.825rem;
+  }
+
+  .elven-table th {
+    background: rgba(126, 200, 227, 0.1);
+    color: #7ec8e3;
+  }
+
+  /* Tier rows */
+  .tier-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    min-height: 60px;
+  }
+
+  .tier-label {
+    flex-shrink: 0;
+    width: 80px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .tier-letter {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: monospace;
+    line-height: 1;
+  }
+
+  .tier-desc {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    margin-top: 0.15rem;
+  }
+
+  .tier-cultures {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tier-culture {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .tier-culture strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .tier-reason {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .link-card {
+    display: block;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--lc-color);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .link-card strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .link-card span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .triangle-visual {
+      grid-template-columns: 1fr;
+    }
+    .tier-row {
+      flex-direction: column;
+    }
+    .tier-label {
+      width: 100%;
+      flex-direction: row;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+    }
+    .tier-letter { font-size: 1.2rem; }
+    .tier-culture { min-width: 100%; }
+    .links-grid { grid-template-columns: 1fr; }
+  }
+</style>
