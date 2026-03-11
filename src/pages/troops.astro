@@ -16,6 +16,40 @@ allTroops.sort((a, b) => a.level - b.level);
 // Get unique cultures and groups for filters
 const cultures = [...new Set(allTroops.map(t => t.culture).filter(Boolean))].sort();
 const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].sort();
+
+// Group troops by culture display name
+const cultureGroups = new Map<string, { culture: string; troops: typeof allTroops }>();
+for (const t of allTroops) {
+  const display = getCultureDisplayName(t.culture) || 'Unknown';
+  if (!cultureGroups.has(display)) cultureGroups.set(display, { culture: t.culture, troops: [] });
+  cultureGroups.get(display)!.troops.push(t);
+}
+
+// Table header columns
+const headerCols = [
+  { col: 'name', label: 'Name', cls: '' },
+  { col: 'level', label: 'Level', cls: 'col-num' },
+  { col: 'defaultGroup', label: 'Default Group', cls: '' },
+  { col: 'athletics', label: 'Athletics', cls: 'col-num section-start skill-athletics' },
+  { col: 'riding', label: 'Riding', cls: 'col-num skill-riding' },
+  { col: 'oneHanded', label: 'OneHanded', cls: 'col-num skill-onehanded' },
+  { col: 'twoHanded', label: 'TwoHanded', cls: 'col-num skill-twohanded' },
+  { col: 'polearm', label: 'Polearm', cls: 'col-num skill-polearm' },
+  { col: 'bow', label: 'Bow', cls: 'col-num skill-bow' },
+  { col: 'crossbow', label: 'Crossbow', cls: 'col-num skill-crossbow' },
+  { col: 'throwing', label: 'Throwing', cls: 'col-num skill-throwing' },
+  { col: 'item0', label: 'Item0', cls: 'section-start' },
+  { col: 'item1', label: 'Item1', cls: '' },
+  { col: 'item2', label: 'Item2', cls: '' },
+  { col: 'item3', label: 'Item3', cls: '' },
+  { col: 'head', label: 'Head', cls: '' },
+  { col: 'body', label: 'Body', cls: '' },
+  { col: 'leg', label: 'Leg', cls: '' },
+  { col: 'glove', label: 'Glove', cls: '' },
+  { col: 'race', label: 'Race', cls: 'section-start' },
+  { col: 'culture', label: 'Culture', cls: '' },
+  { col: 'id', label: 'Id', cls: '' },
+];
 ---
 
 <BaseLayout title="Troops" description="Complete troop database for TAOM - all factions, skills, and equipment">
@@ -25,10 +59,6 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
 
     <div class="table-controls">
       <input type="text" id="search" placeholder="Search by name or ID..." />
-      <select id="filter-culture">
-        <option value="">All Cultures</option>
-        {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
-      </select>
       <select id="filter-group">
         <option value="">All Groups</option>
         {groups.map(g => <option value={g}>{g}</option>)}
@@ -44,172 +74,242 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
       <span class="result-count" id="result-count">{allTroops.length} troops</span>
     </div>
 
-    <div class="data-table-wrapper">
-      <table class="data-table" id="troop-table">
-        <thead>
-          <tr>
-            <th data-col="name">Name</th>
-            <th data-col="level" class="col-num">Level</th>
-            <th data-col="defaultGroup">Default Group</th>
-            <th data-col="athletics" class="col-num section-start skill-athletics">Athletics</th>
-            <th data-col="riding" class="col-num skill-riding">Riding</th>
-            <th data-col="oneHanded" class="col-num skill-onehanded">OneHanded</th>
-            <th data-col="twoHanded" class="col-num skill-twohanded">TwoHanded</th>
-            <th data-col="polearm" class="col-num skill-polearm">Polearm</th>
-            <th data-col="bow" class="col-num skill-bow">Bow</th>
-            <th data-col="crossbow" class="col-num skill-crossbow">Crossbow</th>
-            <th data-col="throwing" class="col-num skill-throwing">Throwing</th>
-            <th data-col="item0" class="section-start">Item0</th>
-            <th data-col="item1">Item1</th>
-            <th data-col="item2">Item2</th>
-            <th data-col="item3">Item3</th>
-            <th data-col="head">Head</th>
-            <th data-col="body">Body</th>
-            <th data-col="leg">Leg</th>
-            <th data-col="glove">Glove</th>
-            <th data-col="race" class="section-start">Race</th>
-            <th data-col="culture">Culture</th>
-            <th data-col="id">Id</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allTroops.map(t => (
-            <tr
-              data-name={t.name.toLowerCase()}
-              data-id={t.id.toLowerCase()}
-              data-culture={t.culture}
-              data-group={t.defaultGroup}
-              data-occupation={t.occupation}
-            >
-              <td>{t.name}</td>
-              <td class="col-num">{t.level}</td>
-              <td>{t.defaultGroup}</td>
-              <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
-              <td class={sc('riding', t.riding)}>{t.riding}</td>
-              <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
-              <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
-              <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
-              <td class={sc('bow', t.bow)}>{t.bow}</td>
-              <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
-              <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
-              <td class="col-id section-start">{t.item0}</td>
-              <td class="col-id">{t.item1}</td>
-              <td class="col-id">{t.item2}</td>
-              <td class="col-id">{t.item3}</td>
-              <td class="col-id">{t.head}</td>
-              <td class="col-id">{t.body}</td>
-              <td class="col-id">{t.leg}</td>
-              <td class="col-id">{t.glove}</td>
-              <td class="section-start">{t.race}</td>
-              <td>{getCultureDisplayName(t.culture)}</td>
-              <td class="col-id">{t.id}</td>
+    <!-- All Troops -->
+    <div class="collapsible-section" data-collapsed="true" data-section-culture="all">
+      <h2 class="section-title section-toggle">
+        <span class="collapse-arrow">&#9654;</span> All Troops <span class="section-count" data-count-for="all">({allTroops.length})</span>
+      </h2>
+      <div class="data-table-wrapper" style="display:none">
+        <table class="data-table troop-section" data-section="all">
+          <thead>
+            <tr>
+              {headerCols.map(h => (
+                <th data-col={h.col} class={h.cls}>{h.label}</th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {allTroops.map(t => (
+              <tr
+                data-name={t.name.toLowerCase()}
+                data-id={t.id.toLowerCase()}
+                data-culture={t.culture}
+                data-group={t.defaultGroup}
+                data-occupation={t.occupation}
+              >
+                <td>{t.name}</td>
+                <td class="col-num">{t.level}</td>
+                <td>{t.defaultGroup}</td>
+                <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
+                <td class={sc('riding', t.riding)}>{t.riding}</td>
+                <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
+                <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
+                <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
+                <td class={sc('bow', t.bow)}>{t.bow}</td>
+                <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
+                <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
+                <td class="col-id section-start">{t.item0}</td>
+                <td class="col-id">{t.item1}</td>
+                <td class="col-id">{t.item2}</td>
+                <td class="col-id">{t.item3}</td>
+                <td class="col-id">{t.head}</td>
+                <td class="col-id">{t.body}</td>
+                <td class="col-id">{t.leg}</td>
+                <td class="col-id">{t.glove}</td>
+                <td class="section-start">{t.race}</td>
+                <td>{getCultureDisplayName(t.culture)}</td>
+                <td class="col-id">{t.id}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    <!-- Per-Culture Sections -->
+    {[...cultureGroups.entries()].map(([cultureName, { culture, troops }]) => (
+      <div class="collapsible-section" data-collapsed="true" data-section-culture={culture}>
+        <h2 class="section-title section-toggle">
+          <span class="collapse-arrow">&#9654;</span> {cultureName} <span class="section-count" data-count-for={culture}>({troops.length})</span>
+        </h2>
+        <div class="data-table-wrapper" style="display:none">
+          <table class="data-table troop-section" data-section={culture}>
+            <thead>
+              <tr>
+                {headerCols.map(h => (
+                  <th data-col={h.col} class={h.cls}>{h.label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {troops.map(t => (
+                <tr
+                  data-name={t.name.toLowerCase()}
+                  data-id={t.id.toLowerCase()}
+                  data-culture={t.culture}
+                  data-group={t.defaultGroup}
+                  data-occupation={t.occupation}
+                >
+                  <td>{t.name}</td>
+                  <td class="col-num">{t.level}</td>
+                  <td>{t.defaultGroup}</td>
+                  <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
+                  <td class={sc('riding', t.riding)}>{t.riding}</td>
+                  <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
+                  <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
+                  <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
+                  <td class={sc('bow', t.bow)}>{t.bow}</td>
+                  <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
+                  <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
+                  <td class="col-id section-start">{t.item0}</td>
+                  <td class="col-id">{t.item1}</td>
+                  <td class="col-id">{t.item2}</td>
+                  <td class="col-id">{t.item3}</td>
+                  <td class="col-id">{t.head}</td>
+                  <td class="col-id">{t.body}</td>
+                  <td class="col-id">{t.leg}</td>
+                  <td class="col-id">{t.glove}</td>
+                  <td class="section-start">{t.race}</td>
+                  <td>{getCultureDisplayName(t.culture)}</td>
+                  <td class="col-id">{t.id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
   </div>
 </BaseLayout>
 
 <script>
-  // Client-side filtering, sorting, and search
-  const table = document.getElementById('troop-table') as HTMLTableElement;
-  const tbody = table.querySelector('tbody')!;
-  const rows = Array.from(tbody.querySelectorAll('tr'));
   const searchInput = document.getElementById('search') as HTMLInputElement;
-  const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
   const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
   const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
   const resultCount = document.getElementById('result-count')!;
 
-  let sortCol = '';
-  let sortAsc = true;
+  const tables = document.querySelectorAll('table.troop-section');
+  const allRows: HTMLTableRowElement[] = [];
+  tables.forEach(t => {
+    allRows.push(...Array.from(t.querySelectorAll('tbody tr')));
+  });
 
   function filterRows() {
     const search = searchInput.value.toLowerCase();
-    const culture = cultureFilter.value;
     const group = groupFilter.value;
     const occupation = occupationFilter.value;
-    let visible = 0;
+    let totalVisible = 0;
 
-    for (const row of rows) {
+    // Track visible counts per section
+    const sectionCounts = new Map<string, number>();
+
+    for (const row of allRows) {
       const name = row.dataset.name || '';
       const id = row.dataset.id || '';
-      const rowCulture = row.dataset.culture || '';
       const rowGroup = row.dataset.group || '';
       const rowOccupation = row.dataset.occupation || '';
 
       const matchesSearch = !search || name.includes(search) || id.includes(search);
-      const matchesCulture = !culture || rowCulture === culture;
       const matchesGroup = !group || rowGroup === group;
       const matchesOccupation = !occupation || rowOccupation === occupation;
 
-      const show = matchesSearch && matchesCulture && matchesGroup && matchesOccupation;
+      const show = matchesSearch && matchesGroup && matchesOccupation;
       row.style.display = show ? '' : 'none';
-      if (show) visible++;
+
+      // Count for the section this row belongs to
+      const table = row.closest('table')!;
+      const sectionKey = (table as HTMLElement).dataset.section || '';
+      if (show) {
+        sectionCounts.set(sectionKey, (sectionCounts.get(sectionKey) || 0) + 1);
+      }
     }
 
-    resultCount.textContent = `${visible} troops`;
+    // Update section counts and hide empty sections
+    document.querySelectorAll('.collapsible-section').forEach(section => {
+      const sectionEl = section as HTMLElement;
+      const culture = sectionEl.dataset.sectionCulture || '';
+      const countSpan = sectionEl.querySelector('.section-count') as HTMLElement;
+      const count = sectionCounts.get(culture) || 0;
+      if (countSpan) countSpan.textContent = `(${count})`;
+      sectionEl.style.display = count > 0 || (!search && !group && !occupation) ? '' : 'none';
+    });
+
+    // Total visible (only count from "all" table to avoid double-counting)
+    totalVisible = sectionCounts.get('all') || 0;
+    resultCount.textContent = `${totalVisible} troops`;
   }
 
   // Apply URL query params on load
   const params = new URLSearchParams(window.location.search);
-  if (params.get('culture')) cultureFilter.value = params.get('culture')!;
   if (params.get('group')) groupFilter.value = params.get('group')!;
   if (params.get('search')) searchInput.value = params.get('search')!;
 
   searchInput.addEventListener('input', filterRows);
-  cultureFilter.addEventListener('change', filterRows);
   groupFilter.addEventListener('change', filterRows);
   occupationFilter.addEventListener('change', filterRows);
 
-  // Run initial filter (picks up URL params)
   filterRows();
 
-  // Column sorting
-  const headers = table.querySelectorAll('th[data-col]');
-  headers.forEach(th => {
-    th.addEventListener('click', () => {
-      const col = (th as HTMLElement).dataset.col!;
-      if (sortCol === col) {
-        sortAsc = !sortAsc;
-      } else {
-        sortCol = col;
-        sortAsc = true;
-      }
+  // Section collapse/expand
+  document.querySelectorAll('.section-toggle').forEach(title => {
+    title.addEventListener('click', () => {
+      const section = title.closest('.collapsible-section') as HTMLElement;
+      const wrapper = section.querySelector('.data-table-wrapper') as HTMLElement;
+      const arrow = title.querySelector('.collapse-arrow')!;
+      const collapsed = section.dataset.collapsed === 'true';
+      section.dataset.collapsed = collapsed ? 'false' : 'true';
+      wrapper.style.display = collapsed ? '' : 'none';
+      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+    });
+  });
 
-      // Update sort indicators
-      headers.forEach(h => {
-        const indicator = h.querySelector('.sort-indicator');
-        if (indicator) indicator.remove();
-      });
-      const indicator = document.createElement('span');
-      indicator.className = 'sort-indicator';
-      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-      th.appendChild(indicator);
+  // Column sorting per table
+  tables.forEach(table => {
+    const headers = table.querySelectorAll('th[data-col]');
+    const tbody = table.querySelector('tbody')!;
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    let sortCol = '';
+    let sortAsc = true;
 
-      // Get column index
-      const colIndex = Array.from(headers).indexOf(th);
-
-      // Sort rows
-      const isNumeric = th.classList.contains('col-num');
-      rows.sort((a, b) => {
-        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-        if (isNumeric) {
-          const aNum = parseFloat(aVal) || 0;
-          const bNum = parseFloat(bVal) || 0;
-          return sortAsc ? aNum - bNum : bNum - aNum;
+    headers.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.col!;
+        if (sortCol === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortCol = col;
+          sortAsc = true;
         }
 
-        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      });
+        headers.forEach(h => {
+          const indicator = h.querySelector('.sort-indicator');
+          if (indicator) indicator.remove();
+        });
+        const indicator = document.createElement('span');
+        indicator.className = 'sort-indicator';
+        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+        th.appendChild(indicator);
 
-      // Re-append sorted rows
-      for (const row of rows) {
-        tbody.appendChild(row);
-      }
+        const colIndex = Array.from(headers).indexOf(th);
+        const isNumeric = th.classList.contains('col-num');
+
+        rows.sort((a, b) => {
+          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+          if (isNumeric) {
+            const aNum = parseFloat(aVal) || 0;
+            const bNum = parseFloat(bVal) || 0;
+            return sortAsc ? aNum - bNum : bNum - aNum;
+          }
+
+          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        });
+
+        for (const row of rows) {
+          tbody.appendChild(row);
+        }
+      });
     });
   });
 </script>
@@ -229,5 +329,39 @@ const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].
 
   .page-subtitle-link a:hover {
     color: var(--accent-hover);
+  }
+
+  .section-title {
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-title:first-of-type {
+    margin-top: 1rem;
+  }
+
+  .section-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .section-toggle {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-toggle:hover {
+    color: var(--text-primary);
+  }
+
+  .collapse-arrow {
+    display: inline-block;
+    font-size: 0.8em;
+    transition: transform 0.2s;
   }
 </style>
