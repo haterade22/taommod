@@ -104,38 +104,38 @@ const frontLineTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Iron Hills', color: '#5a7a9a', reason: '1H+15, Pol+20, best non-elven armor (+5) — the definitive shield wall faction' },
-      { name: 'Erebor', color: '#6a9fd4', reason: '1H+10, Pol+10, excellent armor (+4) — dwarven shield-bearers hold any line' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '12 shield troops — Iron Phalanx, Boar Guard/Champion, Thrain\'s Ironclads (spear+shield) plus Forge Guard, Noble Warrior (sword+shield). Best non-elven armor (+5)' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '12 spear+shield (Spear Guard, Legionary, Royal Lord) and 11 sword+shield (Shield Guard, Gate Warden, Royal Warden). Excellent armor (+4)' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Isengard', color: '#a0a0a0', reason: '1H+10, Pol+15, good armor (+2) — disciplined Uruk shield formations' },
-      { name: 'Gondor', color: '#c8d0d8', reason: '1H+10, Pol+5, reliable armor (baseline) — Tower Guard and Citadel infantry' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '28 shield troops — 13 spear+shield (Spearman, Fountain Guard, Dol Amroth Knights, Belfalas) and 15 sword+shield (Tower Guard, Swordsmen, Lossarnach, Dol Amroth). Most diverse frontline in game' },
+      { name: 'Isengard', color: '#a0a0a0', reason: '17 shield troops — Uruk-hai Infantry/Veteran, Orthanc Guard/Warden/Bodyguard (sword+shield), Uruk Spearman/Veteran, Pavise (spear+shield). Disciplined formations' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Rhun', color: '#d4a24c', reason: 'Pol+15, baseline armor — disciplined Easterling spear walls' },
-      { name: 'Dunland', color: '#9a7a5a', reason: '1H+5, weapons 108% — crude shield-and-spear line, compensated by weapon buff' },
+      { name: 'Rohan', color: '#6db36d', reason: '18 infantry shield troops — Westfold Axemen line (sword+shield), Westmarches Spearmen, Edoras Swordsmen/Meduseld Spearmen. Light armor (-2) but solid numbers' },
+      { name: 'Rhun', color: '#d4a24c', reason: '14 shield troops — Easterling Spear Bearer, Halberdier, Pillar, Chosen (spear+shield) plus Footman, Swordsman (sword+shield). Disciplined phalanx' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '17 shield troops — Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Worst armor holds them back' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Mordor', color: '#b44444', reason: 'Pol-5 but 120% weapons — orc shield walls are numerous but unskilled' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Pol+5 but worst armor (-2, 1.15x) — mountain orcs prefer aggression over defense' },
-      { name: 'Umbar', color: '#5a8a8a', reason: '1H+10 but weapons pending — corsair shield troops planned' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Quantity over quality, weak skills (+5)' },
+      { name: 'Mordor', color: '#b44444', reason: '11 shield troops — Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). 120% weapons compensate' },
+      { name: 'Harad', color: '#c43c3c', reason: '9 shield troops — Levy, Militia, Spearfighter, Swordfighter, Spearguard, Footman, Champion (sword+shield), 2 militia spear. Worst armor (-3) undermines frontline' },
+      { name: 'Umbar', color: '#5a8a8a', reason: '7 shield troops — small roster of corsair frontline infantry. Weapons not yet implemented' },
     ],
   },
   {
     tier: 'D', color: '#d46a6a', label: 'Poor',
     cultures: [
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '1H+5 only, poor armor — goblins lack discipline for shield formations' },
-      { name: 'Rohan', color: '#6db36d', reason: 'No frontline bonuses — Rohirrim fight from horseback, not in shield walls' },
-      { name: 'Harad', color: '#c43c3c', reason: 'Pol-5, worst armor (-3) — desert warriors avoid heavy infantry' },
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Only 2 militia spear+shield troops. All 28 other infantry carry throwing weapons — Dunlendings are skirmishers, not line holders' },
     ],
   },
 ];
@@ -145,37 +145,38 @@ const shockTroopTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Iron Hills', color: '#5a7a9a', reason: '2H+20, Ath+10, weapons 118% — ironbreaker charge demolishes formations' },
-      { name: 'Erebor', color: '#6a9fd4', reason: '2H+20, Ath+10, weapons 118% — dwarven berserkers with great-axes' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '11 unshielded 1H mace/hammer/axe/mattock troops — Veteran Hammer Guard, Durin\'s Hammers, Dain\'s Reavers, Mattock Guard, Thorin\'s Mithril Piercers, Royal Guard, King\'s Chosen. 2H+20 skill' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '4 dedicated 2H troops — Axe Guard, Veteran Axe Guard, Wyrm Slayers, Khazad Royal Guard (2H axe) plus Shield Breaker (1H mace). 2H+20 skill, 118% weapons' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Isengard', color: '#a0a0a0', reason: '2H+15, Ath+10, weapons 94% — Uruk berserkers are feared shock troops' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '7 shock troops — Lamedon Bladeguard/Highland Defender/Knight/Noble (2H sword), Dol Amroth Men/Sergeants/Captains-at-Arms (2H sword). Strong skill baseline' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 linebreakers double as shock — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer (2H axe). 140% weapon damage compensates weak skills' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '2H+5 only but 140% weapons — goblin great-axe troops hit incredibly hard' },
-      { name: 'Mordor', color: '#b44444', reason: '2H+5, weapons 120% — Black Uruk heavy infantry pack a punch' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: '2H+10, weapons 103% — mountain orc warriors with heavy weapons' },
+      { name: 'Isengard', color: '#a0a0a0', reason: '4 shock troops — Uruk Champion (2H sword), Uruk Feller/Slayer/Reaver (2H axe), plus Berserker (unshielded sword). 2H+15 skill' },
+      { name: 'Mordor', color: '#b44444', reason: '3 shock troops — Uruk Ravager, Executioner, Darkblade (2H sword). Plus 5 halberd/polearm troops (Feller, Halberdier, Reaper, Deathwarden). 120% weapons' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Gondor', color: '#c8d0d8', reason: '2H+5, weapons 100% — some great-sword troops but not a shock identity' },
-      { name: 'Dunland', color: '#9a7a5a', reason: '2H+5, weapons 108% — hill-clan champions with great-axes' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '3 berserker-style troops (throwing+melee) but no dedicated 2H infantry. Mountain orcs prefer aggression over heavy weapons' },
+      { name: 'Rohan', color: '#6db36d', reason: '2 only — Westfold 2H Axeman and Veteran 2H Axeman. Cavalry culture with minimal 2H infantry' },
     ],
   },
   {
     tier: 'D', color: '#d46a6a', label: 'Poor',
     cultures: [
-      { name: 'Rhun', color: '#d4a24c', reason: '2H+0, baseline — Easterlings fight in formation, not as berserkers' },
-      { name: 'Rohan', color: '#6db36d', reason: '2H+0 — cavalry culture has no 2H infantry tradition' },
-      { name: 'Harad', color: '#c43c3c', reason: '2H-10 — Haradrim disdain heavy infantry weapons' },
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Zero 2H troops — all infantry carry throwing weapons. Hill clans fight as skirmishers, not shock infantry' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Zero 2H troops — Easterlings fight in disciplined spear formations, not as berserkers' },
+      { name: 'Harad', color: '#c43c3c', reason: 'Zero 2H troops — Haradrim fight mounted or with javelin, not heavy infantry' },
+      { name: 'Umbar', color: '#5a8a8a', reason: '1 shock troop only. Small roster, weapons not yet implemented' },
     ],
   },
 ];
@@ -185,38 +186,38 @@ const lineBreakerTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Erebor', color: '#6a9fd4', reason: '2H+20, 25 axes/maces in roster, weapons 118% — blunt damage bypasses armor, dwarves are THE anti-armor faction' },
-      { name: 'Iron Hills', color: '#5a7a9a', reason: '2H+20, weapons 118% — war-hammer specialists that crack any plate' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: '11 heavy weapon troops — Hammer Guard, Durin\'s Hammers (1H hammer), Axeguard, Dain\'s Reavers (1H axe), Mattock Guard, Thorin\'s Mithril Piercers (mattock), Royal Guard, King\'s Chosen (Dain\'s axe). THE anti-armor faction' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '5 dedicated breakers — Axe Guard/Veteran (2H axe), Wyrm Slayers, Khazad Royal Guard (2H axe), Shield Breaker (1H mace). 2H+20 skill, 118% weapons' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: '140% weapons with 2H maces (100 avg) and axes (108 avg) — raw crushing power despite low skill' },
-      { name: 'Mordor', color: '#b44444', reason: '120% weapons with heavy maces (102 avg) — orc war-clubs ignore armor' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '5 dedicated linebreakers — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer all equip 2H axes. 140% weapon modifier makes them devastating' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Isengard', color: '#a0a0a0', reason: '2H+15, 2H axes at 134 avg swing — Uruk great-axes cleave through shields' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: '2H+10, maces at 101 avg — mountain orc mace troops' },
-      { name: 'Rhun', color: '#d4a24c', reason: '2H maces at 140 avg, 2H axes at 114 avg — Easterling heavy weapon specialists' },
+      { name: 'Isengard', color: '#a0a0a0', reason: '3 Uruk axe troops — Feller, Slayer, Reaver (2H axe). Berserker with unshielded sword. 2H+15 skill' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '2 Lossarnach troops — Heavy Axemen and Wrathbearers (2H axe). Limited but elite anti-armor option' },
+      { name: 'Rohan', color: '#6db36d', reason: '2 Westfold troops — 2H Axeman and Veteran 2H Axeman. Small but present anti-armor capability' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Gondor', color: '#c8d0d8', reason: '2H+5, limited heavy weapon options — Gondor favors swords over maces' },
-      { name: 'Dunland', color: '#9a7a5a', reason: '2H axes at 130 avg but only 4 — hill-folk have some heavy hitters' },
+      { name: 'Mordor', color: '#b44444', reason: 'No dedicated 2H axe/mace troops. Orc warriors equip swords. Halberds are polearms, not crushing weapons' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Snaga and Grunt equip 1H axes but are lowest-tier troops. No dedicated heavy weapon line' },
     ],
   },
   {
     tier: 'D', color: '#d46a6a', label: 'Poor',
     cultures: [
-      { name: 'Rohan', color: '#6db36d', reason: 'No heavy weapon tradition — Rohirrim fight mounted, not on foot with maces' },
-      { name: 'Harad', color: '#c43c3c', reason: 'No heavy weapons — desert warfare favors speed over crushing power' },
-      { name: 'Umbar', color: '#5a8a8a', reason: 'Weapons not yet implemented — boarding axes planned' },
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Zero heavy weapon troops — all infantry carry throwing weapons instead' },
+      { name: 'Rhun', color: '#d4a24c', reason: 'Zero heavy weapon troops — Easterlings fight with spears and swords in formation' },
+      { name: 'Harad', color: '#c43c3c', reason: 'Zero heavy weapon troops — desert warfare favors speed over crushing power' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'No heavy weapon troops in current roster. Weapons not yet implemented' },
     ],
   },
 ];
@@ -226,38 +227,38 @@ const skirmisherTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Dunland', color: '#9a7a5a', reason: 'Thr+15, Ath+20 — supreme javelin skirmishers, fastest foot troops in the game' },
+      { name: 'Dunland', color: '#9a7a5a', reason: '28 throwing troops — ALL clans carry javelins/throwing axes. Wolf Raider/Axeman/Champion, Bear Chosen/Berserker/Executioner, Boar/Ox/Stag lines, basic Spearman/Swordsman. Thr+15, Ath+20. THE skirmisher faction' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Erebor', color: '#6a9fd4', reason: 'Thr+10, Ath+10 — dwarven throwing axes are devastating at short range' },
-      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Thr+10, Ath+10 — iron-forged throwing hammers' },
-      { name: 'Isengard', color: '#a0a0a0', reason: 'Thr+10, Ath+10 — Uruk javelin troops soften formations before the charge' },
+      { name: 'Harad', color: '#c43c3c', reason: '11 skirmisher troops — Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance (javelin cavalry), Noble/Sandblade/Gildedfang/Serpentguard/Fang King (mounted javelin). Desert raiders built around javelin harassment' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '10 skirmisher troops — Pelargir Sailor/Skirmisher/Marine/Veteran Marine (javelin), Pinnath Gelin Levy/Footman/Warrior/Champion/Scout/Horseman (javelin). Two dedicated subcultures' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Thr+5, Ath+5, javelins in arsenal — mountain orcs use ranged harassment' },
-      { name: 'Mordor', color: '#b44444', reason: 'Thr+5, weapons 120% — orc javelin troops pack extra damage per throw' },
+      { name: 'Rohan', color: '#6db36d', reason: '6 elite riders with javelin — Westemnet Eorlingas/Royal/King\'s Own, Edoras Golden Hall Eorlingas/King\'s Own/Supreme Rider. High-tier cavalry skirmishers only' },
+      { name: 'Rhun', color: '#d4a24c', reason: '5 skirmisher troops — Easterling Rider, Veteran Swordsman, Lancer, War Guard, Bloodsworn. Cavalry-based javelin harassment' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Rohan', color: '#6db36d', reason: 'Thr+2 — minimal throwing capability, cavalry focus' },
-      { name: 'Harad', color: '#c43c3c', reason: 'Thr+0 — no javelin tradition, rely on bows instead' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Thr+0 — goblins lack organized skirmisher tactics' },
-      { name: 'Rhun', color: '#d4a24c', reason: 'Thr-5 — Easterlings fight in disciplined formations, not as skirmishers' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '3 only — Berserker, Veteran Berserker, Champion (throwing+melee). Limited skirmisher capability' },
     ],
   },
   {
     tier: 'D', color: '#d46a6a', label: 'Poor',
     cultures: [
-      { name: 'Gondor', color: '#c8d0d8', reason: 'Thr-10 — Numenorean tradition disdains thrown weapons, preferring bow or melee' },
-      { name: 'Umbar', color: '#5a8a8a', reason: 'Weapons not yet implemented — throwing knives planned' },
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Zero throwing troops — dwarves equip axes/hammers as melee weapons, not thrown' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Zero throwing troops — Iron Hills fight in heavy formations, not as skirmishers' },
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Zero throwing troops — Uruks use crossbows for ranged, not javelins' },
+      { name: 'Mordor', color: '#b44444', reason: 'Zero throwing troops — Mordor orcs rely on bows or melee, no javelin tradition' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Zero throwing troops — goblins use bows exclusively for ranged combat' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Zero throwing troops in current roster' },
     ],
   },
 ];
@@ -303,38 +304,38 @@ const cavalryTiers = [
   {
     tier: 'S', color: '#d4a24c', label: 'Dominant',
     cultures: [
-      { name: 'Rohan', color: '#6db36d', reason: 'Best riding (+20), strong polearm (+10), lightest human armor (0.90x) — definitive cavalry culture' },
-      { name: 'Rhun', color: '#d4a24c', reason: 'Excellent riding (+18), best polearm (+15), baseline armor — disciplined lancers' },
+      { name: 'Rohan', color: '#6db36d', reason: '27 mounted spear+shield troops across 5 subcultures — Westemnet Riders (lance+shield), Eastemnet Lancers, Edoras Golden Hall Riders, plus 6 elite javelin cavalry. Most cavalry of any faction' },
+      { name: 'Rhun', color: '#d4a24c', reason: '10 mounted spear+shield — Noble Youth/Rider/Honor Guard/Bloodrider/Cataphract/Dragon Knight plus 5 mounted skirmishers. Disciplined cataphract lancers' },
     ],
   },
   {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Harad', color: '#c43c3c', reason: 'Strong riding (+15), bow capable (+10), lightest armor (0.85x) — desert raiders and horse archers' },
-      { name: 'Gondor', color: '#c8d0d8', reason: 'Solid riding (+5), balanced skills, reliable armor — knights of Dol Amroth and Gondorian cavalry' },
+      { name: 'Harad', color: '#c43c3c', reason: '11 camel/horse javelin cavalry — Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance, Noble/Sandblade/Gildedfang/Serpentguard/Fang King. Plus horse archers. Desert raider identity' },
+      { name: 'Gondor', color: '#c8d0d8', reason: 'Dol Amroth Knights (sword+shield+lance), Gondor Knights/Pages/Squires (spear+shield), Pelargir Horsemen. Quality over quantity' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Capable',
     cultures: [
-      { name: 'Isengard', color: '#a0a0a0', reason: 'Some riding (+5), warg riders provide unique mounted shock troops' },
-      { name: 'Mordor', color: '#b44444', reason: 'Warg riders compensate for poor riding (-5), brutal mounted weapons (120%)' },
+      { name: 'Dunland', color: '#9a7a5a', reason: 'Stag Lancer/Rider/Noble Lancer (lance), Lizard Horseman/Outrider/Noble Cavalry (sword), Falcon Wildrider (mounted archer). 7 mounted troops across 3 clans' },
+      { name: 'Isengard', color: '#a0a0a0', reason: 'Warg Scout/Overseer/Enforcer (spear, no shield) plus Warg Lieutenant (spear+shield). 4 warg riders — unique mount type' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: 'Warg Tamer/Tracker/Warrior/Dread Rider (spear+shield on warg). 4 warg cavalry with shield' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Limited',
     cultures: [
-      { name: 'Dunland', color: '#9a7a5a', reason: 'Riding -5, hill-folk culture has minimal cavalry tradition' },
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Riding -5, mountain orcs have limited mounted options' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Riding -10, goblins fight on foot — spider riders planned' },
-      { name: 'Umbar', color: '#5a8a8a', reason: 'Riding -15, corsairs fight on ships and on foot' },
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Warg Scout/Raider/Fell Warg Rider, Khamul Veiled/Shadow Knight (spear+shield). 5 warg/mounted troops' },
+      { name: 'Mordor', color: '#b44444', reason: 'Uruk Archer (classified horse archer). Very limited mounted options' },
+      { name: 'Umbar', color: '#5a8a8a', reason: 'Small roster with minimal cavalry options. Corsairs fight on foot' },
     ],
   },
   {
     tier: 'D', color: '#d46a6a', label: 'None',
     cultures: [
-      { name: 'Erebor', color: '#6a9fd4', reason: 'Riding -20, dwarves do not ride — war goats planned' },
-      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Riding -5 but still dwarves — iron boar chariots planned' },
+      { name: 'Erebor', color: '#6a9fd4', reason: 'Zero cavalry — dwarves fight exclusively on foot. All troops are infantry' },
+      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Zero cavalry — Iron Hills dwarves fight in heavy infantry formations only' },
     ],
   },
 ];
@@ -342,35 +343,36 @@ const cavalryTiers = [
 // Archer tier list
 const archerTiers = [
   {
+    tier: 'S', color: '#d4a24c', label: 'Dominant',
+    cultures: [
+      { name: 'Dol Guldur', color: '#7a9a5a', reason: '17 ranged troops — Goblin Hunter/Skirmisher/Archer (bow), Orc Scout/Archer, Uruk Skirmisher/Bowman/Fell Archer/Black Sharpshooter, Warg Skirmisher/Red Fang, Khamul Marksman/Shadow Bowman. Massive ranged roster' },
+    ],
+  },
+  {
     tier: 'A', color: '#5dae5d', label: 'Strong',
     cultures: [
-      { name: 'Harad', color: '#c43c3c', reason: 'Bow+10, Riding+15 — horse archers and longbowmen, light armor for mobility' },
-      { name: 'Isengard', color: '#a0a0a0', reason: 'Xbow+10, Thr+10 — industrial crossbow production, heaviest armored ranged' },
+      { name: 'Gondor', color: '#c8d0d8', reason: '16 ranged troops — Bowman/Archer (bow), Rangers of Ithilien (3 tiers, elite bow+2H), Pelargir Archer, Blackroot Hunter/Skirmisher/Archer/Longbowmen/Elite Longbowmen, Pinnath Gelin Skirmisher/Bowguard/Hillwarden. Three dedicated archery subcultures' },
+      { name: 'Dunland', color: '#9a7a5a', reason: '15 ranged troops — Raven Archer/Ranger/Master Ranger (bow), Falcon Archer/Wildrider (mounted), Dragon Crossbowman/Firebolt/Sniper (crossbow), plus Hunter/Skirmisher. Three clan specializations' },
+      { name: 'Rohan', color: '#6db36d', reason: '13 ranged troops — Wold Scout/Horse Archer line (5 tiers of mounted archers), Eastfold Skirmisher/Bowman/Veteran Bowman (foot archers). Strong horse archer tradition' },
     ],
   },
   {
     tier: 'B', color: '#6a9fd4', label: 'Competent',
     cultures: [
-      { name: 'Dunland', color: '#9a7a5a', reason: 'Thr+15, Ath+20 — best javelin skirmishers in the game, extreme mobility' },
-      { name: 'Gondor', color: '#c8d0d8', reason: 'Baseline archers with solid armor — Rangers of Ithilien provide elite options' },
-      { name: 'Rhun', color: '#d4a24c', reason: 'Some horse archer capability, Riding+18 offsets Bow-10 for mounted harassment' },
+      { name: 'Isengard', color: '#a0a0a0', reason: '11 ranged troops — Uruk Crossbowman/Veteran Crossbowman/Arbalest/Chosen Marksman (crossbow), Scout/Skirmisher/Hunter/Tracker/Archer (bow). Heavy crossbow focus' },
+      { name: 'Harad', color: '#c43c3c', reason: '9 ranged troops — Skirmisher/Archer/Marksman/Vipereye/Serpent Eye (bow), Horse Archer/Serpent Horse Archer (mounted bow). Mix of foot and mounted archers' },
+      { name: 'Erebor', color: '#6a9fd4', reason: '9 ranged troops — Scout/Archer/Veteran Archer (bow), Iron Hills Arbalest/Veteran Arbalest/Iron Tusk Sharpshooters (crossbow), plus Scout. Crossbow specialty' },
+      { name: 'Rhun', color: '#d4a24c', reason: '8 ranged troops — Watcher/Archer/Marksman (bow), Horse Archer/Shadowguard/Sunbow/Eye/Eye of the Waste (mounted bow). Horse archer tradition' },
+      { name: 'Gundabad', color: '#7a8a9a', reason: '8 ranged troops — Hunter/Scout (bow), Despoiler of the Vale/Lurker/Sentry/Archer (bow). All foot archers, no mounted' },
     ],
   },
   {
     tier: 'C', color: '#a0a0a0', label: 'Weak',
     cultures: [
-      { name: 'Mordor', color: '#b44444', reason: 'Thr+5 only, relies on volume of fire — orc archers are numerous but inaccurate' },
-      { name: 'Rohan', color: '#6db36d', reason: 'Bow-5, some mounted archery from cavalrymen but not a ranged culture' },
-      { name: 'Erebor', color: '#6a9fd4', reason: 'No ranged bonuses — dwarves use crossbows by tradition, not by skill' },
-      { name: 'Iron Hills', color: '#5a7a9a', reason: 'Xbow+5, minimal ranged capability — heavy crossbow support troops' },
-      { name: 'Umbar', color: '#5a8a8a', reason: 'No ranged bonuses — corsair archers planned' },
-    ],
-  },
-  {
-    tier: 'D', color: '#d46a6a', label: 'Poor',
-    cultures: [
-      { name: 'Gundabad', color: '#7a8a9a', reason: 'Bow-10, Xbow-10 — mountain orcs disdain ranged combat' },
-      { name: 'Dol Guldur', color: '#7a9a5a', reason: 'Bow-5, Xbow-5 — goblins have crude ranged options at best' },
+      { name: 'Mordor', color: '#b44444', reason: '4 ranged troops only — Uruk Scout/Marksman (bow), 2 militia archers. Very limited ranged options for such a large faction' },
+      { name: 'Mirkwood', color: '#4a9e6d', reason: '5 ranged troops — Sentinels/Borderwardens/Thingolheir (elite bow), 2 militia. Few but extremely skilled (Bow+50)' },
+      { name: 'Rivendell', color: '#7ec8e3', reason: '9 ranged troops — Recruit/Bowman/Archer/Marksman/Marchwarden (bow), Horse Archer/Rider of Himring (mounted). Elven accuracy compensates for numbers' },
+      { name: 'Umbar', color: '#5a8a8a', reason: '4 ranged troops in small roster. Weapons not yet implemented' },
     ],
   },
 ];
