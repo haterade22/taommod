@@ -4,7 +4,7 @@ import tsparser from '@typescript-eslint/parser';
 
 export default [
   {
-    ignores: ['dist/**', '.astro/**', 'node_modules/**'],
+    ignores: ['dist/**', '.astro/**', 'node_modules/**', 'src/pages/mod-info/weapon-balancing.astro'],
   },
   {
     files: ['**/*.ts', '**/*.mjs'],
