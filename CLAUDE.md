@@ -19,13 +19,26 @@ npx astro check   # TypeScript/Astro type checking
 **Data Pipeline**: XML mod data → `fast-xml-parser` → Astro pages (all at build time, no runtime data fetching)
 
 - `sync-data.sh` copies XML files from the local TAOM mod directory into `src/data/`
-- `src/lib/parse-xml.ts` parses all XML data, exports typed arrays (`parseTroops()`, `parseKingdoms()`, `parseClans()`, `parseLords()`, etc.)
+- `src/lib/parse-xml.ts` is a barrel re-export; actual parsing lives in modular files:
+  - `xml-shared.ts` — parser config, types, culture mappings, helpers
+  - `parse-troops.ts`, `parse-kingdoms.ts`, `parse-clans.ts`, `parse-lords.ts`, `parse-armory.ts`, `parse-weaponry.ts`
 - `src/lib/damage-calc.ts` replicates TaleWorlds' exact physics pipeline for weapon damage calculations
-- Astro pages import parsed data and render static HTML
+- Astro pages import from `parse-xml.ts` barrel and render static HTML
+- View Transitions enabled via Astro's `<ViewTransitions />` for smooth page navigation
+
+## Quality Tooling
+
+- **ESLint** (`eslint.config.mjs`) — TypeScript + Astro flat config
+- **Prettier** (`.prettierrc`) — 120 width, single quotes, Astro plugin
+- **Vitest** (`vitest.config.ts`) — Unit tests in `src/lib/__tests__/`
+- **Husky + lint-staged** — Pre-commit formatting and linting
+- **CI/CD** — Quality gate job (lint, format check, tests) before build/deploy
+- **PR Preview** — Build status comments on pull requests
+- **Lighthouse CI** (`lighthouserc.json`) — Performance budgets on key pages
 
 ## Key Conventions
 
-- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `parse-xml.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland)
+- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland)
 - **XML name cleanup**: `stripLocKey()` removes `{=key}` prefixes, `stripPrefix()` removes `Item.`/`Hero.`/etc prefixes
 - **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/culture-colors.css`)
 - **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/skill-colors.css`)
