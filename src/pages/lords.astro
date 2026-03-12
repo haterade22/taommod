@@ -179,171 +179,174 @@ const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
 <script>
   import { applyUrlParams } from '../scripts/data-table';
 
-  const table = document.getElementById('lord-table') as HTMLTableElement;
-  const tbody = table.querySelector('tbody')!;
-  const rows = Array.from(tbody.querySelectorAll('tr:not(.culture-group-header)'));
-  const groupHeaders = Array.from(tbody.querySelectorAll('tr.culture-group-header'));
-  const searchInput = document.getElementById('search') as HTMLInputElement;
-  const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
-  const kingdomFilter = document.getElementById('filter-kingdom') as HTMLSelectElement;
-  const genderFilter = document.getElementById('filter-gender') as HTMLSelectElement;
-  const marriedFilter = document.getElementById('filter-married') as HTMLSelectElement;
-  const resultCount = document.getElementById('result-count')!;
+  document.addEventListener('astro:page-load', () => {
+    const table = document.getElementById('lord-table') as HTMLTableElement;
+    if (!table) return;
+    const tbody = table.querySelector('tbody')!;
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.culture-group-header)')) as HTMLTableRowElement[];
+    const groupHeaders = Array.from(tbody.querySelectorAll('tr.culture-group-header')) as HTMLTableRowElement[];
+    const searchInput = document.getElementById('search') as HTMLInputElement;
+    const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
+    const kingdomFilter = document.getElementById('filter-kingdom') as HTMLSelectElement;
+    const genderFilter = document.getElementById('filter-gender') as HTMLSelectElement;
+    const marriedFilter = document.getElementById('filter-married') as HTMLSelectElement;
+    const resultCount = document.getElementById('result-count')!;
 
-  let sortCol = '';
-  let sortAsc = true;
+    let sortCol = '';
+    let sortAsc = true;
 
-  function filterRows() {
-    const search = searchInput.value.toLowerCase();
-    const culture = cultureFilter.value;
-    const kingdom = kingdomFilter.value;
-    const gender = genderFilter.value;
-    const married = marriedFilter.value;
-    let visible = 0;
+    function filterRows() {
+      const search = searchInput.value.toLowerCase();
+      const culture = cultureFilter.value;
+      const kingdom = kingdomFilter.value;
+      const gender = genderFilter.value;
+      const married = marriedFilter.value;
+      let visible = 0;
 
-    for (const row of rows) {
-      const name = row.dataset.name || '';
-      const id = row.dataset.id || '';
-      const bio = row.dataset.bio || '';
-      const rowCulture = row.dataset.culture || '';
-      const rowKingdom = row.dataset.kingdom || '';
-      const rowGender = row.dataset.gender || '';
-      const rowMarried = row.dataset.married || '';
+      for (const row of rows) {
+        const name = row.dataset.name || '';
+        const id = row.dataset.id || '';
+        const bio = row.dataset.bio || '';
+        const rowCulture = row.dataset.culture || '';
+        const rowKingdom = row.dataset.kingdom || '';
+        const rowGender = row.dataset.gender || '';
+        const rowMarried = row.dataset.married || '';
 
-      const matchesSearch =
-        !search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search);
-      const matchesCulture = !culture || rowCulture === culture;
-      const matchesKingdom = !kingdom || rowKingdom === kingdom;
-      const matchesGender = !gender || rowGender === gender;
-      const matchesMarried = !married || rowMarried === married;
+        const matchesSearch =
+          !search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search);
+        const matchesCulture = !culture || rowCulture === culture;
+        const matchesKingdom = !kingdom || rowKingdom === kingdom;
+        const matchesGender = !gender || rowGender === gender;
+        const matchesMarried = !married || rowMarried === married;
 
-      const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
-      const hiddenByCollapse = row.dataset.hiddenByCollapse === 'true';
-      row.style.display = show && !hiddenByCollapse ? '' : 'none';
-      if (show) visible++;
-    }
-
-    // Show/hide culture group headers based on lords matching filters (not collapse state)
-    for (const header of groupHeaders) {
-      const cultureGroup = header.dataset.cultureGroup || '';
-      const hasMatching = rows.some((r) => {
-        if (r.dataset.culture !== cultureGroup) return false;
-        const name = r.dataset.name || '';
-        const id = r.dataset.id || '';
-        const bio = r.dataset.bio || '';
-        return (
-          (!search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search)) &&
-          (!culture || r.dataset.culture === culture) &&
-          (!kingdom || r.dataset.kingdom === kingdom) &&
-          (!gender || r.dataset.gender === gender) &&
-          (!married || r.dataset.married === married)
-        );
-      });
-      header.style.display = hasMatching ? '' : 'none';
-    }
-
-    resultCount.textContent = `${visible} lords`;
-  }
-
-  applyUrlParams({
-    culture: cultureFilter,
-    kingdom: kingdomFilter,
-    gender: genderFilter,
-    married: marriedFilter,
-    search: searchInput,
-  });
-  searchInput.addEventListener('input', filterRows);
-  cultureFilter.addEventListener('change', filterRows);
-  kingdomFilter.addEventListener('change', filterRows);
-  genderFilter.addEventListener('change', filterRows);
-  marriedFilter.addEventListener('change', filterRows);
-  filterRows();
-
-  // Column sorting (lords uses a single table with group headers, so custom sorting needed)
-  const headers = table.querySelectorAll('th[data-col]');
-  headers.forEach((th) => {
-    th.addEventListener('click', () => {
-      const col = (th as HTMLElement).dataset.col!;
-      if (sortCol === col) {
-        sortAsc = !sortAsc;
-      } else {
-        sortCol = col;
-        sortAsc = true;
+        const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
+        const hiddenByCollapse = row.dataset.hiddenByCollapse === 'true';
+        row.style.display = show && !hiddenByCollapse ? '' : 'none';
+        if (show) visible++;
       }
 
-      headers.forEach((h) => {
-        const indicator = h.querySelector('.sort-indicator');
-        if (indicator) indicator.remove();
-      });
-      const indicator = document.createElement('span');
-      indicator.className = 'sort-indicator';
-      indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-      th.appendChild(indicator);
+      // Show/hide culture group headers based on lords matching filters (not collapse state)
+      for (const header of groupHeaders) {
+        const cultureGroup = header.dataset.cultureGroup || '';
+        const hasMatching = rows.some((r) => {
+          if (r.dataset.culture !== cultureGroup) return false;
+          const name = r.dataset.name || '';
+          const id = r.dataset.id || '';
+          const bio = r.dataset.bio || '';
+          return (
+            (!search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search)) &&
+            (!culture || r.dataset.culture === culture) &&
+            (!kingdom || r.dataset.kingdom === kingdom) &&
+            (!gender || r.dataset.gender === gender) &&
+            (!married || r.dataset.married === married)
+          );
+        });
+        header.style.display = hasMatching ? '' : 'none';
+      }
 
-      const colIndex = Array.from(headers).indexOf(th);
-      const isNumeric = th.classList.contains('col-num');
+      resultCount.textContent = `${visible} lords`;
+    }
 
-      rows.sort((a, b) => {
-        const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-        const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+    applyUrlParams({
+      culture: cultureFilter,
+      kingdom: kingdomFilter,
+      gender: genderFilter,
+      married: marriedFilter,
+      search: searchInput,
+    });
+    searchInput.addEventListener('input', filterRows);
+    cultureFilter.addEventListener('change', filterRows);
+    kingdomFilter.addEventListener('change', filterRows);
+    genderFilter.addEventListener('change', filterRows);
+    marriedFilter.addEventListener('change', filterRows);
+    filterRows();
 
-        if (isNumeric) {
-          const aNum = parseFloat(aVal) || 0;
-          const bNum = parseFloat(bVal) || 0;
-          return sortAsc ? aNum - bNum : bNum - aNum;
+    // Column sorting (lords uses a single table with group headers, so custom sorting needed)
+    const headers = table.querySelectorAll('th[data-col]');
+    headers.forEach((th) => {
+      th.addEventListener('click', () => {
+        const col = (th as HTMLElement).dataset.col!;
+        if (sortCol === col) {
+          sortAsc = !sortAsc;
+        } else {
+          sortCol = col;
+          sortAsc = true;
         }
 
-        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        headers.forEach((h) => {
+          const indicator = h.querySelector('.sort-indicator');
+          if (indicator) indicator.remove();
+        });
+        const indicator = document.createElement('span');
+        indicator.className = 'sort-indicator';
+        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
+        th.appendChild(indicator);
+
+        const colIndex = Array.from(headers).indexOf(th);
+        const isNumeric = th.classList.contains('col-num');
+
+        rows.sort((a, b) => {
+          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
+          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
+
+          if (isNumeric) {
+            const aNum = parseFloat(aVal) || 0;
+            const bNum = parseFloat(bVal) || 0;
+            return sortAsc ? aNum - bNum : bNum - aNum;
+          }
+
+          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        });
+
+        for (const row of rows) {
+          tbody.appendChild(row);
+        }
       });
-
-      for (const row of rows) {
-        tbody.appendChild(row);
-      }
     });
-  });
 
-  // Culture group collapse/expand
-  groupHeaders.forEach((header) => {
-    header.addEventListener('click', () => {
-      const culture = header.dataset.cultureGroup || '';
-      const collapsed = header.dataset.collapsed === 'true';
-      header.dataset.collapsed = collapsed ? 'false' : 'true';
-      const arrow = header.querySelector('.collapse-arrow')!;
-      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
-      for (const row of rows) {
-        if (row.dataset.culture === culture) {
-          if (collapsed) {
-            row.dataset.hiddenByCollapse = '';
-            filterRows();
-          } else {
-            row.dataset.hiddenByCollapse = 'true';
-            row.style.display = 'none';
+    // Culture group collapse/expand
+    groupHeaders.forEach((header) => {
+      header.addEventListener('click', () => {
+        const culture = header.dataset.cultureGroup || '';
+        const collapsed = header.dataset.collapsed === 'true';
+        header.dataset.collapsed = collapsed ? 'false' : 'true';
+        const arrow = header.querySelector('.collapse-arrow')!;
+        arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+        for (const row of rows) {
+          if (row.dataset.culture === culture) {
+            if (collapsed) {
+              row.dataset.hiddenByCollapse = '';
+              filterRows();
+            } else {
+              row.dataset.hiddenByCollapse = 'true';
+              row.style.display = 'none';
+            }
           }
         }
-      }
+      });
     });
-  });
 
-  // Row click to show biography
-  rows.forEach((row) => {
-    row.addEventListener('click', () => {
-      const bio = row.dataset.bio;
-      const existing = row.nextElementSibling;
-      if (existing?.classList.contains('bio-row')) {
-        existing.remove();
-        return;
-      }
-      document.querySelectorAll('.bio-row').forEach((r) => r.remove());
-      if (bio) {
-        const bioRow = document.createElement('tr');
-        bioRow.className = 'bio-row';
-        const td = document.createElement('td');
-        td.colSpan = row.cells.length;
-        td.className = 'bio-cell';
-        td.textContent = bio;
-        bioRow.appendChild(td);
-        row.after(bioRow);
-      }
+    // Row click to show biography
+    rows.forEach((row) => {
+      row.addEventListener('click', () => {
+        const bio = row.dataset.bio;
+        const existing = row.nextElementSibling;
+        if (existing?.classList.contains('bio-row')) {
+          existing.remove();
+          return;
+        }
+        document.querySelectorAll('.bio-row').forEach((r) => r.remove());
+        if (bio) {
+          const bioRow = document.createElement('tr');
+          bioRow.className = 'bio-row';
+          const td = document.createElement('td');
+          td.colSpan = row.cells.length;
+          td.className = 'bio-cell';
+          td.textContent = bio;
+          bioRow.appendChild(td);
+          row.after(bioRow);
+        }
+      });
     });
   });
 </script>

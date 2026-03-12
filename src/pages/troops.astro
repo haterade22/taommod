@@ -202,63 +202,66 @@ const headerCols = [
 <script>
   import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
 
-  const searchInput = document.getElementById('search') as HTMLInputElement;
-  const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
-  const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
-  const resultCount = document.getElementById('result-count')!;
-  const allRows = collectRows('table.troop-section');
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.getElementById('search') as HTMLInputElement;
+    const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
+    const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
+    const resultCount = document.getElementById('result-count')!;
+    if (!searchInput || !groupFilter) return;
+    const allRows = collectRows('table.troop-section');
 
-  function filterRows() {
-    const search = searchInput.value.toLowerCase();
-    const group = groupFilter.value;
-    const occupation = occupationFilter.value;
+    function filterRows() {
+      const search = searchInput.value.toLowerCase();
+      const group = groupFilter.value;
+      const occupation = occupationFilter.value;
 
-    // Track visible counts per section
-    const sectionCounts = new Map<string, number>();
+      // Track visible counts per section
+      const sectionCounts = new Map<string, number>();
 
-    for (const row of allRows) {
-      const name = row.dataset.name || '';
-      const id = row.dataset.id || '';
-      const rowGroup = row.dataset.group || '';
-      const rowOccupation = row.dataset.occupation || '';
+      for (const row of allRows) {
+        const name = row.dataset.name || '';
+        const id = row.dataset.id || '';
+        const rowGroup = row.dataset.group || '';
+        const rowOccupation = row.dataset.occupation || '';
 
-      const matchesSearch = !search || name.includes(search) || id.includes(search);
-      const matchesGroup = !group || rowGroup === group;
-      const matchesOccupation = !occupation || rowOccupation === occupation;
+        const matchesSearch = !search || name.includes(search) || id.includes(search);
+        const matchesGroup = !group || rowGroup === group;
+        const matchesOccupation = !occupation || rowOccupation === occupation;
 
-      const show = matchesSearch && matchesGroup && matchesOccupation;
-      row.style.display = show ? '' : 'none';
+        const show = matchesSearch && matchesGroup && matchesOccupation;
+        row.style.display = show ? '' : 'none';
 
-      // Count for the section this row belongs to
-      const table = row.closest('table')!;
-      const sectionKey = (table as HTMLElement).dataset.section || '';
-      if (show) {
-        sectionCounts.set(sectionKey, (sectionCounts.get(sectionKey) || 0) + 1);
+        // Count for the section this row belongs to
+        const table = row.closest('table')!;
+        const sectionKey = (table as HTMLElement).dataset.section || '';
+        if (show) {
+          sectionCounts.set(sectionKey, (sectionCounts.get(sectionKey) || 0) + 1);
+        }
       }
+
+      // Update section counts and hide empty sections
+      document.querySelectorAll('.collapsible-section').forEach((section) => {
+        const sectionEl = section as HTMLElement;
+        const culture = sectionEl.dataset.sectionCulture || '';
+        const countSpan = sectionEl.querySelector('.section-count') as HTMLElement;
+        const count = sectionCounts.get(culture) || 0;
+        if (countSpan) countSpan.textContent = `(${count})`;
+        sectionEl.style.display = count > 0 || (!search && !group && !occupation) ? '' : 'none';
+      });
+
+      // Total visible (only count from "all" table to avoid double-counting)
+      resultCount.textContent = `${sectionCounts.get('all') || 0} troops`;
     }
 
-    // Update section counts and hide empty sections
-    document.querySelectorAll('.collapsible-section').forEach((section) => {
-      const sectionEl = section as HTMLElement;
-      const culture = sectionEl.dataset.sectionCulture || '';
-      const countSpan = sectionEl.querySelector('.section-count') as HTMLElement;
-      const count = sectionCounts.get(culture) || 0;
-      if (countSpan) countSpan.textContent = `(${count})`;
-      sectionEl.style.display = count > 0 || (!search && !group && !occupation) ? '' : 'none';
-    });
+    applyUrlParams({ group: groupFilter, search: searchInput });
+    searchInput.addEventListener('input', filterRows);
+    groupFilter.addEventListener('change', filterRows);
+    occupationFilter.addEventListener('change', filterRows);
+    filterRows();
 
-    // Total visible (only count from "all" table to avoid double-counting)
-    resultCount.textContent = `${sectionCounts.get('all') || 0} troops`;
-  }
-
-  applyUrlParams({ group: groupFilter, search: searchInput });
-  searchInput.addEventListener('input', filterRows);
-  groupFilter.addEventListener('change', filterRows);
-  occupationFilter.addEventListener('change', filterRows);
-  filterRows();
-
-  initCollapse();
-  initSorting('table.troop-section');
+    initCollapse();
+    initSorting('table.troop-section');
+  });
 </script>
 
 <style>

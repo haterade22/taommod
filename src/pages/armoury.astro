@@ -156,42 +156,45 @@ function z(val: number): string {
 <script>
   import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
 
-  const searchInput = document.getElementById('search') as HTMLInputElement;
-  const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
-  const materialFilter = document.getElementById('filter-material') as HTMLSelectElement;
-  const resultCount = document.getElementById('result-count')!;
-  const allRows = collectRows('table.armor-section');
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.getElementById('search') as HTMLInputElement;
+    const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
+    const materialFilter = document.getElementById('filter-material') as HTMLSelectElement;
+    const resultCount = document.getElementById('result-count')!;
+    if (!searchInput || !cultureFilter) return;
+    const allRows = collectRows('table.armor-section');
 
-  function filterRows() {
-    const search = searchInput.value.toLowerCase();
-    const culture = cultureFilter.value;
-    const material = materialFilter.value;
-    let visible = 0;
+    function filterRows() {
+      const search = searchInput.value.toLowerCase();
+      const culture = cultureFilter.value;
+      const material = materialFilter.value;
+      let visible = 0;
 
-    for (const row of allRows) {
-      const name = row.dataset.name || '';
-      const id = row.dataset.id || '';
-      const rowCulture = row.dataset.culture || '';
-      const rowMaterial = row.dataset.material || '';
+      for (const row of allRows) {
+        const name = row.dataset.name || '';
+        const id = row.dataset.id || '';
+        const rowCulture = row.dataset.culture || '';
+        const rowMaterial = row.dataset.material || '';
 
-      const matchesSearch = !search || name.includes(search) || id.includes(search);
-      const matchesCulture = !culture || rowCulture === culture;
-      const matchesMaterial = !material || rowMaterial === material;
+        const matchesSearch = !search || name.includes(search) || id.includes(search);
+        const matchesCulture = !culture || rowCulture === culture;
+        const matchesMaterial = !material || rowMaterial === material;
 
-      const show = matchesSearch && matchesCulture && matchesMaterial;
-      row.style.display = show ? '' : 'none';
-      if (show) visible++;
+        const show = matchesSearch && matchesCulture && matchesMaterial;
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      }
+
+      resultCount.textContent = `${visible} items`;
     }
 
-    resultCount.textContent = `${visible} items`;
-  }
+    applyUrlParams({ culture: cultureFilter, search: searchInput });
+    searchInput.addEventListener('input', filterRows);
+    cultureFilter.addEventListener('change', filterRows);
+    materialFilter.addEventListener('change', filterRows);
+    filterRows();
 
-  applyUrlParams({ culture: cultureFilter, search: searchInput });
-  searchInput.addEventListener('input', filterRows);
-  cultureFilter.addEventListener('change', filterRows);
-  materialFilter.addEventListener('change', filterRows);
-  filterRows();
-
-  initCollapse();
-  initSorting('table.armor-section');
+    initCollapse();
+    initSorting('table.armor-section');
+  });
 </script>

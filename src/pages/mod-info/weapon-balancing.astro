@@ -1467,15 +1467,17 @@ const balanceConcerns = [
 </style>
 
 <script>
-  document.querySelectorAll('.section-toggle').forEach((title) => {
-    title.addEventListener('click', () => {
-      const section = title.closest('.collapsible-section') as HTMLElement;
-      const content = section.querySelector('.collapsible-content') as HTMLElement;
-      const arrow = title.querySelector('.collapse-arrow')!;
-      const collapsed = section.dataset.collapsed === 'true';
-      section.dataset.collapsed = collapsed ? 'false' : 'true';
-      content.style.display = collapsed ? '' : 'none';
-      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.section-toggle').forEach((title) => {
+      title.addEventListener('click', () => {
+        const section = title.closest('.collapsible-section') as HTMLElement;
+        const content = section.querySelector('.collapsible-content') as HTMLElement;
+        const arrow = title.querySelector('.collapse-arrow')!;
+        const collapsed = section.dataset.collapsed === 'true';
+        section.dataset.collapsed = collapsed ? 'false' : 'true';
+        content.style.display = collapsed ? '' : 'none';
+        arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
+      });
     });
   });
 </script>
