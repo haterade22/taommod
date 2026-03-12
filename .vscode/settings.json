@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [120],
+  "editor.bracketPairColorization.enabled": true,
+  "editor.tabSize": 2,
+
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+
+  "files.associations": {
+    "*.xslt": "xml"
+  },
+
+  "files.exclude": {
+    "dist/": true,
+    "node_modules/": true,
+    ".astro/": true
+  },
+
+  "css.validate": true,
+  "css.lint.unknownAtRules": "ignore",
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.quoteStyle": "single"
+}

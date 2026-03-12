@@ -1,0 +1,27 @@
+# Force LF line endings (critical on Windows)
+* text=auto eol=lf
+
+# Explicitly mark text files
+*.ts text
+*.astro text
+*.css text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.sh text eol=lf
+*.mjs text
+
+# Mark generated/binary files
+package-lock.json -diff linguist-generated
+src/data/**/*.xml linguist-generated
+src/data/**/*.xslt linguist-generated
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg binary
+*.mp4 binary
+*.ico binary
