@@ -1,3 +1,15 @@
+/* Self-hosted Cinzel font */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/cinzel-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* TAOM Dark Theme */
 :root {
   --bg-primary: #191919;
@@ -15,16 +27,21 @@
   --link-hover: #8ec0ef;
   --success: #4caf50;
   --danger: #e74c3c;
+  --font-heading: 'Cinzel', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono: 'Consolas', 'Monaco', monospace;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg-primary);
   color: var(--text-primary);
   font-size: 14px;
@@ -88,10 +105,12 @@ a:hover {
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   font-size: 0.85rem;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0.5px;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .site-nav .nav-links a:hover,
@@ -268,58 +287,15 @@ a:hover {
   color: #fff !important;
 }
 
-/* Per-skill color coding */
-.data-table td.skill-athletics, .data-table th.skill-athletics { color: #7EC8E3; }
-.data-table td.skill-riding, .data-table th.skill-riding { color: #B39DDB; }
-.data-table td.skill-onehanded, .data-table th.skill-onehanded { color: #E08080; }
-.data-table td.skill-twohanded, .data-table th.skill-twohanded { color: #E8A870; }
-.data-table td.skill-polearm, .data-table th.skill-polearm { color: #D4C96A; }
-.data-table td.skill-bow, .data-table th.skill-bow { color: #6DBF8A; }
-.data-table td.skill-crossbow, .data-table th.skill-crossbow { color: #5EC4C4; }
-.data-table td.skill-throwing, .data-table th.skill-throwing { color: #9BCFE8; }
-
-/* Dim zero values */
-.skill-zero {
-  color: var(--text-muted) !important;
-}
-
-
 .data-table .col-id {
   color: var(--text-secondary);
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
 }
 
-/* Culture/Kingdom row color coding — colored td backgrounds with white text */
-.data-table tr[data-culture] td { color: #fff; }
-.data-table tr[data-culture="gondor"] td    { background: rgba(192, 192, 192, 0.75); }  /* Silver */
-.data-table tr[data-culture="mordor"] td    { background: rgba(224, 80, 80, 0.75); }    /* Dark red */
-.data-table tr[data-culture="empire"] td    { background: rgba(160, 130, 109, 0.75); }  /* Dunland - brown */
-.data-table tr[data-culture="vlandia"] td   { background: rgba(93, 174, 93, 0.75); }    /* Rohan - green */
-.data-table tr[data-culture="khuzait"] td   { background: rgba(212, 162, 76, 0.75); }   /* Rhun - gold */
-.data-table tr[data-culture="aserai"] td    { background: rgba(220, 20, 60, 0.75); }    /* Harad - crimson */
-.data-table tr[data-culture="sturgia"] td   { background: rgba(110, 168, 217, 0.75); }  /* Dale - ice blue */
-.data-table tr[data-culture="battania"] td  { background: rgba(139, 115, 85, 0.75); }   /* Khand - tan */
-.data-table tr[data-culture="erebor"] td    { background: rgba(106, 159, 212, 0.75); }  /* Erebor - blue-gold */
-.data-table tr[data-culture="isengard"] td  { background: rgba(144, 144, 144, 0.75); }  /* Isengard - grey */
-.data-table tr[data-culture="gundabad"] td  { background: rgba(122, 138, 154, 0.75); }  /* Gundabad - cool gray */
-.data-table tr[data-culture="mirkwood"] td  { background: rgba(76, 175, 80, 0.75); }    /* Mirkwood - green */
-.data-table tr[data-culture="rivendell"] td { background: rgba(126, 200, 227, 0.75); }  /* Rivendell - blue */
-.data-table tr[data-culture="umbar"] td     { background: rgba(184, 92, 92, 0.75); }    /* Umbar - red */
-.data-table tr[data-culture="dolguldur"] td { background: rgba(107, 142, 107, 0.75); }  /* Dol Guldur - green */
-.data-table tr[data-culture="lothlorien"] td{ background: rgba(232, 213, 108, 0.75); }  /* Lothlorien - gold */
-.data-table tr[data-culture="thenn"] td     { background: rgba(176, 160, 144, 0.75); }  /* Mercenary - tan */
-.data-table tr[data-culture="iron_hills"] td{ background: rgba(160, 64, 48, 0.75); }    /* Iron Hills - dark red/clay */
-.data-table tr[data-culture="arnor"] td     { background: rgba(139, 174, 196, 0.75); }  /* Arnor - blue */
-.data-table tr[data-culture="troll"] td     { background: rgba(122, 122, 90, 0.75); }   /* Troll - muddy */
-.data-table tr[data-culture="mercenary"] td { background: rgba(176, 160, 144, 0.75); }  /* Mercenary - tan */
-.data-table tr[data-culture="neutral_culture"] td { background: rgba(153, 153, 153, 0.75); } /* Neutral */
-.data-table tr[data-culture="rhun"] td      { background: rgba(212, 162, 76, 0.75); }   /* Rhun - gold */
-/* Armory folder-name aliases (armory uses folder names instead of vanilla culture IDs) */
-.data-table tr[data-culture="dunland"] td   { background: rgba(160, 130, 109, 0.75); }  /* Dunland = empire */
-.data-table tr[data-culture="dol_guldur"] td{ background: rgba(107, 142, 107, 0.75); }  /* Dol Guldur = dolguldur */
-.data-table tr[data-culture="harad"] td     { background: rgba(220, 20, 60, 0.75); }    /* Harad = aserai */
-.data-table tr[data-culture="rohan"] td     { background: rgba(93, 174, 93, 0.75); }    /* Rohan = vlandia */
+/* Skill and culture color imports */
+@import './skill-colors.css';
+@import './culture-colors.css';
 
 /* Section headers in table */
 .data-table th.section-start {

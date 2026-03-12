@@ -1,0 +1,86 @@
+/* Culture/Kingdom row color coding — colored td backgrounds with white text */
+.data-table tr[data-culture] td {
+  color: #fff;
+}
+.data-table tr[data-culture='gondor'] td {
+  background: rgba(192, 192, 192, 0.75);
+} /* Silver */
+.data-table tr[data-culture='mordor'] td {
+  background: rgba(224, 80, 80, 0.75);
+} /* Dark red */
+.data-table tr[data-culture='empire'] td {
+  background: rgba(160, 130, 109, 0.75);
+} /* Dunland - brown */
+.data-table tr[data-culture='vlandia'] td {
+  background: rgba(93, 174, 93, 0.75);
+} /* Rohan - green */
+.data-table tr[data-culture='khuzait'] td {
+  background: rgba(212, 162, 76, 0.75);
+} /* Rhun - gold */
+.data-table tr[data-culture='aserai'] td {
+  background: rgba(220, 20, 60, 0.75);
+} /* Harad - crimson */
+.data-table tr[data-culture='sturgia'] td {
+  background: rgba(110, 168, 217, 0.75);
+} /* Dale - ice blue */
+.data-table tr[data-culture='battania'] td {
+  background: rgba(139, 115, 85, 0.75);
+} /* Khand - tan */
+.data-table tr[data-culture='erebor'] td {
+  background: rgba(106, 159, 212, 0.75);
+} /* Erebor - blue-gold */
+.data-table tr[data-culture='isengard'] td {
+  background: rgba(144, 144, 144, 0.75);
+} /* Isengard - grey */
+.data-table tr[data-culture='gundabad'] td {
+  background: rgba(122, 138, 154, 0.75);
+} /* Gundabad - cool gray */
+.data-table tr[data-culture='mirkwood'] td {
+  background: rgba(76, 175, 80, 0.75);
+} /* Mirkwood - green */
+.data-table tr[data-culture='rivendell'] td {
+  background: rgba(126, 200, 227, 0.75);
+} /* Rivendell - blue */
+.data-table tr[data-culture='umbar'] td {
+  background: rgba(184, 92, 92, 0.75);
+} /* Umbar - red */
+.data-table tr[data-culture='dolguldur'] td {
+  background: rgba(107, 142, 107, 0.75);
+} /* Dol Guldur - green */
+.data-table tr[data-culture='lothlorien'] td {
+  background: rgba(232, 213, 108, 0.75);
+} /* Lothlorien - gold */
+.data-table tr[data-culture='thenn'] td {
+  background: rgba(176, 160, 144, 0.75);
+} /* Mercenary - tan */
+.data-table tr[data-culture='iron_hills'] td {
+  background: rgba(160, 64, 48, 0.75);
+} /* Iron Hills - dark red/clay */
+.data-table tr[data-culture='arnor'] td {
+  background: rgba(139, 174, 196, 0.75);
+} /* Arnor - blue */
+.data-table tr[data-culture='troll'] td {
+  background: rgba(122, 122, 90, 0.75);
+} /* Troll - muddy */
+.data-table tr[data-culture='mercenary'] td {
+  background: rgba(176, 160, 144, 0.75);
+} /* Mercenary - tan */
+.data-table tr[data-culture='neutral_culture'] td {
+  background: rgba(153, 153, 153, 0.75);
+} /* Neutral */
+.data-table tr[data-culture='rhun'] td {
+  background: rgba(212, 162, 76, 0.75);
+} /* Rhun - gold */
+/* Armory folder-name aliases (armory uses folder names instead of vanilla culture IDs) */
+.data-table tr[data-culture='dunland'] td {
+  background: rgba(160, 130, 109, 0.75);
+} /* Dunland = empire */
+.data-table tr[data-culture='dol_guldur'] td {
+  background: rgba(107, 142, 107, 0.75);
+} /* Dol Guldur = dolguldur */
+.data-table tr[data-culture='harad'] td {
+  background: rgba(220, 20, 60, 0.75);
+} /* Harad = aserai */
+.data-table tr[data-culture='rohan'] td {
+  background: rgba(93, 174, 93, 0.75);
+} /* Rohan = vlandia */
