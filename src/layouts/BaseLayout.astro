@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
@@ -77,9 +79,10 @@ const currentPath = Astro.url.pathname;
     <title>{title} | TAOM</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <ViewTransitions />
   </head>
   <body>
-    <nav class="site-nav">
+    <nav class="site-nav" transition:persist>
       <a class="logo" href="/"><img src="/images/logo.png" alt="TAOM" class="nav-logo" /></a>
       <ul class="nav-links">
         {

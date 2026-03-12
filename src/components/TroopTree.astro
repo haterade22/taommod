@@ -504,9 +504,11 @@ const GROUP_COLORS: Record<string, string> = {
     setupHighlighting();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(init, 100));
-  } else {
+  // Use astro:page-load for View Transitions compatibility
+  document.addEventListener('astro:page-load', () => setTimeout(init, 100));
+
+  // Also run on initial load if astro:page-load already fired
+  if (document.readyState !== 'loading') {
     setTimeout(init, 100);
   }
 
