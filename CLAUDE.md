@@ -27,10 +27,11 @@ npx astro check   # TypeScript/Astro type checking
 
 - **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `parse-xml.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland)
 - **XML name cleanup**: `stripLocKey()` removes `{=key}` prefixes, `stripPrefix()` removes `Item.`/`Hero.`/etc prefixes
-- **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `global.css`)
-- **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values
+- **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/culture-colors.css`)
+- **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/skill-colors.css`)
 - **Dark theme**: CSS custom properties defined in `:root` in `global.css` (`--bg-primary`, `--accent`, etc.)
-- **Font**: Cinzel (Google Fonts) for navigation, system font stack for body text
+- **Font**: Self-hosted Cinzel (woff2 in `public/fonts/`) for navigation, system font stack for body text
+- **Shared DataTable utilities**: `src/scripts/data-table.ts` provides `initSorting()`, `initCollapse()`, `applyUrlParams()`, `collectRows()` for all data table pages
 
 ## File Organization
 
@@ -39,9 +40,10 @@ src/
   components/   TroopTree.astro (SVG upgrade tree visualization)
   data/         125+ XML files (troops/, characters/, armory/), XSLT transforms, faction-troops.ts
   layouts/      BaseLayout.astro (single layout with nav, footer)
-  lib/          parse-xml.ts (~1100 lines), damage-calc.ts (~375 lines)
+  lib/          parse-xml.ts (barrel), xml-shared.ts, parse-troops.ts, parse-kingdoms.ts, parse-clans.ts, parse-lords.ts, parse-armory.ts, parse-weaponry.ts, damage-calc.ts
+  scripts/      data-table.ts (shared client-side table sorting/collapse/filters)
   pages/        18 pages with dynamic [id].astro routes for factions, kingdoms, clans
-  styles/       global.css (dark theme, data tables, culture colors)
+  styles/       global.css, culture-colors.css, skill-colors.css
 scripts/        Node.js analysis scripts (weapon balance, culture summaries)
 public/         Images, favicon, CNAME
 ```

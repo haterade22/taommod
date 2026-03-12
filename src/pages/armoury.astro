@@ -21,21 +21,24 @@ const ARMOR_SECTIONS = [
   { key: 'Leg', label: 'Leg Armour' },
 ];
 
-const armorBySlot = ARMOR_SECTIONS.map(s => ({
+const armorBySlot = ARMOR_SECTIONS.map((s) => ({
   ...s,
-  items: allItems.filter(i => i.slot === s.key),
-})).filter(s => s.items.length > 0);
+  items: allItems.filter((i) => i.slot === s.key),
+})).filter((s) => s.items.length > 0);
 
 // Get unique cultures and materials for filters
-const cultures = [...new Set(allItems.map(i => i.culture).filter(Boolean))].sort();
-const materials = [...new Set(allItems.map(i => i.materialType).filter(Boolean))].sort();
+const cultures = [...new Set(allItems.map((i) => i.culture).filter(Boolean))].sort();
+const materials = [...new Set(allItems.map((i) => i.materialType).filter(Boolean))].sort();
 
 function z(val: number): string {
   return val === 0 ? 'col-num skill-zero' : 'col-num';
 }
 ---
 
-<BaseLayout title="Armoury" description="Complete armour database for TAOM - all cultures, armour values, and materials">
+<BaseLayout
+  title="Armoury"
+  description="Complete armour database for TAOM - all cultures, armour values, and materials"
+>
   <div class="page-content">
     <h1 class="page-title">Armoury</h1>
 
@@ -43,57 +46,74 @@ function z(val: number): string {
       <input type="text" id="search" placeholder="Search by name or ID..." />
       <select id="filter-culture">
         <option value="">All Cultures</option>
-        {cultures.map(c => <option value={c}>{getCultureDisplayName(c)}</option>)}
+        {cultures.map((c) => <option value={c}>{getCultureDisplayName(c)}</option>)}
       </select>
       <select id="filter-material">
         <option value="">All Materials</option>
-        {materials.map(m => <option value={m}>{m}</option>)}
+        {materials.map((m) => <option value={m}>{m}</option>)}
       </select>
       <span class="result-count" id="result-count">{allItems.length} items</span>
     </div>
 
-    {armorBySlot.map(section => (
-      <div class="collapsible-section" data-collapsed="true">
-        <h2 class="section-title section-toggle"><span class="collapse-arrow">&#9654;</span> {section.label} <span class="section-count">({section.items.length})</span></h2>
-        <div class="data-table-wrapper" style="display:none">
-          <table class="data-table armor-section" data-section={section.key}>
-            <thead>
-              <tr>
-                <th data-col="name">Name</th>
-                <th data-col="culture">Culture</th>
-                <th data-col="headArmor" class="col-num">Head</th>
-                <th data-col="bodyArmor" class="col-num">Body</th>
-                <th data-col="armArmor" class="col-num">Arm</th>
-                <th data-col="legArmor" class="col-num">Leg</th>
-                <th data-col="weight" class="col-num">Weight</th>
-                <th data-col="materialType">Material</th>
-                <th data-col="id" class="col-id-header">Id</th>
-              </tr>
-            </thead>
-            <tbody>
-              {section.items.map(item => (
-                <tr
-                  data-name={item.name.toLowerCase()}
-                  data-id={item.id.toLowerCase()}
-                  data-culture={item.culture}
-                  data-material={item.materialType}
-                >
-                  <td class={`culture-${item.culture}`}>{item.name}</td>
-                  <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
-                  <td class={z(item.headArmor)}>{item.headArmor}</td>
-                  <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
-                  <td class={z(item.armArmor)}>{item.armArmor}</td>
-                  <td class={z(item.legArmor)}>{item.legArmor}</td>
-                  <td class="col-num">{item.weight}</td>
-                  <td>{item.materialType}</td>
-                  <td class="col-id">{item.id}</td>
+    {
+      armorBySlot.map((section) => (
+        <div class="collapsible-section" data-collapsed="true">
+          <h2 class="section-title section-toggle">
+            <span class="collapse-arrow">&#9654;</span> {section.label}{' '}
+            <span class="section-count">({section.items.length})</span>
+          </h2>
+          <div class="data-table-wrapper" style="display:none">
+            <table class="data-table armor-section" data-section={section.key}>
+              <thead>
+                <tr>
+                  <th data-col="name">Name</th>
+                  <th data-col="culture">Culture</th>
+                  <th data-col="headArmor" class="col-num">
+                    Head
+                  </th>
+                  <th data-col="bodyArmor" class="col-num">
+                    Body
+                  </th>
+                  <th data-col="armArmor" class="col-num">
+                    Arm
+                  </th>
+                  <th data-col="legArmor" class="col-num">
+                    Leg
+                  </th>
+                  <th data-col="weight" class="col-num">
+                    Weight
+                  </th>
+                  <th data-col="materialType">Material</th>
+                  <th data-col="id" class="col-id-header">
+                    Id
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {section.items.map((item) => (
+                  <tr
+                    data-name={item.name.toLowerCase()}
+                    data-id={item.id.toLowerCase()}
+                    data-culture={item.culture}
+                    data-material={item.materialType}
+                  >
+                    <td class={`culture-${item.culture}`}>{item.name}</td>
+                    <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
+                    <td class={z(item.headArmor)}>{item.headArmor}</td>
+                    <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
+                    <td class={z(item.armArmor)}>{item.armArmor}</td>
+                    <td class={z(item.legArmor)}>{item.legArmor}</td>
+                    <td class="col-num">{item.weight}</td>
+                    <td>{item.materialType}</td>
+                    <td class="col-id">{item.id}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </BaseLayout>
 
@@ -134,16 +154,13 @@ function z(val: number): string {
 </style>
 
 <script>
+  import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
+
   const searchInput = document.getElementById('search') as HTMLInputElement;
   const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
   const materialFilter = document.getElementById('filter-material') as HTMLSelectElement;
   const resultCount = document.getElementById('result-count')!;
-
-  const tables = document.querySelectorAll('table.armor-section');
-  const allRows: HTMLTableRowElement[] = [];
-  tables.forEach(t => {
-    allRows.push(...Array.from(t.querySelectorAll('tbody tr')));
-  });
+  const allRows = collectRows('table.armor-section');
 
   function filterRows() {
     const search = searchInput.value.toLowerCase();
@@ -169,76 +186,12 @@ function z(val: number): string {
     resultCount.textContent = `${visible} items`;
   }
 
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('culture')) cultureFilter.value = params.get('culture')!;
-  if (params.get('search')) searchInput.value = params.get('search')!;
-
+  applyUrlParams({ culture: cultureFilter, search: searchInput });
   searchInput.addEventListener('input', filterRows);
   cultureFilter.addEventListener('change', filterRows);
   materialFilter.addEventListener('change', filterRows);
-
   filterRows();
 
-  // Section collapse/expand
-  document.querySelectorAll('.section-toggle').forEach(title => {
-    title.addEventListener('click', () => {
-      const section = title.closest('.collapsible-section') as HTMLElement;
-      const wrapper = section.querySelector('.data-table-wrapper') as HTMLElement;
-      const arrow = title.querySelector('.collapse-arrow')!;
-      const collapsed = section.dataset.collapsed === 'true';
-      section.dataset.collapsed = collapsed ? 'false' : 'true';
-      wrapper.style.display = collapsed ? '' : 'none';
-      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
-    });
-  });
-
-  // Column sorting per table
-  tables.forEach(table => {
-    const headers = table.querySelectorAll('th[data-col]');
-    const tbody = table.querySelector('tbody')!;
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    let sortCol = '';
-    let sortAsc = true;
-
-    headers.forEach(th => {
-      th.addEventListener('click', () => {
-        const col = (th as HTMLElement).dataset.col!;
-        if (sortCol === col) {
-          sortAsc = !sortAsc;
-        } else {
-          sortCol = col;
-          sortAsc = true;
-        }
-
-        headers.forEach(h => {
-          const indicator = h.querySelector('.sort-indicator');
-          if (indicator) indicator.remove();
-        });
-        const indicator = document.createElement('span');
-        indicator.className = 'sort-indicator';
-        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-        th.appendChild(indicator);
-
-        const colIndex = Array.from(headers).indexOf(th);
-        const isNumeric = th.classList.contains('col-num');
-
-        rows.sort((a, b) => {
-          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-          if (isNumeric) {
-            const aNum = parseFloat(aVal) || 0;
-            const bNum = parseFloat(bVal) || 0;
-            return sortAsc ? aNum - bNum : bNum - aNum;
-          }
-
-          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        });
-
-        for (const row of rows) {
-          tbody.appendChild(row);
-        }
-      });
-    });
-  });
+  initCollapse();
+  initSorting('table.armor-section');
 </script>

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../lib/parse-xml';
 
-const allTroops = parseTroops().filter(t => !isHiddenCulture(t.culture));
+const allTroops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
 
 function sc(skill: string, val: number, isFirst = false): string {
   const base = isFirst ? 'col-num section-start' : 'col-num';
@@ -14,8 +14,8 @@ function sc(skill: string, val: number, isFirst = false): string {
 allTroops.sort((a, b) => a.level - b.level);
 
 // Get unique cultures and groups for filters
-const cultures = [...new Set(allTroops.map(t => t.culture).filter(Boolean))].sort();
-const groups = [...new Set(allTroops.map(t => t.defaultGroup).filter(Boolean))].sort();
+const cultures = [...new Set(allTroops.map((t) => t.culture).filter(Boolean))].sort();
+const groups = [...new Set(allTroops.map((t) => t.defaultGroup).filter(Boolean))].sort();
 
 // Group troops by culture display name
 const cultureGroups = new Map<string, { culture: string; troops: typeof allTroops }>();
@@ -55,13 +55,15 @@ const headerCols = [
 <BaseLayout title="Troops" description="Complete troop database for TAOM - all factions, skills, and equipment">
   <div class="page-content">
     <h1 class="page-title">Troop Database</h1>
-    <p class="page-subtitle-link">See how troop skills are balanced: <a href="/mod-info/troop-balancing">Troop Balancing &rarr;</a></p>
+    <p class="page-subtitle-link">
+      See how troop skills are balanced: <a href="/mod-info/troop-balancing">Troop Balancing &rarr;</a>
+    </p>
 
     <div class="table-controls">
       <input type="text" id="search" placeholder="Search by name or ID..." />
       <select id="filter-group">
         <option value="">All Groups</option>
-        {groups.map(g => <option value={g}>{g}</option>)}
+        {groups.map((g) => <option value={g}>{g}</option>)}
       </select>
       <select id="filter-occupation">
         <option value="">All Types</option>
@@ -77,72 +79,26 @@ const headerCols = [
     <!-- All Troops -->
     <div class="collapsible-section" data-collapsed="true" data-section-culture="all">
       <h2 class="section-title section-toggle">
-        <span class="collapse-arrow">&#9654;</span> All Troops <span class="section-count" data-count-for="all">({allTroops.length})</span>
+        <span class="collapse-arrow">&#9654;</span> All Troops <span class="section-count" data-count-for="all"
+          >({allTroops.length})</span
+        >
       </h2>
       <div class="data-table-wrapper" style="display:none">
         <table class="data-table troop-section" data-section="all">
           <thead>
             <tr>
-              {headerCols.map(h => (
-                <th data-col={h.col} class={h.cls}>{h.label}</th>
-              ))}
+              {
+                headerCols.map((h) => (
+                  <th data-col={h.col} class={h.cls}>
+                    {h.label}
+                  </th>
+                ))
+              }
             </tr>
           </thead>
           <tbody>
-            {allTroops.map(t => (
-              <tr
-                data-name={t.name.toLowerCase()}
-                data-id={t.id.toLowerCase()}
-                data-culture={t.culture}
-                data-group={t.defaultGroup}
-                data-occupation={t.occupation}
-              >
-                <td>{t.name}</td>
-                <td class="col-num">{t.level}</td>
-                <td>{t.defaultGroup}</td>
-                <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
-                <td class={sc('riding', t.riding)}>{t.riding}</td>
-                <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
-                <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
-                <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
-                <td class={sc('bow', t.bow)}>{t.bow}</td>
-                <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
-                <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
-                <td class="col-id section-start">{t.item0}</td>
-                <td class="col-id">{t.item1}</td>
-                <td class="col-id">{t.item2}</td>
-                <td class="col-id">{t.item3}</td>
-                <td class="col-id">{t.head}</td>
-                <td class="col-id">{t.body}</td>
-                <td class="col-id">{t.leg}</td>
-                <td class="col-id">{t.glove}</td>
-                <td class="section-start">{t.race}</td>
-                <td>{getCultureDisplayName(t.culture)}</td>
-                <td class="col-id">{t.id}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Per-Culture Sections -->
-    {[...cultureGroups.entries()].map(([cultureName, { culture, troops }]) => (
-      <div class="collapsible-section" data-collapsed="true" data-section-culture={culture}>
-        <h2 class="section-title section-toggle">
-          <span class="collapse-arrow">&#9654;</span> {cultureName} <span class="section-count" data-count-for={culture}>({troops.length})</span>
-        </h2>
-        <div class="data-table-wrapper" style="display:none">
-          <table class="data-table troop-section" data-section={culture}>
-            <thead>
-              <tr>
-                {headerCols.map(h => (
-                  <th data-col={h.col} class={h.cls}>{h.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {troops.map(t => (
+            {
+              allTroops.map((t) => (
                 <tr
                   data-name={t.name.toLowerCase()}
                   data-id={t.id.toLowerCase()}
@@ -173,32 +129,89 @@ const headerCols = [
                   <td>{getCultureDisplayName(t.culture)}</td>
                   <td class="col-id">{t.id}</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              ))
+            }
+          </tbody>
+        </table>
       </div>
-    ))}
+    </div>
+
+    <!-- Per-Culture Sections -->
+    {
+      [...cultureGroups.entries()].map(([cultureName, { culture, troops }]) => (
+        <div class="collapsible-section" data-collapsed="true" data-section-culture={culture}>
+          <h2 class="section-title section-toggle">
+            <span class="collapse-arrow">&#9654;</span> {cultureName}{' '}
+            <span class="section-count" data-count-for={culture}>
+              ({troops.length})
+            </span>
+          </h2>
+          <div class="data-table-wrapper" style="display:none">
+            <table class="data-table troop-section" data-section={culture}>
+              <thead>
+                <tr>
+                  {headerCols.map((h) => (
+                    <th data-col={h.col} class={h.cls}>
+                      {h.label}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {troops.map((t) => (
+                  <tr
+                    data-name={t.name.toLowerCase()}
+                    data-id={t.id.toLowerCase()}
+                    data-culture={t.culture}
+                    data-group={t.defaultGroup}
+                    data-occupation={t.occupation}
+                  >
+                    <td>{t.name}</td>
+                    <td class="col-num">{t.level}</td>
+                    <td>{t.defaultGroup}</td>
+                    <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
+                    <td class={sc('riding', t.riding)}>{t.riding}</td>
+                    <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
+                    <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
+                    <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
+                    <td class={sc('bow', t.bow)}>{t.bow}</td>
+                    <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
+                    <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
+                    <td class="col-id section-start">{t.item0}</td>
+                    <td class="col-id">{t.item1}</td>
+                    <td class="col-id">{t.item2}</td>
+                    <td class="col-id">{t.item3}</td>
+                    <td class="col-id">{t.head}</td>
+                    <td class="col-id">{t.body}</td>
+                    <td class="col-id">{t.leg}</td>
+                    <td class="col-id">{t.glove}</td>
+                    <td class="section-start">{t.race}</td>
+                    <td>{getCultureDisplayName(t.culture)}</td>
+                    <td class="col-id">{t.id}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </BaseLayout>
 
 <script>
+  import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
+
   const searchInput = document.getElementById('search') as HTMLInputElement;
   const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
   const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
   const resultCount = document.getElementById('result-count')!;
-
-  const tables = document.querySelectorAll('table.troop-section');
-  const allRows: HTMLTableRowElement[] = [];
-  tables.forEach(t => {
-    allRows.push(...Array.from(t.querySelectorAll('tbody tr')));
-  });
+  const allRows = collectRows('table.troop-section');
 
   function filterRows() {
     const search = searchInput.value.toLowerCase();
     const group = groupFilter.value;
     const occupation = occupationFilter.value;
-    let totalVisible = 0;
 
     // Track visible counts per section
     const sectionCounts = new Map<string, number>();
@@ -225,7 +238,7 @@ const headerCols = [
     }
 
     // Update section counts and hide empty sections
-    document.querySelectorAll('.collapsible-section').forEach(section => {
+    document.querySelectorAll('.collapsible-section').forEach((section) => {
       const sectionEl = section as HTMLElement;
       const culture = sectionEl.dataset.sectionCulture || '';
       const countSpan = sectionEl.querySelector('.section-count') as HTMLElement;
@@ -235,83 +248,17 @@ const headerCols = [
     });
 
     // Total visible (only count from "all" table to avoid double-counting)
-    totalVisible = sectionCounts.get('all') || 0;
-    resultCount.textContent = `${totalVisible} troops`;
+    resultCount.textContent = `${sectionCounts.get('all') || 0} troops`;
   }
 
-  // Apply URL query params on load
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('group')) groupFilter.value = params.get('group')!;
-  if (params.get('search')) searchInput.value = params.get('search')!;
-
+  applyUrlParams({ group: groupFilter, search: searchInput });
   searchInput.addEventListener('input', filterRows);
   groupFilter.addEventListener('change', filterRows);
   occupationFilter.addEventListener('change', filterRows);
-
   filterRows();
 
-  // Section collapse/expand
-  document.querySelectorAll('.section-toggle').forEach(title => {
-    title.addEventListener('click', () => {
-      const section = title.closest('.collapsible-section') as HTMLElement;
-      const wrapper = section.querySelector('.data-table-wrapper') as HTMLElement;
-      const arrow = title.querySelector('.collapse-arrow')!;
-      const collapsed = section.dataset.collapsed === 'true';
-      section.dataset.collapsed = collapsed ? 'false' : 'true';
-      wrapper.style.display = collapsed ? '' : 'none';
-      arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
-    });
-  });
-
-  // Column sorting per table
-  tables.forEach(table => {
-    const headers = table.querySelectorAll('th[data-col]');
-    const tbody = table.querySelector('tbody')!;
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    let sortCol = '';
-    let sortAsc = true;
-
-    headers.forEach(th => {
-      th.addEventListener('click', () => {
-        const col = (th as HTMLElement).dataset.col!;
-        if (sortCol === col) {
-          sortAsc = !sortAsc;
-        } else {
-          sortCol = col;
-          sortAsc = true;
-        }
-
-        headers.forEach(h => {
-          const indicator = h.querySelector('.sort-indicator');
-          if (indicator) indicator.remove();
-        });
-        const indicator = document.createElement('span');
-        indicator.className = 'sort-indicator';
-        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-        th.appendChild(indicator);
-
-        const colIndex = Array.from(headers).indexOf(th);
-        const isNumeric = th.classList.contains('col-num');
-
-        rows.sort((a, b) => {
-          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-          if (isNumeric) {
-            const aNum = parseFloat(aVal) || 0;
-            const bNum = parseFloat(bVal) || 0;
-            return sortAsc ? aNum - bNum : bNum - aNum;
-          }
-
-          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        });
-
-        for (const row of rows) {
-          tbody.appendChild(row);
-        }
-      });
-    });
-  });
+  initCollapse();
+  initSorting('table.troop-section');
 </script>
 
 <style>
