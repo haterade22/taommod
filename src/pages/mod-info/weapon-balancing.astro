@@ -13,8 +13,15 @@ const cultures = [
     avgMelee: 70,
     avgRanged: 0,
     meleePercent: '103%',
-    identity: 'Gondorian weaponry reflects Numenorean craftsmanship heritage — well-forged swords with balanced damage and excellent thrust capability. At +3 points above average, the armouries of Minas Tirith produce weapons suited to disciplined infantry. One-handed swords dominate, with polearms for defensive positions.',
-    primaryWeapons: ['One-Handed Swords (18)', 'Polearms (8)', 'Two-Handed Swords (7)', 'Two-Handed Axes (2)', 'One-Handed Axes (2)'],
+    identity:
+      'Gondorian weaponry reflects Numenorean craftsmanship heritage — well-forged swords with balanced damage and excellent thrust capability. At +3 points above average, the armouries of Minas Tirith produce weapons suited to disciplined infantry. One-handed swords dominate, with polearms for defensive positions.',
+    primaryWeapons: [
+      'One-Handed Swords (18)',
+      'Polearms (8)',
+      'Two-Handed Swords (7)',
+      'Two-Handed Axes (2)',
+      'One-Handed Axes (2)',
+    ],
     strengths: [
       { stat: 'Sword Variety', mod: '18 types', note: 'Largest 1H sword roster' },
       { stat: '2H Axe Damage', mod: '146 avg swing', note: 'Numenorean great-axes' },
@@ -24,7 +31,8 @@ const cultures = [
       { stat: 'Polearm Damage', mod: '36 avg thrust', note: 'Thrust-only defensive spears' },
       { stat: '1H Axe Damage', mod: '65 avg swing', note: 'Limited axe options' },
     ],
-    notes: 'Gondor at +3 points (103% of average). Numenorean smithcraft produces weapons above average quality but below elven mastery. Polearms are thrust-only defensive spears with lower damage output.',
+    notes:
+      'Gondor at +3 points (103% of average). Numenorean smithcraft produces weapons above average quality but below elven mastery. Polearms are thrust-only defensive spears with lower damage output.',
   },
   {
     id: 'rohan',
@@ -37,7 +45,8 @@ const cultures = [
     avgMelee: 67,
     avgRanged: 0,
     meleePercent: '99%',
-    identity: 'Rohirrim weaponry is built for mounted warfare — lances, spears and cavalry swords dominate their arsenal. At baseline quality (0 points), Rohirric smithcraft is functional. Polearms receive a +3 point bonus reflecting superior lance and spear construction for cavalry charges.',
+    identity:
+      'Rohirrim weaponry is built for mounted warfare — lances, spears and cavalry swords dominate their arsenal. At baseline quality (0 points), Rohirric smithcraft is functional. Polearms receive a +3 point bonus reflecting superior lance and spear construction for cavalry charges.',
     primaryWeapons: ['Polearms (8)', 'One-Handed Swords (6)', 'Two-Handed Axes (2)', 'One-Handed Axe (1)'],
     strengths: [
       { stat: '1H Sword Damage', mod: '95 avg swing', note: 'Solid cavalry swords' },
@@ -49,7 +58,8 @@ const cultures = [
       { stat: '1H Axe Damage', mod: '44 avg swing', note: 'Weak hand-axe' },
       { stat: 'Polearm Swing', mod: '17/47 swing/thrust', note: 'Low swing on lance-type polearms' },
     ],
-    notes: 'Rohan at 0 points (99% of average). Light armor (-2 prot, 0.90x weight) is compensated by superior cavalry skills (+20 Riding). Polearms receive +3 bonus points for cavalry lance superiority. Hero swords (Theoden, Eomer, Eowyn) keep original values.',
+    notes:
+      'Rohan at 0 points (99% of average). Light armor (-2 prot, 0.90x weight) is compensated by superior cavalry skills (+20 Riding). Polearms receive +3 bonus points for cavalry lance superiority. Hero swords (Theoden, Eomer, Eowyn) keep original values.',
   },
   {
     id: 'erebor',
@@ -62,8 +72,15 @@ const cultures = [
     avgMelee: 74,
     avgRanged: 0,
     meleePercent: '109%',
-    identity: 'Dwarven weapons from the forges of Erebor are masterfully crafted — heavy axes and war-hammers of exceptional quality. At +5 points above average, dwarven smithcraft ranks among the finest in Middle-earth, surpassed only by elven weaponsmiths. Heavy two-handed weapons dominate their arsenal.',
-    primaryWeapons: ['Two-Handed Axes (13)', 'Two-Handed Maces (12)', 'One-Handed Axes (7)', 'One-Handed Swords (2)', 'Polearms (2)'],
+    identity:
+      'Dwarven weapons from the forges of Erebor are masterfully crafted — heavy axes and war-hammers of exceptional quality. At +5 points above average, dwarven smithcraft ranks among the finest in Middle-earth, surpassed only by elven weaponsmiths. Heavy two-handed weapons dominate their arsenal.',
+    primaryWeapons: [
+      'Two-Handed Axes (13)',
+      'Two-Handed Maces (12)',
+      'One-Handed Axes (7)',
+      'One-Handed Swords (2)',
+      'Polearms (2)',
+    ],
     strengths: [
       { stat: '2H Mace Damage', mod: '92 avg swing', note: 'Masterwork war-hammers' },
       { stat: '2H Axe Damage', mod: '90 avg swing', note: 'Legendary dwarven axe-craft' },
@@ -74,7 +91,8 @@ const cultures = [
       { stat: 'Polearm Damage', mod: '25/27 swing/thrust', note: 'Few polearm options' },
       { stat: 'Weapon Speed', mod: '78 avg', note: 'Slowest weapons overall' },
     ],
-    notes: 'Erebor at +5 points (109% of average). Dwarven forges produce the finest non-elven weapons in Middle-earth, combined with elite melee skills (+20 2H) and heavy armor (+4 prot). Weapon speed remains the main drawback of heavy dwarven arms.',
+    notes:
+      'Erebor at +5 points (109% of average). Dwarven forges produce the finest non-elven weapons in Middle-earth, combined with elite melee skills (+20 2H) and heavy armor (+4 prot). Weapon speed remains the main drawback of heavy dwarven arms.',
   },
   {
     id: 'rivendell',
@@ -87,7 +105,8 @@ const cultures = [
     avgMelee: 78,
     avgRanged: 0,
     meleePercent: '115%',
-    identity: 'Noldorin blades are the finest weapons in Middle-earth — forged by master-smiths with millennia of craft. At +10 points above average, every Noldorin sword is a masterwork of balance and edge. Combined with elite skills (+35-40) and supreme armor (+6 prot), Rivendell is the most powerful faction in the game.',
+    identity:
+      'Noldorin blades are the finest weapons in Middle-earth — forged by master-smiths with millennia of craft. At +10 points above average, every Noldorin sword is a masterwork of balance and edge. Combined with elite skills (+35-40) and supreme armor (+6 prot), Rivendell is the most powerful faction in the game.',
     primaryWeapons: ['One-Handed Swords (13)', 'Polearms (5)', 'Two-Handed Swords (2)'],
     strengths: [
       { stat: 'Weapon Quality', mod: '+10 points', note: 'Finest weapons in Middle-earth' },
@@ -99,7 +118,8 @@ const cultures = [
       { stat: 'Small Arsenal', mod: '20 melee', note: 'Elite but limited variety' },
       { stat: 'Polearm Swing', mod: '46 avg swing', note: 'Thrust-focused polearms' },
     ],
-    notes: 'Rivendell at +10 points (115% of average). Noldorin master-smiths forge the finest blades in Middle-earth. Combined with the highest skill bonuses (+35-40 all) and best armor (+6 prot, 0.70x weight), Rivendell is intentionally the strongest faction — balanced by very high unit cost and few numbers.',
+    notes:
+      'Rivendell at +10 points (115% of average). Noldorin master-smiths forge the finest blades in Middle-earth. Combined with the highest skill bonuses (+35-40 all) and best armor (+6 prot, 0.70x weight), Rivendell is intentionally the strongest faction — balanced by very high unit cost and few numbers.',
   },
   {
     id: 'mirkwood',
@@ -112,7 +132,8 @@ const cultures = [
     avgMelee: 66,
     avgRanged: 0,
     meleePercent: '97%',
-    identity: 'Silvan elves carry finely crafted woodland blades at +4 points above average. Their melee arsenal is small but their combat superiority comes from unmatched ranged skills (+50 Bow) and excellent melee technique (+40-45 skills). Hero weapons (Legolas, Thranduil) keep their original values.',
+    identity:
+      'Silvan elves carry finely crafted woodland blades at +4 points above average. Their melee arsenal is small but their combat superiority comes from unmatched ranged skills (+50 Bow) and excellent melee technique (+40-45 skills). Hero weapons (Legolas, Thranduil) keep their original values.',
     primaryWeapons: ['One-Handed Swords (2)', 'Spears (2)', 'Glaive (1)'],
     strengths: [
       { stat: 'Troop Skills', mod: '+50 Bow, +40 melee', note: 'Best ranged skills in game' },
@@ -123,7 +144,8 @@ const cultures = [
       { stat: 'Melee Variety', mod: '2 weapons', note: 'Minimal melee options' },
       { stat: 'No Heavy Weapons', mod: '0 types', note: 'No axes, maces or 2H' },
     ],
-    notes: 'Mirkwood at +4 points (97% of average). Hero weapons (Legolas, Thranduil) keep original values. New Mirkwood weapons will receive the +4 point craftsmanship bonus. Their dominance comes from unmatched ranged skills (+50) and light armor, not melee damage.',
+    notes:
+      'Mirkwood at +4 points (97% of average). Hero weapons (Legolas, Thranduil) keep original values. New Mirkwood weapons will receive the +4 point craftsmanship bonus. Their dominance comes from unmatched ranged skills (+50) and light armor, not melee damage.',
   },
   {
     id: 'lothlorien',
@@ -136,7 +158,8 @@ const cultures = [
     avgMelee: 70,
     avgRanged: 0,
     meleePercent: '103%',
-    identity: 'Sindar blades of Lothlorien are masterworks of elven craft — at +9 points, second only to Noldorin weaponsmiths. Every current weapon is a named hero blade of exceptional quality. When regular Lothlorien weapons are added, they will inherit the +9 point craftsmanship bonus.',
+    identity:
+      'Sindar blades of Lothlorien are masterworks of elven craft — at +9 points, second only to Noldorin weaponsmiths. Every current weapon is a named hero blade of exceptional quality. When regular Lothlorien weapons are added, they will inherit the +9 point craftsmanship bonus.',
     primaryWeapons: ['One-Handed Swords (4)'],
     strengths: [
       { stat: 'Weapon Quality', mod: '+9 points', note: 'Second finest weaponsmiths' },
@@ -148,7 +171,8 @@ const cultures = [
       { stat: 'No Ranged', mod: '0 bows', note: 'Bows not yet implemented' },
       { stat: 'No Variety', mod: '1 class', note: 'Swords only' },
     ],
-    notes: 'Lothlorien at +9 points (103% of average). All 4 current weapons are hero-exempt (Galadriel, Aranruth variants), so the craftsmanship bonus applies to no current pieces. When regular Lothlorien weapons are added, they will receive the Sindar quality bonus.',
+    notes:
+      'Lothlorien at +9 points (103% of average). All 4 current weapons are hero-exempt (Galadriel, Aranruth variants), so the craftsmanship bonus applies to no current pieces. When regular Lothlorien weapons are added, they will receive the Sindar quality bonus.',
   },
   {
     id: 'isengard',
@@ -161,8 +185,15 @@ const cultures = [
     avgMelee: 68,
     avgRanged: 0,
     meleePercent: '100%',
-    identity: 'Uruk-hai weaponry is forged in the pits of Orthanc — industrial quality, functional and mass-produced. At 0 points (baseline), Isengard weapons are the benchmark of average quality. Two-handed axes dominate for raw damage, with pikes providing tactical versatility.',
-    primaryWeapons: ['Two-Handed Axes (3)', 'One-Handed Swords (3)', 'Pikes (2)', 'Polearms (2)', 'Two-Handed Sword (1)'],
+    identity:
+      'Uruk-hai weaponry is forged in the pits of Orthanc — industrial quality, functional and mass-produced. At 0 points (baseline), Isengard weapons are the benchmark of average quality. Two-handed axes dominate for raw damage, with pikes providing tactical versatility.',
+    primaryWeapons: [
+      'Two-Handed Axes (3)',
+      'One-Handed Swords (3)',
+      'Pikes (2)',
+      'Polearms (2)',
+      'Two-Handed Sword (1)',
+    ],
     strengths: [
       { stat: '2H Axe Damage', mod: '150 avg swing', note: 'Devastating Uruk great-axes' },
       { stat: '2H Sword Damage', mod: '80/26 swing/thrust', note: 'Heavy cleaving sword' },
@@ -173,7 +204,8 @@ const cultures = [
       { stat: 'Polearm Swing', mod: '38 avg swing', note: 'Low swing damage on polearms' },
       { stat: 'Weapon Speed', mod: '68 avg', note: 'Second slowest arsenal' },
     ],
-    notes: 'Isengard at 0 points (100% of average) — the baseline culture. Solid troops (+10-15 skills) with good armor (+2 prot) and average-quality weapons. Their heavy weapon speed penalty reflects the brutal Uruk-hai fighting style.',
+    notes:
+      'Isengard at 0 points (100% of average) — the baseline culture. Solid troops (+10-15 skills) with good armor (+2 prot) and average-quality weapons. Their heavy weapon speed penalty reflects the brutal Uruk-hai fighting style.',
   },
   {
     id: 'mordor',
@@ -186,8 +218,16 @@ const cultures = [
     avgMelee: 67,
     avgRanged: 0,
     meleePercent: '99%',
-    identity: 'Orc weaponry from Mordor is crude and mass-produced. At -2 points below average, orc blades lack the quality of human or elven craft. Mordor relies on numbers and weight of arms to overwhelm — individually weak troops with poor weapons, but devastating in mass.',
-    primaryWeapons: ['Polearms (17)', 'One-Handed Swords (11)', 'Maces (6)', 'Two-Handed Maces (3)', 'Two-Handed Swords (2)', 'One-Handed Axes (2)'],
+    identity:
+      'Orc weaponry from Mordor is crude and mass-produced. At -2 points below average, orc blades lack the quality of human or elven craft. Mordor relies on numbers and weight of arms to overwhelm — individually weak troops with poor weapons, but devastating in mass.',
+    primaryWeapons: [
+      'Polearms (17)',
+      'One-Handed Swords (11)',
+      'Maces (6)',
+      'Two-Handed Maces (3)',
+      'Two-Handed Swords (2)',
+      'One-Handed Axes (2)',
+    ],
     strengths: [
       { stat: 'Weapon Count', mod: '41 melee', note: 'Largest roster overall' },
       { stat: 'Polearm Damage', mod: '119 avg swing', note: 'Heavy orc halberds' },
@@ -198,7 +238,8 @@ const cultures = [
       { stat: 'Troop Skills', mod: '-5 most skills', note: 'Weakest troops after Dol Guldur' },
       { stat: '1H Sword Damage', mod: '60/34 swing/thrust', note: 'Poor quality orc swords' },
     ],
-    notes: 'Mordor at -2 points (99% of average). Crude orc weapons reflect poor craftsmanship. Hero weapons (Sauron\'s Mace, Witch-King, Nazgul swords) keep original values. Mordor compensates through sheer numbers and weight of arms.',
+    notes:
+      "Mordor at -2 points (99% of average). Crude orc weapons reflect poor craftsmanship. Hero weapons (Sauron's Mace, Witch-King, Nazgul swords) keep original values. Mordor compensates through sheer numbers and weight of arms.",
   },
   {
     id: 'gundabad',
@@ -211,7 +252,8 @@ const cultures = [
     avgMelee: 68,
     avgRanged: 0,
     meleePercent: '100%',
-    identity: 'Gundabad weapons are crude mountain-orc armaments. At -1 point below average, their smithcraft is slightly inferior to baseline. Their maces are powerful blunt weapons and their polearms have both swing and thrust capability. A small but varied arsenal including javelins.',
+    identity:
+      'Gundabad weapons are crude mountain-orc armaments. At -1 point below average, their smithcraft is slightly inferior to baseline. Their maces are powerful blunt weapons and their polearms have both swing and thrust capability. A small but varied arsenal including javelins.',
     primaryWeapons: ['One-Handed Swords (4)', 'One-Handed Axes (3)', 'Polearms (3)', 'Maces (2)', 'Javelins (2)'],
     strengths: [
       { stat: 'Polearm Damage', mod: '134/59 swing/thrust', note: 'Strong polearm swing' },
@@ -223,7 +265,8 @@ const cultures = [
       { stat: 'Small Roster', mod: '14 melee', note: 'Limited variety' },
       { stat: 'No 2H Weapons', mod: '0 types', note: 'No two-handed options' },
     ],
-    notes: 'Gundabad at -1 point (100% of average). Slightly crude mountain-orc weapons combined with the worst armor in the game (-2 protection, 1.15x weight penalty). Polearms (134 avg swing) remain strong, while weak swords (60/15) keep the average in check.',
+    notes:
+      'Gundabad at -1 point (100% of average). Slightly crude mountain-orc weapons combined with the worst armor in the game (-2 protection, 1.15x weight penalty). Polearms (134 avg swing) remain strong, while weak swords (60/15) keep the average in check.',
   },
   {
     id: 'dolguldur',
@@ -236,8 +279,15 @@ const cultures = [
     avgMelee: 65,
     avgRanged: 0,
     meleePercent: '96%',
-    identity: 'Dol Guldur weapons are the crudest in Middle-earth — at -3 points, the lowest quality of any faction. Forged in dark pits with little skill, these weapons rely on weight rather than edge. Dol Guldur troops are weak in all three balance axes: skills, armor, and now weapons.',
-    primaryWeapons: ['Polearms (5)', 'Two-Handed Axes (4)', 'Two-Handed Maces (4)', 'One-Handed Swords (3)', 'Maces (3)'],
+    identity:
+      'Dol Guldur weapons are the crudest in Middle-earth — at -3 points, the lowest quality of any faction. Forged in dark pits with little skill, these weapons rely on weight rather than edge. Dol Guldur troops are weak in all three balance axes: skills, armor, and now weapons.',
+    primaryWeapons: [
+      'Polearms (5)',
+      'Two-Handed Axes (4)',
+      'Two-Handed Maces (4)',
+      'One-Handed Swords (3)',
+      'Maces (3)',
+    ],
     strengths: [
       { stat: 'Polearm Damage', mod: '119 avg swing', note: 'Heavy halberds still hit hard' },
       { stat: '2H Axe Damage', mod: '77 avg swing', note: 'Crude but heavy great-axes' },
@@ -248,7 +298,8 @@ const cultures = [
       { stat: '1H Sword Damage', mod: '42/25 swing/thrust', note: 'Terrible orc blades' },
       { stat: 'Mace Damage', mod: '42 avg swing', note: 'Crude 1H maces' },
     ],
-    notes: 'Dol Guldur at -3 points (96% of average). The worst weapon quality in the game combined with the weakest troop skills (+5 only) and poor armor. Dol Guldur compensates through numbers and cheap units rather than individual combat quality.',
+    notes:
+      'Dol Guldur at -3 points (96% of average). The worst weapon quality in the game combined with the weakest troop skills (+5 only) and poor armor. Dol Guldur compensates through numbers and cheap units rather than individual combat quality.',
   },
   {
     id: 'harad',
@@ -261,7 +312,8 @@ const cultures = [
     avgMelee: 68,
     avgRanged: 0,
     meleePercent: '100%',
-    identity: 'Haradrim weapons are designed for desert warfare — curved swords and light spears for mounted combat. At 0 points (baseline quality), Haradrim smithcraft is competent. Light, quick weapons suited to speed rather than heavy blows.',
+    identity:
+      'Haradrim weapons are designed for desert warfare — curved swords and light spears for mounted combat. At 0 points (baseline quality), Haradrim smithcraft is competent. Light, quick weapons suited to speed rather than heavy blows.',
     primaryWeapons: ['Polearms (5)', 'One-Handed Swords (2)', 'Two-Handed Sword (1)'],
     strengths: [
       { stat: '1H Sword Damage', mod: '78/58 swing/thrust', note: 'Fine curved swords' },
@@ -273,7 +325,8 @@ const cultures = [
       { stat: 'Polearm Swing', mod: '78 avg swing', note: 'Moderate polearm swing' },
       { stat: '2H Sword Damage', mod: '60/42 swing/thrust', note: 'Single weak great-sword' },
     ],
-    notes: 'Harad at 0 points (100% of average). Baseline quality weapons with the worst armor protection in the game (-3) and cavalry-focused skills. Appropriate for a culture that relies on mounted archery and numbers.',
+    notes:
+      'Harad at 0 points (100% of average). Baseline quality weapons with the worst armor protection in the game (-3) and cavalry-focused skills. Appropriate for a culture that relies on mounted archery and numbers.',
   },
   {
     id: 'rhun',
@@ -286,8 +339,16 @@ const cultures = [
     avgMelee: 69,
     avgRanged: 0,
     meleePercent: '101%',
-    identity: 'Easterling weaponry is the most numerous in the game — from lacquered Loke-rim blades to heavy war-maces. At +2 points above average, Easterling smithcraft is decent. The massive roster (53 melee weapons) and heavy two-handed weapons anchor their arsenal.',
-    primaryWeapons: ['One-Handed Swords (26)', 'One-Handed Axes (6)', 'Maces (6)', 'Two-Handed Axes (6)', 'Two-Handed Maces (6)', 'Polearms (3)'],
+    identity:
+      'Easterling weaponry is the most numerous in the game — from lacquered Loke-rim blades to heavy war-maces. At +2 points above average, Easterling smithcraft is decent. The massive roster (53 melee weapons) and heavy two-handed weapons anchor their arsenal.',
+    primaryWeapons: [
+      'One-Handed Swords (26)',
+      'One-Handed Axes (6)',
+      'Maces (6)',
+      'Two-Handed Axes (6)',
+      'Two-Handed Maces (6)',
+      'Polearms (3)',
+    ],
     strengths: [
       { stat: '2H Mace Damage', mod: '146 avg swing', note: 'Devastating war-maces' },
       { stat: '2H Axe Damage', mod: '119 avg swing', note: 'Heavy great-axes' },
@@ -297,7 +358,8 @@ const cultures = [
       { stat: '1H Sword Damage', mod: '65/37 swing/thrust', note: 'Many light swords dilute average' },
       { stat: 'Polearm Swing', mod: '82/46 swing/thrust', note: 'Only 3 polearms' },
     ],
-    notes: 'Rhun at +2 points (101% of average). Decent Easterling smithcraft with the largest weapon roster in the game. Their two-handed weapons (119-146 avg swing) are strong but many light one-handed swords (26 total) keep the overall average modest. A balanced cavalry culture.',
+    notes:
+      'Rhun at +2 points (101% of average). Decent Easterling smithcraft with the largest weapon roster in the game. Their two-handed weapons (119-146 avg swing) are strong but many light one-handed swords (26 total) keep the overall average modest. A balanced cavalry culture.',
   },
   {
     id: 'dunland',
@@ -310,7 +372,8 @@ const cultures = [
     avgMelee: 66,
     avgRanged: 0,
     meleePercent: '97%',
-    identity: 'Dunlending weapons are rough tribal armaments. At -2 points below average, hill-folk craft lacks the refinement of civilized peoples. Spears dominate the arsenal — functional but unsophisticated. Heavy axes and great-swords provide some punch for their skirmisher troops.',
+    identity:
+      'Dunlending weapons are rough tribal armaments. At -2 points below average, hill-folk craft lacks the refinement of civilized peoples. Spears dominate the arsenal — functional but unsophisticated. Heavy axes and great-swords provide some punch for their skirmisher troops.',
     primaryWeapons: ['Polearms (29)', 'One-Handed Axes (4)', 'Two-Handed Axes (4)', 'Two-Handed Sword (1)'],
     strengths: [
       { stat: '2H Axe Damage', mod: '123 avg swing', note: 'Solid great-axes' },
@@ -322,7 +385,8 @@ const cultures = [
       { stat: 'Polearm Swing', mod: '0 avg swing', note: '29 thrust-only spears' },
       { stat: 'No Ranged', mod: '0 bows', note: 'No bows or crossbows' },
     ],
-    notes: 'Dunland at -2 points (97% of average). Rough tribal weapons combined with poor armor (-2 protection, 0.95x weight) and skirmisher-only troop skills. Dunlendings rely on numbers, ambush tactics, and athletic skirmishing (+20 Athletics) rather than weapon quality.',
+    notes:
+      'Dunland at -2 points (97% of average). Rough tribal weapons combined with poor armor (-2 protection, 0.95x weight) and skirmisher-only troop skills. Dunlendings rely on numbers, ambush tactics, and athletic skirmishing (+20 Athletics) rather than weapon quality.',
   },
   {
     id: 'umbar',
@@ -335,7 +399,8 @@ const cultures = [
     avgMelee: 0,
     avgRanged: 0,
     meleePercent: '—',
-    identity: 'Corsair weaponry is planned but not yet implemented. Cutlasses, boarding axes, throwing knives and naval weapons will form the arsenal of Umbar when the faction is completed.',
+    identity:
+      'Corsair weaponry is planned but not yet implemented. Cutlasses, boarding axes, throwing knives and naval weapons will form the arsenal of Umbar when the faction is completed.',
     primaryWeapons: [],
     strengths: [],
     weaknesses: [],
@@ -352,7 +417,8 @@ const cultures = [
     avgMelee: 0,
     avgRanged: 0,
     meleePercent: '—',
-    identity: 'Arnorian weaponry is planned but not yet implemented. At +2 points above average, ancient Numenorean-forged swords and spears will form the arsenal of the Northern Dunedain when the faction is completed.',
+    identity:
+      'Arnorian weaponry is planned but not yet implemented. At +2 points above average, ancient Numenorean-forged swords and spears will form the arsenal of the Northern Dunedain when the faction is completed.',
     primaryWeapons: [],
     strengths: [],
     weaknesses: [],
@@ -369,7 +435,8 @@ const cultures = [
     avgMelee: 0,
     avgRanged: 0,
     meleePercent: '—',
-    identity: 'Variag weaponry is planned but not yet implemented. Chariot lances, curved swords and war-maces will form the arsenal of Khand when the faction is completed.',
+    identity:
+      'Variag weaponry is planned but not yet implemented. Chariot lances, curved swords and war-maces will form the arsenal of Khand when the faction is completed.',
     primaryWeapons: [],
     strengths: [],
     weaknesses: [],
@@ -379,12 +446,42 @@ const cultures = [
 
 // Weapon class averages across all cultures (for baseline tables)
 const weaponClassAverages = [
-  { weaponClass: 'One-Handed Sword', avgSwing: 69, avgThrust: 43, cultures: 13, note: 'Most common weapon type (94 weapons)' },
-  { weaponClass: 'Two-Handed Sword', avgSwing: 102, avgThrust: 53, cultures: 6, note: 'Balanced swing/thrust (14 weapons)' },
-  { weaponClass: 'One-Handed Axe', avgSwing: 62, avgThrust: 0, cultures: 7, note: 'Swing-only, no thrust (25 weapons)' },
-  { weaponClass: 'Two-Handed Axe', avgSwing: 120, avgThrust: 0, cultures: 7, note: 'Highest swing damage class (34 weapons)' },
+  {
+    weaponClass: 'One-Handed Sword',
+    avgSwing: 69,
+    avgThrust: 43,
+    cultures: 13,
+    note: 'Most common weapon type (94 weapons)',
+  },
+  {
+    weaponClass: 'Two-Handed Sword',
+    avgSwing: 102,
+    avgThrust: 53,
+    cultures: 6,
+    note: 'Balanced swing/thrust (14 weapons)',
+  },
+  {
+    weaponClass: 'One-Handed Axe',
+    avgSwing: 62,
+    avgThrust: 0,
+    cultures: 7,
+    note: 'Swing-only, no thrust (25 weapons)',
+  },
+  {
+    weaponClass: 'Two-Handed Axe',
+    avgSwing: 120,
+    avgThrust: 0,
+    cultures: 7,
+    note: 'Highest swing damage class (34 weapons)',
+  },
   { weaponClass: 'Mace', avgSwing: 71, avgThrust: 0, cultures: 4, note: 'Blunt damage, swing-only (17 weapons)' },
-  { weaponClass: 'Two-Handed Mace', avgSwing: 118, avgThrust: 0, cultures: 4, note: 'Highest raw damage class (25 weapons)' },
+  {
+    weaponClass: 'Two-Handed Mace',
+    avgSwing: 118,
+    avgThrust: 0,
+    cultures: 4,
+    note: 'Highest raw damage class (25 weapons)',
+  },
   { weaponClass: 'Polearm', avgSwing: 52, avgThrust: 38, cultures: 11, note: 'Wide variance by culture (87 weapons)' },
   { weaponClass: 'Pike', avgSwing: 40, avgThrust: 55, cultures: 1, note: 'Thrust-focused (2 weapons)' },
   { weaponClass: 'Javelin', avgSwing: 0, avgThrust: 39, cultures: 1, note: 'Thrown weapons (2 weapons)' },
@@ -392,15 +489,45 @@ const weaponClassAverages = [
 
 // Balance concerns identified from analysis
 const balanceConcerns = [
-  { severity: 'medium', culture: 'Rivendell', issue: 'At 115% (+10 points) — highest weapon quality in game', recommendation: 'By design: Noldorin master-smiths forge the finest blades. Combined with elite skills and armor, Rivendell is intentionally the strongest but most expensive faction.' },
-  { severity: 'medium', culture: 'Dol Guldur', issue: 'At 96% (-3 points) — lowest weapon quality in game', recommendation: 'By design: crude orc-work with worst troops (+5 skills) and poor armor. Dol Guldur compensates through cheap, disposable units.' },
-  { severity: 'low', culture: 'Lothlorien', issue: 'All 4 weapons are hero weapons (exempt from +9 modifier)', recommendation: 'Modifier applies to no current pieces — will activate when regular Lothlorien weapons are added' },
-  { severity: 'low', culture: 'Mirkwood', issue: 'Only 2 melee weapons (both hero weapons, exempt from +4)', recommendation: 'Add woodland blades and spears — modifier will activate for new weapons' },
-  { severity: 'low', culture: 'Harad', issue: 'Only 8 melee weapons — small arsenal limits variety', recommendation: 'Add curved swords and cavalry weapons' },
+  {
+    severity: 'medium',
+    culture: 'Rivendell',
+    issue: 'At 115% (+10 points) — highest weapon quality in game',
+    recommendation:
+      'By design: Noldorin master-smiths forge the finest blades. Combined with elite skills and armor, Rivendell is intentionally the strongest but most expensive faction.',
+  },
+  {
+    severity: 'medium',
+    culture: 'Dol Guldur',
+    issue: 'At 96% (-3 points) — lowest weapon quality in game',
+    recommendation:
+      'By design: crude orc-work with worst troops (+5 skills) and poor armor. Dol Guldur compensates through cheap, disposable units.',
+  },
+  {
+    severity: 'low',
+    culture: 'Lothlorien',
+    issue: 'All 4 weapons are hero weapons (exempt from +9 modifier)',
+    recommendation: 'Modifier applies to no current pieces — will activate when regular Lothlorien weapons are added',
+  },
+  {
+    severity: 'low',
+    culture: 'Mirkwood',
+    issue: 'Only 2 melee weapons (both hero weapons, exempt from +4)',
+    recommendation: 'Add woodland blades and spears — modifier will activate for new weapons',
+  },
+  {
+    severity: 'low',
+    culture: 'Harad',
+    issue: 'Only 8 melee weapons — small arsenal limits variety',
+    recommendation: 'Add curved swords and cavalry weapons',
+  },
 ];
 ---
 
-<BaseLayout title="Weapon Balancing" description="Detailed breakdown of weapon damage balancing across all TAOM cultures">
+<BaseLayout
+  title="Weapon Balancing"
+  description="Detailed breakdown of weapon damage balancing across all TAOM cultures"
+>
   <div class="page-content mod-info">
     <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Weapon Balancing</nav>
     <h1 class="page-title">Weapon Balancing</h1>
@@ -408,118 +535,158 @@ const balanceConcerns = [
     <section class="info-section collapsible-section" data-collapsed="true">
       <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
       <div class="collapsible-content" style="display:none">
-      <p class="section-desc">
-        TAOM includes <strong>300 custom melee weapons</strong> across <strong>13 cultures</strong> (with 3 more planned).
-        Each weapon has unique blade weight, damage factors and crafting pieces. <strong>Cultural weapon modifiers</strong> adjust
-        damage_factor values to complete the balance triangle alongside troop skills and armor protection.
-        This analysis computes <strong>estimated damage</strong> using the full TaleWorlds physics simulation.
-      </p>
-      <p class="section-desc">
-        Weapon quality reflects each culture's craftsmanship. Noldor elves forge the finest blades (+10 points above average),
-        while crude orc-work from Dol Guldur sits at the bottom (-3 points). Isengard's industrial forges serve as the baseline (0 points).
-        Hero/legendary weapons are exempt from cultural modifiers.
-      </p>
+        <p class="section-desc">
+          TAOM includes <strong>300 custom melee weapons</strong> across <strong>13 cultures</strong> (with 3 more planned).
+          Each weapon has unique blade weight, damage factors and crafting pieces. <strong
+            >Cultural weapon modifiers</strong
+          > adjust damage_factor values to complete the balance triangle alongside troop skills and armor protection. This
+          analysis computes <strong>estimated damage</strong> using the full TaleWorlds physics simulation.
+        </p>
+        <p class="section-desc">
+          Weapon quality reflects each culture's craftsmanship. Noldor elves forge the finest blades (+10 points above
+          average), while crude orc-work from Dol Guldur sits at the bottom (-3 points). Isengard's industrial forges
+          serve as the baseline (0 points). Hero/legendary weapons are exempt from cultural modifiers.
+        </p>
       </div>
     </section>
 
     <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> How Bannerlord Calculates Damage <span class="nerdy-note">(fair warning: this is very math and nerdy)</span></h2>
+      <h2 class="section-toggle">
+        <span class="collapse-arrow">&#9654;</span> How Bannerlord Calculates Damage <span class="nerdy-note"
+          >(fair warning: this is very math and nerdy)</span>
+      </h2>
       <div class="collapsible-content" style="display:none">
-      <p class="section-desc">
-        Bannerlord doesn't use simple stat tables — it runs a <strong>full physics simulation</strong> for every weapon.
-        The damage numbers you see in-game are the result of a multi-step pipeline extracted from decompiled game code (v1.3.12).
-        Our calculations match in-game values to within 1-2 points.
-      </p>
+        <p class="section-desc">
+          Bannerlord doesn't use simple stat tables — it runs a <strong>full physics simulation</strong> for every weapon.
+          The damage numbers you see in-game are the result of a multi-step pipeline extracted from decompiled game code (v1.3.12).
+          Our calculations match in-game values to within 1-2 points.
+        </p>
 
-      <div class="formula-pipeline">
-        <div class="pipeline-step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Weapon Assembly</h3>
-            <p>Each crafted weapon is built from <strong>4 pieces</strong> (blade, guard, handle, pommel). The engine computes the weapon's total <strong>weight</strong>, <strong>reach</strong>, <strong>center of mass</strong>, and <strong>moment of inertia</strong> using the parallel axis theorem — just like real physics.</p>
-            <div class="formula-inline">
-              <code>I<sub>total</sub> = &Sigma;(I<sub>piece</sub> + m<sub>piece</sub> &times; d&sup2;)</code>
-              <span class="formula-label">where d = distance from piece center to weapon center of mass</span>
+        <div class="formula-pipeline">
+          <div class="pipeline-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Weapon Assembly</h3>
+              <p>
+                Each crafted weapon is built from <strong>4 pieces</strong> (blade, guard, handle, pommel). The engine computes
+                the weapon's total <strong>weight</strong>, <strong>reach</strong>, <strong>center of mass</strong>, and <strong
+                  >moment of inertia</strong
+                > using the parallel axis theorem — just like real physics.
+              </p>
+              <div class="formula-inline">
+                <code>I<sub>total</sub> = &Sigma;(I<sub>piece</sub> + m<sub>piece</sub> &times; d&sup2;)</code>
+                <span class="formula-label">where d = distance from piece center to weapon center of mass</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Swing &amp; Thrust Speed</h3>
+              <p>
+                Speed is calculated via a <strong>3-layer muscle torque simulation</strong>. Each layer models a muscle
+                group (shoulder, arm, wrist) applying torque against the weapon's inertia with drag.
+              </p>
+              <div class="formula-inline">
+                <code>torque = min(power / speed, max_torque) - speed &times; drag</code>
+                <span class="formula-label">Iterated at 0.01s timesteps until target angle/distance is reached</span>
+              </div>
+              <p class="step-note">
+                Two-handed weapons get <strong>+40% arm inertia</strong> and <strong>+50% stopping torque</strong> from the
+                second hand. Polearms (wide grip) get additional multipliers on top of that. This is why the same blade deals
+                different damage in one-handed vs two-handed mode.
+              </p>
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Energy Transfer (Swing)</h3>
+              <p>
+                Swing damage uses <strong>rotational kinetic energy transfer</strong> at the impact point. The engine computes
+                KE before and after the collision:
+              </p>
+              <div class="formula-inline">
+                <code>magnitude = 0.067 &times; (KE<sub>before</sub> - KE<sub>after</sub>)</code>
+                <span class="formula-label"
+                  >KE = &frac12;mv&sup2; + &frac12;I&omega;&sup2; (translational + rotational)</span
+                >
+              </div>
+              <p class="step-note">
+                The game sweeps across <strong>5 impact points</strong> near the blade tip (0.93 to sweet spot) and takes
+                the maximum — simulating the optimal hit zone on the blade.
+              </p>
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Energy Transfer (Thrust)</h3>
+              <p>Thrust uses <strong>linear kinetic energy</strong> with the arm's weight added to the weapon mass:</p>
+              <div class="formula-inline">
+                <code>magnitude = 0.125 &times; &frac12; &times; (weight + 2.5) &times; speed&sup2;</code>
+                <span class="formula-label">The 2.5 kg represents arm mass behind the thrust</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Damage Factor</h3>
+              <p>
+                The physics magnitude is multiplied by the blade's <strong>damage factor</strong> — a float value set per
+                crafting piece that represents the blade's cutting/piercing efficiency.
+              </p>
+              <div class="formula-inline">
+                <code>displayed damage = round(magnitude &times; damage_factor)</code>
+                <span class="formula-label">This is the number you see in the inventory screen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Armor Reduction (Combat)</h3>
+              <p>During combat, raw damage is reduced by armor using damage-type-specific formulas:</p>
+              <div class="formula-inline">
+                <code>reduction = 50 / (50 + armor)</code><br />
+                <code>damage = blunt_component + sharp_component</code>
+                <span class="formula-label"
+                  >Cut: 10% blunt pass-through, 50% armor threshold · Pierce: 25% / 33% · Blunt: 60% / 20%</span
+                >
+              </div>
+              <p class="step-note">
+                <strong>Cut</strong> damage is most affected by armor (only 10% passes through as blunt). <strong
+                  >Blunt</strong
+                > damage ignores armor the most (60% pass-through). <strong>Pierce</strong> is in between.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="pipeline-step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Swing &amp; Thrust Speed</h3>
-            <p>Speed is calculated via a <strong>3-layer muscle torque simulation</strong>. Each layer models a muscle group (shoulder, arm, wrist) applying torque against the weapon's inertia with drag.</p>
-            <div class="formula-inline">
-              <code>torque = min(power / speed, max_torque) - speed &times; drag</code>
-              <span class="formula-label">Iterated at 0.01s timesteps until target angle/distance is reached</span>
-            </div>
-            <p class="step-note">Two-handed weapons get <strong>+40% arm inertia</strong> and <strong>+50% stopping torque</strong> from the second hand. Polearms (wide grip) get additional multipliers on top of that. This is why the same blade deals different damage in one-handed vs two-handed mode.</p>
-          </div>
+        <div class="formula-summary">
+          <h3>Weapon Description Modes</h3>
+          <p>
+            Some crafting templates produce <strong>multiple weapon modes</strong>. For example, the TwoHandedSword
+            template creates 3 descriptions: <em>OneHandedBastardSword</em>, <em>TwoHandedSword</em>, and <em
+              >OneHandedBastardSwordAlternative</em
+            >. The game checks each description in order — the first one where all blade pieces are registered becomes
+            the primary mode shown in the inventory. This is why Anduril (a bastard sword) shows one-handed stats
+            despite being on a two-handed template.
+          </p>
         </div>
-
-        <div class="pipeline-step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Energy Transfer (Swing)</h3>
-            <p>Swing damage uses <strong>rotational kinetic energy transfer</strong> at the impact point. The engine computes KE before and after the collision:</p>
-            <div class="formula-inline">
-              <code>magnitude = 0.067 &times; (KE<sub>before</sub> - KE<sub>after</sub>)</code>
-              <span class="formula-label">KE = &frac12;mv&sup2; + &frac12;I&omega;&sup2; (translational + rotational)</span>
-            </div>
-            <p class="step-note">The game sweeps across <strong>5 impact points</strong> near the blade tip (0.93 to sweet spot) and takes the maximum — simulating the optimal hit zone on the blade.</p>
-          </div>
-        </div>
-
-        <div class="pipeline-step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Energy Transfer (Thrust)</h3>
-            <p>Thrust uses <strong>linear kinetic energy</strong> with the arm's weight added to the weapon mass:</p>
-            <div class="formula-inline">
-              <code>magnitude = 0.125 &times; &frac12; &times; (weight + 2.5) &times; speed&sup2;</code>
-              <span class="formula-label">The 2.5 kg represents arm mass behind the thrust</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pipeline-step">
-          <div class="step-number">5</div>
-          <div class="step-content">
-            <h3>Damage Factor</h3>
-            <p>The physics magnitude is multiplied by the blade's <strong>damage factor</strong> — a float value set per crafting piece that represents the blade's cutting/piercing efficiency.</p>
-            <div class="formula-inline">
-              <code>displayed damage = round(magnitude &times; damage_factor)</code>
-              <span class="formula-label">This is the number you see in the inventory screen</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pipeline-step">
-          <div class="step-number">6</div>
-          <div class="step-content">
-            <h3>Armor Reduction (Combat)</h3>
-            <p>During combat, raw damage is reduced by armor using damage-type-specific formulas:</p>
-            <div class="formula-inline">
-              <code>reduction = 50 / (50 + armor)</code><br/>
-              <code>damage = blunt_component + sharp_component</code>
-              <span class="formula-label">Cut: 10% blunt pass-through, 50% armor threshold · Pierce: 25% / 33% · Blunt: 60% / 20%</span>
-            </div>
-            <p class="step-note"><strong>Cut</strong> damage is most affected by armor (only 10% passes through as blunt). <strong>Blunt</strong> damage ignores armor the most (60% pass-through). <strong>Pierce</strong> is in between.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="formula-summary">
-        <h3>Weapon Description Modes</h3>
-        <p>Some crafting templates produce <strong>multiple weapon modes</strong>. For example, the TwoHandedSword template creates 3 descriptions: <em>OneHandedBastardSword</em>, <em>TwoHandedSword</em>, and <em>OneHandedBastardSwordAlternative</em>. The game checks each description in order — the first one where all blade pieces are registered becomes the primary mode shown in the inventory. This is why Anduril (a bastard sword) shows one-handed stats despite being on a two-handed template.</p>
-      </div>
-      </div>
       </div>
     </section>
+  </div>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
-      <div class="collapsible-content" style="display:none">
+  <section class="info-section collapsible-section" data-collapsed="true">
+    <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
+    <div class="collapsible-content" style="display:none">
       <div class="table-wrapper">
         <table class="comparison-table">
           <thead>
@@ -533,20 +700,38 @@ const balanceConcerns = [
             </tr>
           </thead>
           <tbody>
-            {cultures.map(c => {
-              const pctNum = parseInt(c.meleePercent);
-              const pctCls = isNaN(pctNum) ? 'mod-zero' : pctNum > 130 ? 'mod-warn' : pctNum > 110 ? 'mod-pos' : pctNum < 70 ? 'mod-crit' : pctNum < 90 ? 'mod-neg' : 'mod-zero';
-              return (
-                <tr>
-                  <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}><a href={`#${c.id}`}>{c.name}</a></td>
-                  <td class="center culture-cell" style={`background: ${c.color}15`}>{c.meleeWeapons || '—'}</td>
-                  <td class="center culture-cell" style={`background: ${c.color}15`}>{c.rangedWeapons || '—'}</td>
-                  <td class="center">{c.avgMelee || '—'}</td>
-                  <td class="center">{c.avgRanged || '—'}</td>
-                  <td class={`center ${pctCls}`}>{c.meleePercent}</td>
-                </tr>
-              );
-            })}
+            {
+              cultures.map((c) => {
+                const pctNum = parseInt(c.meleePercent);
+                const pctCls = isNaN(pctNum)
+                  ? 'mod-zero'
+                  : pctNum > 130
+                    ? 'mod-warn'
+                    : pctNum > 110
+                      ? 'mod-pos'
+                      : pctNum < 70
+                        ? 'mod-crit'
+                        : pctNum < 90
+                          ? 'mod-neg'
+                          : 'mod-zero';
+                return (
+                  <tr>
+                    <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}>
+                      <a href={`#${c.id}`}>{c.name}</a>
+                    </td>
+                    <td class="center culture-cell" style={`background: ${c.color}15`}>
+                      {c.meleeWeapons || '—'}
+                    </td>
+                    <td class="center culture-cell" style={`background: ${c.color}15`}>
+                      {c.rangedWeapons || '—'}
+                    </td>
+                    <td class="center">{c.avgMelee || '—'}</td>
+                    <td class="center">{c.avgRanged || '—'}</td>
+                    <td class={`center ${pctCls}`}>{c.meleePercent}</td>
+                  </tr>
+                );
+              })
+            }
           </tbody>
         </table>
       </div>
@@ -556,94 +741,118 @@ const balanceConcerns = [
         <span class="legend-item"><span class="dot mod-neg-bg"></span> 70-90% — Below average</span>
         <span class="legend-item"><span class="dot mod-crit-bg"></span> &lt;70% — Potentially underpowered</span>
       </p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Balance Concerns</h2>
-      <div class="collapsible-content" style="display:none">
+  <section class="info-section collapsible-section" data-collapsed="true">
+    <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Balance Concerns</h2>
+    <div class="collapsible-content" style="display:none">
       <div class="concerns-list">
-        {balanceConcerns.map(concern => (
-          <div class={`concern-item concern-${concern.severity}`}>
-            <div class="concern-header">
-              <span class={`concern-badge concern-badge-${concern.severity}`}>{concern.severity}</span>
-              <strong>{concern.culture}</strong>
+        {
+          balanceConcerns.map((concern) => (
+            <div class={`concern-item concern-${concern.severity}`}>
+              <div class="concern-header">
+                <span class={`concern-badge concern-badge-${concern.severity}`}>{concern.severity}</span>
+                <strong>{concern.culture}</strong>
+              </div>
+              <p class="concern-issue">{concern.issue}</p>
+              <p class="concern-rec">{concern.recommendation}</p>
             </div>
-            <p class="concern-issue">{concern.issue}</p>
-            <p class="concern-rec">{concern.recommendation}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
-      <div class="collapsible-content" style="display:none">
-
-      {cultures.map(c => (
-        <div id={c.id} class="culture-card" style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}>
-          <div class="culture-header">
-            <h3 style={`color: ${c.color}`}>{c.name}</h3>
-            <div class="culture-meta">
-              <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>{c.alignment === 'good' ? 'Free Peoples' : c.alignment === 'neutral' ? 'Neutral Kingdom' : 'Forces of Darkness'}</span>
-              <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.race}</span>
-              {(c.meleeWeapons + c.rangedWeapons) > 0 && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.meleeWeapons + c.rangedWeapons} weapons</span>}
-              {c.meleePercent !== '—' && <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>{c.meleePercent} melee</span>}
+  <section class="info-section collapsible-section" data-collapsed="true">
+    <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
+    <div class="collapsible-content" style="display:none">
+      {
+        cultures.map((c) => (
+          <div
+            id={c.id}
+            class="culture-card"
+            style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}
+          >
+            <div class="culture-header">
+              <h3 style={`color: ${c.color}`}>{c.name}</h3>
+              <div class="culture-meta">
+                <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>
+                  {c.alignment === 'good'
+                    ? 'Free Peoples'
+                    : c.alignment === 'neutral'
+                      ? 'Neutral Kingdom'
+                      : 'Forces of Darkness'}
+                </span>
+                <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
+                  {c.race}
+                </span>
+                {c.meleeWeapons + c.rangedWeapons > 0 && (
+                  <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
+                    {c.meleeWeapons + c.rangedWeapons} weapons
+                  </span>
+                )}
+                {c.meleePercent !== '—' && (
+                  <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
+                    {c.meleePercent} melee
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
 
-          <p class="culture-identity">{c.identity}</p>
+            <p class="culture-identity">{c.identity}</p>
 
-          {c.primaryWeapons.length > 0 && (
-            <div class="culture-weapons">
-              <strong>Primary Weapons:</strong> {c.primaryWeapons.join(' · ')}
-            </div>
-          )}
-
-          <div class="modifiers-grid">
-            {c.strengths.length > 0 && (
-              <div class="mod-section strengths">
-                <h4>Strengths</h4>
-                <ul>
-                  {c.strengths.map(s => (
-                    <li>
-                      <span class="mod-skill">{s.stat}</span>
-                      <span class="mod-value pos">{s.mod}</span>
-                      <span class="mod-note">{s.note}</span>
-                    </li>
-                  ))}
-                </ul>
+            {c.primaryWeapons.length > 0 && (
+              <div class="culture-weapons">
+                <strong>Primary Weapons:</strong> {c.primaryWeapons.join(' · ')}
               </div>
             )}
 
-            {c.weaknesses.length > 0 && (
-              <div class="mod-section weaknesses">
-                <h4>Weaknesses</h4>
-                <ul>
-                  {c.weaknesses.map(w => (
-                    <li>
-                      <span class="mod-skill">{w.stat}</span>
-                      <span class="mod-value neg">{w.mod}</span>
-                      <span class="mod-note">{w.note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div class="modifiers-grid">
+              {c.strengths.length > 0 && (
+                <div class="mod-section strengths">
+                  <h4>Strengths</h4>
+                  <ul>
+                    {c.strengths.map((s) => (
+                      <li>
+                        <span class="mod-skill">{s.stat}</span>
+                        <span class="mod-value pos">{s.mod}</span>
+                        <span class="mod-note">{s.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {c.weaknesses.length > 0 && (
+                <div class="mod-section weaknesses">
+                  <h4>Weaknesses</h4>
+                  <ul>
+                    {c.weaknesses.map((w) => (
+                      <li>
+                        <span class="mod-skill">{w.stat}</span>
+                        <span class="mod-value neg">{w.mod}</span>
+                        <span class="mod-note">{w.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {c.notes && <p class="culture-notes">{c.notes}</p>}
           </div>
+        ))
+      }
+    </div>
+  </section>
 
-          {c.notes && <p class="culture-notes">{c.notes}</p>}
-        </div>
-      ))}
-      </div>
-    </section>
-
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Weapon Class Averages</h2>
-      <div class="collapsible-content" style="display:none">
+  <section class="info-section collapsible-section" data-collapsed="true">
+    <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Weapon Class Averages</h2>
+    <div class="collapsible-content" style="display:none">
       <p class="section-desc">
-        Cross-culture average estimated damage per weapon class after cultural modifiers. These represent the global baseline for each weapon type.
+        Cross-culture average estimated damage per weapon class after cultural modifiers. These represent the global
+        baseline for each weapon type.
       </p>
       <div class="table-wrapper">
         <table class="baseline-table">
@@ -657,26 +866,29 @@ const balanceConcerns = [
             </tr>
           </thead>
           <tbody>
-            {weaponClassAverages.map(wc => (
-              <tr>
-                <td>{wc.weaponClass}</td>
-                <td>{wc.avgSwing || '—'}</td>
-                <td>{wc.avgThrust || '—'}</td>
-                <td>{wc.cultures}</td>
-                <td class="note-cell">{wc.note}</td>
-              </tr>
-            ))}
+            {
+              weaponClassAverages.map((wc) => (
+                <tr>
+                  <td>{wc.weaponClass}</td>
+                  <td>{wc.avgSwing || '—'}</td>
+                  <td>{wc.avgThrust || '—'}</td>
+                  <td>{wc.cultures}</td>
+                  <td class="note-cell">{wc.note}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Damage Distribution</h2>
-      <div class="collapsible-content" style="display:none">
+  <section class="info-section collapsible-section" data-collapsed="true">
+    <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Damage Distribution</h2>
+    <div class="collapsible-content" style="display:none">
       <p class="section-desc">
-        Expected damage hierarchy based on weapon physics. Two-handed weapons should deal roughly 1.5-2x the damage of their one-handed counterparts due to higher blade weight and longer swing arcs.
+        Expected damage hierarchy based on weapon physics. Two-handed weapons should deal roughly 1.5-2x the damage of
+        their one-handed counterparts due to higher blade weight and longer swing arcs.
       </p>
       <div class="table-wrapper">
         <table class="baseline-table">
@@ -684,17 +896,32 @@ const balanceConcerns = [
             <tr><th>Tier</th><th>Weapon Types</th><th>Expected Range</th><th>Current Avg</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td>Tier 1 — Light</td><td>1H Swords, 1H Axes</td><td>50-90</td><td>62-69</td><td class="status-ok">OK</td></tr>
-            <tr><td>Tier 2 — Medium</td><td>2H Swords, Polearms</td><td>70-110</td><td>52-102</td><td class="status-low">Low (polearms)</td></tr>
-            <tr><td>Tier 3 — Heavy</td><td>2H Axes, Maces</td><td>90-140</td><td>71-120</td><td class="status-ok">OK</td></tr>
-            <tr><td>Tier 4 — Crushing</td><td>2H Maces</td><td>100-160</td><td>118</td><td class="status-ok">OK</td></tr>
-            <tr><td>Thrust-Focused</td><td>Pikes</td><td>40-70</td><td>40/55 swing/thrust</td><td class="status-ok">OK</td></tr>
+            <tr
+              ><td>Tier 1 — Light</td><td>1H Swords, 1H Axes</td><td>50-90</td><td>62-69</td><td class="status-ok"
+                >OK</td
+              ></tr
+            >
+            <tr
+              ><td>Tier 2 — Medium</td><td>2H Swords, Polearms</td><td>70-110</td><td>52-102</td><td class="status-low"
+                >Low (polearms)</td
+              ></tr
+            >
+            <tr
+              ><td>Tier 3 — Heavy</td><td>2H Axes, Maces</td><td>90-140</td><td>71-120</td><td class="status-ok">OK</td
+              ></tr
+            >
+            <tr><td>Tier 4 — Crushing</td><td>2H Maces</td><td>100-160</td><td>118</td><td class="status-ok">OK</td></tr
+            >
+            <tr
+              ><td>Thrust-Focused</td><td>Pikes</td><td>40-70</td><td>40/55 swing/thrust</td><td class="status-ok"
+                >OK</td
+              ></tr
+            >
           </tbody>
         </table>
       </div>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -729,8 +956,13 @@ const balanceConcerns = [
     color: var(--text-secondary);
     margin-bottom: 1rem;
   }
-  .breadcrumb a { color: var(--accent); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
 
   .info-section {
     margin-bottom: 3rem;
@@ -771,7 +1003,9 @@ const balanceConcerns = [
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     position: relative;
   }
-  .pipeline-step:last-child { border-bottom: none; }
+  .pipeline-step:last-child {
+    border-bottom: none;
+  }
 
   .step-number {
     flex-shrink: 0;
@@ -823,7 +1057,8 @@ const balanceConcerns = [
     font-size: 0.9rem;
     font-weight: 500;
   }
-  .formula-inline code sub, .formula-inline code sup {
+  .formula-inline code sub,
+  .formula-inline code sup {
     font-size: 0.7em;
   }
   .formula-label {
@@ -860,20 +1095,24 @@ const balanceConcerns = [
     margin-bottom: 1.5rem;
   }
 
-  .comparison-table, .baseline-table {
+  .comparison-table,
+  .baseline-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.85rem;
   }
 
-  .comparison-table th, .comparison-table td,
-  .baseline-table th, .baseline-table td {
+  .comparison-table th,
+  .comparison-table td,
+  .baseline-table th,
+  .baseline-table td {
     padding: 0.5rem 0.6rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     text-align: left;
   }
 
-  .comparison-table th, .baseline-table th {
+  .comparison-table th,
+  .baseline-table th {
     background: rgba(212, 162, 76, 0.15);
     color: var(--accent);
     font-weight: 600;
@@ -881,18 +1120,38 @@ const balanceConcerns = [
     top: 0;
   }
 
-  .comparison-table tbody tr:hover, .baseline-table tbody tr:hover {
+  .comparison-table tbody tr:hover,
+  .baseline-table tbody tr:hover {
     background: rgba(255, 255, 255, 0.04);
   }
 
-  .center { text-align: center; }
-  .skill-col { text-align: center; min-width: 60px; }
+  .center {
+    text-align: center;
+  }
+  .skill-col {
+    text-align: center;
+    min-width: 60px;
+  }
 
-  .mod-pos { color: #5dae5d; font-weight: 600; }
-  .mod-neg { color: #d46a6a; font-weight: 600; }
-  .mod-warn { color: #ffa726; font-weight: 600; }
-  .mod-crit { color: #ef5350; font-weight: 700; }
-  .mod-zero { color: rgba(255, 255, 255, 0.3); }
+  .mod-pos {
+    color: #5dae5d;
+    font-weight: 600;
+  }
+  .mod-neg {
+    color: #d46a6a;
+    font-weight: 600;
+  }
+  .mod-warn {
+    color: #ffa726;
+    font-weight: 600;
+  }
+  .mod-crit {
+    color: #ef5350;
+    font-weight: 700;
+  }
+  .mod-zero {
+    color: rgba(255, 255, 255, 0.3);
+  }
 
   .culture-cell {
     font-weight: 600;
@@ -901,7 +1160,9 @@ const balanceConcerns = [
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
   }
-  .culture-cell a:hover { text-decoration: underline; }
+  .culture-cell a:hover {
+    text-decoration: underline;
+  }
 
   /* Table legend */
   .table-legend {
@@ -923,10 +1184,18 @@ const balanceConcerns = [
     border-radius: 50%;
     display: inline-block;
   }
-  .mod-pos-bg { background: #5dae5d; }
-  .mod-warn-bg { background: #ffa726; }
-  .mod-neg-bg { background: #d46a6a; }
-  .mod-crit-bg { background: #ef5350; }
+  .mod-pos-bg {
+    background: #5dae5d;
+  }
+  .mod-warn-bg {
+    background: #ffa726;
+  }
+  .mod-neg-bg {
+    background: #d46a6a;
+  }
+  .mod-crit-bg {
+    background: #ef5350;
+  }
 
   /* Balance concerns */
   .concerns-list {
@@ -939,10 +1208,18 @@ const balanceConcerns = [
     padding: 1rem 1.25rem;
     background: rgba(255, 255, 255, 0.03);
   }
-  .concern-critical { border-left: 3px solid #ef5350; }
-  .concern-high { border-left: 3px solid #ffa726; }
-  .concern-medium { border-left: 3px solid #ffd54f; }
-  .concern-low { border-left: 3px solid #81c784; }
+  .concern-critical {
+    border-left: 3px solid #ef5350;
+  }
+  .concern-high {
+    border-left: 3px solid #ffa726;
+  }
+  .concern-medium {
+    border-left: 3px solid #ffd54f;
+  }
+  .concern-low {
+    border-left: 3px solid #81c784;
+  }
 
   .concern-header {
     display: flex;
@@ -958,10 +1235,22 @@ const balanceConcerns = [
     font-weight: 700;
     letter-spacing: 0.05em;
   }
-  .concern-badge-critical { background: rgba(239, 83, 80, 0.2); color: #ef5350; }
-  .concern-badge-high { background: rgba(255, 167, 38, 0.2); color: #ffa726; }
-  .concern-badge-medium { background: rgba(255, 213, 79, 0.2); color: #ffd54f; }
-  .concern-badge-low { background: rgba(129, 199, 132, 0.2); color: #81c784; }
+  .concern-badge-critical {
+    background: rgba(239, 83, 80, 0.2);
+    color: #ef5350;
+  }
+  .concern-badge-high {
+    background: rgba(255, 167, 38, 0.2);
+    color: #ffa726;
+  }
+  .concern-badge-medium {
+    background: rgba(255, 213, 79, 0.2);
+    color: #ffd54f;
+  }
+  .concern-badge-low {
+    background: rgba(129, 199, 132, 0.2);
+    color: #81c784;
+  }
 
   .concern-issue {
     color: var(--text-secondary);
@@ -1025,7 +1314,9 @@ const balanceConcerns = [
     background: rgba(0, 0, 0, 0.15);
     border-radius: 6px;
   }
-  .culture-weapons strong { color: rgba(255, 255, 255, 0.7); }
+  .culture-weapons strong {
+    color: rgba(255, 255, 255, 0.7);
+  }
 
   .modifiers-grid {
     display: grid;
@@ -1039,8 +1330,12 @@ const balanceConcerns = [
     border-radius: 8px;
     padding: 1rem;
   }
-  .mod-section.strengths { border-top: 2px solid rgba(93, 174, 93, 0.4); }
-  .mod-section.weaknesses { border-top: 2px solid rgba(212, 106, 106, 0.4); }
+  .mod-section.strengths {
+    border-top: 2px solid rgba(93, 174, 93, 0.4);
+  }
+  .mod-section.weaknesses {
+    border-top: 2px solid rgba(212, 106, 106, 0.4);
+  }
 
   .mod-section h4 {
     font-size: 0.85rem;
@@ -1048,8 +1343,12 @@ const balanceConcerns = [
     letter-spacing: 0.05em;
     margin-bottom: 0.75rem;
   }
-  .strengths h4 { color: #5dae5d; }
-  .weaknesses h4 { color: #d46a6a; }
+  .strengths h4 {
+    color: #5dae5d;
+  }
+  .weaknesses h4 {
+    color: #d46a6a;
+  }
 
   .mod-section ul {
     list-style: none;
@@ -1074,8 +1373,12 @@ const balanceConcerns = [
     font-family: monospace;
     min-width: 70px;
   }
-  .mod-value.pos { color: #5dae5d; }
-  .mod-value.neg { color: #d46a6a; }
+  .mod-value.pos {
+    color: #5dae5d;
+  }
+  .mod-value.neg {
+    color: #d46a6a;
+  }
   .mod-note {
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.8rem;
@@ -1092,9 +1395,18 @@ const balanceConcerns = [
   }
 
   /* Status cells */
-  .status-ok { color: #5dae5d; font-weight: 600; }
-  .status-low { color: #ffa726; font-weight: 600; }
-  .status-high { color: #ef5350; font-weight: 600; }
+  .status-ok {
+    color: #5dae5d;
+    font-weight: 600;
+  }
+  .status-low {
+    color: #ffa726;
+    font-weight: 600;
+  }
+  .status-high {
+    color: #ef5350;
+    font-weight: 600;
+  }
 
   .note-cell {
     color: rgba(255, 255, 255, 0.5);
@@ -1125,18 +1437,37 @@ const balanceConcerns = [
   }
 
   @media (max-width: 768px) {
-    .culture-header { flex-direction: column; align-items: flex-start; }
-    .modifiers-grid { grid-template-columns: 1fr; }
-    .table-legend { flex-direction: column; gap: 0.5rem; }
-    .pipeline-step { gap: 0.75rem; padding: 1rem 0; }
-    .step-number { width: 28px; height: 28px; font-size: 0.8rem; }
-    .formula-inline { padding: 0.5rem 0.75rem; }
-    .formula-inline code { font-size: 0.8rem; }
+    .culture-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .modifiers-grid {
+      grid-template-columns: 1fr;
+    }
+    .table-legend {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pipeline-step {
+      gap: 0.75rem;
+      padding: 1rem 0;
+    }
+    .step-number {
+      width: 28px;
+      height: 28px;
+      font-size: 0.8rem;
+    }
+    .formula-inline {
+      padding: 0.5rem 0.75rem;
+    }
+    .formula-inline code {
+      font-size: 0.8rem;
+    }
   }
 </style>
 
 <script>
-  document.querySelectorAll('.section-toggle').forEach(title => {
+  document.querySelectorAll('.section-toggle').forEach((title) => {
     title.addEventListener('click', () => {
       const section = title.closest('.collapsible-section') as HTMLElement;
       const content = section.querySelector('.collapsible-content') as HTMLElement;

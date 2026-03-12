@@ -1,11 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { parseAllClans, parseAllLords, parseHeroClanMap, parseKingdomsFromXslt, getCultureDisplayName } from '../../lib/parse-xml';
+import {
+  parseAllClans,
+  parseAllLords,
+  parseHeroClanMap,
+  parseKingdomsFromXslt,
+  getCultureDisplayName,
+} from '../../lib/parse-xml';
 import type { Clan, Lord } from '../../lib/parse-xml';
 
 export function getStaticPaths() {
   const clans = parseAllClans();
-  return clans.map(c => ({
+  return clans.map((c) => ({
     params: { id: c.id },
     props: { clan: c },
   }));
@@ -17,7 +23,7 @@ const heroClanMap = parseHeroClanMap();
 const kingdoms = parseKingdomsFromXslt();
 
 // Find the kingdom for this clan
-const kingdom = kingdoms.find(k => k.id === clan.kingdomId);
+const kingdom = kingdoms.find((k) => k.id === clan.kingdomId);
 
 // Build lord lookup
 const lordById = new Map<string, Lord>();
@@ -51,21 +57,33 @@ lords.sort((a, b) => {
 });
 
 const CULTURE_OVERRIDES: Record<string, string> = {
-  empire_w: 'Gondor', empire_s: 'Mordor', empire: 'Dunland',
-  sturgia: 'Dale', aserai: 'Harad', vlandia: 'Rohan',
-  battania: 'Variag', khuzait: 'Rhun',
+  empire_w: 'Gondor',
+  empire_s: 'Mordor',
+  empire: 'Dunland',
+  sturgia: 'Dale',
+  aserai: 'Harad',
+  vlandia: 'Rohan',
+  battania: 'Variag',
+  khuzait: 'Rhun',
 };
 
-const kingdomName = kingdom
-  ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name
-  : clan.kingdom;
+const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : clan.kingdom;
 ---
 
 <BaseLayout title={clan.name} description={`${clan.name} — a clan of ${kingdomName}`}>
   <div class="page-content">
     <nav class="breadcrumb">
       <a href="/kingdoms">Kingdoms</a>
-      {kingdom && <><span>/</span><a href={`/kingdoms/${kingdom.id}`}>{kingdomName}</a></>}
+      {
+        kingdom && (
+          <>
+            <>
+              <span>/</span>
+              <a href={`/kingdoms/${kingdom.id}`}>{kingdomName}</a>
+            </>
+          </>
+        )
+      }
       <span>/</span>
       <span>{clan.name}</span>
     </nav>
@@ -74,8 +92,20 @@ const kingdomName = kingdom
       <h1>{clan.name}</h1>
       <div class="clan-meta">
         <span><strong>Kingdom:</strong> {kingdomName}</span>
-        {clan.tier > 0 && <span><strong>Tier:</strong> {clan.tier}</span>}
-        {clan.culture && <span><strong>Culture:</strong> {getCultureDisplayName(clan.culture)}</span>}
+        {
+          clan.tier > 0 && (
+            <span>
+              <strong>Tier:</strong> {clan.tier}
+            </span>
+          )
+        }
+        {
+          clan.culture && (
+            <span>
+              <strong>Culture:</strong> {getCultureDisplayName(clan.culture)}
+            </span>
+          )
+        }
       </div>
     </header>
 
@@ -83,59 +113,61 @@ const kingdomName = kingdom
       <h2>Lords ({lords.length})</h2>
       {lords.length === 0 && <p class="muted">No lord data available for this clan.</p>}
       <div class="lords-list">
-        {lords.map(lord => (
-          <div class:list={['lord-card', { leader: lord.isLeader }]}>
-            <div class="lord-header">
-              <div class="lord-title">
-                <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
-                {lord.isLeader && <span class="leader-badge">Clan Leader</span>}
-                {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
+        {
+          lords.map((lord) => (
+            <div class:list={['lord-card', { leader: lord.isLeader }]}>
+              <div class="lord-header">
+                <div class="lord-title">
+                  <span class="lord-name">
+                    {lord.isFemale ? '♀' : '♂'} {lord.name}
+                  </span>
+                  {lord.isLeader && <span class="leader-badge">Clan Leader</span>}
+                  {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
+                </div>
               </div>
-            </div>
 
-            {Object.keys(lord.skills).length > 0 && (
-              <div class="lord-section">
-                <h4>Skills</h4>
-                <div class="skills-grid">
-                  {Object.entries(lord.skills)
-                    .filter(([_, v]) => v > 0)
-                    .sort(([, a], [, b]) => b - a)
-                    .map(([skill, value]) => (
-                      <div class="skill-row">
-                        <span class="skill-name">{skill}</span>
-                        <div class="skill-bar-bg">
-                          <div class="skill-bar" style={`width: ${Math.min(value / 3, 100)}%`} />
+              {Object.keys(lord.skills).length > 0 && (
+                <div class="lord-section">
+                  <h4>Skills</h4>
+                  <div class="skills-grid">
+                    {Object.entries(lord.skills)
+                      .filter(([_, v]) => v > 0)
+                      .sort(([, a], [, b]) => b - a)
+                      .map(([skill, value]) => (
+                        <div class="skill-row">
+                          <span class="skill-name">{skill}</span>
+                          <div class="skill-bar-bg">
+                            <div class="skill-bar" style={`width: ${Math.min(value / 3, 100)}%`} />
+                          </div>
+                          <span class="skill-value">{value}</span>
                         </div>
-                        <span class="skill-value">{value}</span>
-                      </div>
-                    ))
-                  }
+                      ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {Object.keys(lord.traits).length > 0 && (
-              <div class="lord-section">
-                <h4>Traits</h4>
-                <div class="traits-list">
-                  {Object.entries(lord.traits)
-                    .filter(([_, v]) => v !== 0)
-                    .sort(([, a], [, b]) => Math.abs(b) - Math.abs(a))
-                    .map(([trait, value]) => (
-                      <span class:list={['trait-badge', { positive: value > 0, negative: value < 0 }]}>
-                        {trait} {value > 0 ? `+${value}` : value}
-                      </span>
-                    ))
-                  }
+              {Object.keys(lord.traits).length > 0 && (
+                <div class="lord-section">
+                  <h4>Traits</h4>
+                  <div class="traits-list">
+                    {Object.entries(lord.traits)
+                      .filter(([_, v]) => v !== 0)
+                      .sort(([, a], [, b]) => Math.abs(b) - Math.abs(a))
+                      .map(([trait, value]) => (
+                        <span class:list={['trait-badge', { positive: value > 0, negative: value < 0 }]}>
+                          {trait} {value > 0 ? `+${value}` : value}
+                        </span>
+                      ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {Object.keys(lord.skills).length === 0 && Object.keys(lord.traits).length === 0 && (
-              <p class="no-data">Detailed stats not available</p>
-            )}
-          </div>
-        ))}
+              {Object.keys(lord.skills).length === 0 && Object.keys(lord.traits).length === 0 && (
+                <p class="no-data">Detailed stats not available</p>
+              )}
+            </div>
+          ))
+        }
       </div>
     </section>
   </div>

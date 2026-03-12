@@ -38,7 +38,7 @@ const categories: FeatureCategory[] = [
         details: [
           'Scripted war events: Isengard war, Mordor war, Rivendell joins, Rhun-Erebor-Dale, Dol Guldur-Mirkwood-Lothlorien, Umbar-Harad-Gondor',
           'Isengard attack timing randomized between configurable earliest/latest dates',
-          'Narrative text popups as Isengard\'s attack approaches — building tension',
+          "Narrative text popups as Isengard's attack approaches — building tension",
           'Good factions form alliances, evil factions unite — all Good vs all Evil',
           'Disallowed kingdom decisions prevent premature peace with enemies',
         ],
@@ -84,7 +84,7 @@ const categories: FeatureCategory[] = [
       },
       {
         title: 'Execution System',
-        desc: 'Executing an orc warlord won\'t upset the Free Peoples, but betraying your allies will. Execution consequences are driven by alignment.',
+        desc: "Executing an orc warlord won't upset the Free Peoples, but betraying your allies will. Execution consequences are driven by alignment.",
         details: [
           'Execution penalties adjusted by alignment — killing evil heroes may carry no penalty for good factions',
           'Executing same-alignment heroes carries heavy relation penalties',
@@ -94,7 +94,7 @@ const categories: FeatureCategory[] = [
       },
       {
         title: 'Culture Desertion',
-        desc: 'Troops of opposing alignment will desert from your party. Evil orcs won\'t march alongside Gondorian knights — and vice versa.',
+        desc: "Troops of opposing alignment will desert from your party. Evil orcs won't march alongside Gondorian knights — and vice versa.",
         details: [
           'Troops with opposite cultural alignment (good vs evil) desert from parties',
           'AI Only mode available — exempt your party while AI still follows the rules',
@@ -113,7 +113,7 @@ const categories: FeatureCategory[] = [
     features: [
       {
         title: 'Enhanced Auto-Resolve',
-        desc: 'A completely overhauled battle resolution system with six subsystems, replacing vanilla\'s simplistic strength comparison with deep tactical calculations.',
+        desc: "A completely overhauled battle resolution system with six subsystems, replacing vanilla's simplistic strength comparison with deep tactical calculations.",
         details: [
           'Troop count: logarithmic weighted ratio (0.4-1.8x range)',
           'Troop quality: tier-based multipliers (T1=0.5x up to T6=2.0x)',
@@ -169,7 +169,7 @@ const categories: FeatureCategory[] = [
       },
       {
         title: 'Culture Combat Matchups',
-        desc: '30+ lore-driven tactical matchups. Isengard\'s Uruks counter Rohan cavalry; Elves devastate Mordor\'s hordes; Dwarves are unbreakable in siege defense.',
+        desc: "30+ lore-driven tactical matchups. Isengard's Uruks counter Rohan cavalry; Elves devastate Mordor's hordes; Dwarves are unbreakable in siege defense.",
         details: [
           'Dunland vs Rohan: +15% attack (hatred of the Rohirrim)',
           'Isengard vs Rohan: +15% attack, +8% defense (bred to counter cavalry)',
@@ -413,20 +413,14 @@ const categories: FeatureCategory[] = [
       {
         title: 'Crafting Enhancements',
         desc: 'Smithing improvements let you craft without the grind.',
-        details: [
-          'Option to disable stamina consumption during crafting',
-          'Fully configurable via MCM settings',
-        ],
+        details: ['Option to disable stamina consumption during crafting', 'Fully configurable via MCM settings'],
         status: 'live',
         mcm: [{ name: 'Disable Stamina', default: 'off', group: 'Crafting' }],
       },
       {
         title: 'Enhanced Loot System',
         desc: 'Loot calculations improved with skill-based modifiers and expanded options.',
-        details: [
-          'Loot quality scales with character skills',
-          'Option to loot from prisoners, not just dead troops',
-        ],
+        details: ['Loot quality scales with character skills', 'Option to loot from prisoners, not just dead troops'],
         status: 'live',
         mcm: [
           { name: 'Enable Better Loot Calc', default: 'off', group: 'Loot' },
@@ -481,7 +475,7 @@ const categories: FeatureCategory[] = [
     features: [
       {
         title: 'Custom Voice Acting',
-        desc: 'Races don\'t just look different — they sound different. 750+ custom audio files bring Uruk-hai battle cries, Dwarf war chants, and creature roars to life.',
+        desc: "Races don't just look different — they sound different. 750+ custom audio files bring Uruk-hai battle cries, Dwarf war chants, and creature roars to life.",
         details: [
           '302 custom sound entries across 5 audio categories',
           'Isengard/Uruk-hai: 207 sounds — deaths, grunts, yells, victory cries',
@@ -580,7 +574,7 @@ const categories: FeatureCategory[] = [
           '61 education character templates across 6 cultures',
           'Cultures: Mordor, Gondor, Erebor, Rivendell, Mirkwood, Dol Guldur',
           '1,976 equipment roster configurations for development stages',
-          'Culture-appropriate armor sets reflect your character\'s origin',
+          "Culture-appropriate armor sets reflect your character's origin",
         ],
         status: 'live',
       },
@@ -710,40 +704,45 @@ const categories: FeatureCategory[] = [
 
     <h1 class="page-title">Features</h1>
     <p class="page-subtitle">The gameplay systems that make every faction, battle, and campaign unique</p>
-    <p class="mcm-note"><span class="mcm-toggle mcm-on">ON</span> and <span class="mcm-toggle mcm-off">OFF</span> badges show the default MCM setting for each feature. All toggleable systems can be changed in-game via the Mod Configuration Menu.</p>
+    <p class="mcm-note">
+      <span class="mcm-toggle mcm-on">ON</span> and <span class="mcm-toggle mcm-off">OFF</span> badges show the default MCM
+      setting for each feature. All toggleable systems can be changed in-game via the Mod Configuration Menu.
+    </p>
 
-    {categories.map(cat => (
-      <section class="feature-category">
-        <h2 class="category-title">{cat.category}</h2>
-        <div class="features-grid">
-          {cat.features.map(f => (
-            <div class="feature-card">
-              <div class="feature-header">
-                <h3>{f.title}</h3>
-                {f.status === 'live' && <span class="status-badge live">Live</span>}
-                {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
-              </div>
-              <p class="feature-desc">{f.desc}</p>
-              <ul class="feature-details">
-                {f.details.map(d => (
-                  <li>{d}</li>
-                ))}
-              </ul>
-              {f.mcm && f.mcm.length > 0 && (
-                <div class="mcm-toggles">
-                  <span class="mcm-label">MCM</span>
-                  {f.mcm.map(m => (
-                    <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
-                      {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
-                    </span>
-                  ))}
+    {
+      categories.map((cat) => (
+        <section class="feature-category">
+          <h2 class="category-title">{cat.category}</h2>
+          <div class="features-grid">
+            {cat.features.map((f) => (
+              <div class="feature-card">
+                <div class="feature-header">
+                  <h3>{f.title}</h3>
+                  {f.status === 'live' && <span class="status-badge live">Live</span>}
+                  {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-    ))}
+                <p class="feature-desc">{f.desc}</p>
+                <ul class="feature-details">
+                  {f.details.map((d) => (
+                    <li>{d}</li>
+                  ))}
+                </ul>
+                {f.mcm && f.mcm.length > 0 && (
+                  <div class="mcm-toggles">
+                    <span class="mcm-label">MCM</span>
+                    {f.mcm.map((m) => (
+                      <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
+                        {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </div>
 </BaseLayout>
 
@@ -834,12 +833,12 @@ const categories: FeatureCategory[] = [
 
   .status-badge.live {
     background: rgba(76, 175, 80, 0.2);
-    color: #4CAF50;
+    color: #4caf50;
   }
 
   .status-badge.wip {
     background: rgba(255, 167, 38, 0.2);
-    color: #FFA726;
+    color: #ffa726;
   }
 
   .feature-desc {
@@ -899,12 +898,12 @@ const categories: FeatureCategory[] = [
 
   .mcm-on {
     background: rgba(76, 175, 80, 0.15);
-    color: #66BB6A;
+    color: #66bb6a;
   }
 
   .mcm-off {
     background: rgba(255, 167, 38, 0.12);
-    color: #FFB74D;
+    color: #ffb74d;
   }
 
   @media (max-width: 600px) {

@@ -60,13 +60,15 @@ const sections = [
     <p class="overview-desc">Explore the systems, races, and features that make up Tales From the Age of Men.</p>
 
     <div class="section-grid">
-      {sections.map(s => (
-        <a href={s.href} class="section-card" style={`--card-bg: ${s.color}; --card-border: ${s.border}`}>
-          <h2>{s.title}</h2>
-          <p>{s.desc}</p>
-          <span class="card-arrow">&rarr;</span>
-        </a>
-      ))}
+      {
+        sections.map((s) => (
+          <a href={s.href} class="section-card" style={`--card-bg: ${s.color}; --card-border: ${s.border}`}>
+            <h2>{s.title}</h2>
+            <p>{s.desc}</p>
+            <span class="card-arrow">&rarr;</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
@@ -96,7 +98,9 @@ const sections = [
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
     position: relative;
   }
 

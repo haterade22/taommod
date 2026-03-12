@@ -12,7 +12,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="version-note">Bannerlord Version <strong>1.2.12</strong></p>
       <ol class="load-order">
         <li><span class="mod-name">Harmony</span> <span class="mod-version">v2.3.6.220</span></li>
-        <li><span class="mod-name">Palatinr Debugger</span> <span class="mod-note">Writes to a log on crash — share the log with us to help diagnose</span></li>
+        <li>
+          <span class="mod-name">Palatinr Debugger</span>
+          <span class="mod-note">Writes to a log on crash — share the log with us to help diagnose</span>
+        </li>
         <li><span class="mod-name">BetterExceptionWindow</span> <span class="mod-version">v7.1.1.0</span></li>
         <li><span class="mod-name">ButterLib</span> <span class="mod-version">v2.10.0.0</span></li>
         <li><span class="mod-name">UIExtenderEx</span> <span class="mod-version">v2.13.0.0</span></li>
@@ -32,25 +35,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section class="tip-section warning-section">
       <h2>Disable Naval DLC</h2>
-      <p>The Naval DLC is <strong>not compatible</strong> with TAOM and can cause crashes or broken gameplay. Steam sometimes re-enables it automatically after updates.</p>
-      <p><strong>Before every play session</strong>, check your Bannerlord launcher and make sure the Naval DLC module is <strong>unchecked / disabled</strong>. While you're there, verify your full load order matches the one above.</p>
-      <p class="tip-note"><strong>Tip:</strong> If you're experiencing unexplained crashes after a Steam update, this is the first thing to check.</p>
+      <p>
+        The Naval DLC is <strong>not compatible</strong> with TAOM and can cause crashes or broken gameplay. Steam sometimes
+        re-enables it automatically after updates.
+      </p>
+      <p>
+        <strong>Before every play session</strong>, check your Bannerlord launcher and make sure the Naval DLC module is <strong
+          >unchecked / disabled</strong
+        >. While you're there, verify your full load order matches the one above.
+      </p>
+      <p class="tip-note">
+        <strong>Tip:</strong> If you're experiencing unexplained crashes after a Steam update, this is the first thing to
+        check.
+      </p>
     </section>
 
     <section class="tip-section">
       <h2>Delete Cached Shaders</h2>
-      <p>If you have played this mod before, it is recommended you delete your cached shaders to avoid graphical issues.</p>
+      <p>
+        If you have played this mod before, it is recommended you delete your cached shaders to avoid graphical issues.
+      </p>
       <div class="path-block">
         <code>C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map</code>
       </div>
-      <p class="tip-note"><strong>Note:</strong> <code>ProgramData</code> is a hidden folder. You can paste the path directly into File Explorer's address bar to navigate to it.</p>
-      <p class="tip-note">Delete this entire folder, then launch the game. Shaders will be regenerated automatically.</p>
+      <p class="tip-note">
+        <strong>Note:</strong>
+        <code>ProgramData</code> is a hidden folder. You can paste the path directly into File Explorer's address bar to navigate
+        to it.
+      </p>
+      <p class="tip-note">
+        Delete this entire folder, then launch the game. Shaders will be regenerated automatically.
+      </p>
     </section>
 
     <section class="tip-section">
       <h2>Texture Creation Failure</h2>
       <p>If you see the following error on launch:</p>
-      <img src="/images/troubleshooting-texture-error.png" alt="GPU_device::create_texture_array failed error" class="error-screenshot" />
+      <img
+        src="/images/troubleshooting-texture-error.png"
+        alt="GPU_device::create_texture_array failed error"
+        class="error-screenshot"
+      />
       <h3>Fix</h3>
       <p>Set <strong>Terrain Quality</strong> in your game settings to <strong>Medium</strong> or higher.</p>
       <h3>Other GPU / Texture Errors</h3>
@@ -58,7 +83,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="path-block">
         <code>C:\ProgramData\Mount and Blade II Bannerlord\Shaders</code>
       </div>
-      <p class="tip-note"><strong>Note:</strong> <code>ProgramData</code> is a hidden folder. Paste the path directly into File Explorer's address bar.</p>
+      <p class="tip-note">
+        <strong>Note:</strong>
+        <code>ProgramData</code> is a hidden folder. Paste the path directly into File Explorer's address bar.
+      </p>
     </section>
 
     <section class="tip-section">
@@ -69,9 +97,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h3>Fix (PowerShell — Recommended)</h3>
       <p>Open PowerShell <strong>as Administrator</strong> and run:</p>
       <div class="path-block">
-        <code>gci -Path "C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules" -Recurse | Unblock-File</code>
+        <code
+          >gci -Path "C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules" -Recurse |
+          Unblock-File</code
+        >
       </div>
-      <p class="tip-note"><strong>Note:</strong> Change the drive letter if your game is installed on a different drive.</p>
+      <p class="tip-note">
+        <strong>Note:</strong> Change the drive letter if your game is installed on a different drive.
+      </p>
       <h3>Fix (Manual)</h3>
       <p>You can also unblock files individually:</p>
       <ol class="steps-list">
@@ -86,8 +119,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Names Replaced with Native Bannerlord Names</h2>
       <p><strong>Q: Why are the names in the mod replaced with ones from native Bannerlord?</strong></p>
       <ul class="steps-list">
-        <li>The mod is currently only supported in <strong>English</strong>. Make sure your game language is set to English.</li>
-        <li>If your language is already set to English and you still have this problem, you are most likely missing files and need to <strong>redownload the mod</strong>.</li>
+        <li>
+          The mod is currently only supported in <strong>English</strong>. Make sure your game language is set to
+          English.
+        </li>
+        <li>
+          If your language is already set to English and you still have this problem, you are most likely missing files
+          and need to <strong>redownload the mod</strong>.
+        </li>
       </ul>
     </section>
 
@@ -107,7 +146,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Long Loading Screen / Horse Stopped Moving</h2>
       <p><strong>Q: I'm stuck on a loading screen, is this normal?</strong></p>
       <p><strong>Q: I load the game and the horse in the bottom right has stopped moving, is that normal?</strong></p>
-      <p>Yes — each time you run the mod after a new or fresh download, the game needs to compile all of the files, shaders, and code. This is a one-time process and can take anywhere from <strong>ten minutes to two hours</strong> depending on your hardware.</p>
+      <p>
+        Yes — each time you run the mod after a new or fresh download, the game needs to compile all of the files,
+        shaders, and code. This is a one-time process and can take anywhere from <strong
+          >ten minutes to two hours</strong
+        > depending on your hardware.
+      </p>
       <p>Be patient and let it finish. Subsequent launches will be much faster.</p>
     </section>
 
@@ -118,7 +162,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li>When the crash report appears, <strong>save the report as HTML</strong></li>
         <li>Go to our <a href="/community">Discord server</a></li>
         <li>Open a <strong>support ticket</strong></li>
-        <li>Include your <strong>load order</strong>, what you were doing when it crashed (context), and attach the crash report</li>
+        <li>
+          Include your <strong>load order</strong>, what you were doing when it crashed (context), and attach the crash
+          report
+        </li>
       </ol>
       <p>We will help you as we are available.</p>
     </section>
@@ -126,7 +173,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="tip-section">
       <h2>Where is the Music?</h2>
       <p><strong>Q: The game has no music / where is the custom soundtrack?</strong></p>
-      <p>We are actively working on a custom soundtrack. Unfortunately, Bannerlord 1.2.12 requires replacing the <em>entire</em> soundtrack to add custom music — there's no way to add tracks individually. This limitation may change in version 1.3.</p>
+      <p>
+        We are actively working on a custom soundtrack. Unfortunately, Bannerlord 1.2.12 requires replacing the <em
+          >entire</em
+        > soundtrack to add custom music — there's no way to add tracks individually. This limitation may change in version
+        1.3.
+      </p>
       <p>For now, the mod ships without custom music. Stay tuned for updates.</p>
     </section>
 

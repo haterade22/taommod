@@ -11,9 +11,9 @@ export const PLANNED_FACTIONS: Record<string, string> = {
 };
 
 export function getStaticPaths() {
-  const troops = parseTroops().filter(t => !isHiddenCulture(t.culture));
-  const cultures = [...new Set(troops.map(t => t.culture).filter(Boolean))];
-  const paths = cultures.map(culture => ({
+  const troops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
+  const cultures = [...new Set(troops.map((t) => t.culture).filter(Boolean))];
+  const paths = cultures.map((culture) => ({
     params: { id: culture },
     props: { culture },
   }));
@@ -30,7 +30,7 @@ const { culture } = Astro.props;
 const isPlanned = culture in PLANNED_FACTIONS;
 const displayName = isPlanned ? PLANNED_FACTIONS[culture] : getCultureDisplayName(culture);
 
-const allTroops = parseTroops().filter(t => t.culture === culture);
+const allTroops = parseTroops().filter((t) => t.culture === culture);
 const troopsByGroup = new Map<string, typeof allTroops>();
 for (const t of allTroops) {
   const group = t.defaultGroup || 'Other';
@@ -50,8 +50,8 @@ const sortedGroups = Array.from(troopsByGroup.entries()).sort((a, b) => {
 });
 
 const totalTroops = allTroops.length;
-const minLevel = Math.min(...allTroops.map(t => t.level));
-const maxLevel = Math.max(...allTroops.map(t => t.level));
+const minLevel = Math.min(...allTroops.map((t) => t.level));
+const maxLevel = Math.max(...allTroops.map((t) => t.level));
 
 // Faction images
 const FACTION_IMAGES: Record<string, string> = {
@@ -84,13 +84,19 @@ const TYPE_COLORS: Record<string, string> = {
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>{displayName} {isPlanned && <span class="planned-badge">Planned</span>}</h1>
-      {!isPlanned && (
-        <div class="hero-stats">
-          <span><strong>{totalTroops}</strong> units</span>
-          <span>Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong></span>
-          <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
-        </div>
-      )}
+      {
+        !isPlanned && (
+          <div class="hero-stats">
+            <span>
+              <strong>{totalTroops}</strong> units
+            </span>
+            <span>
+              Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong>
+            </span>
+            <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
+          </div>
+        )
+      }
     </div>
   </div>
 
@@ -99,100 +105,109 @@ const TYPE_COLORS: Record<string, string> = {
       <a href="/factions">&larr; All Factions</a>
     </nav>
 
-    {isPlanned ? (
-      <section class="faction-section">
-        <div class="planned-notice">
-          <h2>Planned Faction</h2>
-          <p>{displayName} is a planned faction for a future update of TAOM. Troops, equipment, and lore are currently in development.</p>
-          <a href="/factions" class="btn btn-secondary">&larr; Back to Factions</a>
-        </div>
-      </section>
-    ) : (
-      <>
-        <section class="faction-section troop-tree-section">
-          <h2>Troop Tree</h2>
-          <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
-          <TroopTree troops={allTroops} culture={culture} />
-        </section>
-
+    {
+      isPlanned ? (
         <section class="faction-section">
-          <h2>Troop Roster</h2>
-          <p class="section-desc">All {displayName} units organized by role.</p>
-
-          {sortedGroups.map(([group, troops]) => (
-            <div class="group-block">
-              <h3>{group} <span class="group-count">({troops.length})</span></h3>
-              <div class="data-table-wrapper">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th class="col-num">Level</th>
-                      <th class="col-num">1H</th>
-                      <th class="col-num">2H</th>
-                      <th class="col-num">Pole</th>
-                      <th class="col-num">Bow</th>
-                      <th class="col-num">XBow</th>
-                      <th class="col-num">Throw</th>
-                      <th class="col-num">Ath</th>
-                      <th class="col-num">Ride</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {troops.map(t => (
-                      <tr data-culture={culture}>
-                        <td>{t.name}</td>
-                        <td class="col-num">{t.level}</td>
-                        <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
-                        <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
-                        <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
-                        <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
-                        <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
-                        <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
-                        <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
-                        <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ))}
+          <div class="planned-notice">
+            <h2>Planned Faction</h2>
+            <p>
+              {displayName} is a planned faction for a future update of TAOM. Troops, equipment, and lore are currently
+              in development.
+            </p>
+            <a href="/factions" class="btn btn-secondary">
+              &larr; Back to Factions
+            </a>
+          </div>
         </section>
+      ) : (
+        <>
+          <section class="faction-section troop-tree-section">
+            <h2>Troop Tree</h2>
+            <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
+            <TroopTree troops={allTroops} culture={culture} />
+          </section>
 
-        {troopBranches.length > 0 ? (
           <section class="faction-section">
-            <h2>Troop Branches</h2>
-            <p class="section-desc">The military branches of {displayName}, from common fodder to elite warriors.</p>
-            <div class="branch-cards">
-              {troopBranches.map(branch => (
-                <div class="branch-card" style={`--branch-color: ${TYPE_COLORS[branch.type]}`}>
-                  <div class="branch-card-header">
-                    <div class="branch-title-row">
-                      <h3>{branch.name}</h3>
-                      {branch.status === 'done' && <span class="branch-status done">Done</span>}
-                    </div>
-                    <div class="branch-meta">
-                      <span class="branch-tier">{branch.tiers}</span>
-                      <span class="branch-type">{branch.type.charAt(0).toUpperCase() + branch.type.slice(1)}</span>
-                      {branch.region && <span class="branch-region">{branch.region}</span>}
-                    </div>
-                  </div>
-                  <p class="branch-desc">{branch.description}</p>
+            <h2>Troop Roster</h2>
+            <p class="section-desc">All {displayName} units organized by role.</p>
+
+            {sortedGroups.map(([group, troops]) => (
+              <div class="group-block">
+                <h3>
+                  {group} <span class="group-count">({troops.length})</span>
+                </h3>
+                <div class="data-table-wrapper">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th class="col-num">Level</th>
+                        <th class="col-num">1H</th>
+                        <th class="col-num">2H</th>
+                        <th class="col-num">Pole</th>
+                        <th class="col-num">Bow</th>
+                        <th class="col-num">XBow</th>
+                        <th class="col-num">Throw</th>
+                        <th class="col-num">Ath</th>
+                        <th class="col-num">Ride</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {troops.map((t) => (
+                        <tr data-culture={culture}>
+                          <td>{t.name}</td>
+                          <td class="col-num">{t.level}</td>
+                          <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
+                          <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
+                          <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
+                          <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
+                          <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
+                          <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
+                          <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
+                          <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </section>
-        ) : (
-          <section class="faction-section faction-lore">
-            <h2>About {displayName}</h2>
-            <div class="coming-soon">
-              <p>Detailed faction lore and troop branch information coming soon.</p>
-            </div>
-          </section>
-        )}
-      </>
-    )}
+
+          {troopBranches.length > 0 ? (
+            <section class="faction-section">
+              <h2>Troop Branches</h2>
+              <p class="section-desc">The military branches of {displayName}, from common fodder to elite warriors.</p>
+              <div class="branch-cards">
+                {troopBranches.map((branch) => (
+                  <div class="branch-card" style={`--branch-color: ${TYPE_COLORS[branch.type]}`}>
+                    <div class="branch-card-header">
+                      <div class="branch-title-row">
+                        <h3>{branch.name}</h3>
+                        {branch.status === 'done' && <span class="branch-status done">Done</span>}
+                      </div>
+                      <div class="branch-meta">
+                        <span class="branch-tier">{branch.tiers}</span>
+                        <span class="branch-type">{branch.type.charAt(0).toUpperCase() + branch.type.slice(1)}</span>
+                        {branch.region && <span class="branch-region">{branch.region}</span>}
+                      </div>
+                    </div>
+                    <p class="branch-desc">{branch.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : (
+            <section class="faction-section faction-lore">
+              <h2>About {displayName}</h2>
+              <div class="coming-soon">
+                <p>Detailed faction lore and troop branch information coming soon.</p>
+              </div>
+            </section>
+          )}
+        </>
+      )
+    }
   </div>
 </BaseLayout>
 
@@ -209,12 +224,7 @@ const TYPE_COLORS: Record<string, string> = {
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(25, 25, 25, 0.95) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(25, 25, 25, 0.95) 100%);
   }
 
   .hero-content {
@@ -348,7 +358,7 @@ const TYPE_COLORS: Record<string, string> = {
     padding: 0.1rem 0.4rem;
     border-radius: 3px;
     background: rgba(76, 175, 80, 0.2);
-    color: #4CAF50;
+    color: #4caf50;
     letter-spacing: 0.5px;
   }
 

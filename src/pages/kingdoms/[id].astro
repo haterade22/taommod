@@ -5,7 +5,7 @@ import type { Kingdom, Clan, Lord } from '../../lib/parse-xml';
 
 export function getStaticPaths() {
   const kingdoms = parseKingdomsFromXslt();
-  return kingdoms.map(k => ({
+  return kingdoms.map((k) => ({
     params: { id: k.id },
     props: { kingdom: k },
   }));
@@ -16,7 +16,7 @@ const allClans = parseAllClans();
 const allLords = parseAllLords();
 
 // Get clans for this kingdom
-const clans = allClans.filter(c => c.kingdomId === kingdom.id);
+const clans = allClans.filter((c) => c.kingdomId === kingdom.id);
 clans.sort((a, b) => a.name.localeCompare(b.name));
 
 // Build lord lookup by ID for clan owners
@@ -37,9 +37,14 @@ for (const clan of clans) {
 
 // Culture override for display
 const CULTURE_OVERRIDES: Record<string, string> = {
-  empire_w: 'Gondor', empire_s: 'Mordor', empire: 'Dunland',
-  sturgia: 'Dale', aserai: 'Harad', vlandia: 'Rohan',
-  battania: 'Variag', khuzait: 'Rhun',
+  empire_w: 'Gondor',
+  empire_s: 'Mordor',
+  empire: 'Dunland',
+  sturgia: 'Dale',
+  aserai: 'Harad',
+  vlandia: 'Rohan',
+  battania: 'Variag',
+  khuzait: 'Rhun',
 };
 
 const cultureName = CULTURE_OVERRIDES[kingdom.id] || getCultureDisplayName(kingdom.culture);
@@ -63,19 +68,19 @@ const EMBLEM_IMAGES: Record<string, string> = {
 const KINGDOM_COLORS: Record<string, [string, string]> = {
   empire_w: ['#C0C0C0', '#1A1A2E'],
   empire_s: ['#8B0000', '#1A1A1A'],
-  empire:   ['#8B6914', '#2D1B00'],
-  sturgia:  ['#4169E1', '#C0C0C0'],
-  aserai:   ['#DC143C', '#2D0A0A'],
-  vlandia:  ['#228B22', '#C8A951'],
+  empire: ['#8B6914', '#2D1B00'],
+  sturgia: ['#4169E1', '#C0C0C0'],
+  aserai: ['#DC143C', '#2D0A0A'],
+  vlandia: ['#228B22', '#C8A951'],
   battania: ['#8B4513', '#4A0E0E'],
-  khuzait:  ['#DAA520', '#4B0082'],
-  erebor:   ['#B8860B', '#4A4A4A'],
+  khuzait: ['#DAA520', '#4B0082'],
+  erebor: ['#B8860B', '#4A4A4A'],
   isengard: ['#2F2F2F', '#F5F5F5'],
   gundabad: ['#6B7B8D', '#1C1C1C'],
-  dolguldur:['#5B8C3A', '#1A1A1A'],
-  rivendell:['#2E86AB', '#C0C0C0'],
-  lothlorien:['#DAA520', '#F5F5F5'],
-  umbar:    ['#8B0000', '#DAA520'],
+  dolguldur: ['#5B8C3A', '#1A1A1A'],
+  rivendell: ['#2E86AB', '#C0C0C0'],
+  lothlorien: ['#DAA520', '#F5F5F5'],
+  umbar: ['#8B0000', '#DAA520'],
   mirkwood: ['#2E5A1E', '#8B6914'],
 };
 
@@ -92,12 +97,14 @@ const colors = KINGDOM_COLORS[kingdom.id];
       <div class="kingdom-info">
         <span><strong>Ruler:</strong> {kingdom.rulerTitle}</span>
         <span><strong>Culture:</strong> {cultureName}</span>
-        {colors && (
-          <span class="colors">
-            <span class="swatch" style={`background: ${colors[0]}`} />
-            <span class="swatch" style={`background: ${colors[1]}`} />
-          </span>
-        )}
+        {
+          colors && (
+            <span class="colors">
+              <span class="swatch" style={`background: ${colors[0]}`} />
+              <span class="swatch" style={`background: ${colors[1]}`} />
+            </span>
+          )
+        }
       </div>
       {kingdom.description && <p class="kingdom-desc">{kingdom.description}</p>}
     </div>
@@ -108,39 +115,45 @@ const colors = KINGDOM_COLORS[kingdom.id];
       <h2>Clans ({clans.length})</h2>
       {clans.length === 0 && <p class="muted">No clans found for this kingdom.</p>}
       <div class="clans-list">
-        {clans.map(clan => {
-          const lords = clanLords.get(clan.id) || [];
-          return (
-            <a href={`/clans/${clan.id}`} class="clan-card-link">
-            <div class="clan-card">
-              <div class="clan-header">
-                <h3>{clan.name}</h3>
-                {clan.tier > 0 && <span class="clan-tier">Tier {clan.tier}</span>}
-              </div>
-              {lords.length > 0 && lords.map(lord => (
-                <div class="lord-summary">
-                  <span class="lord-name">{lord.isFemale ? '♀' : '♂'} {lord.name}</span>
-                  <span class="lord-role">Leader</span>
-                  {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
-                  {Object.keys(lord.skills).length > 0 && (
-                    <div class="lord-top-skills">
-                      {Object.entries(lord.skills)
-                        .filter(([_, v]) => v > 0)
-                        .sort(([, a], [, b]) => b - a)
-                        .slice(0, 3)
-                        .map(([skill, value]) => (
-                          <span class="skill-badge">{skill} {value}</span>
-                        ))
-                      }
-                    </div>
-                  )}
+        {
+          clans.map((clan) => {
+            const lords = clanLords.get(clan.id) || [];
+            return (
+              <a href={`/clans/${clan.id}`} class="clan-card-link">
+                <div class="clan-card">
+                  <div class="clan-header">
+                    <h3>{clan.name}</h3>
+                    {clan.tier > 0 && <span class="clan-tier">Tier {clan.tier}</span>}
+                  </div>
+                  {lords.length > 0 &&
+                    lords.map((lord) => (
+                      <div class="lord-summary">
+                        <span class="lord-name">
+                          {lord.isFemale ? '♀' : '♂'} {lord.name}
+                        </span>
+                        <span class="lord-role">Leader</span>
+                        {lord.defaultGroup && <span class="lord-group">{lord.defaultGroup}</span>}
+                        {Object.keys(lord.skills).length > 0 && (
+                          <div class="lord-top-skills">
+                            {Object.entries(lord.skills)
+                              .filter(([_, v]) => v > 0)
+                              .sort(([, a], [, b]) => b - a)
+                              .slice(0, 3)
+                              .map(([skill, value]) => (
+                                <span class="skill-badge">
+                                  {skill} {value}
+                                </span>
+                              ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  {lords.length === 0 && <p class="no-lord">Leader data not available</p>}
                 </div>
-              ))}
-              {lords.length === 0 && <p class="no-lord">Leader data not available</p>}
-            </div>
-            </a>
-          );
-        })}
+              </a>
+            );
+          })
+        }
       </div>
     </section>
 
@@ -251,7 +264,9 @@ const colors = KINGDOM_COLORS[kingdom.id];
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.25rem;
-    transition: border-color 0.2s, transform 0.2s;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
     height: 100%;
   }
 

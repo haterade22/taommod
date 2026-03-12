@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
 
-const troops = parseTroops().filter(t => !isHiddenCulture(t.culture));
+const troops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
 
 // Build faction summary from troop data
 const factionMap = new Map<string, { count: number; groups: Set<string>; minLevel: number; maxLevel: number }>();
@@ -46,30 +46,28 @@ const FACTION_IMAGES: Record<string, string> = {
     </div>
   </section>
   <div class="page-content">
-
     <div class="faction-grid">
-      {factions.map(f => {
-        const bgImage = FACTION_IMAGES[f.name];
-        return (
-          <a
-            href={`/factions/${f.name}`}
-            class:list={['faction-card', { 'has-bg': !!bgImage }]}
-            style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
-          >
-            <div class="faction-overlay"></div>
-            <div class="faction-content">
-              <h3>{f.displayName}</h3>
-              <p>
-                <strong>{f.count}</strong> units &middot;
-                Levels {f.minLevel}-{f.maxLevel}
-              </p>
-              <p class="faction-groups">
-                {f.groups.join(', ')}
-              </p>
-            </div>
-          </a>
-        );
-      })}
+      {
+        factions.map((f) => {
+          const bgImage = FACTION_IMAGES[f.name];
+          return (
+            <a
+              href={`/factions/${f.name}`}
+              class:list={['faction-card', { 'has-bg': !!bgImage }]}
+              style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
+            >
+              <div class="faction-overlay" />
+              <div class="faction-content">
+                <h3>{f.displayName}</h3>
+                <p>
+                  <strong>{f.count}</strong> units &middot; Levels {f.minLevel}-{f.maxLevel}
+                </p>
+                <p class="faction-groups">{f.groups.join(', ')}</p>
+              </div>
+            </a>
+          );
+        })
+      }
     </div>
 
     <section class="full-map">
@@ -101,12 +99,7 @@ const FACTION_IMAGES: Record<string, string> = {
   .banner-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.15) 60%,
-      rgba(25, 25, 25, 0.95) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 60%, rgba(25, 25, 25, 0.95) 100%);
   }
 
   .banner-content {
@@ -147,7 +140,9 @@ const FACTION_IMAGES: Record<string, string> = {
     min-height: 180px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
   }
 
   .faction-card:hover {

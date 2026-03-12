@@ -14,11 +14,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <section class="intro-section">
       <p>
         To better reflect regional diversity and faction identity, <em>Tales from the Age of Men</em> introduces a
-        <strong>new four-tier recruitment structure</strong> that applies to <strong>every faction</strong> in the mod.
-        Troops no longer fall into just "standard" and "noble" categories; instead, armies are formed through a
-        layered system of <span class="tier-tag regular">Regular</span>, <span class="tier-tag noble">Noble</span>,
-        <span class="tier-tag regional">Regional</span>, and <span class="tier-tag unique">Unique</span> units,
-        each with its own availability and rarity.
+        <strong>new four-tier recruitment structure</strong> that applies to <strong>every faction</strong> in the mod. Troops
+        no longer fall into just "standard" and "noble" categories; instead, armies are formed through a layered system of
+        <span class="tier-tag regular">Regular</span>, <span class="tier-tag noble">Noble</span>,
+        <span class="tier-tag regional">Regional</span>, and <span class="tier-tag unique">Unique</span> units, each with
+        its own availability and rarity.
       </p>
     </section>
 
@@ -29,8 +29,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="tier-pct">40-50%</span>
         </div>
         <p>
-          Form the foundation of every army. These are the most common troops and can be recruited consistently
-          across <strong>all settlements</strong> within their faction's territory.
+          Form the foundation of every army. These are the most common troops and can be recruited consistently across <strong
+            >all settlements</strong
+          > within their faction's territory.
         </p>
       </div>
 
@@ -40,9 +41,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="tier-pct">10-20%</span>
         </div>
         <p>
-          Follow the classic Bannerlord rule: they remain <strong>globally recruitable</strong> within their faction's
-          lands, but appear in <strong>small numbers</strong> and represent elite households, officer retinues, or
-          aristocratic warriors.
+          Follow the classic Bannerlord rule: they remain <strong>globally recruitable</strong> within their faction's lands,
+          but appear in <strong>small numbers</strong> and represent elite households, officer retinues, or aristocratic warriors.
         </p>
       </div>
 
@@ -52,9 +52,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="tier-pct">30-40%</span>
         </div>
         <p>
-          Tied to <strong>specific homelands</strong> &mdash; certain cities, castles, or villages based on their
-          cultural or geographic origins. They are <strong>more specialized</strong> and <strong>rarer</strong>,
-          making up a significant but location-dependent portion of a settlement's recruits.
+          Tied to <strong>specific homelands</strong> &mdash; certain cities, castles, or villages based on their cultural
+          or geographic origins. They are <strong>more specialized</strong> and <strong>rarer</strong>, making up a
+          significant but location-dependent portion of a settlement's recruits.
         </p>
       </div>
 
@@ -64,9 +64,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <span class="tier-pct">Rare</span>
         </div>
         <p>
-          Tied to <strong>only one or two settlements</strong> in the entire game. These represent exceptional
-          formations, sacred orders, or legendary warriors. While not every faction currently fields one,
-          future updates will expand this category.
+          Tied to <strong>only one or two settlements</strong> in the entire game. These represent exceptional formations,
+          sacred orders, or legendary warriors. While not every faction currently fields one, future updates will expand this
+          category.
         </p>
       </div>
     </section>
@@ -77,9 +77,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         A typical garrison or settlement recruit pool might appear as roughly
         <strong class="regular-text">40-50% Regular</strong> troops,
         <strong class="noble-text">10-20% Noble</strong> troops, and
-        <strong class="regional-text">30-40% Regional</strong> troops,
-        with <strong class="unique-text">Unique</strong> units being extremely limited and tied to specific
-        strategic locations.
+        <strong class="regional-text">30-40% Regional</strong> troops, with <strong class="unique-text">Unique</strong> units
+        being extremely limited and tied to specific strategic locations.
       </p>
       <p>
         This structure creates deeper faction identity and encourages players to expand into &mdash; or defend &mdash;
@@ -150,10 +149,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-size: 0.9rem;
   }
 
-  .tier-tag.regular { color: #4CAF50; }
-  .tier-tag.noble { color: #AB47BC; }
-  .tier-tag.regional { color: #42A5F5; }
-  .tier-tag.unique { color: #FFA726; }
+  .tier-tag.regular {
+    color: #4caf50;
+  }
+  .tier-tag.noble {
+    color: #ab47bc;
+  }
+  .tier-tag.regional {
+    color: #42a5f5;
+  }
+  .tier-tag.unique {
+    color: #ffa726;
+  }
 
   .tier-cards {
     display: grid;
@@ -188,21 +195,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     opacity: 0.8;
   }
 
-  .tier-card-header.regular { border-left: 4px solid #4CAF50; }
-  .tier-card-header.regular h2 { color: #4CAF50; }
-  .tier-card-header.regular .tier-pct { color: #4CAF50; }
+  .tier-card-header.regular {
+    border-left: 4px solid #4caf50;
+  }
+  .tier-card-header.regular h2 {
+    color: #4caf50;
+  }
+  .tier-card-header.regular .tier-pct {
+    color: #4caf50;
+  }
 
-  .tier-card-header.noble { border-left: 4px solid #AB47BC; }
-  .tier-card-header.noble h2 { color: #AB47BC; }
-  .tier-card-header.noble .tier-pct { color: #AB47BC; }
+  .tier-card-header.noble {
+    border-left: 4px solid #ab47bc;
+  }
+  .tier-card-header.noble h2 {
+    color: #ab47bc;
+  }
+  .tier-card-header.noble .tier-pct {
+    color: #ab47bc;
+  }
 
-  .tier-card-header.regional { border-left: 4px solid #42A5F5; }
-  .tier-card-header.regional h2 { color: #42A5F5; }
-  .tier-card-header.regional .tier-pct { color: #42A5F5; }
+  .tier-card-header.regional {
+    border-left: 4px solid #42a5f5;
+  }
+  .tier-card-header.regional h2 {
+    color: #42a5f5;
+  }
+  .tier-card-header.regional .tier-pct {
+    color: #42a5f5;
+  }
 
-  .tier-card-header.unique { border-left: 4px solid #FFA726; }
-  .tier-card-header.unique h2 { color: #FFA726; }
-  .tier-card-header.unique .tier-pct { color: #FFA726; }
+  .tier-card-header.unique {
+    border-left: 4px solid #ffa726;
+  }
+  .tier-card-header.unique h2 {
+    color: #ffa726;
+  }
+  .tier-card-header.unique .tier-pct {
+    color: #ffa726;
+  }
 
   .tier-card p {
     padding: 1rem 1.25rem;
@@ -230,10 +261,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     margin-bottom: 0.75rem;
   }
 
-  .regular-text { color: #4CAF50; }
-  .noble-text { color: #AB47BC; }
-  .regional-text { color: #42A5F5; }
-  .unique-text { color: #FFA726; }
+  .regular-text {
+    color: #4caf50;
+  }
+  .noble-text {
+    color: #ab47bc;
+  }
+  .regional-text {
+    color: #42a5f5;
+  }
+  .unique-text {
+    color: #ffa726;
+  }
 
   .bar-chart-section {
     margin-bottom: 2rem;
@@ -263,10 +302,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     gap: 0.1rem;
   }
 
-  .bar-segment.regular { background: #4CAF50; }
-  .bar-segment.noble { background: #AB47BC; }
-  .bar-segment.regional { background: #42A5F5; }
-  .bar-segment.unique { background: #FFA726; }
+  .bar-segment.regular {
+    background: #4caf50;
+  }
+  .bar-segment.noble {
+    background: #ab47bc;
+  }
+  .bar-segment.regional {
+    background: #42a5f5;
+  }
+  .bar-segment.unique {
+    background: #ffa726;
+  }
 
   @media (max-width: 600px) {
     .tier-cards {

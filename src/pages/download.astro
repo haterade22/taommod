@@ -13,27 +13,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li>You will need to roll your game back to version 1.2.12.</li>
         <li>This mod <strong>cannot</strong> be used with the Xbox Game Pass version of the game.</li>
       </ul>
-      <p class="note">Be sure to delete any old files of the mod you may have downloaded before starting the process of a new download.</p>
+      <p class="note">
+        Be sure to delete any old files of the mod you may have downloaded before starting the process of a new
+        download.
+      </p>
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
       <h3>Video Tutorial</h3>
       <p>For a video walkthrough of the install process:</p>
-      <a href="https://www.youtube.com/watch?v=cu7K5skn2Fo" class="btn btn-secondary" target="_blank" rel="noopener">Watch on YouTube</a>
+      <a href="https://www.youtube.com/watch?v=cu7K5skn2Fo" class="btn btn-secondary" target="_blank" rel="noopener"
+        >Watch on YouTube</a
+      >
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
       <h3>Option 1: Launcher (Recommended)</h3>
       <p>Download the launcher for automatic installation and updates:</p>
-      <a href="https://lotraom.com/" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 0.5rem;">Download Launcher</a>
+      <a href="https://lotraom.com/" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 0.5rem;"
+        >Download Launcher</a
+      >
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
       <h3>Option 2: Manual Download</h3>
       <p style="margin-bottom: 0.75rem;">Download the latest release from one of these sources:</p>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="btn btn-primary" target="_blank" rel="noopener">ModDB</a>
-        <a href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748" class="btn btn-secondary" target="_blank" rel="noopener">Nexus Mods</a>
+        <a
+          href="https://www.moddb.com/mods/tales-from-the-age-of-men"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener">ModDB</a
+        >
+        <a
+          href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener">Nexus Mods</a
+        >
       </div>
       <p class="note">The most recent public release is dated February 2026.</p>
     </div>
@@ -49,39 +66,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </li>
         <li>
           <strong>Open your Modules folder:</strong>
-          <code class="code-block">
-            Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\
-          </code>
+          <code class="code-block"> Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\ </code>
           <span class="note">Your drive letter may vary — check wherever Bannerlord is installed.</span>
         </li>
         <li>
           <strong>Delete old files</strong> from any previous versions of the mod in your Modules folder.
         </li>
         <li>
-          <strong>Copy files</strong> — Open the extracted folder, select all files within it, and drag them into the Modules folder.
+          <strong>Copy files</strong> — Open the extracted folder, select all files within it, and drag them into the Modules
+          folder.
           <span class="note">We provide every file you need, including dependencies.</span>
         </li>
         <li>
-          <strong>Unblock DLLs</strong> — Right-click each DLL file → Properties → check "Unblock", or run this PowerShell command in the Modules folder:
-          <code class="code-block">
-            Get-ChildItem -Recurse -Filter *.dll | Unblock-File
-          </code>
+          <strong>Unblock DLLs</strong> — Right-click each DLL file → Properties → check "Unblock", or run this PowerShell
+          command in the Modules folder:
+          <code class="code-block"> Get-ChildItem -Recurse -Filter *.dll | Unblock-File </code>
         </li>
         <li>
           <strong>Delete shaders</strong> if you played this mod before:
-          <code class="code-block">
-            C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map
-          </code>
+          <code class="code-block"> C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map </code>
         </li>
       </ol>
     </div>
 
     <div class="card" style="margin-bottom: 1.5rem;">
       <h3>Load Order</h3>
-      <p style="margin-bottom: 0.75rem;"><strong>Bannerlord Version 1.2.12</strong> — Set this exact load order in the launcher:</p>
+      <p style="margin-bottom: 0.75rem;">
+        <strong>Bannerlord Version 1.2.12</strong> — Set this exact load order in the launcher:
+      </p>
       <ol class="load-order">
         <li><span class="mod-name">Harmony</span> <span class="mod-version">v2.3.6.220</span></li>
-        <li><span class="mod-name">Palantir Debugger</span> <span class="mod-note">Writes crash logs for diagnostics</span></li>
+        <li>
+          <span class="mod-name">Palantir Debugger</span>
+          <span class="mod-note">Writes crash logs for diagnostics</span>
+        </li>
         <li><span class="mod-name">BetterExceptionWindow</span> <span class="mod-version">v7.1.1.0</span></li>
         <li><span class="mod-name">ButterLib</span> <span class="mod-version">v2.10.0.0</span></li>
         <li><span class="mod-name">UIExtenderEx</span> <span class="mod-version">v2.13.0.0</span></li>
@@ -97,14 +115,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><span class="mod-name">Alliance.Wargs</span></li>
         <li><span class="mod-name highlight">LOTRAOM</span> <span class="mod-version highlight">v0.69.39</span></li>
       </ol>
-      <p style="margin-top: 0.75rem;">Press <strong>Play</strong>, then go to Options and set <strong>Terrain Quality</strong> to Medium or higher.</p>
+      <p style="margin-top: 0.75rem;">
+        Press <strong>Play</strong>, then go to Options and set <strong>Terrain Quality</strong> to Medium or higher.
+      </p>
     </div>
 
     <div class="card">
       <h3>Troubleshooting</h3>
       <div class="troubleshoot-item">
         <p><strong>"Cannot load" a DLL file?</strong></p>
-        <p>Unblock the DLL files manually using PowerShell. Run the unblock command from step 6 above. If PowerShell returns with a new blank line, it was done correctly.</p>
+        <p>
+          Unblock the DLL files manually using PowerShell. Run the unblock command from step 6 above. If PowerShell
+          returns with a new blank line, it was done correctly.
+        </p>
       </div>
       <div class="troubleshoot-item">
         <p><strong>Main loading screen frozen (horse not moving)?</strong></p>
@@ -113,7 +136,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="troubleshoot-item">
         <p><strong>Still having issues?</strong></p>
         <p>Join our Discord for help and support.</p>
-        <a href="https://discord.gg/taom" class="btn btn-secondary" style="margin-top: 0.5rem;" target="_blank" rel="noopener">Join Discord</a>
+        <a
+          href="https://discord.gg/taom"
+          class="btn btn-secondary"
+          style="margin-top: 0.5rem;"
+          target="_blank"
+          rel="noopener">Join Discord</a
+        >
       </div>
     </div>
 
@@ -125,7 +154,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </a>
       </div>
       <div class="badge-block">
-        <p class="badge-label">For more information about the mod, assistance, or to interact with the development team</p>
+        <p class="badge-label">
+          For more information about the mod, assistance, or to interact with the development team
+        </p>
         <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
           <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="badge-img" />
         </a>
@@ -250,7 +281,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .badge-link {
     display: inline-block;
-    transition: transform 0.2s, filter 0.2s;
+    transition:
+      transform 0.2s,
+      filter 0.2s;
   }
 
   .badge-link:hover {

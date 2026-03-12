@@ -4,5 +4,6 @@ node_modules/
 package-lock.json
 src/data/**/*.xml
 src/data/**/*.xslt
-# TroopTree has complex inline expressions that cause prettier-plugin-astro parser errors
+# Complex inline expressions that cause prettier-plugin-astro parser errors
 src/components/TroopTree.astro
+src/pages/mod-info/weapon-balancing.astro

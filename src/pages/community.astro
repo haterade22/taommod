@@ -14,19 +14,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 
     <div class="community-block">
-      <p class="community-label">For more information about the mod, assistance, or to interact with the development team</p>
+      <p class="community-label">
+        For more information about the mod, assistance, or to interact with the development team
+      </p>
       <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
         <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="community-badge discord-badge" />
       </a>
     </div>
 
     <div class="card-grid" style="grid-template-columns: 1fr 1fr; margin-top: 2rem;">
-      <a href="https://www.moddb.com/mods/tales-from-the-age-of-men" class="card" style="text-decoration: none;" target="_blank" rel="noopener">
+      <a
+        href="https://www.moddb.com/mods/tales-from-the-age-of-men"
+        class="card"
+        style="text-decoration: none;"
+        target="_blank"
+        rel="noopener"
+      >
         <h3>ModDB</h3>
         <p>Download the mod, track updates, and leave reviews.</p>
       </a>
 
-      <a href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748" class="card" style="text-decoration: none;" target="_blank" rel="noopener">
+      <a
+        href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
+        class="card"
+        style="text-decoration: none;"
+        target="_blank"
+        rel="noopener"
+      >
         <h3>Nexus Mods</h3>
         <p>Alternative download source and mod tracking.</p>
       </a>
@@ -53,7 +67,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .badge-link {
     display: inline-block;
-    transition: transform 0.2s, filter 0.2s;
+    transition:
+      transform 0.2s,
+      filter 0.2s;
   }
 
   .badge-link:hover {

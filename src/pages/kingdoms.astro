@@ -40,18 +40,18 @@ const CULTURE_OVERRIDES: Record<string, string> = {
 
 // Lore-appropriate kingdom colors [primary, secondary]
 const KINGDOM_COLORS: Record<string, [string, string]> = {
-  empire_w: ['#C0C0C0', '#1A1A2E'],  // Gondor: silver + dark blue
-  empire_s: ['#8B0000', '#1A1A1A'],   // Mordor: dark red + black
-  empire:   ['#8B6914', '#2D1B00'],   // Dunland: brown/gold + dark brown
-  sturgia:  ['#4169E1', '#C0C0C0'],   // Dale: royal blue + silver
-  aserai:   ['#DC143C', '#2D0A0A'],   // Harad: crimson + dark red
-  vlandia:  ['#228B22', '#C8A951'],   // Rohan: forest green + gold
-  battania: ['#8B4513', '#4A0E0E'],   // Variag: saddle brown + dark red
-  khuzait:  ['#DAA520', '#4B0082'],   // Rhun: goldenrod + indigo
-  erebor:   ['#B8860B', '#4A4A4A'],   // Erebor: dark gold + stone grey
-  isengard: ['#2F2F2F', '#F5F5F5'],   // Isengard: dark iron + white hand
-  gundabad: ['#6B7B8D', '#1C1C1C'],   // Gundabad: cold steel + black
-  dolguldur:['#5B8C3A', '#1A1A1A'],   // Dol Guldur: sickly green + black
+  empire_w: ['#C0C0C0', '#1A1A2E'], // Gondor: silver + dark blue
+  empire_s: ['#8B0000', '#1A1A1A'], // Mordor: dark red + black
+  empire: ['#8B6914', '#2D1B00'], // Dunland: brown/gold + dark brown
+  sturgia: ['#4169E1', '#C0C0C0'], // Dale: royal blue + silver
+  aserai: ['#DC143C', '#2D0A0A'], // Harad: crimson + dark red
+  vlandia: ['#228B22', '#C8A951'], // Rohan: forest green + gold
+  battania: ['#8B4513', '#4A0E0E'], // Variag: saddle brown + dark red
+  khuzait: ['#DAA520', '#4B0082'], // Rhun: goldenrod + indigo
+  erebor: ['#B8860B', '#4A4A4A'], // Erebor: dark gold + stone grey
+  isengard: ['#2F2F2F', '#F5F5F5'], // Isengard: dark iron + white hand
+  gundabad: ['#6B7B8D', '#1C1C1C'], // Gundabad: cold steel + black
+  dolguldur: ['#5B8C3A', '#1A1A1A'], // Dol Guldur: sickly green + black
 };
 ---
 
@@ -64,56 +64,51 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     </div>
   </section>
   <div class="page-content">
-
     <div class="kingdom-grid">
-      {kingdoms.map(k => {
-        const bgImage = KINGDOM_IMAGES[k.id];
-        const emblemImage = EMBLEM_IMAGES[k.id];
-        const colors = KINGDOM_COLORS[k.id];
-        return (
-          <a href={`/kingdoms/${k.id}`} class="kingdom-card-link">
-          <div
-            class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
-            style={bgImage && !emblemImage ? `--bg-image: url('${bgImage}')` : ''}
-          >
-            {emblemImage && <img src={emblemImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
-            <div class="kingdom-overlay"></div>
-            <div class="kingdom-content">
-              <h3>{k.name}</h3>
-              <div class="kingdom-meta">
-                {colors && (
-                  <span
-                    class="color-swatch"
-                    style={`background: ${colors[0]};`}
-                    title={`Primary`}
-                  />
-                )}
-                {colors && (
-                  <span
-                    class="color-swatch"
-                    style={`background: ${colors[1]};`}
-                    title={`Secondary`}
-                  />
-                )}
-                <span class="kingdom-title">{k.title}</span>
+      {
+        kingdoms.map((k) => {
+          const bgImage = KINGDOM_IMAGES[k.id];
+          const emblemImage = EMBLEM_IMAGES[k.id];
+          const colors = KINGDOM_COLORS[k.id];
+          return (
+            <a href={`/kingdoms/${k.id}`} class="kingdom-card-link">
+              <div
+                class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
+                style={bgImage && !emblemImage ? `--bg-image: url('${bgImage}')` : ''}
+              >
+                {emblemImage && <img src={emblemImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
+                <div class="kingdom-overlay" />
+                <div class="kingdom-content">
+                  <h3>{k.name}</h3>
+                  <div class="kingdom-meta">
+                    {colors && <span class="color-swatch" style={`background: ${colors[0]};`} title={`Primary`} />}
+                    {colors && <span class="color-swatch" style={`background: ${colors[1]};`} title={`Secondary`} />}
+                    <span class="kingdom-title">{k.title}</span>
+                  </div>
+                  <p>
+                    <strong>Ruler:</strong> {k.rulerTitle}
+                  </p>
+                  <p>
+                    <strong>Culture:</strong> {CULTURE_OVERRIDES[k.id] || getCultureDisplayName(k.culture)}
+                  </p>
+                  {k.description && (
+                    <p class="kingdom-desc">
+                      {k.description.length > 200 ? k.description.slice(0, 200) + '...' : k.description}
+                    </p>
+                  )}
+                </div>
               </div>
-              <p><strong>Ruler:</strong> {k.rulerTitle}</p>
-              <p><strong>Culture:</strong> {CULTURE_OVERRIDES[k.id] || getCultureDisplayName(k.culture)}</p>
-              {k.description && (
-                <p class="kingdom-desc">
-                  {k.description.length > 200 ? k.description.slice(0, 200) + '...' : k.description}
-                </p>
-              )}
-            </div>
-          </div>
-          </a>
-        );
-      })}
+            </a>
+          );
+        })
+      }
     </div>
 
-    {kingdoms.length === 0 && (
-      <p style="color: var(--text-muted);">No kingdoms found. Check that spkingdoms.xslt data is available.</p>
-    )}
+    {
+      kingdoms.length === 0 && (
+        <p style="color: var(--text-muted);">No kingdoms found. Check that spkingdoms.xslt data is available.</p>
+      )
+    }
 
     <section class="full-map">
       <h2>Map of Middle-earth</h2>
@@ -144,12 +139,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
   .banner-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.15) 60%,
-      rgba(25, 25, 25, 0.95) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 60%, rgba(25, 25, 25, 0.95) 100%);
   }
 
   .banner-content {
@@ -189,7 +179,9 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     height: 100%;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
   }
 
   .kingdom-card:hover {
