@@ -7,7 +7,7 @@ A companion website for **TAOM** (Tales From the Age of Men), a Lord of the Ring
 ## Features
 
 - **Troop Database** — All factions, skills, equipment, and upgrade trees
-- **Lord Database** — Family trees, skills, traits, and biographies for 380+ lords
+- **Lord Database** — Family trees, skills, traits, and biographies for 830+ lords
 - **Weaponry** — Crafted weapons with TaleWorlds-accurate damage calculations
 - **Armoury** — Armour stats across all factions and slots
 - **Faction Pages** — 16 factions with troop rosters and kingdom details
@@ -60,7 +60,7 @@ src/
   scripts/      Shared client-side utilities (data-table sorting/filtering)
   pages/        18 pages with dynamic [id].astro routes
   layouts/      BaseLayout.astro (nav, footer, View Transitions)
-  styles/       global.css, culture-colors.css, skill-colors.css
+  styles/       global.css (theme, table styles, culture colors, skill colors)
   components/   TroopTree.astro (SVG upgrade tree)
 scripts/        Node.js analysis scripts (weapon balance, culture summaries)
 public/         Images, fonts, favicon, CNAME
@@ -83,7 +83,7 @@ Bannerlord vanilla culture IDs are mapped to LOTR factions:
 | `vlandia` | Rohan |
 | `sturgia` | Dale |
 
-Custom cultures (`gondor`, `mordor`, `erebor`, `isengard`, `gundabad`, `mirkwood`, `rivendell`, `umbar`, `dolguldur`) map directly.
+Custom cultures (`gondor`, `mordor`, `erebor`, `isengard`, `gundabad`, `mirkwood`, `rivendell`, `umbar`, `dolguldur`, `lothlorien`, `arnor`, `iron_hills`) map directly.
 
 ### Damage Calculator
 

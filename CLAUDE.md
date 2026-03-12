@@ -40,8 +40,8 @@ npx astro check   # TypeScript/Astro type checking
 
 - **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland)
 - **XML name cleanup**: `stripLocKey()` removes `{=key}` prefixes, `stripPrefix()` removes `Item.`/`Hero.`/etc prefixes
-- **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/culture-colors.css`)
-- **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/skill-colors.css`)
+- **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/global.css`)
+- **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/global.css`)
 - **Dark theme**: CSS custom properties defined in `:root` in `global.css` (`--bg-primary`, `--accent`, etc.)
 - **Font**: Self-hosted Cinzel (woff2 in `public/fonts/`) for navigation, system font stack for body text
 - **Shared DataTable utilities**: `src/scripts/data-table.ts` provides `initSorting()`, `initCollapse()`, `applyUrlParams()`, `collectRows()` for all data table pages
@@ -56,7 +56,7 @@ src/
   lib/          parse-xml.ts (barrel), xml-shared.ts, parse-troops.ts, parse-kingdoms.ts, parse-clans.ts, parse-lords.ts, parse-armory.ts, parse-weaponry.ts, damage-calc.ts
   scripts/      data-table.ts (shared client-side table sorting/collapse/filters)
   pages/        18 pages with dynamic [id].astro routes for factions, kingdoms, clans
-  styles/       global.css, culture-colors.css, skill-colors.css
+  styles/       global.css (theme, table styles, culture colors, skill colors)
 scripts/        Node.js analysis scripts (weapon balance, culture summaries)
 public/         Images, favicon, CNAME
 ```
