@@ -1,249 +1,1112 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { parseKingdomsFromXslt } from '../../lib/parse-xml';
 
-const troops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
+type ShowcaseKingdom = {
+  id: string;
+  name: string;
+  shortName: string;
+  kicker: string;
+  description: string;
+  theme: 'good' | 'evil';
+  crest: string;
+  monogram: string;
+  background: string;
+  foreground: string;
+  href: string;
+};
 
-// Build faction summary from troop data
-const factionMap = new Map<string, { count: number; groups: Set<string>; minLevel: number; maxLevel: number }>();
-for (const t of troops) {
-  if (!t.culture) continue;
-  const existing = factionMap.get(t.culture) || { count: 0, groups: new Set(), minLevel: 999, maxLevel: 0 };
-  existing.count++;
-  if (t.defaultGroup) existing.groups.add(t.defaultGroup);
-  existing.minLevel = Math.min(existing.minLevel, t.level);
-  existing.maxLevel = Math.max(existing.maxLevel, t.level);
-  factionMap.set(t.culture, existing);
+const KINGDOM_ORDER = [
+  'empire_w',
+  'empire_s',
+  'vlandia',
+  'empire',
+  'erebor',
+  'sturgia',
+  'rivendell',
+  'mirkwood',
+  'lothlorien',
+  'isengard',
+  'gundabad',
+  'dolguldur',
+  'umbar',
+  'aserai',
+  'battania',
+  'khuzait',
+];
+
+const EVIL_KINGDOMS = new Set([
+  'empire_s',
+  'empire',
+  'isengard',
+  'gundabad',
+  'dolguldur',
+  'umbar',
+  'aserai',
+  'battania',
+  'khuzait',
+]);
+
+const CREST_IMAGES: Record<string, string> = {
+  empire_w: '/images/factions/gondor.png',
+  empire_s: '/images/factions/mordor.png',
+  erebor: '/images/factions/erebor.png',
+  rivendell: '/images/factions/imladris.png',
+  mirkwood: '/images/factions/mirkwood.png',
+  lothlorien: '/images/factions/lothlorien.png',
+  dolguldur: '/images/factions/dolguldur.png',
+  umbar: '/images/factions/umbar.png',
+  aserai: '/images/factions/harad.png',
+  battania: '/images/factions/khand.png',
+  khuzait: '/images/factions/rhun.png',
+  isengard: '/images/factions/isengard.png',
+  gundabad: '/images/factions/gundabad.png',
+  vlandia: '/images/factions/rohan.png',
+  sturgia: '/images/factions/dale.png',
+};
+
+const KINGDOM_SUMMARIES: Record<string, string> = {
+  empire_w:
+    'Gondor is the steadfast western bulwark of Men, famed for white cities, ancient lineage, and disciplined armies.',
+  empire_s:
+    "Mordor is Sauron's shadowed realm of ash, fortresses, and war-forges, raising vast armies against the Free Peoples.",
+  vlandia:
+    'Rohan is the Riddermark of open plains and proud horse-lords, whose riders answer every call to war with unmatched speed.',
+  empire:
+    'Dunland is a rugged land of fierce clans, hardened by struggle and bound together by vengeance, pride, and survival.',
+  erebor: "Erebor is the great northern Dwarven kingdom, rich in craft, gold, and the enduring legacy of Durin's line.",
+  sturgia:
+    'Dale is a restored kingdom of Men beneath the Lonely Mountain, rebuilt from ruin into a vigilant and prosperous realm.',
+  rivendell:
+    "Rivendell is Elrond's hidden refuge of lore, healing, and quiet strength among the valleys of the Misty Mountains.",
+  mirkwood:
+    'Mirkwood endures as a guarded woodland realm whose archers and wardens defend the northern wilds against encroaching darkness.',
+  lothlorien:
+    'Lothlorien is the Golden Wood, a timeless Elven sanctuary sustained by grace, memory, and the will of Galadriel.',
+  isengard:
+    "Isengard is Saruman's iron stronghold, where disciplined Uruk-hai gather beneath the White Hand for conquest.",
+  gundabad:
+    'Gundabad is an ancient Orc fortress of cold stone, savage hosts, and relentless war against the northern realms.',
+  dolguldur:
+    'Dol Guldur is a poisoned fortress of sorcery and dread whose shadow spreads corruption through forest and frontier alike.',
+  umbar:
+    'Umbar is the dark corsair haven of the south, feared for seaborne raids, ambition, and bitter enmity with Gondor.',
+  aserai:
+    'Harad is a vast southern realm of deserts, jungles, and warrior kingdoms whose strength has long been drawn toward Mordor.',
+  battania:
+    'Khand is the windswept homeland of the Variags, a hard riding people of swift horses, curved blades, and restless ambition.',
+  khuzait:
+    'Rhun is the golden realm of the East, home to proud Easterling kingdoms renowned for discipline, armor, and ancient grievances.',
+};
+
+function getMonogram(label: string) {
+  const words = label
+    .replace(/[^A-Za-z\s]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (words.length === 0) return 'TA';
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return `${words[0][0]}${words[1][0]}`.toUpperCase();
 }
 
-const factions = Array.from(factionMap.entries())
-  .map(([name, data]) => ({ name, displayName: getCultureDisplayName(name), ...data, groups: Array.from(data.groups) }))
-  .sort((a, b) => a.displayName.localeCompare(b.displayName));
+function excerpt(text: string, maxLength = 220) {
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLength) return normalized;
 
-// Map culture IDs to background images
-const FACTION_IMAGES: Record<string, string> = {
-  mordor: '/images/faction-mordor.jpg',
-  dolguldur: '/images/faction-dolguldur.webp',
-  erebor: '/images/faction-erebor.jpg',
-  khuzait: '/images/faction-rhun.webp',
-  gundabad: '/images/faction-gundabad.webp',
-  isengard: '/images/faction-isengard.jpg',
-  empire: '/images/faction-dunland.jpg',
-  rivendell: '/images/faction-rivendell.png',
-  mirkwood: '/images/faction-mirkwood.png',
-  aserai: '/images/faction-harad.png',
-  vlandia: '/images/faction-rohan.png',
-};
+  const sentenceBreak = normalized.lastIndexOf('.', maxLength);
+  if (sentenceBreak > maxLength * 0.55) {
+    return normalized.slice(0, sentenceBreak + 1);
+  }
+
+  const wordBreak = normalized.lastIndexOf(' ', maxLength);
+  return `${normalized.slice(0, wordBreak > 0 ? wordBreak : maxLength).trim()}...`;
+}
+
+function getKingdomBackground(kingdomId: string, theme: 'good' | 'evil') {
+  const customBackgroundPath = `/images/factions/${kingdomId}-background.png`;
+  const publicAssetPath = join(process.cwd(), 'public', 'images', 'factions', `${kingdomId}-background.png`);
+
+  if (existsSync(publicAssetPath)) {
+    return customBackgroundPath;
+  }
+
+  return theme === 'evil' ? '/images/factions/mordor-background.png' : '/images/factions/gondor-background.png';
+}
+
+const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
+  .map((kingdom) => {
+    const theme = EVIL_KINGDOMS.has(kingdom.id) ? 'evil' : 'good';
+    return {
+      id: kingdom.id,
+      name: kingdom.name,
+      shortName: kingdom.shortName || kingdom.name,
+      kicker: kingdom.title || kingdom.rulerTitle || kingdom.name,
+      description: KINGDOM_SUMMARIES[kingdom.id] || excerpt(kingdom.description, 170),
+      theme,
+      crest: CREST_IMAGES[kingdom.id] || '',
+      monogram: getMonogram(kingdom.shortName || kingdom.name),
+      background: getKingdomBackground(kingdom.id, theme),
+      foreground: theme === 'evil' ? '/images/factions/evil.png' : '/images/factions/good.png',
+      href: `/factions/${kingdom.id}`,
+    };
+  })
+  .sort((a, b) => {
+    const ai = KINGDOM_ORDER.indexOf(a.id);
+    const bi = KINGDOM_ORDER.indexOf(b.id);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  });
+
+const initialKingdom = kingdoms[0];
 ---
 
-<BaseLayout title="Factions" description="All factions in TAOM with troop counts and compositions">
-  <section class="page-banner">
-    <img src="/images/banner-factions.jpg" alt="Factions" class="banner-img" />
-    <div class="banner-overlay"></div>
-    <div class="banner-content">
-      <h1>Factions</h1>
-      <p class="banner-subtitle">Explore the peoples and powers of Middle-earth</p>
-    </div>
-  </section>
-  <div class="page-content">
-    <div class="faction-grid">
-      {
-        factions.map((f) => {
-          const bgImage = FACTION_IMAGES[f.name];
-          return (
-            <a
-              href={`/factions/${f.name}`}
-              class:list={['faction-card', { 'has-bg': !!bgImage }]}
-              style={bgImage ? `--bg-image: url('${bgImage}')` : ''}
-            >
-              <div class="faction-overlay" />
-              <div class="faction-content">
-                <h3>{f.displayName}</h3>
-                <p>
-                  <strong>{f.count}</strong> units &middot; Levels {f.minLevel}-{f.maxLevel}
-                </p>
-                <p class="faction-groups">{f.groups.join(', ')}</p>
-              </div>
-            </a>
-          );
-        })
-      }
-    </div>
+<BaseLayout
+  title="Factions"
+  description="Explore the realms and factions of Middle-earth in TAOM"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-factions-body"
+  mainClass="taom-factions-main"
+>
+  <div class="factions-page">
+    <Topbar />
 
-    <section class="full-map">
-      <h2>Map of Middle-earth</h2>
-      <a href="/images/banner-factions.jpg" target="_blank" class="map-link">
-        <img src="/images/banner-factions.jpg" alt="Map of Middle-earth" class="map-img" />
-        <span class="map-hint">Click to view full size</span>
-      </a>
-    </section>
+    <main class="page-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Realms of Middle-earth</p>
+        <h1>Factions</h1>
+        <p class="intro-copy">
+          Explore the major powers shaping the Age of Men. Select a realm below to swap the showcase and read a short
+          overview pulled from the mod kingdom data.
+        </p>
+      </section>
+
+      <section
+        class:list={[
+          'hero-stage',
+          {
+            'faction-theme-evil': initialKingdom.theme === 'evil',
+            'faction-theme-good': initialKingdom.theme === 'good',
+          },
+        ]}
+        id="hero-stage"
+        aria-label="Faction showcase"
+      >
+        <div class="layer-stack" aria-hidden="true">
+          <img class="stage-layer layer-1" src="/images/factions/map-background.png" alt="" />
+          <img class="stage-layer layer-2" id="layer-background" src={initialKingdom.background} alt="" />
+          <img class="stage-layer layer-3" id="layer-foreground" src={initialKingdom.foreground} alt="" />
+          <img class="stage-layer layer-4" src="/images/factions/background-border.png" alt="" />
+          <img class="stage-layer layer-5" src="/images/factions/title-text.png" alt="" />
+          <img class="stage-layer layer-6" src="/images/factions/card-background.png" alt="" />
+          <img class="stage-layer layer-7" src="/images/factions/card-border.png" alt="" />
+        </div>
+
+        <section class="info-panel" aria-labelledby="region-title">
+          <div class="panel-inner">
+            <p class="panel-kicker" id="region-kicker">{initialKingdom.kicker}</p>
+
+            <div class="crest" aria-hidden="true">
+              <span class="crest-line"></span>
+              {
+                initialKingdom.crest ? (
+                  <img class="crest-image" id="faction-crest" src={initialKingdom.crest} alt="" />
+                ) : (
+                  <span class="crest-fallback" id="faction-crest-fallback">
+                    {initialKingdom.monogram}
+                  </span>
+                )
+              }
+              {!initialKingdom.crest && <img class="crest-image is-hidden" id="faction-crest" src="" alt="" />}
+              {
+                initialKingdom.crest && (
+                  <span class="crest-fallback is-hidden" id="faction-crest-fallback">
+                    {initialKingdom.monogram}
+                  </span>
+                )
+              }
+              <span class="crest-line"></span>
+            </div>
+
+            <h2 id="region-title">{initialKingdom.name}</h2>
+
+            <p class="panel-copy" id="region-copy">{initialKingdom.description}</p>
+          </div>
+        </section>
+
+        <a class="panel-link" id="region-link" href={initialKingdom.href}> View Kingdom </a>
+      </section>
+
+      <section class="carousel-panel" aria-label="Faction carousel">
+        <button
+          class="carousel-arrow carousel-arrow-prev"
+          id="carousel-prev"
+          type="button"
+          aria-label="Previous factions"
+        >
+          <img src="/images/ui/button.png" alt="" />
+        </button>
+        <div class="carousel-track" id="faction-carousel" role="list" aria-label="Selectable factions"></div>
+        <button class="carousel-arrow carousel-arrow-next" id="carousel-next" type="button" aria-label="Next factions">
+          <img src="/images/ui/button.png" alt="" />
+        </button>
+      </section>
+    </main>
   </div>
+
+  <script define:vars={{ kingdoms }} is:inline>
+    const cleanupKey = '__taomFactionsCleanup';
+    const initKey = '__taomFactionsInitBound';
+    const autoAdvanceDelay = 10000;
+
+    function initFactionsPage() {
+      const heroStage = document.getElementById('hero-stage');
+      const backgroundLayer = document.getElementById('layer-background');
+      const foregroundLayer = document.getElementById('layer-foreground');
+      const kicker = document.getElementById('region-kicker');
+      const title = document.getElementById('region-title');
+      const copy = document.getElementById('region-copy');
+      const link = document.getElementById('region-link');
+      const crestImage = document.getElementById('faction-crest');
+      const crestFallback = document.getElementById('faction-crest-fallback');
+      const carousel = document.getElementById('faction-carousel');
+      const prevButton = document.getElementById('carousel-prev');
+      const nextButton = document.getElementById('carousel-next');
+
+      if (
+        !heroStage ||
+        !backgroundLayer ||
+        !foregroundLayer ||
+        !kicker ||
+        !title ||
+        !copy ||
+        !link ||
+        !crestImage ||
+        !crestFallback ||
+        !carousel ||
+        !prevButton ||
+        !nextButton
+      ) {
+        return;
+      }
+
+      if (typeof window[cleanupKey] === 'function') {
+        window[cleanupKey]();
+      }
+
+      let selectedFaction = 0;
+      let startIndex = 0;
+      let switchTimer = null;
+      let autoAdvanceTimer = null;
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      function setFactionContent(faction) {
+        kicker.textContent = faction.kicker;
+        title.textContent = faction.name;
+        copy.textContent = faction.description;
+        link.href = faction.href;
+        backgroundLayer.src = faction.background;
+        foregroundLayer.src = faction.foreground;
+
+        if (faction.crest) {
+          crestImage.src = faction.crest;
+          crestImage.alt = `${faction.name} crest`;
+          crestImage.classList.remove('is-hidden');
+          crestFallback.classList.add('is-hidden');
+        } else {
+          crestImage.removeAttribute('src');
+          crestImage.alt = '';
+          crestImage.classList.add('is-hidden');
+          crestFallback.textContent = faction.monogram;
+          crestFallback.classList.remove('is-hidden');
+        }
+
+        heroStage.classList.toggle('faction-theme-evil', faction.theme === 'evil');
+        heroStage.classList.toggle('faction-theme-good', faction.theme !== 'evil');
+      }
+
+      function itemsPerView() {
+        if (window.innerWidth <= 760) return 3;
+        return 5;
+      }
+
+      function visibleFactions() {
+        const visibleCount = Math.min(itemsPerView(), kingdoms.length);
+        return Array.from({ length: visibleCount }, (_, offset) => {
+          const factionIndex = (startIndex + offset) % kingdoms.length;
+          return { faction: kingdoms[factionIndex], index: factionIndex };
+        });
+      }
+
+      function renderCarousel() {
+        const visibleCount = itemsPerView();
+        const showControls = kingdoms.length > visibleCount;
+        prevButton.hidden = !showControls;
+        nextButton.hidden = !showControls;
+        carousel.innerHTML = '';
+
+        visibleFactions().forEach(({ faction, index }) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'faction-chip';
+          if (index === selectedFaction) {
+            button.classList.add('is-selected');
+          }
+          button.setAttribute('role', 'listitem');
+          button.textContent = faction.shortName;
+          button.addEventListener('click', () => applyFaction(index), { signal });
+          carousel.appendChild(button);
+        });
+      }
+
+      function scheduleAutoAdvance() {
+        if (autoAdvanceTimer) {
+          clearTimeout(autoAdvanceTimer);
+        }
+
+        autoAdvanceTimer = window.setTimeout(() => {
+          applyFaction((selectedFaction + 1) % kingdoms.length);
+        }, autoAdvanceDelay);
+      }
+
+      function applyFaction(index, options = {}) {
+        const { immediate = false } = options;
+        const faction = kingdoms[index];
+
+        if (!faction) return;
+
+        if (index === selectedFaction && !immediate) {
+          renderCarousel();
+          return;
+        }
+
+        scheduleAutoAdvance();
+
+        if (switchTimer) {
+          clearTimeout(switchTimer);
+          switchTimer = null;
+        }
+
+        selectedFaction = index;
+
+        const visibleCount = itemsPerView();
+        if (selectedFaction < startIndex || selectedFaction >= startIndex + visibleCount) {
+          startIndex = selectedFaction;
+        }
+
+        renderCarousel();
+
+        if (immediate) {
+          setFactionContent(faction);
+          heroStage.classList.remove('is-switching');
+          return;
+        }
+
+        heroStage.classList.add('is-switching');
+        switchTimer = window.setTimeout(() => {
+          setFactionContent(faction);
+          requestAnimationFrame(() => {
+            heroStage.classList.remove('is-switching');
+          });
+          switchTimer = null;
+        }, 400);
+      }
+
+      prevButton.addEventListener(
+        'click',
+        () => {
+          startIndex = (startIndex - 1 + kingdoms.length) % kingdoms.length;
+          if (!visibleFactions().some(({ index }) => index === selectedFaction)) {
+            applyFaction(startIndex);
+            return;
+          }
+          renderCarousel();
+        },
+        { signal },
+      );
+
+      nextButton.addEventListener(
+        'click',
+        () => {
+          startIndex = (startIndex + 1) % kingdoms.length;
+          if (!visibleFactions().some(({ index }) => index === selectedFaction)) {
+            applyFaction(startIndex);
+            return;
+          }
+          renderCarousel();
+        },
+        { signal },
+      );
+
+      window.addEventListener('resize', renderCarousel, { signal });
+      applyFaction(0, { immediate: true });
+
+      window[cleanupKey] = () => {
+        if (switchTimer) {
+          clearTimeout(switchTimer);
+          switchTimer = null;
+        }
+        if (autoAdvanceTimer) {
+          clearTimeout(autoAdvanceTimer);
+          autoAdvanceTimer = null;
+        }
+        controller.abort();
+      };
+    }
+
+    if (!window[initKey]) {
+      document.addEventListener('astro:page-load', initFactionsPage);
+      window[initKey] = true;
+    }
+
+    if (document.readyState !== 'loading') {
+      initFactionsPage();
+    } else {
+      document.addEventListener('DOMContentLoaded', initFactionsPage, { once: true });
+    }
+  </script>
 </BaseLayout>
 
 <style>
-  .page-banner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    max-height: 300px;
+  :global(body.taom-factions-body) {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top right, rgba(80, 28, 16, 0.18), transparent 28%),
+      radial-gradient(circle at left center, rgba(69, 30, 19, 0.2), transparent 34%),
+      linear-gradient(180deg, #120a09 0%, #0b0908 40%, #0a0707 100%);
+    color: #e9e2db;
   }
 
-  .banner-img {
+  :global(.taom-factions-main) {
     display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 300px;
   }
 
-  .banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 60%, rgba(25, 25, 25, 0.95) 100%);
+  .factions-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
-  .banner-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    text-align: center;
-    padding: 2rem 1.5rem;
-  }
-
-  .banner-content h1 {
-    color: var(--accent);
-    font-size: 2.2rem;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-  }
-
-  .banner-subtitle {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
-  }
-
-  .faction-grid {
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
   }
 
-  .faction-card {
-    position: relative;
-    display: block;
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
     text-decoration: none;
-    border-radius: 8px;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .page-intro h1,
+  .panel-kicker,
+  #region-title,
+  .panel-link,
+  :global(.faction-chip) {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #e9e2db;
+  }
+
+  .page-shell {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.625rem 3.375rem;
+  }
+
+  .page-intro {
+    max-width: 47.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: #b98a35;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #f7f2ec;
+  }
+
+  .intro-copy {
+    margin: 1.125rem 0 0;
+    max-width: 44ch;
+    font-size: 1.35rem;
+    line-height: 1.35;
+    color: rgba(233, 226, 219, 0.76);
+  }
+
+  .hero-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3507 / 2480;
+    margin-bottom: -12.5rem;
     overflow: hidden;
-    min-height: 180px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    isolation: isolate;
+  }
+
+  .hero-stage .layer-2,
+  .hero-stage .layer-3,
+  .hero-stage .layer-6,
+  .hero-stage .layer-7,
+  .panel-inner,
+  .crest-image,
+  .crest-fallback {
     transition:
-      transform 0.2s,
-      box-shadow 0.2s;
+      opacity 700ms ease,
+      transform 700ms ease,
+      filter 700ms ease;
   }
 
-  .faction-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  .hero-stage.is-switching .layer-2,
+  .hero-stage.is-switching .layer-3,
+  .hero-stage.is-switching .layer-6,
+  .hero-stage.is-switching .layer-7 {
+    opacity: 0.14;
+    transform: scale(1.015);
+    filter: blur(4px);
   }
 
-  .faction-card.has-bg {
-    background: var(--bg-image) center top / cover no-repeat;
+  .hero-stage.is-switching .panel-inner {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
   }
 
-  .faction-overlay {
+  .hero-stage.is-switching .crest-image,
+  .hero-stage.is-switching .crest-fallback {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  .layer-stack,
+  .stage-layer {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    transition: background 0.2s;
   }
 
-  .faction-card:hover .faction-overlay {
-    background: rgba(0, 0, 0, 0.4);
+  .stage-layer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    pointer-events: none;
   }
 
-  .faction-card:not(.has-bg) .faction-overlay {
-    background: transparent;
+  .layer-1 {
+    mix-blend-mode: screen;
+    opacity: 0.72;
   }
 
-  .faction-content {
-    position: relative;
-    z-index: 1;
-    padding: 1.5rem;
+  .layer-2 {
+    opacity: 0.94;
+  }
+
+  .layer-3 {
+    opacity: 0.92;
+  }
+
+  .layer-4 {
+    opacity: 0.96;
+  }
+
+  .layer-5 {
+    transform: translateY(0.4%);
+    opacity: 0.95;
+  }
+
+  .layer-6 {
+    opacity: 0.88;
+  }
+
+  .layer-7 {
+    opacity: 0.9;
+  }
+
+  .info-panel {
+    position: absolute;
+    top: 28%;
+    left: 52.2%;
+    width: 35.8%;
+    height: 29.8%;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  .panel-inner {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 0.4rem;
+    padding: 7.5% 7.5% 9%;
+    text-align: center;
+    transform-origin: center;
+  }
+
+  .panel-kicker {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.76);
+  }
+
+  .crest {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 180px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    width: 100%;
   }
 
-  .faction-content h3 {
-    color: var(--accent);
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  .crest-line {
+    width: clamp(42px, 5vw, 74px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(183, 138, 53, 0.9), transparent);
   }
 
-  .faction-content p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  .crest-image,
+  .crest-fallback {
+    width: clamp(2.125rem, 3.5vw, 3.375rem);
+    height: clamp(2.125rem, 3.5vw, 3.375rem);
   }
 
-  .faction-groups {
-    margin-top: 0.25rem;
-    font-size: 0.8rem !important;
-    color: rgba(255, 255, 255, 0.7) !important;
+  .crest-image {
+    object-fit: contain;
   }
 
-  .full-map {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+  .crest-fallback {
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(205, 153, 52, 0.5);
+    border-radius: 999px;
+    color: #f7f2ec;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(0.72rem, 1.3vw, 1rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .full-map h2 {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+  .is-hidden {
+    display: none;
   }
 
-  .map-link {
-    display: block;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: border-color 0.2s;
+  #region-title {
+    margin: 0;
+    font-size: clamp(1.12rem, 1.5vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f7f2ec;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
 
-  .map-link:hover {
-    border-color: var(--accent-dim);
+  .panel-copy {
+    margin: 0;
+    max-width: 29ch;
+    font-size: clamp(0.66rem, 0.76vw, 0.9rem);
+    line-height: 1.34;
+    color: rgba(233, 226, 219, 0.76);
+    text-wrap: balance;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.34);
+  }
+
+  .panel-link {
+    position: absolute;
+    top: calc(28% + 29.8% + 5.4%);
+    left: 70.1%;
+    transform: translateX(-50%);
+    z-index: 24;
+    display: inline-grid;
+    place-items: center;
+    min-width: 10.5rem;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid rgba(205, 153, 52, 0.5);
+    color: #f7f2ec;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(10, 8, 8, 0.42);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .panel-link:hover {
+    transform: translateX(-50%) translateY(-1px);
+    background: rgba(10, 8, 8, 0.64);
+    border-color: rgba(205, 153, 52, 0.88);
     text-decoration: none;
   }
 
-  .map-img {
+  .carousel-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.125rem 0 0;
+    position: relative;
+    z-index: 30;
+  }
+
+  .carousel-arrow {
+    width: 2.125rem;
+    height: 2.125rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .carousel-arrow[hidden] {
+    visibility: hidden;
+  }
+
+  .carousel-arrow img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
   }
 
-  .map-hint {
+  .carousel-arrow-prev img {
+    transform: scaleX(-1);
+  }
+
+  .carousel-arrow:hover {
+    transform: translateY(-1px);
+    opacity: 0.88;
+  }
+
+  .carousel-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2.2rem;
+    min-width: 0;
+  }
+
+  :global(.faction-chip) {
+    position: relative;
+    flex: 0 0 auto;
+    min-height: 3.125rem;
+    padding: 0.625rem 0.25rem 1rem;
+    border: 0;
+    background: transparent;
+    color: #e9e2db;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      transform 180ms ease,
+      color 180ms ease;
+  }
+
+  :global(.faction-chip::after) {
+    content: '';
     position: absolute;
-    bottom: 0.75rem;
-    right: 0.75rem;
-    background: rgba(0, 0, 0, 0.7);
-    color: var(--text-secondary);
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.25rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
   }
 
-  @media (max-width: 600px) {
-    .faction-grid {
+  :global(.faction-chip:hover) {
+    transform: translateY(-1px);
+    color: #f7f2ec;
+  }
+
+  :global(.faction-chip.is-selected) {
+    color: #d19a33;
+  }
+
+  :global(.faction-chip:hover::after),
+  :global(.faction-chip.is-selected::after) {
+    transform: scaleX(1);
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
       grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .factions-page {
+      padding: 1rem;
+    }
+
+    .topbar {
+      top: 1rem;
+      padding: 1.125rem;
+      gap: 1.125rem;
+    }
+
+    .brand-large {
+      font-size: 1.65rem;
+    }
+
+    .main-nav {
+      gap: 0.625rem 0.875rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+
+    .hero-stage {
+      margin-bottom: -0.75rem;
+    }
+
+    .layer-5 {
+      transform: translateY(-8.5%);
+    }
+
+    .info-panel {
+      top: 28.4%;
+      left: 52.6%;
+      width: 35%;
+      height: 29%;
+    }
+
+    .panel-inner {
+      gap: 0.3rem;
+      padding: 7% 7% 8%;
+    }
+
+    .panel-kicker {
+      font-size: clamp(0.34rem, 0.85vw, 0.46rem);
+      letter-spacing: 0.22em;
+    }
+
+    .crest {
+      gap: 0.5rem;
+    }
+
+    .crest-line {
+      width: 1.375rem;
+    }
+
+    #region-title {
+      font-size: clamp(0.68rem, 1.8vw, 0.9rem);
+      letter-spacing: 0.06em;
+    }
+
+    .panel-copy {
+      display: none;
+      max-width: 27ch;
+      font-size: clamp(0.38rem, 0.74vw, 0.62rem);
+      line-height: 1.28;
+    }
+
+    .panel-link {
+      top: calc(28.4% + 29% + 5.2%);
+      left: 69.9%;
+      width: 28%;
+      min-width: 0;
+      max-width: 8rem;
+      padding: 0.4rem 0.45rem;
+      font-size: clamp(0.34rem, 0.9vw, 0.5rem);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .carousel-panel {
+      gap: 0.9rem;
+    }
+
+    .carousel-track {
+      gap: 0.9rem;
+    }
+
+    :global(.faction-chip) {
+      min-height: 3rem;
+      padding: 0.625rem 0.2rem 0.875rem;
+      font-size: 0.82rem;
+    }
+
+    .carousel-arrow {
+      width: 2.375rem;
+      height: 2.375rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .info-panel {
+      top: 28.8%;
+      left: 52.8%;
+      width: 34.4%;
+      height: 28.2%;
+    }
+
+    .panel-inner {
+      gap: 0.22rem;
+      padding: 6.5% 6.5% 7.5%;
+    }
+
+    .panel-kicker {
+      font-size: clamp(0.28rem, 0.95vw, 0.38rem);
+      letter-spacing: 0.18em;
+    }
+
+    .crest {
+      gap: 0.35rem;
+    }
+
+    .crest-line {
+      width: 1rem;
+    }
+
+    .crest-image,
+    .crest-fallback {
+      width: clamp(1rem, 4vw, 1.4rem);
+      height: clamp(1rem, 4vw, 1.4rem);
+    }
+
+    #region-title {
+      font-size: clamp(0.56rem, 2.3vw, 0.76rem);
+      letter-spacing: 0.04em;
+    }
+
+    .panel-link {
+      top: calc(28.8% + 28.2% + 4.8%);
+      left: 69.6%;
+      width: 27.5%;
+      padding: 0.32rem 0.35rem;
+      font-size: clamp(0.28rem, 1vw, 0.42rem);
+      letter-spacing: 0.06em;
     }
   }
 </style>

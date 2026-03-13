@@ -1,143 +1,667 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const sections = [
+type ModInfoCard = {
+  href: string;
+  title: string;
+  kicker: string;
+  desc: string;
+  group: 'world' | 'balance';
+  stat: string;
+  color: string;
+  border: string;
+};
+
+const sections: ModInfoCard[] = [
   {
     href: '/mod-info/races',
     title: 'Races & Creatures',
+    kicker: 'World Primer',
     desc: 'Playable races, Orc breeds, faction-bound elites, and planned creatures including trolls, wargs, spiders, and war beasts.',
-    color: 'rgba(93, 174, 93, 0.2)',
-    border: 'rgba(93, 174, 93, 0.35)',
+    group: 'world',
+    stat: 'Biology',
+    color: 'rgba(98, 153, 95, 0.22)',
+    border: 'rgba(120, 182, 116, 0.36)',
   },
   {
     href: '/mod-info/recruitment',
     title: 'Recruitment System',
-    desc: 'How troop recruitment works across factions, including culture-specific mechanics and progression.',
-    color: 'rgba(212, 162, 76, 0.2)',
-    border: 'rgba(212, 162, 76, 0.35)',
+    kicker: 'Campaign Flow',
+    desc: 'How troop recruitment works across factions, including culture-specific mechanics, access rules, and progression.',
+    group: 'world',
+    stat: 'Progression',
+    color: 'rgba(170, 126, 58, 0.22)',
+    border: 'rgba(212, 162, 76, 0.4)',
   },
   {
     href: '/mod-info/features',
     title: 'Coding Features',
-    desc: 'Technical features and custom systems built for TAOM, including AI behaviors, battle mechanics, and campaign systems.',
-    color: 'rgba(126, 200, 227, 0.2)',
-    border: 'rgba(126, 200, 227, 0.35)',
+    kicker: 'Systems Layer',
+    desc: 'Technical features and custom systems built for TAOM, including AI behaviors, battle mechanics, and campaign logic.',
+    group: 'world',
+    stat: 'Engineering',
+    color: 'rgba(86, 122, 154, 0.22)',
+    border: 'rgba(126, 200, 227, 0.38)',
   },
   {
     href: '/mod-info/balance-overview',
     title: 'Balance Overview',
-    desc: 'Comprehensive faction power rankings across all three balance axes — troop skills, armor, and weapons. Infantry, cavalry, and ranged tier lists.',
-    color: 'rgba(212, 162, 76, 0.25)',
-    border: 'rgba(212, 162, 76, 0.45)',
+    kicker: 'Master Ledger',
+    desc: 'Faction power rankings across all three balance axes - troop skills, armour, and weapons - with role-based tier lists.',
+    group: 'balance',
+    stat: 'Overview',
+    color: 'rgba(184, 140, 72, 0.24)',
+    border: 'rgba(222, 173, 85, 0.44)',
   },
   {
     href: '/mod-info/troop-balancing',
     title: 'Troop Balancing',
-    desc: 'Detailed breakdown of troop skill balancing across all 15 cultures — baselines, cultural modifiers, and faction identity.',
-    color: 'rgba(180, 120, 200, 0.2)',
-    border: 'rgba(180, 120, 200, 0.35)',
+    kicker: 'Unit Identity',
+    desc: 'Detailed breakdown of troop skill balancing across all cultures, including baselines, modifiers, and faction role design.',
+    group: 'balance',
+    stat: 'Skills',
+    color: 'rgba(118, 84, 126, 0.22)',
+    border: 'rgba(184, 136, 196, 0.36)',
   },
   {
     href: '/mod-info/armour-balancing',
     title: 'Armour Balancing',
-    desc: 'Comprehensive armour rebalancing across 17 cultures — 6 tiers from civilian to lord, cultural protection modifiers, and weight multipliers.',
-    color: 'rgba(200, 160, 100, 0.2)',
-    border: 'rgba(200, 160, 100, 0.35)',
+    kicker: 'Protection Curves',
+    desc: 'Comprehensive armour rebalancing across cultures - six tiers from civilian to lord, protection modifiers, and weight tuning.',
+    group: 'balance',
+    stat: 'Defence',
+    color: 'rgba(160, 124, 84, 0.22)',
+    border: 'rgba(212, 176, 116, 0.36)',
   },
   {
     href: '/mod-info/weapon-balancing',
     title: 'Weapon Balancing',
-    desc: 'Weapon damage analysis across 13 cultures — estimated damage from TaleWorlds physics formula, per-culture percentages, and balance assessment.',
-    color: 'rgba(220, 130, 130, 0.2)',
-    border: 'rgba(220, 130, 130, 0.35)',
+    kicker: 'Combat Output',
+    desc: 'Weapon damage analysis across cultures using TaleWorlds physics, per-culture percentages, and balance assessment.',
+    group: 'balance',
+    stat: 'Damage',
+    color: 'rgba(160, 86, 86, 0.22)',
+    border: 'rgba(220, 130, 130, 0.36)',
+  },
+];
+
+const worldSections = sections.filter((section) => section.group === 'world');
+const balanceSections = sections.filter((section) => section.group === 'balance');
+const featuredSection = sections.find((section) => section.href === '/mod-info/balance-overview') || sections[0];
+
+const readingPath = [
+  {
+    step: '01',
+    title: 'Start With The World',
+    desc: 'Meet the races, creatures, and faction identities that shape the setting.',
+  },
+  {
+    step: '02',
+    title: 'Study The Systems',
+    desc: 'See how recruitment and custom gameplay features support the campaign.',
+  },
+  {
+    step: '03',
+    title: 'Open The Balance Records',
+    desc: 'Finish with the overview, then drill into troops, armour, and weapons.',
   },
 ];
 ---
 
-<BaseLayout title="Mod Information" description="Detailed information about TAOM - races, recruitment, and features">
-  <div class="page-content mod-info">
-    <h1 class="page-title">Mod Information</h1>
-    <p class="overview-desc">Explore the systems, races, and features that make up Tales From the Age of Men.</p>
+<BaseLayout
+  title="Mod Information"
+  description="Explore TAOM systems, design pillars, and balance breakdowns through the full mod info hub"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-modinfo-body"
+  mainClass="taom-modinfo-main"
+>
+  <div class="modinfo-page">
+    <Topbar />
 
-    <div class="section-grid">
-      {
-        sections.map((s) => (
-          <a href={s.href} class="section-card" style={`--card-bg: ${s.color}; --card-border: ${s.border}`}>
-            <h2>{s.title}</h2>
-            <p>{s.desc}</p>
-            <span class="card-arrow">&rarr;</span>
-          </a>
-        ))
-      }
-    </div>
+    <main class="modinfo-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Field Manual of Middle-earth</p>
+        <h1>Mod Info</h1>
+        <p class="intro-copy">
+          Read the design thinking behind TAOM in one place. This hub gathers the setting primers, campaign systems,
+          technical features, and balance dossiers that explain how the mod is built and why each faction plays the way
+          it does.
+        </p>
+      </section>
+
+      <section class="modinfo-summary" aria-label="Mod info summary">
+        <article class="summary-card">
+          <span class="summary-label">Total Briefings</span>
+          <strong>{sections.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">World & Systems</span>
+          <strong>{worldSections.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Balance Reports</span>
+          <strong>{balanceSections.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Featured Dossier</span>
+          <strong>{featuredSection.stat}</strong>
+        </article>
+      </section>
+
+      <section class="hero-grid">
+        <article class="feature-panel">
+          <p class="panel-kicker">Featured Read</p>
+          <h2>{featuredSection.title}</h2>
+          <p>
+            {featuredSection.desc} Use this as the central briefing if you want the quickest overview of how TAOM's factions
+            are tuned against each other.
+          </p>
+          <a href={featuredSection.href}>Open {featuredSection.title}</a>
+        </article>
+
+        <article class="guide-panel">
+          <div class="guide-header">
+            <p class="panel-kicker">Reading Path</p>
+            <span class="guide-note">Best entry point for new readers</span>
+          </div>
+
+          <div class="guide-steps">
+            {
+              readingPath.map((item) => (
+                <div class="guide-step">
+                  <span class="guide-step-number">{item.step}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block" id="world-systems" aria-labelledby="world-systems-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Primer Track</p>
+            <h2 id="world-systems-title">World & Systems</h2>
+          </div>
+          <p class="section-copy">
+            Lore primers, campaign rules, and technical features that explain the foundations of the mod.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          {
+            worldSections.map((section) => (
+              <a
+                href={section.href}
+                class="info-card"
+                style={`--card-bg:${section.color}; --card-border:${section.border};`}
+              >
+                <div class="card-topline">
+                  <span class="card-kicker">{section.kicker}</span>
+                  <span class="card-stat">{section.stat}</span>
+                </div>
+                <h3>{section.title}</h3>
+                <p>{section.desc}</p>
+                <span class="card-link">Open Briefing</span>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-block" id="balance-archives" aria-labelledby="balance-archives-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Analysis Track</p>
+            <h2 id="balance-archives-title">Balance Archives</h2>
+          </div>
+          <p class="section-copy">
+            High-level faction rankings plus the detailed records for troop skills, armour protection, and weapon
+            tuning.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          {
+            balanceSections.map((section) => (
+              <a
+                href={section.href}
+                class="info-card"
+                style={`--card-bg:${section.color}; --card-border:${section.border};`}
+              >
+                <div class="card-topline">
+                  <span class="card-kicker">{section.kicker}</span>
+                  <span class="card-stat">{section.stat}</span>
+                </div>
+                <h3>{section.title}</h3>
+                <p>{section.desc}</p>
+                <span class="card-link">Open Briefing</span>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 1100px;
+  :global(body.taom-modinfo-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.68), rgba(7, 5, 5, 0.97)),
+      radial-gradient(circle at 16% 12%, rgba(138, 84, 46, 0.15), transparent 24%),
+      radial-gradient(circle at 84% 14%, rgba(80, 104, 124, 0.14), transparent 24%),
+      linear-gradient(180deg, #16100e 0%, #0c0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .overview-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+  :global(body.taom-modinfo-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .section-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .section-card {
+  :global(.taom-modinfo-main) {
     display: block;
-    padding: 1.75rem;
-    border-radius: 8px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+  }
+
+  .modinfo-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .modinfo-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 52rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .card-kicker,
+  .card-stat,
+  .guide-step-number,
+  .card-link,
+  .guide-note {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 8vw, 6rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 47rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.22rem;
+    line-height: 1.48;
+  }
+
+  .modinfo-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .feature-panel,
+  .guide-panel,
+  .section-block {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(18rem, 26rem) minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .feature-panel {
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.95rem;
+    background:
+      linear-gradient(180deg, rgba(32, 23, 17, 0.96), rgba(12, 9, 8, 0.96)),
+      radial-gradient(circle at top right, rgba(201, 151, 72, 0.14), transparent 44%);
+  }
+
+  .feature-panel h2,
+  .section-heading h2,
+  .guide-step h3,
+  .info-card h3 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .feature-panel h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .feature-panel p {
+    margin: 0;
+    color: rgba(226, 216, 205, 0.88);
+    line-height: 1.58;
+  }
+
+  .feature-panel a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba(190, 141, 57, 0.5);
+    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
+    color: #f7e7c7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
     transition:
-      transform 0.2s,
-      box-shadow 0.2s;
-    position: relative;
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
   }
 
-  .section-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  .feature-panel a:hover {
+    color: #fff4df;
+    border-color: rgba(235, 186, 83, 0.72);
+    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
+    transform: translateY(-1px);
     text-decoration: none;
   }
 
-  .section-card h2 {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
+  .guide-panel {
+    padding: 1.4rem;
+    display: grid;
+    gap: 1rem;
   }
 
-  .section-card p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    line-height: 1.5;
+  .guide-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid rgba(184, 143, 73, 0.18);
   }
 
-  .card-arrow {
-    position: absolute;
-    bottom: 1rem;
-    right: 1.25rem;
+  .guide-note {
+    color: rgba(220, 203, 176, 0.74);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .guide-steps {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .guide-step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .guide-step:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .guide-step-number {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(196, 149, 71, 0.34);
+    background: rgba(255, 255, 255, 0.03);
+    color: #f4e5c3;
+    font-size: 0.86rem;
+    letter-spacing: 0.14em;
+  }
+
+  .guide-step h3 {
     font-size: 1.2rem;
-    color: var(--accent);
-    opacity: 0;
-    transition: opacity 0.2s;
+    margin-bottom: 0.2rem;
   }
 
-  .section-card:hover .card-arrow {
-    opacity: 1;
+  .guide-step p {
+    margin: 0;
+    color: rgba(224, 213, 198, 0.8);
+    line-height: 1.58;
   }
 
-  @media (max-width: 600px) {
-    .section-grid {
+  .section-block {
+    padding: 1.3rem;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: end;
+  }
+
+  .section-heading h2 {
+    font-size: 2rem;
+    line-height: 1.05;
+  }
+
+  .section-copy {
+    margin: 0;
+    max-width: 32rem;
+    color: rgba(219, 208, 193, 0.8);
+    line-height: 1.55;
+    text-align: right;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+  }
+
+  .info-card {
+    display: grid;
+    gap: 0.95rem;
+    padding: 1.2rem;
+    border: 1px solid var(--card-border);
+    background:
+      linear-gradient(180deg, rgba(13, 10, 9, 0.94), rgba(8, 7, 7, 0.92)),
+      linear-gradient(140deg, var(--card-bg), transparent 60%);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(232, 188, 104, 0.5);
+    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+    text-decoration: none;
+  }
+
+  .card-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .card-kicker,
+  .card-stat {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.9rem;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(246, 238, 222, 0.86);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .card-stat {
+    color: #f4ddb0;
+  }
+
+  .info-card h3 {
+    font-size: 1.4rem;
+    line-height: 1.06;
+  }
+
+  .info-card p {
+    margin: 0;
+    color: rgba(227, 217, 203, 0.82);
+    line-height: 1.58;
+  }
+
+  .card-link {
+    color: #f3ddb1;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1180px) {
+    .modinfo-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .modinfo-shell {
+      padding-top: 1.8rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+
+    .section-heading {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .section-copy {
+      max-width: none;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .modinfo-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .modinfo-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .modinfo-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-header {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .guide-step {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-step-number {
+      width: 2.8rem;
+    }
+
+    .card-grid {
       grid-template-columns: 1fr;
     }
   }

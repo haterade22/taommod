@@ -1,298 +1,912 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const manualSources = [
+  { href: 'https://www.moddb.com/mods/tales-from-the-age-of-men', label: 'ModDB', style: 'primary' },
+  { href: 'https://www.nexusmods.com/mountandblade2bannerlord/mods/7748', label: 'Nexus Mods', style: 'secondary' },
+];
+
+const loadOrder = [
+  { name: 'Harmony', meta: 'v2.3.6.220' },
+  { name: 'Palantir Debugger', note: 'Writes crash logs for diagnostics' },
+  { name: 'BetterExceptionWindow', meta: 'v7.1.1.0' },
+  { name: 'ButterLib', meta: 'v2.10.0.0' },
+  { name: 'UIExtenderEx', meta: 'v2.13.0.0' },
+  { name: 'MCM', meta: 'v5.11.3.0' },
+  { name: 'Native', meta: '1.2.12.X' },
+  { name: 'Sandbox Core', meta: '1.2.12.X' },
+  { name: 'Sandbox', meta: '1.2.12.X' },
+  { name: 'StoryMode', meta: '1.2.12.X' },
+  { name: 'CustomBattle', meta: '1.2.12.X' },
+  { name: 'Birth and Aging Options' },
+  { name: 'LOTR_Map' },
+  { name: 'LOTRAOM_Armory' },
+  { name: 'Alliance.Wargs' },
+  { name: 'LOTRAOM', meta: 'v0.69.39', highlight: true },
+];
 ---
 
-<BaseLayout title="Download" description="Download and install TAOM - Tales From the Age of Men for Bannerlord">
-  <div class="page-content" style="max-width: 850px;">
-    <h1 class="page-title">Download & Install</h1>
+<BaseLayout
+  title="Download"
+  description="Download and install TAOM - Tales From the Age of Men for Bannerlord"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-download-body"
+  mainClass="taom-download-main"
+>
+  <div class="download-page">
+    <Topbar />
 
-    <div class="card alert-card" style="margin-bottom: 1.5rem;">
-      <h3>Compatibility</h3>
-      <p><strong>This mod is compatible with Bannerlord 1.2.12 through Steam.</strong></p>
-      <ul>
-        <li>You will need to roll your game back to version 1.2.12.</li>
-        <li>This mod <strong>cannot</strong> be used with the Xbox Game Pass version of the game.</li>
-      </ul>
-      <p class="note">
-        Be sure to delete any old files of the mod you may have downloaded before starting the process of a new
-        download.
-      </p>
-    </div>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Prepare Your Campaign</p>
+          <h1>Download and install TAOM for Bannerlord 1.2.12.</h1>
+          <p class="intro-copy">
+            Everything you need to get into Middle-earth: launcher links, manual download mirrors, install steps, load
+            order, and troubleshooting in one place.
+          </p>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Video Tutorial</h3>
-      <p>For a video walkthrough of the install process:</p>
-      <a href="https://www.youtube.com/watch?v=cu7K5skn2Fo" class="btn btn-secondary" target="_blank" rel="noopener"
-        >Watch on YouTube</a
-      >
-    </div>
+          <div class="hero-actions">
+            <a class="hero-button hero-button-primary" href="https://lotraom.com/" target="_blank" rel="noopener">
+              Download Launcher
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="https://www.moddb.com/mods/tales-from-the-age-of-men"
+              target="_blank"
+              rel="noopener"
+            >
+              Manual Download
+            </a>
+          </div>
+        </div>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Option 1: Launcher (Recommended)</h3>
-      <p>Download the launcher for automatic installation and updates:</p>
-      <a href="https://lotraom.com/" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 0.5rem;"
-        >Download Launcher</a
-      >
-    </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Compatibility</p>
+          <h2>Steam Bannerlord 1.2.12</h2>
+          <ul class="hero-card-list">
+            <li>Roll your game back to version 1.2.12 before installing.</li>
+            <li>The Xbox Game Pass version is not supported.</li>
+            <li>Delete older TAOM files before starting a new install.</li>
+          </ul>
+        </div>
+      </section>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Option 2: Manual Download</h3>
-      <p style="margin-bottom: 0.75rem;">Download the latest release from one of these sources:</p>
-      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <a
-          href="https://www.moddb.com/mods/tales-from-the-age-of-men"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener">ModDB</a
-        >
-        <a
-          href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
-          class="btn btn-secondary"
-          target="_blank"
-          rel="noopener">Nexus Mods</a
-        >
-      </div>
-      <p class="note">The most recent public release is dated February 2026.</p>
-    </div>
+      <section class="section-grid section-grid-three">
+        <article class="content-card">
+          <p class="card-kicker">Recommended</p>
+          <h2>Use the launcher</h2>
+          <p>
+            The launcher handles installation and updates automatically, making it the easiest way to get the mod up and
+            running.
+          </p>
+          <a class="card-link" href="https://lotraom.com/" target="_blank" rel="noopener">Get the launcher</a>
+        </article>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Manual Installation Steps</h3>
-      <ol class="install-steps">
-        <li>
-          <strong>Download</strong> the mod from ModDB or Nexus Mods (2 files from Nexus).
-        </li>
-        <li>
-          <strong>Extract</strong> the downloaded files using WinRAR, 7zip, or similar.
-        </li>
-        <li>
-          <strong>Open your Modules folder:</strong>
-          <code class="code-block"> Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\ </code>
-          <span class="note">Your drive letter may vary — check wherever Bannerlord is installed.</span>
-        </li>
-        <li>
-          <strong>Delete old files</strong> from any previous versions of the mod in your Modules folder.
-        </li>
-        <li>
-          <strong>Copy files</strong> — Open the extracted folder, select all files within it, and drag them into the Modules
-          folder.
-          <span class="note">We provide every file you need, including dependencies.</span>
-        </li>
-        <li>
-          <strong>Unblock DLLs</strong> — Right-click each DLL file → Properties → check "Unblock", or run this PowerShell
-          command in the Modules folder:
-          <code class="code-block"> Get-ChildItem -Recurse -Filter *.dll | Unblock-File </code>
-        </li>
-        <li>
-          <strong>Delete shaders</strong> if you played this mod before:
-          <code class="code-block"> C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map </code>
-        </li>
-      </ol>
-    </div>
+        <article class="content-card">
+          <p class="card-kicker">Video Tutorial</p>
+          <h2>Watch the install guide</h2>
+          <p>
+            The full installation walkthrough is embedded here so players can follow along without leaving the page.
+          </p>
+          <a class="card-link" href="#install-video">Jump to the video</a>
+        </article>
 
-    <div class="card" style="margin-bottom: 1.5rem;">
-      <h3>Load Order</h3>
-      <p style="margin-bottom: 0.75rem;">
-        <strong>Bannerlord Version 1.2.12</strong> — Set this exact load order in the launcher:
-      </p>
-      <ol class="load-order">
-        <li><span class="mod-name">Harmony</span> <span class="mod-version">v2.3.6.220</span></li>
-        <li>
-          <span class="mod-name">Palantir Debugger</span>
-          <span class="mod-note">Writes crash logs for diagnostics</span>
-        </li>
-        <li><span class="mod-name">BetterExceptionWindow</span> <span class="mod-version">v7.1.1.0</span></li>
-        <li><span class="mod-name">ButterLib</span> <span class="mod-version">v2.10.0.0</span></li>
-        <li><span class="mod-name">UIExtenderEx</span> <span class="mod-version">v2.13.0.0</span></li>
-        <li><span class="mod-name">MCM</span> <span class="mod-version">v5.11.3.0</span></li>
-        <li><span class="mod-name">Native</span> <span class="mod-version">1.2.12.X</span></li>
-        <li><span class="mod-name">Sandbox Core</span> <span class="mod-version">1.2.12.X</span></li>
-        <li><span class="mod-name">Sandbox</span> <span class="mod-version">1.2.12.X</span></li>
-        <li><span class="mod-name">StoryMode</span> <span class="mod-version">1.2.12.X</span></li>
-        <li><span class="mod-name">CustomBattle</span> <span class="mod-version">1.2.12.X</span></li>
-        <li><span class="mod-name">Birth and Aging Options</span></li>
-        <li><span class="mod-name">LOTR_Map</span></li>
-        <li><span class="mod-name">LOTRAOM_Armory</span></li>
-        <li><span class="mod-name">Alliance.Wargs</span></li>
-        <li><span class="mod-name highlight">LOTRAOM</span> <span class="mod-version highlight">v0.69.39</span></li>
-      </ol>
-      <p style="margin-top: 0.75rem;">
-        Press <strong>Play</strong>, then go to Options and set <strong>Terrain Quality</strong> to Medium or higher.
-      </p>
-    </div>
+        <article class="content-card">
+          <p class="card-kicker">Manual Sources</p>
+          <h2>Download the latest release</h2>
+          <p>The most recent public release is dated February 2026. Choose whichever mirror you prefer.</p>
+          <div class="button-row">
+            {
+              manualSources.map((source) => (
+                <a
+                  class:list={['mini-button', { 'is-secondary': source.style === 'secondary' }]}
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {source.label}
+                </a>
+              ))
+            }
+          </div>
+        </article>
+      </section>
 
-    <div class="card">
-      <h3>Troubleshooting</h3>
-      <div class="troubleshoot-item">
-        <p><strong>"Cannot load" a DLL file?</strong></p>
-        <p>
-          Unblock the DLL files manually using PowerShell. Run the unblock command from step 6 above. If PowerShell
-          returns with a new blank line, it was done correctly.
-        </p>
-      </div>
-      <div class="troubleshoot-item">
-        <p><strong>Main loading screen frozen (horse not moving)?</strong></p>
-        <p>This is normal — let it load. The initial load can take a while.</p>
-      </div>
-      <div class="troubleshoot-item">
-        <p><strong>Still having issues?</strong></p>
-        <p>Join our Discord for help and support.</p>
-        <a
-          href="https://discord.gg/taom"
-          class="btn btn-secondary"
-          style="margin-top: 0.5rem;"
-          target="_blank"
-          rel="noopener">Join Discord</a
-        >
-      </div>
-    </div>
+      <section class="section-grid section-grid-two section-grid-video" id="install-video">
+        <article class="content-card content-card-large video-card">
+          <p class="card-kicker">Install Walkthrough</p>
+          <h2>Follow the setup step by step</h2>
+          <p class="lead-copy">
+            This guide covers the same process as the written instructions below, including extraction, module
+            placement, and launch setup.
+          </p>
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline class="install-video">
+              <source src="/images/installinstructions.mp4" type="video/mp4" />
+              Your browser does not support the install instructions video.
+            </video>
+          </div>
+        </article>
 
-    <div class="community-badges">
-      <div class="badge-block">
-        <p class="badge-label">To follow the development of the mod, check out the development blogs on</p>
-        <a href="https://www.youtube.com/@haterade_industries" class="badge-link" target="_blank" rel="noopener">
-          <img src="/images/youtube-badge.svg" alt="YouTube" class="badge-img" />
-        </a>
-      </div>
-      <div class="badge-block">
-        <p class="badge-label">
-          For more information about the mod, assistance, or to interact with the development team
-        </p>
-        <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
-          <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="badge-img" />
-        </a>
-      </div>
-    </div>
+        <article class="content-card content-card-large">
+          <p class="card-kicker">Quick Notes</p>
+          <h2>Before you start the install</h2>
+          <div class="stack-list">
+            <div class="stack-item">
+              <h3>Use Bannerlord 1.2.12</h3>
+              <p>
+                Roll back your game version first so the installed files and launcher order match the current TAOM
+                build.
+              </p>
+            </div>
+            <div class="stack-item">
+              <h3>Remove older TAOM files</h3>
+              <p>
+                Clear out previous module folders before copying new ones in to avoid mixed-version crashes or missing
+                assets.
+              </p>
+            </div>
+            <div class="stack-item">
+              <h3>Unblock the DLL files</h3>
+              <p>Windows may block newly downloaded DLLs, so make sure you unblock them before launching the game.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid section-grid-two">
+        <article class="content-card content-card-large">
+          <p class="card-kicker">Manual Installation</p>
+          <h2>Installation steps</h2>
+          <ol class="install-steps">
+            <li>Download the mod from ModDB or Nexus Mods. Nexus requires two files.</li>
+            <li>Extract the downloaded archives with WinRAR, 7-Zip, or a similar tool.</li>
+            <li>
+              Open your Modules folder:
+              <code class="code-block">Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\</code>
+              <span class="note">Your drive letter may vary depending on where Bannerlord is installed.</span>
+            </li>
+            <li>Delete older TAOM files from the Modules folder before copying new ones in.</li>
+            <li>
+              Copy every extracted file into the Modules folder.
+              <span class="note">The package already includes the required dependencies.</span>
+            </li>
+            <li>
+              Unblock DLLs. Right-click each DLL, open Properties, and check "Unblock", or run:
+              <code class="code-block">Get-ChildItem -Recurse -Filter *.dll | Unblock-File</code>
+            </li>
+            <li>
+              If you played the mod before, delete cached shaders:
+              <code class="code-block"
+                >C:\ProgramData\Mount and Blade II Bannerlord\Shaders\TerrainShaders\LOTR_Map</code
+              >
+            </li>
+          </ol>
+        </article>
+
+        <article class="content-card content-card-large">
+          <p class="card-kicker">Launcher Load Order</p>
+          <h2>Set this exact order</h2>
+          <p class="lead-copy">Use Bannerlord version 1.2.12 and keep the modules arranged exactly like this.</p>
+          <ol class="load-order">
+            {
+              loadOrder.map((entry) => (
+                <li>
+                  <span class:list={['mod-name', { highlight: !!entry.highlight }]}>{entry.name}</span>
+                  {entry.meta && <span class:list={['mod-meta', { highlight: !!entry.highlight }]}>{entry.meta}</span>}
+                  {entry.note && <span class="mod-note">{entry.note}</span>}
+                </li>
+              ))
+            }
+          </ol>
+          <p class="note note-inline">
+            Press Play, then set Terrain Quality to Medium or higher in the in-game options.
+          </p>
+        </article>
+      </section>
+
+      <section class="section-grid section-grid-two">
+        <article class="content-card">
+          <p class="card-kicker">Troubleshooting</p>
+          <h2>Common install issues</h2>
+          <div class="stack-list">
+            <div class="stack-item">
+              <h3>Cannot load a DLL file?</h3>
+              <p>
+                Unblock the DLL files manually or run the PowerShell command from the install steps above. If PowerShell
+                returns to a blank line, the command completed successfully.
+              </p>
+            </div>
+            <div class="stack-item">
+              <h3>Main loading screen looks frozen?</h3>
+              <p>The first load can take a while. If the horse is not moving yet, let the game continue loading.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <p class="card-kicker">Community Support</p>
+          <h2>Need help or want updates?</h2>
+          <p>
+            Join the Discord for troubleshooting and discussion, or follow the development channel for installation
+            guides and update videos.
+          </p>
+          <div class="community-links">
+            <a
+              class="community-link community-link-discord"
+              href="https://discord.gg/taom"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="community-link-kicker">Live Support</span>
+              <span class="community-link-title">Join Discord Server</span>
+              <span class="community-link-meta">discord.gg/taom</span>
+            </a>
+            <a
+              class="community-link community-link-youtube"
+              href="https://www.youtube.com/@haterade_industries"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="community-link-kicker">Video Updates</span>
+              <span class="community-link-title">Open YouTube Channel</span>
+              <span class="community-link-meta">@haterade_industries</span>
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .alert-card {
-    border-color: var(--accent);
+  :global(body.taom-download-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 15% 18%, rgba(128, 72, 34, 0.18), transparent 26%),
+      radial-gradient(circle at 85% 14%, rgba(98, 44, 26, 0.16), transparent 24%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .alert-card ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-    margin: 0.5rem 0;
+  :global(body.taom-download-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .install-steps {
-    list-style: decimal;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
+  :global(.taom-download-main) {
+    display: block;
   }
 
+  .download-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .hero-panel h1,
+  .hero-card-label,
+  .hero-card h2,
+  .card-kicker,
+  .content-card h2,
+  .stack-item h3,
+  .hero-button,
+  .card-link,
+  .mini-button,
+  .mod-name,
+  .mod-meta {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #f7f2ec;
+  }
+
+  .page-shell {
+    width: min(100%, 92rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.75fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .content-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-copy::before,
+  .hero-card::before,
+  .content-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    padding: 3.2rem 3rem;
+  }
+
+  .hero-card {
+    padding: 2.2rem 2rem;
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+  }
+
+  .eyebrow,
+  .card-kicker,
+  .hero-card-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  .hero-panel h1,
+  .hero-card h2,
+  .content-card h2 {
+    margin: 0;
+    color: #f5eee5;
+  }
+
+  .hero-panel h1 {
+    max-width: 14ch;
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    line-height: 0.95;
+  }
+
+  .hero-card h2,
+  .content-card h2 {
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    line-height: 1.05;
+  }
+
+  .intro-copy,
+  .hero-card-list,
+  .content-card p,
+  .stack-item p,
+  .install-steps,
+  .load-order {
+    color: rgba(231, 222, 214, 0.78);
+  }
+
+  .intro-copy {
+    max-width: 44rem;
+    margin: 1.1rem 0 0;
+    font-size: 1.04rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions,
+  .button-row,
+  .community-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.75rem;
+  }
+
+  .hero-button,
+  .card-link,
+  .mini-button {
+    display: inline-grid;
+    place-items: center;
+    min-width: 12rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(205, 153, 52, 0.46);
+    color: #f7f2ec;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: rgba(17, 13, 12, 0.5);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .hero-button:hover,
+  .card-link:hover,
+  .mini-button:hover {
+    color: #fff5e3;
+    text-decoration: none;
+    transform: translateY(-1px);
+    border-color: rgba(205, 153, 52, 0.86);
+    background: rgba(17, 13, 12, 0.72);
+  }
+
+  .hero-button-primary,
+  .card-link {
+    background:
+      linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96)),
+      radial-gradient(circle at top, rgba(255, 239, 193, 0.08), transparent 56%);
+  }
+
+  .hero-button-secondary,
+  .mini-button.is-secondary {
+    color: #d9cdbd;
+    background: rgba(19, 15, 13, 0.72);
+    border-color: rgba(128, 101, 62, 0.4);
+  }
+
+  .hero-card-list,
+  .install-steps,
+  .load-order {
+    margin: 0;
+    padding-left: 1.3rem;
+  }
+
+  .hero-card-list li,
   .install-steps li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .hero-card-list li:last-child,
+  .install-steps li:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .section-grid-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .section-grid-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-card {
+    padding: 2rem;
+  }
+
+  .content-card-large {
+    padding: 2.15rem;
+  }
+
+  .section-grid-video {
+    align-items: start;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
+  }
+
+  .content-card p {
+    margin: 0.85rem 0 0;
+    line-height: 1.65;
+  }
+
+  .lead-copy {
+    margin-top: 0.85rem;
+  }
+
+  .card-link {
+    margin-top: 1.25rem;
+    width: fit-content;
+  }
+
+  .button-row {
+    margin-top: 1.25rem;
+  }
+
+  .video-card {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .video-frame {
+    margin-top: 0.35rem;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.38);
+    background:
+      linear-gradient(180deg, rgba(13, 10, 9, 0.96), rgba(8, 7, 7, 0.98)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.08), transparent 45%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+      0 16px 34px rgba(0, 0, 0, 0.24);
+    max-height: 42rem;
+  }
+
+  .install-video {
+    display: block;
+    width: 100%;
+    height: min(42rem, 72vh);
+    object-fit: contain;
+    object-position: center top;
+    background: #050404;
+  }
+
+  .mini-button {
+    min-width: 9.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
   }
 
   .code-block {
     display: block;
-    background: var(--bg-tertiary);
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    margin-top: 0.35rem;
-    font-size: 0.8rem;
-    color: var(--text-primary);
+    margin-top: 0.55rem;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid rgba(135, 103, 53, 0.32);
+    background: rgba(6, 5, 5, 0.58);
+    color: #f3ece2;
+    font-size: 0.86rem;
     word-break: break-all;
   }
 
   .note {
     display: block;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-top: 0.25rem;
+    margin-top: 0.45rem;
+    color: rgba(214, 197, 178, 0.64);
+    font-size: 0.84rem;
     font-style: italic;
   }
 
-  .load-order {
-    list-style: decimal;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
+  .note-inline {
+    margin-top: 1rem;
   }
 
   .load-order li {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.45rem;
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.6rem;
     align-items: baseline;
-    gap: 0.5rem;
   }
 
   .mod-name {
-    color: var(--text-primary);
-    font-weight: 500;
+    color: #f5eee5;
+    font-size: 0.96rem;
+    letter-spacing: 0.05em;
   }
 
-  .mod-version {
+  .mod-meta {
+    color: rgba(216, 200, 183, 0.72);
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    letter-spacing: 0.08em;
   }
 
   .mod-note {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: rgba(214, 197, 178, 0.64);
+    font-size: 0.78rem;
     font-style: italic;
   }
 
-  .mod-name.highlight {
-    color: var(--accent);
-    font-weight: 700;
+  .mod-name.highlight,
+  .mod-meta.highlight {
+    color: #d6a858;
   }
 
-  .mod-version.highlight {
-    color: var(--accent);
-    font-weight: 700;
+  .stack-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
-  .troubleshoot-item {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
+  .stack-item {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 104, 49, 0.2);
   }
 
-  .troubleshoot-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+  .stack-item:first-child {
+    padding-top: 0;
+    border-top: 0;
   }
 
-  .community-badges {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .badge-block {
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-  }
-
-  .badge-label {
-    color: var(--accent);
+  .stack-item h3 {
+    margin: 0;
+    color: #f5eee5;
     font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .badge-link {
-    display: inline-block;
+  .community-links {
+    margin-top: 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .community-link {
+    position: relative;
+    display: grid;
+    gap: 0.28rem;
+    min-height: 8.25rem;
+    padding: 1.15rem 1.2rem 1.2rem 1.45rem;
+    border: 1px solid rgba(151, 110, 51, 0.36);
+    background:
+      linear-gradient(180deg, rgba(20, 14, 12, 0.9), rgba(10, 8, 8, 0.92)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.05), transparent 46%);
+    text-decoration: none;
     transition:
-      transform 0.2s,
-      filter 0.2s;
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
   }
 
-  .badge-link:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+  .community-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(209, 154, 51, 0.9), rgba(209, 154, 51, 0.28));
   }
 
-  .badge-img {
-    height: 55px;
-    width: auto;
+  .community-link::after {
+    content: '>';
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(244, 228, 196, 0.74);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    transition:
+      transform 180ms ease,
+      color 180ms ease;
+  }
+
+  .community-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(205, 153, 52, 0.74);
+    background:
+      linear-gradient(180deg, rgba(30, 21, 15, 0.94), rgba(12, 9, 8, 0.94)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.08), transparent 46%);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    text-decoration: none;
+  }
+
+  .community-link:hover::after {
+    transform: translateY(-50%) translateX(4px);
+    color: #f3dfb2;
+  }
+
+  .community-link-kicker,
+  .community-link-title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    text-transform: uppercase;
+  }
+
+  .community-link-kicker {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+  }
+
+  .community-link-title {
+    color: #f7f1e8;
+    font-size: 1.28rem;
+    letter-spacing: 0.06em;
+    line-height: 1.08;
+  }
+
+  .community-link-meta {
+    color: rgba(223, 209, 189, 0.72);
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .community-link-youtube:hover .community-link-title {
+    color: #ffd6ca;
+  }
+
+  .community-link-discord:hover .community-link-title {
+    color: #d7dcff;
+  }
+
+  @media (max-width: 1180px) {
+    .hero-panel,
+    .section-grid-two,
+    .section-grid-video {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .section-grid-three {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .download-page {
+      padding: 1rem;
+    }
+
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brand-large {
+      font-size: 1.6rem;
+    }
+
+    .main-nav {
+      gap: 0.6rem 0.9rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .content-card,
+    .content-card-large {
+      padding: 1.5rem;
+    }
+
+    .hero-panel h1 {
+      max-width: none;
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .hero-button,
+    .card-link,
+    .mini-button {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .community-links {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -1,177 +1,499 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const creditGroups = [
+  {
+    title: 'Helpers and Moderators',
+    note: 'Thank you to every helper and moderator. With nearly 2,400 support tickets handled, this has been a huge service to the community.',
+    people: [
+      'Bamba Jay',
+      'ChaseK',
+      'Luiz',
+      'KaiserMax',
+      'Whatman',
+      'Karmaslap',
+      'Arden',
+      'Paszrat',
+      'Bartok',
+      'Elendil',
+      'Ghost',
+      'Theboyys',
+      'Vendetta',
+    ],
+  },
+  {
+    title: '3D Artists',
+    people: [
+      { name: 'KEYforce', extra: 'Erkam Kuntay Yigitcan', href: 'https://www.artstation.com/', label: 'ArtStation' },
+      'Solus',
+      'Nova',
+      'Leovsilva',
+      'Timber',
+      'Igor',
+      'leomago',
+      'mattia migliorin',
+      'Sorush',
+      'Kronos',
+      'Kyba',
+    ],
+  },
+  {
+    title: '2D Artists',
+    people: [
+      { name: 'JoshuaF', href: 'https://www.instagram.com/jfeuerriegel/', label: 'Instagram' },
+      'Neublossom',
+      'Whitegoat',
+    ],
+  },
+  {
+    title: 'Coders',
+    people: ['Anian', 'Chewy', 'Yotthani', 'Legolas', 'Benet6378'],
+  },
+  {
+    title: 'Map Designers',
+    people: ['Swan', 'Lemmy', 'Hrorikr', 'BlackRose'],
+  },
+  {
+    title: 'Testers',
+    people: [
+      'DizzyDox',
+      'Ghost',
+      'Gfornost',
+      'KaiserMax',
+      'Luiz',
+      'Bartok',
+      'AshHartz',
+      'CostJuggler',
+      'Valar',
+      'TheMaestroNL',
+      'Vendetta',
+      'Shogun',
+    ],
+  },
+  {
+    title: 'Sceners',
+    people: [
+      'ComprehendNubnes',
+      'Kysaro',
+      'Shogun',
+      'Sindarry',
+      'Swan',
+      'Thyrell',
+      'Zedforen',
+      'Zigs',
+      'Andy B',
+      'Rcmcplays',
+      'Hart',
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Credits" description="The team behind TAOM - Tales From the Age of Men">
-  <div class="page-content" style="max-width: 750px;">
-    <h1 class="page-title">Credits</h1>
+<BaseLayout
+  title="Credits"
+  description="The team behind TAOM - Tales From the Age of Men"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-credits-body"
+  mainClass="taom-credits-main"
+>
+  <div class="credits-page">
+    <Topbar />
 
-    <div class="credits-intro">
-      <p>
-        I want to say from the bottom of my heart. <strong>Thank you.</strong> For everything. Very few people understand
-        what it takes to build a mod. This mod would be nothing without the past and present team members below.
-      </p>
-    </div>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <p class="eyebrow">The Fellowship Behind The Mod</p>
+        <h1>Credits</h1>
+        <p class="intro-copy">
+          From the bottom of our hearts, thank you. Very few people understand what it takes to build a mod of this
+          scale. TAOM would be nothing without the past and present team members below.
+        </p>
+      </section>
 
-    <section class="credits-section">
-      <h2>Helpers/Moderators</h2>
-      <p class="section-note">
-        Thank you to each and every single helper/moderator. We are currently at almost 2,400 support tickets. That is a
-        crazy amount of help provided to the community. It can be quite a thankless job.
-      </p>
-      <ul>
-        <li>Bamba Jay</li>
-        <li>ChaseK</li>
-        <li>Luiz</li>
-        <li>KaiserMax</li>
-        <li>Whatman</li>
-        <li>Karmaslap</li>
-        <li>Arden</li>
-        <li>Paszrat</li>
-        <li>Bartok</li>
-        <li>Elendil</li>
-        <li>Ghost</li>
-        <li>Theboyys</li>
-        <li>Vendetta</li>
-      </ul>
-    </section>
+      <section class="gratitude-panel">
+        <div class="gratitude-card">
+          <p class="card-kicker">Built By A Community</p>
+          <h2>Every campaign rests on shared work.</h2>
+          <p>
+            Artists, coders, map makers, testers, sceners, and support staff have all shaped the world players step
+            into. This page exists to make sure that work remains visible.
+          </p>
+        </div>
+      </section>
 
-    <section class="credits-section">
-      <h2>3D Artists</h2>
-      <ul>
-        <li>
-          KEYforce - <a href="https://www.artstation.com/" target="_blank" rel="noopener">ArtStation</a> - Erkam Kuntay Yi&#287;itcan
-        </li>
-        <li>Solus</li>
-        <li>Nova</li>
-        <li>Leovsilva</li>
-        <li>Timber</li>
-        <li>Igor</li>
-        <li>leomago</li>
-        <li>mattia migliorin</li>
-        <li>Sorush</li>
-        <li>Kronos</li>
-        <li>Kyba</li>
-      </ul>
-    </section>
+      <section class="credits-grid">
+        {
+          creditGroups.map((group) => (
+            <article class="credit-card">
+              <p class="card-kicker">{group.title}</p>
+              <h2>{group.title}</h2>
+              {group.note && <p class="group-note">{group.note}</p>}
+              <ul class="credit-list">
+                {group.people.map((person) => {
+                  if (typeof person === 'string') {
+                    return <li>{person}</li>;
+                  }
 
-    <section class="credits-section">
-      <h2>2D Artists</h2>
-      <ul>
-        <li>
-          JoshuaF - <a href="https://www.instagram.com/jfeuerriegel/" target="_blank" rel="noopener">Instagram</a>
-        </li>
-        <li>Neublossom</li>
-        <li>Whitegoat</li>
-      </ul>
-    </section>
-
-    <section class="credits-section">
-      <h2>Coders</h2>
-      <ul>
-        <li>Anian</li>
-        <li>Chewy</li>
-        <li>Yotthani</li>
-        <li>Legolas</li>
-        <li>Benet6378</li>
-      </ul>
-    </section>
-
-    <section class="credits-section">
-      <h2>Map Designers</h2>
-      <ul>
-        <li>Swan</li>
-        <li>Lemmy</li>
-        <li>Hrorikr</li>
-        <li>BlackRose</li>
-      </ul>
-    </section>
-
-    <section class="credits-section">
-      <h2>Testers</h2>
-      <ul>
-        <li>DizzyDox</li>
-        <li>Ghost</li>
-        <li>Gfornost</li>
-        <li>KaiserMax</li>
-        <li>Luiz</li>
-        <li>Bartok</li>
-        <li>AshHartz</li>
-        <li>CostJuggler</li>
-        <li>Valar</li>
-        <li>TheMaestroNL</li>
-        <li>Vendetta</li>
-        <li>Shogun</li>
-      </ul>
-    </section>
-
-    <section class="credits-section">
-      <h2>Sceners</h2>
-      <ul>
-        <li>ComprehendNubnes</li>
-        <li>Kysaro</li>
-        <li>Shogun</li>
-        <li>Sindarry</li>
-        <li>Swan</li>
-        <li>Thyrell</li>
-        <li>Zedforen</li>
-        <li>Zigs</li>
-        <li>Andy B</li>
-        <li>Rcmcplays</li>
-        <li>Hart</li>
-      </ul>
-    </section>
+                  return (
+                    <li>
+                      <span>{person.name}</span>
+                      {person.extra && <span class="person-extra">{person.extra}</span>}
+                      {person.href && (
+                        <a href={person.href} target="_blank" rel="noopener">
+                          {person.label}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </article>
+          ))
+        }
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .credits-intro {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
+  :global(body.taom-credits-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 12% 18%, rgba(128, 72, 34, 0.18), transparent 24%),
+      radial-gradient(circle at 84% 16%, rgba(98, 44, 26, 0.14), transparent 22%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .credits-intro strong {
-    color: var(--text-primary);
+  :global(body.taom-credits-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .credits-section {
-    margin-bottom: 2rem;
+  :global(.taom-credits-main) {
+    display: block;
   }
 
-  .credits-section h2 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
+  .credits-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
-  .section-note {
-    color: var(--text-secondary);
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .hero-panel h1,
+  .card-kicker,
+  .gratitude-card h2,
+  .credit-card h2 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    letter-spacing: 0.06em;
   }
 
-  .credits-section ul {
-    list-style: disc;
-    padding-left: 1.5rem;
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #f7f2ec;
+  }
+
+  .page-shell {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-panel,
+  .gratitude-card,
+  .credit-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-panel::before,
+  .gratitude-card::before,
+  .credit-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-panel {
+    padding: 3rem;
+  }
+
+  .gratitude-panel {
+    display: grid;
+  }
+
+  .gratitude-card {
+    padding: 2.1rem 2rem;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  .hero-panel h1,
+  .gratitude-card h2,
+  .credit-card h2 {
     margin: 0;
+    color: #f5eee5;
   }
 
-  .credits-section li {
-    color: var(--text-primary);
-    font-size: 0.95rem;
-    padding: 0.2rem 0;
+  .hero-panel h1 {
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    line-height: 0.95;
   }
 
-  .credits-section a {
-    color: var(--accent);
+  .gratitude-card h2,
+  .credit-card h2 {
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    line-height: 1.05;
+  }
+
+  .intro-copy,
+  .gratitude-card p,
+  .group-note,
+  .credit-list li,
+  .credit-list a,
+  .person-extra {
+    color: rgba(231, 222, 214, 0.78);
+  }
+
+  .intro-copy {
+    max-width: 46rem;
+    margin: 1.15rem 0 0;
+    font-size: 1.04rem;
+    line-height: 1.7;
+  }
+
+  .gratitude-card p,
+  .group-note {
+    margin: 0.9rem 0 0;
+    line-height: 1.65;
+  }
+
+  .credits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .credit-card {
+    padding: 2rem;
+  }
+
+  .credit-list {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .credit-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    align-items: baseline;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(139, 104, 49, 0.2);
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .credit-list li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .credit-list a {
+    color: #d6a858;
     text-decoration: underline;
+    text-underline-offset: 0.15em;
   }
 
-  .credits-section a:hover {
-    color: var(--text-primary);
+  .credit-list a:hover {
+    color: #f7f2ec;
+  }
+
+  .person-extra {
+    font-size: 0.84rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+
+    .credits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .credits-page {
+      padding: 1rem;
+    }
+
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brand-large {
+      font-size: 1.6rem;
+    }
+
+    .main-nav {
+      gap: 0.6rem 0.9rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-panel,
+    .gratitude-card,
+    .credit-card {
+      padding: 1.5rem;
+    }
+
+    .hero-panel h1 {
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
   }
 </style>

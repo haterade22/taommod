@@ -1,4 +1,5 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const cultures = [
@@ -522,19 +523,72 @@ const balanceConcerns = [
     recommendation: 'Add curved swords and cavalry weapons',
   },
 ];
+
+const totalCultures = cultures.length;
+const implementedCultures = cultures.filter((culture) => culture.meleeWeapons + culture.rangedWeapons > 0).length;
+const plannedCultures = cultures.filter((culture) => culture.meleeWeapons + culture.rangedWeapons === 0).length;
+const aboveBaselineCultures = cultures.filter((culture) => {
+  const percent = Number.parseInt(culture.meleePercent, 10);
+  return !Number.isNaN(percent) && percent > 100;
+}).length;
 ---
 
 <BaseLayout
   title="Weapon Balancing"
   description="Detailed breakdown of weapon damage balancing across all TAOM cultures"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-weapon-body"
+  mainClass="taom-weapon-main"
 >
-  <div class="page-content mod-info">
-    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Weapon Balancing</nav>
-    <h1 class="page-title">Weapon Balancing</h1>
+  <div class="weapon-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
-      <div class="collapsible-content" style="display:none">
+    <main class="weapon-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Master Ledger of Middle-earth</p>
+        <h1>Weapon Balancing</h1>
+        <p class="intro-copy">
+          This archive tracks how TAOM weapon quality is tuned across cultures, from Bannerlord's underlying damage
+          simulation to the craftsmanship modifiers that separate Noldorin masterwork from crude orc-forged iron.
+        </p>
+        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Weapon Balancing</nav>
+      </section>
+
+      <section class="weapon-summary" aria-label="Weapon balancing summary">
+        <article class="summary-card">
+          <span class="summary-label">Total Cultures</span>
+          <strong>{totalCultures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Implemented Forges</span>
+          <strong>{implementedCultures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Planned Forges</span>
+          <strong>{plannedCultures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Above Baseline</span>
+          <strong>{aboveBaselineCultures}</strong>
+        </article>
+      </section>
+
+      <nav class="section-links" aria-label="Weapon balancing sections">
+        <a href="#overview">Overview</a>
+        <a href="#pipeline">Damage Model</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#concerns">Concerns</a>
+        <a href="#cultures">Cultures</a>
+        <a href="#classes">Class Averages</a>
+        <a href="#distribution">Distribution</a>
+      </nav>
+
+      <section id="overview" class="info-section collapsible-section" data-collapsed="false">
+      <h2 class="section-toggle"><span class="collapse-arrow">&#9660;</span> Overview</h2>
+      <div class="collapsible-content">
         <p class="section-desc">
           TAOM includes <strong>300 custom melee weapons</strong> across <strong>13 cultures</strong> (with 3 more planned).
           Each weapon has unique blade weight, damage factors and crafting pieces. <strong
@@ -550,7 +604,7 @@ const balanceConcerns = [
       </div>
     </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
+    <section id="pipeline" class="info-section collapsible-section" data-collapsed="true">
       <h2 class="section-toggle">
         <span class="collapse-arrow">&#9654;</span> How Bannerlord Calculates Damage <span class="nerdy-note"
           >(fair warning: this is very math and nerdy)</span>
@@ -682,9 +736,8 @@ const balanceConcerns = [
         </div>
       </div>
     </section>
-  </div>
 
-  <section class="info-section collapsible-section" data-collapsed="true">
+      <section id="comparison" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
     <div class="collapsible-content" style="display:none">
       <div class="table-wrapper">
@@ -742,9 +795,9 @@ const balanceConcerns = [
         <span class="legend-item"><span class="dot mod-crit-bg"></span> &lt;70% — Potentially underpowered</span>
       </p>
     </div>
-  </section>
+      </section>
 
-  <section class="info-section collapsible-section" data-collapsed="true">
+      <section id="concerns" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Balance Concerns</h2>
     <div class="collapsible-content" style="display:none">
       <div class="concerns-list">
@@ -762,9 +815,9 @@ const balanceConcerns = [
         }
       </div>
     </div>
-  </section>
+      </section>
 
-  <section class="info-section collapsible-section" data-collapsed="true">
+      <section id="cultures" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
     <div class="collapsible-content" style="display:none">
       {
@@ -845,9 +898,9 @@ const balanceConcerns = [
         ))
       }
     </div>
-  </section>
+      </section>
 
-  <section class="info-section collapsible-section" data-collapsed="true">
+      <section id="classes" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Weapon Class Averages</h2>
     <div class="collapsible-content" style="display:none">
       <p class="section-desc">
@@ -881,9 +934,9 @@ const balanceConcerns = [
         </table>
       </div>
     </div>
-  </section>
+      </section>
 
-  <section class="info-section collapsible-section" data-collapsed="true">
+      <section id="distribution" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Damage Distribution</h2>
     <div class="collapsible-content" style="display:none">
       <p class="section-desc">
@@ -921,59 +974,215 @@ const balanceConcerns = [
         </table>
       </div>
     </div>
-  </section>
+      </section>
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 1200px;
+  :global(body.taom-weapon-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.76), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 18% 14%, rgba(151, 94, 46, 0.16), transparent 24%),
+      radial-gradient(circle at 84% 20%, rgba(82, 104, 128, 0.15), transparent 24%),
+      linear-gradient(180deg, #17110f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-weapon-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.34), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-weapon-main) {
+    display: block;
+  }
+
+  .weapon-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar-wrap {
+    width: 100%;
+  }
+
+  .weapon-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 56rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .section-links a,
+  .culture-badge,
+  .mod-section h4 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.4rem, 7vw, 5.4rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .intro-copy,
+  .section-desc,
+  .step-content p,
+  .formula-summary p,
+  .culture-identity,
+  .culture-notes {
+    margin: 0;
+    color: rgba(238, 228, 219, 0.86);
+    line-height: 1.7;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover,
+  .section-links a:hover,
+  .culture-cell a:hover {
+    text-decoration: underline;
+  }
+
+  .weapon-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .info-section,
+  .table-wrapper,
+  .mod-section,
+  .formula-summary {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .section-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .section-links a {
+    color: #f1e2c1;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    padding: 0.62rem 0.85rem;
+    border: 1px solid rgba(120, 89, 38, 0.45);
+    background: rgba(17, 13, 11, 0.82);
+  }
+
+  .info-section {
+    margin-bottom: 0;
+    padding: 1.15rem 1.25rem 1.3rem;
   }
 
   .section-toggle {
     cursor: pointer;
     user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0;
+    color: #f1e6d7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.45rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(212, 162, 76, 0.22);
   }
 
   .section-toggle:hover {
-    color: var(--text-primary);
+    color: #f4d8a3;
   }
 
   .collapse-arrow {
-    display: inline-block;
+    display: inline-flex;
+    width: 1rem;
+    justify-content: center;
+    color: #c19748;
     font-size: 0.8em;
-    transition: transform 0.2s;
+  }
+
+  .collapsible-content {
+    padding-top: 1rem;
   }
 
   .nerdy-note {
     font-size: 0.75rem;
     font-weight: 400;
-    color: var(--text-muted);
+    color: rgba(214, 199, 176, 0.74);
     font-style: italic;
-  }
-
-  .breadcrumb {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-  }
-  .breadcrumb a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
-  .info-section {
-    margin-bottom: 3rem;
-  }
-
-  .info-section h2 {
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(212, 162, 76, 0.3);
-    padding-bottom: 0.5rem;
   }
 
   .section-desc {
@@ -1436,7 +1645,21 @@ const balanceConcerns = [
     font-family: inherit;
   }
 
+  @media (max-width: 920px) {
+    .weapon-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 768px) {
+    .weapon-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .weapon-shell {
+      padding-inline: 0.4rem;
+    }
+
     .culture-header {
       flex-direction: column;
       align-items: flex-start;
@@ -1464,11 +1687,40 @@ const balanceConcerns = [
       font-size: 0.8rem;
     }
   }
+
+  @media (max-width: 560px) {
+    .weapon-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .section-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('astro:page-load', () => {
     document.querySelectorAll('.section-toggle').forEach((title) => {
+      const section = title.closest('.collapsible-section');
+      const content = section?.querySelector('.collapsible-content');
+      const arrow = title.querySelector('.collapse-arrow');
+
+      if (section instanceof HTMLElement && content instanceof HTMLElement && arrow instanceof HTMLElement) {
+        const collapsed = section.dataset.collapsed === 'true';
+        content.style.display = collapsed ? 'none' : '';
+        arrow.textContent = collapsed ? '\u25B6' : '\u25BC';
+      }
+
+      if (title instanceof HTMLElement && title.dataset.bound === 'true') {
+        return;
+      }
+
+      if (title instanceof HTMLElement) {
+        title.dataset.bound = 'true';
+      }
+
       title.addEventListener('click', () => {
         const section = title.closest('.collapsible-section') as HTMLElement;
         const content = section.querySelector('.collapsible-content') as HTMLElement;

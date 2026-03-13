@@ -1,294 +1,621 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+type RecruitmentTier = {
+  id: 'regular' | 'noble' | 'regional' | 'unique';
+  title: string;
+  share: string;
+  summary: string;
+  detail: string;
+};
+
+const tiers: RecruitmentTier[] = [
+  {
+    id: 'regular',
+    title: 'Regular Units',
+    share: '40-50%',
+    summary: 'The dependable core of every faction roster.',
+    detail:
+      'Regular troops form the foundation of every army. They appear consistently across all settlements within a faction and provide the stable baseline that keeps campaigns moving.',
+  },
+  {
+    id: 'noble',
+    title: 'Noble Units',
+    share: '10-20%',
+    summary: 'Elite households and officer retinues available faction-wide in small numbers.',
+    detail:
+      'Noble troops still follow the classic Bannerlord expectation of being globally recruitable inside a faction, but they remain deliberately scarce and represent aristocratic or officer-class warriors.',
+  },
+  {
+    id: 'regional',
+    title: 'Regional Units',
+    share: '30-40%',
+    summary: 'Homeland-tied specialists tied to geography, culture, and local identity.',
+    detail:
+      'Regional units only appear in specific cities, castles, or villages connected to their place of origin. They are more specialized than regular troops and reward map knowledge and territorial control.',
+  },
+  {
+    id: 'unique',
+    title: 'Unique Units',
+    share: 'Rare',
+    summary: 'Legendary formations tied to one or two strategic locations in the world.',
+    detail:
+      'Unique units represent sacred orders, exceptional warbands, or singular military traditions. Not every faction fields them yet, but they are intended to create memorable high-value recruitment targets.',
+  },
+];
+
+const tierColors: Record<RecruitmentTier['id'], string> = {
+  regular: '#4caf50',
+  noble: '#ab47bc',
+  regional: '#42a5f5',
+  unique: '#ffa726',
+};
+
+const tacticalNotes = [
+  {
+    title: 'Territory Matters More',
+    text: 'Expanding into the right regions now changes your recruit quality, not just your income and garrison size.',
+  },
+  {
+    title: 'Faction Identity Deepens',
+    text: 'The system lets factions feel broader than one basic line and one noble line by tying local troops to place.',
+  },
+  {
+    title: 'Defense Gains Meaning',
+    text: 'Holding rare settlements protects access to regional and unique troops that cannot simply be replaced elsewhere.',
+  },
+];
 ---
 
-<BaseLayout title="Recruitment System" description="How troop recruitment works in TAOM - the four-tier structure">
-  <div class="page-content mod-info">
-    <nav class="breadcrumb">
-      <a href="/mod-info">&larr; Mod Info</a>
-    </nav>
+<BaseLayout
+  title="Recruitment System"
+  description="How troop recruitment works in TAOM through the four-tier faction structure"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-recruitment-body"
+  mainClass="taom-recruitment-main"
+>
+  <div class="recruitment-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <h1 class="page-title">Recruitment System Overview</h1>
-    <p class="page-subtitle">A New Four-Tier Structure</p>
-
-    <section class="intro-section">
-      <p>
-        To better reflect regional diversity and faction identity, <em>Tales from the Age of Men</em> introduces a
-        <strong>new four-tier recruitment structure</strong> that applies to <strong>every faction</strong> in the mod. Troops
-        no longer fall into just "standard" and "noble" categories; instead, armies are formed through a layered system of
-        <span class="tier-tag regular">Regular</span>, <span class="tier-tag noble">Noble</span>,
-        <span class="tier-tag regional">Regional</span>, and <span class="tier-tag unique">Unique</span> units, each with
-        its own availability and rarity.
-      </p>
-    </section>
-
-    <section class="tier-cards">
-      <div class="tier-card">
-        <div class="tier-card-header regular">
-          <h2>Regular Units</h2>
-          <span class="tier-pct">40-50%</span>
-        </div>
-        <p>
-          Form the foundation of every army. These are the most common troops and can be recruited consistently across <strong
-            >all settlements</strong
-          > within their faction's territory.
+    <main class="recruitment-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Campaign Flow Briefing</p>
+        <h1>Recruitment System</h1>
+        <p class="intro-copy">
+          TAOM replaces the old two-lane troop pipeline with a broader four-tier structure. Recruitment now reflects
+          homeland identity, regional control, and faction depth rather than treating every settlement as the same pool
+          with a small noble overlay.
         </p>
-      </div>
+        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Recruitment System</nav>
+      </section>
 
-      <div class="tier-card">
-        <div class="tier-card-header noble">
-          <h2>Noble Units</h2>
-          <span class="tier-pct">10-20%</span>
-        </div>
-        <p>
-          Follow the classic Bannerlord rule: they remain <strong>globally recruitable</strong> within their faction's lands,
-          but appear in <strong>small numbers</strong> and represent elite households, officer retinues, or aristocratic warriors.
-        </p>
-      </div>
+      <section class="recruitment-summary" aria-label="Recruitment overview summary">
+        <article class="summary-card">
+          <span class="summary-label">Recruitment Tiers</span>
+          <strong>{tiers.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Standard Pool</span>
+          <strong>3</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Rare Tier</span>
+          <strong>1</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Faction Scope</span>
+          <strong>All</strong>
+        </article>
+      </section>
 
-      <div class="tier-card">
-        <div class="tier-card-header regional">
-          <h2>Regional Units</h2>
-          <span class="tier-pct">30-40%</span>
-        </div>
-        <p>
-          Tied to <strong>specific homelands</strong> &mdash; certain cities, castles, or villages based on their cultural
-          or geographic origins. They are <strong>more specialized</strong> and <strong>rarer</strong>, making up a
-          significant but location-dependent portion of a settlement's recruits.
-        </p>
-      </div>
+      <section class="overview-grid">
+        <article class="system-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">System Premise</p>
+              <h2>A New Four-Tier Structure</h2>
+            </div>
+            <p class="panel-copy">
+              Every faction uses the same broad recruitment logic, but local geography and faction identity now decide
+              which parts of that structure are most accessible.
+            </p>
+          </div>
 
-      <div class="tier-card">
-        <div class="tier-card-header unique">
-          <h2>Unique Units</h2>
-          <span class="tier-pct">Rare</span>
-        </div>
-        <p>
-          Tied to <strong>only one or two settlements</strong> in the entire game. These represent exceptional formations,
-          sacred orders, or legendary warriors. While not every faction currently fields one, future updates will expand this
-          category.
-        </p>
-      </div>
-    </section>
+          <p class="section-copy-main">
+            Troops no longer fall into only standard and noble categories. Instead, every army is built through layered
+            access to <span class="inline-tier is-regular">Regular</span>, <span class="inline-tier is-noble"
+              >Noble</span
+            >,
+            <span class="inline-tier is-regional">Regional</span>, and <span class="inline-tier is-unique">Unique</span>
+            units, each with its own frequency, role, and map presence.
+          </p>
 
-    <section class="gameplay-section">
-      <h2>In Practice</h2>
-      <p>
-        A typical garrison or settlement recruit pool might appear as roughly
-        <strong class="regular-text">40-50% Regular</strong> troops,
-        <strong class="noble-text">10-20% Noble</strong> troops, and
-        <strong class="regional-text">30-40% Regional</strong> troops, with <strong class="unique-text">Unique</strong> units
-        being extremely limited and tied to specific strategic locations.
-      </p>
-      <p>
-        This structure creates deeper faction identity and encourages players to expand into &mdash; or defend &mdash;
-        key regions to unlock their full military potential.
-      </p>
-    </section>
+          <div class="tier-ledger">
+            {
+              tiers.map((tier) => (
+                <article class={`tier-ledger-card is-${tier.id}`}>
+                  <div class="tier-ledger-topline">
+                    <span class="tier-ledger-name">{tier.title}</span>
+                    <span class="tier-ledger-share">{tier.share}</span>
+                  </div>
+                  <p>{tier.summary}</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
 
-    <section class="bar-chart-section">
-      <h3>Typical Settlement Recruit Composition</h3>
-      <div class="bar-chart">
-        <div class="bar-segment regular" style="flex: 45">
-          <span>Regular</span>
-          <span>~45%</span>
+        <article class="notes-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Why It Matters</p>
+              <h2>Campaign Consequences</h2>
+            </div>
+            <p class="panel-copy">Recruitment is now part of map strategy, not just a background numbers system.</p>
+          </div>
+
+          <div class="notes-stack">
+            {
+              tacticalNotes.map((note, index) => (
+                <div class="note-card">
+                  <span class="note-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3>{note.title}</h3>
+                    <p>{note.text}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Tier Dossiers</p>
+            <h2>Recruitment Layers</h2>
+          </div>
+          <p class="section-copy">
+            Each tier exists to answer a different campaign need, from stable troop supply to rare regional military
+            identity.
+          </p>
         </div>
-        <div class="bar-segment noble" style="flex: 15">
-          <span>Noble</span>
-          <span>~15%</span>
+
+        <div class="tier-card-grid">
+          {
+            tiers.map((tier) => (
+              <article class={`tier-card is-${tier.id}`}>
+                <div class={`tier-card-header is-${tier.id}`}>
+                  <div>
+                    <p class="tier-card-kicker">{tier.id}</p>
+                    <h3>{tier.title}</h3>
+                  </div>
+                  <span class="tier-pct">{tier.share}</span>
+                </div>
+                <p>{tier.detail}</p>
+              </article>
+            ))
+          }
         </div>
-        <div class="bar-segment regional" style="flex: 35">
-          <span>Regional</span>
-          <span>~35%</span>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Settlement Example</p>
+            <h2>Typical Recruit Composition</h2>
+          </div>
+          <p class="section-copy">
+            A normal settlement pool should lean on regular troops, keep noble access narrow, and use regional troops to
+            make the location itself feel distinct.
+          </p>
         </div>
-        <div class="bar-segment unique" style="flex: 5">
-          <span>Unique</span>
+
+        <div class="composition-card">
+          <div class="bar-chart" aria-label="Typical settlement recruit composition">
+            <div class="bar-segment is-regular" style="flex: 45">
+              <span>Regular</span>
+              <span>~45%</span>
+            </div>
+            <div class="bar-segment is-noble" style="flex: 15">
+              <span>Noble</span>
+              <span>~15%</span>
+            </div>
+            <div class="bar-segment is-regional" style="flex: 35">
+              <span>Regional</span>
+              <span>~35%</span>
+            </div>
+            <div class="bar-segment is-unique" style="flex: 5">
+              <span>Unique</span>
+            </div>
+          </div>
+
+          <div class="composition-copy">
+            <p>
+              In practice, most settlements should show roughly
+              <strong class="is-regular-text"> 40-50% Regular</strong>,
+              <strong class="is-noble-text"> 10-20% Noble</strong>, and
+              <strong class="is-regional-text"> 30-40% Regional</strong> troops, with
+              <strong class="is-unique-text"> Unique</strong> units remaining highly restricted.
+            </p>
+            <p>
+              The result is a recruitment map where controlling the right homelands matters just as much as holding a
+              lot of territory.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 900px;
+  :global(body.taom-recruitment-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 14% 12%, rgba(76, 175, 80, 0.12), transparent 24%),
+      radial-gradient(circle at 84% 18%, rgba(171, 71, 188, 0.12), transparent 24%),
+      linear-gradient(180deg, #15100f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .breadcrumb {
-    margin-bottom: 1.5rem;
+  :global(body.taom-recruitment-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.36), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .breadcrumb a {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
+  :global(.taom-recruitment-main) {
+    display: block;
   }
 
-  .breadcrumb a:hover {
-    color: var(--accent);
+  .recruitment-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
-  .page-subtitle {
-    color: var(--accent);
-    font-size: 1.2rem;
-    margin-top: -0.5rem;
-    margin-bottom: 2rem;
+  .topbar-wrap {
+    width: 100%;
+  }
+
+  .recruitment-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 54rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .tier-card-kicker,
+  .note-number {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker,
+  .tier-card-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 8vw, 6rem);
+    line-height: 0.92;
     font-weight: 600;
+    text-transform: uppercase;
   }
 
-  .intro-section {
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+  .intro-copy {
+    margin: 0;
+    max-width: 47rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.18rem;
+    line-height: 1.5;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .recruitment-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .system-panel,
+  .notes-panel,
+  .section-block,
+  .composition-card {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.95fr);
+    gap: 1rem;
+  }
+
+  .system-panel,
+  .notes-panel,
+  .section-block,
+  .composition-card {
+    padding: 1.35rem;
+  }
+
+  .panel-heading,
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .panel-heading h2,
+  .section-heading h2,
+  .tier-card h3,
+  .note-card h3 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .panel-heading h2,
+  .section-heading h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .panel-copy,
+  .section-copy,
+  .section-copy-main,
+  .tier-card p,
+  .note-card p,
+  .composition-copy p {
+    color: rgba(224, 213, 198, 0.8);
+    line-height: 1.58;
+  }
+
+  .panel-copy,
+  .section-copy {
+    margin: 0;
+    max-width: 32rem;
+    text-align: right;
+  }
+
+  .section-copy-main {
+    margin: 1rem 0 0;
     font-size: 1rem;
   }
 
-  .tier-tag {
+  .inline-tier {
     font-weight: 700;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    font-size: 0.9rem;
   }
 
-  .tier-tag.regular {
+  .is-regular,
+  .is-regular-text {
     color: #4caf50;
   }
-  .tier-tag.noble {
+
+  .is-noble,
+  .is-noble-text {
     color: #ab47bc;
   }
-  .tier-tag.regional {
+
+  .is-regional,
+  .is-regional-text {
     color: #42a5f5;
   }
-  .tier-tag.unique {
+
+  .is-unique,
+  .is-unique-text {
     color: #ffa726;
   }
 
-  .tier-cards {
+  .tier-ledger {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1rem;
   }
 
+  .tier-ledger-card,
   .tier-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
   }
 
+  .tier-ledger-card.is-regular,
+  .tier-card.is-regular {
+    border-color: rgba(76, 175, 80, 0.28);
+    background:
+      linear-gradient(180deg, rgba(12, 18, 12, 0.92), rgba(8, 9, 8, 0.92)),
+      linear-gradient(140deg, rgba(76, 175, 80, 0.12), transparent 68%);
+  }
+
+  .tier-ledger-card.is-noble,
+  .tier-card.is-noble {
+    border-color: rgba(171, 71, 188, 0.28);
+    background:
+      linear-gradient(180deg, rgba(18, 12, 20, 0.92), rgba(8, 7, 9, 0.92)),
+      linear-gradient(140deg, rgba(171, 71, 188, 0.12), transparent 68%);
+  }
+
+  .tier-ledger-card.is-regional,
+  .tier-card.is-regional {
+    border-color: rgba(66, 165, 245, 0.28);
+    background:
+      linear-gradient(180deg, rgba(11, 15, 21, 0.92), rgba(7, 8, 10, 0.92)),
+      linear-gradient(140deg, rgba(66, 165, 245, 0.12), transparent 68%);
+  }
+
+  .tier-ledger-card.is-unique,
+  .tier-card.is-unique {
+    border-color: rgba(255, 167, 38, 0.28);
+    background:
+      linear-gradient(180deg, rgba(21, 15, 10, 0.92), rgba(10, 8, 7, 0.92)),
+      linear-gradient(140deg, rgba(255, 167, 38, 0.12), transparent 68%);
+  }
+
+  .tier-ledger-topline,
   .tier-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1.25rem;
-    border-bottom: 1px solid var(--border-color);
+    gap: 0.8rem;
+    align-items: start;
   }
 
-  .tier-card-header h2 {
-    font-size: 1.1rem;
-    margin: 0;
+  .tier-ledger-name,
+  .tier-pct {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tier-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .tier-card-header {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .tier-card-kicker {
+    margin: 0 0 0.2rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+  }
+
+  .tier-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.06;
   }
 
   .tier-pct {
-    font-size: 0.85rem;
-    font-weight: 700;
-    opacity: 0.8;
+    white-space: nowrap;
   }
 
-  .tier-card-header.regular {
-    border-left: 4px solid #4caf50;
-  }
-  .tier-card-header.regular h2 {
-    color: #4caf50;
-  }
-  .tier-card-header.regular .tier-pct {
-    color: #4caf50;
+  .notes-stack {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1rem;
   }
 
-  .tier-card-header.noble {
-    border-left: 4px solid #ab47bc;
-  }
-  .tier-card-header.noble h2 {
-    color: #ab47bc;
-  }
-  .tier-card-header.noble .tier-pct {
-    color: #ab47bc;
+  .note-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.85rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .tier-card-header.regional {
-    border-left: 4px solid #42a5f5;
-  }
-  .tier-card-header.regional h2 {
-    color: #42a5f5;
-  }
-  .tier-card-header.regional .tier-pct {
-    color: #42a5f5;
+  .note-card:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 
-  .tier-card-header.unique {
-    border-left: 4px solid #ffa726;
-  }
-  .tier-card-header.unique h2 {
-    color: #ffa726;
-  }
-  .tier-card-header.unique .tier-pct {
-    color: #ffa726;
-  }
-
-  .tier-card p {
-    padding: 1rem 1.25rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0;
+  .note-number {
+    display: inline-grid;
+    place-items: center;
+    width: 2.9rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(196, 149, 71, 0.34);
+    background: rgba(255, 255, 255, 0.03);
+    color: #f4e5c3;
+    font-size: 0.84rem;
+    letter-spacing: 0.12em;
   }
 
-  .gameplay-section {
-    margin-bottom: 2.5rem;
+  .note-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
   }
 
-  .gameplay-section h2 {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .gameplay-section p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-
-  .regular-text {
-    color: #4caf50;
-  }
-  .noble-text {
-    color: #ab47bc;
-  }
-  .regional-text {
-    color: #42a5f5;
-  }
-  .unique-text {
-    color: #ffa726;
-  }
-
-  .bar-chart-section {
-    margin-bottom: 2rem;
-  }
-
-  .bar-chart-section h3 {
-    color: var(--text-primary);
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
+  .composition-card {
+    display: grid;
+    gap: 1rem;
   }
 
   .bar-chart {
     display: flex;
-    border-radius: 6px;
+    min-height: 4rem;
     overflow: hidden;
-    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .bar-segment {
@@ -296,28 +623,99 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
+    gap: 0.15rem;
     color: #fff;
-    gap: 0.1rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-align: center;
   }
 
-  .bar-segment.regular {
+  .bar-segment.is-regular {
     background: #4caf50;
   }
-  .bar-segment.noble {
+
+  .bar-segment.is-noble {
     background: #ab47bc;
   }
-  .bar-segment.regional {
+
+  .bar-segment.is-regional {
     background: #42a5f5;
   }
-  .bar-segment.unique {
+
+  .bar-segment.is-unique {
     background: #ffa726;
   }
 
-  @media (max-width: 600px) {
-    .tier-cards {
+  .composition-copy p {
+    margin: 0 0 0.7rem;
+  }
+
+  .composition-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1180px) {
+    .recruitment-summary,
+    .tier-card-grid,
+    .tier-ledger {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .recruitment-shell {
+      padding-top: 1.8rem;
+    }
+
+    .panel-heading,
+    .section-heading,
+    .tier-card-header,
+    .tier-ledger-topline {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .panel-copy,
+    .section-copy {
+      max-width: none;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .recruitment-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .recruitment-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .recruitment-summary,
+    .tier-card-grid,
+    .tier-ledger {
+      grid-template-columns: 1fr;
+    }
+
+    .note-card {
+      grid-template-columns: 1fr;
+    }
+
+    .note-number {
+      width: 2.7rem;
+    }
+
+    .bar-chart {
+      flex-direction: column;
+      min-height: auto;
+    }
+
+    .bar-segment {
+      min-height: 3.2rem;
     }
   }
 </style>

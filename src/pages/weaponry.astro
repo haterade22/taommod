@@ -1,349 +1,1039 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseWeaponry, getCultureDisplayName } from '../lib/parse-xml';
+import { parseWeaponry, getCultureDisplayName, parseKingdomsFromXslt } from '../lib/parse-xml';
 
-const allItems = parseWeaponry().filter((i) => !(i.culture === 'khuzait' && i.weaponClass === 'OneHandedSword'));
+const kingdoms = parseKingdomsFromXslt();
 
-// Group by type
-const weapons = allItems.filter((i) => i.type === 'Weapon').sort((a, b) => a.name.localeCompare(b.name));
-const rangedItems = allItems.filter((i) => i.type === 'Bow').sort((a, b) => a.name.localeCompare(b.name));
-const shields = allItems.filter((i) => i.type === 'Shield').sort((a, b) => a.name.localeCompare(b.name));
+const CATEGORY_LABELS: Record<string, string> = {
+  Weapon: 'Melee',
+  Bow: 'Ranged',
+  Shield: 'Shield',
+};
 
-// Split ranged into sub-types: bows/crossbows first, arrows/bolts last
-const RANGED_SECTIONS = [
-  { key: 'Bow', label: 'Bows' },
-  { key: 'Crossbow', label: 'Crossbows' },
-  { key: 'Arrow', label: 'Arrows' },
-  { key: 'Bolt', label: 'Bolts' },
-];
+const WEAPON_CLASS_LABELS: Record<string, string> = {
+  OneHandedSword: 'One-Handed Sword',
+  TwoHandedSword: 'Two-Handed Sword',
+  OneHandedAxe: 'One-Handed Axe',
+  TwoHandedAxe: 'Two-Handed Axe',
+  Mace: 'Mace',
+  TwoHandedMace: 'Two-Handed Mace',
+  TwoHandedPolearm: 'Polearm',
+  Pike: 'Pike',
+  Javelin: 'Javelin',
+  Bow: 'Bow',
+  Crossbow: 'Crossbow',
+  Arrow: 'Arrow',
+  Bolt: 'Bolt',
+  Shield: 'Shield',
+};
 
-const rangedByClass = RANGED_SECTIONS.map((s) => ({
-  ...s,
-  items: rangedItems.filter((w) => w.weaponClass === s.key),
-})).filter((s) => s.items.length > 0);
-
-// Split melee weapons by class
-const WEAPON_SECTIONS = [
-  { key: 'OneHandedSword', label: 'One-Handed Swords', showThrust: true, showSwing: true },
-  { key: 'TwoHandedSword', label: 'Two-Handed Swords', showThrust: true, showSwing: true },
-  { key: 'OneHandedAxe', label: 'One-Handed Axes', showThrust: false, showSwing: true },
-  { key: 'TwoHandedAxe', label: 'Two-Handed Axes', showThrust: false, showSwing: true },
-  { key: 'Mace', label: 'Maces', showThrust: false, showSwing: true },
-  { key: 'TwoHandedMace', label: 'Two-Handed Maces', showThrust: false, showSwing: true },
-  { key: 'TwoHandedPolearm', label: 'Polearms', showThrust: true, showSwing: true },
-  { key: 'Pike', label: 'Pikes', showThrust: true, showSwing: true },
-  { key: 'Javelin', label: 'Javelins', showThrust: true, showSwing: false },
-];
-
-const weaponsByClass = WEAPON_SECTIONS.map((s) => ({
-  ...s,
-  items: weapons.filter((w) => w.weaponClass === s.key),
-})).filter((s) => s.items.length > 0);
-
-// Get unique cultures for filter
-const cultures = [...new Set(allItems.map((i) => i.culture).filter(Boolean))].sort();
-
-function z(val: number): string {
-  return val === 0 ? 'col-num skill-zero' : 'col-num';
+function normalizeColor(value: string): string | null {
+  if (!value) return null;
+  const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
+  if (cleaned.length === 8) return `#${cleaned.slice(2).toUpperCase()}`;
+  if (cleaned.length === 6) return `#${cleaned.toUpperCase()}`;
+  return null;
 }
 
-function estClass(val: number): string {
-  return val === 0 ? 'col-num col-est skill-zero' : 'col-num col-est';
+function hexToRgb(hex: string): string {
+  const cleaned = hex.replace('#', '');
+  const numeric = Number.parseInt(cleaned, 16);
+  const red = (numeric >> 16) & 255;
+  const green = (numeric >> 8) & 255;
+  const blue = numeric & 255;
+  return `${red}, ${green}, ${blue}`;
 }
+
+function formatCategory(type: string): string {
+  return CATEGORY_LABELS[type] || type;
+}
+
+function formatWeaponClass(weaponClass: string): string {
+  if (WEAPON_CLASS_LABELS[weaponClass]) return WEAPON_CLASS_LABELS[weaponClass];
+  return weaponClass.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+function cellClass(value: number, extra = ''): string {
+  return ['col-num', extra, value === 0 ? 'is-empty' : ''].filter(Boolean).join(' ');
+}
+
+function formatTradeLabel(isMerchandise: boolean): string {
+  return isMerchandise ? 'Market' : 'Locked';
+}
+
+const fallbackCultureColors: Record<string, string> = {
+  mercenary: '#8F7A60',
+  troll: '#6E6A48',
+  lothlorien: '#D8C371',
+};
+
+const cultureColorMap = new Map<string, { hex: string; rgb: string }>();
+for (const kingdom of kingdoms) {
+  const hex = normalizeColor(kingdom.color);
+  if (hex && kingdom.culture) {
+    cultureColorMap.set(kingdom.culture, { hex, rgb: hexToRgb(hex) });
+  }
+}
+
+for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
+  if (!cultureColorMap.has(culture)) {
+    cultureColorMap.set(culture, { hex, rgb: hexToRgb(hex) });
+  }
+}
+
+function getCultureRowStyle(culture: string): string {
+  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
+  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
+}
+
+const allItems = parseWeaponry()
+  .filter((item) => !(item.culture === 'khuzait' && item.weaponClass === 'OneHandedSword'))
+  .sort((a, b) => {
+    const cultureCompare = getCultureDisplayName(a.culture).localeCompare(getCultureDisplayName(b.culture));
+    if (cultureCompare !== 0) return cultureCompare;
+
+    const categoryCompare = formatCategory(a.type).localeCompare(formatCategory(b.type));
+    if (categoryCompare !== 0) return categoryCompare;
+
+    const classCompare = formatWeaponClass(a.weaponClass).localeCompare(formatWeaponClass(b.weaponClass));
+    if (classCompare !== 0) return classCompare;
+
+    return a.name.localeCompare(b.name);
+  });
+
+const cultures = [...new Set(allItems.map((item) => item.culture).filter(Boolean))].sort((a, b) =>
+  getCultureDisplayName(a).localeCompare(getCultureDisplayName(b)),
+);
+
+const classOptions = [...new Set(allItems.map((item) => item.weaponClass).filter(Boolean))].sort((a, b) =>
+  formatWeaponClass(a).localeCompare(formatWeaponClass(b)),
+);
+
+const totalItems = allItems.length;
+const merchantCount = allItems.filter((item) => item.isMerchandise).length;
+const meleeCount = allItems.filter((item) => item.type === 'Weapon').length;
+const rangedCount = allItems.filter((item) => item.type === 'Bow').length;
+const shieldCount = allItems.filter((item) => item.type === 'Shield').length;
+
+const cultureCounts = new Map<string, number>();
+for (const item of allItems) {
+  cultureCounts.set(item.culture, (cultureCounts.get(item.culture) || 0) + 1);
+}
+
+const cultureTabs = [
+  { culture: 'all', label: 'All', count: totalItems },
+  ...cultures.map((culture) => ({
+    culture,
+    label: getCultureDisplayName(culture) || culture,
+    count: cultureCounts.get(culture) || 0,
+  })),
+];
+
+const headerCols = [
+  { col: 'name', label: 'Name', cls: '' },
+  { col: 'culture', label: 'Culture', cls: '' },
+  { col: 'type', label: 'Category', cls: '' },
+  { col: 'weaponClass', label: 'Class', cls: '' },
+  { col: 'swingDamage', label: 'Swing', cls: 'col-num section-start' },
+  { col: 'swingDamageType', label: 'Swing Type', cls: '' },
+  { col: 'estimatedSwingDamage', label: 'Est. Swing', cls: 'col-num est-cell' },
+  { col: 'thrustDamage', label: 'Thrust', cls: 'col-num' },
+  { col: 'thrustDamageType', label: 'Thrust Type', cls: '' },
+  { col: 'estimatedThrustDamage', label: 'Est. Thrust', cls: 'col-num est-cell' },
+  { col: 'accuracy', label: 'Accuracy', cls: 'col-num section-start' },
+  { col: 'missileSpeed', label: 'Missile Speed', cls: 'col-num' },
+  { col: 'speed', label: 'Speed', cls: 'col-num' },
+  { col: 'difficulty', label: 'Difficulty', cls: 'col-num' },
+  { col: 'weaponLength', label: 'Length', cls: 'col-num' },
+  { col: 'weight', label: 'Weight', cls: 'col-num' },
+  { col: 'bodyArmor', label: 'Armor', cls: 'col-num section-start' },
+  { col: 'hitPoints', label: 'HP', cls: 'col-num' },
+  { col: 'trade', label: 'Trade', cls: 'section-start' },
+  { col: 'id', label: 'Id', cls: '' },
+];
 ---
 
-<BaseLayout title="Weaponry" description="Complete weapons and shields database for TAOM - all cultures and stats">
-  <div class="page-content">
-    <h1 class="page-title">Weaponry</h1>
+<BaseLayout
+  title="Weaponry"
+  description="Complete weapons and shields database for TAOM - browse every culture, class, and combat stat in one archive"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-weaponry-body"
+  mainClass="taom-weaponry-main"
+>
+  <div class="weaponry-page">
+    <Topbar />
 
-    <div class="table-controls">
-      <input type="text" id="search" placeholder="Search by name or ID..." />
-      <select id="filter-culture">
-        <option value="">All Cultures</option>
-        {cultures.map((c) => <option value={c}>{getCultureDisplayName(c)}</option>)}
-      </select>
-      <span class="result-count" id="result-count">{allItems.length} items</span>
-    </div>
+    <main class="weaponry-shell">
+      <div class="weaponry-overview">
+        <section class="page-intro">
+          <p class="eyebrow">Arms of Middle-earth</p>
+          <h1>Weaponry</h1>
+          <p class="intro-copy">
+            Browse the full TAOM arsenal through one searchable ledger. Compare blades, missile weapons, and shields by
+            culture, handling, reach, and estimated damage without bouncing between separate sections.
+          </p>
+          <nav class="page-breadcrumb"><a href="/database">Database</a> / Weaponry</nav>
+        </section>
 
-    <p class="est-note">
-      <strong>Est. Damage</strong> is a simplified estimate based on TaleWorlds' physics engine (blade weight &times; damage
-      factor &times; calibrated constant). Actual in-game damage varies with swing speed, impact point, perks, and armor.
-    </p>
+        <section class="weaponry-summary" aria-label="Weapon database summary">
+          <article class="summary-card">
+            <span class="summary-label">Total Arms</span>
+            <strong>{totalItems}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Realms Covered</span>
+            <strong>{cultures.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Merchant Stock</span>
+            <strong>{merchantCount}</strong>
+          </article>
+        </section>
 
-    <!-- Melee Weapon Sections -->
-    {
-      weaponsByClass.map((section) => (
-        <div class="collapsible-section" data-collapsed="true">
-          <h2 class="section-title section-toggle">
-            <span class="collapse-arrow">&#9654;</span> {section.label}{' '}
-            <span class="section-count">({section.items.length})</span>
-          </h2>
-          <div class="data-table-wrapper" style="display:none">
-            <table class="data-table weapon-section" data-section={section.key}>
-              <thead>
-                <tr>
-                  <th data-col="name">Name</th>
-                  <th data-col="culture">Culture</th>
-                  {section.showSwing && (
-                    <th data-col="swingDamage" class="col-num">
-                      Swing Dmg
-                    </th>
-                  )}
-                  {section.showSwing && <th data-col="swingType">Swing Type</th>}
-                  {section.showSwing && (
-                    <th data-col="estSwing" class="col-num col-est">
-                      Est. Swing
-                    </th>
-                  )}
-                  {section.showThrust && (
-                    <th data-col="thrustDamage" class="col-num">
-                      Thrust Dmg
-                    </th>
-                  )}
-                  {section.showThrust && <th data-col="thrustType">Thrust Type</th>}
-                  {section.showThrust && (
-                    <th data-col="estThrust" class="col-num col-est">
-                      Est. Thrust
-                    </th>
-                  )}
-                  <th data-col="weaponLength" class="col-num">
-                    Length
-                  </th>
-                  <th data-col="weight" class="col-num">
-                    Weight
-                  </th>
-                  <th data-col="id" class="col-id-header">
-                    Id
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {section.items.map((item) => (
-                  <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
-                    <td class={`culture-${item.culture}`}>{item.name}</td>
-                    <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
-                    {section.showSwing && <td class={z(item.swingDamage)}>{item.swingDamage}</td>}
-                    {section.showSwing && <td>{item.swingDamageType}</td>}
-                    {section.showSwing && (
-                      <td class={estClass(item.estimatedSwingDamage)}>{item.estimatedSwingDamage}</td>
-                    )}
-                    {section.showThrust && <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>}
-                    {section.showThrust && <td>{item.thrustDamageType}</td>}
-                    {section.showThrust && (
-                      <td class={estClass(item.estimatedThrustDamage)}>{item.estimatedThrustDamage}</td>
-                    )}
-                    <td class={z(item.weaponLength)}>{item.weaponLength}</td>
-                    <td class={z(item.weight)}>{item.weight}</td>
-                    <td class="col-id">{item.id}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <section class="utility-panel">
+          <div class="balance-callout">
+            <p class="balance-kicker">Balance Notes</p>
+            <h2>See How the Arsenal Was Tuned</h2>
+            <p>
+              Want the design logic behind faction quality, damage curves, and culture-specific weapon identities? The
+              balancing notes break down the current approach in detail.
+            </p>
+            <a href="/mod-info/weapon-balancing">Open Weapon Balancing</a>
           </div>
-        </div>
-      ))
-    }
 
-    <!-- Ranged Sections (Bows, Crossbows, Arrows, Bolts) -->
-    {
-      rangedByClass.map((section) => (
-        <div class="collapsible-section" data-collapsed="true">
-          <h2 class="section-title section-toggle">
-            <span class="collapse-arrow">&#9654;</span> {section.label}{' '}
-            <span class="section-count">({section.items.length})</span>
-          </h2>
-          <div class="data-table-wrapper" style="display:none">
-            <table class="data-table weapon-section" data-section={section.key}>
-              <thead>
-                <tr>
-                  <th data-col="name">Name</th>
-                  <th data-col="culture">Culture</th>
-                  <th data-col="thrustDamage" class="col-num">
-                    Damage
-                  </th>
-                  <th data-col="estThrust" class="col-num col-est">
-                    Est. Damage
-                  </th>
-                  <th data-col="accuracy" class="col-num">
-                    Accuracy
-                  </th>
-                  <th data-col="missileSpeed" class="col-num">
-                    Missile Speed
-                  </th>
-                  <th data-col="speed" class="col-num">
-                    Speed
-                  </th>
-                  <th data-col="difficulty" class="col-num">
-                    Difficulty
-                  </th>
-                  <th data-col="weaponLength" class="col-num">
-                    Length
-                  </th>
-                  <th data-col="weight" class="col-num">
-                    Weight
-                  </th>
-                  <th data-col="id" class="col-id-header">
-                    Id
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {section.items.map((item) => (
-                  <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
-                    <td class={`culture-${item.culture}`}>{item.name}</td>
-                    <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
-                    <td class={z(item.thrustDamage)}>{item.thrustDamage}</td>
-                    <td class={estClass(item.estimatedThrustDamage)}>{item.estimatedThrustDamage}</td>
-                    <td class={z(item.accuracy)}>{item.accuracy}</td>
-                    <td class={z(item.missileSpeed)}>{item.missileSpeed}</td>
-                    <td class={z(item.speed)}>{item.speed}</td>
-                    <td class={z(item.difficulty)}>{item.difficulty}</td>
-                    <td class={z(item.weaponLength)}>{item.weaponLength}</td>
-                    <td class={z(item.weight)}>{item.weight}</td>
-                    <td class="col-id">{item.id}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div class="controls-card">
+            <div class="controls-heading">
+              <p class="controls-kicker">Filter the Arsenal</p>
+              <span class="result-count" id="result-count">{totalItems} items</span>
+            </div>
+
+            <div class="table-controls">
+              <label class="control-field control-search">
+                <span>Search</span>
+                <input type="text" id="search" placeholder="Search by name, ID, or class..." />
+              </label>
+
+              <label class="control-field">
+                <span>Category</span>
+                <select id="filter-category">
+                  <option value="">All Categories</option>
+                  <option value="Weapon">Melee</option>
+                  <option value="Bow">Ranged</option>
+                  <option value="Shield">Shields</option>
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Class</span>
+                <select id="filter-class">
+                  <option value="">All Classes</option>
+                  {
+                    classOptions.map((weaponClass) => (
+                      <option value={weaponClass}>{formatWeaponClass(weaponClass)}</option>
+                    ))
+                  }
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Trade</span>
+                <select id="filter-stock">
+                  <option value="">All Items</option>
+                  <option value="market">Market Stock</option>
+                  <option value="locked">Locked / Hero Only</option>
+                </select>
+              </label>
+            </div>
+
+            <p class="est-note">
+              <strong>Estimated damage</strong> follows the TaleWorlds physics pipeline used by TAOM&apos;s crafted weapons.
+              In-game damage still shifts with speed bonus, impact point, perks, and armor.
+            </p>
           </div>
-        </div>
-      ))
-    }
-
-    <!-- Shields -->
-    <div class="collapsible-section" data-collapsed="true">
-      <h2 class="section-title section-toggle">
-        <span class="collapse-arrow">&#9654;</span> Shields <span class="section-count">({shields.length})</span>
-      </h2>
-      <div class="data-table-wrapper" style="display:none">
-        <table class="data-table weapon-section" data-section="shield">
-          <thead>
-            <tr>
-              <th data-col="name">Name</th>
-              <th data-col="culture">Culture</th>
-              <th data-col="weaponClass">Class</th>
-              <th data-col="bodyArmor" class="col-num">Armor</th>
-              <th data-col="hitPoints" class="col-num">HP</th>
-              <th data-col="speed" class="col-num">Speed</th>
-              <th data-col="weaponLength" class="col-num">Length</th>
-              <th data-col="weight" class="col-num">Weight</th>
-              <th data-col="id" class="col-id-header">Id</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              shields.map((item) => (
-                <tr data-name={item.name.toLowerCase()} data-id={item.id.toLowerCase()} data-culture={item.culture}>
-                  <td class={`culture-${item.culture}`}>{item.name}</td>
-                  <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
-                  <td>{item.weaponClass}</td>
-                  <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
-                  <td class={z(item.hitPoints)}>{item.hitPoints}</td>
-                  <td class={z(item.speed)}>{item.speed}</td>
-                  <td class={z(item.weaponLength)}>{item.weaponLength}</td>
-                  <td class={z(item.weight)}>{item.weight}</td>
-                  <td class="col-id">{item.id}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        </section>
       </div>
-    </div>
+
+      <section class="sections-stack">
+        <div class="realm-browser">
+          <div class="realm-header">
+            <div class="realm-tabs-shell">
+              <div class="realm-tabs" role="tablist" aria-label="Select a weapon culture">
+                {
+                  cultureTabs.map((tab) => (
+                    <button
+                      type="button"
+                      class:list={['realm-tab', { 'is-selected': tab.culture === 'all' }]}
+                      data-culture={tab.culture}
+                      role="tab"
+                      aria-selected={tab.culture === 'all' ? 'true' : 'false'}
+                    >
+                      <span>{tab.label}</span>
+                      <small>({tab.count})</small>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="roster-panel">
+            <div class="roster-panel-head">
+              <div>
+                <p class="roster-panel-title">Armory Ledger</p>
+                <p class="roster-panel-subtitle">
+                  {meleeCount} melee, {rangedCount} ranged, and {shieldCount} shields in one sortable archive.
+                </p>
+              </div>
+              <span class="section-count" id="table-count">({totalItems})</span>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table weapon-section">
+                <thead>
+                  <tr>
+                    {
+                      headerCols.map((header) => (
+                        <th data-col={header.col} class={header.cls}>
+                          {header.label}
+                        </th>
+                      ))
+                    }
+                  </tr>
+                </thead>
+                <tbody id="weaponry-table-body">
+                  {
+                    allItems.map((item) => (
+                      <tr
+                        data-name={item.name.toLowerCase()}
+                        data-id={item.id.toLowerCase()}
+                        data-culture={item.culture}
+                        data-category={item.type}
+                        data-class={item.weaponClass}
+                        data-stock={item.isMerchandise ? 'market' : 'locked'}
+                        data-search={`${item.name} ${item.id} ${formatWeaponClass(item.weaponClass)} ${getCultureDisplayName(item.culture)}`.toLowerCase()}
+                        style={getCultureRowStyle(item.culture)}
+                      >
+                        <td class="weapon-name-cell">
+                          <span class="weapon-name">{item.name}</span>
+                        </td>
+                        <td>{getCultureDisplayName(item.culture)}</td>
+                        <td>{formatCategory(item.type)}</td>
+                        <td>{formatWeaponClass(item.weaponClass)}</td>
+                        <td class={cellClass(item.swingDamage, 'section-start')}>{item.swingDamage || ''}</td>
+                        <td>{item.swingDamageType || ''}</td>
+                        <td class={cellClass(item.estimatedSwingDamage, 'est-cell')}>
+                          {item.estimatedSwingDamage || ''}
+                        </td>
+                        <td class={cellClass(item.thrustDamage)}>{item.thrustDamage || ''}</td>
+                        <td>{item.thrustDamageType || ''}</td>
+                        <td class={cellClass(item.estimatedThrustDamage, 'est-cell')}>
+                          {item.estimatedThrustDamage || ''}
+                        </td>
+                        <td class={cellClass(item.accuracy, 'section-start')}>{item.accuracy || ''}</td>
+                        <td class={cellClass(item.missileSpeed)}>{item.missileSpeed || ''}</td>
+                        <td class={cellClass(item.speed)}>{item.speed || ''}</td>
+                        <td class={cellClass(item.difficulty)}>{item.difficulty || ''}</td>
+                        <td class={cellClass(item.weaponLength)}>{item.weaponLength || ''}</td>
+                        <td class={cellClass(item.weight)}>{item.weight || ''}</td>
+                        <td class={cellClass(item.bodyArmor, 'section-start')}>{item.bodyArmor || ''}</td>
+                        <td class={cellClass(item.hitPoints)}>{item.hitPoints || ''}</td>
+                        <td class="section-start">
+                          <span class:list={['trade-badge', { 'is-market': item.isMerchandise }]}>
+                            {formatTradeLabel(item.isMerchandise)}
+                          </span>
+                        </td>
+                        <td class="col-id">{item.id}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <p class="empty-state" id="empty-state" hidden>No weapons match the current realm and filter selection.</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
-<style>
-  .section-title {
-    color: var(--accent);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 2rem 0 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .section-title:first-of-type {
-    margin-top: 1rem;
-  }
-
-  .section-count {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .section-toggle {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .section-toggle:hover {
-    color: var(--text-primary);
-  }
-
-  .collapse-arrow {
-    display: inline-block;
-    font-size: 0.8em;
-    transition: transform 0.2s;
-  }
-
-  .est-note {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin: 0.5rem 0 1rem;
-    padding: 0.5rem 0.75rem;
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.03));
-    border-radius: 4px;
-    border-left: 3px solid var(--accent);
-  }
-
-  .col-est {
-    background: rgba(255, 193, 7, 0.06);
-  }
-
-  th.col-est {
-    color: #ffc107;
-  }
-</style>
-
 <script>
-  import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
+  import { initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
-    const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
-    const resultCount = document.getElementById('result-count')!;
-    if (!searchInput || !cultureFilter) return;
-    const allRows = collectRows('table.weapon-section');
+    const categoryFilter = document.getElementById('filter-category') as HTMLSelectElement;
+    const classFilter = document.getElementById('filter-class') as HTMLSelectElement;
+    const stockFilter = document.getElementById('filter-stock') as HTMLSelectElement;
+    const resultCount = document.getElementById('result-count') as HTMLElement;
+    const tableCount = document.getElementById('table-count') as HTMLElement;
+    const emptyState = document.getElementById('empty-state') as HTMLElement;
+    const tabButtons = Array.from(document.querySelectorAll('.realm-tab')) as HTMLButtonElement[];
+    const tableBody = document.getElementById('weaponry-table-body') as HTMLTableSectionElement;
+    const rows = Array.from(tableBody.querySelectorAll('tr')) as HTMLTableRowElement[];
+
+    if (!searchInput || !categoryFilter || !classFilter || !stockFilter || !resultCount || !tableCount || !emptyState) {
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    searchInput.value = params.get('search') || '';
+    categoryFilter.value = params.get('category') || '';
+    classFilter.value = params.get('weaponClass') || '';
+    stockFilter.value = params.get('stock') || '';
+
+    let activeCulture = params.get('culture') || 'all';
+    if (!tabButtons.some((button) => button.dataset.culture === activeCulture)) {
+      activeCulture = 'all';
+    }
+
+    function updateUrl() {
+      const nextParams = new URLSearchParams();
+      if (searchInput.value) nextParams.set('search', searchInput.value);
+      if (categoryFilter.value) nextParams.set('category', categoryFilter.value);
+      if (classFilter.value) nextParams.set('weaponClass', classFilter.value);
+      if (stockFilter.value) nextParams.set('stock', stockFilter.value);
+      if (activeCulture !== 'all') nextParams.set('culture', activeCulture);
+
+      const query = nextParams.toString();
+      const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', url);
+    }
 
     function filterRows() {
       const search = searchInput.value.toLowerCase();
-      const culture = cultureFilter.value;
-      let visible = 0;
+      const category = categoryFilter.value;
+      const weaponClass = classFilter.value;
+      const stock = stockFilter.value;
+      let visibleCount = 0;
 
-      for (const row of allRows) {
-        const name = row.dataset.name || '';
-        const id = row.dataset.id || '';
+      for (const row of rows) {
+        const searchText = row.dataset.search || '';
         const rowCulture = row.dataset.culture || '';
+        const rowCategory = row.dataset.category || '';
+        const rowClass = row.dataset.class || '';
+        const rowStock = row.dataset.stock || '';
 
-        const matchesSearch = !search || name.includes(search) || id.includes(search);
-        const matchesCulture = !culture || rowCulture === culture;
+        const matchesCulture = activeCulture === 'all' || rowCulture === activeCulture;
+        const matchesSearch = !search || searchText.includes(search);
+        const matchesCategory = !category || rowCategory === category;
+        const matchesClass = !weaponClass || rowClass === weaponClass;
+        const matchesStock = !stock || rowStock === stock;
 
-        const show = matchesSearch && matchesCulture;
+        const show = matchesCulture && matchesSearch && matchesCategory && matchesClass && matchesStock;
         row.style.display = show ? '' : 'none';
-        if (show) visible++;
+        if (show) visibleCount += 1;
       }
 
-      resultCount.textContent = `${visible} items`;
+      tabButtons.forEach((button) => {
+        const selected = button.dataset.culture === activeCulture;
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+
+      resultCount.textContent = `${visibleCount} items`;
+      tableCount.textContent = `(${visibleCount})`;
+      emptyState.hidden = visibleCount !== 0;
+      updateUrl();
     }
 
-    applyUrlParams({ culture: cultureFilter, search: searchInput });
-    searchInput.addEventListener('input', filterRows);
-    cultureFilter.addEventListener('change', filterRows);
-    filterRows();
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeCulture = button.dataset.culture || 'all';
+        filterRows();
+      });
+    });
 
-    initCollapse();
+    searchInput.addEventListener('input', filterRows);
+    categoryFilter.addEventListener('change', filterRows);
+    classFilter.addEventListener('change', filterRows);
+    stockFilter.addEventListener('change', filterRows);
+
     initSorting('table.weapon-section');
+    filterRows();
   });
 </script>
+
+<style>
+  :global(body.taom-weaponry-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(8, 7, 8, 0.68), rgba(8, 7, 8, 0.97)),
+      radial-gradient(circle at 14% 16%, rgba(114, 74, 37, 0.18), transparent 24%),
+      radial-gradient(circle at 82% 18%, rgba(68, 82, 98, 0.16), transparent 24%),
+      linear-gradient(180deg, #171210 0%, #0d0a09 46%, #070606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-weaponry-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(14, 11, 10, 0.36), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-weaponry-main) {
+    display: block;
+  }
+
+  .weaponry-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .weaponry-overview {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .weaponry-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 2.25rem 0 3.375rem;
+  }
+
+  .weaponry-overview {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 54rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .controls-kicker,
+  .balance-kicker,
+  .result-count,
+  .roster-panel-title,
+  .roster-panel-subtitle,
+  .realm-tab {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .controls-kicker,
+  .balance-kicker {
+    color: #c49245;
+    font-size: 0.88rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.8rem, 8vw, 6.1rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 46rem;
+    color: rgba(238, 228, 219, 0.92);
+    font-size: 1.25rem;
+    line-height: 1.44;
+  }
+
+  .weaponry-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .controls-card,
+  .roster-panel,
+  .realm-header {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .utility-panel {
+    display: grid;
+    grid-template-columns: minmax(18rem, 23rem) minmax(0, 1.3fr);
+    gap: 1.15rem;
+    align-items: stretch;
+  }
+
+  .balance-callout {
+    padding: 1.35rem 1.4rem;
+    border: 1px solid rgba(129, 90, 43, 0.5);
+    background:
+      linear-gradient(180deg, rgba(34, 24, 17, 0.95), rgba(12, 9, 8, 0.96)),
+      radial-gradient(circle at top right, rgba(210, 145, 50, 0.14), transparent 42%);
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .balance-callout h2 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.75rem;
+    line-height: 1.08;
+  }
+
+  .balance-callout p {
+    margin: 0;
+    color: rgba(226, 216, 205, 0.88);
+    line-height: 1.55;
+  }
+
+  .balance-callout a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba(190, 141, 57, 0.5);
+    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
+    color: #f7e7c7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
+  }
+
+  .balance-callout a:hover {
+    color: #fff4df;
+    border-color: rgba(235, 186, 83, 0.72);
+    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .controls-card {
+    padding: 1.35rem;
+    overflow: visible;
+  }
+
+  .controls-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  .result-count {
+    color: rgba(240, 227, 206, 0.92);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+  }
+
+  .table-controls {
+    display: grid;
+    grid-template-columns: minmax(18rem, 2.4fr) repeat(3, minmax(11rem, 1fr));
+    gap: 1rem;
+  }
+
+  .control-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .control-field span {
+    color: rgba(207, 182, 132, 0.8);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .control-field input,
+  .control-field select {
+    width: 100%;
+    min-width: 0;
+    min-height: 3rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(140, 111, 70, 0.44);
+    background: rgba(9, 8, 8, 0.88);
+    color: #f0e7db;
+    font-size: 0.98rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .control-field select {
+    padding-right: 2.75rem;
+  }
+
+  .control-field input::placeholder {
+    color: rgba(194, 179, 162, 0.52);
+  }
+
+  .control-field input:focus,
+  .control-field select:focus {
+    border-color: rgba(209, 154, 51, 0.72);
+    box-shadow: 0 0 0 1px rgba(209, 154, 51, 0.18);
+    background: rgba(13, 10, 10, 0.94);
+  }
+
+  .est-note {
+    margin: 1rem 0 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(204, 155, 71, 0.22);
+    border-left: 3px solid rgba(204, 155, 71, 0.7);
+    background: rgba(14, 12, 11, 0.62);
+    color: rgba(228, 216, 201, 0.82);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .est-note strong {
+    color: #f7e9cf;
+  }
+
+  .sections-stack {
+    width: min(calc(100vw - 0.2rem), 170rem);
+    margin: 0 auto;
+    padding-top: 1.6rem;
+  }
+
+  .realm-browser {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .realm-header {
+    padding: 1rem 0.5rem;
+  }
+
+  .realm-tabs-shell {
+    overflow: auto hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184, 134, 53, 0.55) rgba(15, 12, 10, 0.2);
+  }
+
+  .realm-tabs {
+    display: inline-flex;
+    min-width: 100%;
+    gap: 0.5rem;
+    padding: 0 0.4rem;
+  }
+
+  .realm-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.68rem 1rem;
+    border: 1px solid rgba(124, 93, 47, 0.38);
+    background: rgba(9, 8, 8, 0.78);
+    color: rgba(243, 236, 229, 0.84);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .realm-tab small {
+    color: rgba(205, 190, 163, 0.7);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .realm-tab:hover,
+  .realm-tab.is-selected {
+    border-color: rgba(209, 154, 51, 0.62);
+    background: linear-gradient(180deg, rgba(67, 47, 24, 0.8), rgba(16, 13, 10, 0.88)), rgba(12, 10, 9, 0.9);
+    color: #f2ddac;
+    transform: translateY(-1px);
+  }
+
+  .realm-tab.is-selected small,
+  .realm-tab:hover small {
+    color: rgba(246, 225, 172, 0.82);
+  }
+
+  .roster-panel {
+    padding: 1.1rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .roster-panel-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .roster-panel-title {
+    margin: 0;
+    color: #f4ece2;
+    font-size: 1.15rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .roster-panel-subtitle {
+    margin: 0.2rem 0 0;
+    color: rgba(203, 184, 158, 0.8);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-count {
+    color: rgba(244, 231, 205, 0.86);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .data-table-wrapper {
+    position: relative;
+    overflow: auto;
+    padding: 0.3rem;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.84), rgba(8, 7, 7, 0.94)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.05), transparent 30%);
+  }
+
+  .weapon-section {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .weapon-section th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    color: #ffffff;
+    padding: 0.9rem 0.8rem;
+    border-bottom: 1px solid rgba(164, 124, 62, 0.45);
+    white-space: nowrap;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.86rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .weapon-section td {
+    padding: 0.72rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .weapon-section tbody tr:hover td {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .weapon-section th.section-start,
+  .weapon-section td.section-start {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .weapon-section th.est-cell {
+    color: #f0cf8b;
+  }
+
+  .weapon-section td.est-cell {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(198, 157, 74, 0.12) 48%, rgba(12, 10, 9, 0.12)),
+      rgba(8, 7, 6, 0.78);
+  }
+
+  .weapon-section td.col-num,
+  .weapon-section td .weapon-name,
+  .weapon-section td .trade-badge,
+  .weapon-section td.col-id {
+    color: #ffffff !important;
+  }
+
+  .weapon-section td.is-empty {
+    color: rgba(230, 219, 204, 0.36) !important;
+  }
+
+  .weapon-name-cell {
+    min-width: 16.5rem;
+  }
+
+  .weapon-name {
+    font-weight: 600;
+  }
+
+  .trade-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .trade-badge {
+    color: rgba(227, 214, 189, 0.82);
+  }
+
+  .trade-badge.is-market {
+    border-color: rgba(201, 151, 72, 0.4);
+    background: rgba(201, 151, 72, 0.12);
+    color: #f8e6bd;
+  }
+
+  .weapon-section th[data-col='id'],
+  .col-id {
+    min-width: 14.5rem;
+    color: rgba(230, 220, 206, 0.72) !important;
+    font-size: 0.82rem;
+  }
+
+  .empty-state {
+    margin: 0;
+    padding: 1rem 0.5rem 0.2rem;
+    color: rgba(216, 199, 174, 0.78);
+    text-align: center;
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 1180px) {
+    .weaponry-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .utility-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .table-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 980px) {
+    .weaponry-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .weaponry-page {
+      padding: 1rem;
+    }
+
+    .weaponry-overview {
+      padding: 0 0.4rem;
+    }
+
+    .weaponry-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .table-controls {
+      grid-template-columns: 1fr;
+    }
+
+    .controls-heading,
+    .roster-panel-head {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .realm-tab {
+      font-size: 0.84rem;
+      padding-inline: 0.85rem;
+    }
+
+    .weapon-section th,
+    .weapon-section td {
+      padding-inline: 0.7rem;
+    }
+  }
+</style>

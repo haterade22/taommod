@@ -1,245 +1,321 @@
 ---
+import BrandWordmark from '../components/BrandWordmark.astro';
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home">
-  <section class="hero-banner">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <img src="/images/logo.png" alt="Tales From the Age of Men" class="hero-logo" />
-      <p class="subtitle">A Lord of the Rings Total Conversion Mod for Bannerlord</p>
-      <div class="hero-buttons">
-        <a href="/download" class="btn btn-primary">Download</a>
-        <a href="/troops" class="btn btn-secondary">Browse Troops</a>
-        <a href="/armoury" class="btn btn-secondary">Browse Armoury</a>
-        <a href="/weaponry" class="btn btn-secondary">Browse Weaponry</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="page-content">
-    <p class="tagline">
-      Experience Middle-earth in Mount &amp; Blade II: Bannerlord. Command the armies of Gondor, Rohan, Erebor, Mordor,
-      and more across 16 factions with hundreds of unique troops, lords, and equipment.
-    </p>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>16 Factions</h3>
-        <p>
-          From the realms of Gondor and Rohan to the dark forces of Mordor and Isengard. Each faction features unique
-          cultures, troops, and equipment.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Hundreds of Troops</h3>
-        <p>
-          Custom troop trees for every faction with unique skills, equipment, and upgrade paths. Dwarven legionaries,
-          Elven archers, Uruk-hai berserkers, and more.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Custom Lords & Heroes</h3>
-        <p>
-          380+ lords and 415+ heroes with custom skills, traits, biographies, and appearances inspired by Tolkien's
-          world.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Custom Equipment</h3>
-        <p>
-          Faction-specific armor, weapons, and mounts. Dwarven plate, Elven mail, Gondorian steel, and Orcish crude
-          iron.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Custom Map</h3>
-        <p>A sprawling Middle-earth map with 658 settlements across all regions, from the Shire to Mordor.</p>
-      </div>
-      <div class="card">
-        <h3>Active Development</h3>
-        <p>Built for Bannerlord v1.3. Regular updates with new content, balance changes, and features.</p>
-      </div>
-    </div>
-
-    <!-- Video Showcase -->
-    <section class="video-section">
-      <video autoplay loop muted playsinline class="showcase-video">
+<BaseLayout title="Home" hideNav={true} hideFooter={true} bodyClass="taom-home-body" mainClass="taom-home-main">
+  <div class="home-page">
+    <div class="home-background" aria-hidden="true">
+      <video class="home-background-video" autoplay muted loop playsinline preload="auto">
         <source src="/images/sauron.mp4" type="video/mp4" />
       </video>
-    </section>
+      <div class="home-background-overlay"></div>
+    </div>
 
-    <!-- Award Section -->
-    <section class="award-section">
-      <div class="award-content">
-        <img src="/images/moddb-award.jpg" alt="ModDB Mod of the Year 2025 - Best Upcoming" class="award-badge" />
-        <div class="award-text">
-          <h2>Best Upcoming Mod of 2025</h2>
-          <p>Voted by the ModDB community as the Best Upcoming Mod in the 2025 Mod of the Year awards.</p>
-          <a
-            href="https://www.moddb.com/mods/tales-from-the-age-of-men"
-            class="btn btn-secondary"
-            target="_blank"
-            rel="noopener">View on ModDB</a
-          >
+    <Topbar />
+
+    <section class="home-landing">
+      <div class="home-landing-glow" aria-hidden="true"></div>
+
+      <div class="home-hero" aria-label="Tales from the Age of Men landing page">
+        <BrandWordmark variant="hero" class="home-hero-wordmark" ariaLabel="Tales from the Age of Men" />
+
+        <div class="home-hero-copy">
+          <p>Total Conversion Mod</p>
+          <p>For Mount &amp; Blade II: Bannerlord</p>
         </div>
-      </div>
-    </section>
 
-    <!-- Art Gallery -->
-    <section class="art-gallery">
-      <div class="art-piece">
-        <img src="/images/rohan-icon.jpg" alt="Rohan Rider" />
-      </div>
-      <div class="art-piece">
-        <img src="/images/easterling-horsemen.jpg" alt="Easterling Horsemen" />
+        <div class="home-hero-actions">
+          <a class="home-download-button" href="/download">Download</a>
+          <a class="home-secondary-button" href="/database">Browse Database</a>
+        </div>
       </div>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .hero-banner {
-    position: relative;
-    width: 100%;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('/images/hero-bg.jpg') center center / cover no-repeat;
-    overflow: hidden;
+  :global(body.taom-home-body) {
+    min-height: 100vh;
+    background: #060505;
+    color: #ece7e0;
   }
 
-  .hero-overlay {
+  :global(.taom-home-main) {
+    display: block;
+  }
+
+  .home-page {
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  .home-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #050404;
+  }
+
+  .home-background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 58%;
+    transform: scale(1.05);
+    filter: blur(5px) brightness(0.42) saturate(0.9);
+  }
+
+  .home-background-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(25, 25, 25, 0.85) 100%);
+    background:
+      linear-gradient(180deg, rgba(8, 7, 6, 0.42), rgba(6, 5, 5, 0.74)),
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.48) 72%);
+    backdrop-filter: blur(2px);
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 3rem 1.5rem;
-  }
-
-  .hero-content .hero-logo {
-    max-width: 550px;
-    width: 90%;
-    height: auto;
-    filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.7));
-    margin-bottom: 1rem;
-  }
-
-  .hero-content .subtitle {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .tagline {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-  }
-
-  .video-section {
-    margin-top: 3rem;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-  }
-
-  .showcase-video {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .award-section {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-  }
-
-  .award-content {
-    display: flex;
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 2rem;
-    max-width: 700px;
-    margin: 0 auto;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
   }
 
-  .award-badge {
-    width: 180px;
-    height: auto;
-    flex-shrink: 0;
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    color: #d19a33;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0.9;
   }
 
-  .award-text h2 {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
   }
 
-  .award-text p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+  .main-nav a,
+  .side-link,
+  .home-hero-copy p,
+  .home-download-button,
+  .home-secondary-button {
+    font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
-  .art-gallery {
+  .main-nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1rem 1.1rem;
   }
 
-  .art-piece img {
-    max-height: 250px;
-    width: auto;
-    border-radius: 8px;
-    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
   }
 
-  @media (max-width: 768px) {
-    .hero-banner {
-      min-height: 350px;
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #f7f2ec;
+  }
+
+  .home-landing {
+    position: relative;
+    min-height: calc(100vh - 7.5rem);
+    display: grid;
+    place-items: center;
+    padding: 4rem 1rem 6rem;
+  }
+
+  .home-landing-glow {
+    position: absolute;
+    inset: auto 0 10% 0;
+    height: 18rem;
+    background: radial-gradient(circle, rgba(191, 125, 56, 0.08), transparent 70%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  .home-hero {
+    position: relative;
+    width: min(100%, 72rem);
+    display: grid;
+    justify-items: center;
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .home-hero-wordmark {
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.42)) drop-shadow(0 28px 45px rgba(0, 0, 0, 0.35));
+  }
+
+  .home-hero-copy {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .home-hero-copy p {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.95rem);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    line-height: 1.12;
+    text-transform: uppercase;
+    color: rgba(236, 231, 224, 0.94);
+    text-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.28),
+      0 8px 20px rgba(0, 0, 0, 0.26);
+  }
+
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .home-download-button,
+  .home-secondary-button {
+    display: inline-grid;
+    place-items: center;
+    min-width: 15rem;
+    padding: 1.15rem 2rem;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+    transition:
+      transform 180ms ease,
+      filter 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .home-download-button {
+    color: #ece7e0;
+    background:
+      linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96)),
+      radial-gradient(circle at top, rgba(255, 239, 193, 0.08), transparent 56%);
+    border: 1px solid rgba(234, 221, 200, 0.18);
+  }
+
+  .home-secondary-button {
+    color: #d6c9ba;
+    background: rgba(19, 15, 13, 0.72);
+    border: 1px solid rgba(128, 101, 62, 0.4);
+  }
+
+  .home-download-button:hover,
+  .home-secondary-button:hover {
+    color: #fff3de;
+    text-decoration: none;
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    border-color: rgba(234, 221, 200, 0.28);
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
     }
 
-    .hero-content .hero-logo {
-      max-width: 350px;
+    .brand {
+      justify-items: start;
+      text-align: left;
     }
 
-    .award-content {
-      flex-direction: column;
-      text-align: center;
+    .main-nav {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .home-page {
+      padding: 1rem;
     }
 
-    .award-badge {
-      width: 140px;
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
     }
 
-    .art-gallery {
-      flex-direction: column;
-      align-items: center;
+    .main-nav {
+      gap: 0.6rem 0.9rem;
     }
 
-    .art-piece img {
-      max-height: 200px;
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .home-landing {
+      min-height: auto;
+      padding: 3.5rem 0.5rem 4rem;
+    }
+
+    .home-hero-copy p {
+      letter-spacing: 0.14em;
+    }
+
+    .home-download-button,
+    .home-secondary-button {
+      width: 100%;
+      min-width: 0;
     }
   }
 </style>

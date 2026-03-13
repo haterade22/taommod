@@ -1,4 +1,5 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 interface Feature {
@@ -694,138 +695,460 @@ const categories: FeatureCategory[] = [
     ],
   },
 ];
+
+const totalFeatures = categories.reduce((sum, category) => sum + category.features.length, 0);
+const totalCategories = categories.length;
+const liveFeatures = categories.reduce(
+  (sum, category) => sum + category.features.filter((feature) => feature.status === 'live').length,
+  0,
+);
+const configurableFeatures = categories.reduce(
+  (sum, category) => sum + category.features.filter((feature) => feature.mcm && feature.mcm.length > 0).length,
+  0,
+);
+const totalMcmToggles = categories.reduce(
+  (sum, category) =>
+    sum + category.features.reduce((featureSum, feature) => featureSum + (feature.mcm ? feature.mcm.length : 0), 0),
+  0,
+);
 ---
 
-<BaseLayout title="Features" description="Gameplay systems and custom features powering TAOM">
-  <div class="page-content mod-info">
-    <nav class="breadcrumb">
-      <a href="/mod-info">&larr; Mod Info</a>
-    </nav>
+<BaseLayout
+  title="Features"
+  description="Gameplay systems and custom features powering TAOM"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-features-body"
+  mainClass="taom-features-main"
+>
+  <div class="features-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <h1 class="page-title">Features</h1>
-    <p class="page-subtitle">The gameplay systems that make every faction, battle, and campaign unique</p>
-    <p class="mcm-note">
-      <span class="mcm-toggle mcm-on">ON</span> and <span class="mcm-toggle mcm-off">OFF</span> badges show the default MCM
-      setting for each feature. All toggleable systems can be changed in-game via the Mod Configuration Menu.
-    </p>
+    <main class="features-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Systems Layer of Middle-earth</p>
+        <h1>Features</h1>
+        <p class="intro-copy">
+          This archive collects the gameplay systems that shape TAOM's campaign, battles, AI, and world simulation. Use
+          it as the technical dossier for what makes factions, warfare, and progression behave differently from vanilla
+          Bannerlord.
+        </p>
+        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Features</nav>
+      </section>
 
-    {
-      categories.map((cat) => (
-        <section class="feature-category">
-          <h2 class="category-title">{cat.category}</h2>
-          <div class="features-grid">
-            {cat.features.map((f) => (
-              <div class="feature-card">
-                <div class="feature-header">
-                  <h3>{f.title}</h3>
-                  {f.status === 'live' && <span class="status-badge live">Live</span>}
-                  {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
-                </div>
-                <p class="feature-desc">{f.desc}</p>
-                <ul class="feature-details">
-                  {f.details.map((d) => (
-                    <li>{d}</li>
-                  ))}
-                </ul>
-                {f.mcm && f.mcm.length > 0 && (
-                  <div class="mcm-toggles">
-                    <span class="mcm-label">MCM</span>
-                    {f.mcm.map((m) => (
-                      <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
-                        {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+      <section class="features-summary" aria-label="Features page summary">
+        <article class="summary-card">
+          <span class="summary-label">System Families</span>
+          <strong>{totalCategories}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Total Features</span>
+          <strong>{totalFeatures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Live Systems</span>
+          <strong>{liveFeatures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">MCM Controls</span>
+          <strong>{totalMcmToggles}</strong>
+        </article>
+      </section>
+
+      <section class="overview-grid">
+        <article class="systems-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Feature Map</p>
+              <h2>TAOM Is Built In Layers</h2>
+            </div>
+            <p class="panel-copy">
+              The mod is not one single overhaul switch. It is a stack of AI, battle, faction, economy, race, and world
+              systems that interact with each other.
+            </p>
           </div>
-        </section>
-      ))
-    }
+
+          <div class="systems-grid">
+            {
+              categories.slice(0, 6).map((category) => (
+                <article class="systems-card">
+                  <h3>{category.category}</h3>
+                  <p>{category.features.length} feature records</p>
+                </article>
+              ))
+            }
+          </div>
+        </article>
+
+        <article class="mcm-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Configuration</p>
+              <h2>MCM Defaults</h2>
+            </div>
+            <p class="panel-copy">
+              Many systems ship with configurable defaults, so the mod can support both a curated intended experience
+              and more experimental setups.
+            </p>
+          </div>
+
+          <div class="mcm-legend">
+            <div class="legend-row">
+              <span class="mcm-toggle mcm-on">ON</span>
+              <p>Enabled by default and part of the recommended baseline experience.</p>
+            </div>
+            <div class="legend-row">
+              <span class="mcm-toggle mcm-off">OFF</span>
+              <p>Available through MCM, but disabled by default for balance, preference, or stability reasons.</p>
+            </div>
+            <div class="legend-row">
+              <span class="legend-stat">{configurableFeatures}</span>
+              <p>Features expose at least one in-game configuration switch.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="category-stack">
+        {
+          categories.map((cat) => (
+            <section class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="section-kicker">Feature Family</p>
+                  <h2>{cat.category}</h2>
+                </div>
+                <p class="section-copy">{cat.features.length} systems in this category.</p>
+              </div>
+
+              <div class="features-grid">
+                {cat.features.map((f) => (
+                  <article class="feature-card">
+                    <div class="feature-header">
+                      <h3>{f.title}</h3>
+                      {f.status === 'live' && <span class="status-badge live">Live</span>}
+                      {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
+                    </div>
+
+                    <p class="feature-desc">{f.desc}</p>
+
+                    <ul class="feature-details">
+                      {f.details.map((d) => (
+                        <li>{d}</li>
+                      ))}
+                    </ul>
+
+                    {f.mcm && f.mcm.length > 0 && (
+                      <div class="mcm-toggles">
+                        <span class="mcm-label">MCM</span>
+                        {f.mcm.map((m) => (
+                          <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
+                            {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 1100px;
+  :global(body.taom-features-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 14% 12%, rgba(81, 134, 173, 0.14), transparent 24%),
+      radial-gradient(circle at 84% 18%, rgba(138, 92, 58, 0.14), transparent 24%),
+      linear-gradient(180deg, #15100f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .breadcrumb {
-    margin-bottom: 1.5rem;
+  :global(body.taom-features-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.36), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .breadcrumb a {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
+  :global(.taom-features-main) {
+    display: block;
   }
 
-  .breadcrumb a:hover {
-    color: var(--accent);
+  .features-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
-  .page-subtitle {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    margin-top: -0.5rem;
-    margin-bottom: 2.5rem;
+  .topbar-wrap {
+    width: 100%;
   }
 
-  .mcm-note {
-    color: rgba(255, 255, 255, 0.45);
+  .features-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 56rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .mcm-label,
+  .legend-stat {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 8vw, 6rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 49rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.18rem;
+    line-height: 1.5;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .features-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .systems-panel,
+  .mcm-panel,
+  .section-block {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
     font-size: 0.82rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 
-  .mcm-note .mcm-toggle {
-    display: inline;
-    vertical-align: baseline;
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
   }
 
-  .feature-category {
-    margin-bottom: 2.5rem;
+  .overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.9fr);
+    gap: 1rem;
   }
 
-  .category-title {
-    color: var(--accent);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+  .systems-panel,
+  .mcm-panel,
+  .section-block {
+    padding: 1.35rem;
+  }
+
+  .panel-heading,
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .panel-heading h2,
+  .section-heading h2,
+  .systems-card h3,
+  .feature-card h3 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .panel-heading h2,
+  .section-heading h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .panel-copy,
+  .section-copy,
+  .systems-card p,
+  .legend-row p,
+  .feature-desc,
+  .feature-details li {
+    color: rgba(224, 213, 198, 0.8);
+    line-height: 1.58;
+  }
+
+  .panel-copy,
+  .section-copy {
+    margin: 0;
+    max-width: 32rem;
+    text-align: right;
+  }
+
+  .systems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .systems-card {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .systems-card h3 {
+    font-size: 1.05rem;
+    line-height: 1.12;
+  }
+
+  .systems-card p {
+    margin: 0;
+    font-size: 0.88rem;
+  }
+
+  .mcm-legend {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .legend-row {
+    display: grid;
+    gap: 0.4rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .legend-row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .legend-row p {
+    margin: 0;
+  }
+
+  .legend-stat {
+    color: #f4e5c3;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .category-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .section-block {
+    display: grid;
+    gap: 1rem;
   }
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
 
   .feature-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.25rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
   }
 
   .feature-header {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
+    flex-wrap: wrap;
   }
 
-  .feature-header h3 {
-    color: var(--text-primary);
-    font-size: 1.05rem;
-    margin: 0;
+  .feature-card h3 {
+    font-size: 1.16rem;
+    line-height: 1.12;
   }
 
   .status-badge {
-    font-size: 0.6rem;
+    font-size: 0.64rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 0.15rem 0.5rem;
+    padding: 0.16rem 0.52rem;
     border-radius: 3px;
     letter-spacing: 0.5px;
     white-space: nowrap;
@@ -842,10 +1165,8 @@ const categories: FeatureCategory[] = [
   }
 
   .feature-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.8rem;
+    font-size: 0.92rem;
   }
 
   .feature-details {
@@ -855,16 +1176,14 @@ const categories: FeatureCategory[] = [
   }
 
   .feature-details li {
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.84rem;
     padding: 0.2rem 0 0.2rem 1.2rem;
     position: relative;
   }
 
   .feature-details li::before {
     content: '\2022';
-    color: var(--accent-dim);
+    color: rgba(210, 169, 95, 0.9);
     position: absolute;
     left: 0.2rem;
   }
@@ -874,26 +1193,28 @@ const categories: FeatureCategory[] = [
     align-items: center;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-top: 0.75rem;
-    padding-top: 0.6rem;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .mcm-label {
-    font-size: 0.6rem;
-    font-weight: 700;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.35);
-    margin-right: 0.2rem;
+    color: rgba(255, 255, 255, 0.42);
+    margin-right: 0.25rem;
   }
 
   .mcm-toggle {
-    font-size: 0.7rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
     padding: 0.1rem 0.45rem;
     border-radius: 3px;
     white-space: nowrap;
+    font-size: 0.72rem;
+    font-weight: 600;
   }
 
   .mcm-on {
@@ -906,8 +1227,46 @@ const categories: FeatureCategory[] = [
     color: #ffb74d;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 1180px) {
+    .features-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-grid,
+    .systems-grid,
     .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .features-shell {
+      padding-top: 1.8rem;
+    }
+
+    .panel-heading,
+    .section-heading {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .panel-copy,
+    .section-copy {
+      max-width: none;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .features-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .features-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .features-summary {
       grid-template-columns: 1fr;
     }
   }

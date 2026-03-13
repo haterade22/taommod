@@ -1,0 +1,625 @@
+---
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+type GalleryItem = {
+  alt: string;
+  filename: string;
+  height: number;
+  href: string;
+  kind: 'image' | 'video';
+  mimeType: string;
+  modifiedAt: number;
+  orientation: 'landscape' | 'portrait' | 'square';
+  title: string;
+  width: number;
+};
+
+const imageExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif']);
+const videoExtensions = new Set(['.mp4', '.m4v', '.mov', '.webm']);
+const projectRoot = fileURLToPath(new URL('../../', import.meta.url));
+const galleryDirectory = path.join(projectRoot, 'public', 'images', 'gallery');
+const VIDEO_DIMENSION_FALLBACK = { width: 16, height: 9 };
+
+function titleFromFilename(filename: string) {
+  return filename.replace(/\.[^.]+$/, '');
+}
+
+function encodePathSegment(value: string) {
+  return encodeURIComponent(value).replace(/[!'()*]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`);
+}
+
+function assetHref(filename: string) {
+  return `/images/gallery/${encodePathSegment(filename)}`;
+}
+
+function safeAssetHref(filename: string) {
+  const extension = path.extname(filename).toLowerCase();
+  const baseName = path.basename(filename, extension);
+  const safeName = `${Buffer.from(baseName, 'utf8').toString('hex')}${extension}`;
+  return `/images/gallery/_safe/${encodePathSegment(safeName)}`;
+}
+
+function parsePngDimensions(buffer: Buffer) {
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20),
+  };
+}
+
+function parseGifDimensions(buffer: Buffer) {
+  return {
+    width: buffer.readUInt16LE(6),
+    height: buffer.readUInt16LE(8),
+  };
+}
+
+function parseJpegDimensions(buffer: Buffer) {
+  let offset = 2;
+
+  while (offset < buffer.length) {
+    if (buffer[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+
+    const marker = buffer[offset + 1];
+    const length = buffer.readUInt16BE(offset + 2);
+
+    if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
+      return {
+        width: buffer.readUInt16BE(offset + 7),
+        height: buffer.readUInt16BE(offset + 5),
+      };
+    }
+
+    if (length < 2) {
+      break;
+    }
+
+    offset += 2 + length;
+  }
+
+  throw new Error('Unsupported JPEG image.');
+}
+
+function parseWebpDimensions(buffer: Buffer) {
+  const chunkType = buffer.toString('ascii', 12, 16);
+
+  if (chunkType === 'VP8X') {
+    return {
+      width: 1 + buffer.readUIntLE(24, 3),
+      height: 1 + buffer.readUIntLE(27, 3),
+    };
+  }
+
+  if (chunkType === 'VP8 ') {
+    return {
+      width: buffer.readUInt16LE(26) & 0x3fff,
+      height: buffer.readUInt16LE(28) & 0x3fff,
+    };
+  }
+
+  if (chunkType === 'VP8L') {
+    const packed = buffer.readUInt32LE(21);
+    return {
+      width: (packed & 0x3fff) + 1,
+      height: ((packed >> 14) & 0x3fff) + 1,
+    };
+  }
+
+  throw new Error('Unsupported WebP image.');
+}
+
+function readImageDimensions(filePath: string) {
+  const buffer = readFileSync(filePath);
+  const extension = path.extname(filePath).toLowerCase();
+
+  if (extension === '.png') return parsePngDimensions(buffer);
+  if (extension === '.gif') return parseGifDimensions(buffer);
+  if (extension === '.jpg' || extension === '.jpeg') return parseJpegDimensions(buffer);
+  if (extension === '.webp') return parseWebpDimensions(buffer);
+
+  throw new Error(`Unsupported image type: ${extension}`);
+}
+
+function findAtom(buffer: Buffer, target: string, start = 0, end = buffer.length): Buffer | null {
+  let offset = start;
+
+  while (offset + 8 <= end) {
+    const size = buffer.readUInt32BE(offset);
+    const type = buffer.toString('ascii', offset + 4, offset + 8);
+
+    if (size < 8) break;
+
+    if (type === target) {
+      return buffer.subarray(offset, offset + size);
+    }
+
+    const containerEnd = offset + size;
+    if (['moov', 'trak', 'mdia', 'minf', 'stbl', 'edts'].includes(type)) {
+      const nested = findAtom(buffer, target, offset + 8, containerEnd);
+      if (nested) return nested;
+    }
+
+    offset = containerEnd;
+  }
+
+  return null;
+}
+
+function readMp4Dimensions(filePath: string) {
+  const buffer = readFileSync(filePath);
+  const tkhd = findAtom(buffer, 'tkhd');
+
+  if (!tkhd) return VIDEO_DIMENSION_FALLBACK;
+
+  const version = tkhd.readUInt8(8);
+  const widthOffset = version === 1 ? 96 : 84;
+  const heightOffset = version === 1 ? 100 : 88;
+
+  if (tkhd.length < heightOffset + 4) return VIDEO_DIMENSION_FALLBACK;
+
+  return {
+    width: Math.max(1, tkhd.readUInt32BE(widthOffset) >> 16),
+    height: Math.max(1, tkhd.readUInt32BE(heightOffset) >> 16),
+  };
+}
+
+function readVideoDimensions(filePath: string) {
+  const extension = path.extname(filePath).toLowerCase();
+
+  if (extension === '.mp4' || extension === '.m4v' || extension === '.mov') {
+    return readMp4Dimensions(filePath);
+  }
+
+  return VIDEO_DIMENSION_FALLBACK;
+}
+
+function mimeTypeForExtension(extension: string) {
+  const mimeTypes: Record<string, string> = {
+    '.gif': 'image/gif',
+    '.jpeg': 'image/jpeg',
+    '.jpg': 'image/jpeg',
+    '.m4v': 'video/mp4',
+    '.mov': 'video/quicktime',
+    '.mp4': 'video/mp4',
+    '.png': 'image/png',
+    '.webm': 'video/webm',
+    '.webp': 'image/webp',
+  };
+
+  return mimeTypes[extension] || 'application/octet-stream';
+}
+
+const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileTypes: true })
+  .filter((entry) => {
+    const extension = path.extname(entry.name).toLowerCase();
+    return entry.isFile() && (imageExtensions.has(extension) || videoExtensions.has(extension));
+  })
+  .map((entry) => {
+    const filename = entry.name;
+    const filePath = path.join(galleryDirectory, filename);
+    const extension = path.extname(filename).toLowerCase();
+    const kind = imageExtensions.has(extension) ? 'image' : 'video';
+    const { width, height } = kind === 'image' ? readImageDimensions(filePath) : readVideoDimensions(filePath);
+    const modifiedAt = statSync(filePath).mtimeMs;
+    const orientation = width === height ? 'square' : width > height ? 'landscape' : 'portrait';
+    const title = titleFromFilename(filename);
+    const href = safeAssetHref(filename);
+
+    return {
+      alt: `${title} gallery ${kind}`,
+      filename,
+      height,
+      href,
+      kind,
+      mimeType: mimeTypeForExtension(extension),
+      modifiedAt,
+      orientation,
+      title,
+      width,
+    };
+  })
+  .sort((left, right) => right.modifiedAt - left.modifiedAt || left.title.localeCompare(right.title));
+---
+
+<BaseLayout
+  title="Gallery"
+  description="Browse TAOM screenshots and artwork from the gallery."
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-gallery-body"
+  mainClass="taom-gallery-main"
+>
+  <div class="gallery-page">
+    <Topbar />
+
+    <main class="page-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Scenes From Middle-earth</p>
+        <h1>Gallery</h1>
+        <p class="intro-copy">
+          A visual showcase pulled straight from the site gallery folder. Each frame keeps the original image
+          proportions so sweeping landscapes and taller character shots both feel at home.
+        </p>
+      </section>
+
+      <section class="gallery-grid" aria-label="TAOM gallery">
+        {
+          galleryItems.map((item) => (
+            <article class:list={['gallery-card', `gallery-card-${item.orientation}`, `gallery-card-${item.kind}`]}>
+              <figure>
+                <div class="gallery-media">
+                  {item.kind === 'image' ? (
+                    <a href={item.href} target="_blank" rel="noopener" class="gallery-media-link">
+                      <img src={item.href} alt={item.alt} loading="lazy" width={item.width} height={item.height} />
+                    </a>
+                  ) : (
+                    <video
+                      controls
+                      preload="metadata"
+                      playsinline
+                      class="gallery-video"
+                      width={item.width}
+                      height={item.height}
+                    >
+                      <source src={item.href} type={item.mimeType} />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                </div>
+                <figcaption>
+                  <span class="gallery-title">{item.title}</span>
+                  <span class="gallery-meta">
+                    {item.width} x {item.height}
+                  </span>
+                </figcaption>
+              </figure>
+            </article>
+          ))
+        }
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-gallery-body) {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top right, rgba(80, 28, 16, 0.18), transparent 28%),
+      radial-gradient(circle at left center, rgba(69, 30, 19, 0.2), transparent 34%),
+      linear-gradient(180deg, #120a09 0%, #0b0908 40%, #0a0707 100%);
+    color: #e9e2db;
+  }
+
+  :global(body.taom-gallery-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-gallery-main) {
+    display: block;
+  }
+
+  .gallery-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .page-intro h1,
+  .gallery-meta {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #e9e2db;
+  }
+
+  .page-shell {
+    width: min(100%, 82.5rem);
+    margin: 0 auto;
+    padding: 2.25rem 0.625rem 4rem;
+  }
+
+  .page-intro {
+    max-width: 47.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: #b98a35;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #f7f2ec;
+  }
+
+  .intro-copy {
+    margin: 1.125rem 0 0;
+    max-width: 44ch;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    color: rgba(233, 226, 219, 0.76);
+  }
+
+  .gallery-grid {
+    column-width: 30rem;
+    column-gap: 1.25rem;
+  }
+
+  .gallery-card {
+    display: block;
+    break-inside: avoid;
+    margin: 0 0 1.25rem;
+    color: inherit;
+    --media-max-height: 20rem;
+    transition:
+      transform 180ms ease,
+      filter 180ms ease;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+    filter: brightness(1.03);
+  }
+
+  .gallery-card-square {
+    --media-max-height: 20rem;
+  }
+
+  .gallery-card-portrait {
+    --media-max-height: 28rem;
+  }
+
+  .gallery-card figure {
+    margin: 0;
+    display: grid;
+    row-gap: 0.85rem;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.9), rgba(10, 8, 8, 0.94)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .gallery-media {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 12rem;
+    padding: 0.85rem 0.85rem 0;
+    background:
+      radial-gradient(circle at top, rgba(214, 176, 106, 0.06), transparent 58%),
+      linear-gradient(180deg, rgba(31, 25, 23, 0.94), rgba(14, 11, 10, 0.98));
+  }
+
+  .gallery-media-link {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .gallery-card img,
+  .gallery-video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: var(--media-max-height);
+    object-fit: contain;
+    background: rgba(12, 8, 8, 0.75);
+  }
+
+  .gallery-video {
+    aspect-ratio: auto;
+  }
+
+  .gallery-card figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0.85rem 0.85rem;
+    color: rgba(233, 226, 219, 0.86);
+  }
+
+  .gallery-title {
+    font-size: 1.05rem;
+  }
+
+  .gallery-meta {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+
+    .gallery-grid {
+      column-width: 22rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-page {
+      padding: 1rem;
+    }
+
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brand-large {
+      font-size: 1.6rem;
+    }
+
+    .main-nav {
+      gap: 0.6rem 0.9rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.05rem;
+    }
+
+    .gallery-grid {
+      columns: 1;
+    }
+
+    .gallery-card figcaption {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .gallery-media {
+      max-height: 14rem;
+      min-height: 9rem;
+    }
+
+    .gallery-card img,
+    .gallery-video {
+      max-height: 14rem;
+    }
+  }
+</style>

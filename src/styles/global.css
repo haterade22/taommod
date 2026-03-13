@@ -78,6 +78,52 @@ a:hover {
   margin-right: 2rem;
 }
 
+.site-nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid rgba(201, 164, 74, 0.45);
+  background: rgba(24, 24, 24, 0.95);
+  color: #f2e7ca;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+
+.site-nav-toggle:hover {
+  border-color: rgba(232, 197, 90, 0.72);
+  color: #e8c55a;
+}
+
+.site-nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  transition:
+    transform 0.18s,
+    opacity 0.18s;
+}
+
+.site-nav.is-menu-open .site-nav-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-nav.is-menu-open .site-nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-nav.is-menu-open .site-nav-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .site-nav .nav-logo {
   height: 32px;
   width: auto;
@@ -95,6 +141,10 @@ a:hover {
   display: flex;
   gap: 0.25rem;
   list-style: none;
+}
+
+.site-nav .site-nav-menu[hidden] {
+  display: none !important;
 }
 
 .site-nav .nav-links a {
@@ -162,6 +212,71 @@ a:hover {
 .site-nav .nav-links .dropdown a:hover,
 .site-nav .nav-links .dropdown a.active {
   background: var(--bg-tertiary);
+}
+
+@media (max-width: 1100px) {
+  .site-nav {
+    height: auto;
+    min-height: 56px;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav .logo {
+    margin-right: 0;
+  }
+
+  .site-nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav .site-nav-menu {
+    width: 100%;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.75rem;
+  }
+
+  .site-nav .nav-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .site-nav .nav-links li {
+    width: 100%;
+  }
+
+  .site-nav .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .site-nav .nav-links li.has-dropdown:hover .dropdown {
+    display: none;
+  }
+
+  .site-nav .nav-links .dropdown {
+    display: block;
+    position: static;
+    min-width: 0;
+    margin-top: 0.2rem;
+    border: none;
+    border-left: 1px solid rgba(201, 164, 74, 0.24);
+    border-radius: 0;
+    padding: 0 0 0 0.7rem;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .site-nav .nav-links .dropdown a {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.82rem;
+    color: #d7c49a;
+  }
 }
 
 /* Page content */

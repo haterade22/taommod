@@ -1,0 +1,140 @@
+---
+interface Props {
+  variant?: 'nav' | 'hero';
+  href?: string;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  variant = 'nav',
+  href,
+  class: className,
+  ariaLabel = href ? 'Tales from the Age of Men home' : undefined,
+} = Astro.props;
+---
+
+{
+  href ? (
+    <a class:list={['taom-wordmark', `is-${variant}`, className]} href={href} aria-label={ariaLabel}>
+      <span class="wordmark-top">Tales From The</span>
+      <span class="wordmark-bottom">
+        <span class="wordmark-age">Age</span>
+        <span class="wordmark-of">of</span>
+        <span class="wordmark-men">Men</span>
+      </span>
+    </a>
+  ) : (
+    <div class:list={['taom-wordmark', `is-${variant}`, className]} aria-label={ariaLabel}>
+      <span class="wordmark-top">Tales From The</span>
+      <span class="wordmark-bottom">
+        <span class="wordmark-age">Age</span>
+        <span class="wordmark-of">of</span>
+        <span class="wordmark-men">Men</span>
+      </span>
+    </div>
+  )
+}
+
+<style>
+  .taom-wordmark {
+    display: inline-grid;
+    gap: 0.02em;
+    justify-items: center;
+    color: #d19a33;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-weight: 600;
+    line-height: 0.84;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow:
+      0 1px 0 rgba(255, 231, 178, 0.18),
+      0 2px 6px rgba(0, 0, 0, 0.52),
+      0 0 18px rgba(209, 154, 51, 0.12);
+  }
+
+  .taom-wordmark:hover {
+    color: #f1dfb3;
+    text-decoration: none;
+  }
+
+  .wordmark-top {
+    letter-spacing: 0.08em;
+  }
+
+  .wordmark-bottom {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.08em;
+    letter-spacing: 0.03em;
+  }
+
+  .wordmark-of {
+    position: relative;
+    top: 0.33em;
+    font-size: 0.44em;
+    letter-spacing: 0.04em;
+  }
+
+  .is-nav {
+    min-width: 14rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .is-nav .wordmark-top {
+    font-size: 0.88rem;
+  }
+
+  .is-nav .wordmark-bottom {
+    font-size: 2.05rem;
+  }
+
+  .is-hero {
+    width: min(100%, 62rem);
+  }
+
+  .is-hero .wordmark-top {
+    font-size: clamp(1.5rem, 2.8vw, 2.85rem);
+  }
+
+  .is-hero .wordmark-bottom {
+    font-size: clamp(4rem, 9vw, 8.4rem);
+  }
+
+  @media (max-width: 1100px) {
+    .is-nav {
+      min-width: 12rem;
+    }
+
+    .is-nav .wordmark-top {
+      font-size: 0.78rem;
+    }
+
+    .is-nav .wordmark-bottom {
+      font-size: 1.72rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .is-nav {
+      min-width: 0;
+    }
+
+    .is-nav .wordmark-top {
+      font-size: 0.64rem;
+    }
+
+    .is-nav .wordmark-bottom {
+      font-size: 1.34rem;
+    }
+
+    .is-hero .wordmark-top {
+      font-size: clamp(1.05rem, 4.8vw, 1.4rem);
+    }
+
+    .is-hero .wordmark-bottom {
+      font-size: clamp(2.7rem, 14vw, 4.2rem);
+    }
+  }
+</style>
