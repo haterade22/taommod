@@ -3,12 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "predev": "node scripts/sync-gallery-assets.mjs",
-    "prebuild": "node scripts/sync-gallery-assets.mjs",
+    "predev": "node scripts/sync-gallery-assets.mjs && node scripts/sync-patreon-posts.mjs",
+    "prebuild": "node scripts/sync-gallery-assets.mjs && node scripts/sync-patreon-posts.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "sync:patreon": "node scripts/sync-patreon-posts.mjs",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.{ts,astro,css,mjs}\"",
     "format:check": "prettier --check \"src/**/*.{ts,astro,css,mjs}\"",
@@ -33,8 +34,15 @@
     "vitest": "^4.0.18"
   },
   "lint-staged": {
-    "*.{ts,mjs}": ["prettier --write", "eslint --fix"],
-    "*.astro": ["prettier --write --plugin prettier-plugin-astro"],
-    "*.css": ["prettier --write"]
+    "*.{ts,mjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.astro": [
+      "prettier --write --plugin prettier-plugin-astro"
+    ],
+    "*.css": [
+      "prettier --write"
+    ]
   }
 }

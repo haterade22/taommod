@@ -1,0 +1,307 @@
+---
+import Topbar from '../../components/Topbar.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import newsFeed from '../../data/patreon-posts.json';
+
+const posts = [...newsFeed.posts].sort((left, right) => {
+  const leftTime = left.publishedAt ? Date.parse(left.publishedAt) : 0;
+  const rightTime = right.publishedAt ? Date.parse(right.publishedAt) : 0;
+  return rightTime - leftTime;
+});
+
+const formatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const latestPost = posts[0] ?? null;
+---
+
+<BaseLayout
+  title="News"
+  description="Latest TAOM development posts mirrored from Patreon."
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-news-body"
+  mainClass="taom-news-main"
+>
+  <div class="news-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
+
+    <main class="news-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Campaign Dispatches</p>
+        <h1>News</h1>
+        <p class="intro-copy">
+          TAOM development posts are mirrored here from Patreon so patch notes, progress reports, and feature rundowns
+          live on the website too.
+        </p>
+      </section>
+
+      <section class="news-summary">
+        <article class="summary-card">
+          <span class="summary-label">Public Posts</span>
+          <strong>{posts.length}</strong>
+          <span class="summary-note">Mirrored from Patreon</span>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Last Sync</span>
+          <strong>{newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedAt)) : 'Pending'}</strong>
+          <span class="summary-note">Build-time Patreon sync</span>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Latest Dispatch</span>
+          <strong>{latestPost?.publishedAt ? formatter.format(new Date(latestPost.publishedAt)) : 'No Posts'}</strong>
+          <span class="summary-note">{latestPost ? latestPost.title : 'Waiting for first sync'}</span>
+        </article>
+      </section>
+
+      {
+        posts.length > 0 ? (
+          <section class="news-grid">
+            {posts.map((post, index) => (
+              <article class:list={['news-card', { 'is-featured': index === 0 }]}>
+                <p class="card-kicker">
+                  {post.publishedAt ? formatter.format(new Date(post.publishedAt)) : 'Unpublished'}
+                </p>
+                <h2>
+                  <a href={`/news/${post.slug}`}>{post.title}</a>
+                </h2>
+                {post.excerpt && <p class="card-excerpt">{post.excerpt}</p>}
+                <div class="card-actions">
+                  <a class="primary-link" href={`/news/${post.slug}`}>
+                    Read Article
+                  </a>
+                  {post.patreonUrl && (
+                    <a class="secondary-link" href={post.patreonUrl} target="_blank" rel="noreferrer">
+                      View on Patreon
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </section>
+        ) : (
+          <section class="empty-state">
+            <p class="card-kicker">Awaiting Sync</p>
+            <h2>No Patreon posts have been mirrored yet.</h2>
+            <p>
+              Once the Patreon sync runs successfully, public posts will appear here automatically and each one will get
+              its own article page on the site.
+            </p>
+          </section>
+        )
+      }
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-news-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 18% 14%, rgba(151, 94, 46, 0.16), transparent 24%),
+      radial-gradient(circle at 84% 20%, rgba(82, 104, 128, 0.15), transparent 24%),
+      linear-gradient(180deg, #17110f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-news-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.34), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-news-main) {
+    display: block;
+  }
+
+  .news-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar-wrap {
+    width: 100%;
+  }
+
+  .news-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 54rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .summary-note,
+  .card-kicker {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1,
+  .news-card h2,
+  .empty-state h2 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(3.5rem, 8vw, 5.8rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .intro-copy,
+  .card-excerpt,
+  .empty-state p {
+    margin: 0;
+    color: rgba(238, 228, 219, 0.88);
+    line-height: 1.6;
+  }
+
+  .news-card h2 a:hover,
+  .primary-link:hover,
+  .secondary-link:hover {
+    text-decoration: underline;
+  }
+
+  .news-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .news-card,
+  .empty-state {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .summary-note {
+    color: rgba(214, 199, 176, 0.7);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .news-card {
+    padding: 1.35rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .news-card.is-featured {
+    grid-column: 1 / -1;
+  }
+
+  .news-card h2 {
+    font-size: 2rem;
+    line-height: 1.05;
+  }
+
+  .news-card h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .primary-link,
+  .secondary-link {
+    color: #f3e3bf;
+    text-decoration: none;
+  }
+
+  .secondary-link {
+    color: rgba(243, 227, 191, 0.72);
+  }
+
+  .empty-state {
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 920px) {
+    .news-summary,
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .news-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .news-shell {
+      padding-inline: 0.4rem;
+    }
+  }
+</style>
