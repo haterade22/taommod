@@ -1,60 +1,71 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Topbar from '../../components/Topbar.astro';
 import TroopTree from '../../components/TroopTree.astro';
-import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../../lib/parse-xml';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  parseAllClans,
+  parseAllLords,
+  parseHeroClanMap,
+  parseKingdomsFromXslt,
+  parseTroops,
+  getCultureDisplayName,
+} from '../../lib/parse-xml';
+import type { Clan, Kingdom, Lord } from '../../lib/parse-xml';
 import { FACTION_TROOPS } from '../../data/faction-troops';
 
-export const PLANNED_FACTIONS: Record<string, string> = {
-  lothlorien: 'Lothlorien',
-  battania: 'Khand',
-  sturgia: 'Dale',
+type RouteConfig = {
+  routeId: string;
+  kingdomId: string;
+  troopCulture: string;
 };
 
-export function getStaticPaths() {
-  const troops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
-  const cultures = [...new Set(troops.map((t) => t.culture).filter(Boolean))];
-  const paths = cultures.map((culture) => ({
-    params: { id: culture },
-    props: { culture },
-  }));
-  // Add planned faction pages
-  for (const id of Object.keys(PLANNED_FACTIONS)) {
-    if (!cultures.includes(id)) {
-      paths.push({ params: { id }, props: { culture: id } });
-    }
-  }
-  return paths;
-}
+type ClanWithLords = Clan & {
+  displayName: string;
+  cultureName: string;
+  leader: Lord | null;
+  lords: (Lord & { isLeader: boolean })[];
+};
 
-const { culture } = Astro.props;
-const isPlanned = culture in PLANNED_FACTIONS;
-const displayName = isPlanned ? PLANNED_FACTIONS[culture] : getCultureDisplayName(culture);
+const LEGACY_ROUTE_ALIASES: Record<string, { kingdomId: string; troopCulture: string }> = {
+  gondor: { kingdomId: 'empire_w', troopCulture: 'gondor' },
+  mordor: { kingdomId: 'empire_s', troopCulture: 'mordor' },
+};
 
-const allTroops = parseTroops().filter((t) => t.culture === culture);
-const troopsByGroup = new Map<string, typeof allTroops>();
-for (const t of allTroops) {
-  const group = t.defaultGroup || 'Other';
-  if (!troopsByGroup.has(group)) troopsByGroup.set(group, []);
-  troopsByGroup.get(group)!.push(t);
-}
-// Sort troops within each group by level
-for (const troops of troopsByGroup.values()) {
-  troops.sort((a, b) => a.level - b.level);
-}
+const KINGDOM_TROOP_CULTURES: Record<string, string> = {
+  empire_w: 'gondor',
+  empire_s: 'mordor',
+};
 
-const GROUP_ORDER = ['Infantry', 'Cavalry', 'Ranged', 'HorseArcher', 'General'];
-const sortedGroups = Array.from(troopsByGroup.entries()).sort((a, b) => {
-  const ai = GROUP_ORDER.indexOf(a[0]);
-  const bi = GROUP_ORDER.indexOf(b[0]);
-  return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-});
+const CULTURE_NAME_OVERRIDES: Record<string, string> = {
+  empire_w: 'Gondor',
+  empire_s: 'Mordor',
+  empire: 'Dunland',
+  sturgia: 'Dale',
+  aserai: 'Harad',
+  vlandia: 'Rohan',
+  battania: 'Khand',
+  khuzait: 'Rhun',
+};
 
-const totalTroops = allTroops.length;
-const minLevel = Math.min(...allTroops.map((t) => t.level));
-const maxLevel = Math.max(...allTroops.map((t) => t.level));
+const CREST_IMAGES: Record<string, string> = {
+  empire_w: '/images/factions/gondor.png',
+  empire_s: '/images/factions/mordor.png',
+  erebor: '/images/factions/erebor.png',
+  rivendell: '/images/factions/imladris.png',
+  mirkwood: '/images/factions/mirkwood.png',
+  lothlorien: '/images/factions/lothlorien.png',
+  dolguldur: '/images/factions/dolguldur.png',
+  umbar: '/images/factions/umbar.png',
+  aserai: '/images/factions/harad.png',
+  battania: '/images/factions/khand.png',
+  khuzait: '/images/factions/rhun.png',
+  isengard: '/images/factions/isengard.png',
+  gundabad: '/images/factions/gundabad.png',
+  vlandia: '/images/factions/rohan.png',
+  sturgia: '/images/factions/dale.png',
+};
 
-// Faction images
-const FACTION_IMAGES: Record<string, string> = {
+const HERO_IMAGES: Record<string, string> = {
   mordor: '/images/faction-mordor.jpg',
   dolguldur: '/images/faction-dolguldur.webp',
   erebor: '/images/faction-erebor.jpg',
@@ -66,365 +77,1774 @@ const FACTION_IMAGES: Record<string, string> = {
   mirkwood: '/images/faction-mirkwood.png',
   aserai: '/images/faction-harad.png',
   vlandia: '/images/faction-rohan.png',
+  gondor: '/images/gondor_web_ready.jpg',
 };
 
-const bgImage = FACTION_IMAGES[culture];
-const troopBranches = FACTION_TROOPS[culture] || [];
+const GROUP_ORDER = ['Infantry', 'Cavalry', 'Ranged', 'HorseArcher', 'General'];
+const GROUP_LABELS: Record<string, string> = {
+  Infantry: 'Infantry',
+  Cavalry: 'Cavalry',
+  Ranged: 'Ranged',
+  HorseArcher: 'Horse Archers',
+  General: 'Companions',
+};
+
+const TYPE_LABELS: Record<string, string> = {
+  regular: 'Regular',
+  noble: 'Noble',
+  regional: 'Regional',
+  unique: 'Unique',
+};
 
 const TYPE_COLORS: Record<string, string> = {
-  regular: '#4CAF50',
-  noble: '#AB47BC',
-  regional: '#42A5F5',
-  unique: '#FFA726',
+  regular: '#8ca764',
+  noble: '#c8a86a',
+  regional: '#6a95c8',
+  unique: '#cb744b',
 };
+
+function normalizeColor(value: string): string | null {
+  if (!value) return null;
+  const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
+  if (cleaned.length === 8) return `#${cleaned.slice(2).toUpperCase()}`;
+  if (cleaned.length === 6) return `#${cleaned.toUpperCase()}`;
+  return null;
+}
+
+function hexToRgb(hex: string): string {
+  const cleaned = hex.replace('#', '');
+  const numeric = Number.parseInt(cleaned, 16);
+  const red = (numeric >> 16) & 255;
+  const green = (numeric >> 8) & 255;
+  const blue = numeric & 255;
+  return `${red}, ${green}, ${blue}`;
+}
+
+function getDisplayName(kingdom: Kingdom): string {
+  return CULTURE_NAME_OVERRIDES[kingdom.id] || kingdom.shortName || kingdom.name;
+}
+
+function getMonogram(label: string): string {
+  const words = label
+    .replace(/[^A-Za-z\s]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (words.length === 0) return 'TA';
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return `${words[0][0]}${words[1][0]}`.toUpperCase();
+}
+
+function skillCell(value: number, extra = ''): string {
+  return ['col-num', extra, value === 0 ? 'skill-zero' : ''].filter(Boolean).join(' ');
+}
+
+const LORD_SKILL_LABELS: Record<string, string> = {
+  OneHanded: 'One-Handed',
+  TwoHanded: 'Two-Handed',
+  Polearm: 'Polearm',
+  Bow: 'Bow',
+  Crossbow: 'Crossbow',
+  Throwing: 'Throwing',
+  Riding: 'Riding',
+  Athletics: 'Athletics',
+  Scouting: 'Scouting',
+  Tactics: 'Tactics',
+  Leadership: 'Leadership',
+  Charm: 'Charm',
+  Steward: 'Steward',
+  Trade: 'Trade',
+  Roguery: 'Roguery',
+  Engineering: 'Engineering',
+  Medicine: 'Medicine',
+  Smithing: 'Smithing',
+};
+
+function getLordSkillMetrics(lord: Lord) {
+  const ordered = Object.entries(LORD_SKILL_LABELS).map(([skill, label]) => ({
+    skill,
+    label,
+    value: lord.skills[skill] || 0,
+  }));
+
+  const extras = Object.entries(lord.skills)
+    .filter(([skill]) => !(skill in LORD_SKILL_LABELS))
+    .map(([skill, value]) => ({
+      skill,
+      label: skill,
+      value,
+    }));
+
+  return [...ordered, ...extras];
+}
+
+function getTraitEntries(lord: Lord) {
+  return Object.entries(lord.traits)
+    .filter(([, value]) => value !== 0)
+    .sort(([, a], [, b]) => Math.abs(b) - Math.abs(a));
+}
+
+export function getStaticPaths() {
+  const kingdomTroopCultures: Record<string, string> = {
+    empire_w: 'gondor',
+    empire_s: 'mordor',
+  };
+  const legacyRouteAliases: Record<string, { kingdomId: string; troopCulture: string }> = {
+    gondor: { kingdomId: 'empire_w', troopCulture: 'gondor' },
+    mordor: { kingdomId: 'empire_s', troopCulture: 'mordor' },
+  };
+  const kingdoms = parseKingdomsFromXslt();
+  const routeConfigs: RouteConfig[] = kingdoms.map((kingdom) => ({
+    routeId: kingdom.id,
+    kingdomId: kingdom.id,
+    troopCulture: kingdomTroopCultures[kingdom.id] || kingdom.culture,
+  }));
+
+  for (const [routeId, config] of Object.entries(legacyRouteAliases)) {
+    routeConfigs.push({ routeId, ...config });
+  }
+
+  return routeConfigs.map((config) => ({
+    params: { id: config.routeId },
+    props: config,
+  }));
+}
+
+const { routeId, kingdomId, troopCulture } = Astro.props as RouteConfig;
+
+const kingdoms = parseKingdomsFromXslt();
+const kingdom = kingdoms.find((entry) => entry.id === kingdomId);
+
+if (!kingdom) {
+  throw new Error(`Faction route "${routeId}" could not resolve kingdom "${kingdomId}".`);
+}
+
+const allTroops = parseTroops()
+  .filter((troop) => troop.culture === troopCulture)
+  .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+
+const troopGroups = [...new Set(allTroops.map((troop) => troop.defaultGroup).filter(Boolean))].sort((a, b) => {
+  const ai = GROUP_ORDER.indexOf(a);
+  const bi = GROUP_ORDER.indexOf(b);
+  return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi) || a.localeCompare(b);
+});
+
+const troopTabs = [
+  { id: 'all', label: 'All Units', count: allTroops.length },
+  ...troopGroups.map((group) => ({
+    id: group,
+    label: GROUP_LABELS[group] || group,
+    count: allTroops.filter((troop) => troop.defaultGroup === group).length,
+  })),
+];
+
+const allClans = parseAllClans()
+  .filter((clan) => clan.kingdomId === kingdom.id)
+  .sort((a, b) => b.tier - a.tier || a.name.localeCompare(b.name));
+const allLords = parseAllLords();
+const heroClanMap = parseHeroClanMap();
+const lordById = new Map<string, Lord>(allLords.map((lord) => [lord.id, lord]));
+
+const clansWithLords: ClanWithLords[] = allClans.map((clan) => {
+  const memberIds = new Set<string>();
+
+  for (const [heroId, clanId] of heroClanMap) {
+    if (clanId === clan.id) memberIds.add(heroId);
+  }
+
+  if (clan.owner) memberIds.add(clan.owner);
+
+  const lords = Array.from(memberIds)
+    .map((id) => lordById.get(id))
+    .filter((lord): lord is Lord => Boolean(lord))
+    .map((lord) => ({ ...lord, isLeader: lord.id === clan.owner }))
+    .sort((a, b) => {
+      if (a.isLeader && !b.isLeader) return -1;
+      if (!a.isLeader && b.isLeader) return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+  return {
+    ...clan,
+    displayName: clan.name || clan.id,
+    cultureName: getCultureDisplayName(clan.culture),
+    leader: lords.find((lord) => lord.isLeader) || null,
+    lords,
+  };
+});
+
+const initialClan = clansWithLords[0] || null;
+const troopBranches = FACTION_TROOPS[troopCulture] || [];
+const displayName = getDisplayName(kingdom);
+const primaryColor = normalizeColor(kingdom.color) || '#C49A47';
+const secondaryColor = normalizeColor(kingdom.color2) || '#221712';
+const primaryRgb = hexToRgb(primaryColor);
+const secondaryRgb = hexToRgb(secondaryColor);
+const heroImage = HERO_IMAGES[troopCulture] || HERO_IMAGES[kingdom.id] || '/images/hero-bg.jpg';
+const crestImage = CREST_IMAGES[kingdom.id] || '';
+const totalLordCount = clansWithLords.reduce((sum, clan) => sum + clan.lords.length, 0);
+const troopLevelRange = allTroops.length
+  ? `${Math.min(...allTroops.map((troop) => troop.level))}-${Math.max(...allTroops.map((troop) => troop.level))}`
+  : 'Pending';
+const leaderName =
+  (kingdom.owner ? lordById.get(kingdom.owner)?.name : '') || initialClan?.leader?.name || kingdom.rulerTitle;
+const troopHeaderCols = [
+  { col: 'name', label: 'Unit', cls: '' },
+  { col: 'level', label: 'Tier', cls: 'col-num' },
+  { col: 'defaultGroup', label: 'Class', cls: '' },
+  { col: 'athletics', label: 'Ath', cls: 'col-num section-start' },
+  { col: 'riding', label: 'Ride', cls: 'col-num' },
+  { col: 'oneHanded', label: '1H', cls: 'col-num' },
+  { col: 'twoHanded', label: '2H', cls: 'col-num' },
+  { col: 'polearm', label: 'Pole', cls: 'col-num' },
+  { col: 'bow', label: 'Bow', cls: 'col-num' },
+  { col: 'crossbow', label: 'XBow', cls: 'col-num' },
+  { col: 'throwing', label: 'Throw', cls: 'col-num' },
+  { col: 'item0', label: 'Primary', cls: 'section-start' },
+  { col: 'item1', label: 'Secondary', cls: '' },
+  { col: 'head', label: 'Head', cls: '' },
+  { col: 'body', label: 'Body', cls: '' },
+  { col: 'id', label: 'Id', cls: 'section-start' },
+];
 ---
 
-<BaseLayout title={displayName} description={`${displayName} faction details - troops, lore, and composition in TAOM`}>
-  <div class="faction-hero" style={bgImage ? `background-image: url('${bgImage}')` : ''}>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>{displayName} {isPlanned && <span class="planned-badge">Planned</span>}</h1>
-      {
-        !isPlanned && (
-          <div class="hero-stats">
-            <span>
-              <strong>{totalTroops}</strong> units
-            </span>
-            <span>
-              Levels <strong>{minLevel}</strong>-<strong>{maxLevel}</strong>
-            </span>
-            <span>{sortedGroups.map(([g]) => g).join(', ')}</span>
+<BaseLayout
+  title={displayName}
+  description={`${displayName} faction archive in TAOM - troop tree, military roster, clans, and lords`}
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-faction-detail-body"
+  mainClass="taom-faction-detail-main"
+>
+  <div
+    class="faction-page"
+    style={`--realm-primary:${primaryColor}; --realm-secondary:${secondaryColor}; --realm-primary-rgb:${primaryRgb}; --realm-secondary-rgb:${secondaryRgb};`}
+  >
+    <Topbar />
+
+    <main class="faction-shell">
+      <section class="hero-panel">
+        <div class="hero-backdrop" style={`background-image: url('${heroImage}')`}></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Faction Archive</p>
+            <h1>{displayName}</h1>
+            <p class="hero-subtitle">{kingdom.title || kingdom.rulerTitle}</p>
+            <p class="hero-description">
+              {
+                kingdom.description ||
+                  `${displayName} now carries both the military roster and noble record in one place: upgrade lines, troop classes, clans, and the lords who command them.`
+              }
+            </p>
+
+            <div class="hero-links">
+              <a href="#troop-tree">Troop Tree</a>
+              <a href="#military-roster">Military Roster</a>
+              <a href="#clan-archive">Clan Archive</a>
+            </div>
           </div>
+
+          <aside class="realm-seal" aria-label={`${displayName} realm dossier`}>
+            <div class="seal-mark" aria-hidden="true">
+              {crestImage ? <img src={crestImage} alt="" /> : <span>{getMonogram(displayName)}</span>}
+            </div>
+
+            <dl class="seal-meta">
+              <div>
+                <dt>Culture</dt>
+                <dd>{getCultureDisplayName(troopCulture)}</dd>
+              </div>
+              <div>
+                <dt>Ruler</dt>
+                <dd>{leaderName || 'Unknown'}</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Faction summary">
+        <article class="summary-card">
+          <span class="summary-label">Fielded Units</span>
+          <strong>{allTroops.length}</strong>
+          <small>Across {troopGroups.length || 0} battlefield classes</small>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Level Spread</span>
+          <strong>{troopLevelRange}</strong>
+          <small>Tracks the current troop progression ladder</small>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Clans</span>
+          <strong>{clansWithLords.length}</strong>
+          <small>Major houses tied to this realm</small>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Named Lords</span>
+          <strong>{totalLordCount}</strong>
+          <small>Clan leaders, heirs, and household members</small>
+        </article>
+      </section>
+
+      <section class="utility-panel">
+        <article class="dossier-card">
+          <p class="panel-kicker">Realm Dossier</p>
+          <h2>Military and Noble Records in One Archive</h2>
+          <p>
+            This page folds the old faction and kingdom views together, so you can read the military structure and noble
+            hierarchy of {displayName} without jumping between routes.
+          </p>
+
+          <dl class="dossier-grid">
+            <div>
+              <dt>Troop Culture</dt>
+              <dd>{getCultureDisplayName(troopCulture)}</dd>
+            </div>
+            <div>
+              <dt>Ruler Title</dt>
+              <dd>{kingdom.rulerTitle || 'Unknown'}</dd>
+            </div>
+            <div>
+              <dt>Primary Color</dt>
+              <dd class="color-chip">
+                <span class="color-swatch" style={`background:${primaryColor}`}></span>
+                <span>{primaryColor}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Secondary Color</dt>
+              <dd class="color-chip">
+                <span class="color-swatch" style={`background:${secondaryColor}`}></span>
+                <span>{secondaryColor}</span>
+              </dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      {
+        troopBranches.length > 0 && (
+          <section class="branches-section">
+            <div class="section-heading">
+              <p class="section-kicker">Branch Overview</p>
+              <h2>Military Traditions</h2>
+              <p>
+                Each branch summary preserves the faction flavor notes from the older page while sitting alongside the
+                actual troop data.
+              </p>
+            </div>
+
+            <div class="branch-grid">
+              {troopBranches.map((branch) => (
+                <article class="branch-card" style={`--branch-color:${TYPE_COLORS[branch.type]};`}>
+                  <div class="branch-header">
+                    <h3>{branch.name}</h3>
+                    <span class="branch-type">{TYPE_LABELS[branch.type]}</span>
+                  </div>
+                  <div class="branch-meta">
+                    <span>{branch.tiers}</span>
+                    {branch.region && <span>{branch.region}</span>}
+                    {branch.status === 'done' && <span>Ready</span>}
+                  </div>
+                  <p>{branch.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         )
       }
-    </div>
-  </div>
 
-  <div class="page-content faction-page">
-    <nav class="faction-breadcrumb">
-      <a href="/factions">&larr; All Factions</a>
-    </nav>
+      <section class="section-card troop-tree-card" id="troop-tree">
+        <div class="section-heading">
+          <p class="section-kicker">Military Structure</p>
+          <h2>Troop Tree</h2>
+          <p>Hover the tree to trace upgrade routes from recruits to elite units.</p>
+        </div>
 
-    {
-      isPlanned ? (
-        <section class="faction-section">
-          <div class="planned-notice">
-            <h2>Planned Faction</h2>
-            <p>
-              {displayName} is a planned faction for a future update of TAOM. Troops, equipment, and lore are currently
-              in development.
-            </p>
-            <a href="/factions" class="btn btn-secondary">
-              &larr; Back to Factions
-            </a>
+        {
+          allTroops.length > 0 ? (
+            <TroopTree troops={allTroops} culture={troopCulture} />
+          ) : (
+            <p class="pending-state">Troop data for this faction is not available in the XML set yet.</p>
+          )
+        }
+      </section>
+
+      <section class="section-card" id="military-roster">
+        <div class="section-heading">
+          <p class="section-kicker">Field Ledger</p>
+          <h2>Military Roster</h2>
+          <p>
+            The old per-class tables are preserved as tabs here, with sortable columns so infantry, cavalry, and missile
+            branches can still be reviewed separately.
+          </p>
+        </div>
+
+        <article class="controls-card">
+          <div class="controls-heading">
+            <div>
+              <p class="panel-kicker">Filter the Muster</p>
+              <h2>Search the Military Roster</h2>
+            </div>
+            <span class="result-count" id="troop-result-count">{allTroops.length} units</span>
           </div>
-        </section>
-      ) : (
-        <>
-          <section class="faction-section troop-tree-section">
-            <h2>Troop Tree</h2>
-            <p class="section-desc">Upgrade paths for {displayName} units. Hover to highlight connected paths.</p>
-            <TroopTree troops={allTroops} culture={culture} />
-          </section>
 
-          <section class="faction-section">
-            <h2>Troop Roster</h2>
-            <p class="section-desc">All {displayName} units organized by role.</p>
+          <div class="control-grid">
+            <label class="control-field control-search">
+              <span>Search</span>
+              <input type="text" id="troop-search" placeholder="Search by troop name, ID, or class..." />
+            </label>
 
-            {sortedGroups.map(([group, troops]) => (
-              <div class="group-block">
-                <h3>
-                  {group} <span class="group-count">({troops.length})</span>
-                </h3>
-                <div class="data-table-wrapper">
-                  <table class="data-table">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th class="col-num">Level</th>
-                        <th class="col-num">1H</th>
-                        <th class="col-num">2H</th>
-                        <th class="col-num">Pole</th>
-                        <th class="col-num">Bow</th>
-                        <th class="col-num">XBow</th>
-                        <th class="col-num">Throw</th>
-                        <th class="col-num">Ath</th>
-                        <th class="col-num">Ride</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {troops.map((t) => (
-                        <tr data-culture={culture}>
-                          <td>{t.name}</td>
-                          <td class="col-num">{t.level}</td>
-                          <td class={t.oneHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.oneHanded}</td>
-                          <td class={t.twoHanded === 0 ? 'col-num skill-zero' : 'col-num'}>{t.twoHanded}</td>
-                          <td class={t.polearm === 0 ? 'col-num skill-zero' : 'col-num'}>{t.polearm}</td>
-                          <td class={t.bow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.bow}</td>
-                          <td class={t.crossbow === 0 ? 'col-num skill-zero' : 'col-num'}>{t.crossbow}</td>
-                          <td class={t.throwing === 0 ? 'col-num skill-zero' : 'col-num'}>{t.throwing}</td>
-                          <td class={t.athletics === 0 ? 'col-num skill-zero' : 'col-num'}>{t.athletics}</td>
-                          <td class={t.riding === 0 ? 'col-num skill-zero' : 'col-num'}>{t.riding}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            ))}
-          </section>
+            <label class="control-field">
+              <span>Class</span>
+              <select id="troop-group-filter">
+                <option value="">All Classes</option>
+                {troopGroups.map((group) => <option value={group}>{GROUP_LABELS[group] || group}</option>)}
+              </select>
+            </label>
+          </div>
 
-          {troopBranches.length > 0 ? (
-            <section class="faction-section">
-              <h2>Troop Branches</h2>
-              <p class="section-desc">The military branches of {displayName}, from common fodder to elite warriors.</p>
-              <div class="branch-cards">
-                {troopBranches.map((branch) => (
-                  <div class="branch-card" style={`--branch-color: ${TYPE_COLORS[branch.type]}`}>
-                    <div class="branch-card-header">
-                      <div class="branch-title-row">
-                        <h3>{branch.name}</h3>
-                        {branch.status === 'done' && <span class="branch-status done">Done</span>}
-                      </div>
-                      <div class="branch-meta">
-                        <span class="branch-tier">{branch.tiers}</span>
-                        <span class="branch-type">{branch.type.charAt(0).toUpperCase() + branch.type.slice(1)}</span>
-                        {branch.region && <span class="branch-region">{branch.region}</span>}
-                      </div>
-                    </div>
-                    <p class="branch-desc">{branch.description}</p>
-                  </div>
+          <p class="controls-note">
+            Troop tabs below still mirror the old class split, but the table now lives in one searchable ledger so it is
+            easier to compare units across the whole faction.
+          </p>
+        </article>
+
+        <div class="tab-strip" role="tablist" aria-label="Select troop class">
+          {
+            troopTabs.map((tab) => (
+              <button
+                type="button"
+                class:list={['tab-button', { 'is-selected': tab.id === 'all' }]}
+                data-troop-group={tab.id}
+                role="tab"
+                aria-selected={tab.id === 'all' ? 'true' : 'false'}
+              >
+                <span>{tab.label}</span>
+                <small>({tab.count})</small>
+              </button>
+            ))
+          }
+        </div>
+
+        <div class="table-shell">
+          <div class="table-head">
+            <div>
+              <p class="table-title">Faction Troops</p>
+              <p class="table-subtitle">{displayName} roster pulled directly from the troop XML data.</p>
+            </div>
+            <span class="table-count" id="troop-table-count">({allTroops.length})</span>
+          </div>
+
+          <div class="data-table-wrapper">
+            <table class="data-table faction-troop-section">
+              <thead>
+                <tr>
+                  {
+                    troopHeaderCols.map((header) => (
+                      <th data-col={header.col} class={header.cls}>
+                        {header.label}
+                      </th>
+                    ))
+                  }
+                </tr>
+              </thead>
+              <tbody id="troop-table-body">
+                {
+                  allTroops.map((troop) => (
+                    <tr
+                      data-search={`${troop.name} ${troop.id} ${troop.defaultGroup}`.toLowerCase()}
+                      data-group={troop.defaultGroup}
+                    >
+                      <td class="troop-name-cell">
+                        <span class="troop-name">{troop.name}</span>
+                      </td>
+                      <td class="col-num">{troop.level}</td>
+                      <td>{GROUP_LABELS[troop.defaultGroup] || troop.defaultGroup}</td>
+                      <td class={skillCell(troop.athletics, 'section-start')}>{troop.athletics}</td>
+                      <td class={skillCell(troop.riding)}>{troop.riding}</td>
+                      <td class={skillCell(troop.oneHanded)}>{troop.oneHanded}</td>
+                      <td class={skillCell(troop.twoHanded)}>{troop.twoHanded}</td>
+                      <td class={skillCell(troop.polearm)}>{troop.polearm}</td>
+                      <td class={skillCell(troop.bow)}>{troop.bow}</td>
+                      <td class={skillCell(troop.crossbow)}>{troop.crossbow}</td>
+                      <td class={skillCell(troop.throwing)}>{troop.throwing}</td>
+                      <td class="col-id section-start">{troop.item0}</td>
+                      <td class="col-id">{troop.item1}</td>
+                      <td class="col-id">{troop.head}</td>
+                      <td class="col-id">{troop.body}</td>
+                      <td class="col-id section-start">{troop.id}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+
+          <p class="empty-state" id="troop-empty-state" hidden>No troops match the current class and search filter.</p>
+        </div>
+      </section>
+
+      <section class="section-card clan-archive" id="clan-archive">
+        <div class="section-heading">
+          <p class="section-kicker">House Records</p>
+          <h2>Clans and Lords</h2>
+          <p>
+            Select a clan to switch the visible lord roster below. The membership is resolved from the same clan and
+            hero XML data already used elsewhere in the site.
+          </p>
+        </div>
+
+        {
+          clansWithLords.length > 0 ? (
+            <div class="clan-layout">
+              <div class="clan-browser" role="tablist" aria-label="Select a clan">
+                {clansWithLords.map((clan, index) => (
+                  <button
+                    type="button"
+                    class:list={['clan-button', { 'is-selected': index === 0 }]}
+                    data-clan-button={clan.id}
+                    role="tab"
+                    aria-selected={index === 0 ? 'true' : 'false'}
+                  >
+                    <span class="clan-button-name">{clan.displayName}</span>
+                    <span class="clan-button-meta">
+                      Tier {clan.tier || 0} | {clan.lords.length} lord{clan.lords.length === 1 ? '' : 's'}
+                    </span>
+                  </button>
                 ))}
               </div>
-            </section>
-          ) : (
-            <section class="faction-section faction-lore">
-              <h2>About {displayName}</h2>
-              <div class="coming-soon">
-                <p>Detailed faction lore and troop branch information coming soon.</p>
+
+              <div class="clan-panels">
+                {clansWithLords.map((clan, index) => (
+                  <section
+                    class:list={['clan-panel', { 'is-selected': index === 0 }]}
+                    data-clan-panel={clan.id}
+                    hidden={index !== 0}
+                  >
+                    <div class="clan-panel-header">
+                      <div>
+                        <p class="table-title">{clan.displayName}</p>
+                        <p class="table-subtitle">
+                          {clan.leader
+                            ? `${clan.leader.name} leads this house.`
+                            : 'Leader data is incomplete for this house.'}
+                        </p>
+                      </div>
+
+                      <div class="clan-summary">
+                        <article>
+                          <span>Tier</span>
+                          <strong>{clan.tier || 0}</strong>
+                        </article>
+                        <article>
+                          <span>Culture</span>
+                          <strong>{clan.cultureName}</strong>
+                        </article>
+                        <article>
+                          <span>Members</span>
+                          <strong>{clan.lords.length}</strong>
+                        </article>
+                      </div>
+                    </div>
+
+                    {clan.lords.length > 0 ? (
+                      <>
+                        <div class="lord-grid">
+                          {clan.lords.map((lord) => (
+                            <article class="lord-card">
+                              <header class="lord-card-header">
+                                <div>
+                                  <div class="lord-card-name-row">
+                                    <h3>{lord.name}</h3>
+                                    {lord.isLeader && <span class="leader-badge">Leader</span>}
+                                    {!lord.alive && <span class="dead-badge">Dead</span>}
+                                  </div>
+                                  <p class="lord-card-role">
+                                    {lord.defaultGroup || 'Noble'}
+                                    {lord.age ? ` | Age ${lord.age}` : ''}
+                                  </p>
+                                </div>
+                              </header>
+
+                              <div class="lord-skill-grid">
+                                {getLordSkillMetrics(lord).map((entry) => (
+                                  <div class="skill-meter">
+                                    <div class="skill-meter-top">
+                                      <span>{entry.label}</span>
+                                      <strong>{entry.value}</strong>
+                                    </div>
+                                    <div class="skill-meter-track">
+                                      <div
+                                        class="skill-meter-fill"
+                                        style={`width: ${Math.min((entry.value / 350) * 100, 100)}%`}
+                                      />
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              {getTraitEntries(lord).length > 0 && (
+                                <div class="trait-list">
+                                  {getTraitEntries(lord).map(([trait, value]) => (
+                                    <span
+                                      class:list={[
+                                        'trait-pill',
+                                        { 'is-positive': value > 0, 'is-negative': value < 0 },
+                                      ]}
+                                    >
+                                      {trait} {value > 0 ? `+${value}` : value}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+
+                              {lord.biography && (
+                                <details class="lord-biography">
+                                  <summary>Biography</summary>
+                                  <p>{lord.biography}</p>
+                                </details>
+                              )}
+                            </article>
+                          ))}
+                        </div>
+
+                        <p class="bio-hint">
+                          Each card shows only members of the selected clan, with their strongest skills surfaced first.
+                        </p>
+                      </>
+                    ) : (
+                      <p class="pending-state">No parsed lord records were found for this clan.</p>
+                    )}
+                  </section>
+                ))}
               </div>
-            </section>
-          )}
-        </>
-      )
-    }
+            </div>
+          ) : (
+            <p class="pending-state">No clan records were found for this faction in the current XML set.</p>
+          )
+        }
+      </section>
+    </main>
   </div>
+
+  <script is:inline>
+    const cleanupKey = '__taomFactionPageCleanup';
+    const initKey = '__taomFactionPageInit';
+
+    function initFactionPage() {
+      const troopSearch = document.getElementById('troop-search');
+      const troopGroupFilter = document.getElementById('troop-group-filter');
+      const troopResultCount = document.getElementById('troop-result-count');
+      const troopTableCount = document.getElementById('troop-table-count');
+      const troopEmptyState = document.getElementById('troop-empty-state');
+      const troopRows = Array.from(document.querySelectorAll('#troop-table-body tr'));
+      const troopTabs = Array.from(document.querySelectorAll('[data-troop-group]'));
+      const clanButtons = Array.from(document.querySelectorAll('[data-clan-button]'));
+      const clanPanels = Array.from(document.querySelectorAll('[data-clan-panel]'));
+
+      if (typeof window[cleanupKey] === 'function') {
+        window[cleanupKey]();
+      }
+
+      const controller = new AbortController();
+      const { signal } = controller;
+      const params = new URLSearchParams(window.location.search);
+
+      let activeTroopGroup = params.get('group') || 'all';
+      let activeClan = params.get('clan') || clanButtons[0]?.dataset.clanButton || '';
+
+      if (!troopTabs.some((button) => button.dataset.troopGroup === activeTroopGroup)) {
+        activeTroopGroup = 'all';
+      }
+
+      if (!clanButtons.some((button) => button.dataset.clanButton === activeClan)) {
+        activeClan = clanButtons[0]?.dataset.clanButton || '';
+      }
+
+      if (troopSearch instanceof HTMLInputElement) {
+        troopSearch.value = params.get('search') || '';
+      }
+
+      if (troopGroupFilter instanceof HTMLSelectElement) {
+        troopGroupFilter.value = params.get('class') || '';
+      }
+
+      function updateUrl() {
+        const nextParams = new URLSearchParams();
+        const searchValue = troopSearch instanceof HTMLInputElement ? troopSearch.value : '';
+        const classValue = troopGroupFilter instanceof HTMLSelectElement ? troopGroupFilter.value : '';
+
+        if (searchValue) nextParams.set('search', searchValue);
+        if (classValue) nextParams.set('class', classValue);
+        if (activeTroopGroup !== 'all') nextParams.set('group', activeTroopGroup);
+        if (activeClan) nextParams.set('clan', activeClan);
+
+        const query = nextParams.toString();
+        const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+        window.history.replaceState({}, '', url);
+      }
+
+      function filterTroops() {
+        const searchValue = troopSearch instanceof HTMLInputElement ? troopSearch.value.toLowerCase() : '';
+        const classValue = troopGroupFilter instanceof HTMLSelectElement ? troopGroupFilter.value : '';
+        let visibleCount = 0;
+
+        troopRows.forEach((row) => {
+          const searchText = row.dataset.search || '';
+          const rowGroup = row.dataset.group || '';
+          const matchesTab = activeTroopGroup === 'all' || rowGroup === activeTroopGroup;
+          const matchesClass = !classValue || rowGroup === classValue;
+          const matchesSearch = !searchValue || searchText.includes(searchValue);
+          const show = matchesTab && matchesClass && matchesSearch;
+
+          row.style.display = show ? '' : 'none';
+          if (show) visibleCount += 1;
+        });
+
+        troopTabs.forEach((button) => {
+          const selected = button.dataset.troopGroup === activeTroopGroup;
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-selected', selected ? 'true' : 'false');
+        });
+
+        if (troopResultCount) troopResultCount.textContent = `${visibleCount} units`;
+        if (troopTableCount) troopTableCount.textContent = `(${visibleCount})`;
+        if (troopEmptyState) troopEmptyState.hidden = visibleCount !== 0;
+
+        updateUrl();
+      }
+
+      function selectClan(clanId) {
+        activeClan = clanId;
+
+        clanButtons.forEach((button) => {
+          const selected = button.dataset.clanButton === clanId;
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-selected', selected ? 'true' : 'false');
+        });
+
+        clanPanels.forEach((panel) => {
+          const selected = panel.dataset.clanPanel === clanId;
+          panel.classList.toggle('is-selected', selected);
+          panel.hidden = !selected;
+        });
+
+        updateUrl();
+      }
+
+      troopTabs.forEach((button) => {
+        button.addEventListener(
+          'click',
+          () => {
+            activeTroopGroup = button.dataset.troopGroup || 'all';
+            filterTroops();
+          },
+          { signal },
+        );
+      });
+
+      clanButtons.forEach((button) => {
+        button.addEventListener(
+          'click',
+          () => {
+            const clanId = button.dataset.clanButton;
+            if (clanId) selectClan(clanId);
+          },
+          { signal },
+        );
+      });
+
+      if (troopSearch instanceof HTMLInputElement) {
+        troopSearch.addEventListener('input', filterTroops, { signal });
+      }
+
+      if (troopGroupFilter instanceof HTMLSelectElement) {
+        troopGroupFilter.addEventListener('change', filterTroops, { signal });
+      }
+
+      filterTroops();
+      if (activeClan) selectClan(activeClan);
+
+      window[cleanupKey] = () => {
+        controller.abort();
+      };
+    }
+
+    if (!window[initKey]) {
+      window[initKey] = true;
+      document.addEventListener('astro:page-load', initFactionPage);
+    }
+
+    if (document.readyState !== 'loading') {
+      initFactionPage();
+    } else {
+      document.addEventListener('DOMContentLoaded', initFactionPage, { once: true });
+    }
+  </script>
+
+  <script>
+    import { initSorting } from '../../scripts/data-table';
+
+    document.addEventListener('astro:page-load', () => {
+      initSorting('table.faction-troop-section');
+    });
+  </script>
 </BaseLayout>
 
 <style>
-  .faction-hero {
-    position: relative;
-    min-height: 200px;
-    max-height: 300px;
-    background: var(--bg-secondary) center top / cover no-repeat;
-    display: flex;
-    align-items: flex-end;
+  :global(body.taom-faction-detail-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(8, 6, 6, 0.68), rgba(8, 6, 6, 0.98)),
+      radial-gradient(circle at 15% 12%, rgba(var(--realm-primary-rgb, 196, 154, 71), 0.14), transparent 26%),
+      radial-gradient(circle at 82% 14%, rgba(var(--realm-secondary-rgb, 34, 23, 18), 0.16), transparent 24%),
+      linear-gradient(180deg, #160f0e 0%, #0d0908 48%, #070505 100%);
+    color: #eee5db;
   }
 
-  .hero-overlay {
-    position: absolute;
+  :global(body.taom-faction-detail-body::before) {
+    content: '';
+    position: fixed;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(25, 25, 25, 0.95) 100%);
+    background:
+      linear-gradient(180deg, rgba(14, 10, 9, 0.42), rgba(8, 6, 6, 0.86)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
-    width: 100%;
-  }
-
-  .hero-content h1 {
-    color: var(--accent);
-    font-size: 2.5rem;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 1.5rem;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  :global(.taom-faction-detail-main) {
+    display: block;
   }
 
   .faction-page {
-    max-width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow-x: clip;
   }
 
-  .faction-page > :not(.troop-tree-section) {
-    max-width: 1200px;
-  }
-
-  .troop-tree-section {
-    max-width: 100%;
-  }
-
-  .faction-breadcrumb {
-    margin-bottom: 1.5rem;
-  }
-
-  .faction-breadcrumb a {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-  }
-
-  .faction-breadcrumb a:hover {
-    color: var(--accent);
-  }
-
-  .faction-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .faction-section h2 {
-    color: var(--accent);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .section-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .group-block {
-    margin-bottom: 1.5rem;
-  }
-
-  .group-block h3 {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .group-count {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 400;
-  }
-
-  .faction-lore {
-    margin-top: 2rem;
-  }
-
-  .coming-soon {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--text-secondary);
-    font-size: 1rem;
-  }
-
-  .branch-cards {
+  .faction-shell {
+    width: min(100%, 84rem);
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0 3.375rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1rem;
+    gap: 1.35rem;
+    min-width: 0;
   }
 
-  .branch-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--branch-color);
-    border-radius: 6px;
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .table-title,
+  .table-subtitle,
+  .result-count,
+  .tab-button,
+  .clan-button,
+  .bio-hint,
+  h1,
+  h2,
+  h3 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .hero-panel,
+  .summary-card,
+  .dossier-card,
+  .controls-card,
+  .section-card,
+  .clan-button,
+  .clan-panel {
+    border: 1px solid rgba(140, 108, 55, 0.46);
+    background:
+      linear-gradient(180deg, rgba(15, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.06), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    min-width: 0;
+  }
+
+  .hero-panel {
+    position: relative;
     overflow: hidden;
+    min-height: 26rem;
   }
 
-  .branch-card-header {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
+  .hero-backdrop,
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
   }
 
-  .branch-title-row {
+  .hero-backdrop {
+    background-position: center;
+    background-size: cover;
+    filter: saturate(0.84) brightness(0.5);
+    transform: scale(1.04);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(120deg, rgba(7, 6, 6, 0.78) 0%, rgba(7, 6, 6, 0.42) 44%, rgba(7, 6, 6, 0.82) 100%),
+      linear-gradient(180deg, rgba(196, 154, 71, 0.12), transparent 30%);
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 23rem);
+    gap: 1.5rem;
+    min-height: 26rem;
+    padding: 2rem;
+    align-items: end;
+  }
+
+  .hero-grid > * {
+    min-width: 0;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 0.8rem;
+    align-self: end;
+    max-width: 44rem;
+  }
+
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker {
+    margin: 0;
+    color: #c9984a;
+    font-size: 0.84rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .hero-copy h1 {
+    margin: 0;
+    color: #f6f0e8;
+    font-size: clamp(3.7rem, 8vw, 5.8rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    margin: 0;
+    color: rgba(241, 229, 210, 0.8);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-description {
+    margin: 0;
+    max-width: 42rem;
+    color: rgba(235, 226, 216, 0.92);
+    font-size: 1.12rem;
+    line-height: 1.6;
+  }
+
+  .hero-links {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
   }
 
-  .branch-card-header h3 {
-    color: var(--branch-color);
-    font-size: 1rem;
+  .hero-links a,
+  .dossier-card dd,
+  .controls-note,
+  .pending-state,
+  .empty-state {
+    color: rgba(236, 226, 214, 0.82);
+  }
+
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(201, 152, 74, 0.4);
+    background: rgba(8, 7, 7, 0.46);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease;
+  }
+
+  .hero-links a:hover {
+    transform: translateY(-1px);
+    border-color: rgba(233, 189, 100, 0.62);
+    background: rgba(24, 18, 14, 0.72);
+    color: #fff0d6;
+    text-decoration: none;
+  }
+
+  .realm-seal {
+    align-self: stretch;
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(196, 154, 71, 0.26);
+    background:
+      linear-gradient(180deg, rgba(14, 11, 10, 0.82), rgba(8, 7, 7, 0.84)),
+      radial-gradient(circle at top, rgba(var(--realm-primary-rgb), 0.14), transparent 55%);
+    backdrop-filter: blur(6px);
+  }
+
+  .seal-mark {
+    display: grid;
+    place-items: center;
+    min-height: 10rem;
+    border: 1px solid rgba(196, 154, 71, 0.28);
+    background: rgba(10, 8, 8, 0.62);
+  }
+
+  .seal-mark img {
+    max-width: 8rem;
+    max-height: 8rem;
+    object-fit: contain;
+  }
+
+  .seal-mark span {
+    color: #f6ecd8;
+    font-size: 2.3rem;
+    letter-spacing: 0.08em;
+  }
+
+  .seal-meta {
+    display: grid;
+    gap: 0.85rem;
     margin: 0;
   }
 
-  .branch-status.done {
-    font-size: 0.65rem;
-    font-weight: 700;
+  .seal-meta div,
+  .dossier-grid div {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .seal-meta dt,
+  .dossier-grid dt {
+    color: rgba(205, 183, 149, 0.72);
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    background: rgba(76, 175, 80, 0.2);
-    color: #4caf50;
-    letter-spacing: 0.5px;
   }
 
-  .branch-meta {
+  .seal-meta dd,
+  .dossier-grid dd {
+    margin: 0;
+    color: #f2eadf;
+    font-size: 0.98rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .color-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .color-swatch {
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.24);
+    flex: 0 0 auto;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1.2rem;
+  }
+
+  .summary-label {
+    color: rgba(209, 183, 129, 0.88);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f7f1e8;
+    font-size: 2.15rem;
+    line-height: 1;
+  }
+
+  .summary-card small {
+    color: rgba(217, 204, 186, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .utility-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 24rem);
+    gap: 1rem;
+  }
+
+  .dossier-card,
+  .controls-card {
+    padding: 1.35rem;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .dossier-card h2,
+  .controls-card h2,
+  .section-heading h2 {
+    margin: 0;
+    color: #f4ede4;
+    font-size: 1.7rem;
+    line-height: 1.08;
+  }
+
+  .dossier-card p,
+  .section-heading p:not(.section-kicker) {
+    margin: 0;
+    color: rgba(229, 218, 205, 0.86);
+    line-height: 1.6;
+  }
+
+  .dossier-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem 1rem;
+    margin: 0;
+  }
+
+  .controls-heading,
+  .table-head,
+  .clan-panel-header {
     display: flex;
-    gap: 0.75rem;
-    font-size: 0.75rem;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
   }
 
-  .branch-tier {
-    color: var(--text-muted);
-    font-weight: 600;
+  .result-count,
+  .table-count {
+    color: rgba(245, 234, 211, 0.9);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .control-grid {
+    display: grid;
+    grid-template-columns: minmax(18rem, 2fr) minmax(12rem, 1fr);
+    gap: 0.95rem;
+  }
+
+  .control-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .control-field span {
+    color: rgba(207, 182, 132, 0.8);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .control-field input,
+  .control-field select {
+    min-height: 3rem;
+    width: 100%;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid rgba(140, 111, 70, 0.44);
+    background: rgba(9, 8, 8, 0.88);
+    color: #f0e7db;
+    font-size: 0.98rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .control-field select {
+    padding-right: 2.75rem;
+  }
+
+  .control-field input::placeholder {
+    color: rgba(194, 179, 162, 0.52);
+  }
+
+  .control-field input:focus,
+  .control-field select:focus {
+    border-color: rgba(209, 154, 51, 0.72);
+    box-shadow: 0 0 0 1px rgba(209, 154, 51, 0.18);
+    background: rgba(13, 10, 10, 0.94);
+  }
+
+  .controls-note,
+  .pending-state,
+  .empty-state,
+  .bio-hint {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .section-card {
+    padding: 1.3rem;
+    display: grid;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  .troop-tree-card {
+    overflow: hidden;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 0.45rem;
+    max-width: 46rem;
+  }
+
+  .branches-section {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 0.95rem;
+  }
+
+  .branch-card {
+    padding: 1rem;
+    border: 1px solid rgba(140, 108, 55, 0.42);
+    border-left: 3px solid var(--branch-color);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.94), rgba(9, 8, 8, 0.9)),
+      linear-gradient(120deg, rgba(255, 255, 255, 0.02), transparent);
+  }
+
+  .branch-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: start;
+    margin-bottom: 0.45rem;
+  }
+
+  .branch-header h3 {
+    margin: 0;
+    color: #f6efe4;
+    font-size: 1rem;
   }
 
   .branch-type {
     color: var(--branch-color);
-    font-weight: 600;
-  }
-
-  .branch-region {
-    color: var(--text-secondary);
-  }
-
-  .branch-region::before {
-    content: '📍 ';
-  }
-
-  .branch-desc {
-    padding: 0.75rem 1rem;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .planned-badge {
-    display: inline-block;
-    font-size: 0.8rem;
-    padding: 0.2rem 0.7rem;
-    border: 2px dashed #d4a24c;
-    border-radius: 4px;
-    color: #d4a24c;
-    vertical-align: middle;
-    margin-left: 0.5rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  .planned-notice {
-    text-align: center;
-    padding: 4rem 1.5rem;
-    color: var(--text-secondary);
+  .branch-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    margin-bottom: 0.65rem;
+    color: rgba(206, 192, 168, 0.72);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  .planned-notice h2 {
-    color: #d4a24c;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    border: none;
-  }
-
-  .planned-notice p {
-    font-size: 1rem;
+  .branch-card p {
+    margin: 0;
+    color: rgba(228, 216, 201, 0.84);
     line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
+  }
+
+  .tab-strip {
+    display: flex;
+    gap: 0.6rem;
+    overflow: auto hidden;
+    padding-bottom: 0.2rem;
+  }
+
+  .tab-button {
+    display: inline-grid;
+    gap: 0.12rem;
+    align-content: center;
+    min-width: 8rem;
+    min-height: 3.2rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(124, 93, 47, 0.38);
+    background: rgba(9, 8, 8, 0.78);
+    color: rgba(243, 236, 229, 0.84);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .tab-button small {
+    color: rgba(205, 190, 163, 0.7);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+  }
+
+  .tab-button:hover,
+  .tab-button.is-selected,
+  .clan-button:hover,
+  .clan-button.is-selected {
+    border-color: rgba(209, 154, 51, 0.62);
+    background: linear-gradient(180deg, rgba(67, 47, 24, 0.8), rgba(16, 13, 10, 0.88)), rgba(12, 10, 9, 0.9);
+    color: #f2ddac;
+    transform: translateY(-1px);
+  }
+
+  .tab-button.is-selected small,
+  .tab-button:hover small {
+    color: rgba(246, 225, 172, 0.82);
+  }
+
+  .table-shell,
+  .clan-panel {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .table-title {
+    margin: 0;
+    color: #f4ece2;
+    font-size: 1.1rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .table-subtitle {
+    margin: 0.18rem 0 0;
+    color: rgba(203, 184, 158, 0.8);
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .data-table-wrapper {
+    overflow: auto;
+    padding: 0.3rem;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.84), rgba(8, 7, 7, 0.94)),
+      linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.06), transparent 30%);
+  }
+
+  .faction-troop-section {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .faction-troop-section th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.08), transparent 30%);
+    color: #fff;
+    padding: 0.9rem 0.8rem;
+    border-bottom: 1px solid rgba(164, 124, 62, 0.45);
+    white-space: nowrap;
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .faction-troop-section td {
+    padding: 0.72rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #fff !important;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(var(--realm-primary-rgb), 0.12),
+        rgba(var(--realm-secondary-rgb), 0.08) 45%,
+        rgba(12, 10, 9, 0.14)
+      ),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .faction-troop-section td *,
+  .faction-troop-section td a,
+  .faction-troop-section td span,
+  .faction-troop-section td.col-num,
+  .faction-troop-section td.col-id,
+  .faction-troop-section .troop-name {
+    color: #fff !important;
+  }
+
+  .faction-troop-section tbody tr:hover td {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(var(--realm-primary-rgb), 0.2),
+        rgba(var(--realm-secondary-rgb), 0.12) 48%,
+        rgba(18, 14, 11, 0.18)
+      ),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .faction-troop-section th.section-start,
+  .faction-troop-section td.section-start {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .troop-name-cell {
+    min-width: 15rem;
+  }
+
+  .troop-name {
+    font-weight: 600;
+  }
+
+  .col-num {
+    text-align: center;
+  }
+
+  .col-id {
+    min-width: 10.5rem;
+    color: rgba(231, 220, 205, 0.74) !important;
+    font-size: 0.82rem;
+  }
+
+  .skill-zero {
+    color: rgba(231, 220, 205, 0.32) !important;
+  }
+
+  .clan-layout {
+    display: grid;
+    grid-template-columns: minmax(16rem, 20rem) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .clan-browser {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .clan-button {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.95rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .clan-button-name {
+    color: #f1e9de;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .clan-button-meta {
+    color: rgba(212, 196, 171, 0.68);
+    font-size: 0.78rem;
+  }
+
+  .clan-panels {
+    min-width: 0;
+  }
+
+  .clan-panel {
+    display: none;
+    padding: 1rem;
+  }
+
+  .clan-panel.is-selected {
+    display: grid;
+  }
+
+  .clan-panel[hidden] {
+    display: none !important;
+  }
+
+  .clan-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+    min-width: 19rem;
+  }
+
+  .clan-summary article {
+    padding: 0.8rem;
+    border: 1px solid rgba(156, 124, 70, 0.3);
+    background: rgba(9, 8, 8, 0.54);
+  }
+
+  .clan-summary span {
+    display: block;
+    color: rgba(205, 183, 149, 0.72);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .clan-summary strong {
+    display: block;
+    margin-top: 0.35rem;
+    color: #f6f0e6;
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .lord-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .lord-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(156, 124, 70, 0.3);
+    background:
+      linear-gradient(180deg, rgba(16, 13, 11, 0.94), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.08), transparent 55%);
+  }
+
+  .lord-card-header {
+    display: grid;
+    gap: 0.45rem;
+    align-items: start;
+  }
+
+  .lord-card-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .lord-card-name-row h3 {
+    margin: 0;
+    color: #f6efe4;
+    font-size: 1.05rem;
+  }
+
+  .lord-card-role {
+    margin: 0.35rem 0 0;
+    color: rgba(214, 199, 175, 0.78);
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .lord-skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem 1rem;
+  }
+
+  .skill-meter {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .skill-meter-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .skill-meter-top span {
+    color: rgba(214, 199, 175, 0.74);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .skill-meter-top strong {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .skill-meter-track {
+    height: 0.45rem;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .skill-meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.95), rgba(242, 221, 172, 0.92));
+  }
+
+  .trait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .trait-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(156, 124, 70, 0.26);
+    background: rgba(12, 10, 9, 0.55);
+    color: #f2eadf;
+    font-size: 0.78rem;
+  }
+
+  .trait-pill.is-positive {
+    border-color: rgba(114, 173, 117, 0.3);
+    color: #cfe7bf;
+  }
+
+  .trait-pill.is-negative {
+    border-color: rgba(189, 95, 95, 0.3);
+    color: #efc0c0;
+  }
+
+  .lord-biography {
+    border-top: 1px solid rgba(156, 124, 70, 0.2);
+    padding-top: 0.85rem;
+  }
+
+  .lord-biography summary {
+    cursor: pointer;
+    color: #f0dfb7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.84rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .lord-biography p {
+    margin: 0.8rem 0 0;
+    color: rgba(233, 223, 209, 0.86);
+    line-height: 1.65;
+  }
+
+  .leader-badge,
+  .dead-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.5rem;
+    padding: 0.14rem 0.45rem;
+    margin-left: 0.45rem;
+    border: 1px solid rgba(216, 182, 115, 0.3);
+    background: rgba(196, 154, 71, 0.12);
+    color: #f9e6bc;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .dead-badge {
+    border-color: rgba(185, 92, 92, 0.34);
+    background: rgba(128, 38, 38, 0.18);
+    color: #f4d2d2;
+  }
+
+  @media (max-width: 1180px) {
+    .summary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .utility-panel,
+    .clan-layout,
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .clan-summary {
+      min-width: 0;
+    }
+
+    .lord-skill-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .faction-page {
+      padding: 1rem;
+    }
+
+    .faction-shell {
+      padding-top: 1.75rem;
+    }
+
+    .hero-grid,
+    .dossier-card,
+    .controls-card,
+    .section-card,
+    .clan-panel {
+      padding: 1rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.9rem, 13vw, 4rem);
+    }
+
+    .summary-grid,
+    .dossier-grid,
+    .control-grid,
+    .clan-summary,
+    .lord-skill-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .controls-heading,
+    .table-head,
+    .clan-panel-header {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .tab-button {
+      min-width: 7rem;
+    }
   }
 </style>

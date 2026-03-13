@@ -151,7 +151,7 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
       monogram: getMonogram(kingdom.shortName || kingdom.name),
       background: getKingdomBackground(kingdom.id, theme),
       foreground: theme === 'evil' ? '/images/factions/evil.png' : '/images/factions/good.png',
-      href: `/kingdoms/${kingdom.id}`,
+      href: `/factions/${kingdom.id}`,
     };
   })
   .sort((a, b) => {
@@ -1024,6 +1024,7 @@ const initialKingdom = kingdoms[0];
     }
 
     .panel-copy {
+      display: none;
       max-width: 27ch;
       font-size: clamp(0.38rem, 0.74vw, 0.62rem);
       line-height: 1.28;

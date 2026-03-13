@@ -64,8 +64,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="card-kicker">Development Blogs</p>
           <h2>Follow the project on YouTube</h2>
           <p>Watch behind-the-scenes progress, install guides, and showcase videos as new updates take shape.</p>
-          <a class="badge-link" href="https://www.youtube.com/@haterade_industries" target="_blank" rel="noopener">
-            <img src="/images/youtube-badge.svg" alt="YouTube" class="community-badge" />
+          <a
+            class="community-link community-link-youtube"
+            href="https://www.youtube.com/@haterade_industries"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="community-link-kicker">Video Updates</span>
+            <span class="community-link-title">Open YouTube Channel</span>
+            <span class="community-link-meta">@haterade_industries</span>
           </a>
         </article>
 
@@ -73,8 +80,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="card-kicker">Support and Discussion</p>
           <h2>Join the Discord</h2>
           <p>For mod help, direct assistance, community discussion, and team interaction, Discord is the main hub.</p>
-          <a class="badge-link" href="https://discord.gg/taom" target="_blank" rel="noopener">
-            <img src="/images/discord-badge.svg" alt="Join the chat on Discord" class="community-badge" />
+          <a
+            class="community-link community-link-discord"
+            href="https://discord.gg/taom"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="community-link-kicker">Live Support</span>
+            <span class="community-link-title">Join Discord Server</span>
+            <span class="community-link-meta">discord.gg/taom</span>
           </a>
         </article>
       </section>
@@ -395,29 +409,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.65;
   }
 
-  .badge-link {
-    display: inline-grid;
-    place-items: center;
+  .community-link {
+    position: relative;
+    display: grid;
+    gap: 0.28rem;
     margin-top: 1.35rem;
-    min-height: 5.75rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid rgba(151, 110, 51, 0.32);
-    background: rgba(10, 8, 8, 0.56);
+    min-height: 8.25rem;
+    padding: 1.15rem 1.2rem 1.2rem 1.45rem;
+    border: 1px solid rgba(151, 110, 51, 0.36);
+    background:
+      linear-gradient(180deg, rgba(20, 14, 12, 0.9), rgba(10, 8, 8, 0.92)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.05), transparent 46%);
+    text-decoration: none;
     transition:
       transform 180ms ease,
       border-color 180ms ease,
-      background 180ms ease;
+      background 180ms ease,
+      box-shadow 180ms ease;
   }
 
-  .badge-link:hover {
+  .community-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(209, 154, 51, 0.9), rgba(209, 154, 51, 0.28));
+  }
+
+  .community-link::after {
+    content: '>';
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(244, 228, 196, 0.74);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    transition:
+      transform 180ms ease,
+      color 180ms ease;
+  }
+
+  .community-link:hover {
     transform: translateY(-1px);
-    border-color: rgba(205, 153, 52, 0.7);
-    background: rgba(10, 8, 8, 0.74);
+    border-color: rgba(205, 153, 52, 0.74);
+    background:
+      linear-gradient(180deg, rgba(30, 21, 15, 0.94), rgba(12, 9, 8, 0.94)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.08), transparent 46%);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    text-decoration: none;
   }
 
-  .community-badge {
-    height: 56px;
-    width: auto;
+  .community-link:hover::after {
+    transform: translateY(-50%) translateX(4px);
+    color: #f3dfb2;
+  }
+
+  .community-link-kicker,
+  .community-link-title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    text-transform: uppercase;
+  }
+
+  .community-link-kicker {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+  }
+
+  .community-link-title {
+    color: #f7f1e8;
+    font-size: 1.28rem;
+    letter-spacing: 0.06em;
+    line-height: 1.08;
+  }
+
+  .community-link-meta {
+    color: rgba(223, 209, 189, 0.72);
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .community-link-youtube:hover .community-link-title {
+    color: #ffd6ca;
+  }
+
+  .community-link-discord:hover .community-link-title {
+    color: #d7dcff;
   }
 
   @media (max-width: 1080px) {

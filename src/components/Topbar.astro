@@ -1,6 +1,4 @@
 ---
-import BrandWordmark from './BrandWordmark.astro';
-
 const topNavLinks = [
   { href: '/', label: 'Home' },
   { href: '/factions', label: 'Factions' },
@@ -17,7 +15,9 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 ---
 
 <header class="topbar" data-topbar>
-  <BrandWordmark href="/" variant="nav" class="brand" />
+  <a class="brand" href="/" aria-label="Tales from the Age of Men home">
+    <img class="brand-logo" src="/images/logo-navbar.png" alt="Tales from the Age of Men" />
+  </a>
 
   <nav class="main-nav" aria-label="Main navigation">
     {
@@ -138,6 +138,16 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 
   .brand {
     align-self: center;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .brand-logo {
+    display: block;
+    width: auto;
+    height: 4.15rem;
+    max-width: min(29rem, 100%);
   }
 
   .main-nav a,
@@ -264,6 +274,10 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
       justify-self: start;
     }
 
+    .brand-logo {
+      height: 3.4rem;
+    }
+
     .main-nav,
     .side-link {
       display: none !important;
@@ -337,6 +351,10 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     .mobile-panel {
       width: min(100%, calc(100vw - 1.5rem));
       right: 0;
+    }
+
+    .brand-logo {
+      height: 2.8rem;
     }
   }
 </style>

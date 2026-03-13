@@ -1,9 +1,11 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseArmory, getCultureDisplayName } from '../lib/parse-xml';
+import { parseArmory, getCultureDisplayName, parseKingdomsFromXslt } from '../lib/parse-xml';
 
 const allItems = parseArmory();
-// Sort alphabetically, but push Thenn/Mercenary items to the bottom
+const kingdoms = parseKingdomsFromXslt();
+
 const BOTTOM_CULTURES = new Set(['thenn', 'mercenary']);
 allItems.sort((a, b) => {
   const aBottom = BOTTOM_CULTURES.has(a.culture) ? 1 : 0;
@@ -12,189 +14,978 @@ allItems.sort((a, b) => {
   return a.name.localeCompare(b.name);
 });
 
-// Split by slot in order: Head, Shoulder, Body, Arm, Leg
 const ARMOR_SECTIONS = [
-  { key: 'Head', label: 'Head Armour' },
-  { key: 'Shoulder', label: 'Shoulder Armour' },
-  { key: 'Body', label: 'Body Armour' },
-  { key: 'Arm', label: 'Arm Armour' },
-  { key: 'Leg', label: 'Leg Armour' },
+  { key: 'all', label: 'All', description: 'Every armour slot in one ledger.' },
+  { key: 'Head', label: 'Head', description: 'Helms, hoods, crowns, and face protection.' },
+  { key: 'Shoulder', label: 'Shoulder', description: 'Pauldrons, mantles, and layered shoulder guards.' },
+  { key: 'Body', label: 'Body', description: 'Cuirasses, robes, mail, and full torsos.' },
+  { key: 'Arm', label: 'Arm', description: 'Bracers, vambraces, and forearm pieces.' },
+  { key: 'Leg', label: 'Leg', description: 'Greaves, boots, and lower-body protection.' },
 ];
 
-const armorBySlot = ARMOR_SECTIONS.map((s) => ({
-  ...s,
-  items: allItems.filter((i) => i.slot === s.key),
-})).filter((s) => s.items.length > 0);
+const cultures = [...new Set(allItems.map((item) => item.culture).filter(Boolean))].sort((a, b) =>
+  getCultureDisplayName(a).localeCompare(getCultureDisplayName(b)),
+);
+const materials = [...new Set(allItems.map((item) => item.materialType).filter(Boolean))].sort((a, b) =>
+  a.localeCompare(b),
+);
+const slotCounts = new Map<string, number>();
+for (const item of allItems) {
+  slotCounts.set(item.slot, (slotCounts.get(item.slot) || 0) + 1);
+}
 
-// Get unique cultures and materials for filters
-const cultures = [...new Set(allItems.map((i) => i.culture).filter(Boolean))].sort();
-const materials = [...new Set(allItems.map((i) => i.materialType).filter(Boolean))].sort();
+const slotTabs = ARMOR_SECTIONS.map((section) => ({
+  ...section,
+  count: section.key === 'all' ? allItems.length : slotCounts.get(section.key) || 0,
+}));
 
-function z(val: number): string {
-  return val === 0 ? 'col-num skill-zero' : 'col-num';
+const merchantItemCount = allItems.filter((item) => item.isMerchandise).length;
+
+const strongestBody = [...allItems].sort((a, b) => b.bodyArmor - a.bodyArmor || a.name.localeCompare(b.name))[0];
+const strongestHelm = [...allItems].sort((a, b) => b.headArmor - a.headArmor || a.name.localeCompare(b.name))[0];
+const heaviestItem = [...allItems].sort((a, b) => b.weight - a.weight || a.name.localeCompare(b.name))[0];
+
+const ARMORY_CULTURE_ALIASES: Record<string, string> = {
+  dunland: 'empire',
+  rohan: 'vlandia',
+  harad: 'aserai',
+  rhun: 'khuzait',
+  dol_guldur: 'dolguldur',
+};
+
+function normalizeColor(value: string): string | null {
+  if (!value) return null;
+  const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
+  if (cleaned.length === 8) return `#${cleaned.slice(2).toUpperCase()}`;
+  if (cleaned.length === 6) return `#${cleaned.toUpperCase()}`;
+  return null;
+}
+
+function hexToRgb(hex: string): string {
+  const cleaned = hex.replace('#', '');
+  const numeric = Number.parseInt(cleaned, 16);
+  const red = (numeric >> 16) & 255;
+  const green = (numeric >> 8) & 255;
+  const blue = numeric & 255;
+  return `${red}, ${green}, ${blue}`;
+}
+
+const fallbackCultureColors: Record<string, string> = {
+  mercenary: '#8F7A60',
+  thenn: '#8F7A60',
+  lothlorien: '#D8C371',
+  troll: '#6E6A48',
+};
+
+const cultureColorMap = new Map<string, { hex: string; rgb: string }>();
+for (const kingdom of kingdoms) {
+  const hex = normalizeColor(kingdom.color);
+  if (hex && kingdom.culture) {
+    cultureColorMap.set(kingdom.culture, { hex, rgb: hexToRgb(hex) });
+  }
+}
+
+for (const [culture, alias] of Object.entries(ARMORY_CULTURE_ALIASES)) {
+  const tone = cultureColorMap.get(alias);
+  if (tone && !cultureColorMap.has(culture)) {
+    cultureColorMap.set(culture, tone);
+  }
+}
+
+for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
+  if (!cultureColorMap.has(culture)) {
+    cultureColorMap.set(culture, { hex, rgb: hexToRgb(hex) });
+  }
+}
+
+function getCultureRowStyle(culture: string): string {
+  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
+  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
+}
+
+function statClass(value: number, isFirst = false): string {
+  const base = isFirst ? 'col-num section-start' : 'col-num';
+  return value === 0 ? `${base} stat-zero` : base;
+}
+
+function formatTradeLabel(isMerchandise: boolean): string {
+  return isMerchandise ? 'Market' : 'Locked';
+}
+
+function formatModifierGroup(value: string): string {
+  return value || '-';
 }
 ---
 
 <BaseLayout
   title="Armoury"
-  description="Complete armour database for TAOM - all cultures, armour values, and materials"
+  description="Complete armour database for TAOM - filter every culture, slot, material, and protection profile"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-armour-body"
+  mainClass="taom-armour-main"
 >
-  <div class="page-content">
-    <h1 class="page-title">Armoury</h1>
+  <div class="armour-page">
+    <Topbar />
 
-    <div class="table-controls">
-      <input type="text" id="search" placeholder="Search by name or ID..." />
-      <select id="filter-culture">
-        <option value="">All Cultures</option>
-        {cultures.map((c) => <option value={c}>{getCultureDisplayName(c)}</option>)}
-      </select>
-      <select id="filter-material">
-        <option value="">All Materials</option>
-        {materials.map((m) => <option value={m}>{m}</option>)}
-      </select>
-      <span class="result-count" id="result-count">{allItems.length} items</span>
-    </div>
+    <main class="armour-shell">
+      <div class="armour-overview">
+        <section class="page-intro">
+          <p class="eyebrow">Forge Ledger of Middle-earth</p>
+          <h1>Armoury</h1>
+          <p class="intro-copy">
+            Survey every armour piece in TAOM through one searchable archive. Filter by realm, slot, material, and
+            market availability, then compare protection values, weight, and modifier groups side by side.
+          </p>
+        </section>
 
-    {
-      armorBySlot.map((section) => (
-        <div class="collapsible-section" data-collapsed="true">
-          <h2 class="section-title section-toggle">
-            <span class="collapse-arrow">&#9654;</span> {section.label}{' '}
-            <span class="section-count">({section.items.length})</span>
-          </h2>
-          <div class="data-table-wrapper" style="display:none">
-            <table class="data-table armor-section" data-section={section.key}>
-              <thead>
-                <tr>
-                  <th data-col="name">Name</th>
-                  <th data-col="culture">Culture</th>
-                  <th data-col="headArmor" class="col-num">
-                    Head
-                  </th>
-                  <th data-col="bodyArmor" class="col-num">
-                    Body
-                  </th>
-                  <th data-col="armArmor" class="col-num">
-                    Arm
-                  </th>
-                  <th data-col="legArmor" class="col-num">
-                    Leg
-                  </th>
-                  <th data-col="weight" class="col-num">
-                    Weight
-                  </th>
-                  <th data-col="materialType">Material</th>
-                  <th data-col="id" class="col-id-header">
-                    Id
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {section.items.map((item) => (
-                  <tr
-                    data-name={item.name.toLowerCase()}
-                    data-id={item.id.toLowerCase()}
-                    data-culture={item.culture}
-                    data-material={item.materialType}
-                  >
-                    <td class={`culture-${item.culture}`}>{item.name}</td>
-                    <td class={`culture-${item.culture}`}>{getCultureDisplayName(item.culture)}</td>
-                    <td class={z(item.headArmor)}>{item.headArmor}</td>
-                    <td class={z(item.bodyArmor)}>{item.bodyArmor}</td>
-                    <td class={z(item.armArmor)}>{item.armArmor}</td>
-                    <td class={z(item.legArmor)}>{item.legArmor}</td>
-                    <td class="col-num">{item.weight}</td>
-                    <td>{item.materialType}</td>
-                    <td class="col-id">{item.id}</td>
+        <section class="armour-summary" aria-label="Armour database summary">
+          <article class="summary-card">
+            <span class="summary-label">Total Pieces</span>
+            <strong>{allItems.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Cultures Covered</span>
+            <strong>{cultures.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Merchant Stock</span>
+            <strong>{merchantItemCount}</strong>
+          </article>
+        </section>
+
+        <section class="utility-panel">
+          <div class="balance-callout">
+            <p class="balance-kicker">Forge Notes</p>
+            <h2>See How Every Armour Tier Was Rebalanced</h2>
+            <p>
+              The current archive peaks at <strong>{strongestBody?.bodyArmor || 0}</strong> body armour on{' '}
+              <strong>{strongestBody?.name || 'the top cuirass'}</strong>, while{' '}
+              <strong>{strongestHelm?.name || 'the top helm'}</strong> reaches{' '}
+              <strong>{strongestHelm?.headArmor || 0}</strong> head armour. The heaviest piece in the dataset is{' '}
+              <strong>{heaviestItem?.name || 'the heaviest armour'}</strong> at{' '}
+              <strong>{heaviestItem?.weight || 0}</strong> weight.
+            </p>
+            <a href="/mod-info/armour-balancing">Open Armour Balancing</a>
+          </div>
+
+          <div class="controls-card">
+            <div class="controls-heading">
+              <p class="controls-kicker">Filter the Archive</p>
+              <span class="result-count" id="result-count">{allItems.length} items</span>
+            </div>
+
+            <div class="table-controls">
+              <label class="control-field control-search">
+                <span>Search</span>
+                <input type="text" id="search" placeholder="Search by name, ID, or modifier group..." />
+              </label>
+
+              <label class="control-field">
+                <span>Culture</span>
+                <select id="filter-culture">
+                  <option value="">All Cultures</option>
+                  {cultures.map((culture) => <option value={culture}>{getCultureDisplayName(culture)}</option>)}
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Material</span>
+                <select id="filter-material">
+                  <option value="">All Materials</option>
+                  {materials.map((material) => <option value={material}>{material}</option>)}
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Trade</span>
+                <select id="filter-trade">
+                  <option value="">All Pieces</option>
+                  <option value="market">Market Stock</option>
+                  <option value="locked">Locked / Hero Only</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="sections-stack">
+        <div class="slot-browser">
+          <div class="slot-header">
+            <div class="slot-tabs-shell">
+              <div class="slot-tabs" role="tablist" aria-label="Select an armour slot">
+                {
+                  slotTabs.map((tab) => (
+                    <button
+                      type="button"
+                      class:list={['slot-tab', { 'is-selected': tab.key === 'all' }]}
+                      data-slot={tab.key}
+                      data-description={tab.description}
+                      role="tab"
+                      aria-selected={tab.key === 'all' ? 'true' : 'false'}
+                    >
+                      <span>{tab.label}</span>
+                      <small>({tab.count})</small>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="roster-panel">
+            <div class="roster-panel-head">
+              <div>
+                <p class="roster-panel-title" id="slot-title">Full Armour Ledger</p>
+                <p class="roster-panel-subtitle" id="slot-description">
+                  {slotTabs.find((tab) => tab.key === 'all')?.description}
+                </p>
+              </div>
+              <span class="section-count" id="table-count">({allItems.length})</span>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table armour-section">
+                <thead>
+                  <tr>
+                    <th data-col="name">Name</th>
+                    <th data-col="culture">Culture</th>
+                    <th data-col="slot">Slot</th>
+                    <th data-col="headArmor" class="col-num section-start"> Head </th>
+                    <th data-col="bodyArmor" class="col-num"> Body </th>
+                    <th data-col="armArmor" class="col-num"> Arm </th>
+                    <th data-col="legArmor" class="col-num"> Leg </th>
+                    <th data-col="weight" class="col-num section-start"> Weight </th>
+                    <th data-col="materialType">Material</th>
+                    <th data-col="modifierGroup">Modifier</th>
+                    <th data-col="trade">Trade</th>
+                    <th data-col="id">Id</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody id="armour-table-body">
+                  {
+                    allItems.map((item) => (
+                      <tr
+                        data-name={item.name.toLowerCase()}
+                        data-id={item.id.toLowerCase()}
+                        data-culture={item.culture}
+                        data-slot={item.slot}
+                        data-material={item.materialType}
+                        data-trade={item.isMerchandise ? 'market' : 'locked'}
+                        data-modifier={item.modifierGroup.toLowerCase()}
+                        style={getCultureRowStyle(item.culture)}
+                      >
+                        <td class="item-name-cell">
+                          <span class="item-name">{item.name}</span>
+                        </td>
+                        <td>{getCultureDisplayName(item.culture)}</td>
+                        <td>{item.slot}</td>
+                        <td class={statClass(item.headArmor, true)}>{item.headArmor}</td>
+                        <td class={statClass(item.bodyArmor)}>{item.bodyArmor}</td>
+                        <td class={statClass(item.armArmor)}>{item.armArmor}</td>
+                        <td class={statClass(item.legArmor)}>{item.legArmor}</td>
+                        <td class="col-num section-start">{item.weight}</td>
+                        <td>
+                          <span class="material-chip">{item.materialType || '-'}</span>
+                        </td>
+                        <td class="col-modifier">{formatModifierGroup(item.modifierGroup)}</td>
+                        <td>
+                          <span class:list={['trade-badge', { 'is-market': item.isMerchandise }]}>
+                            {formatTradeLabel(item.isMerchandise)}
+                          </span>
+                        </td>
+                        <td class="col-id">{item.id}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <p class="empty-state" id="empty-state" hidden>
+              No armour pieces match the current slot and filter selection.
+            </p>
           </div>
         </div>
-      ))
-    }
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
-<style>
-  .section-title {
-    color: var(--accent);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 2rem 0 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .section-title:first-of-type {
-    margin-top: 1rem;
-  }
-
-  .section-count {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .section-toggle {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .section-toggle:hover {
-    color: var(--text-primary);
-  }
-
-  .collapse-arrow {
-    display: inline-block;
-    font-size: 0.8em;
-    transition: transform 0.2s;
-  }
-</style>
-
 <script>
-  import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
+  import { initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
     const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
     const materialFilter = document.getElementById('filter-material') as HTMLSelectElement;
-    const resultCount = document.getElementById('result-count')!;
-    if (!searchInput || !cultureFilter) return;
-    const allRows = collectRows('table.armor-section');
+    const tradeFilter = document.getElementById('filter-trade') as HTMLSelectElement;
+    const resultCount = document.getElementById('result-count') as HTMLElement;
+    const tableCount = document.getElementById('table-count') as HTMLElement;
+    const emptyState = document.getElementById('empty-state') as HTMLElement;
+    const slotTitle = document.getElementById('slot-title') as HTMLElement;
+    const slotDescription = document.getElementById('slot-description') as HTMLElement;
+    const tabButtons = Array.from(document.querySelectorAll('.slot-tab')) as HTMLButtonElement[];
+    const tableBody = document.getElementById('armour-table-body') as HTMLTableSectionElement;
+    const rows = Array.from(tableBody.querySelectorAll('tr')) as HTMLTableRowElement[];
+    if (
+      !searchInput ||
+      !cultureFilter ||
+      !materialFilter ||
+      !tradeFilter ||
+      !resultCount ||
+      !tableCount ||
+      !emptyState ||
+      !slotTitle ||
+      !slotDescription
+    ) {
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    searchInput.value = params.get('search') || '';
+    cultureFilter.value = params.get('culture') || '';
+    materialFilter.value = params.get('material') || '';
+    tradeFilter.value = params.get('trade') || '';
+
+    let activeSlot = params.get('slot') || 'all';
+    if (!tabButtons.some((button) => button.dataset.slot === activeSlot)) {
+      activeSlot = 'all';
+    }
+
+    function updateUrl() {
+      const nextParams = new URLSearchParams();
+      if (searchInput.value) nextParams.set('search', searchInput.value);
+      if (cultureFilter.value) nextParams.set('culture', cultureFilter.value);
+      if (materialFilter.value) nextParams.set('material', materialFilter.value);
+      if (tradeFilter.value) nextParams.set('trade', tradeFilter.value);
+      if (activeSlot !== 'all') nextParams.set('slot', activeSlot);
+      const query = nextParams.toString();
+      const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', url);
+    }
+
+    function updateSlotHeader() {
+      const activeButton = tabButtons.find((button) => button.dataset.slot === activeSlot);
+      const label = activeButton?.querySelector('span')?.textContent || 'All';
+      const description = activeButton?.dataset.description || 'Every armour slot in one ledger.';
+      slotTitle.textContent = activeSlot === 'all' ? 'Full Armour Ledger' : `${label} Armour`;
+      slotDescription.textContent = description;
+    }
 
     function filterRows() {
       const search = searchInput.value.toLowerCase();
       const culture = cultureFilter.value;
       const material = materialFilter.value;
-      let visible = 0;
+      const trade = tradeFilter.value;
+      let visibleCount = 0;
 
-      for (const row of allRows) {
+      for (const row of rows) {
         const name = row.dataset.name || '';
         const id = row.dataset.id || '';
         const rowCulture = row.dataset.culture || '';
+        const rowSlot = row.dataset.slot || '';
         const rowMaterial = row.dataset.material || '';
+        const rowTrade = row.dataset.trade || '';
+        const rowModifier = row.dataset.modifier || '';
 
-        const matchesSearch = !search || name.includes(search) || id.includes(search);
+        const matchesSlot = activeSlot === 'all' || rowSlot === activeSlot;
+        const matchesSearch = !search || name.includes(search) || id.includes(search) || rowModifier.includes(search);
         const matchesCulture = !culture || rowCulture === culture;
         const matchesMaterial = !material || rowMaterial === material;
+        const matchesTrade = !trade || rowTrade === trade;
 
-        const show = matchesSearch && matchesCulture && matchesMaterial;
+        const show = matchesSlot && matchesSearch && matchesCulture && matchesMaterial && matchesTrade;
         row.style.display = show ? '' : 'none';
-        if (show) visible++;
+        if (show) visibleCount += 1;
       }
 
-      resultCount.textContent = `${visible} items`;
+      tabButtons.forEach((button) => {
+        const selected = button.dataset.slot === activeSlot;
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+
+      updateSlotHeader();
+      resultCount.textContent = `${visibleCount} items`;
+      tableCount.textContent = `(${visibleCount})`;
+      emptyState.hidden = visibleCount !== 0;
+      updateUrl();
     }
 
-    applyUrlParams({ culture: cultureFilter, search: searchInput });
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeSlot = button.dataset.slot || 'all';
+        filterRows();
+      });
+    });
+
     searchInput.addEventListener('input', filterRows);
     cultureFilter.addEventListener('change', filterRows);
     materialFilter.addEventListener('change', filterRows);
-    filterRows();
+    tradeFilter.addEventListener('change', filterRows);
 
-    initCollapse();
-    initSorting('table.armor-section');
+    initSorting('table.armour-section');
+    filterRows();
   });
 </script>
+
+<style>
+  :global(body.taom-armour-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(6, 7, 8, 0.68), rgba(5, 6, 7, 0.97)),
+      radial-gradient(circle at 15% 14%, rgba(121, 95, 56, 0.16), transparent 24%),
+      radial-gradient(circle at 83% 18%, rgba(96, 112, 128, 0.16), transparent 24%),
+      linear-gradient(180deg, #14110f 0%, #0b0909 46%, #070707 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-armour-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-armour-main) {
+    display: block;
+  }
+
+  .armour-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .armour-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 2.25rem 0 3.375rem;
+  }
+
+  .armour-overview {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 54rem;
+  }
+
+  .eyebrow,
+  .controls-kicker,
+  .balance-kicker,
+  .summary-label,
+  .roster-panel-title,
+  .roster-panel-subtitle,
+  .slot-tab,
+  .result-count {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .controls-kicker,
+  .balance-kicker {
+    color: #c19748;
+    font-size: 0.88rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.8rem, 8vw, 6rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 47rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.22rem;
+    line-height: 1.48;
+  }
+
+  .armour-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .controls-card,
+  .roster-panel,
+  .slot-header {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .utility-panel {
+    display: grid;
+    grid-template-columns: minmax(17rem, 24rem) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .balance-callout {
+    padding: 1.35rem 1.4rem;
+    border: 1px solid rgba(129, 90, 43, 0.5);
+    background:
+      linear-gradient(180deg, rgba(28, 24, 22, 0.96), rgba(12, 9, 8, 0.96)),
+      radial-gradient(circle at top right, rgba(197, 151, 72, 0.14), transparent 44%);
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .balance-callout h2 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.75rem;
+    line-height: 1.08;
+  }
+
+  .balance-callout p {
+    margin: 0;
+    color: rgba(226, 216, 205, 0.88);
+    line-height: 1.58;
+  }
+
+  .balance-callout strong {
+    color: #f8e6bd;
+    font-weight: 600;
+  }
+
+  .balance-callout a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba(190, 141, 57, 0.5);
+    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
+    color: #f7e7c7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
+  }
+
+  .balance-callout a:hover {
+    color: #fff4df;
+    border-color: rgba(235, 186, 83, 0.72);
+    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .controls-card {
+    padding: 1.2rem;
+  }
+
+  .controls-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  .result-count {
+    color: rgba(240, 227, 206, 0.92);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+  }
+
+  .table-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 2.15fr) repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .control-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .control-field span {
+    color: rgba(207, 182, 132, 0.8);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .control-field input,
+  .control-field select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 3rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(140, 111, 70, 0.44);
+    background: rgba(9, 8, 8, 0.88);
+    color: #f0e7db;
+    font-size: 0.98rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .control-field input::placeholder {
+    color: rgba(194, 179, 162, 0.52);
+  }
+
+  .control-field input:focus,
+  .control-field select:focus {
+    border-color: rgba(209, 154, 51, 0.72);
+    box-shadow: 0 0 0 1px rgba(209, 154, 51, 0.18);
+    background: rgba(13, 10, 10, 0.94);
+  }
+
+  .sections-stack {
+    width: min(calc(100vw - 0.2rem), 172rem);
+    margin: 0 auto;
+    padding-top: 1.6rem;
+  }
+
+  .slot-browser {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .slot-header {
+    padding: 1rem 0.5rem;
+  }
+
+  .slot-tabs-shell {
+    overflow: auto hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184, 134, 53, 0.55) rgba(15, 12, 10, 0.2);
+  }
+
+  .slot-tabs {
+    display: inline-flex;
+    min-width: 100%;
+    gap: 0.5rem;
+    padding: 0 0.4rem;
+  }
+
+  .slot-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.68rem 1rem;
+    border: 1px solid rgba(124, 93, 47, 0.38);
+    background: rgba(9, 8, 8, 0.78);
+    color: rgba(243, 236, 229, 0.84);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .slot-tab small {
+    color: rgba(205, 190, 163, 0.7);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .slot-tab:hover,
+  .slot-tab.is-selected {
+    border-color: rgba(209, 154, 51, 0.62);
+    background: linear-gradient(180deg, rgba(67, 47, 24, 0.8), rgba(16, 13, 10, 0.88)), rgba(12, 10, 9, 0.9);
+    color: #f2ddac;
+    transform: translateY(-1px);
+  }
+
+  .slot-tab.is-selected small,
+  .slot-tab:hover small {
+    color: rgba(246, 225, 172, 0.82);
+  }
+
+  .roster-panel {
+    padding: 1.1rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .roster-panel-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .roster-panel-title {
+    margin: 0;
+    color: #f4ece2;
+    font-size: 1.15rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .roster-panel-subtitle {
+    margin: 0.2rem 0 0;
+    color: rgba(203, 184, 158, 0.8);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-count {
+    color: rgba(244, 231, 205, 0.86);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .data-table-wrapper {
+    position: relative;
+    overflow: auto;
+    padding: 0.3rem;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.84), rgba(8, 7, 7, 0.94)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.05), transparent 30%);
+  }
+
+  .armour-section {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .armour-section th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    color: #ffffff;
+    padding: 0.72rem 0.7rem;
+    border-bottom: 1px solid rgba(164, 124, 62, 0.45);
+    white-space: nowrap;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .armour-section td {
+    padding: 0.58rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.84rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .armour-section tbody tr:hover td {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .armour-section th.section-start,
+  .armour-section td.section-start {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .armour-section td.col-num,
+  .armour-section td .item-name,
+  .armour-section td .material-chip,
+  .armour-section td .trade-badge {
+    color: #ffffff !important;
+  }
+
+  .item-name-cell {
+    min-width: 15rem;
+  }
+
+  .item-name {
+    font-weight: 600;
+  }
+
+  .col-num {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-zero {
+    color: rgba(236, 226, 215, 0.42) !important;
+  }
+
+  .material-chip,
+  .trade-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .material-chip {
+    color: rgba(246, 238, 222, 0.9);
+  }
+
+  .trade-badge {
+    color: rgba(227, 214, 189, 0.82);
+  }
+
+  .trade-badge.is-market {
+    border-color: rgba(201, 151, 72, 0.4);
+    background: rgba(201, 151, 72, 0.12);
+    color: #f8e6bd;
+  }
+
+  .col-modifier {
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .col-id {
+    min-width: 13rem;
+    color: rgba(242, 232, 216, 0.72) !important;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.76rem;
+  }
+
+  .empty-state {
+    margin: 0;
+    padding: 1rem 0.5rem 0.2rem;
+    color: rgba(216, 199, 174, 0.78);
+    text-align: center;
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 1180px) {
+    .armour-summary {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .utility-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .table-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 980px) {
+    .armour-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+
+    .table-controls {
+      grid-template-columns: 1fr;
+    }
+
+    .armour-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .armour-page {
+      padding: 1rem;
+    }
+
+    .armour-overview {
+      padding: 0 0.4rem;
+    }
+
+    .armour-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .controls-heading,
+    .roster-panel-head {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .slot-tab {
+      font-size: 0.84rem;
+      padding-inline: 0.85rem;
+    }
+
+    .armour-section th,
+    .armour-section td {
+      padding-inline: 0.7rem;
+    }
+  }
+</style>

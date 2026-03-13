@@ -88,10 +88,10 @@ const loadOrder = [
         <article class="content-card">
           <p class="card-kicker">Video Tutorial</p>
           <h2>Watch the install guide</h2>
-          <p>If you want a visual walkthrough, the YouTube tutorial covers the full setup process step by step.</p>
-          <a class="card-link" href="https://www.youtube.com/watch?v=cu7K5skn2Fo" target="_blank" rel="noopener">
-            Watch on YouTube
-          </a>
+          <p>
+            The full installation walkthrough is embedded here so players can follow along without leaving the page.
+          </p>
+          <a class="card-link" href="#install-video">Jump to the video</a>
         </article>
 
         <article class="content-card">
@@ -111,6 +111,48 @@ const loadOrder = [
                 </a>
               ))
             }
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid section-grid-two section-grid-video" id="install-video">
+        <article class="content-card content-card-large video-card">
+          <p class="card-kicker">Install Walkthrough</p>
+          <h2>Follow the setup step by step</h2>
+          <p class="lead-copy">
+            This guide covers the same process as the written instructions below, including extraction, module
+            placement, and launch setup.
+          </p>
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline class="install-video">
+              <source src="/images/installinstructions.mp4" type="video/mp4" />
+              Your browser does not support the install instructions video.
+            </video>
+          </div>
+        </article>
+
+        <article class="content-card content-card-large">
+          <p class="card-kicker">Quick Notes</p>
+          <h2>Before you start the install</h2>
+          <div class="stack-list">
+            <div class="stack-item">
+              <h3>Use Bannerlord 1.2.12</h3>
+              <p>
+                Roll back your game version first so the installed files and launcher order match the current TAOM
+                build.
+              </p>
+            </div>
+            <div class="stack-item">
+              <h3>Remove older TAOM files</h3>
+              <p>
+                Clear out previous module folders before copying new ones in to avoid mixed-version crashes or missing
+                assets.
+              </p>
+            </div>
+            <div class="stack-item">
+              <h3>Unblock the DLL files</h3>
+              <p>Windows may block newly downloaded DLLs, so make sure you unblock them before launching the game.</p>
+            </div>
           </div>
         </article>
       </section>
@@ -192,12 +234,26 @@ const loadOrder = [
             Join the Discord for troubleshooting and discussion, or follow the development channel for installation
             guides and update videos.
           </p>
-          <div class="badge-grid">
-            <a class="badge-link" href="https://discord.gg/taom" target="_blank" rel="noopener">
-              <img src="/images/discord-badge.svg" alt="Join the chat on Discord" class="badge-img" />
+          <div class="community-links">
+            <a
+              class="community-link community-link-discord"
+              href="https://discord.gg/taom"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="community-link-kicker">Live Support</span>
+              <span class="community-link-title">Join Discord Server</span>
+              <span class="community-link-meta">discord.gg/taom</span>
             </a>
-            <a class="badge-link" href="https://www.youtube.com/@haterade_industries" target="_blank" rel="noopener">
-              <img src="/images/youtube-badge.svg" alt="Watch on YouTube" class="badge-img" />
+            <a
+              class="community-link community-link-youtube"
+              href="https://www.youtube.com/@haterade_industries"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="community-link-kicker">Video Updates</span>
+              <span class="community-link-title">Open YouTube Channel</span>
+              <span class="community-link-meta">@haterade_industries</span>
             </a>
           </div>
         </article>
@@ -350,7 +406,7 @@ const loadOrder = [
   }
 
   .page-shell {
-    width: min(100%, 76rem);
+    width: min(100%, 92rem);
     margin: 0 auto;
     padding: 4rem 0 5rem;
     display: grid;
@@ -450,7 +506,7 @@ const loadOrder = [
 
   .hero-actions,
   .button-row,
-  .badge-grid {
+  .community-links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
@@ -541,6 +597,11 @@ const loadOrder = [
     padding: 2.15rem;
   }
 
+  .section-grid-video {
+    align-items: start;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
+  }
+
   .content-card p {
     margin: 0.85rem 0 0;
     line-height: 1.65;
@@ -557,6 +618,33 @@ const loadOrder = [
 
   .button-row {
     margin-top: 1.25rem;
+  }
+
+  .video-card {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .video-frame {
+    margin-top: 0.35rem;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.38);
+    background:
+      linear-gradient(180deg, rgba(13, 10, 9, 0.96), rgba(8, 7, 7, 0.98)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.08), transparent 45%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+      0 16px 34px rgba(0, 0, 0, 0.24);
+    max-height: 42rem;
+  }
+
+  .install-video {
+    display: block;
+    width: 100%;
+    height: min(42rem, 72vh);
+    object-fit: contain;
+    object-position: center top;
+    background: #050404;
   }
 
   .mini-button {
@@ -643,38 +731,113 @@ const loadOrder = [
     text-transform: uppercase;
   }
 
-  .badge-grid {
+  .community-links {
     margin-top: 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .badge-link {
-    display: inline-grid;
-    place-items: center;
-    min-height: 5.5rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid rgba(151, 110, 51, 0.32);
-    background: rgba(10, 8, 8, 0.56);
+  .community-link {
+    position: relative;
+    display: grid;
+    gap: 0.28rem;
+    min-height: 8.25rem;
+    padding: 1.15rem 1.2rem 1.2rem 1.45rem;
+    border: 1px solid rgba(151, 110, 51, 0.36);
+    background:
+      linear-gradient(180deg, rgba(20, 14, 12, 0.9), rgba(10, 8, 8, 0.92)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.05), transparent 46%);
+    text-decoration: none;
     transition:
       transform 180ms ease,
       border-color 180ms ease,
-      background 180ms ease;
+      background 180ms ease,
+      box-shadow 180ms ease;
   }
 
-  .badge-link:hover {
+  .community-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(209, 154, 51, 0.9), rgba(209, 154, 51, 0.28));
+  }
+
+  .community-link::after {
+    content: '>';
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(244, 228, 196, 0.74);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    transition:
+      transform 180ms ease,
+      color 180ms ease;
+  }
+
+  .community-link:hover {
     transform: translateY(-1px);
-    border-color: rgba(205, 153, 52, 0.7);
-    background: rgba(10, 8, 8, 0.74);
+    border-color: rgba(205, 153, 52, 0.74);
+    background:
+      linear-gradient(180deg, rgba(30, 21, 15, 0.94), rgba(12, 9, 8, 0.94)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.08), transparent 46%);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    text-decoration: none;
   }
 
-  .badge-img {
-    height: 52px;
-    width: auto;
+  .community-link:hover::after {
+    transform: translateY(-50%) translateX(4px);
+    color: #f3dfb2;
+  }
+
+  .community-link-kicker,
+  .community-link-title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    text-transform: uppercase;
+  }
+
+  .community-link-kicker {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+  }
+
+  .community-link-title {
+    color: #f7f1e8;
+    font-size: 1.28rem;
+    letter-spacing: 0.06em;
+    line-height: 1.08;
+  }
+
+  .community-link-meta {
+    color: rgba(223, 209, 189, 0.72);
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  .community-link-youtube:hover .community-link-title {
+    color: #ffd6ca;
+  }
+
+  .community-link-discord:hover .community-link-title {
+    color: #d7dcff;
+  }
+
+  @media (max-width: 1180px) {
+    .hero-panel,
+    .section-grid-two,
+    .section-grid-video {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 1080px) {
-    .hero-panel,
-    .section-grid-three,
-    .section-grid-two {
+    .section-grid-three {
       grid-template-columns: 1fr;
     }
   }
@@ -740,6 +903,10 @@ const loadOrder = [
     .mini-button {
       width: 100%;
       min-width: 0;
+    }
+
+    .community-links {
+      grid-template-columns: 1fr;
     }
   }
 </style>

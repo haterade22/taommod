@@ -235,6 +235,8 @@ const GROUP_COLORS: Record<string, string> = {
   .troop-tree-container {
     position: relative;
     margin: 1rem 0;
+    width: 100%;
+    min-width: 0;
   }
 
   .tree-legend {
@@ -261,8 +263,12 @@ const GROUP_COLORS: Record<string, string> = {
 
   .tree-scroll {
     overflow-x: auto;
+    overflow-y: hidden;
     position: relative;
     padding-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    scrollbar-gutter: stable both-edges;
   }
 
   .tree-lines {
@@ -276,8 +282,8 @@ const GROUP_COLORS: Record<string, string> = {
   .tree-grid {
     position: relative;
     display: grid;
-    min-width: fit-content;
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
   }
 
   .header-label {
