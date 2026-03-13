@@ -1,4 +1,5 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const cultures = [
@@ -356,389 +357,494 @@ const cultures = [
 ];
 
 const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing'];
+const totalTroops = cultures.reduce((sum, culture) => sum + culture.troops, 0);
+const implementedCultures = cultures.filter((culture) => culture.groups.length > 0).length;
+const baselineFamilies = 4;
+
+const skillLabels: Record<(typeof skillOrder)[number], { short: string; long: string }> = {
+  Athletics: { short: 'Ath', long: 'Athletics' },
+  Riding: { short: 'Ride', long: 'Riding' },
+  OneHanded: { short: '1H', long: 'One-Handed' },
+  TwoHanded: { short: '2H', long: 'Two-Handed' },
+  Polearm: { short: 'Pole', long: 'Polearm' },
+  Bow: { short: 'Bow', long: 'Bow' },
+  Crossbow: { short: 'Xbow', long: 'Crossbow' },
+  Throwing: { short: 'Throw', long: 'Throwing' },
+};
+
+const groupLabels: Record<string, string> = {
+  Infantry: 'Infantry',
+  Ranged: 'Ranged',
+  Cavalry: 'Cavalry',
+  HorseArcher: 'Horse Archer',
+};
 ---
 
 <BaseLayout
   title="Troop Balancing"
   description="Detailed breakdown of troop skill balancing across all 15 TAOM cultures"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-troop-balance-body"
+  mainClass="taom-troop-balance-main"
 >
-  <div class="page-content mod-info">
-    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Troop Balancing</nav>
-    <h1 class="page-title">Troop Balancing</h1>
+  <div class="troop-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
-      <div class="collapsible-content" style="display:none">
-        <p class="section-desc">
-          TAOM rebalances all <strong>545 troops</strong> across <strong>15 cultures</strong> using a uniform formula: every
-          troop's 8 combat skills are calculated from a <strong>level-based baseline</strong> plus a
-          <strong>cultural modifier</strong>. This ensures all same-tier troops are within 5-10 skill points of each
-          other, while giving each culture a distinct tactical identity.
+    <main class="troop-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Systems Archive</p>
+        <h1>Troop Balancing</h1>
+        <p class="intro-copy">
+          TAOM tunes every roster around one shared stat pipeline: baseline values by level and unit role, then flat
+          cultural modifiers that define battlefield identity. Same-tier troops stay close in raw power while cultures
+          still feel unmistakably distinct.
         </p>
-        <p class="section-desc">
-          Elven factions (Rivendell, Mirkwood, Lothlorien) are elite — their troops are 25-50 skill points above
-          standard factions per skill, reflecting millennia of martial training.
-        </p>
-      </div>
-    </section>
+        <p class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Troop Balancing</p>
+      </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> The Formula</h2>
-      <div class="collapsible-content" style="display:none">
-        <div class="formula-box">
-          <code>Final Skill = Baseline[level][group][skill] + Cultural Modifier[culture][skill]</code>
-        </div>
-        <div class="formula-details">
-          <div class="detail-card">
-            <h3>Baselines</h3>
-            <p>
-              Defined per level tier (1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51) and per troop group (Infantry, Ranged,
-              Cavalry, Horse Archer). Baselines scale smoothly — a level 1 recruit has ~25 in primary skills, while a
-              level 51 elite has ~350.
-            </p>
-          </div>
-          <div class="detail-card">
-            <h3>Cultural Modifiers</h3>
-            <p>
-              Each culture adds or subtracts 5-10 points per skill (25-50 for elves). These flat modifiers apply at
-              every level, maintaining consistent faction identity from recruits to veterans.
-            </p>
-          </div>
-          <div class="detail-card">
-            <h3>Weapon Specialization</h3>
-            <p>
-              Troops with specific weapon types in their names (Crossbowman, Pikeman, Swordsman) get automatic skill
-              swaps — e.g., a Crossbowman swaps Bow and Crossbow values.
-            </p>
-          </div>
-          <div class="detail-card">
-            <h3>Militia Fix</h3>
-            <p>
-              Previously, 40+ militia troops had zero in every skill. They now inherit their culture's level 21
-              baseline, making them functional garrison troops.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <section class="troop-summary">
+        <article class="summary-card">
+          <span class="summary-label">Troops Tuned</span>
+          <strong>{totalTroops}</strong>
+          <span class="summary-note">Current XML-backed roster count</span>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Cultures Covered</span>
+          <strong>{implementedCultures}</strong>
+          <span class="summary-note">Implemented cultures with active group data</span>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Combat Skills</span>
+          <strong>{skillOrder.length}</strong>
+          <span class="summary-note">Shared stat family for every troop</span>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Baseline Families</span>
+          <strong>{baselineFamilies}</strong>
+          <span class="summary-note">Infantry, ranged, cavalry, and horse archer curves</span>
+        </article>
+      </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
-      <div class="collapsible-content" style="display:none">
-        <div class="table-wrapper">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>Culture</th>
-                <th>Troops</th>
-                {skillOrder.map((s) => <th class="skill-col">{s.substring(0, 3)}</th>)}
-              </tr>
-            </thead>
-            <tbody>
-              {
-                cultures.map((c) => (
-                  <tr>
-                    <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}>
-                      <a href={`#${c.id}`}>{c.name}</a>
-                    </td>
-                    <td class="center culture-cell" style={`background: ${c.color}15`}>
-                      {c.troops || '—'}
-                    </td>
-                    {skillOrder.map((skill) => {
-                      const str = c.strengths.find((s) => s.skill === skill);
-                      const wk = c.weaknesses.find((s) => s.skill === skill);
-                      const val = str ? str.mod : wk ? wk.mod : '0';
-                      const cls = str ? 'mod-pos' : wk ? 'mod-neg' : 'mod-zero';
-                      return <td class={`center ${cls}`}>{val}</td>;
-                    })}
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
+      <section class="info-section collapsible-section" data-collapsed="true">
+        <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
+        <div class="collapsible-content" style="display:none">
+          <p class="section-desc">
+            TAOM rebalances all <strong>545 troops</strong> across <strong>15 cultures</strong> using a uniform formula: every
+            troop's 8 combat skills are calculated from a <strong>level-based baseline</strong> plus a
+            <strong>cultural modifier</strong>. This ensures all same-tier troops are within 5-10 skill points of each
+            other, while giving each culture a distinct tactical identity.
+          </p>
+          <p class="section-desc">
+            Elven factions (Rivendell, Mirkwood, Lothlorien) are elite — their troops are 25-50 skill points above
+            standard factions per skill, reflecting millennia of martial training.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
-      <div class="collapsible-content" style="display:none">
-        {
-          cultures.map((c) => (
-            <div
-              id={c.id}
-              class="culture-card"
-              style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}
-            >
-              <div class="culture-header">
-                <h3 style={`color: ${c.color}`}>{c.name}</h3>
-                <div class="culture-meta">
-                  <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>
-                    {c.alignment === 'good'
-                      ? 'Free Peoples'
-                      : c.alignment === 'neutral'
-                        ? 'Neutral Kingdom'
-                        : 'Forces of Darkness'}
-                  </span>
-                  <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
-                    {c.race}
-                  </span>
-                  {c.troops > 0 && (
-                    <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
-                      {c.troops} troops
+      <section class="info-section collapsible-section" data-collapsed="true">
+        <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> The Formula</h2>
+        <div class="collapsible-content" style="display:none">
+          <div class="formula-box">
+            <code>Final Skill = Baseline[level][group][skill] + Cultural Modifier[culture][skill]</code>
+          </div>
+          <div class="formula-details">
+            <div class="detail-card">
+              <h3>Baselines</h3>
+              <p>
+                Defined per level tier (1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51) and per troop group (Infantry, Ranged,
+                Cavalry, Horse Archer). Baselines scale smoothly — a level 1 recruit has ~25 in primary skills, while a
+                level 51 elite has ~350.
+              </p>
+            </div>
+            <div class="detail-card">
+              <h3>Cultural Modifiers</h3>
+              <p>
+                Each culture adds or subtracts 5-10 points per skill (25-50 for elves). These flat modifiers apply at
+                every level, maintaining consistent faction identity from recruits to veterans.
+              </p>
+            </div>
+            <div class="detail-card">
+              <h3>Weapon Specialization</h3>
+              <p>
+                Troops with specific weapon types in their names (Crossbowman, Pikeman, Swordsman) get automatic skill
+                swaps — e.g., a Crossbowman swaps Bow and Crossbow values.
+              </p>
+            </div>
+            <div class="detail-card">
+              <h3>Militia Fix</h3>
+              <p>
+                Previously, 40+ militia troops had zero in every skill. They now inherit their culture's level 21
+                baseline, making them functional garrison troops.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section collapsible-section" data-collapsed="true">
+        <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Modifier Matrix</h2>
+        <div class="collapsible-content" style="display:none">
+          <div class="table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Culture</th>
+                  <th>Troops</th>
+                  {
+                    skillOrder.map((skill) => (
+                      <th class="skill-col" title={skillLabels[skill].long}>
+                        {skillLabels[skill].short}
+                      </th>
+                    ))
+                  }
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  cultures.map((c) => (
+                    <tr>
+                      <td class="culture-cell" style={`background: ${c.color}22; border-left: 3px solid ${c.color}`}>
+                        <a href={`#${c.id}`}>{c.name}</a>
+                      </td>
+                      <td class="center culture-cell" style={`background: ${c.color}15`}>
+                        {c.troops || '—'}
+                      </td>
+                      {skillOrder.map((skill) => {
+                        const str = c.strengths.find((s) => s.skill === skill);
+                        const wk = c.weaknesses.find((s) => s.skill === skill);
+                        const val = str ? str.mod : wk ? wk.mod : '0';
+                        const cls = str ? 'mod-pos' : wk ? 'mod-neg' : 'mod-zero';
+                        return (
+                          <td class={`center skill-value ${cls}`} title={skillLabels[skill].long}>
+                            {val}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section collapsible-section" data-collapsed="true">
+        <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Culture Details</h2>
+        <div class="collapsible-content" style="display:none">
+          {
+            cultures.map((c) => (
+              <div
+                id={c.id}
+                class="culture-card"
+                style={`background: ${c.color}1a; border: 1px solid ${c.color}40; border-left: 3px solid ${c.color}`}
+              >
+                <div class="culture-header">
+                  <h3 style={`color: ${c.color}`}>{c.name}</h3>
+                  <div class="culture-meta">
+                    <span class="culture-badge" style={`background: ${c.color}25; color: ${c.color}`}>
+                      {c.alignment === 'good'
+                        ? 'Free Peoples'
+                        : c.alignment === 'neutral'
+                          ? 'Neutral Kingdom'
+                          : 'Forces of Darkness'}
                     </span>
+                    <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
+                      {c.race}
+                    </span>
+                    {c.troops > 0 && (
+                      <span class="culture-badge" style={`background: ${c.color}20; color: ${c.color}cc`}>
+                        {c.troops} troops
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <p class="culture-identity">{c.identity}</p>
+
+                <div class="modifiers-grid">
+                  {c.strengths.length > 0 && (
+                    <div class="mod-section strengths">
+                      <h4>Strengths</h4>
+                      <ul>
+                        {c.strengths.map((s) => (
+                          <li>
+                            <span class="mod-skill">{skillLabels[s.skill].long}</span>
+                            <span class="mod-value pos">{s.mod}</span>
+                            <span class="mod-note">{s.note}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {c.weaknesses.length > 0 && (
+                    <div class="mod-section weaknesses">
+                      <h4>Weaknesses</h4>
+                      <ul>
+                        {c.weaknesses.map((w) => (
+                          <li>
+                            <span class="mod-skill">{skillLabels[w.skill].long}</span>
+                            <span class="mod-value neg">{w.mod}</span>
+                            <span class="mod-note">{w.note}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
+
+                <div class="culture-groups">
+                  <strong>Troop Groups:</strong>{' '}
+                  {c.groups.length > 0 ? c.groups.map((group) => groupLabels[group] ?? group).join(', ') : 'Planned'}
+                </div>
+
+                {c.notes && <p class="culture-notes">{c.notes}</p>}
               </div>
-
-              <p class="culture-identity">{c.identity}</p>
-
-              <div class="modifiers-grid">
-                {c.strengths.length > 0 && (
-                  <div class="mod-section strengths">
-                    <h4>Strengths</h4>
-                    <ul>
-                      {c.strengths.map((s) => (
-                        <li>
-                          <span class="mod-skill">{s.skill}</span>
-                          <span class="mod-value pos">{s.mod}</span>
-                          <span class="mod-note">{s.note}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {c.weaknesses.length > 0 && (
-                  <div class="mod-section weaknesses">
-                    <h4>Weaknesses</h4>
-                    <ul>
-                      {c.weaknesses.map((w) => (
-                        <li>
-                          <span class="mod-skill">{w.skill}</span>
-                          <span class="mod-value neg">{w.mod}</span>
-                          <span class="mod-note">{w.note}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              <div class="culture-groups">
-                <strong>Troop Groups:</strong> {c.groups.join(', ')}
-              </div>
-
-              {c.notes && <p class="culture-notes">{c.notes}</p>}
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="info-section collapsible-section" data-collapsed="true">
-      <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Baseline Skill Tables</h2>
-      <div class="collapsible-content" style="display:none">
-        <p class="section-desc">
-          These are the center values before cultural modifiers are applied. Each troop group has its own progression
-          curve.
-        </p>
-
-        <h3>Infantry Baselines</h3>
-        <div class="table-wrapper">
-          <table class="baseline-table">
-            <thead>
-              <tr
-                ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
-                  >Thr</th
-                ></tr
-              >
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>25</td><td>5</td><td>25</td><td>15</td><td>20</td><td>5</td><td>0</td><td>10</td></tr>
-              <tr><td>6</td><td>33</td><td>5</td><td>28</td><td>18</td><td>28</td><td>5</td><td>0</td><td>10</td></tr>
-              <tr><td>11</td><td>48</td><td>10</td><td>60</td><td>55</td><td>70</td><td>10</td><td>5</td><td>20</td></tr
-              >
-              <tr
-                ><td>16</td><td>80</td><td>15</td><td>90</td><td>85</td><td>95</td><td>15</td><td>10</td><td>30</td></tr
-              >
-              <tr
-                ><td>21</td><td>95</td><td>15</td><td>125</td><td>110</td><td>130</td><td>15</td><td>10</td><td>50</td
-                ></tr
-              >
-              <tr
-                ><td>26</td><td>100</td><td>20</td><td>175</td><td>155</td><td>170</td><td>20</td><td>15</td><td>70</td
-                ></tr
-              >
-              <tr
-                ><td>31</td><td>120</td><td>25</td><td>230</td><td>210</td><td>235</td><td>25</td><td>20</td><td>80</td
-                ></tr
-              >
-              <tr
-                ><td>36</td><td>140</td><td>30</td><td>270</td><td>250</td><td>275</td><td>30</td><td>25</td><td>90</td
-                ></tr
-              >
-              <tr
-                ><td>41</td><td>160</td><td>35</td><td>310</td><td>290</td><td>310</td><td>35</td><td>25</td><td>100</td
-                ></tr
-              >
-              <tr
-                ><td>46</td><td>175</td><td>40</td><td>330</td><td>310</td><td>330</td><td>40</td><td>30</td><td>100</td
-                ></tr
-              >
-              <tr
-                ><td>51</td><td>190</td><td>40</td><td>350</td><td>330</td><td>350</td><td>40</td><td>30</td><td>100</td
-                ></tr
-              >
-            </tbody>
-          </table>
+            ))
+          }
         </div>
+      </section>
 
-        <h3>Ranged Baselines</h3>
-        <div class="table-wrapper">
-          <table class="baseline-table">
-            <thead>
-              <tr
-                ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
-                  >Thr</th
-                ></tr
-              >
-            </thead>
-            <tbody>
-              <tr
-                ><td>11</td><td>50</td><td>10</td><td>30</td><td>25</td><td>30</td><td>55</td><td>15</td><td>20</td></tr
-              >
-              <tr
-                ><td>16</td><td>85</td><td>15</td><td>70</td><td>45</td><td>45</td><td>85</td><td>25</td><td>30</td></tr
-              >
-              <tr
-                ><td>21</td><td>95</td><td>15</td><td>100</td><td>65</td><td>70</td><td>130</td><td>30</td><td>40</td
-                ></tr
-              >
-              <tr
-                ><td>26</td><td>105</td><td>20</td><td>140</td><td>85</td><td>90</td><td>170</td><td>35</td><td>50</td
-                ></tr
-              >
-              <tr
-                ><td>31</td><td>115</td><td>25</td><td>165</td><td>100</td><td>100</td><td>205</td><td>40</td><td>60</td
-                ></tr
-              >
-              <tr
-                ><td>36</td><td>130</td><td>30</td><td>195</td><td>120</td><td>120</td><td>245</td><td>50</td><td>70</td
-                ></tr
-              >
-              <tr
-                ><td>41</td><td>150</td><td>35</td><td>220</td><td>140</td><td>140</td><td>280</td><td>55</td><td>80</td
-                ></tr
-              >
-              <tr
-                ><td>46</td><td>165</td><td>40</td><td>240</td><td>160</td><td>160</td><td>300</td><td>60</td><td>80</td
-                ></tr
-              >
-              <tr
-                ><td>51</td><td>180</td><td>40</td><td>260</td><td>170</td><td>170</td><td>320</td><td>65</td><td>80</td
-                ></tr
-              >
-            </tbody>
-          </table>
-        </div>
+      <section class="info-section collapsible-section" data-collapsed="true">
+        <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Baseline Skill Tables</h2>
+        <div class="collapsible-content" style="display:none">
+          <p class="section-desc">
+            These are the center values before cultural modifiers are applied. Each troop group has its own progression
+            curve.
+          </p>
 
-        <h3>Cavalry Baselines</h3>
-        <div class="table-wrapper">
-          <table class="baseline-table">
-            <thead>
-              <tr
-                ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
-                  >Thr</th
-                ></tr
-              >
-            </thead>
-            <tbody>
-              <tr><td>6</td><td>50</td><td>50</td><td>30</td><td>10</td><td>30</td><td>5</td><td>0</td><td>10</td></tr>
-              <tr><td>11</td><td>60</td><td>65</td><td>55</td><td>35</td><td>60</td><td>10</td><td>5</td><td>15</td></tr
-              >
-              <tr
-                ><td>16</td><td>85</td><td>95</td><td>80</td><td>50</td><td>100</td><td>15</td><td>10</td><td>25</td
-                ></tr
-              >
-              <tr
-                ><td>21</td><td>100</td><td>120</td><td>115</td><td>60</td><td>145</td><td>25</td><td>15</td><td>30</td
-                ></tr
-              >
-              <tr
-                ><td>26</td><td>115</td><td>160</td><td>170</td><td>80</td><td>195</td><td>30</td><td>20</td><td>40</td
-                ></tr
-              >
-              <tr
-                ><td>31</td><td>130</td><td>210</td><td>220</td><td>100</td><td>250</td><td>35</td><td>25</td><td>50</td
-                ></tr
-              >
-              <tr
-                ><td>36</td><td>150</td><td>270</td><td>270</td><td>130</td><td>300</td><td>45</td><td>30</td><td>60</td
-                ></tr
-              >
-              <tr
-                ><td>41</td><td>170</td><td>320</td><td>310</td><td>160</td><td>340</td><td>50</td><td>35</td><td>70</td
-                ></tr
-              >
-              <tr
-                ><td>46</td><td>185</td><td>360</td><td>340</td><td>180</td><td>370</td><td>55</td><td>40</td><td>70</td
-                ></tr
-              >
-              <tr
-                ><td>51</td><td>200</td><td>400</td><td>370</td><td>200</td><td>400</td><td>60</td><td>40</td><td>80</td
-                ></tr
-              >
-            </tbody>
-          </table>
-        </div>
+          <h3>Infantry Baselines</h3>
+          <div class="table-wrapper">
+            <table class="baseline-table">
+              <thead>
+                <tr
+                  ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
+                    >Thr</th
+                  ></tr
+                >
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>25</td><td>5</td><td>25</td><td>15</td><td>20</td><td>5</td><td>0</td><td>10</td></tr>
+                <tr><td>6</td><td>33</td><td>5</td><td>28</td><td>18</td><td>28</td><td>5</td><td>0</td><td>10</td></tr>
+                <tr
+                  ><td>11</td><td>48</td><td>10</td><td>60</td><td>55</td><td>70</td><td>10</td><td>5</td><td>20</td
+                  ></tr
+                >
+                <tr
+                  ><td>16</td><td>80</td><td>15</td><td>90</td><td>85</td><td>95</td><td>15</td><td>10</td><td>30</td
+                  ></tr
+                >
+                <tr
+                  ><td>21</td><td>95</td><td>15</td><td>125</td><td>110</td><td>130</td><td>15</td><td>10</td><td>50</td
+                  ></tr
+                >
+                <tr
+                  ><td>26</td><td>100</td><td>20</td><td>175</td><td>155</td><td>170</td><td>20</td><td>15</td><td
+                    >70</td
+                  ></tr
+                >
+                <tr
+                  ><td>31</td><td>120</td><td>25</td><td>230</td><td>210</td><td>235</td><td>25</td><td>20</td><td
+                    >80</td
+                  ></tr
+                >
+                <tr
+                  ><td>36</td><td>140</td><td>30</td><td>270</td><td>250</td><td>275</td><td>30</td><td>25</td><td
+                    >90</td
+                  ></tr
+                >
+                <tr
+                  ><td>41</td><td>160</td><td>35</td><td>310</td><td>290</td><td>310</td><td>35</td><td>25</td><td
+                    >100</td
+                  ></tr
+                >
+                <tr
+                  ><td>46</td><td>175</td><td>40</td><td>330</td><td>310</td><td>330</td><td>40</td><td>30</td><td
+                    >100</td
+                  ></tr
+                >
+                <tr
+                  ><td>51</td><td>190</td><td>40</td><td>350</td><td>330</td><td>350</td><td>40</td><td>30</td><td
+                    >100</td
+                  ></tr
+                >
+              </tbody>
+            </table>
+          </div>
 
-        <h3>Horse Archer Baselines</h3>
-        <div class="table-wrapper">
-          <table class="baseline-table">
-            <thead>
-              <tr
-                ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
-                  >Thr</th
-                ></tr
-              >
-            </thead>
-            <tbody>
-              <tr><td>6</td><td>50</td><td>50</td><td>25</td><td>10</td><td>20</td><td>40</td><td>0</td><td>10</td></tr>
-              <tr
-                ><td>11</td><td>65</td><td>75</td><td>40</td><td>25</td><td>40</td><td>65</td><td>10</td><td>20</td></tr
-              >
-              <tr
-                ><td>16</td><td>90</td><td>110</td><td>70</td><td>40</td><td>65</td><td>100</td><td>15</td><td>30</td
-                ></tr
-              >
-              <tr
-                ><td>21</td><td>110</td><td>150</td><td>100</td><td>55</td><td>80</td><td>145</td><td>20</td><td>45</td
-                ></tr
-              >
-              <tr
-                ><td>26</td><td>125</td><td>200</td><td>140</td><td>75</td><td>110</td><td>195</td><td>25</td><td>55</td
-                ></tr
-              >
-              <tr
-                ><td>31</td><td>145</td><td>255</td><td>180</td><td>95</td><td>140</td><td>245</td><td>30</td><td>65</td
-                ></tr
-              >
-              <tr
-                ><td>36</td><td>160</td><td>310</td><td>215</td><td>115</td><td>165</td><td>290</td><td>35</td><td
-                  >75</td
-                ></tr
-              >
-              <tr
-                ><td>41</td><td>175</td><td>350</td><td>250</td><td>140</td><td>200</td><td>320</td><td>40</td><td
-                  >85</td
-                ></tr
-              >
-            </tbody>
-          </table>
+          <h3>Ranged Baselines</h3>
+          <div class="table-wrapper">
+            <table class="baseline-table">
+              <thead>
+                <tr
+                  ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
+                    >Thr</th
+                  ></tr
+                >
+              </thead>
+              <tbody>
+                <tr
+                  ><td>11</td><td>50</td><td>10</td><td>30</td><td>25</td><td>30</td><td>55</td><td>15</td><td>20</td
+                  ></tr
+                >
+                <tr
+                  ><td>16</td><td>85</td><td>15</td><td>70</td><td>45</td><td>45</td><td>85</td><td>25</td><td>30</td
+                  ></tr
+                >
+                <tr
+                  ><td>21</td><td>95</td><td>15</td><td>100</td><td>65</td><td>70</td><td>130</td><td>30</td><td>40</td
+                  ></tr
+                >
+                <tr
+                  ><td>26</td><td>105</td><td>20</td><td>140</td><td>85</td><td>90</td><td>170</td><td>35</td><td>50</td
+                  ></tr
+                >
+                <tr
+                  ><td>31</td><td>115</td><td>25</td><td>165</td><td>100</td><td>100</td><td>205</td><td>40</td><td
+                    >60</td
+                  ></tr
+                >
+                <tr
+                  ><td>36</td><td>130</td><td>30</td><td>195</td><td>120</td><td>120</td><td>245</td><td>50</td><td
+                    >70</td
+                  ></tr
+                >
+                <tr
+                  ><td>41</td><td>150</td><td>35</td><td>220</td><td>140</td><td>140</td><td>280</td><td>55</td><td
+                    >80</td
+                  ></tr
+                >
+                <tr
+                  ><td>46</td><td>165</td><td>40</td><td>240</td><td>160</td><td>160</td><td>300</td><td>60</td><td
+                    >80</td
+                  ></tr
+                >
+                <tr
+                  ><td>51</td><td>180</td><td>40</td><td>260</td><td>170</td><td>170</td><td>320</td><td>65</td><td
+                    >80</td
+                  ></tr
+                >
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Cavalry Baselines</h3>
+          <div class="table-wrapper">
+            <table class="baseline-table">
+              <thead>
+                <tr
+                  ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
+                    >Thr</th
+                  ></tr
+                >
+              </thead>
+              <tbody>
+                <tr><td>6</td><td>50</td><td>50</td><td>30</td><td>10</td><td>30</td><td>5</td><td>0</td><td>10</td></tr
+                >
+                <tr
+                  ><td>11</td><td>60</td><td>65</td><td>55</td><td>35</td><td>60</td><td>10</td><td>5</td><td>15</td
+                  ></tr
+                >
+                <tr
+                  ><td>16</td><td>85</td><td>95</td><td>80</td><td>50</td><td>100</td><td>15</td><td>10</td><td>25</td
+                  ></tr
+                >
+                <tr
+                  ><td>21</td><td>100</td><td>120</td><td>115</td><td>60</td><td>145</td><td>25</td><td>15</td><td
+                    >30</td
+                  ></tr
+                >
+                <tr
+                  ><td>26</td><td>115</td><td>160</td><td>170</td><td>80</td><td>195</td><td>30</td><td>20</td><td
+                    >40</td
+                  ></tr
+                >
+                <tr
+                  ><td>31</td><td>130</td><td>210</td><td>220</td><td>100</td><td>250</td><td>35</td><td>25</td><td
+                    >50</td
+                  ></tr
+                >
+                <tr
+                  ><td>36</td><td>150</td><td>270</td><td>270</td><td>130</td><td>300</td><td>45</td><td>30</td><td
+                    >60</td
+                  ></tr
+                >
+                <tr
+                  ><td>41</td><td>170</td><td>320</td><td>310</td><td>160</td><td>340</td><td>50</td><td>35</td><td
+                    >70</td
+                  ></tr
+                >
+                <tr
+                  ><td>46</td><td>185</td><td>360</td><td>340</td><td>180</td><td>370</td><td>55</td><td>40</td><td
+                    >70</td
+                  ></tr
+                >
+                <tr
+                  ><td>51</td><td>200</td><td>400</td><td>370</td><td>200</td><td>400</td><td>60</td><td>40</td><td
+                    >80</td
+                  ></tr
+                >
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Horse Archer Baselines</h3>
+          <div class="table-wrapper">
+            <table class="baseline-table">
+              <thead>
+                <tr
+                  ><th>Level</th><th>Ath</th><th>Rid</th><th>1H</th><th>2H</th><th>Pol</th><th>Bow</th><th>Xbow</th><th
+                    >Thr</th
+                  ></tr
+                >
+              </thead>
+              <tbody>
+                <tr
+                  ><td>6</td><td>50</td><td>50</td><td>25</td><td>10</td><td>20</td><td>40</td><td>0</td><td>10</td></tr
+                >
+                <tr
+                  ><td>11</td><td>65</td><td>75</td><td>40</td><td>25</td><td>40</td><td>65</td><td>10</td><td>20</td
+                  ></tr
+                >
+                <tr
+                  ><td>16</td><td>90</td><td>110</td><td>70</td><td>40</td><td>65</td><td>100</td><td>15</td><td>30</td
+                  ></tr
+                >
+                <tr
+                  ><td>21</td><td>110</td><td>150</td><td>100</td><td>55</td><td>80</td><td>145</td><td>20</td><td
+                    >45</td
+                  ></tr
+                >
+                <tr
+                  ><td>26</td><td>125</td><td>200</td><td>140</td><td>75</td><td>110</td><td>195</td><td>25</td><td
+                    >55</td
+                  ></tr
+                >
+                <tr
+                  ><td>31</td><td>145</td><td>255</td><td>180</td><td>95</td><td>140</td><td>245</td><td>30</td><td
+                    >65</td
+                  ></tr
+                >
+                <tr
+                  ><td>36</td><td>160</td><td>310</td><td>215</td><td>115</td><td>165</td><td>290</td><td>35</td><td
+                    >75</td
+                  ></tr
+                >
+                <tr
+                  ><td>41</td><td>175</td><td>350</td><td>250</td><td>140</td><td>200</td><td>320</td><td>40</td><td
+                    >85</td
+                  ></tr
+                >
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
@@ -1053,6 +1159,395 @@ const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 
     display: inline-block;
     font-size: 0.8em;
     transition: transform 0.2s;
+  }
+
+  :global(body.taom-troop-balance-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 18% 14%, rgba(151, 94, 46, 0.16), transparent 24%),
+      radial-gradient(circle at 84% 20%, rgba(82, 104, 128, 0.15), transparent 24%),
+      linear-gradient(180deg, #17110f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-troop-balance-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.34), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-troop-balance-main) {
+    display: block;
+  }
+
+  .troop-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar-wrap {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .troop-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 58rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .summary-note {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.4rem, 8vw, 5.8rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 48rem;
+    color: rgba(238, 228, 219, 0.88);
+    font-size: 1.08rem;
+    line-height: 1.58;
+  }
+
+  .page-breadcrumb {
+    margin: 0;
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .troop-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-card,
+  .info-section,
+  .culture-card {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .summary-note {
+    color: rgba(214, 199, 176, 0.7);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .info-section {
+    margin-bottom: 1.15rem;
+    padding: 1.35rem;
+  }
+
+  .info-section h2 {
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.95rem;
+    line-height: 1.04;
+  }
+
+  .section-desc {
+    color: rgba(224, 213, 198, 0.78);
+  }
+
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .collapse-arrow {
+    color: #d7b26c;
+  }
+
+  .collapsible-content {
+    margin-top: 1rem;
+  }
+
+  .formula-box,
+  .detail-card,
+  .mod-section,
+  .comparison-table th,
+  .baseline-table th {
+    border-radius: 0;
+  }
+
+  .formula-box {
+    margin-bottom: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(212, 162, 76, 0.28);
+    background: rgba(212, 162, 76, 0.08);
+  }
+
+  .formula-box code {
+    color: #f2d8a7;
+  }
+
+  .formula-details {
+    gap: 0.85rem;
+  }
+
+  .detail-card {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .detail-card h3 {
+    margin-bottom: 0.35rem;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .detail-card p {
+    color: rgba(224, 213, 198, 0.74);
+  }
+
+  .table-wrapper {
+    margin-bottom: 0;
+  }
+
+  .comparison-table,
+  .baseline-table {
+    width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td,
+  .baseline-table th,
+  .baseline-table td {
+    padding: 0.72rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #f3ede3;
+  }
+
+  .comparison-table td *,
+  .comparison-table th *,
+  .baseline-table td *,
+  .baseline-table th * {
+    color: inherit;
+  }
+
+  .comparison-table th,
+  .baseline-table th {
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    color: #f5dfb6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .comparison-table tbody tr:hover,
+  .baseline-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .skill-col,
+  .skill-value,
+  .center {
+    text-align: center !important;
+  }
+
+  .skill-col {
+    min-width: 3.6rem;
+  }
+
+  .culture-cell {
+    color: #fff;
+  }
+
+  .culture-cell a {
+    color: #f1eadf;
+  }
+
+  .mod-pos,
+  .mod-value.pos {
+    color: #8ee18e;
+  }
+
+  .mod-neg,
+  .mod-value.neg {
+    color: #f09595;
+  }
+
+  .mod-zero {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .culture-card {
+    margin-bottom: 1rem;
+    padding: 1.3rem;
+  }
+
+  .culture-header h3 {
+    font-size: 1.9rem;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .culture-badge {
+    min-height: 1.85rem;
+    display: inline-flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .culture-identity,
+  .culture-groups,
+  .culture-notes {
+    color: rgba(224, 213, 198, 0.78);
+  }
+
+  .culture-groups strong {
+    color: #f1eadf;
+  }
+
+  .mod-section {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mod-section li {
+    display: grid;
+    gap: 0.14rem;
+    align-items: start;
+  }
+
+  .mod-skill {
+    min-width: 0;
+  }
+
+  .mod-note {
+    color: rgba(224, 213, 198, 0.66);
+  }
+
+  .baseline-table td {
+    text-align: center;
+    font-family: monospace;
+  }
+
+  .baseline-table td:first-child {
+    color: #f5dfb6;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  @media (max-width: 1180px) {
+    .troop-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 920px) {
+    .troop-shell {
+      padding-top: 1.8rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .troop-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .topbar-wrap {
+      padding: 0 0.4rem;
+    }
+
+    .troop-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .troop-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .section-toggle,
+    .culture-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 </style>
 

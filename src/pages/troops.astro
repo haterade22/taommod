@@ -121,6 +121,7 @@ const headerCols = [
             Browse every troop in TAOM by faction, role, and battlefield profile. Filter the roster, expand a realm, and
             compare skill spreads, equipment, and unit identities in one place.
           </p>
+          <nav class="page-breadcrumb"><a href="/database">Database</a> / Troops</nav>
         </section>
 
         <section class="troops-summary" aria-label="Troop database summary">
@@ -539,6 +540,20 @@ const headerCols = [
     line-height: 0.95;
     text-transform: uppercase;
     color: #f7f2ec;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
   }
 
   .intro-copy {

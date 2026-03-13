@@ -1,4 +1,5 @@
----
+﻿---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // Non-elven cultures with balance triangle data
@@ -121,7 +122,7 @@ const cultures = [
     alignment: 'neutral',
     troops: { grade: 'C', detail: 'Ath+10, 1H+10, 2H+5, Rid-15' },
     armor: { grade: 'C', protection: -1, weight: '0.90x', detail: 'Light corsair gear' },
-    weapons: { grade: '—', percent: '—', modifier: '—', detail: 'Not yet implemented' },
+    weapons: { grade: 'â€”', percent: 'â€”', modifier: 'â€”', detail: 'Not yet implemented' },
   },
 ];
 
@@ -167,7 +168,7 @@ const frontLineTiers = [
         name: 'Iron Hills',
         color: '#5a7a9a',
         reason:
-          "12 shield troops — Iron Phalanx, Boar Guard/Champion, Thrain's Ironclads (spear+shield) plus Forge Guard, Noble Warrior (sword+shield). Best non-elven armor (+5)",
+          "12 shield troops â€” Iron Phalanx, Boar Guard/Champion, Thrain's Ironclads (spear+shield) plus Forge Guard, Noble Warrior (sword+shield). Best non-elven armor (+5)",
       },
       {
         name: 'Erebor',
@@ -186,13 +187,13 @@ const frontLineTiers = [
         name: 'Gondor',
         color: '#c8d0d8',
         reason:
-          '28 shield troops — 13 spear+shield (Spearman, Fountain Guard, Dol Amroth Knights, Belfalas) and 15 sword+shield (Tower Guard, Swordsmen, Lossarnach, Dol Amroth). Most diverse frontline in game. Numenorean armor (+1 prot)',
+          '28 shield troops â€” 13 spear+shield (Spearman, Fountain Guard, Dol Amroth Knights, Belfalas) and 15 sword+shield (Tower Guard, Swordsmen, Lossarnach, Dol Amroth). Most diverse frontline in game. Numenorean armor (+1 prot)',
       },
       {
         name: 'Isengard',
         color: '#a0a0a0',
         reason:
-          '17 shield troops — Uruk-hai Infantry/Veteran, Orthanc Guard/Warden/Bodyguard (sword+shield), Uruk Spearman/Veteran, Pavise (spear+shield). Disciplined formations',
+          '17 shield troops â€” Uruk-hai Infantry/Veteran, Orthanc Guard/Warden/Bodyguard (sword+shield), Uruk Spearman/Veteran, Pavise (spear+shield). Disciplined formations',
       },
     ],
   },
@@ -205,25 +206,25 @@ const frontLineTiers = [
         name: 'Rohan',
         color: '#6db36d',
         reason:
-          '18 infantry shield troops — Westfold Axemen line (sword+shield), Westmarches Spearmen, Edoras Swordsmen/Meduseld Spearmen. Light armor (-2) but solid numbers',
+          '18 infantry shield troops â€” Westfold Axemen line (sword+shield), Westmarches Spearmen, Edoras Swordsmen/Meduseld Spearmen. Light armor (-2) but solid numbers',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
         reason:
-          '14 shield troops — Easterling Spear Bearer, Halberdier, Pillar, Chosen (spear+shield) plus Footman, Swordsman (sword+shield). Disciplined phalanx',
+          '14 shield troops â€” Easterling Spear Bearer, Halberdier, Pillar, Chosen (spear+shield) plus Footman, Swordsman (sword+shield). Disciplined phalanx',
       },
       {
         name: 'Gundabad',
         color: '#7a8a9a',
         reason:
-          '17 shield troops — Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Dwarven-forged armor (0 prot, 1.15x weight)',
+          '17 shield troops â€” Spear/Pike Warriors, Guardian of the Tower (spear+shield), Sword Warriors, Chosen of Tharzog (sword+shield). Dwarven-forged armor (0 prot, 1.15x weight)',
       },
       {
         name: 'Dol Guldur',
         color: '#7a9a5a',
         reason:
-          '22 shield troops — Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Most shield troops outside Gondor. Fortress-forged armor (0 prot), crude weapons (-3 pts) offset by sheer numbers',
+          '22 shield troops â€” Uruk Swordsman/Fell Infantry/Black Guard, Khamul Guards (sword+shield), Orc Warrior/Reaver, Warg riders (spear+shield). Most shield troops outside Gondor. Fortress-forged armor (0 prot), crude weapons (-3 pts) offset by sheer numbers',
       },
     ],
   },
@@ -236,18 +237,18 @@ const frontLineTiers = [
         name: 'Mordor',
         color: '#b44444',
         reason:
-          '11 shield troops — Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). Crude weapons (-2 pts) but strong numbers',
+          '11 shield troops â€” Uruk Shieldbearer/Shieldguard/Barad-dur Guard (spear+shield), Uruk Warrior/Infantry/Vanguard/Captain, Black Numenorean (sword+shield). Crude weapons (-2 pts) but strong numbers',
       },
       {
         name: 'Harad',
         color: '#c43c3c',
         reason:
-          '9 shield troops — Levy, Militia, Spearfighter, Swordfighter, Spearguard, Footman, Champion (sword+shield), 2 militia spear. Worst armor (-3) undermines frontline',
+          '9 shield troops â€” Levy, Militia, Spearfighter, Swordfighter, Spearguard, Footman, Champion (sword+shield), 2 militia spear. Worst armor (-3) undermines frontline',
       },
       {
         name: 'Umbar',
         color: '#5a8a8a',
-        reason: '7 shield troops — small roster of corsair frontline infantry. Weapons not yet implemented',
+        reason: '7 shield troops â€” small roster of corsair frontline infantry. Weapons not yet implemented',
       },
     ],
   },
@@ -260,7 +261,7 @@ const frontLineTiers = [
         name: 'Dunland',
         color: '#9a7a5a',
         reason:
-          'Only 2 militia spear+shield troops. All 28 other infantry carry throwing weapons — Dunlendings are skirmishers, not line holders',
+          'Only 2 militia spear+shield troops. All 28 other infantry carry throwing weapons â€” Dunlendings are skirmishers, not line holders',
       },
     ],
   },
@@ -277,13 +278,13 @@ const shockTroopTiers = [
         name: 'Iron Hills',
         color: '#5a7a9a',
         reason:
-          "11 unshielded 1H mace/hammer/axe/mattock troops — Veteran Hammer Guard, Durin's Hammers, Dain's Reavers, Mattock Guard, Thorin's Mithril Piercers, Royal Guard, King's Chosen. 2H+20 skill",
+          "11 unshielded 1H mace/hammer/axe/mattock troops â€” Veteran Hammer Guard, Durin's Hammers, Dain's Reavers, Mattock Guard, Thorin's Mithril Piercers, Royal Guard, King's Chosen. 2H+20 skill",
       },
       {
         name: 'Erebor',
         color: '#6a9fd4',
         reason:
-          '4 dedicated 2H troops — Axe Guard, Veteran Axe Guard, Wyrm Slayers, Khazad Royal Guard (2H axe) plus Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons',
+          '4 dedicated 2H troops â€” Axe Guard, Veteran Axe Guard, Wyrm Slayers, Khazad Royal Guard (2H axe) plus Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons',
       },
     ],
   },
@@ -296,7 +297,7 @@ const shockTroopTiers = [
         name: 'Gondor',
         color: '#c8d0d8',
         reason:
-          '7 shock troops — Lamedon Bladeguard/Highland Defender/Knight/Noble (2H sword), Dol Amroth Men/Sergeants/Captains-at-Arms (2H sword). Strong skill baseline',
+          '7 shock troops â€” Lamedon Bladeguard/Highland Defender/Knight/Noble (2H sword), Dol Amroth Men/Sergeants/Captains-at-Arms (2H sword). Strong skill baseline',
       },
     ],
   },
@@ -309,19 +310,19 @@ const shockTroopTiers = [
         name: 'Dol Guldur',
         color: '#7a9a5a',
         reason:
-          '5 linebreakers double as shock — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer (2H axe). Crude weapons (-3 pts) and weak skills (+5) limit effectiveness despite numbers',
+          '5 linebreakers double as shock â€” Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer (2H axe). Crude weapons (-3 pts) and weak skills (+5) limit effectiveness despite numbers',
       },
       {
         name: 'Isengard',
         color: '#a0a0a0',
         reason:
-          '4 shock troops — Uruk Champion (2H sword), Uruk Feller/Slayer/Reaver (2H axe), plus Berserker (unshielded sword). 2H+15 skill',
+          '4 shock troops â€” Uruk Champion (2H sword), Uruk Feller/Slayer/Reaver (2H axe), plus Berserker (unshielded sword). 2H+15 skill',
       },
       {
         name: 'Mordor',
         color: '#b44444',
         reason:
-          '3 shock troops — Uruk Ravager, Executioner, Darkblade (2H sword). Plus 5 halberd/polearm troops (Feller, Halberdier, Reaper, Deathwarden). Crude weapons (-2 pts)',
+          '3 shock troops â€” Uruk Ravager, Executioner, Darkblade (2H sword). Plus 5 halberd/polearm troops (Feller, Halberdier, Reaper, Deathwarden). Crude weapons (-2 pts)',
       },
     ],
   },
@@ -339,7 +340,7 @@ const shockTroopTiers = [
       {
         name: 'Rohan',
         color: '#6db36d',
-        reason: '2 only — Westfold 2H Axeman and Veteran 2H Axeman. Cavalry culture with minimal 2H infantry',
+        reason: '2 only â€” Westfold 2H Axeman and Veteran 2H Axeman. Cavalry culture with minimal 2H infantry',
       },
     ],
   },
@@ -352,17 +353,17 @@ const shockTroopTiers = [
         name: 'Dunland',
         color: '#9a7a5a',
         reason:
-          'Zero 2H troops — all infantry carry throwing weapons. Hill clans fight as skirmishers, not shock infantry',
+          'Zero 2H troops â€” all infantry carry throwing weapons. Hill clans fight as skirmishers, not shock infantry',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
-        reason: 'Zero 2H troops — Easterlings fight in disciplined spear formations, not as berserkers',
+        reason: 'Zero 2H troops â€” Easterlings fight in disciplined spear formations, not as berserkers',
       },
       {
         name: 'Harad',
         color: '#c43c3c',
-        reason: 'Zero 2H troops — Haradrim fight mounted or with javelin, not heavy infantry',
+        reason: 'Zero 2H troops â€” Haradrim fight mounted or with javelin, not heavy infantry',
       },
       { name: 'Umbar', color: '#5a8a8a', reason: '1 shock troop only. Small roster, weapons not yet implemented' },
     ],
@@ -380,13 +381,13 @@ const lineBreakerTiers = [
         name: 'Iron Hills',
         color: '#5a7a9a',
         reason:
-          "11 heavy weapon troops — Hammer Guard, Durin's Hammers (1H hammer), Axeguard, Dain's Reavers (1H axe), Mattock Guard, Thorin's Mithril Piercers (mattock), Royal Guard, King's Chosen (Dain's axe). THE anti-armor faction",
+          "11 heavy weapon troops â€” Hammer Guard, Durin's Hammers (1H hammer), Axeguard, Dain's Reavers (1H axe), Mattock Guard, Thorin's Mithril Piercers (mattock), Royal Guard, King's Chosen (Dain's axe). THE anti-armor faction",
       },
       {
         name: 'Erebor',
         color: '#6a9fd4',
         reason:
-          '5 dedicated breakers — Axe Guard/Veteran (2H axe), Wyrm Slayers, Khazad Royal Guard (2H axe), Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons',
+          '5 dedicated breakers â€” Axe Guard/Veteran (2H axe), Wyrm Slayers, Khazad Royal Guard (2H axe), Shield Breaker (1H mace). 2H+20 skill, +5 pts weapons',
       },
     ],
   },
@@ -399,22 +400,22 @@ const lineBreakerTiers = [
         name: 'Dol Guldur',
         color: '#7a9a5a',
         reason:
-          '5 dedicated linebreakers — Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer all equip 2H axes. Good numbers but crude weapons (-3 pts) and weak skills (+5) limit impact',
+          '5 dedicated linebreakers â€” Uruk Foul, Butcher, Berserker, Black Howler, Rage Bearer all equip 2H axes. Good numbers but crude weapons (-3 pts) and weak skills (+5) limit impact',
       },
       {
         name: 'Isengard',
         color: '#a0a0a0',
-        reason: '3 Uruk axe troops — Feller, Slayer, Reaver (2H axe). Berserker with unshielded sword. 2H+15 skill',
+        reason: '3 Uruk axe troops â€” Feller, Slayer, Reaver (2H axe). Berserker with unshielded sword. 2H+15 skill',
       },
       {
         name: 'Gondor',
         color: '#c8d0d8',
-        reason: '2 Lossarnach troops — Heavy Axemen and Wrathbearers (2H axe). Limited but elite anti-armor option',
+        reason: '2 Lossarnach troops â€” Heavy Axemen and Wrathbearers (2H axe). Limited but elite anti-armor option',
       },
       {
         name: 'Rohan',
         color: '#6db36d',
-        reason: '2 Westfold troops — 2H Axeman and Veteran 2H Axeman. Small but present anti-armor capability',
+        reason: '2 Westfold troops â€” 2H Axeman and Veteran 2H Axeman. Small but present anti-armor capability',
       },
     ],
   },
@@ -444,17 +445,17 @@ const lineBreakerTiers = [
       {
         name: 'Dunland',
         color: '#9a7a5a',
-        reason: 'Zero heavy weapon troops — all infantry carry throwing weapons instead',
+        reason: 'Zero heavy weapon troops â€” all infantry carry throwing weapons instead',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
-        reason: 'Zero heavy weapon troops — Easterlings fight with spears and swords in formation',
+        reason: 'Zero heavy weapon troops â€” Easterlings fight with spears and swords in formation',
       },
       {
         name: 'Harad',
         color: '#c43c3c',
-        reason: 'Zero heavy weapon troops — desert warfare favors speed over crushing power',
+        reason: 'Zero heavy weapon troops â€” desert warfare favors speed over crushing power',
       },
       {
         name: 'Umbar',
@@ -476,7 +477,7 @@ const skirmisherTiers = [
         name: 'Dunland',
         color: '#9a7a5a',
         reason:
-          '28 throwing troops — ALL clans carry javelins/throwing axes. Wolf Raider/Axeman/Champion, Bear Chosen/Berserker/Executioner, Boar/Ox/Stag lines, basic Spearman/Swordsman. Thr+15, Ath+20. THE skirmisher faction',
+          '28 throwing troops â€” ALL clans carry javelins/throwing axes. Wolf Raider/Axeman/Champion, Bear Chosen/Berserker/Executioner, Boar/Ox/Stag lines, basic Spearman/Swordsman. Thr+15, Ath+20. THE skirmisher faction',
       },
     ],
   },
@@ -489,13 +490,13 @@ const skirmisherTiers = [
         name: 'Harad',
         color: '#c43c3c',
         reason:
-          '11 skirmisher troops — Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance (javelin cavalry), Noble/Sandblade/Gildedfang/Serpentguard/Fang King (mounted javelin). Desert raiders built around javelin harassment',
+          '11 skirmisher troops â€” Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance (javelin cavalry), Noble/Sandblade/Gildedfang/Serpentguard/Fang King (mounted javelin). Desert raiders built around javelin harassment',
       },
       {
         name: 'Gondor',
         color: '#c8d0d8',
         reason:
-          '10 skirmisher troops — Pelargir Sailor/Skirmisher/Marine/Veteran Marine (javelin), Pinnath Gelin Levy/Footman/Warrior/Champion/Scout/Horseman (javelin). Two dedicated subcultures',
+          '10 skirmisher troops â€” Pelargir Sailor/Skirmisher/Marine/Veteran Marine (javelin), Pinnath Gelin Levy/Footman/Warrior/Champion/Scout/Horseman (javelin). Two dedicated subcultures',
       },
     ],
   },
@@ -508,13 +509,13 @@ const skirmisherTiers = [
         name: 'Rohan',
         color: '#6db36d',
         reason:
-          "6 elite riders with javelin — Westemnet Eorlingas/Royal/King's Own, Edoras Golden Hall Eorlingas/King's Own/Supreme Rider. High-tier cavalry skirmishers only",
+          "6 elite riders with javelin â€” Westemnet Eorlingas/Royal/King's Own, Edoras Golden Hall Eorlingas/King's Own/Supreme Rider. High-tier cavalry skirmishers only",
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
         reason:
-          '5 skirmisher troops — Easterling Rider, Veteran Swordsman, Lancer, War Guard, Bloodsworn. Cavalry-based javelin harassment',
+          '5 skirmisher troops â€” Easterling Rider, Veteran Swordsman, Lancer, War Guard, Bloodsworn. Cavalry-based javelin harassment',
       },
     ],
   },
@@ -526,7 +527,7 @@ const skirmisherTiers = [
       {
         name: 'Gundabad',
         color: '#7a8a9a',
-        reason: '3 only — Berserker, Veteran Berserker, Champion (throwing+melee). Limited skirmisher capability',
+        reason: '3 only â€” Berserker, Veteran Berserker, Champion (throwing+melee). Limited skirmisher capability',
       },
     ],
   },
@@ -538,27 +539,27 @@ const skirmisherTiers = [
       {
         name: 'Erebor',
         color: '#6a9fd4',
-        reason: 'Zero throwing troops — dwarves equip axes/hammers as melee weapons, not thrown',
+        reason: 'Zero throwing troops â€” dwarves equip axes/hammers as melee weapons, not thrown',
       },
       {
         name: 'Iron Hills',
         color: '#5a7a9a',
-        reason: 'Zero throwing troops — Iron Hills fight in heavy formations, not as skirmishers',
+        reason: 'Zero throwing troops â€” Iron Hills fight in heavy formations, not as skirmishers',
       },
       {
         name: 'Isengard',
         color: '#a0a0a0',
-        reason: 'Zero throwing troops — Uruks use crossbows for ranged, not javelins',
+        reason: 'Zero throwing troops â€” Uruks use crossbows for ranged, not javelins',
       },
       {
         name: 'Mordor',
         color: '#b44444',
-        reason: 'Zero throwing troops — Mordor orcs rely on bows or melee, no javelin tradition',
+        reason: 'Zero throwing troops â€” Mordor orcs rely on bows or melee, no javelin tradition',
       },
       {
         name: 'Dol Guldur',
         color: '#7a9a5a',
-        reason: 'Zero throwing troops — Dol Guldur orcs use bows exclusively for ranged combat',
+        reason: 'Zero throwing troops â€” Dol Guldur orcs use bows exclusively for ranged combat',
       },
       { name: 'Umbar', color: '#5a8a8a', reason: 'Zero throwing troops in current roster' },
     ],
@@ -611,29 +612,29 @@ const infantryTiers = [
         name: 'Dunland',
         color: '#9a7a5a',
         reason:
-          'Excellent mobility (Ath+20), weak armor (-2), crude weapons (-2 pts) — skirmisher infantry relying on speed',
+          'Excellent mobility (Ath+20), weak armor (-2), crude weapons (-2 pts) â€” skirmisher infantry relying on speed',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
-        reason: 'Good polearm skills (Pol+15), baseline armor, baseline weapons — disciplined spearmen',
+        reason: 'Good polearm skills (Pol+15), baseline armor, baseline weapons â€” disciplined spearmen',
       },
       {
         name: 'Mordor',
         color: '#b44444',
-        reason: 'Weak skills (-5 most) with crude weapons (-2 pts) — relies on sheer numbers and weight of arms',
+        reason: 'Weak skills (-5 most) with crude weapons (-2 pts) â€” relies on sheer numbers and weight of arms',
       },
       {
         name: 'Gundabad',
         color: '#7a8a9a',
         reason:
-          'Mixed skills (2H+10), dwarven-forged armor (0 prot, 1.15x weight), slightly crude weapons (-1 pt) — armor boost makes complete package',
+          'Mixed skills (2H+10), dwarven-forged armor (0 prot, 1.15x weight), slightly crude weapons (-1 pt) â€” armor boost makes complete package',
       },
       {
         name: 'Dol Guldur',
         color: '#7a9a5a',
         reason:
-          'Weakest skills (+5 only), crude weapons (-3 pts), and fortress-forged armor (0 prot) — cannon fodder balanced by cheap cost and numbers',
+          'Weakest skills (+5 only), crude weapons (-3 pts), and fortress-forged armor (0 prot) â€” cannon fodder balanced by cheap cost and numbers',
       },
     ],
   },
@@ -645,17 +646,17 @@ const infantryTiers = [
       {
         name: 'Umbar',
         color: '#5a8a8a',
-        reason: 'Decent skills (1H+10, Ath+10) but no weapons yet — corsair infantry planned',
+        reason: 'Decent skills (1H+10, Ath+10) but no weapons yet â€” corsair infantry planned',
       },
       {
         name: 'Rohan',
         color: '#6db36d',
-        reason: 'Infantry is an afterthought — cavalry culture with light armor and below-average weapons',
+        reason: 'Infantry is an afterthought â€” cavalry culture with light armor and below-average weapons',
       },
       {
         name: 'Harad',
         color: '#c43c3c',
-        reason: 'Infantry not their identity — worst armor in game (-3 prot), cavalry/archery focus',
+        reason: 'Infantry not their identity â€” worst armor in game (-3 prot), cavalry/archery focus',
       },
     ],
   },
@@ -672,13 +673,13 @@ const cavalryTiers = [
         name: 'Rohan',
         color: '#6db36d',
         reason:
-          '27 mounted spear+shield troops across 5 subcultures — Westemnet Riders (lance+shield), Eastemnet Lancers, Edoras Golden Hall Riders, plus 6 elite javelin cavalry. Most cavalry of any faction',
+          '27 mounted spear+shield troops across 5 subcultures â€” Westemnet Riders (lance+shield), Eastemnet Lancers, Edoras Golden Hall Riders, plus 6 elite javelin cavalry. Most cavalry of any faction',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
         reason:
-          '10 mounted spear+shield — Noble Youth/Rider/Honor Guard/Bloodrider/Cataphract/Dragon Knight plus 5 mounted skirmishers. Disciplined cataphract lancers',
+          '10 mounted spear+shield â€” Noble Youth/Rider/Honor Guard/Bloodrider/Cataphract/Dragon Knight plus 5 mounted skirmishers. Disciplined cataphract lancers',
       },
     ],
   },
@@ -691,7 +692,7 @@ const cavalryTiers = [
         name: 'Harad',
         color: '#c43c3c',
         reason:
-          '11 camel/horse javelin cavalry — Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance, Noble/Sandblade/Gildedfang/Serpentguard/Fang King. Plus horse archers. Desert raider identity',
+          '11 camel/horse javelin cavalry â€” Camel Scout/Rider/Sunlance/Bronzefang/Lancer/Warlance, Noble/Sandblade/Gildedfang/Serpentguard/Fang King. Plus horse archers. Desert raider identity',
       },
       {
         name: 'Gondor',
@@ -716,7 +717,7 @@ const cavalryTiers = [
         name: 'Isengard',
         color: '#a0a0a0',
         reason:
-          'Warg Scout/Overseer/Enforcer (spear, no shield) plus Warg Lieutenant (spear+shield). 4 warg riders — unique mount type',
+          'Warg Scout/Overseer/Enforcer (spear, no shield) plus Warg Lieutenant (spear+shield). 4 warg riders â€” unique mount type',
       },
       {
         name: 'Gundabad',
@@ -751,12 +752,12 @@ const cavalryTiers = [
       {
         name: 'Erebor',
         color: '#6a9fd4',
-        reason: 'Zero cavalry — dwarves fight exclusively on foot. All troops are infantry',
+        reason: 'Zero cavalry â€” dwarves fight exclusively on foot. All troops are infantry',
       },
       {
         name: 'Iron Hills',
         color: '#5a7a9a',
-        reason: 'Zero cavalry — Iron Hills dwarves fight in heavy infantry formations only',
+        reason: 'Zero cavalry â€” Iron Hills dwarves fight in heavy infantry formations only',
       },
     ],
   },
@@ -773,7 +774,7 @@ const archerTiers = [
         name: 'Dol Guldur',
         color: '#7a9a5a',
         reason:
-          '17 ranged troops — Goblin Hunter/Skirmisher/Archer (bow), Orc Scout/Archer, Uruk Skirmisher/Bowman/Fell Archer/Black Sharpshooter, Warg Skirmisher/Red Fang, Khamul Marksman/Shadow Bowman. Massive ranged roster',
+          '17 ranged troops â€” Goblin Hunter/Skirmisher/Archer (bow), Orc Scout/Archer, Uruk Skirmisher/Bowman/Fell Archer/Black Sharpshooter, Warg Skirmisher/Red Fang, Khamul Marksman/Shadow Bowman. Massive ranged roster',
       },
     ],
   },
@@ -786,19 +787,19 @@ const archerTiers = [
         name: 'Gondor',
         color: '#c8d0d8',
         reason:
-          '16 ranged troops — Bowman/Archer (bow), Rangers of Ithilien (3 tiers, elite bow+2H), Pelargir Archer, Blackroot Hunter/Skirmisher/Archer/Longbowmen/Elite Longbowmen, Pinnath Gelin Skirmisher/Bowguard/Hillwarden. Three dedicated archery subcultures',
+          '16 ranged troops â€” Bowman/Archer (bow), Rangers of Ithilien (3 tiers, elite bow+2H), Pelargir Archer, Blackroot Hunter/Skirmisher/Archer/Longbowmen/Elite Longbowmen, Pinnath Gelin Skirmisher/Bowguard/Hillwarden. Three dedicated archery subcultures',
       },
       {
         name: 'Dunland',
         color: '#9a7a5a',
         reason:
-          '15 ranged troops — Raven Archer/Ranger/Master Ranger (bow), Falcon Archer/Wildrider (mounted), Dragon Crossbowman/Firebolt/Sniper (crossbow), plus Hunter/Skirmisher. Three clan specializations',
+          '15 ranged troops â€” Raven Archer/Ranger/Master Ranger (bow), Falcon Archer/Wildrider (mounted), Dragon Crossbowman/Firebolt/Sniper (crossbow), plus Hunter/Skirmisher. Three clan specializations',
       },
       {
         name: 'Rohan',
         color: '#6db36d',
         reason:
-          '13 ranged troops — Wold Scout/Horse Archer line (5 tiers of mounted archers), Eastfold Skirmisher/Bowman/Veteran Bowman (foot archers). Strong horse archer tradition',
+          '13 ranged troops â€” Wold Scout/Horse Archer line (5 tiers of mounted archers), Eastfold Skirmisher/Bowman/Veteran Bowman (foot archers). Strong horse archer tradition',
       },
     ],
   },
@@ -811,31 +812,31 @@ const archerTiers = [
         name: 'Isengard',
         color: '#a0a0a0',
         reason:
-          '11 ranged troops — Uruk Crossbowman/Veteran Crossbowman/Arbalest/Chosen Marksman (crossbow), Scout/Skirmisher/Hunter/Tracker/Archer (bow). Heavy crossbow focus',
+          '11 ranged troops â€” Uruk Crossbowman/Veteran Crossbowman/Arbalest/Chosen Marksman (crossbow), Scout/Skirmisher/Hunter/Tracker/Archer (bow). Heavy crossbow focus',
       },
       {
         name: 'Harad',
         color: '#c43c3c',
         reason:
-          '9 ranged troops — Skirmisher/Archer/Marksman/Vipereye/Serpent Eye (bow), Horse Archer/Serpent Horse Archer (mounted bow). Mix of foot and mounted archers',
+          '9 ranged troops â€” Skirmisher/Archer/Marksman/Vipereye/Serpent Eye (bow), Horse Archer/Serpent Horse Archer (mounted bow). Mix of foot and mounted archers',
       },
       {
         name: 'Erebor',
         color: '#6a9fd4',
         reason:
-          '9 ranged troops — Scout/Archer/Veteran Archer (bow), Iron Hills Arbalest/Veteran Arbalest/Iron Tusk Sharpshooters (crossbow), plus Scout. Crossbow specialty',
+          '9 ranged troops â€” Scout/Archer/Veteran Archer (bow), Iron Hills Arbalest/Veteran Arbalest/Iron Tusk Sharpshooters (crossbow), plus Scout. Crossbow specialty',
       },
       {
         name: 'Rhun',
         color: '#d4a24c',
         reason:
-          '8 ranged troops — Watcher/Archer/Marksman (bow), Horse Archer/Shadowguard/Sunbow/Eye/Eye of the Waste (mounted bow). Horse archer tradition',
+          '8 ranged troops â€” Watcher/Archer/Marksman (bow), Horse Archer/Shadowguard/Sunbow/Eye/Eye of the Waste (mounted bow). Horse archer tradition',
       },
       {
         name: 'Gundabad',
         color: '#7a8a9a',
         reason:
-          '8 ranged troops — Hunter/Scout (bow), Despoiler of the Vale/Lurker/Sentry/Archer (bow). All foot archers, no mounted',
+          '8 ranged troops â€” Hunter/Scout (bow), Despoiler of the Vale/Lurker/Sentry/Archer (bow). All foot archers, no mounted',
       },
     ],
   },
@@ -848,19 +849,19 @@ const archerTiers = [
         name: 'Mordor',
         color: '#b44444',
         reason:
-          '4 ranged troops only — Uruk Scout/Marksman (bow), 2 militia archers. Very limited ranged options for such a large faction',
+          '4 ranged troops only â€” Uruk Scout/Marksman (bow), 2 militia archers. Very limited ranged options for such a large faction',
       },
       {
         name: 'Mirkwood',
         color: '#4a9e6d',
         reason:
-          '5 ranged troops — Sentinels/Borderwardens/Thingolheir (elite bow), 2 militia. Few but extremely skilled (Bow+50)',
+          '5 ranged troops â€” Sentinels/Borderwardens/Thingolheir (elite bow), 2 militia. Few but extremely skilled (Bow+50)',
       },
       {
         name: 'Rivendell',
         color: '#7ec8e3',
         reason:
-          '9 ranged troops — Recruit/Bowman/Archer/Marksman/Marchwarden (bow), Horse Archer/Rider of Himring (mounted). Elven accuracy compensates for numbers',
+          '9 ranged troops â€” Recruit/Bowman/Archer/Marksman/Marchwarden (bow), Horse Archer/Rider of Himring (mounted). Elven accuracy compensates for numbers',
       },
       { name: 'Umbar', color: '#5a8a8a', reason: '4 ranged troops in small roster. Weapons not yet implemented' },
     ],
@@ -875,506 +876,892 @@ const gradeColors: Record<string, string> = {
   B: '#6a9fd4',
   C: '#a0a0a0',
   D: '#d46a6a',
-  '—': 'rgba(255,255,255,0.2)',
+  'â€”': 'rgba(255,255,255,0.2)',
 };
+
+const totalCultures = cultures.length + elvenCultures.length;
+
+const axisCards = [
+  {
+    icon: 'Troops',
+    title: 'Troop Skills',
+    detail: 'Cultural combat modifiers shape melee, ranged pressure, mobility, and battlefield consistency.',
+  },
+  {
+    icon: 'Armor',
+    title: 'Armor Protection',
+    detail: 'Protection bonuses and weight multipliers determine how long a faction can stay in the fight.',
+  },
+  {
+    icon: 'Weapons',
+    title: 'Weapon Damage',
+    detail: 'Craftsmanship modifiers adjust the raw output of swords, bows, polearms, and crushing weapons.',
+  },
+];
+
+const readingSteps = [
+  {
+    step: '01',
+    title: 'Check The Power Ledger',
+    detail: 'Use the main table to compare each culture across the three balance axes at a glance.',
+  },
+  {
+    step: '02',
+    title: 'Open The Role Rankings',
+    detail: 'Drill into infantry, cavalry, ranged, and sub-role lists to see where each faction actually shines.',
+  },
+  {
+    step: '03',
+    title: 'Follow The Dossiers',
+    detail: 'Jump into troop, armour, and weapon balancing pages when you want the full formulas and supporting data.',
+  },
+];
+
+const detailedPages = [
+  {
+    href: '/mod-info/troop-balancing',
+    title: 'Troop Balancing',
+    desc: 'Cultural skill modifiers, progression baselines, and why each roster leans toward cavalry, infantry, or missile play.',
+    color: 'rgba(180, 120, 200, 0.35)',
+  },
+  {
+    href: '/mod-info/armour-balancing',
+    title: 'Armour Balancing',
+    desc: 'Protection curves, tier baselines, and weight tuning across all currently defined armour cultures.',
+    color: 'rgba(200, 160, 100, 0.35)',
+  },
+  {
+    href: '/mod-info/weapon-balancing',
+    title: 'Weapon Balancing',
+    desc: 'Damage tuning built on TaleWorlds physics, culture modifiers, and per-weapon identity across the arsenal.',
+    color: 'rgba(220, 130, 130, 0.35)',
+  },
+];
 ---
 
 <BaseLayout
   title="Balance Overview"
   description="Comprehensive faction power rankings across troop skills, armor, and weapons"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-balance-body"
+  mainClass="taom-balance-main"
 >
-  <div class="page-content mod-info">
-    <nav class="breadcrumb"><a href="/mod-info">Mod Info</a> / Balance Overview</nav>
-    <h1 class="page-title">Balance Overview</h1>
+  <div class="balance-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <section class="info-section">
-      <h2>The Balance Triangle</h2>
-      <p class="section-desc">
-        Every faction in TAOM is balanced across <strong>three axes</strong>: troop skills, armor protection, and weapon
-        damage. Factions strong in one axis are deliberately weaker in others, creating asymmetric but balanced
-        gameplay. No faction dominates all three — except elves, who are <strong>intentionally elite</strong> and balanced
-        by extreme rarity and cost.
-      </p>
-      <div class="triangle-visual">
-        <div class="triangle-axis">
-          <div class="axis-icon">&#9876;</div>
-          <div class="axis-info">
-            <strong>Troop Skills</strong>
-            <span>Cultural modifiers to combat skills — affects hit chance, block ability, and movement speed</span>
-          </div>
-        </div>
-        <div class="triangle-axis">
-          <div class="axis-icon">&#128737;</div>
-          <div class="axis-info">
-            <strong>Armor Protection</strong>
-            <span>Cultural protection bonuses and weight multipliers — affects damage taken and mobility</span>
-          </div>
-        </div>
-        <div class="triangle-axis">
-          <div class="axis-icon">&#9876;</div>
-          <div class="axis-info">
-            <strong>Weapon Damage</strong>
-            <span>Cultural damage_factor modifiers — affects raw damage output per hit</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <main class="balance-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Master Ledger of Middle-earth</p>
+        <h1>Balance Overview</h1>
+        <p class="intro-copy">
+          This archive compares how TAOM factions are tuned across troop skill, armor, and weapon quality. Use it as the
+          top-level briefing before diving into the dedicated balancing pages for the full formulas and supporting data.
+        </p>
+        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Balance Overview</nav>
+      </section>
 
-    <section class="info-section">
-      <h2>Faction Power Comparison</h2>
-      <p class="section-desc">
-        Grades reflect relative strength within each axis. <strong>S</strong> = dominant, <strong>A</strong> = strong, <strong
-          >B</strong
-        > = solid, <strong>C</strong> = below average, <strong>D</strong> = weak. See individual balancing pages for detailed
-        numbers.
-      </p>
-      <div class="table-wrapper">
-        <table class="power-table">
-          <thead>
-            <tr>
-              <th>Culture</th>
-              <th>Race</th>
-              <th class="grade-col">Troops</th>
-              <th class="grade-col">Armor</th>
-              <th class="grade-col">Weapons</th>
-              <th class="detail-col">Key Strength</th>
-            </tr>
-          </thead>
-          <tbody>
+      <section class="balance-summary" aria-label="Balance overview summary">
+        <article class="summary-card">
+          <span class="summary-label">Total Cultures</span>
+          <strong>{totalCultures}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Standard Realms</span>
+          <strong>{cultures.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Elven Exceptions</span>
+          <strong>{elvenCultures.length}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Balance Axes</span>
+          <strong>{axisCards.length}</strong>
+        </article>
+      </section>
+
+      <section class="overview-grid">
+        <article class="triangle-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">The Balance Triangle</p>
+              <h2>Three Forces Shape Every Faction</h2>
+            </div>
+            <p class="panel-copy">
+              No standard faction is meant to dominate troop skill, armor, and weapon output all at once. Strength on
+              one edge is usually paid for somewhere else.
+            </p>
+          </div>
+
+          <div class="triangle-visual">
             {
-              cultures.map((c) => (
-                <tr>
-                  <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
-                    <span style={`color: ${c.color}`}>{c.name}</span>
-                  </td>
-                  <td class="race-cell">{c.race}</td>
-                  <td class="grade-cell">
-                    <span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>
-                      {c.troops.grade}
-                    </span>
-                  </td>
-                  <td class="grade-cell">
-                    <span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>
-                      {c.armor.grade}
-                    </span>
-                  </td>
-                  <td class="grade-cell">
-                    <span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>
-                      {c.weapons.grade}
-                    </span>
-                  </td>
-                  <td class="detail-cell">{c.troops.detail}</td>
-                </tr>
+              axisCards.map((axis) => (
+                <article class="triangle-axis">
+                  <span class="axis-icon">{axis.icon}</span>
+                  <strong>{axis.title}</strong>
+                  <p>{axis.detail}</p>
+                </article>
               ))
             }
-          </tbody>
-        </table>
-      </div>
+          </div>
+        </article>
 
-      <div class="elven-note">
-        <h3>* Elven Factions <span class="elven-subtitle">— intentionally elite, balanced by rarity and cost</span></h3>
-        <p class="section-desc">
-          Elven factions operate on a different power scale. Their troops have +25 to +50 skill bonuses, the best armor
-          in the game, and the finest weapons in Middle-earth (+9 to +10 points). They are balanced by <strong
-            >extremely low population</strong
-          >, high recruitment costs, and slow replenishment — not by statistical parity with other factions.
-        </p>
-        <div class="table-wrapper">
-          <table class="power-table elven-table">
-            <thead>
-              <tr>
-                <th>Culture</th>
-                <th class="grade-col">Troops</th>
-                <th class="grade-col">Armor</th>
-                <th class="grade-col">Weapons</th>
-                <th class="detail-col">Key Strength</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                elvenCultures.map((c) => (
+        <article class="briefing-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">How To Read It</p>
+              <h2>Use The Overview Like A Dossier</h2>
+            </div>
+            <p class="panel-copy">
+              Start broad, then narrow down by battlefield role. The deeper pages are there when you need exact stat
+              logic rather than just the faction-to-faction picture.
+            </p>
+          </div>
+
+          <div class="reading-steps">
+            {
+              readingSteps.map((item) => (
+                <div class="reading-step">
+                  <span class="reading-step-number">{item.step}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.detail}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Faction Ledger</p>
+            <h2>Power Comparison</h2>
+          </div>
+          <p class="section-copy">
+            Grades represent relative strength within each axis. S means dominant, A strong, B solid, C below average,
+            and D weak.
+          </p>
+        </div>
+
+        <div class="comparison-layout">
+          <article class="table-card">
+            <div class="table-card-head">
+              <p class="table-kicker">Standard Realms</p>
+              <span class="table-count">{cultures.length} cultures</span>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="power-table">
+                <thead>
                   <tr>
-                    <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
-                      <span style={`color: ${c.color}`}>{c.name} *</span>
-                    </td>
-                    <td class="grade-cell">
-                      <span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>
-                        {c.troops.grade}
-                      </span>
-                    </td>
-                    <td class="grade-cell">
-                      <span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>
-                        {c.armor.grade}
-                      </span>
-                    </td>
-                    <td class="grade-cell">
-                      <span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>
-                        {c.weapons.grade}
-                      </span>
-                    </td>
-                    <td class="detail-cell">{c.troops.detail}</td>
+                    <th>Culture</th>
+                    <th>Race</th>
+                    <th class="grade-col">Troops</th>
+                    <th class="grade-col">Armor</th>
+                    <th class="grade-col">Weapons</th>
+                    <th class="detail-col">Key Strength</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {
+                    cultures.map((c) => (
+                      <tr>
+                        <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
+                          <span style={`color: ${c.color}`}>{c.name}</span>
+                        </td>
+                        <td class="race-cell">{c.race}</td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>
+                            {c.troops.grade}
+                          </span>
+                        </td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>
+                            {c.armor.grade}
+                          </span>
+                        </td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>
+                            {c.weapons.grade}
+                          </span>
+                        </td>
+                        <td class="detail-cell">{c.troops.detail}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <aside class="elven-note">
+            <div class="table-card-head">
+              <p class="table-kicker">Elven Exception</p>
+              <span class="table-count">{elvenCultures.length} cultures</span>
+            </div>
+            <h3>Elite By Design</h3>
+            <p class="section-desc">
+              Elven factions sit on a different power scale. Their troops, armour, and weapons are intentionally
+              stronger, then balanced by rarity, cost, and slower replenishment rather than by numerical parity.
+            </p>
+            <div class="table-wrapper">
+              <table class="power-table elven-table">
+                <thead>
+                  <tr>
+                    <th>Culture</th>
+                    <th class="grade-col">Troops</th>
+                    <th class="grade-col">Armor</th>
+                    <th class="grade-col">Weapons</th>
+                    <th class="detail-col">Key Strength</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    elvenCultures.map((c) => (
+                      <tr>
+                        <td class="culture-cell" style={`border-left: 3px solid ${c.color}`}>
+                          <span style={`color: ${c.color}`}>{c.name}</span>
+                        </td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.troops.grade]}`}>
+                            {c.troops.grade}
+                          </span>
+                        </td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.armor.grade]}`}>
+                            {c.armor.grade}
+                          </span>
+                        </td>
+                        <td class="grade-cell">
+                          <span class="grade" style={`color: ${gradeColors[c.weapons.grade]}`}>
+                            {c.weapons.grade}
+                          </span>
+                        </td>
+                        <td class="detail-cell">{c.troops.detail}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Role Archives</p>
+            <h2>Battlefield Rankings</h2>
+          </div>
+          <p class="section-copy">
+            These dossiers break the triangle down by real battlefield jobs so a culture can be excellent in one role
+            but limited in another.
+          </p>
+        </div>
+
+        <div class="details-stack">
+          <section class="details-panel">
+            <details open>
+              <summary>
+                <p class="details-kicker">Primary Ladder</p>
+                <h3>Infantry Power Rankings</h3>
+              </summary>
+              <p class="section-desc">
+                Ranked by combined melee skill bonuses, Athletics, armor protection, and weapon damage. Elven factions
+                would rank S+ across the board but are excluded because they are balanced by population rather than
+                parity.
+              </p>
+              <h4 class="subsection-title">Overall Infantry</h4>
+              {
+                infantryTiers.map((t) => (
+                  <div class="tier-row">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                      <span class="tier-desc">{t.label}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 ))
               }
-            </tbody>
-          </table>
+            </details>
+          </section>
+
+          <section class="details-panel">
+            <details>
+              <summary>
+                <p class="details-kicker">Role Breakdown</p>
+                <h3>Infantry Subcategories</h3>
+              </summary>
+              <p class="section-desc">
+                Infantry is split into four combat roles. A faction may dominate one lane while remaining merely
+                average, or even poor, in the others.
+              </p>
+
+              <h4 class="subsection-title">Front Line <span class="role-tag">Shield Wall / Defensive</span></h4>
+              <p class="role-desc">
+                One-Handed and Polearm skill plus heavy armor protection for troops that hold ground.
+              </p>
+              {
+                frontLineTiers.map((t) => (
+                  <div class="tier-row tier-compact">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+
+              <h4 class="subsection-title">Shock Troops <span class="role-tag">Two-Handed Charge</span></h4>
+              <p class="role-desc">
+                Two-Handed skill, Athletics, and damage output for troops built to break formations.
+              </p>
+              {
+                shockTroopTiers.map((t) => (
+                  <div class="tier-row tier-compact">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+
+              <h4 class="subsection-title">Line Breakers <span class="role-tag">Anti-Armor / Blunt</span></h4>
+              <p class="role-desc">
+                Heavy axes and maces for cracking plate and forcing damage through high protection.
+              </p>
+              {
+                lineBreakerTiers.map((t) => (
+                  <div class="tier-row tier-compact">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+
+              <h4 class="subsection-title">Skirmishers <span class="role-tag">Throwing / Harassment</span></h4>
+              <p class="role-desc">
+                Throwing skill and mobility for factions that soften the enemy before committed melee.
+              </p>
+              {
+                skirmisherTiers.map((t) => (
+                  <div class="tier-row tier-compact">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </details>
+          </section>
+
+          <section class="details-panel">
+            <details>
+              <summary>
+                <p class="details-kicker">Mounted Archives</p>
+                <h3>Cavalry Power Rankings</h3>
+              </summary>
+              <p class="section-desc">
+                Ranked by Riding skill, mounted melee profile, armor weight, and weapon quality. This includes both
+                traditional cavalry and beast riders where relevant.
+              </p>
+              {
+                cavalryTiers.map((t) => (
+                  <div class="tier-row">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                      <span class="tier-desc">{t.label}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </details>
+          </section>
+
+          <section class="details-panel">
+            <details>
+              <summary>
+                <p class="details-kicker">Missile Archives</p>
+                <h3>Ranged Power Rankings</h3>
+              </summary>
+              <p class="section-desc">
+                Ranked by Bow, Crossbow, and Throwing modifiers alongside armor weight and weapon quality. Elven
+                cultures would dominate this ladder, which is why they are called out separately above.
+              </p>
+              {
+                archerTiers.map((t) => (
+                  <div class="tier-row">
+                    <div
+                      class="tier-label"
+                      style={`background: ${t.color}18; border: 1px solid ${t.color}50; color: ${t.color}`}
+                    >
+                      <span class="tier-letter">{t.tier}</span>
+                      <span class="tier-desc">{t.label}</span>
+                    </div>
+                    <div class="tier-cultures">
+                      {t.cultures.map((c) => (
+                        <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
+                          <strong style={`color: ${c.color}`}>{c.name}</strong>
+                          <span class="tier-reason">{c.reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              }
+            </details>
+          </section>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="info-section collapsible-section">
-      <details>
-        <summary><h2>Infantry Power Rankings</h2></summary>
-        <p class="section-desc">
-          Ranked by combined melee skill bonuses (1H, 2H, Polearm), Athletics, armor protection, and weapon damage.
-          Elven factions would rank S+ across the board but are excluded — they are balanced by population, not by
-          stats.
-        </p>
-        <h3 class="subsection-title">Overall Infantry</h3>
-        {
-          infantryTiers.map((t) => (
-            <div class="tier-row">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-                <span class="tier-desc">{t.label}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </details>
-    </section>
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Deep Reads</p>
+            <h2>Detailed Balancing Pages</h2>
+          </div>
+          <p class="section-copy">
+            Use these linked dossiers when you want formulas, baselines, and exact cultural tuning rather than the
+            high-level faction snapshot.
+          </p>
+        </div>
 
-    <section class="info-section collapsible-section">
-      <details>
-        <summary><h2>Infantry Subcategories</h2></summary>
-        <p class="section-desc">
-          Infantry is broken down into four combat roles. A faction may excel at one role while being poor at another —
-          Dunland's skirmishers are S-tier but their frontline is B-tier, while Erebor dominates every role except
-          skirmishing.
-        </p>
-
-        <h3 class="subsection-title">Front Line <span class="role-tag">Shield Wall / Defensive</span></h3>
-        <p class="role-desc">
-          1H + Polearm skill, heavy armor protection — troops that hold the line with shield and spear.
-        </p>
-        {
-          frontLineTiers.map((t) => (
-            <div class="tier-row tier-compact">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-
-        <h3 class="subsection-title">Shock Troops <span class="role-tag">2H Charge / Berserker</span></h3>
-        <p class="role-desc">
-          2H skill + Athletics + weapon damage — troops that charge with two-handed weapons to break formations.
-        </p>
-        {
-          shockTroopTiers.map((t) => (
-            <div class="tier-row tier-compact">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-
-        <h3 class="subsection-title">Line Breakers <span class="role-tag">Anti-Armor / Blunt</span></h3>
-        <p class="role-desc">
-          Heavy 2H axes and maces — troops with crushing weapons that bypass armor. Blunt damage ignores 60% of armor.
-        </p>
-        {
-          lineBreakerTiers.map((t) => (
-            <div class="tier-row tier-compact">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-
-        <h3 class="subsection-title">Skirmishers <span class="role-tag">Javelin / Throwing</span></h3>
-        <p class="role-desc">
-          Throwing skill + Athletics — mobile troops that harass with javelins before closing to melee.
-        </p>
-        {
-          skirmisherTiers.map((t) => (
-            <div class="tier-row tier-compact">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </details>
-    </section>
-
-    <section class="info-section collapsible-section">
-      <details>
-        <summary><h2>Cavalry Power Rankings</h2></summary>
-        <p class="section-desc">
-          Ranked by Riding skill, Polearm/OneHanded combat, armor weight (lighter = faster mounts), and weapon damage.
-          Includes both traditional cavalry and warg/beast riders where applicable.
-        </p>
-        {
-          cavalryTiers.map((t) => (
-            <div class="tier-row">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-                <span class="tier-desc">{t.label}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </details>
-    </section>
-
-    <section class="info-section collapsible-section">
-      <details>
-        <summary><h2>Ranged Power Rankings</h2></summary>
-        <p class="section-desc">
-          Ranked by Bow, Crossbow, and Throwing skill bonuses, armor weight (mobility for kiting), and relevant weapon
-          damage. Elven factions would dominate — Mirkwood has +50 Bow, Rivendell +40 Bow, Lothlorien +35 Bow.
-        </p>
-        {
-          archerTiers.map((t) => (
-            <div class="tier-row">
-              <div
-                class="tier-label"
-                style={`background: ${t.color}25; border: 1px solid ${t.color}50; color: ${t.color}`}
-              >
-                <span class="tier-letter">{t.tier}</span>
-                <span class="tier-desc">{t.label}</span>
-              </div>
-              <div class="tier-cultures">
-                {t.cultures.map((c) => (
-                  <div class="tier-culture" style={`border-left: 3px solid ${c.color}`}>
-                    <strong style={`color: ${c.color}`}>{c.name}</strong>
-                    <span class="tier-reason">{c.reason}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </details>
-    </section>
-
-    <section class="info-section collapsible-section">
-      <details>
-        <summary><h2>Detailed Balancing Pages</h2></summary>
         <div class="links-grid">
-          <a href="/mod-info/troop-balancing" class="link-card" style="--lc-color: rgba(180, 120, 200, 0.35)">
-            <strong>Troop Balancing</strong>
-            <span>Cultural skill modifiers, baseline tables, and troop progression for all 16 cultures</span>
-          </a>
-          <a href="/mod-info/armour-balancing" class="link-card" style="--lc-color: rgba(200, 160, 100, 0.35)">
-            <strong>Armour Balancing</strong>
-            <span>Protection bonuses, weight multipliers, and tier breakdowns across 17 cultures</span>
-          </a>
-          <a href="/mod-info/weapon-balancing" class="link-card" style="--lc-color: rgba(220, 130, 130, 0.35)">
-            <strong>Weapon Balancing</strong>
-            <span>Damage analysis from TaleWorlds physics, cultural modifiers, and per-weapon breakdowns</span>
-          </a>
+          {
+            detailedPages.map((page) => (
+              <a href={page.href} class="link-card" style={`--lc-color:${page.color};`}>
+                <strong>{page.title}</strong>
+                <span>{page.desc}</span>
+              </a>
+            ))
+          }
         </div>
-      </details>
-    </section>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 1200px;
+  :global(body.taom-balance-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 15% 12%, rgba(151, 94, 46, 0.14), transparent 23%),
+      radial-gradient(circle at 84% 18%, rgba(82, 104, 128, 0.16), transparent 24%),
+      linear-gradient(180deg, #17110f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .breadcrumb {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-  }
-  .breadcrumb a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
-  .info-section {
-    margin-bottom: 3rem;
+  :global(body.taom-balance-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.34), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .info-section h2 {
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(212, 162, 76, 0.3);
-    padding-bottom: 0.5rem;
-  }
-
-  .section-desc {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .coming-soon {
-    background: rgba(212, 162, 76, 0.08);
-    border: 1px solid rgba(212, 162, 76, 0.2);
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-  }
-
-  /* Triangle visual */
-  .triangle-visual {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .triangle-axis {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 1.25rem;
-    text-align: center;
-  }
-
-  .axis-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .axis-info strong {
+  :global(.taom-balance-main) {
     display: block;
-    color: var(--accent);
-    margin-bottom: 0.25rem;
   }
 
-  .axis-info span {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
+  .balance-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar-wrap {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .balance-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 54rem;
+  }
+
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .details-kicker,
+  .table-kicker,
+  .table-count,
+  .reading-step-number {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker,
+  .details-kicker,
+  .table-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 8vw, 6rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 47rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.18rem;
     line-height: 1.5;
   }
 
-  /* Power comparison table */
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .balance-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .triangle-panel,
+  .briefing-panel,
+  .section-block,
+  .details-panel details,
+  .table-card,
+  .elven-note {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .overview-grid,
+  .comparison-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.9fr);
+    gap: 1rem;
+  }
+
+  .triangle-panel,
+  .briefing-panel,
+  .table-card,
+  .elven-note,
+  .section-block {
+    padding: 1.35rem;
+  }
+
+  .panel-heading,
+  .section-heading,
+  .table-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .panel-heading h2,
+  .section-heading h2,
+  .details-panel h3,
+  .reading-step h3,
+  .elven-note h3 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .panel-heading h2,
+  .section-heading h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .panel-copy,
+  .section-copy {
+    margin: 0;
+    max-width: 32rem;
+    color: rgba(219, 208, 193, 0.8);
+    line-height: 1.58;
+    text-align: right;
+  }
+
+  .triangle-visual {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .triangle-axis {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1rem;
+    border: 1px solid rgba(203, 160, 89, 0.18);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .axis-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 1.9rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: #f4ddb0;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .triangle-axis strong {
+    color: #f0e7da;
+    font-size: 1rem;
+  }
+
+  .triangle-axis p,
+  .reading-step p,
+  .section-desc,
+  .role-desc,
+  .tier-reason,
+  .link-card span {
+    margin: 0;
+    color: rgba(224, 213, 198, 0.78);
+    line-height: 1.58;
+  }
+
+  .reading-steps {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .reading-step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.9rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .reading-step:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .reading-step-number {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(196, 149, 71, 0.34);
+    background: rgba(255, 255, 255, 0.03);
+    color: #f4e5c3;
+    font-size: 0.86rem;
+    letter-spacing: 0.14em;
+  }
+
+  .reading-step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .section-block {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .table-kicker,
+  .table-count {
+    color: rgba(246, 230, 203, 0.82);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
   .table-wrapper {
     overflow-x: auto;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
   }
 
   .power-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 
   .power-table th,
   .power-table td {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.72rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     text-align: left;
+    white-space: nowrap;
   }
 
   .power-table th {
-    background: rgba(212, 162, 76, 0.15);
-    color: var(--accent);
-    font-weight: 600;
     position: sticky;
     top: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    color: #f5dfb6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .power-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.03);
   }
 
   .culture-cell {
     font-weight: 600;
     padding-left: 0.75rem !important;
+    color: #ffffff;
   }
 
   .race-cell {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.82rem;
+  }
+
+  .grade-col,
+  .grade-cell {
+    text-align: center;
   }
 
   .grade-col {
-    text-align: center;
-    width: 70px;
-  }
-
-  .grade-cell {
-    text-align: center;
+    width: 5rem;
   }
 
   .grade {
@@ -1384,63 +1771,124 @@ const gradeColors: Record<string, string> = {
   }
 
   .detail-col {
-    min-width: 200px;
+    min-width: 16rem;
   }
 
   .detail-cell {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.82rem;
     font-family: monospace;
+    white-space: normal;
   }
 
-  /* Elven section */
   .elven-note {
-    background: rgba(126, 200, 227, 0.05);
-    border: 1px solid rgba(126, 200, 227, 0.15);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
+    border-color: rgba(126, 200, 227, 0.22);
+    background:
+      linear-gradient(180deg, rgba(12, 18, 21, 0.96), rgba(8, 9, 11, 0.94)),
+      radial-gradient(circle at top right, rgba(126, 200, 227, 0.15), transparent 44%);
   }
 
   .elven-note h3 {
-    color: #7ec8e3;
-    font-size: 1.1rem;
-    margin: 0 0 0.75rem 0;
-  }
-
-  .elven-subtitle {
-    font-weight: 400;
-    font-size: 0.85rem;
-    color: rgba(126, 200, 227, 0.6);
-  }
-
-  .elven-table {
-    font-size: 0.825rem;
+    font-size: 1.45rem;
   }
 
   .elven-table th {
-    background: rgba(126, 200, 227, 0.1);
-    color: #7ec8e3;
+    color: #8fd4ea;
+    background:
+      linear-gradient(180deg, rgba(11, 19, 24, 0.98), rgba(8, 10, 13, 0.98)),
+      linear-gradient(90deg, rgba(126, 200, 227, 0.08), transparent 30%);
   }
 
-  /* Tier rows */
+  .details-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .details-panel details {
+    padding: 1.2rem 1.25rem;
+  }
+
+  .details-panel summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .details-panel summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .details-panel summary::after {
+    content: '+';
+    justify-self: end;
+    align-self: start;
+    margin-top: -3rem;
+    color: rgba(232, 190, 104, 0.72);
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .details-panel details[open] summary::after {
+    content: '-';
+  }
+
+  .details-kicker {
+    margin: 0;
+  }
+
+  .details-panel h3 {
+    font-size: 1.75rem;
+    line-height: 1.05;
+  }
+
+  .details-panel .section-desc {
+    margin-top: 1rem;
+  }
+
+  .subsection-title {
+    margin: 1.5rem 0 0.45rem;
+    color: rgba(245, 239, 228, 0.92);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.2rem;
+  }
+
+  .role-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(241, 228, 198, 0.75);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  .role-desc {
+    margin-bottom: 0.8rem;
+    font-size: 0.92rem;
+  }
+
   .tier-row {
     display: flex;
     gap: 1rem;
     margin-bottom: 0.75rem;
-    min-height: 60px;
+    min-height: 4.2rem;
   }
 
   .tier-label {
     flex-shrink: 0;
-    width: 80px;
-    border-radius: 8px;
+    width: 5.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.55rem;
   }
 
   .tier-letter {
@@ -1453,169 +1901,151 @@ const gradeColors: Record<string, string> = {
   .tier-desc {
     font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.7;
-    margin-top: 0.15rem;
+    letter-spacing: 0.06em;
+    opacity: 0.78;
+    margin-top: 0.18rem;
   }
 
   .tier-cultures {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .tier-culture {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 6px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.7rem 0.8rem;
     flex: 1;
-    min-width: 250px;
+    min-width: 16rem;
   }
 
   .tier-culture strong {
     display: block;
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
+    font-size: 0.94rem;
+    margin-bottom: 0.22rem;
   }
 
   .tier-reason {
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.78rem;
-    line-height: 1.4;
-  }
-
-  /* Links grid */
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .link-card {
-    display: block;
-    padding: 1.25rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--lc-color);
-    text-decoration: none;
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
-  }
-
-  .link-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-  }
-
-  .link-card strong {
-    display: block;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .link-card span {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  /* Subcategory styles */
-  .subsection-title {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.1rem;
-    margin: 2rem 0 0.5rem;
-  }
-
-  .subsection-title:first-of-type {
-    margin-top: 0;
-  }
-
-  .role-tag {
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.06);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    margin-left: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    vertical-align: middle;
-  }
-
-  .role-desc {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.825rem;
-    margin-bottom: 0.75rem;
-    font-style: italic;
-  }
-
-  .tier-compact {
-    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
   }
 
   .tier-compact .tier-label {
-    width: 50px;
-    padding: 0.35rem;
+    width: 3.6rem;
   }
 
   .tier-compact .tier-letter {
     font-size: 1.2rem;
   }
 
-  /* Collapsible sections */
-  .collapsible-section details summary {
-    cursor: pointer;
-    list-style: none;
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
   }
 
-  .collapsible-section details summary::-webkit-details-marker {
-    display: none;
+  .link-card {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.2rem;
+    border: 1px solid var(--lc-color);
+    background:
+      linear-gradient(180deg, rgba(13, 10, 9, 0.94), rgba(8, 7, 7, 0.92)),
+      linear-gradient(140deg, var(--lc-color), transparent 72%);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
   }
 
-  .collapsible-section details summary h2 {
-    display: inline;
-    position: relative;
-    padding-left: 1.25rem;
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+    text-decoration: none;
   }
 
-  .collapsible-section details summary h2::before {
-    content: '\25B6';
-    position: absolute;
-    left: 0;
-    font-size: 0.75rem;
-    transition: transform 0.2s;
-    top: 50%;
-    transform: translateY(-50%);
+  .link-card strong {
+    color: #f5ebdd;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.3rem;
   }
 
-  .collapsible-section details[open] summary h2::before {
-    transform: translateY(-50%) rotate(90deg);
+  @media (max-width: 1180px) {
+    .balance-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-grid,
+    .comparison-layout {
+      grid-template-columns: 1fr;
+    }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 980px) {
+    .balance-shell {
+      padding-top: 1.8rem;
+    }
+
+    .panel-heading,
+    .section-heading,
+    .table-card-head {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .panel-copy,
+    .section-copy {
+      max-width: none;
+      text-align: left;
+    }
+
     .triangle-visual {
       grid-template-columns: 1fr;
     }
+  }
+
+  @media (max-width: 760px) {
+    .balance-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .topbar-wrap {
+      padding: 0 0.4rem;
+    }
+
+    .balance-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .balance-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .reading-step,
     .tier-row {
+      grid-template-columns: 1fr;
       flex-direction: column;
     }
-    .tier-label {
+
+    .reading-step-number {
+      width: 2.8rem;
+    }
+
+    .tier-label,
+    .tier-compact .tier-label {
       width: 100%;
       flex-direction: row;
       gap: 0.5rem;
-      padding: 0.5rem 1rem;
+      justify-content: flex-start;
     }
-    .tier-letter {
-      font-size: 1.2rem;
-    }
+
     .tier-culture {
       min-width: 100%;
     }
+
     .links-grid {
       grid-template-columns: 1fr;
     }

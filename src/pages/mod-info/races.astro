@@ -1,439 +1,1075 @@
 ---
+import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+type EntryTag = {
+  label: string;
+  kind: 'status' | 'faction';
+  tone?: 'planned' | 'wip';
+};
+
+type EntryCard = {
+  name: string;
+  text: string;
+  family: 'free' | 'shadow' | 'creature';
+  status?: 'current' | 'planned' | 'wip';
+  tags?: EntryTag[];
+};
+
+type EntrySection = {
+  kicker: string;
+  title: string;
+  intro?: string;
+  cards: EntryCard[];
+};
+
+const playableRaces: EntryCard[] = [
+  {
+    name: 'Men',
+    family: 'free',
+    status: 'current',
+    text: 'The most widespread race of Middle-earth. Men are adaptable and varied, forming the bulk of human populations across most factions. Their strength lies in versatility, allowing them to excel in many roles depending on culture, training, and environment.',
+  },
+  {
+    name: 'Dunedain',
+    family: 'free',
+    status: 'planned',
+    tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+    text: 'Descendants of the Numenoreans who settled in Middle-earth. The Dunedain are longer-lived and more resilient than ordinary Men, often serving as elite warriors, leaders, and guardians. Though diminished in number, they retain strong martial traditions and discipline.',
+  },
+  {
+    name: 'Numenorean',
+    family: 'free',
+    status: 'planned',
+    tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+    text: 'Men of pure or near-pure Numenorean lineage. Taller, stronger, and longer-lived than other Men, Numenoreans represent the height of human achievement in craftsmanship, warfare, and leadership. They are rare and typically appear as elites, nobles, or ruling classes rather than common troops.',
+  },
+  {
+    name: 'Elf',
+    family: 'free',
+    status: 'wip',
+    tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+    text: 'The standard Elven race found across all Elven realms. Elves are agile, disciplined, and long-lived, excelling in archery.',
+  },
+  {
+    name: 'Dwarf',
+    family: 'free',
+    status: 'current',
+    text: 'The standard Dwarven race. Stocky, resilient, and heavily armored, Dwarves excel in defensive warfare, heavy infantry roles, and siege combat.',
+  },
+];
+
+const genericOrcs: EntryCard[] = [
+  {
+    name: 'Snaga',
+    family: 'shadow',
+    status: 'current',
+    text: 'Small, weak, and expendable Orcs used primarily as skirmishers, laborers, and disposable frontline troops. They rely on numbers rather than strength or armor and often suffer from low morale.',
+  },
+  {
+    name: 'Goblin',
+    family: 'shadow',
+    status: 'current',
+    text: 'Smaller and more cunning than standard Orcs, Goblins favor ambush tactics, ranged combat, and underground warfare. They are commonly found in mountains, caves, and tunnel networks.',
+  },
+  {
+    name: 'Orc',
+    family: 'shadow',
+    status: 'current',
+    text: 'The most widespread and balanced Orc breed. Capable of wearing proper armor and wielding standard weapons, Orcs form the backbone of most Orcish infantry forces.',
+  },
+];
+
+const factionBreeds: EntryCard[] = [
+  {
+    name: 'Black Uruk',
+    family: 'shadow',
+    status: 'current',
+    tags: [{ label: 'Mordor', kind: 'faction' }],
+    text: "Large, disciplined Orcs bred for endurance and obedience. Black Uruks serve as Mordor's heavy infantry and professional garrison troops.",
+  },
+  {
+    name: 'Uruk-Hai',
+    family: 'shadow',
+    status: 'current',
+    tags: [{ label: 'Isengard', kind: 'faction' }],
+    text: 'Strong, disciplined hybrid warriors bred for warfare in daylight. Uruk-Hai are trained for formation fighting and aggressive battlefield roles.',
+  },
+  {
+    name: 'Uruk-Hai Berserker',
+    family: 'shadow',
+    status: 'current',
+    tags: [{ label: 'Isengard', kind: 'faction' }],
+    text: 'Frenzied shock troops with minimal armor and extreme aggression. Berserkers are designed to break enemy lines through brute force and terror.',
+  },
+  {
+    name: 'Pale Uruk',
+    family: 'shadow',
+    status: 'current',
+    tags: [{ label: 'Gundabad', kind: 'faction' }],
+    text: 'Massive, pale-skinned Orcs adapted to cold and mountainous regions. They are physically powerful frontline fighters with a brutal combat style.',
+  },
+  {
+    name: 'Snow Orc',
+    family: 'shadow',
+    status: 'planned',
+    tags: [
+      { label: 'Gundabad', kind: 'faction' },
+      { label: 'Planned', kind: 'status', tone: 'planned' },
+    ],
+    text: 'A cold-adapted Orc strain native to high mountain regions. Snow Orcs focus on endurance, resilience, and survival in extreme climates.',
+  },
+  {
+    name: 'Half-Troll',
+    family: 'shadow',
+    status: 'planned',
+    tags: [
+      { label: 'Gundabad', kind: 'faction' },
+      { label: 'Planned', kind: 'status', tone: 'planned' },
+    ],
+    text: 'Rare Orc-Troll hybrids of enormous size and strength. Half-Trolls function as elite terror units rather than standard troops.',
+  },
+  {
+    name: 'Guldur Uruks',
+    family: 'shadow',
+    status: 'current',
+    tags: [{ label: 'Dol Guldur', kind: 'faction' }],
+    text: 'Dark Uruks corrupted by necromantic influence. They are often heavily armored and serve as elite shock or guard units.',
+  },
+  {
+    name: 'Mountain Uruk',
+    family: 'shadow',
+    status: 'planned',
+    tags: [
+      { label: 'Misty Mountains', kind: 'faction' },
+      { label: 'Planned', kind: 'status', tone: 'planned' },
+    ],
+    text: 'Large, powerful Orcs adapted to rocky highlands and mountain passes. Less disciplined but physically imposing.',
+  },
+  {
+    name: 'Hob-Goblins',
+    family: 'shadow',
+    status: 'planned',
+    tags: [
+      { label: 'Misty Mountains', kind: 'faction' },
+      { label: 'Planned', kind: 'status', tone: 'planned' },
+    ],
+    text: 'A more organized and cunning Goblin strain. Hob-Goblins emphasize ambush tactics, traps, and overwhelming numbers.',
+  },
+  {
+    name: 'Troll-Men',
+    family: 'shadow',
+    status: 'planned',
+    tags: [
+      { label: 'Harad', kind: 'faction' },
+      { label: 'Planned', kind: 'status', tone: 'planned' },
+    ],
+    text: 'Corrupted Men infused with Troll-like strength and resilience. Troll-Men serve as elite heavy infantry and enforcers within Harad factions.',
+  },
+];
+
+const creatureSections: EntrySection[] = [
+  {
+    kicker: 'Creature File',
+    title: 'Trolls',
+    cards: [
+      {
+        name: 'Mountain Troll',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Large, heavily built Trolls adapted to rocky and mountainous terrain. Strong frontline shock units.',
+      },
+      {
+        name: 'Hill Troll',
+        family: 'creature',
+        status: 'planned',
+        tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+        text: 'Leaner and faster Trolls commonly found in hilly and forested regions. Less armored but more aggressive.',
+      },
+      {
+        name: 'Snow Troll',
+        family: 'creature',
+        status: 'planned',
+        tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+        text: 'Cold-adapted Trolls native to frozen and high-altitude regions. Focused on endurance and resilience.',
+      },
+      {
+        name: 'Cave Troll',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Massive Trolls bred or captured for underground warfare and siege assaults.',
+      },
+      {
+        name: 'Olog-Hai',
+        family: 'creature',
+        status: 'planned',
+        tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+        text: 'Highly disciplined and intelligent Trolls capable of wearing armor and fighting in formation.',
+      },
+    ],
+  },
+  {
+    kicker: 'Creature File',
+    title: 'Wargs & Spiders',
+    cards: [
+      {
+        name: 'Isengard Warg',
+        family: 'creature',
+        status: 'current',
+        text: "Bred for discipline and battlefield control. Used primarily by Isengard's mounted Orc units.",
+      },
+      {
+        name: 'Fell Warg',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Larger, more vicious Wargs found in the wild or corrupted regions. Less disciplined but extremely aggressive.',
+      },
+      {
+        name: 'Forest Spider',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Giant spiders native to dense forests. Effective ambush predators.',
+      },
+      {
+        name: 'Mountain Spider',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Larger and more heavily armored spiders adapted to rocky terrain and highlands.',
+      },
+      {
+        name: 'Spider Brood-Mother',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Enormous spiders capable of spawning or commanding lesser spiders. Rare terror units.',
+      },
+    ],
+  },
+  {
+    kicker: 'Creature File',
+    title: 'War Beasts & Vehicles',
+    cards: [
+      {
+        name: 'War Elephants',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Armored elephants equipped with platforms for archers or spear troops. While currently associated primarily with Harad, their use may expand to other southern or eastern factions in the future.',
+      },
+      {
+        name: 'Oliphaunts',
+        family: 'creature',
+        status: 'wip',
+        tags: [{ label: 'WIP', kind: 'status', tone: 'wip' }],
+        text: 'Colossal beasts of war used primarily for terror and huge effect on the battlefield.',
+      },
+      {
+        name: 'Chariots',
+        family: 'creature',
+        status: 'planned',
+        tags: [{ label: 'Planned', kind: 'status', tone: 'planned' }],
+        text: 'Fast, high-impact units designed for open terrain and shock warfare. Multiple factions may field unique chariot variants, including Khand, Rhun, Harad, Erebor, some Elven factions, and some Orc factions.',
+      },
+    ],
+  },
+];
+
+const currentPlayableCount = playableRaces.filter((race) => race.status === 'current').length;
+const plannedPlayableCount = playableRaces.filter((race) => race.status === 'planned').length;
+const orcBreedCount = genericOrcs.length + factionBreeds.length;
+const creatureCount = creatureSections.reduce((sum, section) => sum + section.cards.length, 0);
 ---
 
 <BaseLayout
   title="Races & Creatures"
   description="Playable races, orc breeds, and planned creatures for Tales From the Age of Men"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-races-body"
+  mainClass="taom-races-main"
 >
-  <div class="page-content mod-info">
-    <h1 class="page-title">Races & Creatures</h1>
+  <div class="races-page">
+    <div class="topbar-wrap">
+      <Topbar />
+    </div>
 
-    <!-- Playable & Planned Races -->
-    <section class="info-section">
-      <h2>Playable & Planned Races</h2>
-      <div class="race-grid">
-        <div class="race-card race-good">
-          <h3>Men</h3>
-          <p>
-            The most widespread race of Middle-earth. Men are adaptable and varied, forming the bulk of human
-            populations across most factions. Their strength lies in versatility, allowing them to excel in many roles
-            depending on culture, training, and environment.
-          </p>
-        </div>
-        <div class="race-card race-good planned">
-          <h3>Dunedain <span class="planned-tag">Planned</span></h3>
-          <p>
-            Descendants of the Numenoreans who settled in Middle-earth. The Dunedain are longer-lived and more resilient
-            than ordinary Men, often serving as elite warriors, leaders, and guardians. Though diminished in number,
-            they retain strong martial traditions and discipline.
-          </p>
-        </div>
-        <div class="race-card race-good planned">
-          <h3>Numenorean <span class="planned-tag">Planned</span></h3>
-          <p>
-            Men of pure or near-pure Numenorean lineage. Taller, stronger, and longer-lived than other Men, Numenoreans
-            represent the height of human achievement in craftsmanship, warfare, and leadership. They are rare and
-            typically appear as elites, nobles, or ruling classes rather than common troops.
-          </p>
-        </div>
-        <div class="race-card race-good">
-          <h3>Elf</h3>
-          <p>
-            The standard Elven race found across all Elven realms. Elves are agile, disciplined, and long-lived,
-            excelling in archery.
-          </p>
-        </div>
-        <div class="race-card race-good">
-          <h3>Dwarf</h3>
-          <p>
-            The standard Dwarven race. Stocky, resilient, and heavily armored, Dwarves excel in defensive warfare, heavy
-            infantry roles, and siege combat.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Generic Orc-ish Races -->
-    <section class="info-section">
-      <h2>Generic Orc-ish Races</h2>
-      <p class="section-desc">
-        These races form the backbone of Orcish armies throughout Middle-earth. Their appearance, equipment, and
-        discipline may differ by faction, but their origins are shared. Common across most orc factions, with cultural
-        and visual variations.
-      </p>
-      <div class="race-grid">
-        <div class="race-card race-evil">
-          <h3>Snaga</h3>
-          <p>
-            Small, weak, and expendable Orcs used primarily as skirmishers, laborers, and disposable frontline troops.
-            They rely on numbers rather than strength or armor and often suffer from low morale.
-          </p>
-        </div>
-        <div class="race-card race-evil">
-          <h3>Goblin</h3>
-          <p>
-            Smaller and more cunning than standard Orcs, Goblins favor ambush tactics, ranged combat, and underground
-            warfare. They are commonly found in mountains, caves, and tunnel networks.
-          </p>
-        </div>
-        <div class="race-card race-evil">
-          <h3>Orc</h3>
-          <p>
-            The most widespread and balanced Orc breed. Capable of wearing proper armor and wielding standard weapons,
-            Orcs form the backbone of most Orcish infantry forces.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Specific & Faction-Bound Breeds -->
-    <section class="info-section">
-      <h2>Specific & Faction-Bound Breeds</h2>
-      <p class="section-desc">
-        These races are not universal and only appear within their associated factions/regions. They often represent
-        elite troops and regional adaptations.
-      </p>
-      <div class="race-grid">
-        <div class="race-card race-evil faction-mordor">
-          <h3>Black Uruk <span class="faction-tag">Mordor</span></h3>
-          <p>
-            Large, disciplined Orcs bred for endurance and obedience. Black Uruks serve as Mordor's heavy infantry and
-            professional garrison troops.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-isengard">
-          <h3>Uruk-Hai <span class="faction-tag">Isengard</span></h3>
-          <p>
-            Strong, disciplined hybrid warriors bred for warfare in daylight. Uruk-Hai are trained for formation
-            fighting and aggressive battlefield roles.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-isengard">
-          <h3>Uruk-Hai Berserker <span class="faction-tag">Isengard</span></h3>
-          <p>
-            Frenzied shock troops with minimal armor and extreme aggression. Berserkers are designed to break enemy
-            lines through brute force and terror.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-gundabad">
-          <h3>Pale Uruk <span class="faction-tag">Gundabad</span></h3>
-          <p>
-            Massive, pale-skinned Orcs adapted to cold and mountainous regions. They are physically powerful frontline
-            fighters with a brutal combat style.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-gundabad planned">
-          <h3>Snow Orc <span class="faction-tag">Gundabad</span> <span class="planned-tag">Planned</span></h3>
-          <p>
-            A cold-adapted Orc strain native to high mountain regions. Snow Orcs focus on endurance, resilience, and
-            survival in extreme climates.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-gundabad planned">
-          <h3>Half-Troll <span class="faction-tag">Gundabad</span> <span class="planned-tag">Planned</span></h3>
-          <p>
-            Rare Orc-Troll hybrids of enormous size and strength. Half-Trolls function as elite terror units rather than
-            standard troops.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-dolguldur">
-          <h3>Guldur Uruks <span class="faction-tag">Dol Guldur</span></h3>
-          <p>
-            Dark Uruks corrupted by necromantic influence. They are often heavily armored and serve as elite shock or
-            guard units.
-          </p>
-        </div>
-        <div class="race-card race-evil planned">
-          <h3>
-            Mountain Uruk <span class="faction-tag">Misty Mountains</span>
-            <span class="planned-tag">Planned</span>
-          </h3>
-          <p>
-            Large, powerful Orcs adapted to rocky highlands and mountain passes. Less disciplined but physically
-            imposing.
-          </p>
-        </div>
-        <div class="race-card race-evil planned">
-          <h3>Hob-Goblins <span class="faction-tag">Misty Mountains</span> <span class="planned-tag">Planned</span></h3>
-          <p>
-            A more organized and cunning Goblin strain. Hob-Goblins emphasize ambush tactics, traps, and overwhelming
-            numbers.
-          </p>
-        </div>
-        <div class="race-card race-evil faction-harad planned">
-          <h3>Troll-Men <span class="faction-tag">Harad</span> <span class="planned-tag">Planned</span></h3>
-          <p>
-            Corrupted Men infused with Troll-like strength and resilience. Troll-Men serve as elite heavy infantry and
-            enforcers within Harad factions.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Planned Creatures -->
-    <section class="info-section">
-      <h2>Planned Creatures</h2>
-      <p class="section-desc">
-        Large units, mounts, war beasts, and special battlefield assets planned across various factions. These creatures
-        are intended to add visual variety, tactical diversity, and regional flavor without being universally available.
-      </p>
-
-      <h3 class="creature-category">Trolls</h3>
-      <div class="race-grid">
-        <div class="race-card race-creature wip">
-          <h3>Mountain Troll <span class="wip-tag">WIP</span></h3>
-          <p>Large, heavily built Trolls adapted to rocky and mountainous terrain. Strong frontline shock units.</p>
-        </div>
-        <div class="race-card race-creature planned">
-          <h3>Hill Troll <span class="planned-tag">Planned</span></h3>
-          <p>
-            Leaner and faster Trolls commonly found in hilly and forested regions. Less armored but more aggressive.
-          </p>
-        </div>
-        <div class="race-card race-creature planned">
-          <h3>Snow Troll <span class="planned-tag">Planned</span></h3>
-          <p>Cold-adapted Trolls native to frozen and high-altitude regions. Focused on endurance and resilience.</p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Cave Troll <span class="wip-tag">WIP</span></h3>
-          <p>Massive Trolls bred or captured for underground warfare and siege assaults.</p>
-        </div>
-        <div class="race-card race-creature planned">
-          <h3>Olog-Hai <span class="planned-tag">Planned</span></h3>
-          <p>Highly disciplined and intelligent Trolls capable of wearing armor and fighting in formation.</p>
-        </div>
-      </div>
-
-      <h3 class="creature-category">Wargs & Spiders</h3>
-      <div class="race-grid">
-        <div class="race-card race-creature">
-          <h3>Isengard Warg</h3>
-          <p>Bred for discipline and battlefield control. Used primarily by Isengard's mounted Orc units.</p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Fell Warg <span class="wip-tag">WIP</span></h3>
-          <p>
-            Larger, more vicious Wargs found in the wild or corrupted regions. Less disciplined but extremely
-            aggressive.
-          </p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Forest Spider <span class="wip-tag">WIP</span></h3>
-          <p>Giant spiders native to dense forests. Effective ambush predators.</p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Mountain Spider <span class="wip-tag">WIP</span></h3>
-          <p>Larger and more heavily armored spiders adapted to rocky terrain and highlands.</p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Spider Brood-Mother <span class="wip-tag">WIP</span></h3>
-          <p>Enormous spiders capable of spawning or commanding lesser spiders. Rare terror units.</p>
-        </div>
-      </div>
-
-      <h3 class="creature-category">War Beasts & Vehicles</h3>
-      <div class="race-grid">
-        <div class="race-card race-creature wip">
-          <h3>War Elephants <span class="wip-tag">WIP</span></h3>
-          <p>
-            Armored elephants equipped with platforms for archers or spear troops. While currently associated primarily
-            with Harad, their use may expand to other southern or eastern factions in the future.
-          </p>
-        </div>
-        <div class="race-card race-creature wip">
-          <h3>Oliphaunts <span class="wip-tag">WIP</span></h3>
-          <p>Colossal beasts of war used primarily for terror and huge effect on the battlefield.</p>
-        </div>
-        <div class="race-card race-creature planned">
-          <h3>Chariots <span class="planned-tag">Planned</span></h3>
-          <p>
-            Fast, high-impact units designed for open terrain and shock warfare. Multiple factions may field unique
-            chariot variants, including Khand, Rhun, Harad, Erebor, some Elven factions, and some Orc factions.
-            Variations may include light skirmisher chariots, heavy war chariots, or ceremonial elite units.
-          </p>
-        </div>
-      </div>
-
-      <h3 class="creature-category">Flying Creatures (Under Consideration)</h3>
-      <div class="callout callout-warning">
-        <p>
-          Flying creatures such as Fell Beasts, Great Bats, and Dragons are being considered for the future. However,
-          due to technical limitations within Bannerlord's battle AI, flying units can significantly disrupt
-          pathfinding, targeting, and formation logic. Because of this, the inclusion of flying creatures is currently
-          undecided and will depend on long-term AI stability, technical solutions, and gameplay balance. These units
-          are not planned at this moment, but can be considered in the future.
+    <main class="races-shell">
+      <section class="page-intro">
+        <p class="eyebrow">Field Archive of Middle-earth</p>
+        <h1>Races & Creatures</h1>
+        <p class="intro-copy">
+          This dossier tracks the peoples, breeds, and battlefield beasts that define TAOM's world. It separates core
+          playable races from faction-bound strains and long-term creature plans so the scope of the setting is easy to
+          read at a glance.
         </p>
-      </div>
+        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Races & Creatures</nav>
+      </section>
 
-      <h3 class="creature-category">Future Creature Considerations</h3>
-      <div class="callout callout-info">
-        <p>
-          Certain creatures are not currently planned for early development but may be explored over the long term as
-          systems and scope evolve. These include Were-Wolves, Giant Wolves, Siege Beasts, and wingless dragons similar
-          in concept to Glaurung, as well as other large or specialized creatures. Their inclusion will depend on
-          gameplay needs, technical feasibility, and faction identity development.
-        </p>
-      </div>
-    </section>
+      <section class="races-summary" aria-label="Races page summary">
+        <article class="summary-card">
+          <span class="summary-label">Playable Now</span>
+          <strong>{currentPlayableCount}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Playable Planned</span>
+          <strong>{plannedPlayableCount}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Orc Breeds</span>
+          <strong>{orcBreedCount}</strong>
+        </article>
+        <article class="summary-card">
+          <span class="summary-label">Creature Files</span>
+          <strong>{creatureCount}</strong>
+        </article>
+      </section>
+
+      <section class="overview-grid">
+        <article class="taxonomy-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Archive Structure</p>
+              <h2>How The Roster Is Grouped</h2>
+            </div>
+            <p class="panel-copy">
+              The page is organized from stable playable races outward into specialist breeds and then future creatures,
+              so core worldbuilding stays separate from experimental or long-term content.
+            </p>
+          </div>
+
+          <div class="taxonomy-grid">
+            <article class="taxonomy-card is-free">
+              <span class="taxonomy-label">Peoples</span>
+              <h3>Playable Races</h3>
+              <p>Core races that anchor factions, culture identity, and the current campaign experience.</p>
+            </article>
+            <article class="taxonomy-card is-shadow">
+              <span class="taxonomy-label">Breeds</span>
+              <h3>Orc Strains</h3>
+              <p>Shared Orc stock plus faction-specific breeds shaped by region, breeding, and battlefield purpose.</p>
+            </article>
+            <article class="taxonomy-card is-creature">
+              <span class="taxonomy-label">Beasts</span>
+              <h3>Creature Pipeline</h3>
+              <p>WIP and planned monsters, mounts, and war assets intended to deepen faction flavor over time.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="briefing-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Status Codes</p>
+              <h2>What The Tags Mean</h2>
+            </div>
+            <p class="panel-copy">
+              Some entries are in active production while others are longer-term concepts. The tags separate what
+              already exists in the design from what is still exploratory.
+            </p>
+          </div>
+
+          <div class="status-list">
+            <div class="status-row">
+              <span class="meta-pill is-current">Current</span>
+              <p>Established concepts already represented as part of the core race or creature plan.</p>
+            </div>
+            <div class="status-row">
+              <span class="meta-pill is-planned">Planned</span>
+              <p>Ideas with a clear intended role that are not yet part of the current playable implementation.</p>
+            </div>
+            <div class="status-row">
+              <span class="meta-pill is-wip">WIP</span>
+              <p>Actively developing creature or support concepts that are further along than broad future ideas.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Core Peoples</p>
+            <h2>Playable & Planned Races</h2>
+          </div>
+          <p class="section-copy">
+            These are the foundational peoples of the setting, from the currently playable major races to the human
+            bloodlines intended for elite or noble representation later on.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          {
+            playableRaces.map((race) => (
+              <article class:list={['entry-card', 'is-free', { 'is-planned-card': race.status === 'planned' }]}>
+                <div class="entry-head">
+                  <h3>{race.name}</h3>
+                  {race.tags && (
+                    <div class="entry-tags">
+                      {race.tags.map((tag) => (
+                        <span
+                          class:list={[
+                            'meta-pill',
+                            tag.kind === 'faction' ? 'is-faction' : '',
+                            tag.tone ? `is-${tag.tone}` : 'is-current',
+                          ]}
+                        >
+                          {tag.label}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p>{race.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Shared Stock</p>
+            <h2>Generic Orc-ish Races</h2>
+          </div>
+          <p class="section-copy">
+            These breeds form the common foundation of Orc forces across Middle-earth even when their equipment,
+            culture, or visual direction differs by faction.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-wide">
+          {
+            genericOrcs.map((race) => (
+              <article class="entry-card is-shadow">
+                <div class="entry-head">
+                  <h3>{race.name}</h3>
+                </div>
+                <p>{race.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Faction Strains</p>
+            <h2>Specific & Faction-Bound Breeds</h2>
+          </div>
+          <p class="section-copy">
+            These breeds are regional or faction-specific and usually exist to support elite troops, specialist roles,
+            or a stronger local identity.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          {
+            factionBreeds.map((race) => (
+              <article class:list={['entry-card', 'is-shadow', { 'is-planned-card': race.status === 'planned' }]}>
+                <div class="entry-head">
+                  <h3>{race.name}</h3>
+                  {race.tags && (
+                    <div class="entry-tags">
+                      {race.tags.map((tag) => (
+                        <span
+                          class:list={[
+                            'meta-pill',
+                            tag.kind === 'faction' ? 'is-faction' : '',
+                            tag.tone ? `is-${tag.tone}` : 'is-current',
+                          ]}
+                        >
+                          {tag.label}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p>{race.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Beast Registry</p>
+            <h2>Planned Creatures</h2>
+          </div>
+          <p class="section-copy">
+            Large units, mounts, war beasts, and battlefield assets intended to expand tactical variety and faction
+            flavor without becoming universal across every realm.
+          </p>
+        </div>
+
+        <div class="creature-stack">
+          {
+            creatureSections.map((section) => (
+              <section class="creature-section">
+                <div class="creature-heading">
+                  <div>
+                    <p class="creature-kicker">{section.kicker}</p>
+                    <h3>{section.title}</h3>
+                  </div>
+                  <span class="creature-count">{section.cards.length} entries</span>
+                </div>
+
+                <div class="card-grid">
+                  {section.cards.map((creature) => (
+                    <article
+                      class:list={[
+                        'entry-card',
+                        'is-creature',
+                        { 'is-planned-card': creature.status === 'planned', 'is-wip-card': creature.status === 'wip' },
+                      ]}
+                    >
+                      <div class="entry-head">
+                        <h4>{creature.name}</h4>
+                        {creature.tags && (
+                          <div class="entry-tags">
+                            {creature.tags.map((tag) => (
+                              <span
+                                class:list={[
+                                  'meta-pill',
+                                  tag.kind === 'faction' ? 'is-faction' : '',
+                                  tag.tone ? `is-${tag.tone}` : 'is-current',
+                                ]}
+                              >
+                                {tag.label}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <p>{creature.text}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))
+          }
+        </div>
+
+        <div class="callout-grid">
+          <article class="callout is-warning">
+            <p class="callout-kicker">Under Consideration</p>
+            <h3>Flying Creatures</h3>
+            <p>
+              Flying creatures such as Fell Beasts, Great Bats, and Dragons are being considered for the future.
+              Bannerlord battle AI still makes airborne units risky because they can disrupt pathfinding, targeting, and
+              formation logic, so they are not planned right now.
+            </p>
+          </article>
+
+          <article class="callout is-info">
+            <p class="callout-kicker">Long-Term Scope</p>
+            <h3>Future Creature Considerations</h3>
+            <p>
+              Other long-range possibilities include Were-Wolves, Giant Wolves, Siege Beasts, and wingless dragons in a
+              Glaurung-like role. These remain dependent on technical feasibility, gameplay needs, and faction identity.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .mod-info {
-    max-width: 1100px;
+  :global(body.taom-races-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.74), rgba(7, 5, 5, 0.98)),
+      radial-gradient(circle at 14% 12%, rgba(87, 127, 73, 0.14), transparent 24%),
+      radial-gradient(circle at 84% 18%, rgba(132, 90, 46, 0.16), transparent 24%),
+      linear-gradient(180deg, #15100f 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .info-section {
-    margin-bottom: 3rem;
+  :global(body.taom-races-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.36), rgba(8, 6, 6, 0.84)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: -2;
   }
 
-  .info-section > h2 {
-    color: var(--accent);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent-dim);
+  :global(.taom-races-main) {
+    display: block;
   }
 
-  .section-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.6;
+  .races-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
-  .creature-category {
-    color: var(--text-primary);
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 1.75rem 0 0.75rem;
-    padding-left: 0.5rem;
-    border-left: 3px solid var(--accent-dim);
+  .topbar-wrap {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
-  .race-grid {
+  .races-shell {
+    width: 100%;
+    max-width: 84rem;
+    margin: 0 auto;
+    padding: 2.25rem 0.75rem 3.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
   }
 
-  .race-card {
-    border-radius: 8px;
-    padding: 1.25rem;
-    border: 1px solid var(--border-color);
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 55rem;
   }
 
-  .race-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  .eyebrow,
+  .summary-label,
+  .panel-kicker,
+  .section-kicker,
+  .taxonomy-label,
+  .creature-kicker,
+  .creature-count,
+  .callout-kicker,
+  .meta-pill {
+    font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
-  .race-card h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #fff;
+  .eyebrow,
+  .panel-kicker,
+  .section-kicker,
+  .creature-kicker,
+  .callout-kicker {
+    color: #c19748;
+    font-size: 0.86rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
   }
 
-  .race-card p {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.85);
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.7rem, 8vw, 6rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 48rem;
+    color: rgba(238, 228, 219, 0.9);
+    font-size: 1.18rem;
     line-height: 1.5;
   }
 
-  /* Card color themes */
-  .race-good {
-    background: rgba(93, 174, 93, 0.2);
-    border-color: rgba(93, 174, 93, 0.35);
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
   }
 
-  .race-evil {
-    background: rgba(224, 80, 80, 0.2);
-    border-color: rgba(224, 80, 80, 0.35);
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
   }
 
-  .race-creature {
-    background: rgba(160, 130, 109, 0.2);
-    border-color: rgba(160, 130, 109, 0.35);
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
   }
 
-  .race-card.planned {
-    opacity: 0.75;
-    border-style: dashed;
+  .races-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
   }
 
-  .race-card.wip {
-    border-style: solid;
-    border-color: rgba(126, 200, 227, 0.5);
-  }
-
-  /* Faction tags */
-  .faction-tag {
-    font-size: 0.7rem;
-    font-weight: 400;
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-    vertical-align: middle;
-  }
-
-  .planned-tag {
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    background: rgba(232, 213, 108, 0.3);
-    color: #e8d56c;
-    vertical-align: middle;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .wip-tag {
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    background: rgba(126, 200, 227, 0.3);
-    color: #7ec8e3;
-    vertical-align: middle;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* Callout boxes */
+  .summary-card,
+  .taxonomy-panel,
+  .briefing-panel,
+  .section-block,
+  .creature-section,
   .callout {
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.95fr);
+    gap: 1rem;
+  }
+
+  .taxonomy-panel,
+  .briefing-panel,
+  .section-block,
+  .creature-section,
+  .callout {
+    padding: 1.35rem;
+  }
+
+  .panel-heading,
+  .section-heading,
+  .creature-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .panel-heading h2,
+  .section-heading h2,
+  .taxonomy-card h3,
+  .entry-card h3,
+  .creature-section h3,
+  .callout h3 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .panel-heading h2,
+  .section-heading h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .panel-copy,
+  .section-copy {
+    margin: 0;
+    max-width: 32rem;
+    color: rgba(219, 208, 193, 0.8);
+    line-height: 1.58;
+    text-align: right;
+  }
+
+  .taxonomy-grid,
+  .card-grid,
+  .callout-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .taxonomy-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 1rem;
+  }
+
+  .taxonomy-card {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1rem;
+    border: 1px solid rgba(203, 160, 89, 0.18);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .taxonomy-label {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 1.9rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: #f4ddb0;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .taxonomy-card p,
+  .status-row p,
+  .entry-card p,
+  .callout p,
+  .section-desc,
+  .panel-copy,
+  .section-copy {
+    color: rgba(224, 213, 198, 0.8);
+    line-height: 1.58;
+  }
+
+  .taxonomy-card.is-free {
+    border-color: rgba(105, 163, 103, 0.28);
+  }
+
+  .taxonomy-card.is-shadow {
+    border-color: rgba(188, 87, 87, 0.28);
+  }
+
+  .taxonomy-card.is-creature {
+    border-color: rgba(141, 169, 194, 0.28);
+  }
+
+  .status-list {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .status-row {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .status-row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 1.8rem;
+    padding: 0.16rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(246, 238, 222, 0.86);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .meta-pill.is-current {
+    border-color: rgba(120, 178, 110, 0.35);
+    color: #d9f0d3;
+    background: rgba(90, 145, 80, 0.16);
+  }
+
+  .meta-pill.is-planned {
+    border-color: rgba(224, 198, 108, 0.35);
+    color: #f4de9d;
+    background: rgba(196, 171, 83, 0.16);
+  }
+
+  .meta-pill.is-wip {
+    border-color: rgba(126, 200, 227, 0.35);
+    color: #b8e4f2;
+    background: rgba(126, 200, 227, 0.14);
+  }
+
+  .meta-pill.is-faction {
+    border-color: rgba(187, 145, 74, 0.3);
+    color: rgba(245, 229, 197, 0.84);
+    background: rgba(187, 145, 74, 0.12);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  .card-grid-wide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .entry-card {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .entry-card.is-free {
+    border-color: rgba(105, 163, 103, 0.26);
+    background:
+      linear-gradient(180deg, rgba(12, 18, 12, 0.9), rgba(8, 9, 8, 0.92)),
+      linear-gradient(140deg, rgba(84, 138, 78, 0.14), transparent 68%);
+  }
+
+  .entry-card.is-shadow {
+    border-color: rgba(188, 87, 87, 0.26);
+    background:
+      linear-gradient(180deg, rgba(20, 12, 12, 0.92), rgba(9, 7, 7, 0.92)),
+      linear-gradient(140deg, rgba(158, 65, 65, 0.12), transparent 68%);
+  }
+
+  .entry-card.is-creature {
+    border-color: rgba(126, 200, 227, 0.22);
+    background:
+      linear-gradient(180deg, rgba(12, 16, 18, 0.92), rgba(8, 9, 10, 0.92)),
+      linear-gradient(140deg, rgba(126, 200, 227, 0.1), transparent 68%);
+  }
+
+  .entry-card.is-planned-card {
+    border-style: dashed;
+    opacity: 0.9;
+  }
+
+  .entry-card.is-wip-card {
+    box-shadow: inset 0 0 0 1px rgba(126, 200, 227, 0.14);
+  }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    align-items: start;
+  }
+
+  .entry-card h3,
+  .entry-card h4 {
+    margin: 0;
+    color: #f3ece2;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.3rem;
+    line-height: 1.08;
+  }
+
+  .entry-card h4 {
+    font-size: 1.18rem;
+  }
+
+  .entry-tags {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .creature-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .creature-section {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .creature-count {
+    color: rgba(246, 230, 203, 0.82);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .callout-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1rem;
+  }
+
+  .callout.is-warning {
+    border-color: rgba(212, 162, 76, 0.35);
+    background:
+      linear-gradient(180deg, rgba(26, 19, 12, 0.94), rgba(11, 9, 7, 0.94)),
+      linear-gradient(140deg, rgba(212, 162, 76, 0.12), transparent 70%);
+  }
+
+  .callout.is-info {
+    border-color: rgba(126, 200, 227, 0.28);
+    background:
+      linear-gradient(180deg, rgba(13, 17, 20, 0.94), rgba(8, 9, 10, 0.94)),
+      linear-gradient(140deg, rgba(126, 200, 227, 0.12), transparent 70%);
+  }
+
+  .callout h3 {
+    font-size: 1.45rem;
+    margin-bottom: 0.4rem;
   }
 
   .callout p {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.6;
     margin: 0;
   }
 
-  .callout-warning {
-    background: rgba(212, 162, 76, 0.15);
-    border: 1px dashed rgba(212, 162, 76, 0.4);
+  @media (max-width: 1180px) {
+    .races-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-grid,
+    .callout-grid,
+    .card-grid-wide {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .callout-info {
-    background: rgba(126, 200, 227, 0.15);
-    border: 1px dashed rgba(126, 200, 227, 0.4);
+  @media (max-width: 980px) {
+    .races-shell {
+      padding-top: 1.8rem;
+    }
+
+    .panel-heading,
+    .section-heading,
+    .creature-heading,
+    .entry-head {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .panel-copy,
+    .section-copy {
+      max-width: none;
+      text-align: left;
+    }
+
+    .taxonomy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .entry-tags {
+      justify-content: flex-start;
+    }
   }
 
-  @media (max-width: 600px) {
-    .race-grid {
+  @media (max-width: 760px) {
+    .races-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .topbar-wrap {
+      padding: 0 0.4rem;
+    }
+
+    .races-shell {
+      padding-inline: 0.4rem;
+    }
+
+    .races-summary,
+    .card-grid,
+    .callout-grid {
       grid-template-columns: 1fr;
     }
   }

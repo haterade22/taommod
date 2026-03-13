@@ -137,6 +137,7 @@ function formatModifierGroup(value: string): string {
             Survey every armour piece in TAOM through one searchable archive. Filter by realm, slot, material, and
             market availability, then compare protection values, weight, and modifier groups side by side.
           </p>
+          <nav class="page-breadcrumb"><a href="/database">Database</a> / Armoury</nav>
         </section>
 
         <section class="armour-summary" aria-label="Armour database summary">
@@ -513,6 +514,20 @@ function formatModifierGroup(value: string): string {
     line-height: 0.92;
     font-weight: 600;
     text-transform: uppercase;
+  }
+
+  .page-breadcrumb {
+    color: rgba(214, 199, 176, 0.68);
+    font-size: 0.88rem;
+  }
+
+  .page-breadcrumb a {
+    color: #d7b26c;
+    text-decoration: none;
+  }
+
+  .page-breadcrumb a:hover {
+    text-decoration: underline;
   }
 
   .intro-copy {
