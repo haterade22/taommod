@@ -88,25 +88,6 @@ const sections: ModInfoCard[] = [
 
 const worldSections = sections.filter((section) => section.group === 'world');
 const balanceSections = sections.filter((section) => section.group === 'balance');
-const featuredSection = sections.find((section) => section.href === '/mod-info/balance-overview') || sections[0];
-
-const readingPath = [
-  {
-    step: '01',
-    title: 'Start With The World',
-    desc: 'Meet the races, creatures, and faction identities that shape the setting.',
-  },
-  {
-    step: '02',
-    title: 'Study The Systems',
-    desc: 'See how recruitment and custom gameplay features support the campaign.',
-  },
-  {
-    step: '03',
-    title: 'Open The Balance Records',
-    desc: 'Finish with the overview, then drill into troops, armour, and weapons.',
-  },
-];
 ---
 
 <BaseLayout
@@ -143,43 +124,6 @@ const readingPath = [
         <article class="summary-card">
           <span class="summary-label">Balance Reports</span>
           <strong>{balanceSections.length}</strong>
-        </article>
-        <article class="summary-card">
-          <span class="summary-label">Featured Dossier</span>
-          <strong>{featuredSection.stat}</strong>
-        </article>
-      </section>
-
-      <section class="hero-grid">
-        <article class="feature-panel">
-          <p class="panel-kicker">Featured Read</p>
-          <h2>{featuredSection.title}</h2>
-          <p>
-            {featuredSection.desc} Use this as the central briefing if you want the quickest overview of how TAOM's factions
-            are tuned against each other.
-          </p>
-          <a href={featuredSection.href}>Open {featuredSection.title}</a>
-        </article>
-
-        <article class="guide-panel">
-          <div class="guide-header">
-            <p class="panel-kicker">Reading Path</p>
-            <span class="guide-note">Best entry point for new readers</span>
-          </div>
-
-          <div class="guide-steps">
-            {
-              readingPath.map((item) => (
-                <div class="guide-step">
-                  <span class="guide-step-number">{item.step}</span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
         </article>
       </section>
 
@@ -301,18 +245,14 @@ const readingPath = [
 
   .eyebrow,
   .summary-label,
-  .panel-kicker,
   .section-kicker,
   .card-kicker,
   .card-stat,
-  .guide-step-number,
-  .card-link,
-  .guide-note {
+  .card-link {
     font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
   .eyebrow,
-  .panel-kicker,
   .section-kicker {
     color: #c19748;
     font-size: 0.86rem;
@@ -340,13 +280,11 @@ const readingPath = [
 
   .modinfo-summary {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.95rem;
   }
 
   .summary-card,
-  .feature-panel,
-  .guide-panel,
   .section-block {
     border: 1px solid rgba(120, 89, 38, 0.55);
     background:
@@ -378,132 +316,12 @@ const readingPath = [
     line-height: 1;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(18rem, 26rem) minmax(0, 1fr);
-    gap: 1rem;
-  }
-
-  .feature-panel {
-    padding: 1.5rem;
-    display: grid;
-    gap: 0.95rem;
-    background:
-      linear-gradient(180deg, rgba(32, 23, 17, 0.96), rgba(12, 9, 8, 0.96)),
-      radial-gradient(circle at top right, rgba(201, 151, 72, 0.14), transparent 44%);
-  }
-
   .feature-panel h2,
   .section-heading h2,
-  .guide-step h3,
   .info-card h3 {
     margin: 0;
     color: #f4ede3;
     font-family: 'Cinzel', 'Times New Roman', serif;
-  }
-
-  .feature-panel h2 {
-    font-size: 2rem;
-    line-height: 1.04;
-  }
-
-  .feature-panel p {
-    margin: 0;
-    color: rgba(226, 216, 205, 0.88);
-    line-height: 1.58;
-  }
-
-  .feature-panel a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    min-height: 2.9rem;
-    padding: 0.7rem 1.2rem;
-    border: 1px solid rgba(190, 141, 57, 0.5);
-    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
-    color: #f7e7c7;
-    font-family: 'Cinzel', 'Times New Roman', serif;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition:
-      border-color 180ms ease,
-      color 180ms ease,
-      background 180ms ease,
-      transform 180ms ease;
-  }
-
-  .feature-panel a:hover {
-    color: #fff4df;
-    border-color: rgba(235, 186, 83, 0.72);
-    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
-    transform: translateY(-1px);
-    text-decoration: none;
-  }
-
-  .guide-panel {
-    padding: 1.4rem;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .guide-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: end;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid rgba(184, 143, 73, 0.18);
-  }
-
-  .guide-note {
-    color: rgba(220, 203, 176, 0.74);
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .guide-steps {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .guide-step {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.9rem;
-    align-items: start;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .guide-step:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .guide-step-number {
-    display: inline-grid;
-    place-items: center;
-    width: 3rem;
-    aspect-ratio: 1;
-    border: 1px solid rgba(196, 149, 71, 0.34);
-    background: rgba(255, 255, 255, 0.03);
-    color: #f4e5c3;
-    font-size: 0.86rem;
-    letter-spacing: 0.14em;
-  }
-
-  .guide-step h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .guide-step p {
-    margin: 0;
-    color: rgba(224, 213, 198, 0.8);
-    line-height: 1.58;
   }
 
   .section-block {
@@ -609,10 +427,6 @@ const readingPath = [
     .modinfo-summary {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .hero-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 980px) {
@@ -646,19 +460,6 @@ const readingPath = [
 
     .modinfo-summary {
       grid-template-columns: 1fr;
-    }
-
-    .guide-header {
-      flex-direction: column;
-      align-items: start;
-    }
-
-    .guide-step {
-      grid-template-columns: 1fr;
-    }
-
-    .guide-step-number {
-      width: 2.8rem;
     }
 
     .card-grid {
