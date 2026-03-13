@@ -1,447 +1,1053 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseAllLords, getCultureDisplayName, isHiddenCulture } from '../lib/parse-xml';
+import { parseAllLords, getCultureDisplayName, isHiddenCulture, parseKingdomsFromXslt } from '../lib/parse-xml';
 
 const allLords = parseAllLords().filter((l) => !isHiddenCulture(l.culture));
+const kingdomsData = parseKingdomsFromXslt();
 
-// Build name lookup for family references
+function normalizeColor(value: string): string | null {
+  if (!value) return null;
+  const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
+  if (cleaned.length === 8) return `#${cleaned.slice(2).toUpperCase()}`;
+  if (cleaned.length === 6) return `#${cleaned.toUpperCase()}`;
+  return null;
+}
+
+function hexToRgb(hex: string): string {
+  const cleaned = hex.replace('#', '');
+  const numeric = Number.parseInt(cleaned, 16);
+  const red = (numeric >> 16) & 255;
+  const green = (numeric >> 8) & 255;
+  const blue = numeric & 255;
+  return `${red}, ${green}, ${blue}`;
+}
+
+function formatMetaLabel(value: string): string {
+  return value
+    .replace(/^clan_/, '')
+    .replace(/^kingdom_/, '')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 const lordNameMap = new Map<string, string>();
-for (const l of allLords) lordNameMap.set(l.id, l.name);
+for (const lord of allLords) lordNameMap.set(lord.id, lord.name);
 
-// Sort by culture, then clan, then name
+function lookupName(id: string): string {
+  return lordNameMap.get(id) || formatMetaLabel(id);
+}
+
 allLords.sort((a, b) => {
-  const ca = getCultureDisplayName(a.culture);
-  const cb = getCultureDisplayName(b.culture);
-  if (ca !== cb) return ca.localeCompare(cb);
-  const clanA = a.clan || '';
-  const clanB = b.clan || '';
+  const cultureA = getCultureDisplayName(a.culture);
+  const cultureB = getCultureDisplayName(b.culture);
+  if (cultureA !== cultureB) return cultureA.localeCompare(cultureB);
+
+  const clanA = formatMetaLabel(a.clan || '');
+  const clanB = formatMetaLabel(b.clan || '');
   if (clanA !== clanB) return clanA.localeCompare(clanB);
+
   return a.name.localeCompare(b.name);
 });
 
-// Get unique values for filters
 const cultures = [...new Set(allLords.map((l) => l.culture).filter(Boolean))].sort();
-const kingdoms = [...new Set(allLords.map((l) => l.kingdom).filter(Boolean))].sort();
+const kingdomOptions = [...new Set(allLords.map((l) => l.kingdom).filter(Boolean))].sort((a, b) =>
+  formatMetaLabel(a).localeCompare(formatMetaLabel(b)),
+);
 
-// Group lords by culture display name for section headers
-const cultureGroups = new Map<string, typeof allLords>();
-for (const l of allLords) {
-  const display = getCultureDisplayName(l.culture) || 'Unknown';
-  if (!cultureGroups.has(display)) cultureGroups.set(display, []);
-  cultureGroups.get(display)!.push(l);
+const fallbackCultureColors: Record<string, string> = {
+  mercenary: '#8F7A60',
+  lothlorien: '#D8C371',
+  troll: '#6E6A48',
+};
+
+const cultureColorMap = new Map<string, { hex: string; rgb: string }>();
+for (const kingdom of kingdomsData) {
+  const hex = normalizeColor(kingdom.color);
+  if (hex && kingdom.culture) {
+    cultureColorMap.set(kingdom.culture, { hex, rgb: hexToRgb(hex) });
+  }
 }
 
-function lookupName(id: string): string {
-  return lordNameMap.get(id) || id;
+for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
+  if (!cultureColorMap.has(culture)) {
+    cultureColorMap.set(culture, { hex, rgb: hexToRgb(hex) });
+  }
 }
 
-function traitClass(val: number): string {
-  if (val > 0) return 'trait-positive';
-  if (val < 0) return 'trait-negative';
+function getCultureRowStyle(culture: string): string {
+  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
+  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
+}
+
+const cultureCounts = new Map<string, number>();
+for (const lord of allLords) {
+  cultureCounts.set(lord.culture, (cultureCounts.get(lord.culture) || 0) + 1);
+}
+
+const cultureTabs = [
+  { culture: 'all', label: 'All', count: allLords.length },
+  ...cultures
+    .map((culture) => ({
+      culture,
+      label: getCultureDisplayName(culture) || culture,
+      count: cultureCounts.get(culture) || 0,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label)),
+];
+
+const aliveSingles = allLords.filter((lord) => lord.alive && !lord.spouse && (lord.age || 0) >= 18).length;
+const clanCount = new Set(allLords.map((lord) => lord.clan).filter(Boolean)).size;
+
+function traitClass(value: number): string {
+  if (value > 0) return 'trait-positive';
+  if (value < 0) return 'trait-negative';
   return '';
 }
 
-const TRAIT_ORDER = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
+const headerCols = [
+  { col: 'name', label: 'Name', cls: '' },
+  { col: 'culture', label: 'Culture', cls: '' },
+  { col: 'kingdom', label: 'Kingdom', cls: '' },
+  { col: 'clan', label: 'Clan', cls: '' },
+  { col: 'gender', label: 'Gender', cls: '' },
+  { col: 'age', label: 'Age', cls: 'col-num' },
+  { col: 'spouse', label: 'Spouse', cls: 'section-start' },
+  { col: 'father', label: 'Father', cls: '' },
+  { col: 'mother', label: 'Mother', cls: '' },
+  { col: 'children', label: 'Children', cls: '' },
+  { col: 'defaultGroup', label: 'Group', cls: 'section-start' },
+  { col: 'oneHanded', label: '1H', cls: 'col-num' },
+  { col: 'twoHanded', label: '2H', cls: 'col-num' },
+  { col: 'polearm', label: 'Pole', cls: 'col-num' },
+  { col: 'bow', label: 'Bow', cls: 'col-num' },
+  { col: 'riding', label: 'Ride', cls: 'col-num' },
+  { col: 'athletics', label: 'Ath', cls: 'col-num' },
+  { col: 'tactics', label: 'Tac', cls: 'col-num' },
+  { col: 'leadership', label: 'Lead', cls: 'col-num' },
+  { col: 'charm', label: 'Charm', cls: 'col-num' },
+  { col: 'steward', label: 'Stew', cls: 'col-num' },
+  { col: 'honor', label: 'Hon', cls: 'col-num section-start' },
+  { col: 'generosity', label: 'Gen', cls: 'col-num' },
+  { col: 'mercy', label: 'Merc', cls: 'col-num' },
+  { col: 'valor', label: 'Val', cls: 'col-num' },
+  { col: 'calculating', label: 'Calc', cls: 'col-num' },
+];
 ---
 
-<BaseLayout title="Lords" description="Complete lord database for TAOM - all lords, family trees, skills, and traits">
-  <div class="page-content">
-    <h1 class="page-title">Lord Database</h1>
-    <p class="page-desc">
-      All lords across Middle-earth. Search for marriage candidates, view family trees, skills, and traits.
-    </p>
+<BaseLayout
+  title="Lords"
+  description="Complete lord database for TAOM - family ties, skills, traits, and noble houses"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-lords-body"
+  mainClass="taom-lords-main"
+>
+  <div class="lords-page">
+    <Topbar />
 
-    <div class="table-controls">
-      <input type="text" id="search" placeholder="Search by name or ID..." />
-      <select id="filter-culture">
-        <option value="">All Cultures</option>
-        {cultures.map((c) => <option value={c}>{getCultureDisplayName(c)}</option>)}
-      </select>
-      <select id="filter-kingdom">
-        <option value="">All Kingdoms</option>
-        {kingdoms.map((k) => <option value={k}>{k}</option>)}
-      </select>
-      <select id="filter-gender">
-        <option value="">All Genders</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-      <select id="filter-married">
-        <option value="">All</option>
-        <option value="single">Single (Marriageable)</option>
-        <option value="married">Married</option>
-      </select>
-      <span class="result-count" id="result-count">{allLords.length} lords</span>
-    </div>
+    <main class="lords-shell">
+      <div class="lords-overview">
+        <section class="page-intro">
+          <p class="eyebrow">Archives of Middle-earth</p>
+          <h1>Lords</h1>
+          <p class="intro-copy">
+            Survey the noble houses of TAOM through one searchable roster. Filter by realm, court, and marriage status,
+            then open any lord to read their biography and compare skills, lineage, and traits.
+          </p>
+        </section>
 
-    <div class="data-table-wrapper">
-      <table class="data-table" id="lord-table">
-        <thead>
-          <tr>
-            <th data-col="name">Name</th>
-            <th data-col="culture">Culture</th>
-            <th data-col="kingdom">Kingdom</th>
-            <th data-col="clan">Clan</th>
-            <th data-col="gender">Gender</th>
-            <th data-col="age" class="col-num">Age</th>
-            <th data-col="spouse" class="section-start">Spouse</th>
-            <th data-col="father">Father</th>
-            <th data-col="mother">Mother</th>
-            <th data-col="children">Children</th>
-            <th data-col="defaultGroup" class="section-start">Group</th>
-            <th data-col="oneHanded" class="col-num">1H</th>
-            <th data-col="twoHanded" class="col-num">2H</th>
-            <th data-col="polearm" class="col-num">Pole</th>
-            <th data-col="bow" class="col-num">Bow</th>
-            <th data-col="riding" class="col-num">Ride</th>
-            <th data-col="athletics" class="col-num">Ath</th>
-            <th data-col="tactics" class="col-num">Tac</th>
-            <th data-col="leadership" class="col-num">Lead</th>
-            <th data-col="charm" class="col-num">Chrm</th>
-            <th data-col="steward" class="col-num">Stew</th>
-            <th data-col="honor" class="col-num section-start">Hon</th>
-            <th data-col="generosity" class="col-num">Gen</th>
-            <th data-col="mercy" class="col-num">Merc</th>
-            <th data-col="valor" class="col-num">Val</th>
-            <th data-col="calculating" class="col-num">Calc</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            [...cultureGroups.entries()].map(([cultureName, lords]) => (
-              <>
-                <tr class="culture-group-header" data-culture-group={lords[0].culture} data-collapsed="true">
-                  <td colspan="26">
-                    <span class="collapse-arrow">&#9654;</span> {cultureName}{' '}
-                    <span class="group-lord-count">({lords.length})</span>
-                  </td>
-                </tr>
-                {lords.map((l) => {
-                  const gender = l.isFemale ? 'Female' : 'Male';
-                  const spouseName = l.spouse ? lookupName(l.spouse) : '';
-                  const fatherName = l.father ? lookupName(l.father) : '';
-                  const motherName = l.mother ? lookupName(l.mother) : '';
-                  const childNames = l.children.map((c) => lookupName(c)).join(', ');
-                  const clanDisplay = l.clan ? l.clan.replace(/^clan_/, '').replace(/_/g, ' ') : '';
-                  return (
-                    <tr
-                      data-name={l.name.toLowerCase()}
-                      data-id={l.id.toLowerCase()}
-                      data-culture={l.culture}
-                      data-kingdom={l.kingdom}
-                      data-gender={l.isFemale ? 'female' : 'male'}
-                      data-married={l.spouse ? 'married' : 'single'}
-                      data-bio={l.biography}
-                      data-hidden-by-collapse="true"
-                      style="display:none"
+        <section class="lords-summary" aria-label="Lord database summary">
+          <article class="summary-card">
+            <span class="summary-label">Total Lords</span>
+            <strong>{allLords.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Realms Covered</span>
+            <strong>{cultures.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Noble Houses</span>
+            <strong>{clanCount}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Alive & Unwed</span>
+            <strong>{aliveSingles}</strong>
+          </article>
+        </section>
+
+        <section class="utility-panel">
+          <div class="balance-callout">
+            <p class="balance-kicker">House Records</p>
+            <h2>Trace Each Lord Back to Their Clan</h2>
+            <p>
+              Need the broader noble context behind a ruler, heir, or marriage candidate? The clan archive helps map the
+              families, houses, and kinship webs behind the roster.
+            </p>
+            <a href="/clans">Open Clan Archive</a>
+          </div>
+
+          <div class="controls-card">
+            <div class="controls-heading">
+              <p class="controls-kicker">Filter the Roster</p>
+              <span class="result-count" id="result-count">{allLords.length} lords</span>
+            </div>
+
+            <div class="table-controls">
+              <label class="control-field control-search">
+                <span>Search</span>
+                <input type="text" id="search" placeholder="Search by name, ID, or biography..." />
+              </label>
+
+              <label class="control-field">
+                <span>Kingdom</span>
+                <select id="filter-kingdom">
+                  <option value="">All Kingdoms</option>
+                  {kingdomOptions.map((kingdom) => <option value={kingdom}>{formatMetaLabel(kingdom)}</option>)}
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Gender</span>
+                <select id="filter-gender">
+                  <option value="">All Genders</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Marriage</span>
+                <select id="filter-married">
+                  <option value="">All</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="sections-stack">
+        <div class="realm-browser">
+          <div class="realm-header">
+            <div class="realm-tabs-shell">
+              <div class="realm-tabs" role="tablist" aria-label="Select a lord realm">
+                {
+                  cultureTabs.map((tab) => (
+                    <button
+                      type="button"
+                      class:list={['realm-tab', { 'is-selected': tab.culture === 'all' }]}
+                      data-culture={tab.culture}
+                      role="tab"
+                      aria-selected={tab.culture === 'all' ? 'true' : 'false'}
                     >
-                      <td class="lord-name-cell">
-                        <span class="lord-name">{l.name}</span>
-                        {!l.alive && <span class="dead-badge">Dead</span>}
-                      </td>
-                      <td>{getCultureDisplayName(l.culture)}</td>
-                      <td>{l.kingdom}</td>
-                      <td class="col-clan">{clanDisplay}</td>
-                      <td>{gender}</td>
-                      <td class="col-num">{l.age || ''}</td>
-                      <td class="col-family section-start">{spouseName}</td>
-                      <td class="col-family">{fatherName}</td>
-                      <td class="col-family">{motherName}</td>
-                      <td class="col-family">{childNames}</td>
-                      <td class="section-start">{l.defaultGroup}</td>
-                      <td class="col-num">{l.skills.OneHanded || ''}</td>
-                      <td class="col-num">{l.skills.TwoHanded || ''}</td>
-                      <td class="col-num">{l.skills.Polearm || ''}</td>
-                      <td class="col-num">{l.skills.Bow || ''}</td>
-                      <td class="col-num">{l.skills.Riding || ''}</td>
-                      <td class="col-num">{l.skills.Athletics || ''}</td>
-                      <td class="col-num">{l.skills.Tactics || ''}</td>
-                      <td class="col-num">{l.skills.Leadership || ''}</td>
-                      <td class="col-num">{l.skills.Charm || ''}</td>
-                      <td class="col-num">{l.skills.Steward || ''}</td>
-                      <td class={`col-num section-start ${traitClass(l.traits.Honor || 0)}`}>{l.traits.Honor ?? ''}</td>
-                      <td class={`col-num ${traitClass(l.traits.Generosity || 0)}`}>{l.traits.Generosity ?? ''}</td>
-                      <td class={`col-num ${traitClass(l.traits.Mercy || 0)}`}>{l.traits.Mercy ?? ''}</td>
-                      <td class={`col-num ${traitClass(l.traits.Valor || 0)}`}>{l.traits.Valor ?? ''}</td>
-                      <td class={`col-num ${traitClass(l.traits.Calculating || 0)}`}>{l.traits.Calculating ?? ''}</td>
-                    </tr>
-                  );
-                })}
-              </>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
+                      <span>{tab.label}</span>
+                      <small>({tab.count})</small>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="roster-panel">
+            <div class="roster-panel-head">
+              <div>
+                <p class="roster-panel-title">Lords Roster</p>
+                <p class="roster-panel-subtitle">Click any row to open that lord&apos;s biography.</p>
+              </div>
+              <span class="section-count" id="table-count">({allLords.length})</span>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table lord-section">
+                <thead>
+                  <tr>
+                    {
+                      headerCols.map((header) => (
+                        <th data-col={header.col} class={header.cls}>
+                          {header.label}
+                        </th>
+                      ))
+                    }
+                  </tr>
+                </thead>
+                <tbody id="lords-table-body">
+                  {
+                    allLords.map((lord) => {
+                      const spouseName = lord.spouse ? lookupName(lord.spouse) : '';
+                      const fatherName = lord.father ? lookupName(lord.father) : '';
+                      const motherName = lord.mother ? lookupName(lord.mother) : '';
+                      const childNames = lord.children.map((child) => lookupName(child)).join(', ');
+                      const clanDisplay = lord.clan ? formatMetaLabel(lord.clan) : '';
+                      const kingdomDisplay = lord.kingdom ? formatMetaLabel(lord.kingdom) : '';
+
+                      return (
+                        <tr
+                          data-name={lord.name.toLowerCase()}
+                          data-id={lord.id.toLowerCase()}
+                          data-culture={lord.culture}
+                          data-kingdom={lord.kingdom}
+                          data-gender={lord.isFemale ? 'female' : 'male'}
+                          data-married={lord.spouse ? 'married' : 'single'}
+                          data-bio={lord.biography}
+                          style={getCultureRowStyle(lord.culture)}
+                        >
+                          <td class="lord-name-cell">
+                            <span class="lord-name">{lord.name}</span>
+                            {!lord.alive && <span class="dead-badge">Dead</span>}
+                          </td>
+                          <td>{getCultureDisplayName(lord.culture)}</td>
+                          <td>{kingdomDisplay}</td>
+                          <td class="col-clan">{clanDisplay}</td>
+                          <td>{lord.isFemale ? 'Female' : 'Male'}</td>
+                          <td class="col-num">{lord.age || ''}</td>
+                          <td class="col-family section-start">{spouseName}</td>
+                          <td class="col-family">{fatherName}</td>
+                          <td class="col-family">{motherName}</td>
+                          <td class="col-family">{childNames}</td>
+                          <td class="section-start">{lord.defaultGroup}</td>
+                          <td class="col-num">{lord.skills.OneHanded || ''}</td>
+                          <td class="col-num">{lord.skills.TwoHanded || ''}</td>
+                          <td class="col-num">{lord.skills.Polearm || ''}</td>
+                          <td class="col-num">{lord.skills.Bow || ''}</td>
+                          <td class="col-num">{lord.skills.Riding || ''}</td>
+                          <td class="col-num">{lord.skills.Athletics || ''}</td>
+                          <td class="col-num">{lord.skills.Tactics || ''}</td>
+                          <td class="col-num">{lord.skills.Leadership || ''}</td>
+                          <td class="col-num">{lord.skills.Charm || ''}</td>
+                          <td class="col-num">{lord.skills.Steward || ''}</td>
+                          <td class={`col-num section-start ${traitClass(lord.traits.Honor || 0)}`}>
+                            {lord.traits.Honor ?? ''}
+                          </td>
+                          <td class={`col-num ${traitClass(lord.traits.Generosity || 0)}`}>
+                            {lord.traits.Generosity ?? ''}
+                          </td>
+                          <td class={`col-num ${traitClass(lord.traits.Mercy || 0)}`}>{lord.traits.Mercy ?? ''}</td>
+                          <td class={`col-num ${traitClass(lord.traits.Valor || 0)}`}>{lord.traits.Valor ?? ''}</td>
+                          <td class={`col-num ${traitClass(lord.traits.Calculating || 0)}`}>
+                            {lord.traits.Calculating ?? ''}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <p class="empty-state" id="empty-state" hidden>No lords match the current realm and filter selection.</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <script>
-  import { applyUrlParams } from '../scripts/data-table';
+  import { initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
-    const table = document.getElementById('lord-table') as HTMLTableElement;
-    if (!table) return;
-    const tbody = table.querySelector('tbody')!;
-    const rows = Array.from(tbody.querySelectorAll('tr:not(.culture-group-header)')) as HTMLTableRowElement[];
-    const groupHeaders = Array.from(tbody.querySelectorAll('tr.culture-group-header')) as HTMLTableRowElement[];
     const searchInput = document.getElementById('search') as HTMLInputElement;
-    const cultureFilter = document.getElementById('filter-culture') as HTMLSelectElement;
     const kingdomFilter = document.getElementById('filter-kingdom') as HTMLSelectElement;
     const genderFilter = document.getElementById('filter-gender') as HTMLSelectElement;
     const marriedFilter = document.getElementById('filter-married') as HTMLSelectElement;
-    const resultCount = document.getElementById('result-count')!;
+    const resultCount = document.getElementById('result-count') as HTMLElement;
+    const tableCount = document.getElementById('table-count') as HTMLElement;
+    const emptyState = document.getElementById('empty-state') as HTMLElement;
+    const tabButtons = Array.from(document.querySelectorAll('.realm-tab')) as HTMLButtonElement[];
+    const tableBody = document.getElementById('lords-table-body') as HTMLTableSectionElement;
+    const rows = Array.from(tableBody.querySelectorAll('tr')) as HTMLTableRowElement[];
+    if (
+      !searchInput ||
+      !kingdomFilter ||
+      !genderFilter ||
+      !marriedFilter ||
+      !resultCount ||
+      !tableCount ||
+      !emptyState
+    ) {
+      return;
+    }
 
-    let sortCol = '';
-    let sortAsc = true;
+    const params = new URLSearchParams(window.location.search);
+    searchInput.value = params.get('search') || '';
+    kingdomFilter.value = params.get('kingdom') || '';
+    genderFilter.value = params.get('gender') || '';
+    marriedFilter.value = params.get('married') || '';
+
+    let activeCulture = params.get('culture') || 'all';
+    if (!tabButtons.some((button) => button.dataset.culture === activeCulture)) {
+      activeCulture = 'all';
+    }
+
+    function clearBiographyRows() {
+      document.querySelectorAll('.bio-row').forEach((row) => row.remove());
+    }
+
+    function updateUrl() {
+      const nextParams = new URLSearchParams();
+      if (searchInput.value) nextParams.set('search', searchInput.value);
+      if (kingdomFilter.value) nextParams.set('kingdom', kingdomFilter.value);
+      if (genderFilter.value) nextParams.set('gender', genderFilter.value);
+      if (marriedFilter.value) nextParams.set('married', marriedFilter.value);
+      if (activeCulture !== 'all') nextParams.set('culture', activeCulture);
+      const query = nextParams.toString();
+      const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', url);
+    }
+
+    function attachBioHandlers() {
+      rows.forEach((row) => {
+        if (row.dataset.bioBound === 'true') return;
+        row.dataset.bioBound = 'true';
+
+        row.addEventListener('click', () => {
+          const bio = row.dataset.bio;
+          const existing = row.nextElementSibling;
+          if (existing?.classList.contains('bio-row')) {
+            existing.remove();
+            return;
+          }
+
+          clearBiographyRows();
+
+          if (bio) {
+            const bioRow = document.createElement('tr');
+            bioRow.className = 'bio-row';
+            const td = document.createElement('td');
+            td.colSpan = row.cells.length;
+            td.className = 'bio-cell';
+            td.textContent = bio;
+            bioRow.appendChild(td);
+            row.after(bioRow);
+          }
+        });
+      });
+    }
 
     function filterRows() {
+      clearBiographyRows();
+
       const search = searchInput.value.toLowerCase();
-      const culture = cultureFilter.value;
       const kingdom = kingdomFilter.value;
       const gender = genderFilter.value;
       const married = marriedFilter.value;
-      let visible = 0;
+      let visibleCount = 0;
 
       for (const row of rows) {
         const name = row.dataset.name || '';
         const id = row.dataset.id || '';
-        const bio = row.dataset.bio || '';
+        const bio = (row.dataset.bio || '').toLowerCase();
         const rowCulture = row.dataset.culture || '';
         const rowKingdom = row.dataset.kingdom || '';
         const rowGender = row.dataset.gender || '';
         const rowMarried = row.dataset.married || '';
 
-        const matchesSearch =
-          !search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search);
-        const matchesCulture = !culture || rowCulture === culture;
+        const matchesCulture = activeCulture === 'all' || rowCulture === activeCulture;
+        const matchesSearch = !search || name.includes(search) || id.includes(search) || bio.includes(search);
         const matchesKingdom = !kingdom || rowKingdom === kingdom;
         const matchesGender = !gender || rowGender === gender;
         const matchesMarried = !married || rowMarried === married;
 
-        const show = matchesSearch && matchesCulture && matchesKingdom && matchesGender && matchesMarried;
-        const hiddenByCollapse = row.dataset.hiddenByCollapse === 'true';
-        row.style.display = show && !hiddenByCollapse ? '' : 'none';
-        if (show) visible++;
+        const show = matchesCulture && matchesSearch && matchesKingdom && matchesGender && matchesMarried;
+        row.style.display = show ? '' : 'none';
+        if (show) visibleCount += 1;
       }
 
-      // Show/hide culture group headers based on lords matching filters (not collapse state)
-      for (const header of groupHeaders) {
-        const cultureGroup = header.dataset.cultureGroup || '';
-        const hasMatching = rows.some((r) => {
-          if (r.dataset.culture !== cultureGroup) return false;
-          const name = r.dataset.name || '';
-          const id = r.dataset.id || '';
-          const bio = r.dataset.bio || '';
-          return (
-            (!search || name.includes(search) || id.includes(search) || bio.toLowerCase().includes(search)) &&
-            (!culture || r.dataset.culture === culture) &&
-            (!kingdom || r.dataset.kingdom === kingdom) &&
-            (!gender || r.dataset.gender === gender) &&
-            (!married || r.dataset.married === married)
-          );
-        });
-        header.style.display = hasMatching ? '' : 'none';
-      }
+      tabButtons.forEach((button) => {
+        const selected = button.dataset.culture === activeCulture;
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
 
-      resultCount.textContent = `${visible} lords`;
+      resultCount.textContent = `${visibleCount} lords`;
+      tableCount.textContent = `(${visibleCount})`;
+      emptyState.hidden = visibleCount !== 0;
+      updateUrl();
     }
 
-    applyUrlParams({
-      culture: cultureFilter,
-      kingdom: kingdomFilter,
-      gender: genderFilter,
-      married: marriedFilter,
-      search: searchInput,
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeCulture = button.dataset.culture || 'all';
+        filterRows();
+      });
     });
+
     searchInput.addEventListener('input', filterRows);
-    cultureFilter.addEventListener('change', filterRows);
     kingdomFilter.addEventListener('change', filterRows);
     genderFilter.addEventListener('change', filterRows);
     marriedFilter.addEventListener('change', filterRows);
+
+    attachBioHandlers();
+    initSorting('table.lord-section');
+    document.querySelectorAll('table.lord-section th[data-col]').forEach((header) => {
+      header.addEventListener('click', clearBiographyRows);
+    });
+
     filterRows();
-
-    // Column sorting (lords uses a single table with group headers, so custom sorting needed)
-    const headers = table.querySelectorAll('th[data-col]');
-    headers.forEach((th) => {
-      th.addEventListener('click', () => {
-        const col = (th as HTMLElement).dataset.col!;
-        if (sortCol === col) {
-          sortAsc = !sortAsc;
-        } else {
-          sortCol = col;
-          sortAsc = true;
-        }
-
-        headers.forEach((h) => {
-          const indicator = h.querySelector('.sort-indicator');
-          if (indicator) indicator.remove();
-        });
-        const indicator = document.createElement('span');
-        indicator.className = 'sort-indicator';
-        indicator.textContent = sortAsc ? '\u25B2' : '\u25BC';
-        th.appendChild(indicator);
-
-        const colIndex = Array.from(headers).indexOf(th);
-        const isNumeric = th.classList.contains('col-num');
-
-        rows.sort((a, b) => {
-          const aVal = a.cells[colIndex]?.textContent?.trim() || '';
-          const bVal = b.cells[colIndex]?.textContent?.trim() || '';
-
-          if (isNumeric) {
-            const aNum = parseFloat(aVal) || 0;
-            const bNum = parseFloat(bVal) || 0;
-            return sortAsc ? aNum - bNum : bNum - aNum;
-          }
-
-          return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        });
-
-        for (const row of rows) {
-          tbody.appendChild(row);
-        }
-      });
-    });
-
-    // Culture group collapse/expand
-    groupHeaders.forEach((header) => {
-      header.addEventListener('click', () => {
-        const culture = header.dataset.cultureGroup || '';
-        const collapsed = header.dataset.collapsed === 'true';
-        header.dataset.collapsed = collapsed ? 'false' : 'true';
-        const arrow = header.querySelector('.collapse-arrow')!;
-        arrow.textContent = collapsed ? '\u25BC' : '\u25B6';
-        for (const row of rows) {
-          if (row.dataset.culture === culture) {
-            if (collapsed) {
-              row.dataset.hiddenByCollapse = '';
-              filterRows();
-            } else {
-              row.dataset.hiddenByCollapse = 'true';
-              row.style.display = 'none';
-            }
-          }
-        }
-      });
-    });
-
-    // Row click to show biography
-    rows.forEach((row) => {
-      row.addEventListener('click', () => {
-        const bio = row.dataset.bio;
-        const existing = row.nextElementSibling;
-        if (existing?.classList.contains('bio-row')) {
-          existing.remove();
-          return;
-        }
-        document.querySelectorAll('.bio-row').forEach((r) => r.remove());
-        if (bio) {
-          const bioRow = document.createElement('tr');
-          bioRow.className = 'bio-row';
-          const td = document.createElement('td');
-          td.colSpan = row.cells.length;
-          td.className = 'bio-cell';
-          td.textContent = bio;
-          bioRow.appendChild(td);
-          row.after(bioRow);
-        }
-      });
-    });
   });
 </script>
 
 <style>
-  .page-desc {
-    color: var(--text-secondary);
+  :global(body.taom-lords-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.66), rgba(7, 5, 5, 0.97)),
+      radial-gradient(circle at 16% 14%, rgba(132, 76, 38, 0.16), transparent 24%),
+      radial-gradient(circle at 84% 18%, rgba(94, 48, 31, 0.14), transparent 22%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-lords-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-lords-main) {
+    display: block;
+  }
+
+  .lords-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .lords-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 2.25rem 0 3.375rem;
+  }
+
+  .lords-overview {
+    max-width: 82.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .page-intro {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 52rem;
+  }
+
+  .eyebrow,
+  .controls-kicker,
+  .balance-kicker,
+  .summary-label,
+  .roster-panel-title,
+  .roster-panel-subtitle,
+  .realm-tab,
+  .result-count {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .controls-kicker,
+  .balance-kicker {
+    color: #b88635;
+    font-size: 0.88rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    color: #f2ece4;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(3.8rem, 8vw, 6.1rem);
+    line-height: 0.92;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .intro-copy {
+    margin: 0;
+    max-width: 46rem;
+    color: rgba(238, 228, 219, 0.92);
+    font-size: 1.25rem;
+    line-height: 1.44;
+  }
+
+  .lords-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+
+  .summary-card,
+  .controls-card,
+  .roster-panel,
+  .realm-header {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-card {
+    padding: 1.15rem 1.25rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .summary-label {
+    color: rgba(207, 182, 132, 0.85);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    color: #f6f0e6;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .utility-panel {
+    display: grid;
+    grid-template-columns: minmax(17rem, 24rem) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .balance-callout {
+    padding: 1.35rem 1.4rem;
+    border: 1px solid rgba(129, 90, 43, 0.5);
+    background:
+      linear-gradient(180deg, rgba(34, 24, 17, 0.95), rgba(12, 9, 8, 0.96)),
+      radial-gradient(circle at top right, rgba(210, 145, 50, 0.14), transparent 42%);
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .balance-callout h2 {
+    margin: 0;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.75rem;
+    line-height: 1.08;
+  }
+
+  .balance-callout p {
+    margin: 0;
+    color: rgba(226, 216, 205, 0.88);
+    line-height: 1.55;
+  }
+
+  .balance-callout a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba(190, 141, 57, 0.5);
+    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
+    color: #f7e7c7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
+  }
+
+  .balance-callout a:hover {
+    color: #fff4df;
+    border-color: rgba(235, 186, 83, 0.72);
+    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .controls-card {
+    padding: 1.2rem;
+  }
+
+  .controls-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  .result-count {
+    color: rgba(240, 227, 206, 0.92);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+  }
+
+  .table-controls {
+    display: grid;
+    grid-template-columns: minmax(18rem, 2.2fr) repeat(3, minmax(10rem, 1fr));
+    gap: 0.9rem;
+  }
+
+  .control-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .control-field span {
+    color: rgba(207, 182, 132, 0.8);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .control-field input,
+  .control-field select {
+    min-height: 3rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(140, 111, 70, 0.44);
+    background: rgba(9, 8, 8, 0.88);
+    color: #f0e7db;
+    font-size: 0.98rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .control-field input::placeholder {
+    color: rgba(194, 179, 162, 0.52);
+  }
+
+  .control-field input:focus,
+  .control-field select:focus {
+    border-color: rgba(209, 154, 51, 0.72);
+    box-shadow: 0 0 0 1px rgba(209, 154, 51, 0.18);
+    background: rgba(13, 10, 10, 0.94);
+  }
+
+  .sections-stack {
+    width: min(calc(100vw - 1rem), 178rem);
+    margin: 0 auto;
+    padding-top: 1.6rem;
+  }
+
+  .realm-browser {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .realm-header {
+    padding: 1rem 0.5rem;
+  }
+
+  .realm-tabs-shell {
+    overflow: auto hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184, 134, 53, 0.55) rgba(15, 12, 10, 0.2);
+  }
+
+  .realm-tabs {
+    display: inline-flex;
+    min-width: 100%;
+    gap: 0.5rem;
+    padding: 0 0.4rem;
+  }
+
+  .realm-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.68rem 1rem;
+    border: 1px solid rgba(124, 93, 47, 0.38);
+    background: rgba(9, 8, 8, 0.78);
+    color: rgba(243, 236, 229, 0.84);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .realm-tab small {
+    color: rgba(205, 190, 163, 0.7);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .realm-tab:hover,
+  .realm-tab.is-selected {
+    border-color: rgba(209, 154, 51, 0.62);
+    background: linear-gradient(180deg, rgba(67, 47, 24, 0.8), rgba(16, 13, 10, 0.88)), rgba(12, 10, 9, 0.9);
+    color: #f2ddac;
+    transform: translateY(-1px);
+  }
+
+  .realm-tab.is-selected small,
+  .realm-tab:hover small {
+    color: rgba(246, 225, 172, 0.82);
+  }
+
+  .roster-panel {
+    padding: 1.1rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .roster-panel-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .roster-panel-title {
+    margin: 0;
+    color: #f4ece2;
+    font-size: 1.15rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .roster-panel-subtitle {
+    margin: 0.2rem 0 0;
+    color: rgba(203, 184, 158, 0.8);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-count {
+    color: rgba(244, 231, 205, 0.86);
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .data-table-wrapper {
+    position: relative;
+    overflow: auto;
+    padding: 0.3rem;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.84), rgba(8, 7, 7, 0.94)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.05), transparent 30%);
+  }
+
+  .lord-section {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .lord-section th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    color: #ffffff;
+    padding: 0.9rem 0.8rem;
+    border-bottom: 1px solid rgba(164, 124, 62, 0.45);
+    white-space: nowrap;
+    font-family: 'Cinzel', 'Times New Roman', serif;
     font-size: 0.9rem;
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .lord-section td {
+    padding: 0.72rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .lord-section tbody tr {
+    cursor: pointer;
+    transition: transform 140ms ease;
+  }
+
+  .lord-section tbody tr:hover td {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .lord-section th.section-start,
+  .lord-section td.section-start {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .lord-section td.col-num,
+  .lord-section td.col-family,
+  .lord-section td.col-clan,
+  .lord-section td .lord-name,
+  .lord-section td .dead-badge {
+    color: #ffffff !important;
   }
 
   .lord-name-cell {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
+    min-width: 15rem;
   }
 
   .lord-name {
     font-weight: 600;
+    color: #ffffff;
   }
 
   .dead-badge {
-    font-size: 0.6rem;
-    padding: 0.1rem 0.35rem;
-    border-radius: 3px;
-    background: rgba(180, 60, 60, 0.3);
-    color: #e07070;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .col-family {
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-    max-width: 140px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.62rem;
+    padding: 0.14rem 0.4rem;
+    border: 1px solid rgba(180, 84, 84, 0.38);
+    background: rgba(115, 30, 30, 0.22);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     white-space: nowrap;
   }
 
   .col-clan {
-    font-size: 0.78rem;
+    min-width: 11rem;
     text-transform: capitalize;
   }
 
-  .trait-positive {
-    color: #6dbf8a !important;
+  .col-family {
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
+  .col-num {
+    text-align: center;
+  }
+
+  .trait-positive,
   .trait-negative {
-    color: #e08080 !important;
+    color: #ffffff !important;
   }
 
-  .bio-row {
-    background: rgba(255, 255, 255, 0.03);
+  .bio-row td {
+    padding: 0 !important;
+    background:
+      linear-gradient(180deg, rgba(18, 14, 12, 0.96), rgba(10, 8, 8, 0.94)),
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.14), transparent 50%) !important;
   }
 
   .bio-cell {
-    padding: 0.75rem 1rem !important;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
+    padding: 1rem 1.15rem !important;
+    border-left: 3px solid var(--culture-accent);
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6;
     font-style: italic;
-    border-left: 3px solid var(--accent-dim);
+    white-space: normal;
   }
 
-  .culture-group-header td {
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 0.75rem 0.5rem 0.4rem;
-    color: var(--accent);
-    border-bottom: 2px solid var(--accent-dim);
-    background: rgba(255, 255, 255, 0.02);
-    cursor: pointer;
-    user-select: none;
+  .empty-state {
+    margin: 0;
+    padding: 1rem 0.5rem 0.2rem;
+    color: rgba(216, 199, 174, 0.78);
+    text-align: center;
+    font-size: 0.98rem;
   }
 
-  .collapse-arrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    margin-right: 0.3rem;
-    transition: transform 0.15s;
+  @media (max-width: 1180px) {
+    .lords-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .utility-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .table-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
-  .group-lord-count {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: var(--text-secondary);
+  @media (max-width: 980px) {
+    .lords-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+
+    .sections-stack {
+      width: min(calc(100vw - 0.5rem), 178rem);
+    }
   }
 
-  tr {
-    cursor: pointer;
-  }
+  @media (max-width: 760px) {
+    .lords-page {
+      padding: 1rem 0.15rem;
+    }
 
-  tr:hover:not(.culture-group-header) {
-    background: rgba(255, 255, 255, 0.03);
+    .lords-overview {
+      padding: 0 0.4rem;
+    }
+
+    .lords-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .table-controls {
+      grid-template-columns: 1fr;
+    }
+
+    .controls-heading,
+    .roster-panel-head {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .realm-tab {
+      font-size: 0.84rem;
+      padding-inline: 0.85rem;
+    }
+
+    .lord-section th,
+    .lord-section td {
+      padding-inline: 0.7rem;
+    }
   }
 </style>

@@ -4,10 +4,15 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description?: string;
+  hideNav?: boolean;
+  hideFooter?: boolean;
+  bodyClass?: string;
+  mainClass?: string;
 }
 
 const { title, description = 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II' } =
   Astro.props;
+const { hideNav = false, hideFooter = false, bodyClass, mainClass } = Astro.props;
 
 type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
 
@@ -62,6 +67,7 @@ const navLinks: NavLink[] = [
       { href: '/mod-info/features', label: 'Coding Features' },
     ],
   },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/community', label: 'Community' },
   { href: '/download', label: 'Download' },
   { href: '/troubleshooting', label: 'Troubleshooting' },
@@ -69,6 +75,7 @@ const navLinks: NavLink[] = [
 ];
 
 const currentPath = Astro.url.pathname;
+const layoutMenuId = `site-nav-menu-${Math.random().toString(36).slice(2, 10)}`;
 ---
 
 <!doctype html>
@@ -82,54 +89,141 @@ const currentPath = Astro.url.pathname;
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
     <ViewTransitions />
   </head>
-  <body>
-    <nav class="site-nav" transition:persist>
-      <a class="logo" href="/"><img src="/images/logo.png" alt="TAOM" class="nav-logo" /></a>
-      <ul class="nav-links">
-        {
-          navLinks.map((link) => (
-            <li class:list={[{ 'has-dropdown': !!link.children }]}>
-              <a
-                href={link.href}
-                class:list={[
-                  {
-                    active:
-                      currentPath === link.href ||
-                      (link.href !== '/' && currentPath.startsWith(link.href)) ||
-                      (link.children &&
-                        link.children.some((c) => currentPath === c.href || currentPath.startsWith(c.href + '/'))),
-                  },
-                ]}
-              >
-                {link.label}
-                {link.children && <span class="dropdown-arrow">&#9662;</span>}
-              </a>
-              {link.children && (
-                <ul class="dropdown">
-                  {link.children.map((child) => (
-                    <li>
-                      <a href={child.href} class:list={[{ active: currentPath === child.href }]}>
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+  <body class={bodyClass}>
+    {
+      !hideNav && (
+        <nav class="site-nav" transition:persist>
+          <a class="logo" href="/">
+            <img src="/images/logo.png" alt="TAOM" class="nav-logo" />
+          </a>
+          <button
+            class="site-nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls={layoutMenuId}
+            data-site-nav-toggle
+          >
+            <span class="site-nav-toggle-bar" />
+            <span class="site-nav-toggle-bar" />
+            <span class="site-nav-toggle-bar" />
+          </button>
+          <div class="site-nav-menu" id={layoutMenuId} data-site-nav-menu>
+            <ul class="nav-links">
+              {navLinks.map((link) => (
+                <li class:list={[{ 'has-dropdown': !!link.children }]}>
+                  <a
+                    href={link.href}
+                    class:list={[
+                      {
+                        active:
+                          currentPath === link.href ||
+                          (link.href !== '/' && currentPath.startsWith(link.href)) ||
+                          (link.children &&
+                            link.children.some((c) => currentPath === c.href || currentPath.startsWith(c.href + '/'))),
+                      },
+                    ]}
+                  >
+                    {link.label}
+                    {link.children && <span class="dropdown-arrow">&#9662;</span>}
+                  </a>
+                  {link.children && (
+                    <ul class="dropdown">
+                      {link.children.map((child) => (
+                        <li>
+                          <a href={child.href} class:list={[{ active: currentPath === child.href }]}>
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      )
+    }
 
-    <main>
+    <main class={mainClass}>
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <p>TAOM - Tales From the Age of Men &middot; A total conversion mod for Bannerlord II</p>
-    </footer>
+    {
+      !hideFooter && (
+        <footer class="site-footer">
+          <p>TAOM - Tales From the Age of Men &middot; A total conversion mod for Bannerlord II</p>
+        </footer>
+      )
+    }
   </body>
 </html>
+
+<script is:inline>
+  (() => {
+    const breakpoint = 1100;
+
+    const closeSiteNav = (nav) => {
+      const toggle = nav.querySelector('[data-site-nav-toggle]');
+      const menu = nav.querySelector('[data-site-nav-menu]');
+      if (!toggle || !menu) return;
+
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-menu-open');
+      menu.hidden = window.innerWidth <= breakpoint;
+    };
+
+    const initSiteNav = () => {
+      document.querySelectorAll('.site-nav').forEach((nav) => {
+        if (nav.dataset.siteNavReady === 'true') return;
+        nav.dataset.siteNavReady = 'true';
+
+        const toggle = nav.querySelector('[data-site-nav-toggle]');
+        const menu = nav.querySelector('[data-site-nav-menu]');
+        if (!toggle || !menu) return;
+
+        if (window.innerWidth <= breakpoint) {
+          menu.hidden = true;
+        }
+
+        toggle.addEventListener('click', () => {
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          nav.classList.toggle('is-menu-open', !isOpen);
+          menu.hidden = isOpen;
+        });
+
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => closeSiteNav(nav));
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!nav.contains(event.target)) {
+            closeSiteNav(nav);
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > breakpoint) {
+            menu.hidden = false;
+            toggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-menu-open');
+          } else if (!nav.classList.contains('is-menu-open')) {
+            menu.hidden = true;
+          }
+        });
+      });
+    };
+
+    if (!window.__taomSiteNavInitBound) {
+      window.__taomSiteNavInitBound = true;
+      document.addEventListener('astro:page-load', initSiteNav);
+    }
+
+    initSiteNav();
+  })();
+</script>
 
 <style is:global>
   @import '../styles/global.css';

@@ -1,90 +1,490 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Community" description="Join the TAOM community on Discord, Patreon, and YouTube">
-  <div class="page-content" style="max-width: 800px;">
-    <h1 class="page-title">Community</h1>
+<BaseLayout
+  title="Community"
+  description="Join the TAOM community on Discord, ModDB, Nexus Mods, and YouTube"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-community-body"
+  mainClass="taom-community-main"
+>
+  <div class="community-page">
+    <Topbar />
 
-    <div class="community-block">
-      <p class="community-label">To follow the development of the mod, check out the development blogs on</p>
-      <a href="https://www.youtube.com/@haterade_industries" class="badge-link" target="_blank" rel="noopener">
-        <img src="/images/youtube-badge.svg" alt="YouTube" class="community-badge youtube-badge" />
-      </a>
-    </div>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Stay Connected</p>
+          <h1>Join the TAOM community wherever the project lives.</h1>
+          <p class="intro-copy">
+            Follow development, ask for support, share feedback, and keep up with every public release across the main
+            TAOM channels.
+          </p>
+        </div>
 
-    <div class="community-block">
-      <p class="community-label">
-        For more information about the mod, assistance, or to interact with the development team
-      </p>
-      <a href="https://discord.gg/taom" class="badge-link" target="_blank" rel="noopener">
-        <img src="/images/discord-badge.svg" alt="Join the Chat on Discord" class="community-badge discord-badge" />
-      </a>
-    </div>
+        <div class="hero-actions-card">
+          <p class="card-kicker">Quick Access</p>
+          <div class="hero-actions">
+            <a class="hero-button hero-button-primary" href="https://discord.gg/taom" target="_blank" rel="noopener">
+              Join Discord
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="https://www.youtube.com/@haterade_industries"
+              target="_blank"
+              rel="noopener"
+            >
+              Watch YouTube
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="https://www.moddb.com/mods/tales-from-the-age-of-men"
+              target="_blank"
+              rel="noopener"
+            >
+              Open ModDB
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
+              target="_blank"
+              rel="noopener"
+            >
+              Open Nexus
+            </a>
+          </div>
+        </div>
+      </section>
 
-    <div class="card-grid" style="grid-template-columns: 1fr 1fr; margin-top: 2rem;">
-      <a
-        href="https://www.moddb.com/mods/tales-from-the-age-of-men"
-        class="card"
-        style="text-decoration: none;"
-        target="_blank"
-        rel="noopener"
-      >
-        <h3>ModDB</h3>
-        <p>Download the mod, track updates, and leave reviews.</p>
-      </a>
+      <section class="feature-grid">
+        <article class="feature-card">
+          <p class="card-kicker">Development Blogs</p>
+          <h2>Follow the project on YouTube</h2>
+          <p>Watch behind-the-scenes progress, install guides, and showcase videos as new updates take shape.</p>
+          <a class="badge-link" href="https://www.youtube.com/@haterade_industries" target="_blank" rel="noopener">
+            <img src="/images/youtube-badge.svg" alt="YouTube" class="community-badge" />
+          </a>
+        </article>
 
-      <a
-        href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
-        class="card"
-        style="text-decoration: none;"
-        target="_blank"
-        rel="noopener"
-      >
-        <h3>Nexus Mods</h3>
-        <p>Alternative download source and mod tracking.</p>
-      </a>
-    </div>
+        <article class="feature-card">
+          <p class="card-kicker">Support and Discussion</p>
+          <h2>Join the Discord</h2>
+          <p>For mod help, direct assistance, community discussion, and team interaction, Discord is the main hub.</p>
+          <a class="badge-link" href="https://discord.gg/taom" target="_blank" rel="noopener">
+            <img src="/images/discord-badge.svg" alt="Join the chat on Discord" class="community-badge" />
+          </a>
+        </article>
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
-  .community-block {
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-    margin-bottom: 1.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+  :global(body.taom-community-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 16% 18%, rgba(128, 72, 34, 0.18), transparent 25%),
+      radial-gradient(circle at 84% 14%, rgba(98, 44, 26, 0.16), transparent 24%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
   }
 
-  .community-label {
-    color: var(--accent);
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-bottom: 1.25rem;
+  :global(body.taom-community-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-community-main) {
+    display: block;
+  }
+
+  .community-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .hero-panel h1,
+  .card-kicker,
+  .feature-card h2,
+  .hub-card h2,
+  .hero-button,
+  .hub-link {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #f7f2ec;
+  }
+
+  .page-shell {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-panel,
+  .hero-actions-card,
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-panel::before,
+  .hero-actions-card::before,
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
+    gap: 1.5rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .hero-copy,
+  .hero-actions-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-copy::before,
+  .hero-actions-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    padding: 3rem;
+  }
+
+  .hero-actions-card,
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  .hero-panel h1,
+  .feature-card h2 {
+    margin: 0;
+    color: #f5eee5;
+  }
+
+  .hero-panel h1 {
+    max-width: 14ch;
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    line-height: 0.95;
+  }
+
+  .feature-card h2 {
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    line-height: 1.05;
+  }
+
+  .intro-copy,
+  .feature-card p {
+    color: rgba(231, 222, 214, 0.78);
+  }
+
+  .intro-copy {
+    max-width: 44rem;
+    margin: 1.15rem 0 0;
+    font-size: 1.04rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .hero-button {
+    display: inline-grid;
+    place-items: center;
+    min-width: 12rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(205, 153, 52, 0.46);
+    color: #f7f2ec;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: rgba(17, 13, 12, 0.5);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .hero-button:hover {
+    color: #fff5e3;
+    text-decoration: none;
+    transform: translateY(-1px);
+    border-color: rgba(205, 153, 52, 0.86);
+    background: rgba(17, 13, 12, 0.72);
+  }
+
+  .hero-button-primary {
+    background:
+      linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96)),
+      radial-gradient(circle at top, rgba(255, 239, 193, 0.08), transparent 56%);
+  }
+
+  .hero-button-secondary {
+    color: #d9cdbd;
+    background: rgba(19, 15, 13, 0.72);
+    border-color: rgba(128, 101, 62, 0.4);
+  }
+
+  .feature-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-card p {
+    margin: 0.9rem 0 0;
+    line-height: 1.65;
   }
 
   .badge-link {
-    display: inline-block;
+    display: inline-grid;
+    place-items: center;
+    margin-top: 1.35rem;
+    min-height: 5.75rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(151, 110, 51, 0.32);
+    background: rgba(10, 8, 8, 0.56);
     transition:
-      transform 0.2s,
-      filter 0.2s;
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
   }
 
   .badge-link:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+    transform: translateY(-1px);
+    border-color: rgba(205, 153, 52, 0.7);
+    background: rgba(10, 8, 8, 0.74);
   }
 
   .community-badge {
-    height: 60px;
+    height: 56px;
     width: auto;
   }
 
-  @media (max-width: 600px) {
-    .card-grid {
-      grid-template-columns: 1fr !important;
+  @media (max-width: 1080px) {
+    .hero-panel,
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .community-page {
+      padding: 1rem;
+    }
+
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brand-large {
+      font-size: 1.6rem;
+    }
+
+    .main-nav {
+      gap: 0.6rem 0.9rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-copy,
+    .hero-actions-card,
+    .feature-card {
+      padding: 1.5rem;
+    }
+
+    .hero-panel h1 {
+      max-width: none;
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .hero-button {
+      width: 100%;
+      min-width: 0;
     }
   }
 </style>

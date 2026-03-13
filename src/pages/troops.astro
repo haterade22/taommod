@@ -1,8 +1,27 @@
 ---
+import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseTroops, getCultureDisplayName, isHiddenCulture } from '../lib/parse-xml';
+import { parseTroops, getCultureDisplayName, isHiddenCulture, parseKingdomsFromXslt } from '../lib/parse-xml';
 
 const allTroops = parseTroops().filter((t) => !isHiddenCulture(t.culture));
+const kingdoms = parseKingdomsFromXslt();
+
+function normalizeColor(value: string): string | null {
+  if (!value) return null;
+  const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
+  if (cleaned.length === 8) return `#${cleaned.slice(2).toUpperCase()}`;
+  if (cleaned.length === 6) return `#${cleaned.toUpperCase()}`;
+  return null;
+}
+
+function hexToRgb(hex: string): string {
+  const cleaned = hex.replace('#', '');
+  const numeric = Number.parseInt(cleaned, 16);
+  const red = (numeric >> 16) & 255;
+  const green = (numeric >> 8) & 255;
+  const blue = numeric & 255;
+  return `${red}, ${green}, ${blue}`;
+}
 
 function sc(skill: string, val: number, isFirst = false): string {
   const base = isFirst ? 'col-num section-start' : 'col-num';
@@ -10,22 +29,52 @@ function sc(skill: string, val: number, isFirst = false): string {
   return `${base} skill-${skill}`;
 }
 
-// Sort by level ascending by default
 allTroops.sort((a, b) => a.level - b.level);
 
-// Get unique cultures and groups for filters
 const cultures = [...new Set(allTroops.map((t) => t.culture).filter(Boolean))].sort();
 const groups = [...new Set(allTroops.map((t) => t.defaultGroup).filter(Boolean))].sort();
 
-// Group troops by culture display name
-const cultureGroups = new Map<string, { culture: string; troops: typeof allTroops }>();
-for (const t of allTroops) {
-  const display = getCultureDisplayName(t.culture) || 'Unknown';
-  if (!cultureGroups.has(display)) cultureGroups.set(display, { culture: t.culture, troops: [] });
-  cultureGroups.get(display)!.troops.push(t);
+const fallbackCultureColors: Record<string, string> = {
+  mercenary: '#8F7A60',
+  troll: '#6E6A48',
+  lothlorien: '#D8C371',
+};
+
+const cultureColorMap = new Map<string, { hex: string; rgb: string }>();
+for (const kingdom of kingdoms) {
+  const hex = normalizeColor(kingdom.color);
+  if (hex && kingdom.culture) {
+    cultureColorMap.set(kingdom.culture, { hex, rgb: hexToRgb(hex) });
+  }
 }
 
-// Table header columns
+for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
+  if (!cultureColorMap.has(culture)) {
+    cultureColorMap.set(culture, { hex, rgb: hexToRgb(hex) });
+  }
+}
+
+function getCultureRowStyle(culture: string): string {
+  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
+  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
+}
+
+const cultureCounts = new Map<string, number>();
+for (const troop of allTroops) {
+  cultureCounts.set(troop.culture, (cultureCounts.get(troop.culture) || 0) + 1);
+}
+
+const cultureTabs = [
+  { culture: 'all', label: 'All', count: allTroops.length },
+  ...cultures
+    .map((culture) => ({
+      culture,
+      label: getCultureDisplayName(culture) || culture,
+      count: cultureCounts.get(culture) || 0,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label)),
+];
+
 const headerCols = [
   { col: 'name', label: 'Name', cls: '' },
   { col: 'level', label: 'Level', cls: 'col-num' },
@@ -52,266 +101,957 @@ const headerCols = [
 ];
 ---
 
-<BaseLayout title="Troops" description="Complete troop database for TAOM - all factions, skills, and equipment">
-  <div class="page-content">
-    <h1 class="page-title">Troop Database</h1>
-    <p class="page-subtitle-link">
-      See how troop skills are balanced: <a href="/mod-info/troop-balancing">Troop Balancing &rarr;</a>
-    </p>
+<BaseLayout
+  title="Troops"
+  description="Complete troop database for TAOM - all factions, skills, and equipment"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-troops-body"
+  mainClass="taom-troops-main"
+>
+  <div class="troops-page">
+    <Topbar />
 
-    <div class="table-controls">
-      <input type="text" id="search" placeholder="Search by name or ID..." />
-      <select id="filter-group">
-        <option value="">All Groups</option>
-        {groups.map((g) => <option value={g}>{g}</option>)}
-      </select>
-      <select id="filter-occupation">
-        <option value="">All Types</option>
-        <option value="Soldier">Soldiers</option>
-        <option value="CaravanGuard">Caravan Guards</option>
-        <option value="Mercenary">Mercenaries</option>
-        <option value="Bandit">Bandits</option>
-        <option value="Villager">Villagers</option>
-      </select>
-      <span class="result-count" id="result-count">{allTroops.length} troops</span>
-    </div>
+    <main class="troops-shell">
+      <div class="troops-overview">
+        <section class="page-intro">
+          <p class="eyebrow">Archives of Middle-earth</p>
+          <h1>Troops</h1>
+          <p class="intro-copy">
+            Browse every troop in TAOM by faction, role, and battlefield profile. Filter the roster, expand a realm, and
+            compare skill spreads, equipment, and unit identities in one place.
+          </p>
+        </section>
 
-    <!-- All Troops -->
-    <div class="collapsible-section" data-collapsed="true" data-section-culture="all">
-      <h2 class="section-title section-toggle">
-        <span class="collapse-arrow">&#9654;</span> All Troops <span class="section-count" data-count-for="all"
-          >({allTroops.length})</span
-        >
-      </h2>
-      <div class="data-table-wrapper" style="display:none">
-        <table class="data-table troop-section" data-section="all">
-          <thead>
-            <tr>
-              {
-                headerCols.map((h) => (
-                  <th data-col={h.col} class={h.cls}>
-                    {h.label}
-                  </th>
-                ))
-              }
-            </tr>
-          </thead>
-          <tbody>
-            {
-              allTroops.map((t) => (
-                <tr
-                  data-name={t.name.toLowerCase()}
-                  data-id={t.id.toLowerCase()}
-                  data-culture={t.culture}
-                  data-group={t.defaultGroup}
-                  data-occupation={t.occupation}
-                >
-                  <td>{t.name}</td>
-                  <td class="col-num">{t.level}</td>
-                  <td>{t.defaultGroup}</td>
-                  <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
-                  <td class={sc('riding', t.riding)}>{t.riding}</td>
-                  <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
-                  <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
-                  <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
-                  <td class={sc('bow', t.bow)}>{t.bow}</td>
-                  <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
-                  <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
-                  <td class="col-id section-start">{t.item0}</td>
-                  <td class="col-id">{t.item1}</td>
-                  <td class="col-id">{t.item2}</td>
-                  <td class="col-id">{t.item3}</td>
-                  <td class="col-id">{t.head}</td>
-                  <td class="col-id">{t.body}</td>
-                  <td class="col-id">{t.leg}</td>
-                  <td class="col-id">{t.glove}</td>
-                  <td class="section-start">{t.race}</td>
-                  <td>{getCultureDisplayName(t.culture)}</td>
-                  <td class="col-id">{t.id}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        <section class="troops-summary" aria-label="Troop database summary">
+          <article class="summary-card">
+            <span class="summary-label">Total Units</span>
+            <strong>{allTroops.length}</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Realms Covered</span>
+            <strong>{cultures.length}</strong>
+          </article>
+        </section>
+
+        <section class="utility-panel">
+          <div class="balance-callout">
+            <p class="balance-kicker">Balance Notes</p>
+            <h2>See How Troop Progression Was Tuned</h2>
+            <p>
+              Want the design logic behind levels, equipment standards, and faction power curves? The balancing notes
+              break down the current approach.
+            </p>
+            <a href="/mod-info/troop-balancing">Open Troop Balancing</a>
+          </div>
+
+          <div class="controls-card">
+            <div class="controls-heading">
+              <p class="controls-kicker">Filter the Roster</p>
+              <span class="result-count" id="result-count">{allTroops.length} troops</span>
+            </div>
+
+            <div class="table-controls">
+              <label class="control-field control-search">
+                <span>Search</span>
+                <input type="text" id="search" placeholder="Search by name or ID..." />
+              </label>
+
+              <label class="control-field">
+                <span>Group</span>
+                <select id="filter-group">
+                  <option value="">All Groups</option>
+                  {groups.map((g) => <option value={g}>{g}</option>)}
+                </select>
+              </label>
+
+              <label class="control-field">
+                <span>Type</span>
+                <select id="filter-occupation">
+                  <option value="">All Types</option>
+                  <option value="Soldier">Soldiers</option>
+                  <option value="CaravanGuard">Caravan Guards</option>
+                  <option value="Mercenary">Mercenaries</option>
+                  <option value="Bandit">Bandits</option>
+                  <option value="Villager">Villagers</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
 
-    <!-- Per-Culture Sections -->
-    {
-      [...cultureGroups.entries()].map(([cultureName, { culture, troops }]) => (
-        <div class="collapsible-section" data-collapsed="true" data-section-culture={culture}>
-          <h2 class="section-title section-toggle">
-            <span class="collapse-arrow">&#9654;</span> {cultureName}{' '}
-            <span class="section-count" data-count-for={culture}>
-              ({troops.length})
-            </span>
-          </h2>
-          <div class="data-table-wrapper" style="display:none">
-            <table class="data-table troop-section" data-section={culture}>
-              <thead>
-                <tr>
-                  {headerCols.map((h) => (
-                    <th data-col={h.col} class={h.cls}>
-                      {h.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {troops.map((t) => (
-                  <tr
-                    data-name={t.name.toLowerCase()}
-                    data-id={t.id.toLowerCase()}
-                    data-culture={t.culture}
-                    data-group={t.defaultGroup}
-                    data-occupation={t.occupation}
-                  >
-                    <td>{t.name}</td>
-                    <td class="col-num">{t.level}</td>
-                    <td>{t.defaultGroup}</td>
-                    <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
-                    <td class={sc('riding', t.riding)}>{t.riding}</td>
-                    <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
-                    <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
-                    <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
-                    <td class={sc('bow', t.bow)}>{t.bow}</td>
-                    <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
-                    <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
-                    <td class="col-id section-start">{t.item0}</td>
-                    <td class="col-id">{t.item1}</td>
-                    <td class="col-id">{t.item2}</td>
-                    <td class="col-id">{t.item3}</td>
-                    <td class="col-id">{t.head}</td>
-                    <td class="col-id">{t.body}</td>
-                    <td class="col-id">{t.leg}</td>
-                    <td class="col-id">{t.glove}</td>
-                    <td class="section-start">{t.race}</td>
-                    <td>{getCultureDisplayName(t.culture)}</td>
-                    <td class="col-id">{t.id}</td>
+      <section class="sections-stack">
+        <div class="realm-browser">
+          <div class="realm-header">
+            <div class="realm-tabs-shell">
+              <div class="realm-tabs" role="tablist" aria-label="Select a troop kingdom">
+                {
+                  cultureTabs.map((tab) => (
+                    <button
+                      type="button"
+                      class:list={['realm-tab', { 'is-selected': tab.culture === 'all' }]}
+                      data-culture={tab.culture}
+                      data-label={tab.label}
+                      role="tab"
+                      aria-selected={tab.culture === 'all' ? 'true' : 'false'}
+                    >
+                      <span>{tab.label}</span>
+                      <small>({tab.count})</small>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="roster-panel">
+            <div class="roster-panel-head">
+              <p class="roster-panel-title">Troop Roster</p>
+              <span class="section-count" id="table-count">({allTroops.length})</span>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table troop-section" data-section="active">
+                <thead>
+                  <tr>
+                    {
+                      headerCols.map((h) => (
+                        <th data-col={h.col} class={h.cls}>
+                          {h.label}
+                        </th>
+                      ))
+                    }
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody id="troops-table-body">
+                  {
+                    allTroops.map((t) => (
+                      <tr
+                        data-name={t.name.toLowerCase()}
+                        data-id={t.id.toLowerCase()}
+                        data-culture={t.culture}
+                        data-group={t.defaultGroup}
+                        data-occupation={t.occupation}
+                        style={getCultureRowStyle(t.culture)}
+                      >
+                        <td>{t.name}</td>
+                        <td class="col-num">{t.level}</td>
+                        <td>{t.defaultGroup}</td>
+                        <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
+                        <td class={sc('riding', t.riding)}>{t.riding}</td>
+                        <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
+                        <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
+                        <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
+                        <td class={sc('bow', t.bow)}>{t.bow}</td>
+                        <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
+                        <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
+                        <td class="col-id section-start">{t.item0}</td>
+                        <td class="col-id">{t.item1}</td>
+                        <td class="col-id">{t.item2}</td>
+                        <td class="col-id">{t.item3}</td>
+                        <td class="col-id">{t.head}</td>
+                        <td class="col-id">{t.body}</td>
+                        <td class="col-id">{t.leg}</td>
+                        <td class="col-id">{t.glove}</td>
+                        <td class="section-start">{t.race}</td>
+                        <td>{getCultureDisplayName(t.culture)}</td>
+                        <td class="col-id">{t.id}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <p class="empty-state" id="empty-state" hidden>No troops match the current kingdom and filter selection.</p>
           </div>
         </div>
-      ))
-    }
+      </section>
+    </main>
   </div>
 </BaseLayout>
 
 <script>
-  import { initSorting, initCollapse, applyUrlParams, collectRows } from '../scripts/data-table';
+  import { initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
     const groupFilter = document.getElementById('filter-group') as HTMLSelectElement;
     const occupationFilter = document.getElementById('filter-occupation') as HTMLSelectElement;
-    const resultCount = document.getElementById('result-count')!;
-    if (!searchInput || !groupFilter) return;
-    const allRows = collectRows('table.troop-section');
+    const resultCount = document.getElementById('result-count') as HTMLElement;
+    const tableCount = document.getElementById('table-count') as HTMLElement;
+    const emptyState = document.getElementById('empty-state') as HTMLElement;
+    const tabButtons = Array.from(document.querySelectorAll('.realm-tab')) as HTMLButtonElement[];
+    const allRows = Array.from(document.querySelectorAll('#troops-table-body tr')) as HTMLTableRowElement[];
+    if (!searchInput || !groupFilter || !occupationFilter || !resultCount || !tableCount || !emptyState) return;
+
+    const params = new URLSearchParams(window.location.search);
+    searchInput.value = params.get('search') || '';
+    groupFilter.value = params.get('group') || '';
+    occupationFilter.value = params.get('occupation') || '';
+
+    let activeCulture = params.get('culture') || 'all';
+    if (!tabButtons.some((button) => button.dataset.culture === activeCulture)) {
+      activeCulture = 'all';
+    }
+
+    function updateUrl() {
+      const nextParams = new URLSearchParams();
+      if (searchInput.value) nextParams.set('search', searchInput.value);
+      if (groupFilter.value) nextParams.set('group', groupFilter.value);
+      if (occupationFilter.value) nextParams.set('occupation', occupationFilter.value);
+      if (activeCulture !== 'all') nextParams.set('culture', activeCulture);
+      const query = nextParams.toString();
+      const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', url);
+    }
+
+    function updateRealmHeader(visibleCount: number) {
+      tableCount.textContent = `(${visibleCount})`;
+    }
 
     function filterRows() {
       const search = searchInput.value.toLowerCase();
       const group = groupFilter.value;
       const occupation = occupationFilter.value;
-
-      // Track visible counts per section
-      const sectionCounts = new Map<string, number>();
+      let visibleCount = 0;
 
       for (const row of allRows) {
         const name = row.dataset.name || '';
         const id = row.dataset.id || '';
+        const rowCulture = row.dataset.culture || '';
         const rowGroup = row.dataset.group || '';
         const rowOccupation = row.dataset.occupation || '';
 
+        const matchesCulture = activeCulture === 'all' || rowCulture === activeCulture;
         const matchesSearch = !search || name.includes(search) || id.includes(search);
         const matchesGroup = !group || rowGroup === group;
         const matchesOccupation = !occupation || rowOccupation === occupation;
 
-        const show = matchesSearch && matchesGroup && matchesOccupation;
+        const show = matchesCulture && matchesSearch && matchesGroup && matchesOccupation;
         row.style.display = show ? '' : 'none';
 
-        // Count for the section this row belongs to
         const table = row.closest('table')!;
-        const sectionKey = (table as HTMLElement).dataset.section || '';
-        if (show) {
-          sectionCounts.set(sectionKey, (sectionCounts.get(sectionKey) || 0) + 1);
+        if (show && table) {
+          visibleCount += 1;
         }
       }
 
-      // Update section counts and hide empty sections
-      document.querySelectorAll('.collapsible-section').forEach((section) => {
-        const sectionEl = section as HTMLElement;
-        const culture = sectionEl.dataset.sectionCulture || '';
-        const countSpan = sectionEl.querySelector('.section-count') as HTMLElement;
-        const count = sectionCounts.get(culture) || 0;
-        if (countSpan) countSpan.textContent = `(${count})`;
-        sectionEl.style.display = count > 0 || (!search && !group && !occupation) ? '' : 'none';
+      tabButtons.forEach((button) => {
+        const selected = button.dataset.culture === activeCulture;
+        button.classList.toggle('is-selected', selected);
+        button.setAttribute('aria-selected', selected ? 'true' : 'false');
       });
 
-      // Total visible (only count from "all" table to avoid double-counting)
-      resultCount.textContent = `${sectionCounts.get('all') || 0} troops`;
+      resultCount.textContent = `${visibleCount} troops`;
+      emptyState.hidden = visibleCount !== 0;
+      updateRealmHeader(visibleCount);
+      updateUrl();
     }
 
-    applyUrlParams({ group: groupFilter, search: searchInput });
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeCulture = button.dataset.culture || 'all';
+        filterRows();
+      });
+    });
+
     searchInput.addEventListener('input', filterRows);
     groupFilter.addEventListener('change', filterRows);
     occupationFilter.addEventListener('change', filterRows);
     filterRows();
 
-    initCollapse();
     initSorting('table.troop-section');
   });
 </script>
 
 <style>
-  .page-subtitle-link {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-top: -0.25rem;
+  :global(body.taom-troops-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.66), rgba(7, 5, 5, 0.97)),
+      radial-gradient(circle at 18% 16%, rgba(128, 72, 34, 0.16), transparent 24%),
+      radial-gradient(circle at 82% 14%, rgba(98, 44, 26, 0.14), transparent 23%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-troops-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-troops-main) {
+    display: block;
+  }
+
+  .troops-page {
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.15rem 1.6rem;
+    border: 1px solid rgba(58, 48, 30, 0.7);
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.92), rgba(9, 13, 10, 0.9) 45%, rgba(16, 11, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    display: inline-grid;
+    gap: 0;
+    justify-items: center;
+    text-align: center;
+    color: #d19a33;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .brand:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .brand-small,
+  .brand-large,
+  .main-nav a,
+  .side-link,
+  .eyebrow,
+  .page-intro h1,
+  .summary-label,
+  .summary-card strong,
+  .balance-kicker,
+  .balance-callout h2,
+  .controls-kicker,
+  .realm-kicker,
+  .realm-header h2,
+  .realm-tab,
+  .roster-panel-title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .brand-small {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-large {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.1rem;
+  }
+
+  .main-nav a,
+  .side-link {
+    position: relative;
+    padding: 0.35rem 0.35rem 0.5rem;
+    color: #d19a33;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+
+  .main-nav a::after,
+  .side-link::after {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    right: 0.35rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.is-active,
+  .side-link:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a.is-active::after,
+  .side-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .side-link {
+    color: #f7f2ec;
+  }
+
+  .troops-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 2.25rem 0 3.375rem;
+  }
+
+  .troops-overview {
+    max-width: 82.5rem;
+    margin: 0 auto 0;
+  }
+
+  .page-intro {
+    max-width: 47.5rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: #b98a35;
+  }
+
+  .page-intro h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #f7f2ec;
+  }
+
+  .intro-copy {
+    margin: 1.125rem 0 0;
+    max-width: 44ch;
+    font-size: 1.35rem;
+    line-height: 1.35;
+    color: rgba(233, 226, 219, 0.76);
+  }
+
+  .troops-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .summary-card {
+    padding: 1rem 1.1rem 1.05rem;
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.92), rgba(11, 9, 8, 0.86));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .summary-label {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #b98a35;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .summary-card strong {
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    font-weight: 600;
+    color: #f7f2ec;
+  }
+
+  .utility-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 21rem) minmax(0, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .balance-callout,
+  .controls-card,
+  .roster-panel,
+  .realm-header {
+    border: 1px solid rgba(120, 89, 38, 0.55);
+    background:
+      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
+      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .balance-callout {
+    padding: 1.3rem 1.25rem;
+  }
+
+  .balance-kicker,
+  .controls-kicker {
+    margin: 0 0 0.55rem;
+    color: #b98a35;
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .balance-callout h2 {
+    margin: 0;
+    font-size: 1.65rem;
+    line-height: 1.1;
+    color: #f7f2ec;
+  }
+
+  .balance-callout p:not(.balance-kicker) {
+    margin: 0.85rem 0 0;
+    color: rgba(233, 226, 219, 0.76);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .balance-callout a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #d19a33;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.86rem;
+  }
+
+  .balance-callout a:hover {
+    color: #f7f2ec;
+    text-decoration: none;
+  }
+
+  .controls-card {
+    padding: 1.2rem;
+  }
+
+  .controls-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
     margin-bottom: 1rem;
   }
 
-  .page-subtitle-link a {
-    color: var(--accent);
+  .result-count {
+    color: rgba(233, 226, 219, 0.78);
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .table-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(11rem, 1fr));
+    gap: 0.9rem;
+    align-items: end;
+  }
+
+  .control-field {
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .control-field span {
+    color: #b98a35;
+    font-size: 0.74rem;
     font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
-  .page-subtitle-link a:hover {
-    color: var(--accent-hover);
+  .control-field input,
+  .control-field select {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgba(120, 89, 38, 0.65);
+    background: rgba(11, 10, 9, 0.92);
+    color: #f1e8dc;
+    border-radius: 0;
+    font-size: 0.96rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
-  .section-title {
-    color: var(--accent);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 1.5rem 0 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+  .control-field input::placeholder {
+    color: rgba(233, 226, 219, 0.42);
   }
 
-  .section-title:first-of-type {
-    margin-top: 1rem;
+  .control-field input:focus,
+  .control-field select:focus {
+    outline: none;
+    border-color: #d19a33;
+    box-shadow: 0 0 0 1px rgba(209, 154, 51, 0.22);
+  }
+
+  .sections-stack {
+    display: block;
+    width: min(calc(100vw - 0.3rem), 220rem);
+    max-width: none;
+    margin-inline: auto;
+    margin-top: 1.8rem;
+  }
+
+  .realm-browser {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .realm-header {
+    padding: 1rem 0.5rem;
+  }
+
+  .realm-tabs-shell {
+    min-width: 0;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .realm-tabs {
+    display: flex;
+    gap: 0.7rem;
+    width: max-content;
+    min-width: 100%;
+    justify-content: flex-start;
+  }
+
+  .realm-tab {
+    position: relative;
+    display: inline-grid;
+    gap: 0.15rem;
+    align-content: center;
+    min-width: 8.25rem;
+    min-height: 3.6rem;
+    padding: 0.65rem 1rem 0.85rem;
+    border: 1px solid rgba(120, 89, 38, 0.35);
+    background: linear-gradient(180deg, rgba(17, 14, 12, 0.92), rgba(8, 7, 7, 0.85));
+    color: #ece4db;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease,
+      background 180ms ease;
+  }
+
+  .realm-tab::after {
+    content: '';
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.55rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 153, 52, 0.88), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .realm-tab small {
+    color: rgba(233, 226, 219, 0.56);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  .realm-tab:hover {
+    transform: translateY(-1px);
+    color: #f7f2ec;
+    border-color: rgba(205, 153, 52, 0.55);
+  }
+
+  .realm-tab:hover::after,
+  .realm-tab.is-selected::after {
+    transform: scaleX(1);
+  }
+
+  .realm-tab.is-selected {
+    color: #d19a33;
+    border-color: rgba(205, 153, 52, 0.62);
+    background: linear-gradient(180deg, rgba(22, 17, 13, 0.94), rgba(10, 8, 7, 0.9));
+  }
+
+  .roster-panel {
+    overflow: hidden;
+  }
+
+  .roster-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(120, 89, 38, 0.32);
+  }
+
+  .roster-panel-title {
+    margin: 0;
+    color: #f0ebe5;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .section-count {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    color: rgba(233, 226, 219, 0.58);
+    font-size: 0.95rem;
     font-weight: 400;
   }
 
-  .section-toggle {
-    cursor: pointer;
-    user-select: none;
+  .empty-state {
+    margin: 0;
+    padding: 1rem 1.2rem 1.15rem;
+    color: rgba(233, 226, 219, 0.72);
+    font-size: 0.98rem;
   }
 
-  .section-toggle:hover {
-    color: var(--text-primary);
+  .data-table-wrapper {
+    position: relative;
+    overflow: auto;
+    padding: 0.3rem;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.84), rgba(8, 7, 7, 0.94)),
+      linear-gradient(90deg, rgba(209, 154, 51, 0.05), transparent 30%);
   }
 
-  .collapse-arrow {
-    display: inline-block;
-    font-size: 0.8em;
-    transition: transform 0.2s;
+  .troops-page .data-table {
+    min-width: 132rem;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+    font-size: 0.5rem;
+  }
+
+  .troops-page .data-table th {
+    top: 0;
+    background: rgba(18, 16, 14, 0.96);
+    color: #f6efe6 !important;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(120, 89, 38, 0.45);
+    white-space: normal;
+  }
+
+  .troops-page .data-table th:hover {
+    color: #d39a3a !important;
+    background: rgba(24, 21, 18, 0.98);
+  }
+
+  .troops-page .data-table td {
+    padding: 0.38rem 0.56rem;
+  }
+
+  .troops-page .data-table tbody td:nth-child(1),
+  .troops-page .data-table tbody td:nth-child(2),
+  .troops-page .data-table tbody td:nth-child(3),
+  .troops-page .data-table tbody td:nth-child(4),
+  .troops-page .data-table tbody td:nth-child(5),
+  .troops-page .data-table tbody td:nth-child(6),
+  .troops-page .data-table tbody td:nth-child(7),
+  .troops-page .data-table tbody td:nth-child(8),
+  .troops-page .data-table tbody td:nth-child(9),
+  .troops-page .data-table tbody td:nth-child(10),
+  .troops-page .data-table tbody td:nth-child(11) {
+    font-size: 0.7rem;
+    line-height: 1.24;
+  }
+
+  .troops-page .data-table th[data-col='name'],
+  .troops-page .data-table td:first-child {
+    min-width: 11.75rem;
+  }
+
+  .troops-page .data-table th[data-col='defaultGroup'],
+  .troops-page .data-table td:nth-child(3) {
+    min-width: 6.3rem;
+  }
+
+  .troops-page .data-table th[data-col='athletics'],
+  .troops-page .data-table th[data-col='riding'],
+  .troops-page .data-table th[data-col='polearm'],
+  .troops-page .data-table th[data-col='bow'] {
+    min-width: 4.7rem;
+  }
+
+  .troops-page .data-table th[data-col='oneHanded'],
+  .troops-page .data-table th[data-col='twoHanded'],
+  .troops-page .data-table th[data-col='crossbow'],
+  .troops-page .data-table th[data-col='throwing'] {
+    min-width: 5.3rem;
+  }
+
+  .troops-page .data-table th[data-col='item0'],
+  .troops-page .data-table th[data-col='item1'],
+  .troops-page .data-table th[data-col='item2'],
+  .troops-page .data-table th[data-col='item3'],
+  .troops-page .data-table th[data-col='head'],
+  .troops-page .data-table th[data-col='body'],
+  .troops-page .data-table th[data-col='leg'],
+  .troops-page .data-table th[data-col='glove'],
+  .troops-page .data-table th[data-col='race'],
+  .troops-page .data-table th[data-col='culture'],
+  .troops-page .data-table th[data-col='id'] {
+    min-width: 4.85rem;
+  }
+
+  .troops-page .data-table tbody tr[data-culture] td {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.24), rgba(15, 14, 13, 0.96) 72%);
+    color: rgba(247, 242, 236, 0.95);
+  }
+
+  .troops-page .data-table tbody tr[data-culture]:hover td {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.34), rgba(18, 16, 14, 0.98) 74%);
+  }
+
+  .troops-page .data-table td.col-num {
+    color: rgba(247, 242, 236, 0.92) !important;
+    text-shadow: none;
+  }
+
+  .troops-page .data-table td.skill-zero {
+    color: rgba(235, 226, 216, 0.42) !important;
+  }
+
+  .troops-page .data-table .col-id {
+    color: rgba(239, 230, 218, 0.72);
+  }
+
+  .troops-page .data-table td.section-start {
+    border-left: 2px solid rgba(var(--culture-rgb), 0.42);
+  }
+
+  .troops-page .data-table th.section-start {
+    border-left: 2px solid rgba(181, 135, 51, 0.58);
+  }
+
+  @media (max-width: 1180px) {
+    .troops-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .utility-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .realm-tabs {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .topbar {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+
+    .brand {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .main-nav {
+      justify-content: flex-start;
+    }
+
+    .troops-shell {
+      padding-top: 1.75rem;
+    }
+
+    .intro-copy {
+      font-size: 1.1rem;
+    }
+
+    .table-controls {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .troops-page {
+      padding: 1rem 0.15rem;
+    }
+
+    .sections-stack {
+      width: min(calc(100vw - 0.2rem), 220rem);
+    }
+
+    .topbar {
+      top: 1rem;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brand-large {
+      font-size: 1.6rem;
+    }
+
+    .main-nav {
+      gap: 0.6rem 0.9rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      font-size: 0.92rem;
+    }
+
+    .page-intro {
+      margin-bottom: 2rem;
+    }
+
+    .troops-overview {
+      max-width: none;
+    }
+
+    .troops-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .controls-heading {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .realm-header,
+    .roster-panel-head {
+      padding-inline: 0.5rem;
+    }
+
+    .realm-tab {
+      min-width: 7.2rem;
+      min-height: 3.7rem;
+      padding-inline: 0.9rem;
+    }
+
+    .data-table-wrapper {
+      padding: 0.3rem;
+    }
   }
 </style>
