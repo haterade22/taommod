@@ -430,7 +430,28 @@ const loadOrder = [
   }
 
   .hero-copy {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.34), rgba(8, 7, 7, 0.6)),
+      url('/images/download/block-background.png') center / cover no-repeat;
     padding: 3.2rem 3rem;
+  }
+
+  .hero-copy::before {
+    background: url('/images/download/block-overlay.png') center / 100% 100% no-repeat;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/download/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-copy > * {
+    position: relative;
+    z-index: 3;
   }
 
   .hero-card {

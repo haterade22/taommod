@@ -329,7 +329,28 @@ const creditGroups = [
   }
 
   .hero-panel {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.34), rgba(8, 7, 7, 0.6)),
+      url('/images/credits/block-background.png') center / cover no-repeat;
     padding: 3rem;
+  }
+
+  .hero-panel::before {
+    background: url('/images/credits/block-overlay.png') center / 100% 100% no-repeat;
+  }
+
+  .hero-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/credits/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-panel > * {
+    position: relative;
+    z-index: 3;
   }
 
   .gratitude-panel {
