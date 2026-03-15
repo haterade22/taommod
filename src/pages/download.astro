@@ -74,26 +74,7 @@ const loadOrder = [
         </div>
       </section>
 
-      <section class="section-grid section-grid-three">
-        <article class="content-card">
-          <p class="card-kicker">Recommended</p>
-          <h2>Use the launcher</h2>
-          <p>
-            The launcher handles installation and updates automatically, making it the easiest way to get the mod up and
-            running.
-          </p>
-          <a class="card-link" href="https://lotraom.com/" target="_blank" rel="noopener">Get the launcher</a>
-        </article>
-
-        <article class="content-card">
-          <p class="card-kicker">Video Tutorial</p>
-          <h2>Watch the install guide</h2>
-          <p>
-            The full installation walkthrough is embedded here so players can follow along without leaving the page.
-          </p>
-          <a class="card-link" href="#install-video">Jump to the video</a>
-        </article>
-
+      <section class="section-grid section-grid-single">
         <article class="content-card">
           <p class="card-kicker">Manual Sources</p>
           <h2>Download the latest release</h2>
@@ -449,7 +430,28 @@ const loadOrder = [
   }
 
   .hero-copy {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.34), rgba(8, 7, 7, 0.6)),
+      url('/images/download/block-background.png') center / cover no-repeat;
     padding: 3.2rem 3rem;
+  }
+
+  .hero-copy::before {
+    background: url('/images/download/block-overlay.png') center / 100% 100% no-repeat;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/download/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-copy > * {
+    position: relative;
+    z-index: 3;
   }
 
   .hero-card {
@@ -583,6 +585,10 @@ const loadOrder = [
 
   .section-grid-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .section-grid-single {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .section-grid-two {

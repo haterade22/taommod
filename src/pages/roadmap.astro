@@ -1,0 +1,600 @@
+---
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const roadmapArtists = [
+  {
+    name: 'Solus',
+    discipline: '3D Art',
+    wip: ['Dale Armour', 'Gondor Weapon Revamp'],
+    next: ['Dale Weapons', 'Rivendell Kitbash', 'Umbar Armours', 'Map Icons'],
+  },
+  {
+    name: 'Keyforce',
+    discipline: '3D Art',
+    wip: ['Gondor Armour Revamp', 'Dwarven Kitbash'],
+    next: ['Mordor Orc Armours', 'Mordor Black Númenorean Armours', 'Haradwaith armours', 'Khand armours'],
+  },
+  {
+    name: 'Leovsilva',
+    discipline: '3D Art',
+    wip: [],
+    next: ['Lothlorien armours'],
+  },
+  {
+    name: 'Haterade',
+    discipline: 'Coding',
+    wip: ['Integrating 1.2 code into 1.3 version'],
+    next: [],
+  },
+  {
+    name: 'Thyrell',
+    discipline: '2D Art',
+    wip: ['1.3 Clan banner overhaul', 'Gondor Revamp Concept Art'],
+    next: [],
+  },
+  {
+    name: 'Lemmy',
+    discipline: 'Map Design',
+    wip: ['1.3 Map Revamp'],
+    next: [],
+  },
+  {
+    name: 'Kysaro',
+    discipline: 'Scene Design',
+    wip: ['Generic Mordor Battle Scene'],
+    next: ['Argonath Battle Scene'],
+  },
+];
+
+const totalWip = roadmapArtists.reduce((sum, artist) => sum + artist.wip.length, 0);
+const totalNext = roadmapArtists.reduce((sum, artist) => sum + artist.next.length, 0);
+const disciplineOrder = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Coding'] as const;
+const disciplineThemes: Record<string, { accent: string; glow: string; tint: string }> = {
+  '3D Art': {
+    accent: '#cf9b52',
+    glow: 'rgba(207, 155, 82, 0.24)',
+    tint: 'rgba(207, 155, 82, 0.08)',
+  },
+  '2D Art': {
+    accent: '#d07f49',
+    glow: 'rgba(208, 127, 73, 0.22)',
+    tint: 'rgba(208, 127, 73, 0.08)',
+  },
+  'Map Design': {
+    accent: '#6f9b7d',
+    glow: 'rgba(111, 155, 125, 0.22)',
+    tint: 'rgba(111, 155, 125, 0.08)',
+  },
+  'Scene Design': {
+    accent: '#9f6e56',
+    glow: 'rgba(159, 110, 86, 0.22)',
+    tint: 'rgba(159, 110, 86, 0.08)',
+  },
+  Coding: {
+    accent: '#7b879f',
+    glow: 'rgba(123, 135, 159, 0.22)',
+    tint: 'rgba(123, 135, 159, 0.08)',
+  },
+};
+
+const roadmapGroups = Array.from(
+  roadmapArtists.reduce((groups, artist) => {
+    if (!groups.has(artist.discipline)) {
+      groups.set(artist.discipline, []);
+    }
+
+    groups.get(artist.discipline)?.push(artist);
+    return groups;
+  }, new Map<string, (typeof roadmapArtists)[number][]>()),
+  ([discipline, artists]) => ({
+    discipline,
+    contributorCount: artists.length,
+    wip: artists.flatMap((artist) => artist.wip),
+    next: artists.flatMap((artist) => artist.next),
+  }),
+)
+  .sort((left, right) => disciplineOrder.indexOf(left.discipline) - disciplineOrder.indexOf(right.discipline))
+  .map((group) => ({
+    ...group,
+    theme: disciplineThemes[group.discipline] ?? disciplineThemes['3D Art'],
+  }));
+---
+
+<BaseLayout
+  title="Roadmap"
+  description="Current TAOM art and map production roadmap by discipline"
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-roadmap-body"
+  mainClass="taom-roadmap-main"
+>
+  <div class="roadmap-page">
+    <Topbar />
+
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Production Outlook</p>
+          <h1>Roadmap</h1>
+          <p class="intro-copy">
+            A cleaner view of the TAOM production pipeline, grouped by discipline so active work and the next queue stay
+            readable as the team grows.
+          </p>
+        </div>
+
+        <div class="hero-stats">
+          <article class="stat-card">
+            <span class="stat-value">{roadmapArtists.length}</span>
+            <span class="stat-label">Contributors</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">{totalWip}</span>
+            <span class="stat-label">Items In Progress</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">{totalNext}</span>
+            <span class="stat-label">Queued Next</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="discipline-grid" aria-label="Roadmap by discipline">
+        {
+          roadmapGroups.map((group) => (
+            <article
+              class:list={[
+                'discipline-card',
+                {
+                  'discipline-card-3d': group.discipline === '3D Art',
+                  'discipline-card-2d': group.discipline === '2D Art',
+                  'discipline-card-map': group.discipline === 'Map Design',
+                  'discipline-card-scene': group.discipline === 'Scene Design',
+                  'discipline-card-coding': group.discipline === 'Coding',
+                },
+              ]}
+              style={`--discipline-accent: ${group.theme.accent}; --discipline-glow: ${group.theme.glow}; --discipline-tint: ${group.theme.tint};`}
+            >
+              <div class="discipline-card-shell">
+                <div class="discipline-card-top">
+                  <div>
+                    <p class="group-kicker">Discipline</p>
+                    <h2>{group.discipline}</h2>
+                  </div>
+                  <span class="group-pill">
+                    {group.contributorCount} contributor{group.contributorCount === 1 ? '' : 's'}
+                  </span>
+                </div>
+
+                <p class="discipline-summary">
+                  {group.wip.length} in progress <span aria-hidden="true">/</span> {group.next.length} queued next
+                </p>
+
+                <div class="status-streams">
+                  <section class="status-stream">
+                    <div class="status-stream-heading">
+                      <span class="status-dot status-dot-wip" />
+                      <h3>WIP</h3>
+                      <span class="status-count">{group.wip.length}</span>
+                    </div>
+
+                    {group.wip.length > 0 ? (
+                      <ul class="task-chip-list">
+                        {group.wip.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p class="empty-state">No active item listed yet.</p>
+                    )}
+                  </section>
+
+                  <section class="status-stream">
+                    <div class="status-stream-heading">
+                      <span class="status-dot status-dot-next" />
+                      <h3>Next</h3>
+                      <span class="status-count">{group.next.length}</span>
+                    </div>
+
+                    {group.next.length > 0 ? (
+                      <ul class="task-chip-list">
+                        {group.next.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p class="empty-state">Nothing queued after the current task.</p>
+                    )}
+                  </section>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-roadmap-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(8, 7, 8, 0.72), rgba(8, 7, 8, 0.96)),
+      radial-gradient(circle at top left, rgba(181, 123, 54, 0.16), transparent 28%),
+      radial-gradient(circle at 85% 12%, rgba(98, 119, 84, 0.14), transparent 24%),
+      linear-gradient(180deg, #191210 0%, #0f0b0a 48%, #080707 100%);
+    color: #f1e8dc;
+  }
+
+  :global(body.taom-roadmap-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 11, 10, 0.08), rgba(8, 7, 7, 0.56)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 87px,
+        rgba(255, 255, 255, 0.02) 88px,
+        transparent 89px
+      );
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-roadmap-main) {
+    display: block;
+  }
+
+  .roadmap-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .page-shell {
+    width: min(100%, 84rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-panel,
+  .stat-card,
+  .discipline-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(171, 129, 73, 0.3);
+    border-radius: 1.2rem;
+    background:
+      linear-gradient(180deg, rgba(20, 15, 14, 0.94), rgba(12, 10, 10, 0.97)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+  }
+
+  .hero-panel::before,
+  .stat-card::before,
+  .discipline-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.02),
+      transparent 30%,
+      transparent 72%,
+      var(--discipline-tint, rgba(214, 176, 106, 0.05))
+    );
+    pointer-events: none;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.9fr);
+    gap: 1.25rem;
+    border-radius: 0;
+    padding: clamp(2.1rem, 4vw, 2.9rem);
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.32), rgba(8, 7, 7, 0.62)),
+      url('/images/roadmap/block-background.png') center / cover no-repeat;
+  }
+
+  .hero-panel::before {
+    background: url('/images/roadmap/block-overlay.png') center / 100% 100% no-repeat;
+  }
+
+  .hero-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url('/images/roadmap/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+  }
+
+  .hero-copy,
+  .hero-stats,
+  .discipline-card {
+    position: relative;
+    z-index: 3;
+  }
+
+  .eyebrow,
+  .group-kicker,
+  .stat-label,
+  .status-stream-heading h3,
+  .group-pill,
+  .status-count {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .group-kicker {
+    margin: 0 0 0.85rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(220, 184, 117, 0.84);
+  }
+
+  .hero-panel h1,
+  .discipline-card h2 {
+    margin: 0;
+    color: #f8f1e8;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .hero-panel h1 {
+    font-size: clamp(2.7rem, 4vw, 4.5rem);
+    line-height: 0.92;
+  }
+
+  .intro-copy {
+    max-width: 46rem;
+    margin: 1rem 0 0;
+    color: rgba(235, 225, 214, 0.8);
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+
+  .hero-stats {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+  }
+
+  .stat-card {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.2rem 1.3rem;
+  }
+
+  .stat-value {
+    color: #fbf6ef;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    line-height: 1;
+  }
+
+  .stat-label {
+    color: rgba(220, 184, 117, 0.74);
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .discipline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19.5rem, 1fr));
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .discipline-card {
+    display: grid;
+    position: relative;
+  }
+
+  .discipline-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 0.2rem;
+    background: linear-gradient(90deg, var(--discipline-accent), transparent 72%);
+    opacity: 0.9;
+  }
+
+  .discipline-card-shell {
+    display: grid;
+    gap: 1rem;
+    height: 100%;
+    padding: 1.35rem;
+  }
+
+  .discipline-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .discipline-card h2 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1;
+  }
+
+  .group-kicker {
+    margin-bottom: 0.35rem;
+    color: var(--discipline-accent);
+  }
+
+  .group-pill {
+    align-self: start;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(240, 231, 220, 0.72);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .discipline-summary {
+    margin: -0.2rem 0 0;
+    color: rgba(223, 213, 200, 0.68);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .discipline-summary span {
+    margin: 0 0.3rem;
+    color: var(--discipline-accent);
+  }
+
+  .status-streams {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .status-stream {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.95rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent), rgba(255, 255, 255, 0.02);
+  }
+
+  .status-stream-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .status-stream-heading h3 {
+    margin: 0;
+    color: #f5eee4;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .status-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    flex: 0 0 auto;
+  }
+
+  .status-dot-wip {
+    background: var(--discipline-accent);
+    box-shadow: 0 0 0 0.3rem var(--discipline-glow);
+  }
+
+  .status-dot-next {
+    background: #93a874;
+    box-shadow: 0 0 0 0.3rem rgba(147, 168, 116, 0.14);
+  }
+
+  .status-count {
+    margin-left: auto;
+    color: rgba(240, 230, 218, 0.6);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .task-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .task-chip-list li {
+    padding: 0.55rem 0.78rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+    color: rgba(238, 229, 219, 0.86);
+    line-height: 1.35;
+  }
+
+  .empty-state {
+    margin: 0;
+    color: rgba(210, 194, 176, 0.6);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 1080px) {
+    .hero-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .discipline-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-areas:
+        'art3d art2d map scene'
+        'art3d coding coding coding';
+    }
+
+    .discipline-card-3d {
+      grid-area: art3d;
+    }
+
+    .discipline-card-2d {
+      grid-area: art2d;
+    }
+
+    .discipline-card-map {
+      grid-area: map;
+    }
+
+    .discipline-card-scene {
+      grid-area: scene;
+    }
+
+    .discipline-card-coding {
+      grid-area: coding;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .roadmap-page {
+      padding: 1rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-panel {
+      padding: 1.4rem;
+    }
+
+    .discipline-card-shell {
+      padding: 1.4rem;
+    }
+
+    .discipline-card-top {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .group-pill {
+      justify-self: start;
+      white-space: normal;
+    }
+  }
+</style>

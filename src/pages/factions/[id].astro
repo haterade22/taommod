@@ -63,6 +63,7 @@ const CREST_IMAGES: Record<string, string> = {
   gundabad: '/images/factions/gundabad.png',
   vlandia: '/images/factions/rohan.png',
   sturgia: '/images/factions/dale.png',
+  empire: '/images/factions/dunland.png',
 };
 
 const HERO_IMAGES: Record<string, string> = {
@@ -276,6 +277,12 @@ const clansWithLords: ClanWithLords[] = allClans.map((clan) => {
 const initialClan = clansWithLords[0] || null;
 const troopBranches = FACTION_TROOPS[troopCulture] || [];
 const displayName = getDisplayName(kingdom);
+const canonicalFactionOrder = kingdoms.map((entry) => entry.id);
+const currentFactionIndex = canonicalFactionOrder.indexOf(kingdom.id);
+const nextFaction =
+  currentFactionIndex === -1 ? null : kingdoms[(currentFactionIndex + 1) % canonicalFactionOrder.length] || null;
+const nextFactionName = nextFaction ? getDisplayName(nextFaction) : '';
+const nextFactionHref = nextFaction ? `/factions/${nextFaction.id}` : '';
 const primaryColor = normalizeColor(kingdom.color) || '#C49A47';
 const secondaryColor = normalizeColor(kingdom.color2) || '#221712';
 const primaryRgb = hexToRgb(primaryColor);
@@ -344,6 +351,14 @@ const troopHeaderCols = [
               <a href="#troop-tree">Troop Tree</a>
               <a href="#military-roster">Military Roster</a>
               <a href="#clan-archive">Clan Archive</a>
+              {
+                nextFaction && (
+                  <a class="hero-next-link" href={nextFactionHref}>
+                    <span>Next Faction</span>
+                    <strong>{nextFactionName}</strong>
+                  </a>
+                )
+              }
             </div>
           </div>
 
@@ -1092,6 +1107,49 @@ const troopHeaderCols = [
     border-color: rgba(233, 189, 100, 0.62);
     background: rgba(24, 18, 14, 0.72);
     color: #fff0d6;
+    text-decoration: none;
+  }
+
+  .hero-next-link {
+    display: inline-grid;
+    gap: 0.18rem;
+    padding: 0.95rem 1.15rem;
+    border: 1px solid rgba(196, 154, 71, 0.34);
+    background:
+      linear-gradient(180deg, rgba(20, 15, 13, 0.86), rgba(10, 8, 8, 0.92)),
+      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.14), transparent 58%);
+    color: #f5e8d0;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      background 180ms ease;
+  }
+
+  .hero-next-link span {
+    color: rgba(209, 183, 129, 0.8);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero-next-link strong {
+    color: inherit;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-next-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(233, 189, 100, 0.62);
+    background:
+      linear-gradient(180deg, rgba(28, 20, 16, 0.92), rgba(12, 9, 8, 0.96)),
+      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.22), transparent 58%);
+    color: #fff3dc;
     text-decoration: none;
   }
 
