@@ -363,8 +363,13 @@ const cards = [
     z-index: 1;
   }
 
-  .card-figure {
+  .card-layer-watermark {
     z-index: 2;
+    opacity: 0.9;
+  }
+
+  .card-figure {
+    z-index: 3;
     object-fit: contain;
     object-position: center bottom;
     transform-origin: bottom center;
@@ -373,11 +378,6 @@ const cards = [
 
   .database-card:hover .card-figure {
     transform: scale(1.015);
-  }
-
-  .card-layer-watermark {
-    z-index: 3;
-    opacity: 0.99;
   }
 
   .card-layer-overlay {

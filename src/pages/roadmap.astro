@@ -22,6 +22,12 @@ const roadmapArtists = [
     next: ['Lothlorien armours'],
   },
   {
+    name: 'New 3D Artist',
+    discipline: '3D Art',
+    wip: ['Fell Warg'],
+    next: [],
+  },
+  {
     name: 'Haterade',
     discipline: 'Coding',
     wip: ['Integrating 1.2 code into 1.3 version'],
@@ -40,16 +46,28 @@ const roadmapArtists = [
     next: [],
   },
   {
+    name: 'New Map Designer',
+    discipline: 'Map Design',
+    wip: [],
+    next: ['Navmesh implementation'],
+  },
+  {
     name: 'Kysaro',
     discipline: 'Scene Design',
     wip: ['Generic Mordor Battle Scene'],
     next: ['Argonath Battle Scene'],
   },
+  {
+    name: 'Animation Contributor',
+    discipline: 'Animations',
+    wip: ['Spider Animations', 'Mumakil Animations'],
+    next: [],
+  },
 ];
 
 const totalWip = roadmapArtists.reduce((sum, artist) => sum + artist.wip.length, 0);
 const totalNext = roadmapArtists.reduce((sum, artist) => sum + artist.next.length, 0);
-const disciplineOrder = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Coding'] as const;
+const disciplineOrder = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Animations', 'Coding'] as const;
 const disciplineThemes: Record<string, { accent: string; glow: string; tint: string }> = {
   '3D Art': {
     accent: '#cf9b52',
@@ -70,6 +88,11 @@ const disciplineThemes: Record<string, { accent: string; glow: string; tint: str
     accent: '#9f6e56',
     glow: 'rgba(159, 110, 86, 0.22)',
     tint: 'rgba(159, 110, 86, 0.08)',
+  },
+  Animations: {
+    accent: '#8a6fc0',
+    glow: 'rgba(138, 111, 192, 0.22)',
+    tint: 'rgba(138, 111, 192, 0.08)',
   },
   Coding: {
     accent: '#7b879f',
@@ -150,6 +173,7 @@ const roadmapGroups = Array.from(
                   'discipline-card-2d': group.discipline === '2D Art',
                   'discipline-card-map': group.discipline === 'Map Design',
                   'discipline-card-scene': group.discipline === 'Scene Design',
+                  'discipline-card-animations': group.discipline === 'Animations',
                   'discipline-card-coding': group.discipline === 'Coding',
                 },
               ]}
@@ -161,9 +185,6 @@ const roadmapGroups = Array.from(
                     <p class="group-kicker">Discipline</p>
                     <h2>{group.discipline}</h2>
                   </div>
-                  <span class="group-pill">
-                    {group.contributorCount} contributor{group.contributorCount === 1 ? '' : 's'}
-                  </span>
                 </div>
 
                 <p class="discipline-summary">
@@ -326,7 +347,6 @@ const roadmapGroups = Array.from(
   .group-kicker,
   .stat-label,
   .status-stream-heading h3,
-  .group-pill,
   .status-count {
     font-family: 'Cinzel', 'Times New Roman', serif;
   }
@@ -416,10 +436,7 @@ const roadmapGroups = Array.from(
   }
 
   .discipline-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 1rem;
+    min-width: 0;
   }
 
   .discipline-card h2 {
@@ -430,19 +447,6 @@ const roadmapGroups = Array.from(
   .group-kicker {
     margin-bottom: 0.35rem;
     color: var(--discipline-accent);
-  }
-
-  .group-pill {
-    align-self: start;
-    padding: 0.45rem 0.7rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(240, 231, 220, 0.72);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    white-space: nowrap;
   }
 
   .discipline-summary {
@@ -520,12 +524,14 @@ const roadmapGroups = Array.from(
   }
 
   .task-chip-list li {
+    max-width: 100%;
     padding: 0.55rem 0.78rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
     color: rgba(238, 229, 219, 0.86);
     line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 
   .empty-state {
@@ -543,10 +549,10 @@ const roadmapGroups = Array.from(
 
   @media (min-width: 1180px) {
     .discipline-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: minmax(18.5rem, 1.15fr) repeat(3, minmax(17rem, 1fr));
       grid-template-areas:
         'art3d art2d map scene'
-        'art3d coding coding coding';
+        'art3d animation coding scene';
     }
 
     .discipline-card-3d {
@@ -563,6 +569,43 @@ const roadmapGroups = Array.from(
 
     .discipline-card-scene {
       grid-area: scene;
+    }
+
+    .discipline-card-animations {
+      grid-area: animation;
+    }
+
+    .discipline-card-coding {
+      grid-area: coding;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .discipline-grid {
+      grid-template-columns: minmax(19rem, 1.2fr) repeat(3, minmax(17.5rem, 1fr));
+      grid-template-areas:
+        'art3d art2d map scene'
+        'art3d animation coding scene';
+    }
+
+    .discipline-card-3d {
+      grid-area: art3d;
+    }
+
+    .discipline-card-2d {
+      grid-area: art2d;
+    }
+
+    .discipline-card-map {
+      grid-area: map;
+    }
+
+    .discipline-card-scene {
+      grid-area: scene;
+    }
+
+    .discipline-card-animations {
+      grid-area: animation;
     }
 
     .discipline-card-coding {
@@ -585,16 +628,6 @@ const roadmapGroups = Array.from(
 
     .discipline-card-shell {
       padding: 1.4rem;
-    }
-
-    .discipline-card-top {
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    .group-pill {
-      justify-self: start;
-      white-space: normal;
     }
   }
 </style>

@@ -2,11 +2,6 @@
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const manualSources = [
-  { href: 'https://www.moddb.com/mods/tales-from-the-age-of-men', label: 'ModDB', style: 'primary' },
-  { href: 'https://www.nexusmods.com/mountandblade2bannerlord/mods/7748', label: 'Nexus Mods', style: 'secondary' },
-];
-
 const loadOrder = [
   { name: 'Harmony', meta: 'v2.3.6.220' },
   { name: 'Palantir Debugger', note: 'Writes crash logs for diagnostics' },
@@ -58,7 +53,15 @@ const loadOrder = [
               target="_blank"
               rel="noopener"
             >
-              Manual Download
+              ModDB
+            </a>
+            <a
+              class="hero-button hero-button-secondary"
+              href="https://www.nexusmods.com/mountandblade2bannerlord/mods/7748"
+              target="_blank"
+              rel="noopener"
+            >
+              Nexus Mods
             </a>
           </div>
         </div>
@@ -72,28 +75,6 @@ const loadOrder = [
             <li>Delete older TAOM files before starting a new install.</li>
           </ul>
         </div>
-      </section>
-
-      <section class="section-grid section-grid-single">
-        <article class="content-card">
-          <p class="card-kicker">Manual Sources</p>
-          <h2>Download the latest release</h2>
-          <p>The most recent public release is dated February 2026. Choose whichever mirror you prefer.</p>
-          <div class="button-row">
-            {
-              manualSources.map((source) => (
-                <a
-                  class:list={['mini-button', { 'is-secondary': source.style === 'secondary' }]}
-                  href={source.href}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {source.label}
-                </a>
-              ))
-            }
-          </div>
-        </article>
       </section>
 
       <section class="section-grid section-grid-two section-grid-video" id="install-video">
