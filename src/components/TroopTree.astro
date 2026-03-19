@@ -4,9 +4,11 @@ import type { Troop } from '../lib/parse-xml';
 interface Props {
   troops: Troop[];
   culture: string;
+  instanceId?: string;
 }
 
-const { troops, culture } = Astro.props;
+const { troops, culture, instanceId = culture } = Astro.props;
+const treeInstance = instanceId.replace(/[^a-zA-Z0-9_-]/g, '-');
 
 // Build lookup maps
 const troopById = new Map<string, Troop>();
@@ -111,17 +113,76 @@ function stripBrackets(name: string): string {
 
 function deriveBranchLabel(troop: Troop): string {
   const name = stripBrackets(troop.name);
+  const specialLabels: Array<[string, string]> = [
+    ['Cair Andros ', 'Cair Andros'],
+    ['Dol Amroth ', 'Dol Amroth'],
+    ['Ringlo Vale ', 'Ringló Vale'],
+    ['Arndir ', 'Ost Arndir'],
+    ['Blackroot Vale ', 'Morthond Vale (Blackroot Vale)'],
+    ['Minas Ithil ', 'Minas Ithil'],
+    ['Minas Tirith ', 'Minas Tirith'],
+    ['Lond-Galen ', 'Lond Cirion'],
+  ];
+  const specialLabel = specialLabels.find(([prefix]) => name.startsWith(prefix))?.[1];
+  if (specialLabel) return specialLabel;
   const generic = new Set(['Recruit', 'Militia', 'Militiaman', 'Levyman', 'Footman', 'Warrior', 'Scout', 'Soldier', 'Peasant']);
   const words = name.split(/\s+/);
   if (words.length >= 2 && !generic.has(words[0])) return words[0];
   return name;
 }
 
+function getDisplayBranchLabel(troop: Troop): string {
+  const name = stripBrackets(troop.name);
+  const normalizedName = name
+    .toLowerCase()
+    .replace(/-/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (troop.id === 'gondor_loss_noble') return 'Bar Melui';
+  if (normalizedName.startsWith('lossarnach noble')) return 'Bar Melui';
+  if (normalizedName.startsWith('citadel guard ')) return 'Minas Tirith';
+  if (normalizedName.startsWith('fountain guard')) return 'Minas Tirith';
+  if (normalizedName.startsWith('ithil guard ')) return 'Minas Ithil';
+  if (normalizedName.startsWith('moon guard')) return 'Minas Ithil';
+  if (normalizedName.startsWith('ringlo vale ')) return 'Ringló Vale';
+  if (normalizedName.startsWith('lond galen ')) return 'Lond Cirion';
+
+  const explicitLabels: Array<[string, string]> = [
+    ['cair andros ', 'Cair Andros'],
+    ['dol amroth ', 'Dol Amroth'],
+    ['ringlo vale ', 'Ringló Vale'],
+    ['arndir ', 'Ost Arndir'],
+    ['blackroot vale ', 'Blackroot Vale'],
+    ['minas ithil ', 'Minas Ithil'],
+    ['lond-galen ', 'Lond Cirion'],
+  ];
+
+  const explicitLabel = explicitLabels.find(([prefix]) => normalizedName.startsWith(prefix))?.[1];
+  if (explicitLabel) return explicitLabel;
+
+  const regularPrefixes = [
+    'lossarnach ',
+    'lebennin ',
+    'lamedon ',
+    'belfalas ',
+    'pinnath gelin ',
+    'harondor ',
+    'anorien ',
+    'minas tirith ',
+  ];
+  if (regularPrefixes.some((prefix) => normalizedName.startsWith(prefix))) {
+    return 'Regular';
+  }
+
+  return deriveBranchLabel(troop);
+}
+
 const rawColHeaders: string[] = [];
 for (let c = 0; c < totalCols; c++) {
   const nodes = positions.filter(p => p.col === c && p.span === 1).sort((a, b) => a.tier - b.tier);
   if (nodes.length > 0) {
-    rawColHeaders.push(deriveBranchLabel(troopById.get(nodes[0].troopId)!));
+    rawColHeaders.push(getDisplayBranchLabel(troopById.get(nodes[0].troopId)!));
   } else {
     rawColHeaders.push('');
   }
@@ -166,7 +227,7 @@ const GROUP_COLORS: Record<string, string> = {
 };
 ---
 
-<div class="troop-tree-container" data-culture={culture}>
+<div class="troop-tree-container" data-culture={culture} data-tree-instance={treeInstance}>
   <div class="tree-legend">
     {Object.entries(GROUP_COLORS).map(([group, color]) => (
       <span class="legend-item">
@@ -177,7 +238,7 @@ const GROUP_COLORS: Record<string, string> = {
   </div>
 
   <div class="tree-scroll">
-    <svg class="tree-lines" id={`tree-svg-${culture}`}></svg>
+    <svg class="tree-lines" id={`tree-svg-${treeInstance}`}></svg>
     <div class="tree-grid" style={`
       grid-template-columns: 70px repeat(${totalCols}, minmax(130px, 1fr));
       grid-template-rows: repeat(${totalRows}, auto);
@@ -214,7 +275,7 @@ const GROUP_COLORS: Record<string, string> = {
           >
             <div
               class="tree-node"
-              id={`node-${troop.id}`}
+              id={`node-${treeInstance}-${troop.id}`}
               data-id={troop.id}
               data-children={childIds.join(',')}
               style={`--node-color: ${color}; --node-color-dim: ${color}33`}
@@ -398,9 +459,10 @@ const GROUP_COLORS: Record<string, string> = {
       nodes.forEach(nodeEl => {
         const el = nodeEl as HTMLElement;
         const childIds = (el.dataset.children || '').split(',').filter(Boolean);
+        const treeInstance = container.getAttribute('data-tree-instance') || '';
 
         for (const childId of childIds) {
-          const childEl = container.querySelector(`#node-${CSS.escape(childId)}`) as HTMLElement;
+          const childEl = container.querySelector(`#${CSS.escape(`node-${treeInstance}-${childId}`)}`) as HTMLElement;
           if (!childEl) continue;
 
           const pRect = el.getBoundingClientRect();
@@ -510,13 +572,13 @@ const GROUP_COLORS: Record<string, string> = {
     setupHighlighting();
   }
 
-  // Use astro:page-load for View Transitions compatibility
-  document.addEventListener('astro:page-load', () => setTimeout(init, 100));
+  if (!window.__taomTroopTreeInitBound) {
+    window.__taomTroopTreeInitBound = true;
+    document.addEventListener('astro:page-load', () => setTimeout(init, 100));
+    window.addEventListener('resize', drawTreeLines);
+  }
 
-  // Also run on initial load if astro:page-load already fired
   if (document.readyState !== 'loading') {
     setTimeout(init, 100);
   }
-
-  window.addEventListener('resize', drawTreeLines);
 </script>

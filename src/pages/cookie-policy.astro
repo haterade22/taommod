@@ -1,0 +1,387 @@
+---
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Cookie Policy"
+  description="How TAOM handles cookies, browser storage, and third-party content."
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-policy-body"
+  mainClass="taom-policy-main"
+>
+  <div class="policy-page">
+    <Topbar />
+
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Cookie Policy</p>
+          <h1>What TAOM stores, what it does not, and where third parties come in.</h1>
+          <p class="intro-copy">
+            This site is intentionally light. Based on the current codebase, TAOM does not run analytics, advertising
+            trackers, account logins, or on-site contact forms. The only browser-side storage used by the site itself is
+            a temporary session flag so the cookie notice does not keep reappearing while you browse.
+          </p>
+        </div>
+
+        <aside class="hero-summary-card">
+          <p class="card-kicker">At a Glance</p>
+          <div class="summary-list">
+            <div class="summary-item">
+              <span class="summary-label">Tracking cookies</span>
+              <strong>No analytics or ad cookies found</strong>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Stored locally</span>
+              <strong>One temporary <code>sessionStorage</code> flag</strong>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Third-party requests</span>
+              <strong>Possible on Patreon-hosted media and external links</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="policy-grid">
+        <article class="policy-card policy-card-featured">
+          <p class="card-kicker">Local Storage</p>
+          <h2>What the site stores in your browser</h2>
+          <p>
+            TAOM stores one temporary browser session entry to remember that you dismissed the cookie notice. This is
+            kept in <code>sessionStorage</code>, not as a persistent tracking cookie, and it clears when the browser
+            session ends.
+          </p>
+        </article>
+
+        <article class="policy-card">
+          <p class="card-kicker">What We Did Not Find</p>
+          <h2>No visitor tracking stack in the site code</h2>
+          <ul class="policy-list">
+            <li>No analytics or advertising cookies.</li>
+            <li>No on-site forms collecting names, email addresses, or messages.</li>
+            <li>No account or profile system.</li>
+            <li>No client-side tracking requests for visitor analytics.</li>
+          </ul>
+        </article>
+
+        <article class="policy-card">
+          <p class="card-kicker">Third-Party Services</p>
+          <h2>External platforms may apply their own policies</h2>
+          <p>
+            Some pages, especially the news mirror, can load Patreon-hosted images or link out to Patreon, Discord,
+            YouTube, Nexus Mods, ModDB, and similar services. When your browser requests content from them, those
+            services may receive standard technical request data and may set or read their own cookies.
+          </p>
+        </article>
+
+        <article class="policy-card">
+          <p class="card-kicker">Hosting</p>
+          <h2>Standard web delivery still involves request data</h2>
+          <p>
+            Like any publicly hosted static site, normal web infrastructure may process technical request information
+            needed to deliver pages and assets. That is separate from custom tracking code inside TAOM itself.
+          </p>
+        </article>
+
+        <article class="policy-card policy-card-wide">
+          <p class="card-kicker">Future Changes</p>
+          <h2>If TAOM adds more features later</h2>
+          <p>
+            If the site later adds analytics, embedded widgets, forms, or persistent preference storage, this policy
+            should be updated so the notice remains accurate and reflects the actual behavior of the website.
+          </p>
+          <div class="policy-actions">
+            <a class="policy-action policy-action-primary" href="/">Return Home</a>
+            <a class="policy-action policy-action-secondary" href="/community">Open Community</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-policy-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 16% 18%, rgba(128, 72, 34, 0.18), transparent 25%),
+      radial-gradient(circle at 84% 14%, rgba(98, 44, 26, 0.16), transparent 24%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-policy-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-policy-main) {
+    display: block;
+  }
+
+  .policy-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .page-shell {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
+    gap: 1.5rem;
+  }
+
+  .hero-copy,
+  .hero-summary-card,
+  .policy-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-copy::before,
+  .hero-summary-card::before,
+  .policy-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.42), rgba(8, 7, 7, 0.7)),
+      url('/images/community/block-background.png') center / cover no-repeat;
+    padding: 3rem;
+  }
+
+  .hero-copy::before {
+    background: url('/images/community/block-overlay.png') center / 100% 100% no-repeat;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/community/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-copy > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-summary-card,
+  .policy-card {
+    padding: 2rem;
+  }
+
+  .eyebrow,
+  .card-kicker,
+  .summary-label,
+  .policy-action {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  .hero-copy h1,
+  .policy-card h2 {
+    margin: 0;
+    color: #f5eee5;
+  }
+
+  .hero-copy h1 {
+    max-width: 13ch;
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    line-height: 0.95;
+  }
+
+  .intro-copy,
+  .policy-card p,
+  .policy-card li,
+  .summary-item strong {
+    color: rgba(231, 222, 214, 0.82);
+  }
+
+  .intro-copy {
+    max-width: 44rem;
+    margin: 1.15rem 0 0;
+    font-size: 1.04rem;
+    line-height: 1.7;
+  }
+
+  .summary-list {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .summary-item {
+    display: grid;
+    gap: 0.32rem;
+    padding: 1rem 1.05rem;
+    border: 1px solid rgba(151, 110, 51, 0.32);
+    background:
+      linear-gradient(180deg, rgba(20, 14, 12, 0.9), rgba(10, 8, 8, 0.92)),
+      linear-gradient(135deg, rgba(214, 168, 89, 0.05), transparent 46%);
+  }
+
+  .summary-label {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .summary-item code,
+  .policy-card code {
+    font-family: Consolas, Monaco, monospace;
+    color: #f3dfb2;
+  }
+
+  .policy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .policy-card h2 {
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    line-height: 1.05;
+  }
+
+  .policy-card p {
+    margin: 0.95rem 0 0;
+    line-height: 1.7;
+  }
+
+  .policy-list {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .policy-card-featured,
+  .policy-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  .policy-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.35rem;
+  }
+
+  .policy-action {
+    display: inline-grid;
+    place-items: center;
+    min-width: 12rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(205, 153, 52, 0.46);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .policy-action:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    border-color: rgba(205, 153, 52, 0.86);
+  }
+
+  .policy-action-primary {
+    color: #fff5e3;
+    background:
+      linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96)),
+      radial-gradient(circle at top, rgba(255, 239, 193, 0.08), transparent 56%);
+  }
+
+  .policy-action-secondary {
+    color: #d9cdbd;
+    background: rgba(19, 15, 13, 0.72);
+    border-color: rgba(128, 101, 62, 0.4);
+  }
+
+  @media (max-width: 1080px) {
+    .hero-panel,
+    .policy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .policy-card-featured,
+    .policy-card-wide {
+      grid-column: auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .policy-page {
+      padding: 1rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-copy,
+    .hero-summary-card,
+    .policy-card {
+      padding: 1.5rem;
+    }
+
+    .hero-copy h1 {
+      max-width: none;
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .policy-action {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+</style>
