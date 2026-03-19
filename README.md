@@ -10,7 +10,7 @@ A companion website for **TAOM** (Tales From the Age of Men), a Lord of the Ring
 - **Lord Database** — Family trees, skills, traits, and biographies for 830+ lords
 - **Weaponry** — Crafted weapons with TaleWorlds-accurate damage calculations
 - **Armoury** — Armour stats across all factions and slots
-- **Faction Pages** — 16 factions with troop rosters and kingdom details
+- **Faction Pages** — 18 factions with troop rosters and kingdom details
 - **Kingdom & Clan Pages** — Dynamic pages for every kingdom and clan
 
 ## Tech Stack
@@ -46,7 +46,7 @@ npx astro check       # TypeScript/Astro type checking
 
 ```
 src/
-  data/         125+ XML files synced from the TAOM mod (troops, characters, armory)
+  data/         130+ XML files synced from the TAOM mod (troops, characters, armory, XSLT transforms)
   lib/          Modular XML parsers + TaleWorlds damage calculator
     parse-xml.ts        Barrel re-export (all parsers accessible from one import)
     xml-shared.ts       Shared parser config, types, culture mappings, helpers
@@ -69,6 +69,26 @@ public/         Images, fonts, favicon, CNAME
 ### Data Sync
 
 `sync-data.sh` copies XML files from a local TAOM mod installation into `src/data/`. This is a manual step run when mod data changes.
+
+```bash
+./sync-data.sh [path-to-TAOM-ModuleData]   # defaults to ../TAOM/Main/_Module/ModuleData
+```
+
+### XSLT Transforms
+
+XSLT files in `src/data/` transform vanilla Bannerlord XML data into LOTR equivalents:
+
+| File | Purpose |
+|------|---------|
+| `lords.xslt` | Renames vanilla lords to LOTR characters, sets skills and face properties |
+| `splords.xslt` | Extended lord naming and attribute overrides |
+| `spheroes.xslt` | Adds lore backstory text to dead/historical lord entries |
+| `spclans.xslt` | Clan name overrides and settlement assignments |
+| `spcultures.xslt` | Culture NPC and template mappings |
+| `spkingdoms.xslt` | Kingdom name and policy overrides |
+| `heroes.xslt` | Hero character transforms |
+| `settlements.xslt` | Settlement name mappings |
+| `module_strings.xslt` | Localization string overrides |
 
 ### Culture Mapping
 

@@ -51,7 +51,7 @@ npx astro check   # TypeScript/Astro type checking
 ```
 src/
   components/   TroopTree.astro (SVG upgrade tree visualization)
-  data/         125+ XML files (troops/, characters/, armory/), XSLT transforms, faction-troops.ts
+  data/         130+ XML files (troops/, characters/, armory/), 9 XSLT transforms, faction-troops.ts
   layouts/      BaseLayout.astro (single layout with nav, footer)
   lib/          parse-xml.ts (barrel), xml-shared.ts, parse-troops.ts, parse-kingdoms.ts, parse-clans.ts, parse-lords.ts, parse-armory.ts, parse-weaponry.ts, damage-calc.ts
   scripts/      data-table.ts (shared client-side table sorting/collapse/filters)
@@ -63,10 +63,11 @@ public/         Images, favicon, CNAME
 
 ## Data Sources
 
-- **Troops**: `src/data/troops/troops_*.xml` (11 faction files)
+- **Troops**: `src/data/troops/troops_*.xml` (14 faction files)
 - **Characters**: `src/data/characters/` (lords.xml, heroes.xml, npcs_*.xml, clans.xml)
 - **Armory**: `src/data/armory/` (armor XML per faction + vanilla reference)
 - **Kingdoms/Cultures**: `src/data/taom_spkingdoms.xml`, `taom_spcultures.xml`
+- **XSLT Transforms**: `src/data/*.xslt` (9 files — lords, heroes, clans, cultures, kingdoms, settlements, module strings)
 
 ## Damage Calculator
 
