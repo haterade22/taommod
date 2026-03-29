@@ -35,9 +35,15 @@ function getTier(level: number): number {
 }
 
 // Root troops (no parents within this faction)
+// Dead-end roots (no upgrades) sort last so standalone militia/filler units don't lead the tree
 const rootTroops = troops
   .filter(t => !(parentMap.get(t.id)?.length))
-  .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+  .sort((a, b) => {
+    const aLeaf = a.upgradeTo.filter(id => troopById.has(id)).length === 0;
+    const bLeaf = b.upgradeTo.filter(id => troopById.has(id)).length === 0;
+    if (aLeaf !== bLeaf) return aLeaf ? 1 : -1;
+    return a.level - b.level || a.name.localeCompare(b.name);
+  });
 
 // === Column Layout Algorithm ===
 // Each leaf gets its own column. Parents span their children's columns.
