@@ -2,7 +2,7 @@
 # Sync XML data from TAOM repo to website src/data/
 # Run this after making changes to TAOM mod data
 
-TAOM_DIR="${1:-../TAOM/Main/_Module/ModuleData}"
+TAOM_DIR="${1:-E:/Steam/steamapps/common/Mount & Blade II Bannerlord/Modules/TAOM/ModuleData}"
 DATA_DIR="src/data"
 
 if [ ! -d "$TAOM_DIR" ]; then
@@ -23,6 +23,7 @@ mkdir -p "$DATA_DIR/characters"
 cp "$TAOM_DIR"/characters/npcs_*.xml "$DATA_DIR/characters/"
 cp "$TAOM_DIR"/characters/lords.xml "$DATA_DIR/characters/" 2>/dev/null
 cp "$TAOM_DIR"/characters/heroes.xml "$DATA_DIR/characters/" 2>/dev/null
+cp "$TAOM_DIR"/characters/clans.xml "$DATA_DIR/characters/" 2>/dev/null
 echo "  Copied character files"
 
 # XSLT transformations

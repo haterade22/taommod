@@ -506,7 +506,7 @@
 	<xsl:template match="Hero[@id='lord_1_8']">
 		<xsl:copy>
 			<xsl:apply-templates select="@*[local-name() != 'text']"/>
-			<xsl:attribute name="text">{=TAOM_hero_1_8}Finduilas was the beloved wife of Denethor, whose death broke his heart and began his descent into despair.</xsl:attribute>
+			<xsl:attribute name="text">{=TAOM_hero_1_8}Vendelia was the beloved wife of Denethor, whose death broke his heart and began his descent into despair.</xsl:attribute>
 			<xsl:apply-templates select="node()"/>
 		</xsl:copy>
 	</xsl:template>
@@ -998,7 +998,7 @@
 	<xsl:template match="Hero[@id='lord_1_17']">
 		<xsl:copy>
 			<xsl:apply-templates select="@*[local-name() != 'text']"/>
-			<xsl:attribute name="text">{=TAOM_hero_1_17}Sauron the Great, Dark Lord of Mordor.</xsl:attribute>
+			<xsl:attribute name="text">{=TAOM_hero_1_17}Sauron the Great, Dark Lord of Mordor. This entry exists only to display his terrible armor.</xsl:attribute>
 			<xsl:apply-templates select="node()"/>
 		</xsl:copy>
 	</xsl:template>

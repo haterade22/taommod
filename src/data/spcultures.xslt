@@ -46,6 +46,7 @@
 			<!-- Equipment rosters -->
 			<xsl:attribute name="default_battle_equipment_roster">EquipmentRoster.dunland_bat_template_medium_a</xsl:attribute>
 			<xsl:attribute name="default_civilian_equipment_roster">EquipmentRoster.dunland_civ_template_default_a</xsl:attribute>
+			<xsl:attribute name="default_stealth_equipment_roster">EquipmentRoster.default_stealth_equipment_roster</xsl:attribute>
 
 			<!-- NPC references -->
 			<xsl:attribute name="tournament_master">NPCCharacter.tournament_master_dunland</xsl:attribute>
@@ -284,8 +285,15 @@
 				<template name="NPCCharacter.spc_dunland_headman_3" />
 			</notable_templates>
 
+			<!-- Override cultural feats: Dunland uses Battanian-style feats (hill tribe / forest guerrillas) -->
+			<cultural_feats>
+				<feat id="battanian_forest_speed" />
+				<feat id="battanian_militia_production" />
+				<feat id="battanian_slower_construction" />
+			</cultural_feats>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -325,6 +333,7 @@
 			<!-- Equipment rosters -->
 			<xsl:attribute name="default_battle_equipment_roster">EquipmentRoster.harad_bat_template_medium_a</xsl:attribute>
 			<xsl:attribute name="default_civilian_equipment_roster">EquipmentRoster.harad_civ_template_a</xsl:attribute>
+			<xsl:attribute name="default_stealth_equipment_roster">EquipmentRoster.default_stealth_equipment_roster</xsl:attribute>
 
 			<!-- NPC references -->
 			<xsl:attribute name="tournament_master">NPCCharacter.tournament_master_harad</xsl:attribute>
@@ -604,6 +613,7 @@
 			<!-- Equipment rosters -->
 			<xsl:attribute name="default_battle_equipment_roster">EquipmentRoster.rohan_bat_template_medium_a</xsl:attribute>
 			<xsl:attribute name="default_civilian_equipment_roster">EquipmentRoster.rohan_civ_template_default_a</xsl:attribute>
+			<xsl:attribute name="default_stealth_equipment_roster">EquipmentRoster.default_stealth_equipment_roster</xsl:attribute>
 
 			<!-- NPC references -->
 			<xsl:attribute name="tournament_master">NPCCharacter.tournament_master_rohan</xsl:attribute>
@@ -813,7 +823,6 @@
 				<template name="NPCCharacter.spc_wanderer_rohan_6" />
 				<template name="NPCCharacter.spc_wanderer_rohan_7" />
 				<template name="NPCCharacter.spc_wanderer_rohan_8" />
-				<template name="NPCCharacter.spc_wanderer_rohan_9" />
 				<template name="NPCCharacter.spc_notable_rohan_0" />
 				<template name="NPCCharacter.spc_notable_rohan_0b" />
 				<template name="NPCCharacter.spc_notable_rohan_1" />
@@ -842,8 +851,17 @@
 				<template name="NPCCharacter.spc_rohan_headman_3" />
 			</notable_templates>
 
+			<!-- Override cultural feats: Rohan uses custom Horse-lord feats -->
+			<cultural_feats>
+				<feat id="taom_rohan_mounted_cost" />
+				<feat id="taom_rohan_mounted_wage" />
+				<feat id="taom_rohan_infantry_speed" />
+				<feat id="taom_rohan_loyalty" />
+				<feat id="taom_rohan_morale" />
+			</cultural_feats>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -870,8 +888,8 @@
 			<!-- Party templates -->
 			<xsl:attribute name="villager_party_template">PartyTemplate.villager_khuzait_template</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_rhun_template</xsl:attribute>
-			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_khuzait</xsl:attribute>
-			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_khuzait</xsl:attribute>
+			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_rhun</xsl:attribute>
+			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_rhun</xsl:attribute>
 			<xsl:attribute name="militia_party_template">PartyTemplate.militia_khuzait_template</xsl:attribute>
 			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_khuzait_template</xsl:attribute>
 			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_khuzait</xsl:attribute>
@@ -883,6 +901,7 @@
 			<!-- Equipment rosters -->
 			<xsl:attribute name="default_battle_equipment_roster">EquipmentRoster.rhun_bat_template_medium_a</xsl:attribute>
 			<xsl:attribute name="default_civilian_equipment_roster">EquipmentRoster.rhun_civ_template_a</xsl:attribute>
+			<xsl:attribute name="default_stealth_equipment_roster">EquipmentRoster.default_stealth_equipment_roster</xsl:attribute>
 
 			<!-- NPC references -->
 			<xsl:attribute name="tournament_master">NPCCharacter.tournament_master_rhun</xsl:attribute>

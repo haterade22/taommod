@@ -208,7 +208,7 @@
 	<xsl:template match="NPCCharacter[@id='lord_1_8']">
 		<xsl:copy>
 			<xsl:apply-templates select="@*[local-name() != 'name']"/>
-			<xsl:attribute name="name">{=TAOM_lord_1_8}Finduilas</xsl:attribute>
+			<xsl:attribute name="name">{=TAOM_lord_1_8}Vendelia</xsl:attribute>
 			<xsl:apply-templates select="node()"/>
 		</xsl:copy>
 	</xsl:template>
