@@ -10,7 +10,7 @@ import {
   parseTroops,
   getCultureDisplayName,
 } from '../../lib/parse-xml';
-import type { Clan, Kingdom, Lord } from '../../lib/parse-xml';
+import type { Clan, Kingdom, Lord, Troop } from '../../lib/parse-xml';
 import { FACTION_TROOPS } from '../../data/faction-troops';
 
 type RouteConfig = {
@@ -24,6 +24,14 @@ type ClanWithLords = Clan & {
   cultureName: string;
   leader: Lord | null;
   lords: (Lord & { isLeader: boolean })[];
+};
+
+type GondorRegionDefinition = {
+  id: string;
+  label: string;
+  troopTerms: string[];
+  troopIdTerms?: string[];
+  emptyMessage?: string;
 };
 
 const LEGACY_ROUTE_ALIASES: Record<string, { kingdomId: string; troopCulture: string }> = {
@@ -104,6 +112,62 @@ const TYPE_COLORS: Record<string, string> = {
   unique: '#cb744b',
 };
 
+const GONDOR_REGION_DEFINITIONS: GondorRegionDefinition[] = [
+  {
+    id: 'anorien',
+    label: 'Anorien',
+    troopTerms: ['anorien', 'minas-tirith', 'osgiliath', 'cair andros', 'citadel guard', 'fountain guard'],
+    troopIdTerms: ['gondor_ano_', 'gondor_ano_mt_', 'gondor_mt_', 'gondor_osg_', 'gondor_ca_'],
+  },
+  {
+    id: 'lossarnach',
+    label: 'Lossarnach',
+    troopTerms: ['lossarnach'],
+  },
+  {
+    id: 'ithilien',
+    label: 'Ithilien',
+    troopTerms: ['minas ithil', 'ithil guard', 'moon guard'],
+    troopIdTerms: ['gondor_ith_'],
+  },
+  {
+    id: 'harondor',
+    label: 'Harondor',
+    troopTerms: ['harondor', 'methir'],
+    troopIdTerms: ['gondor_har_', 'gondor_meth_'],
+  },
+  {
+    id: 'lebennin',
+    label: 'Lebennin',
+    troopTerms: ['lebennin', 'pelargir'],
+    troopIdTerms: ['gondor_leb_', 'gondor_pel_'],
+  },
+  {
+    id: 'belfalas',
+    label: 'Belfalas',
+    troopTerms: ['belfalas', 'dol amroth', 'linhir', 'tolfalas'],
+    troopIdTerms: ['gondor_bel_', 'gondor_da_', 'gondor_lin_', 'gondor_tolf_'],
+  },
+  {
+    id: 'lamedon',
+    label: 'Lamedon',
+    troopTerms: ['lamedon', 'calembel', 'ringlo vale'],
+    troopIdTerms: ['gondor_lam_', 'gondor_cal_', 'gondor_ring_'],
+  },
+  {
+    id: 'pinnath-gelin',
+    label: 'Pinnath Gelin',
+    troopTerms: ['pinnath gelin', 'arndir', 'blackroot vale'],
+    troopIdTerms: ['gondor_pg_', 'gondor_arn_', 'gondor_brv_'],
+  },
+  {
+    id: 'anfalas',
+    label: 'Anfalas',
+    troopTerms: ['anfalas', 'serelond', 'lond-galen'],
+    troopIdTerms: ['gondor_anf_', 'gondor_ser_', 'gondor_lg_'],
+  },
+];
+
 function normalizeColor(value: string): string | null {
   if (!value) return null;
   const cleaned = value.trim().replace(/^0x/i, '').replace(/^#/i, '');
@@ -138,6 +202,20 @@ function getMonogram(label: string): string {
 
 function skillCell(value: number, extra = ''): string {
   return ['col-num', extra, value === 0 ? 'skill-zero' : ''].filter(Boolean).join(' ');
+}
+
+function normalizeTroopRegionName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/^\[[^\]]+\]\s*/, '')
+    .trim();
+}
+
+function matchesGondorRegionTroop(troop: Troop, troopTerms: string[], troopIdTerms: string[] = []): boolean {
+  const normalizedName = normalizeTroopRegionName(troop.name);
+  return (
+    troopTerms.some((term) => normalizedName.includes(term)) || troopIdTerms.some((term) => troop.id.startsWith(term))
+  );
 }
 
 const LORD_SKILL_LABELS: Record<string, string> = {
@@ -223,6 +301,15 @@ if (!kingdom) {
 const allTroops = parseTroops()
   .filter((troop) => troop.culture === troopCulture)
   .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+
+const gondorRegionTrees =
+  troopCulture === 'gondor'
+    ? GONDOR_REGION_DEFINITIONS.map((region) => ({
+        ...region,
+        troops: allTroops.filter((troop) => matchesGondorRegionTroop(troop, region.troopTerms, region.troopIdTerms)),
+      }))
+    : [];
+const hasGondorRegionSelector = gondorRegionTrees.length > 0;
 
 const troopGroups = [...new Set(allTroops.map((troop) => troop.defaultGroup).filter(Boolean))].sort((a, b) => {
   const ai = GROUP_ORDER.indexOf(a);
@@ -476,12 +563,60 @@ const troopHeaderCols = [
         <div class="section-heading">
           <p class="section-kicker">Military Structure</p>
           <h2>Troop Tree</h2>
-          <p>Hover the tree to trace upgrade routes from recruits to elite units.</p>
+          <p>
+            {
+              hasGondorRegionSelector
+                ? 'Choose a Gondor region to focus the tree on its local troop traditions.'
+                : 'Hover the tree to trace upgrade routes from recruits to elite units.'
+            }
+          </p>
         </div>
 
         {
-          allTroops.length > 0 ? (
-            <TroopTree troops={allTroops} culture={troopCulture} />
+          hasGondorRegionSelector ? (
+            <>
+              <div class="region-tree-controls">
+                <div class="tab-strip region-strip" role="tablist" aria-label="Select Gondor region">
+                  {gondorRegionTrees.map((region, index) => (
+                    <button
+                      type="button"
+                      class:list={['tab-button', 'region-button', { 'is-selected': index === 0 }]}
+                      data-troop-region={region.id}
+                      role="tab"
+                      aria-selected={index === 0 ? 'true' : 'false'}
+                    >
+                      <span>{region.label}</span>
+                      <small>({region.troops.length})</small>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div class="region-tree-panels">
+                {gondorRegionTrees.map((region, index) => (
+                  <section
+                    class:list={['region-tree-panel', { 'is-selected': index === 0 }]}
+                    data-troop-region-panel={region.id}
+                    hidden={index !== 0}
+                  >
+                    <p class="region-tree-label">Showing the {region.label} troop lines.</p>
+                    {region.troops.length > 0 ? (
+                      <TroopTree
+                        troops={region.troops}
+                        culture={troopCulture}
+                        instanceId={`${troopCulture}-${region.id}`}
+                      />
+                    ) : (
+                      <p class="pending-state">
+                        {region.emptyMessage || `No troop tree data is available for ${region.label} yet.`}
+                      </p>
+                    )}
+                  </section>
+                ))}
+              </div>
+            </>
+          ) : allTroops.length > 0 ? (
+            <TroopTree troops={allTroops} culture={troopCulture} instanceId={troopCulture} />
           ) : (
             <p class="pending-state">Troop data for this faction is not available in the XML set yet.</p>
           )
@@ -758,6 +893,8 @@ const troopHeaderCols = [
       const troopEmptyState = document.getElementById('troop-empty-state');
       const troopRows = Array.from(document.querySelectorAll('#troop-table-body tr'));
       const troopTabs = Array.from(document.querySelectorAll('[data-troop-group]'));
+      const troopRegionButtons = Array.from(document.querySelectorAll('[data-troop-region]'));
+      const troopRegionPanels = Array.from(document.querySelectorAll('[data-troop-region-panel]'));
       const clanButtons = Array.from(document.querySelectorAll('[data-clan-button]'));
       const clanPanels = Array.from(document.querySelectorAll('[data-clan-panel]'));
 
@@ -768,12 +905,21 @@ const troopHeaderCols = [
       const controller = new AbortController();
       const { signal } = controller;
       const params = new URLSearchParams(window.location.search);
+      const defaultTroopRegion = troopRegionButtons[0]?.dataset.troopRegion || '';
 
       let activeTroopGroup = params.get('group') || 'all';
+      let activeTroopRegion = params.get('region') || defaultTroopRegion;
       let activeClan = params.get('clan') || clanButtons[0]?.dataset.clanButton || '';
 
       if (!troopTabs.some((button) => button.dataset.troopGroup === activeTroopGroup)) {
         activeTroopGroup = 'all';
+      }
+
+      if (
+        troopRegionButtons.length > 0 &&
+        !troopRegionButtons.some((button) => button.dataset.troopRegion === activeTroopRegion)
+      ) {
+        activeTroopRegion = defaultTroopRegion;
       }
 
       if (!clanButtons.some((button) => button.dataset.clanButton === activeClan)) {
@@ -796,6 +942,7 @@ const troopHeaderCols = [
         if (searchValue) nextParams.set('search', searchValue);
         if (classValue) nextParams.set('class', classValue);
         if (activeTroopGroup !== 'all') nextParams.set('group', activeTroopGroup);
+        if (activeTroopRegion && activeTroopRegion !== defaultTroopRegion) nextParams.set('region', activeTroopRegion);
         if (activeClan) nextParams.set('clan', activeClan);
 
         const query = nextParams.toString();
@@ -851,12 +998,45 @@ const troopHeaderCols = [
         updateUrl();
       }
 
+      function selectTroopRegion(regionId) {
+        activeTroopRegion = regionId;
+
+        troopRegionButtons.forEach((button) => {
+          const selected = button.dataset.troopRegion === regionId;
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-selected', selected ? 'true' : 'false');
+        });
+
+        troopRegionPanels.forEach((panel) => {
+          const selected = panel.dataset.troopRegionPanel === regionId;
+          panel.classList.toggle('is-selected', selected);
+          panel.hidden = !selected;
+        });
+
+        updateUrl();
+
+        window.requestAnimationFrame(() => {
+          window.dispatchEvent(new Event('resize'));
+        });
+      }
+
       troopTabs.forEach((button) => {
         button.addEventListener(
           'click',
           () => {
             activeTroopGroup = button.dataset.troopGroup || 'all';
             filterTroops();
+          },
+          { signal },
+        );
+      });
+
+      troopRegionButtons.forEach((button) => {
+        button.addEventListener(
+          'click',
+          () => {
+            const regionId = button.dataset.troopRegion;
+            if (regionId) selectTroopRegion(regionId);
           },
           { signal },
         );
@@ -882,6 +1062,7 @@ const troopHeaderCols = [
       }
 
       filterTroops();
+      if (troopRegionButtons.length > 0) selectTroopRegion(activeTroopRegion);
       if (activeClan) selectClan(activeClan);
 
       window[cleanupKey] = () => {
@@ -1393,6 +1574,38 @@ const troopHeaderCols = [
 
   .troop-tree-card {
     overflow: hidden;
+  }
+
+  .region-tree-controls,
+  .region-tree-panels {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .region-strip {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .region-button {
+    min-width: 9.25rem;
+  }
+
+  .region-tree-panel {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .region-tree-panel[hidden] {
+    display: none !important;
+  }
+
+  .region-tree-label {
+    margin: 0;
+    color: rgba(214, 199, 175, 0.78);
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .section-heading {
@@ -1919,6 +2132,11 @@ const troopHeaderCols = [
 
     .tab-button {
       min-width: 7rem;
+    }
+
+    .region-strip {
+      flex-wrap: nowrap;
+      overflow: auto hidden;
     }
   }
 </style>

@@ -1,0 +1,180 @@
+---
+const policyHref = '/cookie-policy';
+---
+
+<aside class="cookie-notice" data-cookie-notice hidden aria-live="polite">
+  <div class="cookie-notice__panel" role="dialog" aria-modal="false" aria-labelledby="cookie-notice-title">
+    <p class="cookie-notice__eyebrow">Cookie Policy</p>
+    <h2 class="cookie-notice__title" id="cookie-notice-title">A small note before you explore Middle-earth</h2>
+    <p class="cookie-notice__copy">
+      TAOM does not use ad or analytics cookies. We only keep a temporary browser session flag so this notice stays
+      dismissed while you browse. Some pages may load Patreon-hosted media, and external links follow their own
+      policies.
+    </p>
+    <div class="cookie-notice__actions">
+      <a class="cookie-notice__link" href={policyHref}>Read cookie policy</a>
+      <button class="cookie-notice__button" type="button" data-cookie-notice-dismiss>Dismiss</button>
+    </div>
+  </div>
+</aside>
+
+<script is:inline>
+  (() => {
+    const storageKey = 'taom-cookie-notice-dismissed';
+
+    const showNotice = (notice) => {
+      notice.hidden = false;
+      requestAnimationFrame(() => notice.classList.add('is-visible'));
+    };
+
+    const hideNotice = (notice) => {
+      notice.classList.remove('is-visible');
+      notice.hidden = true;
+    };
+
+    const initCookieNotice = () => {
+      const notice = document.querySelector('[data-cookie-notice]');
+      if (!notice || notice.dataset.cookieNoticeReady === 'true') return;
+      notice.dataset.cookieNoticeReady = 'true';
+
+      const dismissButton = notice.querySelector('[data-cookie-notice-dismiss]');
+      if (!dismissButton) return;
+
+      try {
+        if (window.sessionStorage.getItem(storageKey) === 'true') {
+          hideNotice(notice);
+          return;
+        }
+      } catch {}
+
+      showNotice(notice);
+
+      dismissButton.addEventListener('click', () => {
+        try {
+          window.sessionStorage.setItem(storageKey, 'true');
+        } catch {}
+        hideNotice(notice);
+      });
+    };
+
+    if (!window.__taomCookieNoticeInitBound) {
+      window.__taomCookieNoticeInitBound = true;
+      document.addEventListener('astro:page-load', initCookieNotice);
+    }
+
+    initCookieNotice();
+  })();
+</script>
+
+<style>
+  .cookie-notice {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 180;
+    width: min(28rem, calc(100vw - 1.5rem));
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .cookie-notice.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cookie-notice__panel {
+    border: 1px solid rgba(201, 164, 74, 0.45);
+    border-radius: 1rem;
+    padding: 1rem 1rem 0.95rem;
+    background:
+      linear-gradient(180deg, rgba(29, 26, 20, 0.98), rgba(16, 16, 16, 0.98)),
+      linear-gradient(135deg, rgba(201, 164, 74, 0.08), transparent 45%);
+    box-shadow:
+      0 18px 44px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+  }
+
+  .cookie-notice__eyebrow {
+    margin: 0 0 0.4rem;
+    color: rgba(226, 192, 112, 0.9);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .cookie-notice__title {
+    margin: 0;
+    color: #f2e7ca;
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+
+  .cookie-notice__copy {
+    margin: 0.7rem 0 0;
+    color: rgba(224, 224, 224, 0.88);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .cookie-notice__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.95rem;
+  }
+
+  .cookie-notice__link {
+    color: #d8bb73;
+    font-weight: 600;
+  }
+
+  .cookie-notice__button {
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(201, 164, 74, 0.5);
+    border-radius: 999px;
+    background: linear-gradient(180deg, #d8b76a, #b78d34);
+    color: #15120b;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      transform 0.15s ease,
+      filter 0.15s ease;
+  }
+
+  .cookie-notice__button:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 640px) {
+    .cookie-notice {
+      right: 0.75rem;
+      bottom: 0.75rem;
+      width: calc(100vw - 1.5rem);
+    }
+
+    .cookie-notice__panel {
+      border-radius: 0.9rem;
+      padding: 0.95rem;
+    }
+
+    .cookie-notice__actions {
+      align-items: stretch;
+    }
+
+    .cookie-notice__link,
+    .cookie-notice__button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
