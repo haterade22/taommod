@@ -328,6 +328,21 @@ a:hover {
 .data-table-wrapper {
   border: 1px solid var(--border-color);
   border-radius: 4px;
+  max-height: 75vh;
+  overflow: auto;
+}
+
+/* Sticky table headers for mod-info table wrappers */
+.table-wrapper {
+  max-height: 75vh;
+}
+
+.table-wrapper thead {
+  background: var(--bg-secondary);
+}
+
+.table-wrapper thead th {
+  z-index: 10;
 }
 
 .data-table {
@@ -349,8 +364,9 @@ a:hover {
   cursor: pointer;
   user-select: none;
   position: sticky;
-  top: 48px;
+  top: 0;
   z-index: 10;
+  box-shadow: 0 1px 0 var(--border-color);
 }
 
 .data-table th:hover {
