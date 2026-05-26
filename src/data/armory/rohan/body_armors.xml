@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Items>
-
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
     <Item
         id="cts_rohan_royal_guard_armor"
         name="{=aom_cts_rohan_royal_guard_armor_name}[Rohan] Royal Guard Armour I"
@@ -9,13 +7,13 @@
         mesh="cts_rohan_royal_guard_armor"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="19.8"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="48"
+                body_armor="40"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -24,8 +22,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="whiterun_armor"
         name="{=aom_whiterun_armor_name}[Rohan] Royal Guard Armour II"
@@ -33,13 +30,13 @@
         mesh="whiterun_armor"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="19.8"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="48"
+                body_armor="40"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -48,8 +45,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_armour_a"
         name="{=aom_rohan_militia_armour_a_name}[Rohan] Militia Armour I"
@@ -57,55 +53,7 @@
         mesh="rohan_militia_armour_a"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="rohan_militia_armour_b"
-        name="{=aom_rohan_militia_armour_b_name}[Rohan] Militia Armour II"
-        subtype="body_armor"
-        mesh="rohan_militia_armour_b"
-        culture="Culture.vlandia"
-        is_merchandise="true"
-        weight="7.2"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="19"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="rohan_militia_armour_c"
-        name="{=aom_rohan_militia_armour_c_name}[Rohan] Militia Armour III"
-        subtype="body_armor"
-        mesh="rohan_militia_armour_c"
-        culture="Culture.vlandia"
-        is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -120,8 +68,53 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
+    <Item
+        id="rohan_militia_armour_b"
+        name="{=aom_rohan_militia_armour_b_name}[Rohan] Militia Armour II"
+        subtype="body_armor"
+        mesh="rohan_militia_armour_b"
+        culture="Culture.vlandia"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="rohan_militia_armour_c"
+        name="{=aom_rohan_militia_armour_c_name}[Rohan] Militia Armour III"
+        subtype="body_armor"
+        mesh="rohan_militia_armour_c"
+        culture="Culture.vlandia"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                arm_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
     <Item
         id="rohan_militia_armour_d"
         name="{=aom_rohan_militia_armour_d_name}[Rohan] Militia Armour IV"
@@ -129,13 +122,13 @@
         mesh="rohan_militia_armour_d"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="21"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -144,8 +137,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_armour_e"
         name="{=aom_rohan_militia_armour_e_name}[Rohan] Militia Armour V"
@@ -153,13 +145,13 @@
         mesh="rohan_militia_armour_e"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="22"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -168,8 +160,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_armour_f"
         name="{=aom_rohan_militia_armour_f_name}[Rohan] Militia Armour VI"
@@ -177,13 +168,13 @@
         mesh="rohan_militia_armour_f"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="23"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -192,8 +183,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_armour_g"
         name="{=aom_rohan_militia_armour_g_name}[Rohan] Militia Armour VII"
@@ -201,13 +191,13 @@
         mesh="rohan_militia_armour_g"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -216,8 +206,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor1"
         name="{=aom_cts_rohan_armor1_name}[Rohan] Chainmail Armour I"
@@ -225,7 +214,7 @@
         mesh="cts_rohan_armor1"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="12.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -240,8 +229,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor2"
         name="{=aom_cts_rohan_armor2_name}[Rohan] Scalemail Armour"
@@ -249,13 +237,13 @@
         mesh="cts_rohan_armor2"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="33"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -264,8 +252,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor4"
         name="{=aom_cts_rohan_armor4_name}[Rohan] Leather Armour I"
@@ -273,13 +260,13 @@
         mesh="cts_rohan_armor4"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -288,8 +275,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor3"
         name="{=aom_cts_rohan_armor3_name}[Rohan] Chainmail Armour II"
@@ -297,7 +283,7 @@
         mesh="cts_rohan_armor3"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -312,8 +298,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_tunic_a"
         name="{=aom_rohan_militia_tunic_a_name}[Rohan] Militia Tunic I"
@@ -321,23 +306,22 @@
         mesh="rohan_militia_tunic_a"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.7"
+        weight="2.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="3"
+                body_armor="10"
                 arm_armor="3"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_tunic_b"
         name="{=aom_rohan_militia_tunic_b_name}[Rohan] Militia Tunic II"
@@ -345,23 +329,22 @@
         mesh="rohan_militia_tunic_b"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.7"
+        weight="2.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="4"
+                body_armor="10"
                 arm_armor="3"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="rohan_militia_tunic_c"
         name="{=aom_rohan_militia_tunic_c_name}[Rohan] Militia Tunic III"
@@ -369,23 +352,22 @@
         mesh="rohan_militia_tunic_c"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.7"
+        weight="2.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="5"
+                body_armor="10"
                 arm_armor="3"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="theodred_armour"
         name="{=aom_theodred_armour_name}[Rohan] Theodred's Armour"
@@ -393,13 +375,13 @@
         mesh="theodred_armour"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="50"
                 arm_armor="25"
                 has_gender_variations="false"
                 covers_body="true"
@@ -408,8 +390,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="theodred_armour_slim"
         name="{=aom_theodred_armour_slim_name}[Rohan] Theodred's Armour - Slim"
@@ -417,13 +398,13 @@
         mesh="theodred_armour_slim"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="50"
                 arm_armor="25"
                 has_gender_variations="false"
                 covers_body="true"
@@ -432,8 +413,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="roh_nbl_arm_1"
         name="{=aom_roh_nbl_arm_1_name}[Rohan] Scalemail Armour III"
@@ -441,23 +421,22 @@
         mesh="roh_nbl_arm_1"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="10.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="25"
                 arm_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="roh_nbl_arm_b"
         name="{=aom_roh_nbl_arm_b_name}[Rohan] Scalemail Armour II"
@@ -465,23 +444,22 @@
         mesh="roh_nbl_arm_b"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="8.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="31"
+                body_armor="25"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="roh_nbl_arm_g"
         name="{=aom_roh_nbl_arm_g_name}[Rohan] Scalemail Armour II - Green"
@@ -489,23 +467,22 @@
         mesh="roh_nbl_arm_g"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="8.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="25"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="roh_nbl_arm_r"
         name="{=aom_roh_nbl_arm_r_name}[Rohan] Scalemail Armour II - Red"
@@ -513,23 +490,22 @@
         mesh="roh_nbl_arm_r"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="8.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="25"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="roh_nbl_arm_y"
         name="{=aom_roh_nbl_arm_y_name}[Rohan] Scalemail Armour V - Yellow"
@@ -537,23 +513,22 @@
         mesh="roh_nbl_arm_y"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="8.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="25"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor11"
         name="{=aom_cts_rohan_armor11_name}[Rohan] Chainmail Armour I - Brown"
@@ -561,7 +536,7 @@
         mesh="cts_rohan_armor11"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="12.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -576,8 +551,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor22"
         name="{=aom_cts_rohan_armor22_name}[Rohan] Scalemail Armor - Brown"
@@ -585,13 +559,13 @@
         mesh="cts_rohan_armor22"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="33"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -600,8 +574,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor44"
         name="{=aom_cts_rohan_armor44_name}[Rohan] Leather Armour I - Brown"
@@ -609,13 +582,13 @@
         mesh="cts_rohan_armor44"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -624,8 +597,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor333"
         name="{=aom_cts_rohan_armor333_name}[Rohan] Chainmail Armour I - Brown"
@@ -633,7 +605,7 @@
         mesh="cts_rohan_armor333"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -648,8 +620,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor222"
         name="{=aom_cts_rohan_armor222_name}[Rohan] Scalemail Armour I - Gold"
@@ -657,13 +628,13 @@
         mesh="cts_rohan_armor222"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="33"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -672,8 +643,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor444"
         name="{=aom_cts_rohan_armor444_name}[Rohan] Leather Armour I - Gold"
@@ -681,13 +651,13 @@
         mesh="cts_rohan_armor444"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -696,8 +666,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor1111"
         name="{=aom_cts_rohan_armor1111_name}[Rohan] Chainmail Armour I - Green"
@@ -705,7 +674,7 @@
         mesh="cts_rohan_armor1111"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="12.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -720,8 +689,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor111"
         name="{=aom_cts_rohan_armor111_name}[Rohan] Chainmail Armour I - Gold"
@@ -729,7 +697,7 @@
         mesh="cts_rohan_armor111"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="12.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -744,8 +712,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor2222"
         name="{=aom_cts_rohan_armor2222_name}[Rohan] Scalemail Armour I - Green"
@@ -753,13 +720,13 @@
         mesh="cts_rohan_armor2222"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="30"
+                body_armor="33"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -768,8 +735,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor4444"
         name="{=aom_cts_rohan_armor4444_name}[Rohan] Leather Armour I - Green"
@@ -777,13 +743,13 @@
         mesh="cts_rohan_armor4444"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="7.2"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="18"
+                body_armor="20"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -792,8 +758,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor3333"
         name="{=aom_cts_rohan_armor3333_name}[Rohan] Chainmail Armour I - Green"
@@ -801,7 +766,7 @@
         mesh="cts_rohan_armor3333"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.7"
+        weight="13.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -816,8 +781,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor_captain1"
         name="{=aom_cts_rohan_armor_captain1_name}[Rohan] Captain's Armour II"
@@ -825,13 +789,13 @@
         mesh="cts_rohan_armor_captain1"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="50"
                 arm_armor="21"
                 has_gender_variations="false"
                 covers_body="true"
@@ -840,8 +804,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="cts_rohan_armor_captain"
         name="{=aom_cts_rohan_armor_captain_name}[Rohan] Captain's Armour I"
@@ -849,13 +812,13 @@
         mesh="cts_rohan_armor_captain"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="16.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="50"
                 arm_armor="21"
                 has_gender_variations="false"
                 covers_body="true"
@@ -864,8 +827,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="theoden_torso"
         name="{=aom_theoden_torso_name}[Rohan] Theoden's Armour I"
@@ -873,13 +835,13 @@
         mesh="theoden_torso"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="10.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="50"
                 arm_armor="31"
                 has_gender_variations="false"
                 covers_body="true"
@@ -888,8 +850,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="erkenbrand_torso"
         name="{=aom_erkenbrand_torso_name}[Rohan] Erkenbrand Armour I"
@@ -897,13 +858,13 @@
         mesh="erkenbrand_torso"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="21.6"
+        weight="12.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="58"
+                body_armor="40"
                 arm_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
@@ -912,6 +873,5 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
 </Items>

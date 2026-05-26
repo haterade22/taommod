@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TAOM career-archetype starter armor for Gondor.
+  Authored 2026-05-19. Items reference existing LOTRLOME_Armory meshes; only stats and
+  weight differ from their visual donors. Naming: starter_{archetype}_{culture}_{slot}_a
+  Ranged   = light (cloth/leather, low armor, very low weight)
+  Cavalry  = medium (chainmail, balanced)
+  Infantry = heavy (plate, high armor, high weight)
+-->
+<Items>
+
+    <!-- ═══ RANGED (light) ═══ -->
+
+    <Item id="starter_ranged_gondor_head_a" name="{=starter_ranged_gondor_head_a}Ithilien Hunter's Hood" subtype="head_armor" mesh="ithilien_hood" culture="Culture.gondor" is_merchandise="true" weight="0.5" difficulty="0" appearance="2" Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="6" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="type1" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_ranged_gondor_body_a" name="{=starter_ranged_gondor_body_a}Ithilien Hunter's Jerkin" subtype="body_armor" mesh="ithilien_jerkin_short" culture="Culture.gondor" is_merchandise="true" weight="4.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="10" arm_armor="5" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_ranged_gondor_leg_a" name="{=starter_ranged_gondor_leg_a}Ithilien Hunter's Boots" subtype="leg_armor" mesh="ithilien_boots" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="5" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_ranged_gondor_cape_a" name="{=starter_ranged_gondor_cape_a}Ithilien Hunter's Cloak" mesh="ithilien_cloak" culture="Culture.gondor" is_merchandise="true" weight="0.3" appearance="6" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="4" arm_armor="1" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_ranged_gondor_gloves_a" name="{=starter_ranged_gondor_gloves_a}Ithilien Hunter's Gloves" subtype="hand_armor" mesh="sk_gd_ano_gloves_a" culture="Culture.gondor" is_merchandise="true" weight="0.3" difficulty="0" appearance="1" Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="4" covers_hands="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <!-- ═══ CAVALRY (medium) ═══ -->
+
+    <Item id="starter_cavalry_gondor_head_a" name="{=starter_cavalry_gondor_head_a}Anorien Outrider Helmet" subtype="head_armor" mesh="sk_gd_ano_cav_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="2.0" difficulty="0" appearance="3" Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="12" has_gender_variations="false" hair_cover_type="type2" modifier_group="mail" material_type="Chainmail" beard_cover_type="type1" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_cavalry_gondor_body_a" name="{=starter_cavalry_gondor_body_a}Anorien Outrider Mail" subtype="body_armor" mesh="sk_gd_ano_chainmail_half_a" culture="Culture.gondor" is_merchandise="true" weight="7.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_cavalry_gondor_leg_a" name="{=starter_cavalry_gondor_leg_a}Anorien Outrider Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.0" difficulty="0" appearance="3" Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="9" covers_legs="true" modifier_group="mail" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_cavalry_gondor_cape_a" name="{=starter_cavalry_gondor_cape_a}Anorien Outrider Pauldron" subtype="head_armor" mesh="sk_gd_ano_pauld_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="2" modifier_group="mail" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_cavalry_gondor_gloves_a" name="{=starter_cavalry_gondor_gloves_a}Anorien Outrider Bracers" subtype="hand_armor" mesh="sk_gd_ano_bracer_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="0.8" difficulty="0" appearance="3" Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="7" covers_hands="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <!-- ═══ INFANTRY (heavy) ═══ -->
+
+    <Item id="starter_infantry_gondor_head_a" name="{=starter_infantry_gondor_head_a}Anorien Footman Heavy Helmet" subtype="head_armor" mesh="sk_gd_ano_inf_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="18" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_infantry_gondor_body_a" name="{=starter_infantry_gondor_body_a}Anorien Footman Heavy Mail" subtype="body_armor" mesh="sk_gd_ano_chainmail_half_b" culture="Culture.gondor" is_merchandise="true" weight="11.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="28" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_infantry_gondor_leg_a" name="{=starter_infantry_gondor_leg_a}Anorien Footman Heavy Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_inf_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="13" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_infantry_gondor_cape_a" name="{=starter_infantry_gondor_cape_a}Anorien Footman Heavy Pauldron" subtype="head_armor" mesh="sk_gd_ano_pauld_inf_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="1.8" difficulty="0" appearance="4" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="3" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="starter_infantry_gondor_gloves_a" name="{=starter_infantry_gondor_gloves_a}Anorien Footman Heavy Bracers" subtype="hand_armor" mesh="sk_gd_ano_bracer_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.2" difficulty="0" appearance="3" Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="10" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+</Items>

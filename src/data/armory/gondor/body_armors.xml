@@ -1,1849 +1,1130 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version='1.0' encoding='utf-8'?>
 <Items>
 
-    <Item
-        id="citidel_guard_armor1"
-        name="{=aom_citidel_guard_armor1_name}[Gondor] Armour IV"
-        subtype="body_armor"
-        mesh="citidel_guard_armor1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="faramir_armor" name="{=aom_faramir_armor_name}[Gondor] Faramir's Armour" subtype="body_armor" mesh="faramir_armor" culture="Culture.gondor" is_merchandise="true" weight="10.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="35" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="citidel_guard_armor2"
-        name="{=aom_citidel_guard_armor2_name}[Gondor] Armour I"
-        subtype="body_armor"
-        mesh="citidel_guard_armor2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="faramir_armor_slim" name="{=aom_faramir_armor_slim_name}[Gondor] Faramir's Armour - Slim" subtype="body_armor" mesh="faramir_armor_slim" culture="Culture.gondor" is_merchandise="true" weight="10.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="35" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="citidel_guard_armor3"
-        name="{=aom_citidel_guard_armor3_name}[Gondor] Armour III"
-        subtype="body_armor"
-        mesh="citidel_guard_armor3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_long" name="{=aom_ithilien_jerkin_long_name}[Gondor] Ithilien Jerkin - Long" subtype="body_armor" mesh="ithilien_jerkin_long" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="30" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="citidel_guard_armor4"
-        name="{=aom_citidel_guard_armor4_name}[Gondor] Citadel Armour IV"
-        subtype="body_armor"
-        mesh="citidel_guard_armor4"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_long_slim" name="{=aom_ithilien_jerkin_long_slim_name}[Gondor] Ithilien Jerkin - Long - Slim" subtype="body_armor" mesh="ithilien_jerkin_long_slim" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="30" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="faramir_armor"
-        name="{=aom_faramir_armor_name}[Gondor] Faramir's Armour"
-        subtype="body_armor"
-        mesh="faramir_armor"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_long_var" name="{=aom_ithilien_jerkin_long_var_name}[Gondor] Ithilien Jerkin - Long - Two" subtype="body_armor" mesh="ithilien_jerkin_long_var" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="25" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="faramir_armor_slim"
-        name="{=aom_faramir_armor_slim_name}[Gondor] Faramir's Armour - Slim"
-        subtype="body_armor"
-        mesh="faramir_armor_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_long_var_slim" name="{=aom_ithilien_jerkin_long_var_slim_name}[Gondor] Ithilien Jerkin - Long - Slim - Two" subtype="body_armor" mesh="ithilien_jerkin_long_var_slim" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="25" arm_armor="15" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_long"
-        name="{=aom_ithilien_jerkin_long_name}[Gondor] Ithilien Jerkin - Long"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_long"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_short" name="{=aom_ithilien_jerkin_short_name}[Gondor] Ithilien Jerkin - Short" subtype="body_armor" mesh="ithilien_jerkin_short" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="20" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_long_slim"
-        name="{=aom_ithilien_jerkin_long_slim_name}[Gondor] Ithilien Jerkin - Long - Slim"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_long_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_short_slim" name="{=aom_ithilien_jerkin_short_slim_name}[Gondor] Ithilien Jerkin - Short - Slim" subtype="body_armor" mesh="ithilien_jerkin_short_slim" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="20" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_long_var"
-        name="{=aom_ithilien_jerkin_long_var_name}[Gondor] Ithilien Jerkin - Long - Two"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_long_var"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_short_var" name="{=aom_ithilien_jerkin_short_var_name}[Gondor] Ithilien Jerkin - Short - Two" subtype="body_armor" mesh="ithilien_jerkin_short_var" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="20" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_long_var_slim"
-        name="{=aom_ithilien_jerkin_long_var_slim_name}[Gondor] Ithilien Jerkin - Long - Slim - Two"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_long_var_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="ithilien_jerkin_short_var_slim" name="{=aom_ithilien_jerkin_short_var_slim_name}[Gondor] Ithilien Jerkin - Short - Slim Two" subtype="body_armor" mesh="ithilien_jerkin_short_var_slim" culture="Culture.gondor" is_merchandise="true" weight="8.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="20" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_short"
-        name="{=aom_ithilien_jerkin_short_name}[Gondor] Ithilien Jerkin - Short"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_short"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+
+
+
+
+    <Item id="lossarnach_coat" name="{=aom_lossarnach_coat_name}[Gondor] Lossarnach Coat I" subtype="body_armor" mesh="lossarnach_coat" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="10" arm_armor="9" leg_armor="5" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_short_slim"
-        name="{=aom_ithilien_jerkin_short_slim_name}[Gondor] Ithilien Jerkin - Short - Slim"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_short_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+
+
+
+
+
+    <Item id="imrahil_body" name="{=aom_imrahil_body_name}[Gondor] Imrahil's Armour" subtype="body_armor" mesh="imrahil_body" culture="Culture.gondor" is_merchandise="true" weight="17.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="50" arm_armor="35" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_short_var"
-        name="{=aom_ithilien_jerkin_short_var_name}[Gondor] Ithilien Jerkin - Short - Two"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_short_var"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="golasgil_body" name="{=aom_golasgil_body_name}[Gondor] Golasgil's Armour" subtype="body_armor" mesh="golasgil_body" culture="Culture.gondor" is_merchandise="true" weight="17.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="50" arm_armor="35" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="ithilien_jerkin_short_var_slim"
-        name="{=aom_ithilien_jerkin_short_var_slim_name}[Gondor] Ithilien Jerkin - Short - Slim Two"
-        subtype="body_armor"
-        mesh="ithilien_jerkin_short_var_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+
+    <Item id="hirluin_body" name="{=aom_hirluin_body_name}[Gondor] Hirluin's Armour" subtype="body_armor" mesh="hirluin_body" culture="Culture.gondor" is_merchandise="true" weight="15.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="50" arm_armor="35" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="gond_tab_9ld"
-        name="{=aom_gond_tab_9ld_name}[Gondor] Chainmail - Tabard"
-        subtype="body_armor"
-        mesh="gond_tab_9ld"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="13.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="angbor_body" name="{=aom_angbor_body_name}[Gondor] Angbor's Armour" subtype="body_armor" mesh="angbor_body" culture="Culture.gondor" is_merchandise="true" weight="15.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="33"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+            <Armor body_armor="50" arm_armor="35" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="gondor_king_armor"
-        name="{=aom_gondor_king_armor_name}[Gondor] King's Armour"
-        subtype="body_armor"
-        mesh="gondor_king_armor"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+
+    <Item id="boromir_jerkin" name="{=aom_boromir_jerkin_name}[Gondor] Boromir's Jerkin" subtype="body_armor" mesh="boromir_jerkin" culture="Culture.gondor" is_merchandise="true" weight="7.0" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="20" arm_armor="18" leg_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
-    <Item
-        id="gondor_nobke_armor"
-        name="{=aom_gondor_nobke_armor_name}[Gondor] Noble Armour"
-        subtype="body_armor"
-        mesh="gondor_nobke_armor"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
+    <Item id="forlong_body" name="{=aom_forlong_body_name}[Gondor] Forlong's Armour" subtype="body_armor" mesh="forlong_body" culture="Culture.gondor" is_merchandise="true" weight="17.5" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="50" arm_armor="35" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <Item id="sk_gd_ano_chainmail_half_a" name="{=aom_sk_gd_ano_chainmail_half_a_name}[Gondor] Anorien Half Chainmail A" subtype="body_armor" mesh="sk_gd_ano_chainmail_half_a" culture="Culture.gondor" is_merchandise="true" weight="8.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_chainmail_half_b" name="{=aom_sk_gd_ano_chainmail_half_b_name}[Gondor] Anorien Half Chainmail B" subtype="body_armor" mesh="sk_gd_ano_chainmail_half_b" culture="Culture.gondor" is_merchandise="true" weight="8.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_chainmail_full_a" name="{=aom_sk_gd_ano_chainmail_full_a_name}[Gondor] Anorien Full Chainmail A" subtype="body_armor" mesh="sk_gd_ano_chainmail_full_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_chainmail_full_b" name="{=aom_sk_gd_ano_chainmail_full_b_name}[Gondor] Anorien Full Chainmail B" subtype="body_armor" mesh="sk_gd_ano_chainmail_full_b" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_inf_chest_med_a" name="{=aom_sk_gd_ano_inf_chest_med_a_name}[Gondor] Anorien Infantry Armour A" subtype="body_armor" mesh="sk_gd_ano_inf_chest_med_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_inf_chest_med_b" name="{=aom_sk_gd_ano_inf_chest_med_b_name}[Gondor] Anorien Infantry Armour B" subtype="body_armor" mesh="sk_gd_ano_inf_chest_med_b" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_inf_chest_heavy_a" name="{=aom_sk_gd_ano_inf_chest_heavy_a_name}[Gondor] Anorien Infantry Heavy Armour A" subtype="body_armor" mesh="sk_gd_ano_inf_chest_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ano_inf_chest_heavy_b" name="{=aom_sk_gd_ano_inf_chest_heavy_b_name}[Gondor] Anorien Infantry Heavy Armour B" subtype="body_armor" mesh="sk_gd_ano_inf_chest_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_mns_citadel_chest_med_a" name="{=aom_sk_gd_mns_citadel_chest_med_a_name}[Gondor] Citadel Guard Armour" subtype="body_armor" mesh="sk_gd_mns_citadel_chest_med_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_mns_citadel_chest_heavy_a" name="{=aom_sk_gd_mns_citadel_chest_heavy_a_name}[Gondor] Citadel Guard Heavy Armour" subtype="body_armor" mesh="sk_gd_mns_citadel_chest_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="16" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_mns_fount_chest_heavy_a" name="{=aom_sk_gd_mns_fount_chest_heavy_a_name}[Gondor] Fountain Guard Armour" subtype="body_armor" mesh="sk_gd_mns_fount_chest_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="16" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_mns_fount_chest_elite_a" name="{=aom_sk_gd_mns_fount_chest_elite_a_name}[Gondor] Fountain Guard Elite Armour" subtype="body_armor" mesh="sk_gd_mns_fount_chest_elite_a" culture="Culture.gondor" is_merchandise="true" weight="22.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="50" arm_armor="22" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_osg_inf_chest_med_a" name="{=aom_sk_gd_osg_inf_chest_med_a_name}[Gondor] Osgiliath Armour A" subtype="body_armor" mesh="sk_gd_osg_inf_chest_med_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_osg_inf_chest_med_b" name="{=aom_sk_gd_osg_inf_chest_med_b_name}[Gondor] Osgiliath Armour B" subtype="body_armor" mesh="sk_gd_osg_inf_chest_med_b" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_osg_inf_chest_heavy_a" name="{=aom_sk_gd_osg_inf_chest_heavy_a_name}[Gondor] Osgiliath Heavy Armour A" subtype="body_armor" mesh="sk_gd_osg_inf_chest_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_osg_inf_chest_heavy_b" name="{=aom_sk_gd_osg_inf_chest_heavy_b_name}[Gondor] Osgiliath Heavy Armour B" subtype="body_armor" mesh="sk_gd_osg_inf_chest_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <Item id="sk_gd_cair_chainmail_half_b" name="{=aom_sk_gd_cair_chainmail_half_b_name}[Gondor] Cair Andros Half Chainmail" subtype="body_armor" mesh="sk_gd_cair_chainmail_half_b" culture="Culture.gondor" is_merchandise="true" weight="8.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_cair_inf_chest_med_a" name="{=aom_sk_gd_cair_inf_chest_med_a_name}[Gondor] Cair Andros Armour A" subtype="body_armor" mesh="sk_gd_cair_inf_chest_med_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_cair_inf_chest_med_b" name="{=aom_sk_gd_cair_inf_chest_med_b_name}[Gondor] Cair Andros Armour B" subtype="body_armor" mesh="sk_gd_cair_inf_chest_med_b" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_cair_inf_chest_heavy_a" name="{=aom_sk_gd_cair_inf_chest_heavy_a_name}[Gondor] Cair Andros Heavy Armour A" subtype="body_armor" mesh="sk_gd_cair_inf_chest_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_cair_inf_chest_heavy_b" name="{=aom_sk_gd_cair_inf_chest_heavy_b_name}[Gondor] Cair Andros Heavy Armour B" subtype="body_armor" mesh="sk_gd_cair_inf_chest_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_cair_inf_chest_elite_a" name="{=aom_sk_gd_cair_inf_chest_elite_a_name}[Gondor] Cair Andros Elite Armour" subtype="body_armor" mesh="sk_gd_cair_inf_chest_elite_a" culture="Culture.gondor" is_merchandise="true" weight="22" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="50" arm_armor="22" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ith_chest_noble_med_a" name="{=aom_sk_gd_ith_chest_noble_med_a_name}[Gondor] Ithil Guard Armour A" subtype="body_armor" mesh="sk_gd_ith_chest_noble_med_a" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ith_chest_noble_med_b" name="{=aom_sk_gd_ith_chest_noble_med_b_name}[Gondor] Ithil Guard Armour B" subtype="body_armor" mesh="sk_gd_ith_chest_noble_med_b" culture="Culture.gondor" is_merchandise="true" weight="13.0" difficulty="0" appearance="3" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="12" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ith_chest_noble_heavy_a" name="{=aom_sk_gd_ith_chest_noble_heavy_a_name}[Gondor] Ithil Guard Heavy Armour A" subtype="body_armor" mesh="sk_gd_ith_chest_noble_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="16" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_gd_ith_chest_noble_heavy_b" name="{=aom_sk_gd_ith_chest_noble_heavy_b_name}[Gondor] Ithil Guard Heavy Armour B" subtype="body_armor" mesh="sk_gd_ith_chest_noble_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="18.0" difficulty="0" appearance="4" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="16" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== GONDOR NOBLE CIVILIAN COATS ==================== -->
+
+    <Item id="gondor_noble_coat_a" name="{=aom_gondor_noble_coat_a_name}[Gondor] Noble Coat A" subtype="body_armor" mesh="gondor_noble_coat_a" culture="Culture.gondor" is_merchandise="true" weight="9.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_coat_a_slim" name="{=aom_gondor_noble_coat_a_slim_name}[Gondor] Noble Coat A Slim" subtype="body_armor" mesh="gondor_noble_coat_a_slim" culture="Culture.gondor" is_merchandise="true" weight="9.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_coat_b" name="{=aom_gondor_noble_coat_b_name}[Gondor] Noble Coat B" subtype="body_armor" mesh="gondor_noble_coat_b" culture="Culture.gondor" is_merchandise="true" weight="9.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_coat_b_slim" name="{=aom_gondor_noble_coat_b_slim_name}[Gondor] Noble Coat B Slim" subtype="body_armor" mesh="gondor_noble_coat_b_slim" culture="Culture.gondor" is_merchandise="true" weight="9.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <!-- ==================== GONDOR NOBLE CIVILIAN JERKINS ==================== -->
+
+    <Item id="gondor_noble_jerkin_a" name="{=aom_gondor_noble_jerkin_a_name}[Gondor] Noble Jerkin A" subtype="body_armor" mesh="gondor_noble_jerkin_a" culture="Culture.gondor" is_merchandise="true" weight="7.5" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="10" arm_armor="7" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_jerkin_a_slim" name="{=aom_gondor_noble_jerkin_a_slim_name}[Gondor] Noble Jerkin A Slim" subtype="body_armor" mesh="gondor_noble_jerkin_a_slim" culture="Culture.gondor" is_merchandise="true" weight="7.5" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="10" arm_armor="7" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_jerkin_b" name="{=aom_gondor_noble_jerkin_b_name}[Gondor] Noble Jerkin B" subtype="body_armor" mesh="gondor_noble_jerkin_b" culture="Culture.gondor" is_merchandise="true" weight="7.5" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="10" arm_armor="7" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <Item id="gondor_noble_jerkin_b_slim" name="{=aom_gondor_noble_jerkin_b_slim_name}[Gondor] Noble Jerkin B Slim" subtype="body_armor" mesh="gondor_noble_jerkin_b_slim" culture="Culture.gondor" is_merchandise="true" weight="7.5" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="10" arm_armor="7" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+    <!--  Lossarnach, Pinnath Gelin, Harondor, Anfalas, Serelond,        -->
+    <!--  Lebennin, Belfalas, Lamedon                                    -->
+    <!-- ============================================================== -->
+
     <Item
-        id="gondor_chainmaila"
-        name="{=aom_gondor_chainmaila_name}[Gondor] Chainmail I"
-        mesh="vlandia_chainmail_a"
+        id="sk_gd_los_inf_chainmail_a"
+        name="{=aom_sk_gd_los_inf_chainmail_a_name}[Gondor] Lossarnach Chainmail"
+        subtype="body_armor"
+        mesh="sk_gd_los_inf_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="13.0"
+        weight="8.0"
+        difficulty="0"
         appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="33"
-                leg_armor="17"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="fountain_armor3"
-        name="{=aom_fountain_armor3_name}[Gondor] Fountain Guard Armour I"
+        id="sk_gd_los_inf_chest_med_a"
+        name="{=aom_sk_gd_los_inf_chest_med_a_name}[Gondor] Lossarnach Armour"
         subtype="body_armor"
-        mesh="fountain_armor3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="fountain_armor2"
-        name="{=aom_fountain_armor2_name}[Gondor] Fountain Guard Armour II"
-        subtype="body_armor"
-        mesh="fountain_armor2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="fountain_armor1"
-        name="{=aom_fountain_armor1_name}[Gondor] Fountain Guard Armour III"
-        subtype="body_armor"
-        mesh="fountain_armor1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="cts_gondor_armor1"
-        name="{=aom_cts_gondor_armor1_name}[Gondor] Lamedon Chainmail Armour"
-        subtype="body_armor"
-        mesh="cts_gondor_armor1"
+        mesh="sk_gd_los_inf_chest_med_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="13.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="33"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="cts_gondor_armor2"
-        name="{=aom_cts_gondor_armor2_name}[Gondor] Lamedon Leather Armour"
+        id="sk_gd_los_inf_chest_heavy_a"
+        name="{=aom_sk_gd_los_inf_chest_heavy_a_name}[Gondor] Lossarnach Heavy Armour"
         subtype="body_armor"
-        mesh="cts_gondor_armor2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="5"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="cts_gondor_armor3"
-        name="{=aom_cts_gondor_armor3_name}[Gondor] Lamedon Cloth Armour"
-        subtype="body_armor"
-        mesh="cts_gondor_armor3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="5"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="lossarnach_armor_heavy"
-        name="{=aom_lossarnach_armor_heavy_name}[Gondor] Lossarnach Heavy Armor I"
-        subtype="body_armor"
-        mesh="lossarnach_armor_heavy"
+        mesh="sk_gd_los_inf_chest_heavy_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="18.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="43"
-                arm_armor="25"
-                leg_armor="23"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lossarnach_coat"
-        name="{=aom_lossarnach_coat_name}[Gondor] Lossarnach Coat I"
+        id="sk_gd_los_inf_chest_elite_a"
+        name="{=aom_sk_gd_los_inf_chest_elite_a_name}[Gondor] Lossarnach Elite Armour"
         subtype="body_armor"
-        mesh="lossarnach_coat"
+        mesh="sk_gd_los_inf_chest_elite_a"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="3.0"
+        weight="22.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="6"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="9"
-                leg_armor="4"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
+            <Armor body_armor="50" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lossarnach_light"
-        name="{=aom_lossarnach_light_name}[Gondor] Lossarnach Light Armor  I"
+        id="sk_gd_pin_chainmail_a"
+        name="{=aom_sk_gd_pin_chainmail_a_name}[Gondor] Pinnath Gelin Chainmail A"
         subtype="body_armor"
-        mesh="lossarnach_light"
+        mesh="sk_gd_pin_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="12"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lossarnach_medium_armor"
-        name="{=aom_lossarnach_medium_armor_name}[Gondor] Lossarnach Medium Armor  I"
+        id="sk_gd_pin_chainmail_b"
+        name="{=aom_sk_gd_pin_chainmail_b_name}[Gondor] Pinnath Gelin Chainmail B"
         subtype="body_armor"
-        mesh="lossarnach_meduim_armor"
+        mesh="sk_gd_pin_chainmail_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_pin_inf_chest_med_a"
+        name="{=aom_sk_gd_pin_inf_chest_med_a_name}[Gondor] Pinnath Gelin Armour A"
+        subtype="body_armor"
+        mesh="sk_gd_pin_inf_chest_med_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="13.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="33"
-                arm_armor="12"
-                leg_armor="17"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="rgva_chest_ver1"
-        name="{=aom_rgva_chest_ver1_name}[Gondor] Ringlo Vale Armor  I"
+        id="sk_gd_pin_inf_chest_med_b"
+        name="{=aom_sk_gd_pin_inf_chest_med_b_name}[Gondor] Pinnath Gelin Armour B"
         subtype="body_armor"
-        mesh="rgva_chest_ver1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="12"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="rgva_chest_ver2"
-        name="{=aom_rgva_chest_ver2_name}[Gondor] Ringlo Vale Armor  II"
-        subtype="body_armor"
-        mesh="rgva_chest_ver2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="12"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="rgva_chest_ver3"
-        name="{=aom_rgva_chest_ver3_name}[Gondor] Ringlo Vale Armor  III"
-        subtype="body_armor"
-        mesh="rgva_chest_ver3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="12"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="imrahil_body"
-        name="{=aom_imrahil_body_name}[Gondor] Imrahil's Armour"
-        subtype="body_armor"
-        mesh="imrahil_body"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="golasgil_body"
-        name="{=aom_golasgil_body_name}[Gondor] Golasgil's Armour"
-        subtype="body_armor"
-        mesh="golasgil_body"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="sk_gondor_lossarnach_chest_a"
-        name="{=aom_sk_gondor_lossarnach_chest_a_name}[Gondor] Lossarnach Chainmail Armour"
-        subtype="body_armor"
-        mesh="sk_gondor_lossarnach_chest_a"
+        mesh="sk_gd_pin_inf_chest_med_b"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="13.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="33"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="hirluin_body"
-        name="{=aom_hirluin_body_name}[Gondor] Hirluin's Armour"
+        id="sk_gd_pin_inf_chest_heavy_a"
+        name="{=aom_sk_gd_pin_inf_chest_heavy_a_name}[Gondor] Pinnath Gelin Heavy Armour A"
         subtype="body_armor"
-        mesh="hirluin_body"
+        mesh="sk_gd_pin_inf_chest_heavy_a"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="24.0"
+        weight="18.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="angbor_body"
-        name="{=aom_angbor_body_name}[Gondor] Angbor's Armour"
+        id="sk_gd_pin_inf_chest_heavy_b"
+        name="{=aom_sk_gd_pin_inf_chest_heavy_b_name}[Gondor] Pinnath Gelin Heavy Armour B"
         subtype="body_armor"
-        mesh="angbor_body"
+        mesh="sk_gd_pin_inf_chest_heavy_b"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="24.0"
+        weight="18.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="swanknight_cuirass_a"
-        name="{=aom_swanknight_cuirass_a_name}[Gondor] Swan Knight Cuirass I"
+        id="sk_gd_har_inf_chainmail_a"
+        name="{=aom_sk_gd_har_inf_chainmail_a_name}[Gondor] Harondor Chainmail"
         subtype="body_armor"
-        mesh="swan_knight_armor_light"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="25"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swanknight_cuirass_c"
-        name="{=aom_swanknight_cuirass_c_name}[Gondor] Swan Knight Armour I"
-        subtype="body_armor"
-        mesh="swan_knight_armor_med"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="53"
-                arm_armor="25"
-                leg_armor="31"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swanknight_cuirass_e"
-        name="{=aom_swanknight_cuirass_e_name}[Gondor] Swan Knight Armour III"
-        subtype="body_armor"
-        mesh="swan_knight_armor"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="55"
-                arm_armor="30"
-                leg_armor="33"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="boromir_armor"
-        name="{=aom_boromir_armor_name}[Gondor] Boromir's Armour"
-        subtype="body_armor"
-        mesh="boromir_armor"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="18"
-                leg_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="boromir_jerkin"
-        name="{=aom_boromir_jerkin_name}[Gondor] Boromir's Jerkin"
-        subtype="body_armor"
-        mesh="boromir_jerkin"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="18"
-                leg_armor="4"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="gondor_noble_coat_a"
-        name="{=aom_gondor_noble_coat_a_name}[Gondor] Noble Coat A"
-        subtype="body_armor"
-        mesh="gondor_noble_coat_a"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="5"
-                leg_armor="4"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="gondor_noble_coat_b"
-        name="{=aom_gondor_noble_coat_b_name}[Gondor] Noble Coat B"
-        subtype="body_armor"
-        mesh="gondor_noble_coat_b"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="7"
-                arm_armor="5"
-                leg_armor="5"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="gondor_noble_jerkin_a"
-        name="{=aom_gondor_noble_jerkin_a_name}[Gondor] Noble Jerkin A"
-        subtype="body_armor"
-        mesh="gondor_noble_jerkin_a"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="6"
-                arm_armor="5"
-                leg_armor="4"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="gondor_noble_jerkin_b"
-        name="{=aom_gondor_noble_jerkin_b_name}[Gondor] Noble Jerkin B"
-        subtype="body_armor"
-        mesh="gondor_noble_jerkin_b"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="3.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="7"
-                arm_armor="5"
-                leg_armor="5"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="forlong_body"
-        name="{=aom_forlong_body_name}[Gondor] Forlong's Armour"
-        subtype="body_armor"
-        mesh="forlong_body"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="24.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="61"
-                arm_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="pg_spearman_armor_01"
-        name="{=aom_pg_spearman_armor_01_name}[Gondor] Pinneth Gelin Armour I"
-        subtype="body_armor"
-        mesh="pg_spearman_armor_01"
+        mesh="sk_gd_har_inf_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="15"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="pg_spearman_armor_02"
-        name="{=aom_pg_spearman_armor_02_name}[Gondor] Pinneth Gelin Armour II"
+        id="sk_gd_har_inf_chest_med_a"
+        name="{=aom_sk_gd_har_inf_chest_med_a_name}[Gondor] Harondor Armour"
         subtype="body_armor"
-        mesh="pg_spearman_armor_02"
+        mesh="sk_gd_har_inf_chest_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_har_inf_chest_heavy_a"
+        name="{=aom_sk_gd_har_inf_chest_heavy_a_name}[Gondor] Harondor Heavy Armour"
+        subtype="body_armor"
+        mesh="sk_gd_har_inf_chest_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_anf_inf_chainmail_a"
+        name="{=aom_sk_gd_anf_inf_chainmail_a_name}[Gondor] Anfalas Chainmail A"
+        subtype="body_armor"
+        mesh="sk_gd_anf_inf_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="15"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="pg_spearman_armor_03"
-        name="{=aom_pg_spearman_armor_03_name}[Gondor] Pinneth Gelin Armour III"
+        id="sk_gd_anf_inf_chainmail_b"
+        name="{=aom_sk_gd_anf_inf_chainmail_b_name}[Gondor] Anfalas Chainmail B"
         subtype="body_armor"
-        mesh="pg_spearman_armor_03"
+        mesh="sk_gd_anf_inf_chainmail_b"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="23"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lrd_gondor_marines_1_armour"
-        name="{=aom_lrd_gondor_marines_1_armour_name}[Gondor] Pelargir Armour I"
+        id="sk_gd_anf_inf_chest_med_a"
+        name="{=aom_sk_gd_anf_inf_chest_med_a_name}[Gondor] Anfalas Armour A"
         subtype="body_armor"
-        mesh="lrd_gondor_marines_1_armour"
+        mesh="sk_gd_anf_inf_chest_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_anf_inf_chest_med_b"
+        name="{=aom_sk_gd_anf_inf_chest_med_b_name}[Gondor] Anfalas Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_anf_inf_chest_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_anf_inf_chest_heavy_a"
+        name="{=aom_sk_gd_anf_inf_chest_heavy_a_name}[Gondor] Anfalas Heavy Armour A"
+        subtype="body_armor"
+        mesh="sk_gd_anf_inf_chest_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_anf_inf_chest_heavy_b"
+        name="{=aom_sk_gd_anf_inf_chest_heavy_b_name}[Gondor] Anfalas Heavy Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_anf_inf_chest_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_sere_chest_med_a"
+        name="{=aom_sk_gd_sere_chest_med_a_name}[Gondor] Serelond Armour"
+        subtype="body_armor"
+        mesh="sk_gd_sere_chest_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_sere_chest_heavy_a"
+        name="{=aom_sk_gd_sere_chest_heavy_a_name}[Gondor] Serelond Heavy Armour A"
+        subtype="body_armor"
+        mesh="sk_gd_sere_chest_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_sere_chest_heavy_b"
+        name="{=aom_sk_gd_sere_chest_heavy_b_name}[Gondor] Serelond Heavy Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_sere_chest_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_sere_chest_elite_a"
+        name="{=aom_sk_gd_sere_chest_elite_a_name}[Gondor] Serelond Elite Armour"
+        subtype="body_armor"
+        mesh="sk_gd_sere_chest_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="22.0"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="50" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_leb_chainmail_a"
+        name="{=aom_sk_gd_leb_chainmail_a_name}[Gondor] Lebennin Chainmail A"
+        subtype="body_armor"
+        mesh="sk_gd_leb_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="15"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lrd_marines_gondor_2_armour"
-        name="{=aom_lrd_marines_gondor_2_armour_name}[Gondor] Pelargir Armour II"
+        id="sk_gd_leb_chainmail_b"
+        name="{=aom_sk_gd_leb_chainmail_b_name}[Gondor] Lebennin Chainmail B"
         subtype="body_armor"
-        mesh="lrd_marines_gondor_2_armour"
+        mesh="sk_gd_leb_chainmail_b"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="15"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="lrd_gondor_marines_3_armour"
-        name="{=aom_lrd_gondor_marines_3_armour_name}[Gondor] Pelargir Armour III"
+        id="sk_gd_leb_inf_chest_med_a"
+        name="{=aom_sk_gd_leb_inf_chest_med_a_name}[Gondor] Lebennin Armour A"
         subtype="body_armor"
-        mesh="lrd_marines_gondor_3_armour"
+        mesh="sk_gd_leb_inf_chest_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_leb_inf_chest_med_b"
+        name="{=aom_sk_gd_leb_inf_chest_med_b_name}[Gondor] Lebennin Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_leb_inf_chest_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_leb_inf_chest_heavy_a"
+        name="{=aom_sk_gd_leb_inf_chest_heavy_a_name}[Gondor] Lebennin Heavy Armour A"
+        subtype="body_armor"
+        mesh="sk_gd_leb_inf_chest_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_leb_inf_chest_heavy_b"
+        name="{=aom_sk_gd_leb_inf_chest_heavy_b_name}[Gondor] Lebennin Heavy Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_leb_inf_chest_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_bel_inf_chainmail_a"
+        name="{=aom_sk_gd_bel_inf_chainmail_a_name}[Gondor] Belfalas Chainmail A"
+        subtype="body_armor"
+        mesh="sk_gd_bel_inf_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="15"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="dol_amroth_armor_a2"
-        name="{=aom_dol_amroth_armor_a2_name}[Gondor] Dol Amroth Chestplate Tabard II"
+        id="sk_gd_bel_inf_chainmail_b"
+        name="{=aom_sk_gd_bel_inf_chainmail_b_name}[Gondor] Belfalas Chainmail B"
         subtype="body_armor"
-        mesh="dol_amroth_armor_a2"
+        mesh="sk_gd_bel_inf_chainmail_b"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="25"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="dol_amroth_armor_a3"
-        name="{=aom_dol_amroth_armor_a3_name}[Gondor] Dol Amroth Chestplate Tabard III"
+        id="sk_gd_bel_inf_chest_med_a"
+        name="{=aom_sk_gd_bel_inf_chest_med_a_name}[Gondor] Belfalas Armour A"
         subtype="body_armor"
-        mesh="dol_amroth_armor_a3"
+        mesh="sk_gd_bel_inf_chest_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_bel_inf_chest_med_b"
+        name="{=aom_sk_gd_bel_inf_chest_med_b_name}[Gondor] Belfalas Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_bel_inf_chest_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_bel_inf_chest_heavy_a"
+        name="{=aom_sk_gd_bel_inf_chest_heavy_a_name}[Gondor] Belfalas Heavy Armour A"
+        subtype="body_armor"
+        mesh="sk_gd_bel_inf_chest_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_bel_inf_chest_heavy_b"
+        name="{=aom_sk_gd_bel_inf_chest_heavy_b_name}[Gondor] Belfalas Heavy Armour B"
+        subtype="body_armor"
+        mesh="sk_gd_bel_inf_chest_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lam_inf_chainmail_a"
+        name="{=aom_sk_gd_lam_inf_chainmail_a_name}[Gondor] Lamedon Chainmail A"
+        subtype="body_armor"
+        mesh="sk_gd_lam_inf_chainmail_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="21"
-                arm_armor="25"
-                leg_armor="11"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="dol_amroth_armor_b1"
-        name="{=aom_dol_amroth_armor_b1_name}[Gondor] Dol Amroth Chestplate I"
+        id="sk_gd_lam_inf_chainmail_b"
+        name="{=aom_sk_gd_lam_inf_chainmail_b_name}[Gondor] Lamedon Chainmail B"
         subtype="body_armor"
-        mesh="dol_amroth_armor_b1"
+        mesh="sk_gd_lam_inf_chainmail_b"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="8.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="25"
-                leg_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="dol_amroth_armor_b2"
-        name="{=aom_dol_amroth_armor_b2_name}[Gondor] Dol Amroth Chestplate II"
+        id="sk_gd_lam_inf_chest_med_a"
+        name="{=aom_sk_gd_lam_inf_chest_med_a_name}[Gondor] Lamedon Armour A"
         subtype="body_armor"
-        mesh="dol_amroth_armor_b2"
+        mesh="sk_gd_lam_inf_chest_med_a"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="8.0"
+        weight="13.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="25"
-                leg_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="dol_amroth_armor_b3"
-        name="{=aom_dol_amroth_armor_b3_name}[Gondor] Dol Amroth Chestplate III"
+        id="sk_gd_lam_inf_chest_med_b"
+        name="{=aom_sk_gd_lam_inf_chest_med_b_name}[Gondor] Lamedon Armour B"
         subtype="body_armor"
-        mesh="dol_amroth_armor_b3"
+        mesh="sk_gd_lam_inf_chest_med_b"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="8.0"
+        weight="13.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="25"
-                leg_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="swan_knight_armor_tabard2_t3"
-        name="{=aom_swan_knight_armor_tabard2_t3_name}[Gondor] Swan Knight Armor Tabard II T3"
+        id="sk_gd_lam_inf_chest_heavy_a"
+        name="{=aom_sk_gd_lam_inf_chest_heavy_a_name}[Gondor] Lamedon Heavy Armour A"
         subtype="body_armor"
-        mesh="swan_knight_armor_tabard2_t3"
+        mesh="sk_gd_lam_inf_chest_heavy_a"
         culture="Culture.gondor"
         is_merchandise="true"
-        weight="22.0"
+        weight="18.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
     <Item
-        id="swan_knight_armor_tabard1_t3"
-        name="{=aom_swan_knight_armor_tabard1_t3_name}[Gondor] Swan Knight Armor Tabard I T3"
+        id="sk_gd_lam_inf_chest_heavy_b"
+        name="{=aom_sk_gd_lam_inf_chest_heavy_b_name}[Gondor] Lamedon Heavy Armour B"
         subtype="body_armor"
-        mesh="swan_knight_armor_tabard1_t3"
+        mesh="sk_gd_lam_inf_chest_heavy_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lam_inf_chest_lord_a"
+        name="{=aom_sk_gd_lam_inf_chest_lord_a_name}[Gondor] Lamedon Lord Armour"
+        subtype="body_armor"
+        mesh="sk_gd_lam_inf_chest_lord_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="22.0"
         difficulty="0"
-        appearance="1.5"
+        appearance="6"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+            <Armor body_armor="50" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2b_t3"
-        name="{=aom_swan_knight_armor_2b_t3_name}[Gondor] Swan Knight Armor 2B T3"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2b_t3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1b_t3"
-        name="{=aom_swan_knight_armor_1b_t3_name}[Gondor] Swan Knight Armor 1B T3"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1b_t3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2a_t3"
-        name="{=aom_swan_knight_armor_2a_t3_name}[Gondor] Swan Knight Armor 2A T3"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2a_t3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1a_t3"
-        name="{=aom_swan_knight_armor_1a_t3_name}[Gondor] Swan Knight Armor 1A T3"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1a_t3"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="30"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_tabard2_t2"
-        name="{=aom_swan_knight_armor_tabard2_t2_name}[Gondor] Swan Knight Armor Tabard II T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_tabard2_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_tabard1_t2"
-        name="{=aom_swan_knight_armor_tabard1_t2_name}[Gondor] Swan Knight Armor Tabard I T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_tabard1_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2b_t2"
-        name="{=aom_swan_knight_armor_2b_t2_name}[Gondor] Swan Knight Armor 2B T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2b_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1b_t2"
-        name="{=aom_swan_knight_armor_1b_t2_name}[Gondor] Swan Knight Armor 1B T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1b_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2a_t2"
-        name="{=aom_swan_knight_armor_2a_t2_name}[Gondor] Swan Knight Armor 2A T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2a_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1a_t2"
-        name="{=aom_swan_knight_armor_1a_t2_name}[Gondor] Swan Knight Armor 1A T2"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1a_t2"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="28"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_tabard2_t1"
-        name="{=aom_swan_knight_armor_tabard2_t1_name}[Gondor] Swan Knight Armor Tabard II T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_tabard2_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_tabard1_t1"
-        name="{=aom_swan_knight_armor_tabard1_t1_name}[Gondor] Swan Knight Armor Tabard I T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_tabard1_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2b_t1"
-        name="{=aom_swan_knight_armor_2b_t1_name}[Gondor] Swan Knight Armor 2B T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2b_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1b_t1"
-        name="{=aom_swan_knight_armor_1b_t1_name}[Gondor] Swan Knight Armor 1B T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1b_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_2a_t1"
-        name="{=aom_swan_knight_armor_2a_t1_name}[Gondor] Swan Knight Armor 2A T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_2a_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="swan_knight_armor_1a_t1"
-        name="{=aom_swan_knight_armor_1a_t1_name}[Gondor] Swan Knight Armor 1A T1"
-        subtype="body_armor"
-        mesh="swan_knight_armor_1a_t1"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="22.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="51"
-                arm_armor="26"
-                leg_armor="29"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
+        <Flags UseTeamColor="true" />
     </Item>
 
 </Items>

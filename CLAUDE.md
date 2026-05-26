@@ -18,7 +18,7 @@ npx astro check   # TypeScript/Astro type checking
 
 **Data Pipeline**: XML mod data → `fast-xml-parser` → Astro pages (all at build time, no runtime data fetching)
 
-- `sync-data.sh` copies XML files from the local TAOM mod directory into `src/data/`
+- `sync-data.sh` wipe-and-replaces XML files in `src/data/` from two local mod modules: `TAOM/ModuleData` (troops, characters, XSLT, cultures/kingdoms) and `LOTRLOME_Armory/ModuleData` (per-culture armor folders, weapons, shields, horses, crafting pieces)
 - `src/lib/parse-xml.ts` is a barrel re-export; actual parsing lives in modular files:
   - `xml-shared.ts` — parser config, types, culture mappings, helpers
   - `parse-troops.ts`, `parse-kingdoms.ts`, `parse-clans.ts`, `parse-lords.ts`, `parse-armory.ts`, `parse-weaponry.ts`
@@ -63,11 +63,11 @@ public/         Images, favicon, CNAME
 
 ## Data Sources
 
-- **Troops**: `src/data/troops/troops_*.xml` (14 faction files)
-- **Characters**: `src/data/characters/` (lords.xml, heroes.xml, npcs_*.xml, clans.xml)
-- **Armory**: `src/data/armory/` (armor XML per faction + vanilla reference)
+- **Troops**: `src/data/troops/troops_*.xml` (13 faction files; sourced from `TAOM/ModuleData/troops/`)
+- **Characters**: `src/data/characters/` (lords.xml, heroes.xml, npcs_*.xml, clans.xml; sourced from `TAOM/ModuleData/characters/`)
+- **Armory**: `src/data/armory/` (per-culture armor folders + LOTRAOM weapons/shields/horses + LOTRLOME crafting pieces; sourced from `LOTRLOME_Armory/ModuleData/LOTRLOME_items/`. Plus vanilla reference files from SandBoxCore/Native.)
 - **Kingdoms/Cultures**: `src/data/taom_spkingdoms.xml`, `taom_spcultures.xml`
-- **XSLT Transforms**: `src/data/*.xslt` (9 files — lords, heroes, clans, cultures, kingdoms, settlements, module strings)
+- **XSLT Transforms**: `src/data/*.xslt` (8 files — lords, heroes, clans, cultures, kingdoms, action_strings, comment_strings, module_strings)
 
 ## Damage Calculator
 

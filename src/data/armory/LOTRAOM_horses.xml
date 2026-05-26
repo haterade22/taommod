@@ -1,5 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!--
+      TAOM career-archetype starter horse harnesses.
+      Authored 2026-05-21. Reuses existing meshes; only stats + weight differ.
+      Naming: starter_{archetype}_{culture}_horse_armor_a
+    -->
+    <Item
+        id="starter_cavalry_gondor_horse_armor_a"
+        name="{=starter_cavalry_gondor_horse_armor_a}[Gondor] Riding Caparison"
+        mesh="lrd_horse_armour_2"
+        culture="Culture.gondor"
+        weight="10"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+    </Item>
     <Item
         id="gondor_swan_horse_armor_1"
         name="{=aom_gondor_swan_horse_armor_1_name}[Gondor] Swan Knight Horse Armour I"
@@ -18,7 +39,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_swan_horse_armor_2"
         name="{=aom_gondor_swan_horse_armor_2_name}[Gondor] Swan Knight Horse Armour II"
@@ -37,7 +58,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_1"
         name="{=aom_gondor_horse_armor_1_name}[Gondor] Horse Armour"
@@ -56,7 +77,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_2"
         name="{=aom_gondor_horse_armor_2_name}[Gondor] Light Horse Armour"
@@ -75,7 +96,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_3"
         name="{=aom_gondor_horse_armor_3_name}[Gondor] Light Horse Armour - Belfalas"
@@ -94,7 +115,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_4"
         name="{=aom_gondor_horse_armor_4_name}[Gondor] Light Horse Armour - Pinnath Gelin"
@@ -113,7 +134,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_1_da"
         name="{=aom_gondor_horse_armor_1_da_name}[Gondor] Horse Armour - Belfalas"
@@ -132,7 +153,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="gondor_horse_armor_1_pg"
         name="{=aom_gondor_horse_armor_1_pg_name}[Gondor] Horse Armour - Pinnath Gelin"
@@ -151,7 +172,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="lrd_horse_armour_4"
         name="{=aom_lrd_horse_armour_4_name}[Rhun] Horse Armour - Kataphrakt"
@@ -170,7 +191,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="lrd_horse_armour_5_b"
         name="{=aom_lrd_horse_armour_5_b_name}[Rhun] Horse Armour I"
@@ -189,7 +210,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="lrd_horse_armour_5"
         name="{=aom_lrd_horse_armour_5_name}[Rhun] Horse Armour II"
@@ -208,7 +229,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="lrd_horse_armour_5_c"
         name="{=aom_lrd_horse_armour_5_c_name}[Rhun] Horse Armour III"
@@ -227,7 +248,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_scalemail"
         name="{=aom_rohan_horse_armor_scalemail_name}[Rohan] Horse Armour - Scalemail"
@@ -246,7 +267,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_theoden"
         name="{=aom_rohan_horse_armor_theoden_name}[Rohan] Horse Armour - Theoden"
@@ -265,7 +286,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_one"
         name="{=aom_rohan_horse_armor_one_name}[Rohan] Horse Armour I"
@@ -284,7 +305,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_two"
         name="{=aom_rohan_horse_armor_two_name}[Rohan] Horse Armour II"
@@ -303,7 +324,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_three"
         name="{=aom_rohan_horse_armor_three_name}[Rohan] Horse Armour III"
@@ -322,7 +343,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="rohan_horse_armor_four"
         name="{=aom_rohan_horse_armor_four_name}[Rohan] Horse Armour IV"
@@ -341,7 +362,7 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
     <Item
         id="mordor_horse_armour_a"
         name="{=aom_mordor_horse_armour_a_name}[Mordor] Horse Armor I"
@@ -360,5 +381,94 @@
         </ItemComponent>
         <Flags
             Civilian="true" />
-    </Item>
+    </Item>
+
+
+    <!-- ==================== SPIDER MOUNT ==================== -->
+    <!-- Giant spider mount items (Mirkwood / Dol Guldur). Three visual variants
+         matching compiled material tpacs (m_mordor_spider_a1/a2/a3_mtl.tpac).
+         Mesh: sk_spider_forest_c (62-bone skeleton, see monsters.xml id="spider").
+         Bound to Monster.spider with rider_sit_bone="chest_m" and Mountable="true".
+         Pattern mirrors Alliance.Wargs/Items/LOTR/lotr_warg.xml. -->
+    <Item id="spider_mount_a1"
+        name="{=spider_mount_a1_name}[Mirkwood] Giant Spider"
+        mesh="sk_spider_forest_bm_a1"
+        subtype="horse"
+        item_category="war_horse"
+        culture="Culture.dolguldur"
+        is_merchandise="true"
+        value="1500"
+        weight="600"
+        difficulty="30"
+        appearance="1"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="65"
+                speed="45"
+                charge_damage="5"
+                body_length="130"
+                is_mountable="true">
+                <Materials>
+                    <Material name="m_mordor_spider_a1" />
+                </Materials>
+            </Horse>
+        </ItemComponent>
+    </Item>
+
+    <Item id="spider_mount_a2"
+        name="{=spider_mount_a2_name}[Mirkwood] Giant Spider (Dark)"
+        mesh="sk_spider_forest_bm_a1"
+        subtype="horse"
+        item_category="war_horse"
+        culture="Culture.dolguldur"
+        is_merchandise="true"
+        value="1500"
+        weight="600"
+        difficulty="30"
+        appearance="0.5"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="65"
+                speed="45"
+                charge_damage="5"
+                body_length="130"
+                is_mountable="true">
+                <Materials>
+                    <Material name="m_mordor_spider_a2" />
+                </Materials>
+            </Horse>
+        </ItemComponent>
+    </Item>
+
+    <Item id="spider_mount_a3"
+        name="{=spider_mount_a3_name}[Mirkwood] Giant Spider (Brood Mother)"
+        mesh="sk_spider_forest_bm_a1"
+        subtype="horse"
+        item_category="war_horse"
+        culture="Culture.dolguldur"
+        is_merchandise="true"
+        value="2000"
+        weight="700"
+        difficulty="40"
+        appearance="0.3"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="60"
+                speed="42"
+                charge_damage="7"
+                body_length="140"
+                extra_health="100"
+                is_mountable="true">
+                <Materials>
+                    <Material name="m_mordor_spider_a3" />
+                </Materials>
+            </Horse>
+        </ItemComponent>
+    </Item>
 </Items>

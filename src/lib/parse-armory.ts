@@ -10,6 +10,7 @@ const ARMOR_SLOT_MAP: Record<string, string> = {
   leg_armors: 'Leg',
   arm_armors: 'Arm',
   shoulder_armors: 'Shoulder',
+  starter_armors: 'Starter',
 };
 
 export function parseArmory(): ArmorItem[] {

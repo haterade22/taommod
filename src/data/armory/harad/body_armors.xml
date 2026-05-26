@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Items>
-
-    <!-- Harad -->
-
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+    <!-- Harad -->
     <Item
         id="haradrim_torso"
         name="{=aom_haradrim_torso_name}[Harad] Mail Armour"
@@ -11,13 +8,13 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="6.8"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="17"
+                body_armor="18"
                 arm_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
@@ -26,8 +23,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="haradrim02_toso"
         name="{=aom_haradrim02_toso_name}[Harad] Scalemail Armour - Maroon"
@@ -35,13 +31,13 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="11.0"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="29"
+                body_armor="20"
                 arm_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
@@ -50,8 +46,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="haradrim02a_toso"
         name="{=aom_haradrim02a_toso_name}[Harad] Scalemail Armour - Green"
@@ -59,13 +54,13 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="11.0"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="29"
+                body_armor="20"
                 arm_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
@@ -74,8 +69,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="haradrim02b_toso"
         name="{=aom_haradrim02b_toso_name}[Harad] Scalemail Armour - Grey"
@@ -83,13 +77,13 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="11.0"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="29"
+                body_armor="20"
                 arm_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
@@ -98,8 +92,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="haradrim02c_toso"
         name="{=aom_haradrim02c_toso_name}[Harad] Scalemail Armour - Gold"
@@ -107,13 +100,13 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="11.0"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="29"
+                body_armor="20"
                 arm_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
@@ -122,8 +115,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="harad03_torso"
         name="{=aom_harad03_torso_name}[Harad] Armour - Orange"
@@ -131,160 +123,14 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="6.8"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="17"
+                body_armor="22"
                 arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad04_body"
-        name="{=aom_harad04_body_name}[Harad] Armour - Black"
-        mesh="harad04_body"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="17"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v1_torso"
-        name="{=aom_harad05_v1_torso_name}[Harad] Cavalry Armour - Red"
-        mesh="harad05_v1_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="29"
-                arm_armor="20"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v2_torso"
-        name="{=aom_harad05_v2_torso_name}[Harad] Cavalry Armour - Green"
-        mesh="harad05_v2_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="29"
-                arm_armor="20"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v3_torso"
-        name="{=aom_harad05_v3_torso_name}[Harad] Cavalry Armour - Blue"
-        mesh="harad05_v3_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="29"
-                arm_armor="20"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v4_torso"
-        name="{=aom_harad05_v4_torso_name}[Harad] Cavalry Armour - Black"
-        mesh="harad05_v4_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="29"
-                arm_armor="20"
-                leg_armor="14"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad06_v1_torso"
-        name="{=aom_harad06_v1_torso_name}[Harad] Serpent Guard Armour"
-        mesh="harad06_v1_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="18.7"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="47"
-                arm_armor="18"
-                leg_armor="26"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -292,8 +138,147 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
+    <Item
+        id="harad04_body"
+        name="{=aom_harad04_body_name}[Harad] Armour - Black"
+        mesh="harad04_body"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="22"
+                arm_armor="15"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="harad05_v1_torso"
+        name="{=aom_harad05_v1_torso_name}[Harad] Cavalry Armour - Red"
+        mesh="harad05_v1_torso"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="harad05_v2_torso"
+        name="{=aom_harad05_v2_torso_name}[Harad] Cavalry Armour - Green"
+        mesh="harad05_v2_torso"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="harad05_v3_torso"
+        name="{=aom_harad05_v3_torso_name}[Harad] Cavalry Armour - Blue"
+        mesh="harad05_v3_torso"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="harad05_v4_torso"
+        name="{=aom_harad05_v4_torso_name}[Harad] Cavalry Armour - Black"
+        mesh="harad05_v4_torso"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="20"
+                leg_armor="20"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+    <Item
+        id="harad06_v1_torso"
+        name="{=aom_harad06_v1_torso_name}[Harad] Serpent Guard Armour"
+        mesh="harad06_v1_torso"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="9.5"
+        difficulty="0"
+        appearance="1.5"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="28"
+                arm_armor="18"
+                leg_armor="10"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="plate"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
     <Item
         id="harad07_torso"
         name="{=aom_harad07_torso_name}[Harad] Armour - Bone"
@@ -301,7 +286,7 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="11.0"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -309,16 +294,15 @@
             <Armor
                 body_armor="29"
                 arm_armor="15"
-                leg_armor="14"
+                leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="plate"
+                material_type="Plate" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
+    </Item>
     <Item
         id="harad08_torso"
         name="{=aom_harad08_torso_name}[Harad] Archer Armour"
@@ -326,15 +310,15 @@
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="6.8"
+        weight="9.5"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="17"
+                body_armor="15"
                 arm_armor="15"
-                leg_armor="8"
+                leg_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="leather"
@@ -342,10 +326,7 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
-    <!-- #endregion -->
-
-    <!-- #endregion -->
-
+    </Item>
+    <!-- #endregion -->
+    <!-- #endregion -->
 </Items>

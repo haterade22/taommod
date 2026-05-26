@@ -49,6 +49,8 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   arnor: 'Arnor',
   troll: 'Troll',
   mercenary: 'Mercenary',
+  abanissa: 'Âbanissa',
+  shaghana: 'Shaghâna',
   // Armory folder-name aliases
   dunland: 'Dunland',
   dol_guldur: 'Dol Guldur',

@@ -16,12 +16,12 @@
 		</Equipments>
 	</NPCCharacter>
 
-	<!-- Villager (upgrades to easterling_recruit) -->
+	<!-- Villager (upgrades to loke_rim_initiate) -->
 	<NPCCharacter id="villager_rhun" default_group="Infantry" level="1" name="{=aom_rh_villager}Villager" occupation="Villager" culture="Culture.khuzait" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
 		<face><face_key_template value="BodyProperty.fighter_rhun" /></face>
 		<skills></skills>
 		<upgrade_targets>
-			<upgrade_target id="NPCCharacter.easterling_recruit" />
+			<upgrade_target id="NPCCharacter.loke_rim_initiate" />
 		</upgrade_targets>
 		<Equipments>
 			<EquipmentRoster>
@@ -66,7 +66,7 @@
 		</skills>
 		<Equipments>
 			<EquipmentRoster>
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Item1" id="Item.desert_round_shield" />
 				<equipment slot="Head" id="Item.easterlingwarriors04_helmet" />
 				<equipment slot="Body" id="Item.easterlingwarriors04_torso" />
@@ -103,7 +103,7 @@
 		</skills>
 		<Equipments>
 			<EquipmentRoster>
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Item1" id="Item.desert_round_shield" />
 				<equipment slot="Head" id="Item.easterling_head" />
 				<equipment slot="Body" id="Item.easterlingwarriors01_torso" />
@@ -123,7 +123,7 @@
 		</skills>
 		<Equipments>
 			<EquipmentRoster>
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Item1" id="Item.desert_round_shield" />
 				<equipment slot="Head" id="Item.easterlingwarriors04_helmet" />
 				<equipment slot="Body" id="Item.easterlingwarriors04_torso" />
@@ -160,7 +160,7 @@
 		</skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Item1" id="Item.desert_round_shield" />
 				<equipment slot="Head" id="Item.easterling_head" />
 				<equipment slot="Body" id="Item.easterling_torso" />
@@ -353,7 +353,7 @@
 				<equipment slot="Leg" id="Item.easterling_boots" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Body" id="Item.khuzait_civil_b" />
 				<equipment slot="Gloves" id="Item.easterlingwarriors01_gloves" />
 				<equipment slot="Leg" id="Item.easterlingwarriors01_boots" />
@@ -506,7 +506,7 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
-				<equipment slot="Item0" id="Item.rhun_1h_sword_b" />
+				<equipment slot="Item0" id="Item.sm_rh_loke_1h_sword_b" />
 				<equipment slot="Body" id="Item.easterling_torso" />
 				<equipment slot="Gloves" id="Item.easterling_glove" />
 				<equipment slot="Leg" id="Item.easterlingwarriors01_boots" />
@@ -853,9 +853,9 @@
 	<NPCCharacter id="gear_practice_dummy_rhun" default_group="Infantry" level="15" is_hero="false" name="{=aom_rh_practice_dummy}Practice Dummy" occupation="Soldier" culture="Culture.khuzait">
 		<skills></skills>
 		<Equipments>
-			<EquipmentRoster civilian="true">
-				<equipment slot="Body" id="Item.khuzait_civil_b" />
-				<equipment slot="Leg" id="Item.easterling_boots" />
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_rh_loke_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_rh_loke_grvs_light_a" />
 			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
@@ -863,7 +863,8 @@
 	<NPCCharacter id="weapon_practice_stage_1_rhun" default_group="Infantry" level="15" is_hero="false" name="{=aom_rh_practice_1}Practice Fighter" occupation="Soldier" culture="Culture.khuzait">
 		<skills></skills>
 		<Equipments>
-			<EquipmentRoster civilian="true">
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_1_t2" />
 				<equipment slot="Body" id="Item.khuzait_civil_coat_a" />
 				<equipment slot="Leg" id="Item.easterling_boots" />
 			</EquipmentRoster>
@@ -873,7 +874,8 @@
 	<NPCCharacter id="weapon_practice_stage_2_rhun" default_group="Infantry" level="25" is_hero="false" name="{=aom_rh_practice_2}Practice Fighter" occupation="Soldier" culture="Culture.khuzait">
 		<skills></skills>
 		<Equipments>
-			<EquipmentRoster civilian="true">
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_3_t3" />
 				<equipment slot="Body" id="Item.easterling_torso" />
 				<equipment slot="Leg" id="Item.easterlingwarriors01_boots" />
 			</EquipmentRoster>
@@ -883,7 +885,8 @@
 	<NPCCharacter id="weapon_practice_stage_3_rhun" default_group="Infantry" level="35" is_hero="false" name="{=aom_rh_practice_3}Practice Fighter" occupation="Soldier" culture="Culture.khuzait">
 		<skills></skills>
 		<Equipments>
-			<EquipmentRoster civilian="true">
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_5_t4" />
 				<equipment slot="Body" id="Item.easterlingwarriors04_torso" />
 				<equipment slot="Gloves" id="Item.easterling_glove" />
 				<equipment slot="Leg" id="Item.easterling_boots" />

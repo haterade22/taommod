@@ -4567,73 +4567,6 @@
     <!--Gondor Spears-->
 
     <CraftingPiece
-        id="gond_spr2_bld"
-        name="{=aom_gond_spr2_bld_name}Gondor Spear Head"
-        tier="3"
-        piece_type="Blade"
-        mesh="gond_spr2_bld"
-        length="47"
-        weight="0.85"
-        excluded_item_usage_features="swing">
-        <BladeData
-            stack_amount="3"
-            physics_material="wood_weapon"
-            body_name="bo_spear_b">
-            <Thrust
-                damage_type="Pierce"
-                damage_factor="1.97" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanHook" />
-            <Flag
-                name="NotStackable"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="gond_spr2_hndl"
-        name="{=aom_gond_spr2_hndl_name}Gondor Spear Handle"
-        tier="4"
-        piece_type="Handle"
-        mesh="gond_spr2_hndl"
-        length="190"
-        weight="1.6">
-        <BuildData
-            piece_offset="22.9" />
-        <Materials>
-            <Material
-                id="Wood"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="gond_spr2_pml"
-        name="{=aom_gond_spr2_pml_name}Gondor Spear Pommel"
-        tier="3"
-        piece_type="Pommel"
-        mesh="gond_spr2_pml"
-        length="3.8"
-        weight="0">
-        <Materials>
-            <Material
-                id="Iron3"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
         id="wm_gondor_spear_blade"
         name="{=aom_wm_gondor_spear_blade_name}Gondor Spear Head B"
         tier="3"
@@ -4790,6 +4723,97 @@
     </CraftingPiece>
 
     <CraftingPiece
+        id="wm_swan_knight_lance_blade_a"
+        name="{=wm_swan_knight_lance_blade_a}[Gondor] Swan Knight Lance Head I"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_swan_knight_lance_blade_a"
+        length="211"
+        weight="1.10"
+        excluded_item_usage_features="swing">
+        <BuildData
+            piece_offset="-145" />
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_wm_swan_knight_lance_blade_a">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.08" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+            <Flag
+                name="NotStackable"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_swan_knight_lance_blade_b"
+        name="{=wm_swan_knight_lance_blade_b}[Gondor] Swan Knight Lance Head II"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_swan_knight_lance_blade_b"
+        length="211"
+        weight="5.3"
+        excluded_item_usage_features="swing">
+        <BuildData
+            piece_offset="-100" />
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_wm_swan_knight_lance_blade_b">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.08" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+            <Flag
+                name="NotStackable"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_swan_knight_lance_handle_a"
+        name="{=wm_swan_knight_lance_handle_a}[Gondor] Swan Knight Lance Handle I"
+        tier="4"
+        piece_type="Handle"
+        mesh="wm_swan_knight_lance_handle_a"
+        length="72"
+        weight="2.3">
+        <BuildData
+            piece_offset="75" />
+        <Materials>
+            <Material
+                id="Wood"
+                count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
         id="wm_swan_knight_spear_blade"
         name="{=aom_wm_swan_knight_spear_blade_name}Gondor Swan Knight Spear Blade A"
         tier="3"
@@ -4846,7 +4870,7 @@
         name="{=aom_wm_swan_knight_spear_banner_name}Gondor Swan Knight Banner A"
         tier="3"
         piece_type="Guard"
-        mesh="wm_swan_knight_spear_banner"
+        mesh="wm_swan_knight_spear_flag"
         length="33.41"
         weight="0.15">
         <BuildData
@@ -4866,7 +4890,7 @@
         name="{=aom_wm_swan_knight_spear_gondor_banner_name}Gondor Knight Banner A"
         tier="3"
         piece_type="Guard"
-        mesh="wm_swan_knight_spear_gondor_banner"
+        mesh="wm_swan_knight_spear_gondor_flag"
         length="33.41"
         weight="0.15">
         <BuildData
@@ -4886,7 +4910,7 @@
         name="{=aom_wm_swan_knight_spear_pg_banner_name}Gondor PG Knight Banner A"
         tier="3"
         piece_type="Guard"
-        mesh="wm_swan_knight_spear_pg_banner"
+        mesh="wm_swan_knight_spear_pg_flag"
         length="33.41"
         weight="0.15">
         <BuildData
@@ -4898,6 +4922,82 @@
             <Material
                 id="Iron5"
                 count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <!-- Swan Knight spear-variant pieces (full Gondor + PG variants pair with the existing matching banners) -->
+
+    <CraftingPiece
+        id="wm_swan_knight_spear_gondor_blade"
+        name="{=aom_wm_swan_knight_spear_gondor_blade_name}Gondor Swan Knight Spear Blade B"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_swan_knight_spear_gondor_blade"
+        length="58.55"
+        weight="0.92"
+        excluded_item_usage_features="swing">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_swan_knight_spear_blade">
+            <Thrust damage_type="Pierce" damage_factor="2.19" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_swan_knight_spear_gondor_handle"
+        name="{=aom_wm_swan_knight_spear_gondor_handle_name}Gondor Swan Knight Spear Handle B"
+        tier="4"
+        piece_type="Handle"
+        mesh="wm_swan_knight_spear_gondor_handle"
+        length="193.86"
+        weight="1.5">
+        <BuildData piece_offset="60" />
+        <Materials>
+            <Material id="Wood" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_swan_knight_spear_pg_blade"
+        name="{=aom_wm_swan_knight_spear_pg_blade_name}Gondor PG Swan Knight Spear Blade B"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_swan_knight_spear_pg_blade"
+        length="58.55"
+        weight="0.92"
+        excluded_item_usage_features="swing">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_swan_knight_spear_blade">
+            <Thrust damage_type="Pierce" damage_factor="2.19" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_swan_knight_spear_pg_handle"
+        name="{=aom_wm_swan_knight_spear_pg_handle_name}Gondor PG Swan Knight Spear Handle B"
+        tier="4"
+        piece_type="Handle"
+        mesh="wm_swan_knight_spear_pg_handle"
+        length="193.86"
+        weight="1.5">
+        <BuildData piece_offset="60" />
+        <Materials>
+            <Material id="Wood" count="1" />
         </Materials>
     </CraftingPiece>
 
@@ -4993,6 +5093,45 @@
             blade_width="23.45"
             physics_material="metal_weapon"
             body_name="bo_wm_lossarnach_1h_axe__blade">
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.61" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="BonusAgainstShield" />
+            <Flag
+                name="CanBePickedUpFromCorpse"
+                type="ItemFlags" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_1h_axe_silver_blade"
+        name="{=aom_wm_lossarnach_1h_axe_silver_blade_name}Gondor Lossarnach 1H Axe Blade B"
+        tier="4"
+        piece_type="Blade"
+        mesh="wm_lossarnach_1h_axe_silver_blade"
+        length="28.47"
+        distance_to_next_piece="0"
+        distance_to_previous_piece="0"
+        weight="0.734">
+        <BuildData
+            piece_offset="-40" />
+        <BladeData
+            stack_amount="3"
+            blade_length="28.47"
+            blade_width="23.45"
+            physics_material="metal_weapon"
+            body_name="bo_wm_lossarnach_1h_axe_silver_blade">
             <Swing
                 damage_type="Cut"
                 damage_factor="3.61" />
@@ -5120,6 +5259,52 @@
     </CraftingPiece>
 
     <CraftingPiece
+        id="wm_lossarnach_2h_axe_silver_blade"
+        name="{=aom_wm_lossarnach_2h_axe_silver_blade_name}Gondor Lossarnach Axe 2H Blade B"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_lossarnach_2h_axe_silver_blade"
+        length="41.59"
+        distance_to_next_piece="0"
+        distance_to_previous_piece="0"
+        weight="1.75">
+        <BuildData
+            piece_offset="-20" />
+        <BladeData
+            stack_amount="3"
+            blade_length="41.59"
+            blade_width="31.16"
+            physics_material="metal_weapon"
+            body_name="bo_wm_lossarnach_2h_axe_silver_blade">
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.93" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="BonusAgainstShield" />
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanBePickedUpFromCorpse"
+                type="ItemFlags" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="3" />
+            <Material
+                id="Iron2"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
         id="wm_lossarnach_2h_axe_handle"
         name="{=aom_wm_lossarnach_2h_axe_handle_name}Lossarnach 2H Axe Handle A"
         tier="3"
@@ -5181,6 +5366,146 @@
             <Material
                 id="Iron4"
                 count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <!-- Lossarnach Axe Variants — finish-complete pieces (black-ash + silver) -->
+
+    <CraftingPiece
+        id="wm_lossarnach_1h_axe_black_ash_blade"
+        name="{=aom_wm_lossarnach_1h_axe_black_ash_blade_name}Gondor Lossarnach 1H Black Ash Axe Blade A"
+        tier="4"
+        piece_type="Blade"
+        mesh="wm_lossarnach_1h_axe_black_ash_blade"
+        length="28.47"
+        distance_to_next_piece="0"
+        distance_to_previous_piece="0"
+        weight="0.734">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="28.47" blade_width="23.45" physics_material="metal_weapon" body_name="bo_wm_lossarnach_1h_axe__blade">
+            <Swing damage_type="Cut" damage_factor="3.61" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_1h_axe_silver_handle"
+        name="{=aom_wm_lossarnach_1h_axe_silver_handle_name}Gondor Lossarnach 1H Silver Axe Handle A"
+        tier="3"
+        piece_type="Handle"
+        mesh="wm_lossarnach_1h_axe_silver_handle"
+        length="69.74"
+        weight="0.296">
+        <BuildData piece_offset="20" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials>
+            <Material id="Wood" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_1h_axe_black_ash_pommel"
+        name="{=aom_wm_lossarnach_1h_axe_black_ash_pommel_name}Gondor Lossarnach 1H Black Ash Pommel A"
+        tier="3"
+        piece_type="Pommel"
+        mesh="wm_lossarnach_1h_axe_black_ash_pommel"
+        length="20.7"
+        weight="0">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_1h_axe_silver_pommel"
+        name="{=aom_wm_lossarnach_1h_axe_silver_pommel_name}Gondor Lossarnach 1H Silver Pommel A"
+        tier="3"
+        piece_type="Pommel"
+        mesh="wm_lossarnach_1h_axe_silver_pommel"
+        length="20.7"
+        weight="0">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_2h_axe_black_ash_blade"
+        name="{=aom_wm_lossarnach_2h_axe_black_ash_blade_name}Gondor Lossarnach 2H Black Ash Axe Blade A"
+        tier="3"
+        piece_type="Blade"
+        mesh="wm_lossarnach_2h_axe_black_ash_blade"
+        length="41.59"
+        distance_to_next_piece="0"
+        distance_to_previous_piece="0"
+        weight="1.75">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="41.59" blade_width="31.16" physics_material="metal_weapon" body_name="bo_wm_lossarnach_2h_axe_blade">
+            <Swing damage_type="Cut" damage_factor="3.93" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+            <Material id="Iron2" count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_2h_axe_silver_handle"
+        name="{=aom_wm_lossarnach_2h_axe_silver_handle_name}Lossarnach 2H Silver Axe Handle A"
+        tier="3"
+        piece_type="Handle"
+        mesh="wm_lossarnach_2h_axe_silver_handle"
+        length="96.04"
+        weight="0.644"
+        item_holster_pos_shift="0,0,-0.1"
+        excluded_item_usage_features="widegrip">
+        <BuildData piece_offset="20" next_piece_offset="-19.5" previous_piece_offset="-17" />
+        <Materials>
+            <Material id="Wood" count="1" />
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_2h_axe_black_ash_pommel"
+        name="{=aom_wm_lossarnach_2h_axe_black_ash_pommel_name}Lossarnach 2H Black Ash Axe Pommel A"
+        tier="3"
+        piece_type="Pommel"
+        mesh="wm_lossarnach_2h_axe_black_ash_pommel"
+        length="15.95"
+        weight="0">
+        <BuildData piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_lossarnach_2h_axe_silver_pommel"
+        name="{=aom_wm_lossarnach_2h_axe_silver_pommel_name}Lossarnach 2H Silver Axe Pommel A"
+        tier="3"
+        piece_type="Pommel"
+        mesh="wm_lossarnach_2h_axe_silver_pommel"
+        length="15.95"
+        weight="0">
+        <BuildData piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
         </Materials>
     </CraftingPiece>
 

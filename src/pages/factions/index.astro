@@ -34,6 +34,8 @@ const KINGDOM_ORDER = [
   'dolguldur',
   'umbar',
   'aserai',
+  'abanissa',
+  'shaghana',
   'battania',
   'khuzait',
 ];
@@ -46,6 +48,8 @@ const EVIL_KINGDOMS = new Set([
   'dolguldur',
   'umbar',
   'aserai',
+  'abanissa',
+  'shaghana',
   'battania',
   'khuzait',
 ]);
@@ -67,6 +71,8 @@ const CREST_IMAGES: Record<string, string> = {
   vlandia: '/images/factions/rohan.png',
   sturgia: '/images/factions/dale.png',
   empire: '/images/factions/dunland.png',
+  abanissa: '/images/factions/abanissa.png',
+  shaghana: '/images/factions/harad.png',
 };
 
 const KINGDOM_SUMMARIES: Record<string, string> = {
@@ -101,6 +107,10 @@ const KINGDOM_SUMMARIES: Record<string, string> = {
     'Khand is the windswept homeland of the Variags, a hard riding people of swift horses, curved blades, and restless ambition.',
   khuzait:
     'Rhun is the golden realm of the East, home to proud Easterling kingdoms renowned for discipline, armor, and ancient grievances.',
+  abanissa:
+    'Âbanissa is the deep southern realm of Harad, a land of humid jungles and ancient stone dynasties whose great Houses command disciplined warriors and fearsome war-beasts.',
+  shaghana:
+    'Shaghâna is the eastern reach of Harad, a land of sun-scorched steppes and ancient fortresses whose nine tribal clans are bound by oath and blood into a fierce warrior host.',
 };
 
 function getMonogram(label: string) {

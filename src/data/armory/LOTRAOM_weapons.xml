@@ -1393,30 +1393,6 @@
     </CraftedItem>
 
     <CraftedItem
-        id="gond_spear2"
-        name="{=aom_gond_spear2_name}[Gondor] Spear I "
-        crafting_template="TwoHandedPolearm"
-        is_merchandise="true"
-        value="3000"
-        culture="Culture.gondor"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="gond_spr2_bld"
-                Type="Blade"
-                scale_factor="108" />
-            <Piece
-                id="gond_spr2_hndl"
-                Type="Handle"
-                scale_factor="110" />
-            <Piece
-                id="gond_spr2_pml"
-                Type="Pommel"
-                scale_factor="110" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
         id="wm_gondor_spear"
         name="{=aom_wm_gondor_spear_name}[Gondor] Spear II"
         crafting_template="TwoHandedPolearm"
@@ -1477,8 +1453,48 @@
     </CraftedItem>
 
     <CraftedItem
+        id="wm_swan_knight_lance_a"
+        name="{=wm_swan_knight_lance_a}[Gondor] Swan Knight Lance I"
+        crafting_template="TwoHandedPolearm"
+        is_merchandise="true"
+        culture="Culture.gondor"
+        value="4000"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="wm_swan_knight_lance_blade_a"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_swan_knight_lance_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_swan_knight_lance_b"
+        name="{=wm_swan_knight_lance_b}[Gondor] Swan Knight Lance II"
+        crafting_template="TwoHandedPolearm"
+        is_merchandise="true"
+        culture="Culture.gondor"
+        value="4000"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="wm_swan_knight_lance_blade_b"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_swan_knight_lance_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
         id="wm_gondor_swanknight_spearb"
-        name="{=aom_wm_gondor_swanknight_spearb_name}[Gondor] Banner Spear - Belfalas"
+        name="{=aom_wm_gondor_swanknight_spearb_name}[Gondor] Spear - Belfalas I"
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
@@ -1522,7 +1538,7 @@
 
     <CraftedItem
         id="wm_gondor_gondorknight_speara"
-        name="{=aom_wm_gondor_gondorknight_speara_name}[Gondor] Banner Spear"
+        name="{=aom_wm_gondor_gondorknight_speara_name}[Gondor] Banner Spear I"
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
@@ -1546,25 +1562,47 @@
 
     <CraftedItem
         id="wm_gondor_pg_speara"
-        name="{=aom_wm_gondor_pg_speara_name}[Gondor] Banner Spear - Pinnath Gelin"
+        name="{=aom_wm_gondor_pg_speara_name}[Gondor] Spear - Pinnath Gelin  I"
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
         value="6000"
         modifier_group="polearm">
         <Pieces>
-            <Piece
-                id="wm_swan_knight_spear_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_pg_banner"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_handle"
-                Type="Handle"
-                scale_factor="100" />
+			<Piece id="wm_swan_knight_spear_pg_blade" Type="Blade" scale_factor="100" />
+			<Piece id="wm_swan_knight_spear_pg_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <!-- Swan Knight full-variant spears (Gondor + PG blade/handle/banner finishes matched) -->
+
+    <CraftedItem
+        id="wm_gondor_gondorknight_spearb"
+        name="{=aom_wm_gondor_gondorknight_spearb_name}[Gondor] Banner Spear II"
+        crafting_template="TwoHandedPolearm"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        value="6000"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_swan_knight_spear_gondor_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_swan_knight_spear_gondor_banner" Type="Guard" scale_factor="100" />
+            <Piece id="wm_swan_knight_spear_gondor_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_pg_spearb"
+        name="{=aom_wm_gondor_pg_spearb_name}[Gondor] Banner Spear - Pinnath Gelin I"
+        crafting_template="TwoHandedPolearm"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        value="6000"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_swan_knight_spear_pg_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_swan_knight_spear_pg_banner" Type="Guard" scale_factor="100" />
+            <Piece id="wm_swan_knight_spear_pg_handle" Type="Handle" scale_factor="100" />
         </Pieces>
     </CraftedItem>
 
@@ -2010,6 +2048,28 @@
     </CraftedItem>
 
     <CraftedItem
+        id="wm_gondor_lossarnach_1h_axe_silver_a"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_a_name}[Gondor] Lossarnach One-Handed Axe I - Silver"
+        crafting_template="OneHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece
+                id="wm_lossarnach_1h_axe_silver_blade"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_1h_axe_handle"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_1h_axe_pommel"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
         id="wm_gondor_lossarnach_1h_axe_b"
         name="{=aom_wm_gondor_lossarnach_1h_axe_b_name}[Gondor] Lossarnach One-Handed Axe II"
         crafting_template="OneHandedAxe"
@@ -2018,6 +2078,28 @@
         <Pieces>
             <Piece
                 id="wm_lossarnach_1h_axe__blade"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_1h_axe_handle"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_1h_axe_pommel"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_1h_axe_silver_b"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_b_name}[Gondor] Lossarnach One-Handed Axe II - Silver"
+        crafting_template="OneHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece
+                id="wm_lossarnach_1h_axe_silver_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
@@ -2054,6 +2136,28 @@
     </CraftedItem>
 
     <CraftedItem
+        id="wm_gondor_lossarnach_2h_axe_silver_a"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_a_name}[Gondor] Lossarnach Two-Handed Axe I - Silver"
+        crafting_template="TwoHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece
+                id="wm_lossarnach_2h_axe_silver_blade"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_2h_axe_handle"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_2h_axe_pommel"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
         id="wm_gondor_lossarnach_2h_axe_b"
         name="{=aom_wm_gondor_lossarnach_2h_axe_b_name}[Gondor] Lossarnach Two-Handed Axe II"
         crafting_template="TwoHandedAxe"
@@ -2072,6 +2176,82 @@
                 id="wm_lossarnach_2h_axe_pommel"
                 Type="Pommel"
                 scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_2h_axe_silver_b"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_b_name}[Gondor] Lossarnach Two-Handed Axe II - Silver"
+        crafting_template="TwoHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece
+                id="wm_lossarnach_2h_axe_silver_blade"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_2h_axe_black_ash_handle"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="wm_lossarnach_2h_axe_pommel"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <!-- Full-finish Lossarnach axe variants (uses new black-ash + silver pieces matched across blade/handle/pommel). -->
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_1h_axe_black_ash_a"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_black_ash_a_name}[Gondor] Lossarnach One-Handed Axe - Black Ash"
+        crafting_template="OneHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece id="wm_lossarnach_1h_axe_black_ash_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_black_ash_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_black_ash_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_1h_axe_silver_full_a"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_full_a_name}[Gondor] Lossarnach One-Handed Axe - Silver"
+        crafting_template="OneHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece id="wm_lossarnach_1h_axe_silver_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_silver_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_silver_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_2h_axe_black_ash_a"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_black_ash_a_name}[Gondor] Lossarnach Two-Handed Axe - Black Ash"
+        crafting_template="TwoHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece id="wm_lossarnach_2h_axe_black_ash_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_black_ash_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_black_ash_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_gondor_lossarnach_2h_axe_silver_full_a"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_full_a_name}[Gondor] Lossarnach Two-Handed Axe - Silver"
+        crafting_template="TwoHandedAxe"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece id="wm_lossarnach_2h_axe_silver_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_silver_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_silver_pommel" Type="Pommel" scale_factor="100" />
         </Pieces>
     </CraftedItem>
 
@@ -4394,9 +4574,52 @@
     </Item>
 
     <Item
+        id="wm_gondor_bow"
+        name="{=aom_wm_gondor_bow_name}[Gondor] Gondor Bow I"
+        body_name="bo_cap_wm_ithilien_bow"
+        mesh="wm_ithilien_bow"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="0.1"
+        difficulty="50"
+        appearance="0.1"
+        Type="Bow"
+        item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Bow"
+                ammo_class="Arrow"
+                ammo_limit="1"
+                thrust_speed="85"
+                speed_rating="88"
+                missile_speed="88"
+                weapon_length="182"
+                accuracy="90"
+                thrust_damage="85"
+                thrust_damage_type="Pierce"
+                item_usage="long_bow"
+                physics_material="wood_weapon"
+                center_of_mass="0.15,0,0"
+                modifier_group="bow"
+                position="0.0, 0.0, 0.0">
+                <WeaponFlags
+                    RangedWeapon="true"
+                    HasString="true"
+                    StringHeldByHand="true"
+                    NotUsableWithOneHand="true"
+                    TwoHandIdleOnMount="true"
+                    AutoReload="true"
+                    UnloadWhenSheathed="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
+
+    <Item
         id="gondor_steel_bow"
         name="{=aom_gondor_steel_bow_name}[Gondor] Steel Shortbow I"
-        body_name="bo_composite_shotbow_g"
+        body_name="bo_short_bow_a"
         mesh="gondor_steelbow_a"
         is_merchandise="true"
         culture="Culture.gondor"
@@ -4439,7 +4662,7 @@
     <Item
         id="gondor_steel_bow_b"
         name="{=aom_gondor_steel_bow_b_name}[Gondor] Steel Shortbow II"
-        body_name="bo_composite_shotbow_g"
+        body_name="bo_short_bow_a"
         mesh="gondor_steelbow_a"
         is_merchandise="true"
         culture="Culture.gondor"
@@ -4482,7 +4705,7 @@
     <Item
         id="gondor_steel_bow_starter"
         name="{=aom_gondor_steel_bow_starter_name}[Gondor] Steel Shortbow - Starting"
-        body_name="bo_composite_shotbow_g"
+        body_name="bo_short_bow_a"
         mesh="gondor_steelbow_a"
         is_merchandise="true"
         culture="Culture.gondor"
@@ -4525,7 +4748,7 @@
     <Item
         id="sm_uruk_bow_a"
         name="{=aom_sm_uruk_bow_a_name}[Mordor] Uruk Shortbow I"
-        body_name="bo_composite_shotbow_g"
+        body_name="bo_short_bow_a"
         mesh="sm_uruk_bow_a"
         culture="Culture.mordor"
         is_merchandise="true"
@@ -4568,7 +4791,7 @@
     <Item
         id="sm_uruk_bow_starter"
         name="{=aom_sm_uruk_bow_starter_name}[Mordor] Uruk Shortbow - Starting"
-        body_name="bo_composite_shotbow_g"
+        body_name="bo_short_bow_a"
         mesh="sm_uruk_bow_a"
         culture="Culture.mordor"
         is_merchandise="true"
@@ -4951,7 +5174,7 @@
 
     <Item
         id="wm_elven_arrow_v1_a"
-        name="{=aom_wm_elven_arrow_v1_a_name}[Noldar] Elven Arrow I"
+        name="{=aom_wm_elven_arrow_v1_a_name}[Noldor] Elven Arrow I"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_elven_arrow_v1_a"
@@ -4994,7 +5217,7 @@
 
     <Item
         id="wm_elven_arrow_v2_a"
-        name="{=aom_wm_elven_arrow_v2_a_name}[Noldar] Elven Arrow II"
+        name="{=aom_wm_elven_arrow_v2_a_name}[Noldor] Elven Arrow II"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_elven_arrow_v2_a"
@@ -5037,7 +5260,7 @@
 
     <Item
         id="wm_elven_arrow_v3_a"
-        name="{=aom_wm_elven_arrow_v3_a_name}[Noldar] Elven Arrow III"
+        name="{=aom_wm_elven_arrow_v3_a_name}[Noldor] Elven Arrow III"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_elven_arrow_v1_a"
@@ -5080,7 +5303,7 @@
 
     <Item
         id="wm_elven_arrow_v4_a"
-        name="{=aom_wm_elven_arrow_v4_a_name}[Noldar] Elven Arrow IV"
+        name="{=aom_wm_elven_arrow_v4_a_name}[Noldor] Elven Arrow IV"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_elven_arrow_v2_a"
@@ -5116,6 +5339,556 @@
                     Consumable="true"
                     AmmoSticksWhenShot="true"
                     AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v1_b"
+        name="{=aom_wm_elven_arrow_v1_b_name}[Noldor] Elven Arrow V"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_b"
+        holster_mesh="wm_elven_quiver_1_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                physics_material="missile"
+                thrust_speed="0"
+                speed_rating="0"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v1_c"
+        name="{=aom_wm_elven_arrow_v1_c_name}[Noldor] Elven Arrow VI"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_c"
+        holster_mesh="wm_elven_quiver_1_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                physics_material="missile"
+                thrust_speed="0"
+                speed_rating="0"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v1_d"
+        name="{=aom_wm_elven_arrow_v1_d_name}[Noldor] Elven Arrow VII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_d"
+        holster_mesh="wm_elven_quiver_1_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                physics_material="missile"
+                thrust_speed="0"
+                speed_rating="0"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v2_b"
+        name="{=aom_wm_elven_arrow_v2_b_name}[Noldor] Elven Arrow VIII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_b"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        appearance="1"
+        flying_mesh="arrow_bl_flying"
+        holster_mesh="wm_elven_quiver_2_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                thrust_speed="0"
+                speed_rating="0"
+                physics_material="missile"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v2_c"
+        name="{=aom_wm_elven_arrow_v2_c_name}[Noldor] Elven Arrow IX"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_c"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        appearance="1"
+        flying_mesh="arrow_bl_flying"
+        holster_mesh="wm_elven_quiver_2_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                thrust_speed="0"
+                speed_rating="0"
+                physics_material="missile"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_v2_d"
+        name="{=aom_wm_elven_arrow_v2_d_name}[Noldor] Elven Arrow X"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_d"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        appearance="1"
+        flying_mesh="arrow_bl_flying"
+        holster_mesh="wm_elven_quiver_2_v1"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Arrow"
+                stack_amount="50"
+                thrust_speed="0"
+                speed_rating="0"
+                physics_material="missile"
+                missile_speed="10"
+                weapon_length="97"
+                thrust_damage="5"
+                thrust_damage_type="Pierce"
+                item_usage="arrow_right"
+                passby_sound_code="event:/mission/combat/missile/passby"
+                rotation="0, -80, 25"
+                sticking_position="0,-0.97,0"
+                sticking_rotation="90,0,0"
+                center_of_mass="0,0,-0.13"
+                modifier_group="arrow">
+                <WeaponFlags
+                    Consumable="true"
+                    AmmoSticksWhenShot="true"
+                    AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <!-- Quiver-variant arrow items: each pairs an existing arrow mesh with one of the
+         12 previously-unused quiver finishes (quiver_1..4 in v2/v3/v4). Visual diversity only;
+         stats match base v1_a/v2_a. -->
+
+    <Item
+        id="wm_elven_arrow_q1v2"
+        name="{=aom_wm_elven_arrow_q1v2_name}[Noldor] Elven Arrow XI"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_a"
+        holster_mesh="wm_elven_quiver_1_v2"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v2"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q1v3"
+        name="{=aom_wm_elven_arrow_q1v3_name}[Noldor] Elven Arrow XII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_b"
+        holster_mesh="wm_elven_quiver_1_v3"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v3"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q1v4"
+        name="{=aom_wm_elven_arrow_q1v4_name}[Noldor] Elven Arrow XIII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_c"
+        holster_mesh="wm_elven_quiver_1_v4"
+        holster_mesh_with_weapon="wm_elven_quiver_1_v4"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q2v2"
+        name="{=aom_wm_elven_arrow_q2v2_name}[Noldor] Elven Arrow XIV"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_a"
+        holster_mesh="wm_elven_quiver_2_v2"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v2"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q2v3"
+        name="{=aom_wm_elven_arrow_q2v3_name}[Noldor] Elven Arrow XV"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_b"
+        holster_mesh="wm_elven_quiver_2_v3"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v3"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q2v4"
+        name="{=aom_wm_elven_arrow_q2v4_name}[Noldor] Elven Arrow XVI"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_c"
+        holster_mesh="wm_elven_quiver_2_v4"
+        holster_mesh_with_weapon="wm_elven_quiver_2_v4"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q3v2"
+        name="{=aom_wm_elven_arrow_q3v2_name}[Noldor] Elven Arrow XVII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_d"
+        holster_mesh="wm_elven_quiver_3_v2"
+        holster_mesh_with_weapon="wm_elven_quiver_3_v2"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q3v3"
+        name="{=aom_wm_elven_arrow_q3v3_name}[Noldor] Elven Arrow XVIII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_a"
+        holster_mesh="wm_elven_quiver_3_v3"
+        holster_mesh_with_weapon="wm_elven_quiver_3_v3"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q3v4"
+        name="{=aom_wm_elven_arrow_q3v4_name}[Noldor] Elven Arrow XIX"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v1_b"
+        holster_mesh="wm_elven_quiver_3_v4"
+        holster_mesh_with_weapon="wm_elven_quiver_3_v4"
+        weight="0.041"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q4v2"
+        name="{=aom_wm_elven_arrow_q4v2_name}[Noldor] Elven Arrow XX"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_d"
+        holster_mesh="wm_elven_quiver_4_v2"
+        holster_mesh_with_weapon="wm_elven_quiver_4_v2"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q4v3"
+        name="{=aom_wm_elven_arrow_q4v3_name}[Noldor] Elven Arrow XXI"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_a"
+        holster_mesh="wm_elven_quiver_4_v3"
+        holster_mesh_with_weapon="wm_elven_quiver_4_v3"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags />
+    </Item>
+
+    <Item
+        id="wm_elven_arrow_q4v4"
+        name="{=aom_wm_elven_arrow_q4v4_name}[Noldor] Elven Arrow XXII"
+        body_name="bo_capsule_arrow"
+        holster_body_name="bo_axe_short"
+        mesh="wm_elven_arrow_v2_b"
+        holster_mesh="wm_elven_quiver_4_v4"
+        holster_mesh_with_weapon="wm_elven_quiver_4_v4"
+        weight="0.05"
+        culture="Culture.rivendell"
+        is_merchandise="true"
+        flying_mesh="arrow_bl_flying"
+        appearance="1"
+        Type="Arrows"
+        item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
+        holster_position_shift="0.0,0.0,0.15">
+        <ItemComponent>
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+                <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
         <Flags />
@@ -7093,560 +7866,6 @@
             <Piece
                 id="wm_rohan_ws_axe_2h_b01_handle"
                 Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!--Rhun-->
-
-    <!-- Rhûn One-Handed Swords -->
-
-    <!-- Rank 5 -->
-
-    <CraftedItem
-        id="rhun_1h_sword_a"
-        name="{=aom_rhun_1h_sword_a_name}[Rhûn] Sword I"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_noble_blade_4"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_guard_2"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_pommel_2"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_b"
-        name="{=aom_rhun_1h_sword_b_name}[Rhûn] Sword II"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_noble_blade_1"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_guard_4"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_grip_4"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_pommel_4"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_c"
-        name="{=aom_rhun_1h_sword_c_name}[Rhûn] Sword III"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_noble_blade_4"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_guard_1"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_grip_2"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="sturgian_noble_pommel_4"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_d"
-        name="{=aom_rhun_1h_sword_d_name}[Rhûn] Sword IV"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_noble_blade_1"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_guard_3"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_noble_pommel_1"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!-- Rank 4 -->
-
-    <CraftedItem
-        id="rhun_1h_sword_a_t4"
-        name="{=aom_rhun_1h_sword_a_t4_name}[Rhûn] Sword V"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_2"
-                Type="Blade"
-                scale_factor="105" />
-            <Piece
-                id="khuzait_guard_9"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_25"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="vlandian_pommel_7"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_b_t4"
-        name="{=aom_rhun_1h_sword_b_t4_name}[Rhûn] Sword VI"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_8"
-                Type="Blade"
-                scale_factor="90" />
-            <Piece
-                id="aserai_guard_8"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_grip_15"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_4"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_c_t4"
-        name="{=aom_rhun_1h_sword_c_t4_name}[Rhûn] Sword VII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_1"
-                Type="Blade"
-                scale_factor="105" />
-            <Piece
-                id="khuzait_guard_9"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_grip_8"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_noble_pommel_1"
-                Type="Pommel"
-                scale_factor="90" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_d_t4"
-        name="{=aom_rhun_1h_sword_d_t4_name}[Rhûn] Sword VIII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_2"
-                Type="Blade"
-                scale_factor="110" />
-            <Piece
-                id="aserai_guard_8"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_25"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_4"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!-- Rank 3 -->
-
-    <CraftedItem
-        id="rhun_1h_sword_a_t3"
-        name="{=aom_rhun_1h_sword_a_t3_name}[Rhûn] Sword IX"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="empire_blade_5"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_6"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_20"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_5"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_b_t3"
-        name="{=aom_rhun_1h_sword_b_t3_name}[Rhûn] Sword X"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_blade_8"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_guard_3"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_grip_17"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_9"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_c_t3"
-        name="{=aom_rhun_1h_sword_c_t3_name}[Rhûn] Sword XI"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="empire_blade_5"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_7"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="cleaver_grip_7"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_5"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_d_t3"
-        name="{=aom_rhun_1h_sword_d_t3_name}[Rhûn] Sword XII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_blade_8"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_6"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_grip_2"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_9"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!-- Rank 2 -->
-
-    <CraftedItem
-        id="rhun_1h_sword_a_t2"
-        name="{=aom_rhun_1h_sword_a_t2_name}[Rhûn] Sword XIII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_5"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_5"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_5"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_3"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_b_t2"
-        name="{=aom_rhun_1h_sword_b_t2_name}[Rhûn] Sword XIV"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_7"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_4"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="sturgian_grip_13"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_2"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_c_t2"
-        name="{=aom_rhun_1h_sword_c_t2_name}[Rhûn] Sword XV"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_5"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_guard_5"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_grip_7"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_3"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_d_t2"
-        name="{=aom_rhun_1h_sword_d_t2_name}[Rhûn] Sword XVI"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_7"
-                Type="Blade"
-                scale_factor="90" />
-            <Piece
-                id="khuzait_guard_4"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_5"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_2"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!-- Rank 1 -->
-
-    <CraftedItem
-        id="rhun_1h_sword_a_t1"
-        name="{=aom_rhun_1h_sword_a_t1_name}[Rhûn] Sword XVII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_7"
-                Type="Blade"
-                scale_factor="90" />
-            <Piece
-                id="aserai_guard_6"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_1"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_b_t1"
-        name="{=aom_rhun_1h_sword_b_t1_name}[Rhûn] Sword XVIII"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_blade_3"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="cleaver_guard_1"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="khuzait_pommel_6"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_c_t1"
-        name="{=aom_rhun_1h_sword_c_t1_name}[Rhûn] Sword XIX"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="khuzait_blade_7"
-                Type="Blade"
-                scale_factor="90" />
-            <Piece
-                id="aserai_guard_1"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_3"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="rhun_1h_sword_d_t1"
-        name="{=aom_rhun_1h_sword_d_t1_name}[Rhûn] Sword XX"
-        crafting_template="OneHandedSword"
-        culture="Culture.rhun"
-        is_merchandise="true"
-        modifier_group="sword">
-        <Pieces>
-            <Piece
-                id="aserai_blade_3"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="aserai_guard_6"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="aserai_grip_1"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="aserai_pommel_1"
-                Type="Pommel"
                 scale_factor="100" />
         </Pieces>
     </CraftedItem>

@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Items>
-
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
     <Item
         id="lotr_troll_armor"
         name="{=aom_lotr_troll_armor_name}Cave Troll Armor"
@@ -9,14 +7,14 @@
         mesh="lotr_troll_armor"
         culture="Culture.mordor"
         is_merchandise="false"
-        weight="48.0"
+        weight="1.8"
         difficulty="0"
         appearance="1.7"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="68"
-                leg_armor="39"
+                body_armor="95"
+                leg_armor="95"
                 arm_armor="95"
                 has_gender_variations="false"
                 covers_body="false"
@@ -25,16 +23,10 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-
-    <!-- #region Aserai Light Body Armors -->
-
-    <!-- #endregion -->
-
-    <!-- #region Dunland Body Armors -->
-
-    <!-- #endregion -->
-
-    <!-- #endregion -->
-
+    </Item>
+    <!-- #region Aserai Light Body Armors -->
+    <!-- #endregion -->
+    <!-- #region Dunland Body Armors -->
+    <!-- #endregion -->
+    <!-- #endregion -->
 </Items>

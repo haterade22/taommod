@@ -41,7 +41,7 @@
 	<!-- #region Tier 1 -->
 	<CraftedItem
 		id="peasant_maul_t1"
-		name="{=nTc20R1R}Makeshift Sledgehammer"
+		name="{=l7sSXCM2}Makeshift Maul"
 		crafting_template="TwoHandedMace"
 		is_merchandise="false"
 		culture="Culture.battania"
@@ -60,7 +60,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="peasant_maul_t1_2"
-		name="{=gYpNILVC}Sledgehammer"
+		name="{=Ae9L1a9g}Maul"
 		crafting_template="TwoHandedMace"
 		culture="Culture.battania"
 		modifier_group="cheap_weapon">
@@ -849,7 +849,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="battania_axe_1_t2"
-		name="{=ljOwXClb}Norse Hatchet"
+		name="{=HKxoO15a}Highland Hatchet"
 		crafting_template="OneHandedAxe"
 		culture="Culture.battania"
 		modifier_group="axe">
@@ -1009,6 +1009,7 @@
 		id="tzkurion_axe_t3"
 		name="{=POhLMyat}Broad Tzikourion"
 		crafting_template="OneHandedAxe"
+		culture="Culture.empire"
 		modifier_group="axe">
 		<Pieces>
 			<Piece
@@ -1203,8 +1204,10 @@
 	<!-- #region Tier 3 -->
 	<CraftedItem
 		id="aserai_2haxe_2_t3"
-		name="{=a8ycVmwU}Bardiche"
-		crafting_template="TwoHandedAxe">
+		name="{=B8p6E8GJ}Tabar"
+		crafting_template="TwoHandedAxe"
+		culture="Culture.aserai"
+		modifier_group="axe">
 		<Pieces>
 			<Piece
 				id="axe_craft_16_head"
@@ -1220,7 +1223,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="aserai_2haxe_1_t3"
-		name="{=HECAP8QW}Short Handled Bardiche"
+		name="{=2YYHjytM}Short Handled Tabar"
 		crafting_template="TwoHandedAxe"
 		culture="Culture.aserai"
 		modifier_group="axe">
@@ -1243,6 +1246,7 @@
 		id="bearded_axe_t3"
 		name="{=Mb0CuONB}Bearded Axe"
 		crafting_template="TwoHandedAxe"
+		culture="Culture.sturgia"
 		modifier_group="axe">
 		<Pieces>
 			<Piece
@@ -2164,7 +2168,7 @@
 	<!-- RENAME CIHAN -->
 	<CraftedItem
 		id="sturgia_polearm_1_t5"
-		name="{=160aqzPm}Warrazor"
+		name="{=bwHoKxPu}Berdysh"
 		crafting_template="TwoHandedPolearm"
 		culture="Culture.sturgia"
 		modifier_group="polearm">
@@ -2623,7 +2627,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="empire_sword_1_t2"
-		name="{=1CamO1P3}Iron Spatha"
+		name="{=Ml8B2sfb}Footman's Spatha"
 		crafting_template="OneHandedSword"
 		culture="Culture.empire"
 		modifier_group="sword">
@@ -3595,7 +3599,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="ridged_sabre_sword_t4"
-		name="{=8fK5E68M}Ridged Saber "
+		name="{=k5Ne9pqd}Ridged Scimitar"
 		crafting_template="OneHandedSword"
 		culture="Culture.aserai"
 		modifier_group="sword">
@@ -3722,7 +3726,9 @@
 	<CraftedItem
 		id="empire_sword_7_t2"
 		name="{=lwxOPEPx}Gladius"
-		crafting_template="OneHandedSword">
+		crafting_template="OneHandedSword"
+		culture="Culture.empire"
+		modifier_group="sword">
 		<Pieces>
 			<Piece
 				id="battania_blade_3_iron"
@@ -4460,8 +4466,9 @@
 	</CraftedItem>
 	<CraftedItem
 		id="cleaver_2hsword_t3"
-		name="{=XTGdfqVV}Two-Handed Cleaver "
+		name="{=XTGdfqVV}Two Handed Cleaver"
 		crafting_template="TwoHandedSword"
+		culture="Culture.vlandia"
 		modifier_group="sword">
 		<Pieces>
 			<Piece
@@ -4662,6 +4669,7 @@
 		id="ridged_2hsword_t4"
 		name="{=mMtKWolp}Ridged Great Saber"
 		crafting_template="TwoHandedSword"
+		culture="Culture.khuzait"
 		modifier_group="sword">
 		<Pieces>
 			<Piece
@@ -4686,6 +4694,7 @@
 		id="war_razor_2hsword_t4"
 		name="{=4RTsybkx}War Razor"
 		crafting_template="TwoHandedSword"
+		culture="Culture.vlandia"
 		modifier_group="sword">
 		<Pieces>
 			<Piece
@@ -4851,7 +4860,7 @@
 				id="battania_dagger_guard_9"
 				Type="Guard" />
 			<Piece
-				id="aserai_grip_8"
+				id="aserai_grip_4"
 				Type="Handle" />
 			<Piece
 				id="battania_pommel_9"
@@ -5402,7 +5411,9 @@
 	<CraftedItem
 		id="aserai_mace_5_t4"
 		name="{=Xv95gei9}Southern Two Handed Mace"
-		crafting_template="TwoHandedMace">
+		crafting_template="TwoHandedMace"
+		culture="Culture.aserai"
+		modifier_group="mace">
 		<Pieces>
 			<Piece
 				id="mace_head_34"
@@ -5420,7 +5431,9 @@
 	<CraftedItem
 		id="sturgia_mace_2_t4"
 		name="{=Urv6mKxq}Northern Reinforced Two Handed Mace"
-		crafting_template="TwoHandedMace">
+		crafting_template="TwoHandedMace"
+		culture="Culture.sturgia"
+		modifier_group="mace">
 		<Pieces>
 			<Piece
 				id="mace_head_37"
@@ -5430,7 +5443,7 @@
 				id="mace_handle_20"
 				Type="Handle" />
 			<Piece
-				id="vlandian_pommel_6"
+				id="vlandian_pommel_9"
 				Type="Pommel" />
 		</Pieces>
 		<!-- Length: 109 Weight: 1.79 -->
@@ -5438,7 +5451,9 @@
 	<CraftedItem
 		id="sturgia_mace_1_t3"
 		name="{=g6IpxVat}Northern Two Handed Mace"
-		crafting_template="TwoHandedMace">
+		crafting_template="TwoHandedMace"
+		culture="Culture.sturgia"
+		modifier_group="mace">
 		<Pieces>
 			<Piece
 				id="mace_head_38"
@@ -6945,7 +6960,7 @@
 	</CraftedItem>
 	<CraftedItem
 		id="woodland_throwing_axe_1_t1"
-		name="{=GrfnpDxu}Highland Throwing Axe"
+		name="{=U4p8PZrC}Woodland Throwing Axe"
 		crafting_template="ThrowingAxe"
 		culture="Culture.battania"
 		modifier_group="axe_throwing">
@@ -7037,7 +7052,7 @@
 				id="aserai_dagger_guard_4"
 				Type="Guard" />
 			<Piece
-				id="aserai_grip_8"
+				id="aserai_grip_4"
 				Type="Handle" />
 			<Piece
 				id="aserai_pommel_3"
@@ -7273,7 +7288,7 @@
 			<Weapon
 				weapon_class="Stone"
 				ammo_class="Stone"
-				stack_amount="4"
+				stack_amount="5"
 				physics_material="missile"
 				accuracy="45"
 				thrust_speed="102"
@@ -7291,7 +7306,8 @@
 					Consumable="true"
 					AutoReload="true"
 					UnloadWhenSheathed="true"
-					UseHandAsThrowBase="true" />
+					UseHandAsThrowBase="true"
+					CanBeUsedWhileCrouched="true" />
 			</Weapon>
 		</ItemComponent>
 		<Flags

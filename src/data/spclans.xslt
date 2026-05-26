@@ -14,6 +14,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_1}Blaidd-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -22,6 +23,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_2}Turch-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -30,6 +32,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_3}Uch-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -39,6 +42,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_4}Arth-luth</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN6</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -48,6 +52,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_5}Cigfran-luth</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN5</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -57,6 +62,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_6}Hebog-luth</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN4</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -65,6 +71,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_7}Draig-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -73,6 +80,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_8}Caru-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -81,6 +89,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_north_9}Avanc-luth</xsl:attribute>
+      <xsl:attribute name="banner_key">11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -88,8 +97,9 @@
   <!-- ==================== GONDOR CLANS (Empire West) ==================== -->
   <xsl:template match="Faction[@id='clan_empire_west_1']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_1}House of Húrinionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.149.1528.1528.764.764.1.0.0.10000.172.2000.580.580.765.825.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -97,8 +107,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_2']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_2}House of Imrazôrionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.202.149.1528.1528.764.732.1.0.0.10015.172.2000.600.600.764.726.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -106,8 +117,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_3']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_3}House of Eärnurionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.292.149.1528.1528.764.732.1.0.0.10022.172.2000.600.600.764.760.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -115,26 +127,29 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_4']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
-      <xsl:attribute name="name">{=TAOM_clan_empire_west_4}House of Ausirionath</xsl:attribute>
-      <xsl:attribute name="banner_key">11.2.149.1528.1528.764.732.1.0.0.10024.172.2000.650.650.764.760.0.0.0</xsl:attribute>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
+      <xsl:attribute name="name">{=TAOM_clan_empire_west_4}House of Barahirionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
+      <xsl:attribute name="banner_key">11.240.149.1528.1528.764.732.1.0.0.10019.172.2000.700.700.764.760.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_empire_west_5']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
-      <xsl:attribute name="name">{=TAOM_clan_empire_west_5}House of Barahirionath</xsl:attribute>
-      <xsl:attribute name="banner_key">11.240.149.1528.1528.764.732.1.0.0.10019.172.2000.700.700.764.760.0.0.0</xsl:attribute>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
+      <xsl:attribute name="name">{=TAOM_clan_empire_west_5}House of Ausirionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
+      <xsl:attribute name="banner_key">11.2.149.1528.1528.764.732.1.0.0.10024.172.2000.650.650.764.760.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_empire_west_6']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_6}House of Halboronionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.126.149.1528.1528.764.732.1.0.0.10026.172.2000.700.700.764.820.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -142,8 +157,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_7']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_7}House of Malandilionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.161.166.1528.1528.764.764.1.0.0.10027.172.171.650.600.765.760.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -151,8 +167,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_8']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_8}House of Olindurionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.242.262.1528.1528.764.764.1.0.0.10011.35.171.600.600.760.775.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -160,8 +177,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_west_9']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_west_9}House of Danuhirionath</xsl:attribute>
+      <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
       <xsl:attribute name="banner_key">11.172.149.1528.1528.764.732.1.0.0.503.2000.2000.377.377.764.760.0.0.0.503.172.2000.342.342.764.760.0.0.0.503.2000.2000.300.300.764.760.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -170,8 +188,9 @@
   <!-- ==================== MORDOR CLANS (Empire South) ==================== -->
   <xsl:template match="Faction[@id='clan_empire_south_1']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_1}Dôlgubêth</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.328.166.1528.1528.764.764.1.0.0.19012.149.116.700.700.755.705.1.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -179,8 +198,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_2']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_2}Goearnediad</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.116.166.1528.1528.764.764.1.0.0.19002.31.116.500.500.674.751.1.0.0.427.31.116.654.579.816.750.0.0.90</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -188,8 +208,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_3']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_3}Melkondili</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.2000.166.1528.1528.764.764.1.0.0.19015.142.116.800.800.759.755.1.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -197,8 +218,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_4']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_4}Môrgukar</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.211.166.1528.1528.764.764.1.0.0.19011.2000.171.900.900.756.818.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -206,9 +228,10 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_5']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_5}Bolgrûkig</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_ES2</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.18000.172.171.650.600.764.743.0.0.10</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -216,8 +239,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_6']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_6}Kâm Lagúrz</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.96.166.1528.1528.764.764.1.0.0.19008.191.171.1000.1000.764.824.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -225,8 +249,9 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_7']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_7}Bragzûkish</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.19003.172.171.650.600.764.743.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
@@ -234,17 +259,21 @@
 
   <xsl:template match="Faction[@id='clan_empire_south_8']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_8}Khôrahîm</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
+      <xsl:attribute name="banner_key">11.2001.2001.1528.1528.764.764.1.0.0.19015.212.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_empire_south_9']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'culture']"/>
       <xsl:attribute name="name">{=TAOM_clan_empire_south_9}Wâwrim</xsl:attribute>
       <xsl:attribute name="owner">Hero.lord_1_48_3</xsl:attribute>
+      <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
+      <xsl:attribute name="banner_key">11.2001.2001.1528.1528.764.764.1.0.0.19015.212.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -262,6 +291,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_2}House of Bard</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -270,6 +300,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_3}House of Brand</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -278,6 +309,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_4}House of Bain</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -287,6 +319,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_5}House of Esgaroth</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S7</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -296,6 +329,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_6}House of the River</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S6</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -304,6 +338,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_7}House of the Archers</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -312,6 +347,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_8}House of Long Lake</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -320,6 +356,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name']"/>
       <xsl:attribute name="name">{=TAOM_clan_sturgia_9}House of the Dragon-slayer</xsl:attribute>
+      <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -418,93 +455,104 @@
   <!-- ==================== ROHAN CLANS (Vlandia) ==================== -->
   <xsl:template match="Faction[@id='clan_vlandia_1']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_1}House of Eorling</xsl:attribute>
+      <xsl:attribute name="banner_key">11.157.166.1528.1528.764.764.1.0.0.21004.172.36.550.550.780.765.1.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_2']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_2}House of Cerdicing</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_3']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_3}House of Grimingas</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_4']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_4}House of Felánding</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_5']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_5}House of Oscyteling</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_6']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_6}House of Ordlacing</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_V6</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_7']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_7}House of Æthellafing</xsl:attribute>
       <xsl:attribute name="owner">Hero.lord_4_23_1</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_8']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_8}House of Grimmóding</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_V3</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_9']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_9}House of Dúning</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_10']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_10}House of Eoforing</xsl:attribute>
       <xsl:attribute name="owner">Hero.lord_4_28_1</xsl:attribute>
+      <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.21004.172.36.550.550.780.765.1.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
   <xsl:template match="Faction[@id='clan_vlandia_11']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'owner' and local-name() != 'banner_key']"/>
       <xsl:attribute name="name">{=TAOM_clan_vlandia_11}House of Tordaging</xsl:attribute>
       <xsl:attribute name="owner">Hero.lord_V11_u</xsl:attribute>
+      <xsl:attribute name="banner_key">11.272.272.1528.1528.764.764.1.0.0.21007.172.171.700.700.764.764.0.0.0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -547,7 +595,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement']"/>
       <xsl:attribute name="name">{=TAOM_clan_battania_4}Khorvash</xsl:attribute>
-      <xsl:attribute name="banner_key">11.99.166.1528.1528.764.764.1.0.0.504.132.116.240.106.849.679.0.1.237.504.144.116.240.106.799.648.0.1.57.504.132.116.240.106.890.735.0.0.358.504.144.116.240.106.888.795.0.0.178.504.132.116.240.106.680.679.0.0.122.504.144.116.240.106.731.648.0.0.302.504.132.116.240.106.638.735.0.1.2.504.144.116.240.106.641.795.0.1.-178.504.132.116.240.106.848.848.0.0.-58.504.144.116.240.106.798.880.0.0.122.504.132.116.240.106.679.848.0.1.57.504.144.116.240.106.729.880.0.1.-123</xsl:attribute>
+      <xsl:attribute name="banner_key">11.99.166.1528.1528.764.764.1.0.0.504.144.116.240.106.849.679.0.1.237.504.144.116.240.106.799.648.0.1.57.504.144.116.240.106.890.735.0.0.358.504.144.116.240.106.888.795.0.0.178.504.144.116.240.106.680.679.0.0.122.504.144.116.240.106.731.648.0.0.302.504.144.116.240.106.638.735.0.1.2.504.144.116.240.106.641.795.0.1.-178.504.144.116.240.106.848.848.0.0.-58.504.144.116.240.106.798.880.0.0.122.504.144.116.240.106.679.848.0.1.57.504.144.116.240.106.729.880.0.1.-123</xsl:attribute>
       <xsl:attribute name="tier">4</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.town_K4</xsl:attribute>
       <xsl:apply-templates select="node()"/>
@@ -607,35 +655,172 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- ==================== MINOR FACTIONS (settlement remaps) ==================== -->
+  <!-- ==================== MERCENARY MINOR FACTIONS ==================== -->
+
+  <!-- Ghilman → Serpent Guard (Haradrim mounted mercenaries) -->
+  <xsl:template match="Faction[@id='ghilman']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_ghilman_name}Serpent Guard</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_ghilman_short}Serpent Guard</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_ghilman_text}The Serpent Guard are mounted soldiers in the service of the Serpentlord of Near Harad. Bred in the saddle on the rolling plains south of the Ephel Dúath, they are unmatched as horse-archers in all of Middle-earth's southern lands. In times of peace between Harad and Mordor, the Guard hires its services to Haradrim lords and to any other power rich enough to afford their golden fee.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Legion of the Betrayed → The Grey Company (Dúnedain Rangers) -->
+  <xsl:template match="Faction[@id='legion_of_the_betrayed']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_legion_name}The Grey Company</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_legion_short}Grey Company</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_legion_text}The Grey Company are the last organised brotherhood of the Dúnedain Rangers, descendants of the kings of Arnor who lost their kingdom ages ago. They ride across the North without a home of their own, keeping the peace in lands that have forgotten their names. Though their first loyalty is to the line of Elendil, they take contracts from lords across Middle-earth when their wandering brings them through civilised lands.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Skolderbrotva → Axemen of Erebor (Dwarven mercenaries) -->
   <xsl:template match="Faction[@id='skolderbrotva']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_skolderbrotva_name}Axemen of Erebor</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_skolderbrotva_short}Axemen</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_skolderbrotva_text}The Axemen of Erebor are veterans of King Thorin's battles who found peacetime ill-suited to their temperament. Trained in the close-quarter fighting of the Dwarven halls — shield wall, short axe, mattock — they are formidable on any terrain but excel in the mountain passes that connect Erebor to the kingdoms of men. They take contracts from any who can afford their fee, but will not raise an axe against Erebor or Rivendell.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S1</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
+  <!-- Company of the Boar → Corsair Blades (Umbar ex-pirates) -->
   <xsl:template match="Faction[@id='company_of_the_boar']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_company_name}Corsair Blades</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_company_short}Corsairs</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_company_text}The Corsair Blades are veteran sea-fighters from the harbours of Umbar who have taken to selling their skills on land. They fight as crossbowmen — the preferred arm of shipboard warfare — and are as comfortable in a siege as they are on a rolling deck. Their captain, a scarred Númenórean exile, keeps them to their contracts with iron discipline, knowing that their reputation is their most valuable cargo.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_V3</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
+  <!-- ==================== MAFIA MINOR FACTIONS ==================== -->
+
+  <!-- Beni Zilal → The Blind Eye (Haradrim smuggler-assassins) -->
+  <xsl:template match="Faction[@id='beni_zilal']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_beni_zilal_name}The Blind Eye</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_beni_zilal_short}Blind Eye</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_beni_zilal_text}The Blind Eye is a brotherhood of smugglers, fences, and hired killers operating across the coasts of Harad and the deep desert. They are said to descend from a cult of assassins who served a forgotten Haradrim king, and their methods — poison, shadow, and the leveraging of secrets — remain unchanged. Lords who wish to quietly remove a rival, or merchants who need cargo moved without customs inspection, know where to leave a gold coin and a sealed letter.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Wolfskins → Variag Ravagers (Khand raider outlaws) -->
   <xsl:template match="Faction[@id='wolfskins']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_wolfskins_name}Variag Ravagers</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_wolfskins_short}Ravagers</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_wolfskins_text}The Variag Ravagers are war-bands of young Variag warriors from the steppes of Khand who spend their early manhood in a state of ritual warfare: they may own no cooked food, sleep under no permanent roof, and take no mercy. While most eventually return to the settled life of their clans, some never do, and these form the Ravagers — outlaws who prey on the roads of Khand and raid across its borders into Harad and Gondor.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_K5</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
 
+  <!-- Brotherhood of the Woods → Dunlending Reavers (culture change: vlandia → empire) -->
+  <xsl:template match="Faction[@id='brotherhood_of_woods']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'culture' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_brotherhood_name}Dunlending Reavers</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_brotherhood_short}Reavers</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_brotherhood_text}The Dunlending Reavers are the broken remnant of a hill-clan that once dwelt in the valleys now ruled by the Rohirrim. Their grandfathers were driven from fertile land into the rocky heights, and they have nursed that bitterness into a raider's philosophy: everything taken from a southron or a king's man is merely the restoration of what was stolen. In practice they are brigands, but dangerous ones who know every goat-track through the hills.</xsl:attribute>
+      <xsl:attribute name="culture">Culture.empire</xsl:attribute>
+      <xsl:attribute name="initial_home_settlement">Settlement.castle_EN3</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Hidden Hand → The Mouth's Servants (Mordor intelligence network) -->
+  <xsl:template match="Faction[@id='hidden_hand']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_hidden_hand_name}The Mouth's Servants</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_hidden_hand_short}Servants</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_hidden_hand_text}The Mouth's Servants are the Eyes of Barad-dûr operating beyond the Black Gate — informants, enforcers, and spies embedded among the peoples bordering Mordor. Where Sauron's armies cannot yet reach, these agents collect tribute and silence dissent. They work through bribery, blackmail, and quiet murder, ensuring that no conspiracy against the Dark Lord takes root before it is uprooted and crushed.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Lake Rats → Wreckers of the Long Lake (Esgaroth criminals) -->
+  <xsl:template match="Faction[@id='lakepike']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_lakepike_name}Wreckers of the Long Lake</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_lakepike_short}Wreckers</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_lakepike_text}The Wreckers of the Long Lake live in the reed-beds and rotting old jetties of the Long Lake's shadowed shores, far from the respectable lights of Esgaroth. They make their living by luring barges onto hidden shoals with false lanterns, then stripping the cargo and selling it through fences in the town itself. Despite the efforts of the Lake-town Master and the Dale merchants, the Wreckers have too many friends in the dockside taverns to be easily driven out.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- ==================== SECT MINOR FACTION ==================== -->
+
+  <!-- Embers of the Flame → Cult of the Lidless Eye (Black Númenórean sect) -->
   <xsl:template match="Faction[@id='embers_of_flame']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_embers_name}Cult of the Lidless Eye</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_embers_short}Eye Cult</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_embers_text}The Cult of the Lidless Eye is a secret society rooted in the Black Númenórean tradition, venerating Sauron as a god-king who will restore his faithful to glory when he rises again. They recruit among the dispossessed of Dunland and the forgotten corners of the realm, promising divine favour and earthly power. In truth, their leaders answer to agents of Barad-dûr, and their cell-based structure makes them nearly impossible for any lord's justice to eradicate.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN5</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- ==================== NOMAD MINOR FACTIONS ==================== -->
+
+  <!-- Jawwal → The Sand-Riders (Haradrim desert nomads) -->
+  <xsl:template match="Faction[@id='jawwal']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_jawwal_name}The Sand-Riders</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_jawwal_short}Sand-Riders</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_jawwal_text}The Sand-Riders are the nomadic desert clans of the deep Harad interior, masters of the waterless wastes between the Ephel Dúath and the distant southern sea. They range across routes known only to themselves, demanding tribute from any caravan bold enough to cross their territory. The settled lords of Near Harad treat them as a nuisance; the Sand-Riders consider the settled lords thieves who stole what the desert had already given freely.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Karakhergit → Wild Easterlings (Rhun steppe nomads) -->
+  <xsl:template match="Faction[@id='karakhuzaits']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_karakhuzaits_name}The Wild Easterlings</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_karakhuzaits_short}Wild Ones</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_karakhuzaits_text}The Wild Easterlings are the unconquered steppe clans of the Sea of Rhûn, who have resisted the authority of every lord who has tried to bring them to heel — Rhûn chieftain, Mordor lieutenant, and King of Dale alike. They range across the grasslands east of the Celduin, rounding up horses, raiding flocks, and collecting road tribute from any caravan foolish enough to cross their steppe without an armed escort.</xsl:attribute>
+      <xsl:attribute name="initial_home_settlement">Settlement.castle_RU10</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Forest People → The Drúedain / Woses (ancient forest dwellers) -->
+  <xsl:template match="Faction[@id='forest_people']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:attribute name="name">{=TAOM_forest_people_name}The Drúedain</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_forest_people_short}Woses</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_forest_people_text}The Drúedain, known to Men as Woses or the Wild Men of the Woods, are an ancient people who dwell in the deep forest of Drúadan and the hidden valleys of the White Mountains. They clear ground with fire, grow what they need on the ash-rich soil, and move on when the land is spent — a way of life the settled peoples of Middle-earth have never understood and never bothered to. The Drúedain want no lord, pay no tax, and ask only to be left to the forest's silence.</xsl:attribute>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Eleftheroi → The Beornings (skin-changers of the Anduin vale) -->
+  <xsl:template match="Faction[@id='eleftheroi']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:attribute name="name">{=TAOM_eleftheroi_name}The Beornings</xsl:attribute>
+      <xsl:attribute name="short_name">{=TAOM_eleftheroi_short}Beornings</xsl:attribute>
+      <xsl:attribute name="text">{=TAOM_eleftheroi_text}The Beornings are the great woodmen who dwell in the vale of the Anduin between the Misty Mountains and Mirkwood, led by the skin-changers of Beorn's line. They allow no Orc to cross their territory, charge a toll at the Ford of Carrock to fund their watch, and answer to no king in Middle-earth. Though they will trade and talk with Elves and Dwarves, any army that marches through their forest without leave will find that the Beornings have very large teeth.</xsl:attribute>
+      <xsl:attribute name="initial_home_settlement">Settlement.castle_M1</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
