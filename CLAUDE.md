@@ -45,6 +45,7 @@ npx astro check   # TypeScript/Astro type checking
 - **Dark theme**: CSS custom properties defined in `:root` in `global.css` (`--bg-primary`, `--accent`, etc.)
 - **Font**: Self-hosted Cinzel (woff2 in `public/fonts/`) for navigation, system font stack for body text
 - **Shared DataTable utilities**: `src/scripts/data-table.ts` provides `initSorting()`, `initCollapse()`, `applyUrlParams()`, `collectRows()` for all data table pages
+- **Sticky table headers**: All tables use Excel-style freeze-pane behavior — `.data-table-wrapper` and `.table-wrapper` are capped at `max-height: 75vh` with `overflow: auto`, and `thead th` is `position: sticky; top: 0` so column labels stay pinned while rows scroll within the wrapper. New tables should reuse one of these wrapper classes (defined in `styles/global.css`) rather than rolling their own scroll container.
 
 ## File Organization
 
