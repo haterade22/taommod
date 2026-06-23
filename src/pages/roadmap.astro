@@ -2,78 +2,58 @@
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const roadmapArtists = [
+const contributorCount = 4;
+
+const roadmapDisciplines = [
   {
-    name: 'Solus',
     discipline: '3D Art',
-    wip: ['Dale Armour', 'Gondor Weapon Revamp'],
-    next: ['Dale Weapons', 'Rivendell Kitbash', 'Umbar Armours', 'Map Icons'],
+    completed: ['Dale Armors', 'Dale Weapons', 'Dale Shields', 'Mordor Orcs Armor', 'Mordor Orcs Weapons'],
+    wip: ['Black Númenóreans'],
+    next: [
+      'Harad Armors',
+      'Lothlorien Armors',
+      'Khand',
+      'Umbar',
+      'Gondor Revamp 3/4',
+      'Mirkwood Armors',
+      'Map Icons Revamp',
+    ],
   },
   {
-    name: 'Keyforce',
-    discipline: '3D Art',
-    wip: ['Gondor Armour Revamp', 'Dwarven Kitbash'],
-    next: ['Mordor Orc Armours', 'Mordor Black Númenorean Armours', 'Haradwaith armours', 'Khand armours'],
-  },
-  {
-    name: 'Leovsilva',
-    discipline: '3D Art',
-    wip: [],
-    next: ['Lothlorien armours'],
-  },
-  {
-    name: 'Kronos',
-    discipline: '3D Art',
-    wip: ['Fell Warg'],
-    next: [],
-  },
-  {
-    name: 'Haterade',
-    discipline: 'Coding',
-    wip: ['Integrating 1.2 code into 1.3 version'],
-    next: ['Navmesh implementation'],
-  },
-  {
-    name: 'Thyrell',
     discipline: '2D Art',
-    wip: ['1.3 Clan banner overhaul'],
+    completed: [],
+    wip: ['Banners', 'Career UI', 'Game UI'],
     next: [],
   },
   {
-    name: 'JoshuaF',
-    discipline: '2D Art',
-    wip: ['Gondor Revamp Concept Art'],
-    next: [],
-  },
-  {
-    name: 'Lemmy',
     discipline: 'Map Design',
-    wip: ['1.3 Map Revamp'],
+    completed: [],
+    wip: ['Polish'],
     next: [],
   },
   {
-    name: 'Kysaro',
     discipline: 'Scene Design',
-    wip: ['Generic Mordor Battle Scene', 'Argonath Battle Scene'],
-    next: [],
+    completed: ['Mordor Battle Maps', 'Rohan Battle Maps', 'Minas Tirith', 'West Osgiliath', 'East Osgiliath'],
+    wip: ['Minas Morgul', 'Mordor Tavern/Arenas'],
+    next: ['Moria', 'Edoras'],
   },
   {
-    name: 'Shogun',
-    discipline: 'Scene Design',
-    wip: ['Generic Gondor Castle Scene'],
-    next: [],
-  },
-  {
-    name: 'Volkan Yigit',
     discipline: 'Animations',
-    wip: ['Spider Animations', 'Mumakil Animations'],
+    completed: [],
+    wip: ['Spider', 'Troll', 'Elephant'],
+    next: ['Mumakil'],
+  },
+  {
+    discipline: 'Coding',
+    completed: [],
+    wip: ['Polishing', 'Stability'],
     next: [],
   },
 ];
 
-const totalWip = roadmapArtists.reduce((sum, artist) => sum + artist.wip.length, 0);
-const totalNext = roadmapArtists.reduce((sum, artist) => sum + artist.next.length, 0);
-const disciplineOrder = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Animations', 'Coding'] as const;
+const totalWip = roadmapDisciplines.reduce((sum, group) => sum + group.wip.length, 0);
+const totalNext = roadmapDisciplines.reduce((sum, group) => sum + group.next.length, 0);
+const disciplineOrder: string[] = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Animations', 'Coding'];
 const disciplineThemes: Record<string, { accent: string; glow: string; tint: string }> = {
   '3D Art': {
     accent: '#cf9b52',
@@ -107,22 +87,7 @@ const disciplineThemes: Record<string, { accent: string; glow: string; tint: str
   },
 };
 
-const roadmapGroups = Array.from(
-  roadmapArtists.reduce((groups, artist) => {
-    if (!groups.has(artist.discipline)) {
-      groups.set(artist.discipline, []);
-    }
-
-    groups.get(artist.discipline)?.push(artist);
-    return groups;
-  }, new Map<string, (typeof roadmapArtists)[number][]>()),
-  ([discipline, artists]) => ({
-    discipline,
-    contributorCount: artists.length,
-    wip: artists.flatMap((artist) => artist.wip),
-    next: artists.flatMap((artist) => artist.next),
-  }),
-)
+const roadmapGroups = [...roadmapDisciplines]
   .sort((left, right) => disciplineOrder.indexOf(left.discipline) - disciplineOrder.indexOf(right.discipline))
   .map((group) => ({
     ...group,
@@ -154,7 +119,7 @@ const roadmapGroups = Array.from(
 
         <div class="hero-stats">
           <article class="stat-card">
-            <span class="stat-value">{roadmapArtists.length}</span>
+            <span class="stat-value">{contributorCount}</span>
             <span class="stat-label">Contributors</span>
           </article>
           <article class="stat-card">
@@ -198,6 +163,22 @@ const roadmapGroups = Array.from(
                 </p>
 
                 <div class="status-streams">
+                  {group.completed.length > 0 && (
+                    <section class="status-stream">
+                      <div class="status-stream-heading">
+                        <span class="status-dot status-dot-completed" />
+                        <h3>Completed</h3>
+                        <span class="status-count">{group.completed.length}</span>
+                      </div>
+
+                      <ul class="task-chip-list">
+                        {group.completed.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
                   <section class="status-stream">
                     <div class="status-stream-heading">
                       <span class="status-dot status-dot-wip" />
@@ -510,6 +491,11 @@ const roadmapGroups = Array.from(
   .status-dot-next {
     background: #93a874;
     box-shadow: 0 0 0 0.3rem rgba(147, 168, 116, 0.14);
+  }
+
+  .status-dot-completed {
+    background: #6fae8f;
+    box-shadow: 0 0 0 0.3rem rgba(111, 174, 143, 0.16);
   }
 
   .status-count {
