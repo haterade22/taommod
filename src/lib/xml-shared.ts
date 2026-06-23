@@ -51,6 +51,8 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   mercenary: 'Mercenary',
   abanissa: 'Âbanissa',
   shaghana: 'Shaghâna',
+  goblin: 'Goblins',
+  mistymountainorcs: 'Misty Mountain Orcs',
   // Armory folder-name aliases
   dunland: 'Dunland',
   dol_guldur: 'Dol Guldur',
@@ -58,6 +60,7 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   rohan: 'Rohan',
   rhun: 'Rhun',
   lothlorien: 'Lothlorien',
+  dale: 'Dale',
 };
 
 // Cultures to exclude from display

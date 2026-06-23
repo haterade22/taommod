@@ -533,6 +533,12 @@ a:hover {
 .data-table tr[data-culture='rhun'] td {
   background: rgba(212, 162, 76, 0.75);
 } /* Rhun - gold */
+.data-table tr[data-culture='goblin'] td {
+  background: rgba(68, 88, 46, 0.75);
+} /* Goblins - deep mossy green */
+.data-table tr[data-culture='mistymountainorcs'] td {
+  background: rgba(78, 72, 96, 0.75);
+} /* Misty Mountain Orcs - cold slate */
 /* Armory folder-name aliases (armory uses folder names instead of vanilla culture IDs) */
 .data-table tr[data-culture='dunland'] td {
   background: rgba(160, 130, 109, 0.75);
@@ -546,6 +552,9 @@ a:hover {
 .data-table tr[data-culture='rohan'] td {
   background: rgba(93, 174, 93, 0.75);
 } /* Rohan = vlandia */
+.data-table tr[data-culture='dale'] td {
+  background: rgba(110, 168, 217, 0.75);
+} /* Dale = sturgia - ice blue */
 
 /* Section headers in table */
 .data-table th.section-start {

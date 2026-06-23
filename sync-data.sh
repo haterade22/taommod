@@ -102,4 +102,8 @@ else
   echo "  Warning: Bannerlord not found at $GAME_DIR — skipping vanilla data"
 fi
 
+# Strip stray backup/swap files (e.g. *.bak, *.bak-predaleshields, *~) left in mod source.
+# Run after ALL copies so we catch backups in any subdirectory regardless of arrival order.
+find "$DATA_DIR" -type f \( -name '*.bak*' -o -name '*~' -o -name '*.swp' -o -name '*.tmp' \) -delete
+
 echo "Done! Run 'npm run build' to regenerate the site."

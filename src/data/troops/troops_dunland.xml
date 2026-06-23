@@ -14,7 +14,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -81,7 +81,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -157,7 +157,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -234,7 +234,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -305,7 +305,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -379,7 +379,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -453,7 +453,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -524,7 +524,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -600,7 +600,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -674,7 +674,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -748,6 +748,40 @@
     <!--Wolf Clan Branch (Axe and Shield, Infantry)-->
 
     <NPCCharacter
+        id="dunland_raiders_boss"
+        default_group="Infantry"
+        level="21"
+        name="{=taom_dunland_raiders_boss_name}[Dunland] Blaidd-lûth Warlord"
+        occupation="Bandit"
+        culture="Culture.dunland_raiders">
+        <face>
+            <face_key_template value="BodyProperty.fighter_dunland_a" />
+        </face>
+        <skills>
+            <skill id="Athletics" value="115" />
+            <skill id="Riding" value="10" />
+            <skill id="OneHanded" value="130" />
+            <skill id="TwoHanded" value="115" />
+            <skill id="Polearm" value="130" />
+            <skill id="Bow" value="15" />
+            <skill id="Crossbow" value="10" />
+            <skill id="Throwing" value="65" />
+        </skills>
+        <Equipments>
+            <EquipmentRoster>
+                <equipment slot="Item0" id="Item.dunland_caerdh_axe_1h_a" />
+                <equipment slot="Item1" id="Item.dunland_wulf_shield_medium_f" />
+                <equipment slot="Item2" id="Item.northern_javelin_2_t3" />
+                <equipment slot="Head" id="Item.dunland_wulf_helmet_heavy_f" />
+                <equipment slot="Body" id="Item.dunland_wulf_scalemail_heavy_f" />
+                <equipment slot="Leg" id="Item.dunland_wulf_boots_medium_f" />
+                <equipment slot="Gloves" id="Item.dunland_wulf_bracer_medium_f" />
+                <equipment slot="Cape" id="Item.dunland_wulf_pauldron_cape_short_d" />
+            </EquipmentRoster>
+        </Equipments>
+    </NPCCharacter>
+
+    <NPCCharacter
         id="dunland_wolf_raider"
         default_group="Infantry"
         level="21"
@@ -756,7 +790,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -830,7 +864,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -904,7 +938,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -980,7 +1014,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -1051,7 +1085,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -1125,7 +1159,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -1198,7 +1232,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -1255,7 +1289,7 @@
                     id="Item.dunland_caerdh_bracer_light_a" />
                 <equipment
                     slot="Cape"
-                    id="Item.dunland_caerdh_pauldron_heavy_cape_b_cape" />
+                    id="Item.dunland_caerdh_pauldron_heavy_cape_b" />
             </EquipmentRoster>
             <EquipmentSet
                 id="battania_troop_civilian_template_t2"
@@ -1278,7 +1312,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -1358,7 +1392,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -1437,7 +1471,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -1517,7 +1551,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -1597,7 +1631,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -1677,7 +1711,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -1745,7 +1779,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -1823,7 +1857,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -1900,7 +1934,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -1977,7 +2011,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -2053,7 +2087,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -2136,7 +2170,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -2219,7 +2253,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -2302,7 +2336,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -2376,7 +2410,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -2456,7 +2490,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -2533,7 +2567,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -2610,7 +2644,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -2686,7 +2720,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -2763,7 +2797,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -2840,7 +2874,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -2916,7 +2950,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -2993,7 +3027,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill
@@ -3070,7 +3104,7 @@
         culture="Culture.empire">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_battania" />
+                value="BodyProperty.fighter_dunland_a" />
         </face>
         <skills>
             <skill
@@ -3147,7 +3181,7 @@
         skill_template="SkillSet.infantry_heavyinfantry_level11_template_skills">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_dunland_a" />
+                value="BodyProperty.fighter_dunland_b" />
         </face>
         <skills>
             <skill
@@ -3213,7 +3247,7 @@
         skill_template="SkillSet.ranged_skirmisher_level11_template_skills">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_dunland_a" />
+                value="BodyProperty.fighter_dunland_c" />
         </face>
         <skills>
             <skill
@@ -3281,7 +3315,7 @@
         skill_template="SkillSet.infantry_heavyinfantry_level16_template_skills">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_dunland_a" />
+                value="BodyProperty.fighter_dunland_d" />
         </face>
         <skills>
             <skill
@@ -3352,7 +3386,7 @@
         skill_template="SkillSet.ranged_skirmisher_level16_template_skills">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_dunland_a" />
+                value="BodyProperty.fighter_dunland_e" />
         </face>
         <skills>
             <skill

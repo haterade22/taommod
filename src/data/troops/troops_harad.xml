@@ -12,7 +12,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -82,7 +82,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -143,6 +143,79 @@
     </NPCCharacter>
 
     <NPCCharacter
+        id="harad_elephant_rider"
+        default_group="HorseArcher"
+        level="51"
+        name="{=harad_elephant_rider_name}[Aharad] Elephant Rider"
+        occupation="Soldier"
+        culture="Culture.aserai">
+        <face>
+            <face_key_template
+                value="BodyProperty.fighter_haradrim" />
+        </face>
+        <skills>
+            <skill
+                id="Athletics"
+                value="220" />
+            <skill
+                id="Riding"
+                value="385" />
+            <skill
+                id="OneHanded"
+                value="345" />
+            <skill
+                id="TwoHanded"
+                value="150" />
+            <skill
+                id="Polearm"
+                value="380" />
+            <skill
+                id="Bow"
+                value="290" />
+            <skill
+                id="Crossbow"
+                value="40" />
+            <skill
+                id="Throwing"
+                value="80" />
+        </skills>
+        <Equipments>
+            <EquipmentRoster>
+                <equipment
+                    slot="Item0"
+                    id="Item.bodkin_arrows_b" />
+                <equipment
+                    slot="Item1"
+                    id="Item.aserai_sword_3_t3" />
+                <equipment
+                    slot="Item2"
+                    id="Item.steppe_heavy_bow" />
+                <equipment
+                    slot="Item3"
+                    id="Item.bodkin_arrows_b" />
+                <equipment
+                    slot="Head"
+                    id="Item.haradrim_head" />
+                <equipment
+                    slot="Body"
+                    id="Item.haradrim_torso" />
+                <equipment
+                    slot="Gloves"
+                    id="Item.haradrim_gloves" />
+                <equipment
+                    slot="Leg"
+                    id="Item.haradrim_boots" />
+                <equipment
+                    slot="Horse"
+                    id="Item.taom_war_elephant" />
+                <equipment
+                    slot="HorseHarness"
+                    id="Item.sk_elephant_armor_a" />
+            </EquipmentRoster>
+        </Equipments>
+    </NPCCharacter>
+
+    <NPCCharacter
         id="harad_skirmisher"
         default_group="Ranged"
         level="11"
@@ -151,7 +224,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -222,7 +295,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -293,7 +366,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -387,7 +460,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -464,7 +537,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -544,7 +617,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -615,7 +688,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -686,7 +759,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -755,6 +828,42 @@
     </NPCCharacter>
 
     <NPCCharacter
+        id="harad_raiders_boss"
+        default_group="Cavalry"
+        level="21"
+        name="{=taom_harad_raiders_boss_name}[Harad] Haradrim Warlord"
+        occupation="Bandit"
+        culture="Culture.harad_raiders">
+        <face>
+            <face_key_template value="BodyProperty.fighter_haradrim" />
+        </face>
+        <skills>
+            <skill id="Athletics" value="100" />
+            <skill id="Riding" value="135" />
+            <skill id="OneHanded" value="120" />
+            <skill id="TwoHanded" value="50" />
+            <skill id="Polearm" value="140" />
+            <skill id="Bow" value="35" />
+            <skill id="Crossbow" value="15" />
+            <skill id="Throwing" value="30" />
+        </skills>
+        <Equipments>
+            <EquipmentRoster>
+                <equipment slot="Item0" id="Item.eastern_spear_4_t4" />
+                <equipment slot="Item1" id="Item.studded_adarga" />
+                <equipment slot="Item2" id="Item.eastern_javelin_3_t4" />
+                <equipment slot="Item3" id="Item.aserai_sword_5_t4" />
+                <equipment slot="Head" id="Item.brass_aserai_helmet_b_open" />
+                <equipment slot="Body" id="Item.aserai_scale_armor_on_chain" />
+                <equipment slot="Leg" id="Item.strapped_mail_chausses" />
+                <equipment slot="Gloves" id="Item.rough_tied_bracers" />
+                <equipment slot="Horse" id="Item.war_camel" />
+                <equipment slot="HorseHarness" id="Item.camel_saddle" />
+            </EquipmentRoster>
+        </Equipments>
+    </NPCCharacter>
+
+    <NPCCharacter
         id="harad_camelrider"
         default_group="Cavalry"
         level="21"
@@ -763,7 +872,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -843,7 +952,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -917,7 +1026,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -991,7 +1100,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1065,7 +1174,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1145,7 +1254,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1216,7 +1325,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1284,7 +1393,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1356,7 +1465,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1436,7 +1545,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1518,7 +1627,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1598,7 +1707,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1681,7 +1790,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1761,7 +1870,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1841,7 +1950,7 @@
         culture="Culture.aserai">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_aserai" />
+                value="BodyProperty.fighter_haradrim" />
         </face>
         <skills>
             <skill
@@ -1951,21 +2060,21 @@
         </skills>
         <Equipments>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.aserai_lance_1_t3" />
+                <equipment slot="Item0" id="Item.khuzait_lance_1_t3" />
                 <equipment slot="Item1" id="Item.desert_round_shield" />
                 <equipment slot="Head" id="Item.haradrim_head" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
                 <equipment slot="Leg" id="Item.haradrim_boots" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.aserai_lance_1_t3" />
+                <equipment slot="Item0" id="Item.khuzait_lance_1_t3" />
                 <equipment slot="Item1" id="Item.desert_round_shield" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
                 <equipment slot="Gloves" id="Item.haradrim_gloves" />
                 <equipment slot="Leg" id="Item.haradrim_boots" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.aserai_lance_1_t3" />
+                <equipment slot="Item0" id="Item.khuzait_lance_1_t3" />
                 <equipment slot="Item1" id="Item.desert_round_shield" />
                 <equipment slot="Head" id="Item.haradrim_head" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
@@ -2033,7 +2142,7 @@
                 <equipment slot="Leg" id="Item.haradrim_boots" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.default_arrows" />
                 <equipment slot="Item2" id="Item.aserai_sword_3_t3" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
@@ -2086,7 +2195,7 @@
         </skills>
         <Equipments>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.aserai_lance_2_t4" />
+                <equipment slot="Item0" id="Item.khuzait_lance_2_t4" />
                 <equipment slot="Item1" id="Item.desert_round_shield" />
                 <equipment slot="Head" id="Item.haradrim_head" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
@@ -2094,7 +2203,7 @@
                 <equipment slot="Leg" id="Item.haradrim_boots" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.aserai_lance_2_t4" />
+                <equipment slot="Item0" id="Item.khuzait_lance_2_t4" />
                 <equipment slot="Item1" id="Item.desert_round_shield" />
                 <equipment slot="Head" id="Item.haradrim_head" />
                 <equipment slot="Body" id="Item.haradrim_torso" />
@@ -2147,7 +2256,7 @@
         </skills>
         <Equipments>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.bodkin_arrows_b" />
                 <equipment slot="Item2" id="Item.aserai_sword_3_t3" />
                 <equipment slot="Head" id="Item.haradrim_head" />
@@ -2156,7 +2265,7 @@
                 <equipment slot="Leg" id="Item.haradrim_boots" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.bodkin_arrows_b" />
                 <equipment slot="Item2" id="Item.aserai_sword_3_t3" />
                 <equipment slot="Head" id="Item.haradrim_head" />

@@ -9,6 +9,18 @@
 	
 	<xsl:template match="WeaponDescription[@id='OneHandedSword']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_sword_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_sword_a01_guard" />
+			<AvailablePiece id="wm_dale_ws_sword_a01_handle" />
+			<AvailablePiece id="wm_dale_ws_sword_a01_pommel" />
+			<AvailablePiece id="wm_dale_ws_sword_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_sword_a02_guard" />
+			<AvailablePiece id="wm_dale_ws_sword_a02_handle" />
+			<AvailablePiece id="wm_dale_ws_sword_a02_pommel" />
+			<AvailablePiece id="wm_dale_ws_sword_a03_blade" />
+			<AvailablePiece id="wm_dale_ws_sword_a03_guard" />
+			<AvailablePiece id="wm_dale_ws_sword_a03_handle" />
+			<AvailablePiece id="wm_dale_ws_sword_a03_pommel" />
 			<AvailablePiece id="wm_thranduil_sword_blade" />
 			<AvailablePiece id="wm_thranduil_sword_guard" />
 			<AvailablePiece id="wm_thranduil_sword_handle" />
@@ -383,6 +395,17 @@
 
 	<xsl:template match="WeaponDescription[@id='TwoHandedPolearm']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_spear_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a01" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a02" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a03" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a04" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a05" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a06" />
+			<AvailablePiece id="wm_dale_ws_spear_a01_handle" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_handle" />
+			<AvailablePiece id="wm_dale_ws_polearm_a01_handle" />
 			<AvailablePiece id="easterling_spear_blade"/>
 			<AvailablePiece id="easterling_spear_handle"/>
 <AvailablePiece id="dunland_caerdh_spear_head_a"/>
@@ -665,6 +688,17 @@
 	
 	<xsl:template match="WeaponDescription[@id='TwoHandedPolearm_Couchable']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_spear_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a01" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a02" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a03" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a04" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a05" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a06" />
+			<AvailablePiece id="wm_dale_ws_spear_a01_handle" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_handle" />
+			<AvailablePiece id="wm_dale_ws_polearm_a01_handle" />
 			<AvailablePiece id="easterling_spear_blade"/>
 			<AvailablePiece id="easterling_spear_handle"/>
 <AvailablePiece id="dunland_caerdh_spear_head_a"/>
@@ -802,6 +836,17 @@
 	
 	<xsl:template match="WeaponDescription[@id='TwoHandedPolearm_Bracing']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_spear_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a01" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a02" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a03" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a04" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a05" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a06" />
+			<AvailablePiece id="wm_dale_ws_spear_a01_handle" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_handle" />
+			<AvailablePiece id="wm_dale_ws_polearm_a01_handle" />
 			<AvailablePiece id="easterling_spear_blade"/>
 			<AvailablePiece id="easterling_spear_handle"/>
 <AvailablePiece id="dunland_caerdh_spear_head_a"/>
@@ -1050,6 +1095,11 @@
 
 	<xsl:template match="WeaponDescription[@id='OneHandedAxe']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_1h_axe_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_1h_axe_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_1h_axe_a03_blade" />
+			<AvailablePiece id="wm_dale_ws_1h_axe_a02_handle" />
+			<AvailablePiece id="wm_dale_ws_1h_axe_a03_handle" />
 			<AvailablePiece id="wm_tuors_axe_blade" />
 			<AvailablePiece id="wm_tuors_axe_1h_handle" />
 			<AvailablePiece id="dunland_caerdh_axe_blade_1h_a"/>
@@ -1120,6 +1170,8 @@
 
 	<xsl:template match="WeaponDescription[@id='TwoHandedAxe']/AvailablePieces">
 		<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_2h_axe_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_2h_axe_a01_handle" />
 			<AvailablePiece id="wm_tuors_axe_blade" />
 			<AvailablePiece id="wm_tuors_axe_handle" />
 			<AvailablePiece id="dunland_caerdh_axe_blade_2h_a"/>
@@ -1219,6 +1271,10 @@
 	<!--Pike-->
 <xsl:template match="WeaponDescription[@id='TwoHandedPolearm_Pike']/AvailablePieces">
 	<AvailablePieces>
+			<AvailablePiece id="wm_dale_ws_polearm_a01_handle" />
+			<AvailablePiece id="wm_dale_ws_spear_a01_blade" />
+			<AvailablePiece id="wm_dale_ws_spear_a02_blade" />
+			<AvailablePiece id="wm_dale_ws_polearm_head_a04" />
 		<AvailablePiece id="wm_isengard_1h_pike_a01_blade"/>
 		<AvailablePiece id="wm_isengard_1h_pike_b01_blade"/>
 		<AvailablePiece id="wm_isengard_1h_pike_a01_handle"/>

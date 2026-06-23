@@ -146,4 +146,52 @@ export const FACTION_TROOPS: Record<string, TroopBranch[]> = {
         'Men of the East who swore their souls to Khamûl, the Ringwraith of Dol-Guldur. They are disciplined, silent soldiers — black-armored archers, infantry, and cavalry bound by sorcery and faith.',
     },
   ],
+
+  goblin: [
+    {
+      name: 'Goblin Infantry',
+      tiers: 'T0–T5',
+      type: 'regular',
+      description:
+        'Warriors, brawlers, raiders, impalers, and ravagers swarming up from the tunnels of Goblin-town. Lightly armored but numberless, they overwhelm enemies through sheer weight of bodies and brutal close-quarters fury.',
+    },
+    {
+      name: 'Goblin Skirmishers',
+      tiers: 'T0–T4',
+      type: 'regular',
+      description:
+        'Hunters, lurkers, sentries, and archers who haunt the high passes and ambush travelers on the mountain roads. They rely on shortbows, poisoned shafts, and the darkness of the tunnels to fight on their own terms.',
+    },
+    {
+      name: 'Goblin Bone Breakers',
+      tiers: 'T5–T6',
+      type: 'regional',
+      description:
+        'The largest and meanest of the High Pass goblins, oversized brutes who wade into the front line and crush armored foes with two-handed mauls and sheer weight.',
+    },
+  ],
+
+  mistymountainorcs: [
+    {
+      name: 'Misty Orc Infantry',
+      tiers: 'T0–T5',
+      type: 'regular',
+      description:
+        'Warriors, brawlers, raiders, impalers, and ravagers bred for war in the cold peaks from Mount Gram to the gates of Moria. Hardier than their goblin cousins, they hold the high places and answer the call of the Shadow.',
+    },
+    {
+      name: 'Misty Orc Skirmishers',
+      tiers: 'T0–T4',
+      type: 'regular',
+      description:
+        'Hunters, lurkers, sentries, and archers who patrol the cliff-edges and deep delvings of the Misty Mountains, picking off Free Peoples scouts long before they reach the orc-host.',
+    },
+    {
+      name: 'Orc Bone Breakers',
+      tiers: 'T5–T6',
+      type: 'regional',
+      description:
+        'The shock troops of the mountain host — massive armored orcs who shatter shieldwalls and break enemy lines with crushing two-handed weapons.',
+    },
+  ],
 };

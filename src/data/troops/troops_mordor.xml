@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <NPCCharacters>
     <!--Mordor Regular Line-->
     <NPCCharacter
@@ -12,7 +12,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -361,7 +361,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -632,7 +632,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -873,7 +873,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1021,7 +1021,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1252,7 +1252,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1486,7 +1486,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1649,7 +1649,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1810,7 +1810,7 @@
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_uruk_mordor" />
         </face>
         <skills>
             <skill
@@ -1964,22 +1964,23 @@
     <!-- Harad Line -->
 
     <!--Orc-->
-    <!-- DISABLED 2026-05-14: Cave troll WIP; not ready for live game yet. Re-enable by uncommenting.
-         Note: cave_troll is is_basic_troop="true" with culture="Culture.mordor" — wrapping the entire
-         NPCCharacter prevents vanilla DefaultVolunteerModel.GetBasicVolunteer from selecting it as a
-         Mordor volunteer (TaomVolunteerModel falls through to base for cultures without an explicit pool).
+    <!-- Re-enabled 2026-06-13: live Mordor troll race unit. is_basic_troop set false so vanilla
+         DefaultVolunteerModel.GetBasicVolunteer cannot pick the L51 troll as a Mordor *basic*
+         volunteer (the sole concern behind the 2026-05-14 disable). The troll spawns via the Mordor
+         hero party template; to make it recruitable, add an explicit Mordor pool to
+         VolunteerRecruitmentService instead of flipping is_basic_troop back to true. -->
     <NPCCharacter
         id="cave_troll"
         race="cave_troll"
         default_group="Infantry"
         level="51"
-        is_basic_troop="true"
-        name="{=aom_cave_troll_name}[Mordor] Armored Troll"
+        is_basic_troop="false"
+        name="{=aom_cave_troll_name}[AMordor] Armored Troll"
         occupation="Soldier"
         culture="Culture.mordor">
         <face>
             <face_key_template
-                value="BodyProperty.fighter_empire" />
+                value="BodyProperty.fighter_cave_troll" />
         </face>
         <skills>
             <skill
@@ -2099,7 +2100,6 @@
             </EquipmentRoster>
         </Equipments>
     </NPCCharacter>
-    -->
     <!-- ==================== MORDOR MILITIA TROOPS ==================== -->
 
     <NPCCharacter
@@ -2352,7 +2352,7 @@
         <upgrade_targets></upgrade_targets>
         <Equipments>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.default_arrows" />
                 <equipment slot="Item2" id="Item.wm_mordor_set1_sword_a01" />
                 <equipment slot="Head" id="Item.sk_uruk_mordor_helmet_heavy_a1" />
@@ -2361,7 +2361,7 @@
                 <equipment slot="Cape" id="Item.sk_uruk_mordor_pauldron_medium_c" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.default_arrows" />
                 <equipment slot="Item2" id="Item.wm_mordor_set1_axe_a02" />
                 <equipment slot="Head" id="Item.sk_uruk_mordor_helmet_heavy_b1" />
@@ -2369,7 +2369,7 @@
                 <equipment slot="Leg" id="Item.sk_uruk_mordor_greaves_medium_b" />
             </EquipmentRoster>
             <EquipmentRoster>
-                <equipment slot="Item0" id="Item.long_bow" />
+                <equipment slot="Item0" id="Item.noble_long_bow" />
                 <equipment slot="Item1" id="Item.default_arrows" />
                 <equipment slot="Item2" id="Item.wm_mordor_set1_sword_a02" />
                 <equipment slot="Head" id="Item.sk_uruk_mordor_helmet_heavy_d1" />
@@ -2396,7 +2396,7 @@
       is_basic_troop="true"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="20" />
@@ -2428,7 +2428,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="35" />
@@ -2462,7 +2462,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="50" />
@@ -2497,7 +2497,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="70" />
@@ -2531,7 +2531,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -2563,7 +2563,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="70" />
@@ -2597,7 +2597,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -2629,7 +2629,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="50" />
@@ -2662,7 +2662,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="70" />
@@ -2696,7 +2696,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -2729,7 +2729,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="25" />
@@ -2759,7 +2759,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="35" />
@@ -2792,7 +2792,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="50" />
@@ -2826,7 +2826,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="65" />
@@ -2861,7 +2861,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="80" />
@@ -2896,7 +2896,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="95" />
@@ -2930,7 +2930,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_uruk_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="70" />
@@ -2967,7 +2967,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_uruk_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -3003,7 +3003,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_uruk_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -3036,7 +3036,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_uruk_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="95" />
@@ -3070,7 +3070,7 @@
       occupation="Soldier"
       culture="Culture.mordor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_uruk_mordor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -3089,6 +3089,351 @@
         <equipment slot="Cape" id="Item.sk_uruk_mordor_pauldron_heavy_g" />
         <equipment slot="Gloves" id="Item.sk_uruk_mordor_bracer_heavy_e" />
         <equipment slot="Leg" id="Item.sk_uruk_mordor_greaves_heavy_f" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <!-- ============================================================== -->
+  <!--  KEYforce Morannon line (race=orc, T2->T6)                      -->
+  <!--  Spec: lotraom-assets/tools/mordor_armor_and_troops.md          -->
+  <!--  Tree: Recruit -> Fighter/Skirmisher -> Warrior/Scout           -->
+  <!--        -> Infantry+Spearman+Archer -> Heavy Inf+Heavy Spear     -->
+  <!--  Armor: sk_md_mor_* (Pik shares Inf bracers; greaves shared)    -->
+  <!--  Weapons: wm_mordor_set1_* + standard bows                      -->
+  <!-- ============================================================== -->
+
+  <NPCCharacter
+      id="morannon_recruit"
+      race="orc"
+      default_group="Infantry"
+      level="7"
+      name="{=aom_morannon_recruit_name}[Mordor] Morannon Recruit"
+      occupation="Soldier"
+      culture="Culture.mordor"
+      is_basic_troop="true">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="30" />
+      <skill id="OneHanded" value="35" />
+      <skill id="TwoHanded" value="25" />
+      <skill id="Polearm" value="25" />
+      <skill id="Bow" value="15" />
+      <skill id="Throwing" value="20" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_fighter" />
+      <upgrade_target id="NPCCharacter.morannon_skirmisher" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_sword_a02" />
+        <equipment slot="Item1" id="Item.sm_mordor_shield_small_a" />
+        <equipment slot="Head" id="Item.sk_md_mor_inf_helmet_light_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_light_a" />
+        <equipment slot="Cape" id="Item.sk_md_mor_inf_pauld_light_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_light_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_light_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_fighter"
+      race="orc"
+      default_group="Infantry"
+      level="11"
+      name="{=aom_morannon_fighter_name}[Mordor] Morannon Fighter"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="50" />
+      <skill id="OneHanded" value="55" />
+      <skill id="TwoHanded" value="40" />
+      <skill id="Polearm" value="40" />
+      <skill id="Throwing" value="25" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_warrior" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_sword_a02" />
+        <equipment slot="Item1" id="Item.sm_mordor_shield_small_a" />
+        <equipment slot="Head" id="Item.sk_md_mor_inf_helmet_light_b" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_light_b" />
+        <equipment slot="Cape" id="Item.sk_md_mor_inf_pauld_light_b" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_light_b" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_light_b" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_skirmisher"
+      race="orc"
+      default_group="Ranged"
+      level="11"
+      name="{=aom_morannon_skirmisher_name}[Mordor] Morannon Skirmisher"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="50" />
+      <skill id="OneHanded" value="40" />
+      <skill id="Bow" value="65" />
+      <skill id="Throwing" value="25" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_scout" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.hunting_bow" />
+        <equipment slot="Item1" id="Item.barbed_arrows" />
+        <equipment slot="Item2" id="Item.wm_mordor_set1_sword_a02" />
+        <equipment slot="Head" id="Item.sk_md_mor_arc_helmet_light_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_arc_chest_light_a" />
+        <equipment slot="Cape" id="Item.sk_md_mor_arc_pauld_light_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_arc_bracer_light_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_light_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_warrior"
+      race="orc"
+      default_group="Infantry"
+      level="16"
+      name="{=aom_morannon_warrior_name}[Mordor] Morannon Warrior"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="70" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="60" />
+      <skill id="Polearm" value="60" />
+      <skill id="Throwing" value="30" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_infantry" />
+      <upgrade_target id="NPCCharacter.morannon_spearman" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_sword_a01" />
+        <equipment slot="Item1" id="Item.sm_mordor_shield_small_b" />
+        <equipment slot="Head" id="Item.sk_md_mor_inf_helmet_med_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_med_a" />
+        <equipment slot="Cape" id="Item.sk_md_mor_inf_pauld_med_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_med_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_med_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_scout"
+      race="orc"
+      default_group="Ranged"
+      level="16"
+      name="{=aom_morannon_scout_name}[Mordor] Morannon Scout"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="70" />
+      <skill id="OneHanded" value="55" />
+      <skill id="Bow" value="90" />
+      <skill id="Throwing" value="35" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_archer" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.hunting_bow" />
+        <equipment slot="Item1" id="Item.barbed_arrows" />
+        <equipment slot="Item2" id="Item.wm_mordor_set1_sword_a02" />
+        <equipment slot="Head" id="Item.sk_md_mor_arc_helmet_med_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_arc_chest_med_a" />
+        <equipment slot="Cape" id="Item.sk_md_mor_arc_pauld_med_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_arc_bracer_med_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_med_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_infantry"
+      race="orc"
+      default_group="Infantry"
+      level="21"
+      name="{=aom_morannon_infantry_name}[Mordor] Morannon Infantry"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="90" />
+      <skill id="OneHanded" value="110" />
+      <skill id="TwoHanded" value="80" />
+      <skill id="Polearm" value="80" />
+      <skill id="Throwing" value="40" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_heavy_infantry" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_sword_a01" />
+        <equipment slot="Item1" id="Item.sm_mordor_shield_mid_a" />
+        <equipment slot="Head" id="Item.sk_md_mor_inf_helmet_med_c" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_med_c" />
+        <equipment slot="Cape" id="Item.sk_md_mor_inf_pauld_med_b" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_med_b" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_med_b" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_spearman"
+      race="orc"
+      default_group="Infantry"
+      level="21"
+      name="{=aom_morannon_spearman_name}[Mordor] Morannon Spearman"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="90" />
+      <skill id="OneHanded" value="70" />
+      <skill id="TwoHanded" value="110" />
+      <skill id="Polearm" value="110" />
+      <skill id="Throwing" value="40" />
+    </skills>
+    <upgrade_targets>
+      <upgrade_target id="NPCCharacter.morannon_heavy_spearman" />
+    </upgrade_targets>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_polearm_a02" />
+        <equipment slot="Head" id="Item.sk_md_mor_pik_helmet_med_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_med_b" />
+        <equipment slot="Cape" id="Item.sk_md_mor_pik_pauld_med_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_med_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_med_b" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_archer"
+      race="orc"
+      default_group="Ranged"
+      level="21"
+      name="{=aom_morannon_archer_name}[Mordor] Morannon Archer"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="90" />
+      <skill id="OneHanded" value="70" />
+      <skill id="Bow" value="120" />
+      <skill id="Throwing" value="45" />
+    </skills>
+    <upgrade_targets />
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.composite_bow" />
+        <equipment slot="Item1" id="Item.bodkin_arrows_a" />
+        <equipment slot="Item2" id="Item.wm_mordor_set1_sword_a02" />
+        <equipment slot="Head" id="Item.sk_md_mor_arc_helmet_med_c" />
+        <equipment slot="Body" id="Item.sk_md_mor_arc_chest_med_d" />
+        <equipment slot="Cape" id="Item.sk_md_mor_arc_pauld_med_b" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_arc_bracer_med_b" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_med_c" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_heavy_infantry"
+      race="orc"
+      default_group="Infantry"
+      level="26"
+      name="{=aom_morannon_heavy_infantry_name}[Mordor] Morannon Heavy Infantry"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="105" />
+      <skill id="OneHanded" value="130" />
+      <skill id="TwoHanded" value="95" />
+      <skill id="Polearm" value="95" />
+      <skill id="Throwing" value="45" />
+    </skills>
+    <upgrade_targets />
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_sword_a01" />
+        <equipment slot="Item1" id="Item.sm_mordor_shield_mid_a" />
+        <equipment slot="Head" id="Item.sk_md_mor_inf_helmet_heavy_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_heavy_a" />
+        <equipment slot="Cape" id="Item.sk_md_mor_inf_pauld_heavy_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_heavy_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_heavy_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
+      id="morannon_heavy_spearman"
+      race="orc"
+      default_group="Infantry"
+      level="26"
+      name="{=aom_morannon_heavy_spearman_name}[Mordor] Morannon Heavy Spearman"
+      occupation="Soldier"
+      culture="Culture.mordor">
+    <face>
+      <face_key_template value="BodyProperty.fighter_orc_mordor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="105" />
+      <skill id="OneHanded" value="85" />
+      <skill id="TwoHanded" value="130" />
+      <skill id="Polearm" value="130" />
+      <skill id="Throwing" value="45" />
+    </skills>
+    <upgrade_targets />
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_mordor_set1_polearm_a01" />
+        <equipment slot="Head" id="Item.sk_md_mor_pik_helmet_heavy_a" />
+        <equipment slot="Body" id="Item.sk_md_mor_inf_chest_heavy_b" />
+        <equipment slot="Cape" id="Item.sk_md_mor_pik_pauld_heavy_a" />
+        <equipment slot="Gloves" id="Item.sk_md_mor_inf_bracer_heavy_a" />
+        <equipment slot="Leg" id="Item.sk_md_mor_grvs_heavy_b" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>

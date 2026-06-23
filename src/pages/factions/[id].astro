@@ -42,6 +42,8 @@ const LEGACY_ROUTE_ALIASES: Record<string, { kingdomId: string; troopCulture: st
 const KINGDOM_TROOP_CULTURES: Record<string, string> = {
   empire_w: 'gondor',
   empire_s: 'mordor',
+  bluecraig: 'goblin',
+  lindon: 'rivendell',
 };
 
 const CULTURE_NAME_OVERRIDES: Record<string, string> = {
@@ -72,6 +74,12 @@ const CREST_IMAGES: Record<string, string> = {
   vlandia: '/images/factions/rohan.png',
   sturgia: '/images/factions/dale.png',
   empire: '/images/factions/dunland.png',
+  abanissa: '/images/factions/abanissa.png',
+  shaghana: '/images/factions/harad.png',
+  goblin: '/images/factions/gundabad.png',
+  mistymountainorcs: '/images/factions/gundabad.png',
+  bluecraig: '/images/factions/gundabad.png',
+  lindon: '/images/factions/imladris.png',
 };
 
 const HERO_IMAGES: Record<string, string> = {
@@ -87,6 +95,8 @@ const HERO_IMAGES: Record<string, string> = {
   aserai: '/images/faction-harad.png',
   vlandia: '/images/faction-rohan.png',
   gondor: '/images/gondor_web_ready.jpg',
+  goblin: '/images/faction-gundabad.webp',
+  mistymountainorcs: '/images/faction-gundabad.webp',
 };
 
 const GROUP_ORDER = ['Infantry', 'Cavalry', 'Ranged', 'HorseArcher', 'General'];

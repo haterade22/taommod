@@ -12,7 +12,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -76,7 +76,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -147,13 +147,13 @@
 
   <NPCCharacter
       id="gondor_loss_skirmisher"
-      default_group="Ranged"
+      default_group="Infantry"
       level="16"
       name="{=aom_gondor_loss_skirmisher_name}[Gondor] Lossarnach Skirmisher"
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -223,13 +223,13 @@
 
   <NPCCharacter
       id="gondor_loss_axe_thrower"
-      default_group="Ranged"
+      default_group="Infantry"
       level="21"
       name="{=aom_gondor_loss_axe_thrower_name}[Gondor] Lossarnach Axe-Thrower"
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -305,13 +305,13 @@
 
   <NPCCharacter
       id="gondor_loss_vet_axe_thrower"
-      default_group="Ranged"
+      default_group="Infantry"
       level="26"
       name="{=aom_gondor_loss_vet_axe_thrower_name}[Gondor] Lossarnach Veteran Axe-Thrower"
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -391,7 +391,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -467,7 +467,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -549,7 +549,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -631,7 +631,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -718,7 +718,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -751,7 +751,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -787,7 +787,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -826,7 +826,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -865,7 +865,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -902,7 +902,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -921,7 +921,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_pelargir_sword_a02" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.javelin_1_t3" />
+        <equipment slot="Item2" id="Item.eastern_javelin_2_t3" />
         <equipment slot="Head" id="Item.sk_gd_ano_cav_helmet_heavy_a" />
         <equipment slot="Body" id="Item.sk_gd_leb_inf_chest_med_a" />
         <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_med_a" />
@@ -940,7 +940,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -959,7 +959,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_pelargir_sword_a02" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.javelin_1_t3" />
+        <equipment slot="Item2" id="Item.eastern_javelin_2_t3" />
         <equipment slot="Head" id="Item.sk_gd_ano_cav_helmet_heavy_b" />
         <equipment slot="Body" id="Item.sk_gd_leb_inf_chest_med_b" />
         <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_heavy_a" />
@@ -978,7 +978,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -995,8 +995,8 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_pelargir_sword_a02" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.javelin_1_t3" />
-        <equipment slot="Item3" id="Item.javelin_1_t3" />
+        <equipment slot="Item2" id="Item.eastern_javelin_2_t3" />
+        <equipment slot="Item3" id="Item.eastern_javelin_2_t3" />
         <equipment slot="Head" id="Item.sk_gd_ano_cav_helmet_heavy_b" />
         <equipment slot="Body" id="Item.sk_gd_leb_inf_chest_heavy_b" />
         <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_elite_a" />
@@ -1019,7 +1019,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -1057,7 +1057,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -1095,7 +1095,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -1134,7 +1134,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -1173,7 +1173,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -1214,7 +1214,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -1249,7 +1249,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -1285,7 +1285,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -1321,7 +1321,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -1357,7 +1357,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -1395,7 +1395,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -1432,7 +1432,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -1469,7 +1469,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -1505,7 +1505,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -1541,7 +1541,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -1579,7 +1579,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -1613,7 +1613,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -1649,7 +1649,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -1686,7 +1686,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -1723,7 +1723,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -1760,7 +1760,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -1799,7 +1799,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -1833,7 +1833,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="55" />
@@ -1871,7 +1871,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -1910,7 +1910,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -1949,7 +1949,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -1986,7 +1986,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -2023,7 +2023,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -2060,7 +2060,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -2098,7 +2098,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -2136,7 +2136,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -2176,7 +2176,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -2213,7 +2213,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -2251,7 +2251,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -2291,7 +2291,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -2331,7 +2331,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -2371,7 +2371,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="175" />
@@ -2411,7 +2411,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="190" />
@@ -2458,7 +2458,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -2495,7 +2495,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -2541,7 +2541,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -2596,7 +2596,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -2653,7 +2653,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -2690,7 +2690,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -2727,7 +2727,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -2764,7 +2764,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -2801,7 +2801,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -2840,7 +2840,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -2879,7 +2879,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -2918,7 +2918,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -2957,7 +2957,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -2996,7 +2996,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -3037,7 +3037,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -3070,7 +3070,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -3106,7 +3106,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -3144,7 +3144,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -3182,7 +3182,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -3218,7 +3218,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -3256,7 +3256,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -3293,7 +3293,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -3332,7 +3332,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -3369,7 +3369,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -3407,7 +3407,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -3445,7 +3445,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -3483,7 +3483,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -3521,7 +3521,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="175" />
@@ -3557,7 +3557,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -3594,7 +3594,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -3631,7 +3631,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -3670,7 +3670,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -3709,7 +3709,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -3748,7 +3748,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -3787,7 +3787,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -3827,7 +3827,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -3861,21 +3861,21 @@
   <NPCCharacter
       id="gondor_ithilien_ranger"
       default_group="Ranged"
-      level="41"
+      level="51"
       name="{=aom_gondor_ithilien_ranger_name}[Gondor] Ithilien Ranger"
       occupation="Soldier"
       culture="Culture.gondor"
       is_basic_troop="true">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="155" />
-      <skill id="Riding" value="40" />
+      <skill id="Athletics" value="215" />
+      <skill id="Riding" value="140" />
       <skill id="OneHanded" value="230" />
       <skill id="TwoHanded" value="145" />
       <skill id="Polearm" value="145" />
-      <skill id="Bow" value="280" />
+      <skill id="Bow" value="300" />
       <skill id="Crossbow" value="55" />
       <skill id="Throwing" value="70" />
     </skills>
@@ -3981,7 +3981,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -4018,7 +4018,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -4059,7 +4059,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -4092,7 +4092,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -4128,7 +4128,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -4166,7 +4166,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -4203,7 +4203,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -4241,7 +4241,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -4277,7 +4277,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -4317,7 +4317,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -4359,7 +4359,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -4395,7 +4395,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -4432,7 +4432,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -4468,7 +4468,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -4504,7 +4504,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -4538,7 +4538,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -4575,7 +4575,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -4594,7 +4594,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_gondor_sword_a08" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.empire_spear_1_t3" />
+        <equipment slot="Item2" id="Item.imperial_spear_t2" />
         <equipment slot="Head" id="Item.sk_gd_sere_helmet_elite_b" />
         <equipment slot="Body" id="Item.sk_gd_sere_chest_heavy_b" />
         <equipment slot="Cape" id="Item.sk_gd_sere_pauld_cape_heavy_a" />
@@ -4613,7 +4613,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -4630,7 +4630,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_gondor_sword_a09" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.empire_spear_1_t3" />
+        <equipment slot="Item2" id="Item.imperial_spear_t2" />
         <equipment slot="Head" id="Item.sk_gd_sere_helmet_elite_b" />
         <equipment slot="Body" id="Item.sk_gd_sere_chest_elite_a" />
         <equipment slot="Cape" id="Item.sk_gd_sere_pauld_cape_elite_a" />
@@ -4653,7 +4653,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -4691,7 +4691,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -4730,7 +4730,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -4769,7 +4769,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -4808,7 +4808,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -4849,7 +4849,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -4884,7 +4884,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -4922,7 +4922,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -4959,7 +4959,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -4996,7 +4996,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -5015,7 +5015,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_gondor_sword_a07" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.fine_glaive_t4" />
+        <equipment slot="Item2" id="Item.eastern_spear_3_t3" />
         <equipment slot="Head" id="Item.sk_gd_har_inf_helmet_elite_a" />
         <equipment slot="Body" id="Item.sk_gd_har_inf_chest_heavy_a" />
         <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_heavy_a" />
@@ -5034,7 +5034,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -5051,7 +5051,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.wm_gondor_sword_a08" />
         <equipment slot="Item1" id="Item.wm_gondor_shield_a02" />
-        <equipment slot="Item2" id="Item.fine_glaive_t4" />
+        <equipment slot="Item2" id="Item.eastern_spear_3_t3" />
         <equipment slot="Head" id="Item.sk_gd_har_inf_helmet_elite_b" />
         <equipment slot="Body" id="Item.sk_gd_har_inf_chest_heavy_a" />
         <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_elite_a" />
@@ -5070,7 +5070,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -5107,7 +5107,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -5146,7 +5146,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -5187,7 +5187,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -5225,7 +5225,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -5262,7 +5262,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -5299,7 +5299,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -5336,7 +5336,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -5371,7 +5371,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -5410,7 +5410,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -5449,7 +5449,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -5490,7 +5490,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -5543,7 +5543,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -5597,7 +5597,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -5651,7 +5651,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -5703,7 +5703,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -5742,7 +5742,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -5781,7 +5781,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="170" />
@@ -5822,7 +5822,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -5858,7 +5858,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -5896,7 +5896,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -5933,7 +5933,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -5970,7 +5970,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -6005,7 +6005,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -6042,7 +6042,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -6079,7 +6079,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -6118,7 +6118,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -6155,7 +6155,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -6193,7 +6193,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -6231,7 +6231,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -6269,7 +6269,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -6287,7 +6287,7 @@
         <equipment slot="Item0" id="Item.wm_gondor_sword_a09" />
         <equipment slot="Item1" id="Item.gond_shield_four_black" />
         <equipment slot="Item2" id="Item.vlandia_pike_1_t5" />
-        <equipment slot="Item3" id="Item.javelin_2_t4" />
+        <equipment slot="Item3" id="Item.eastern_javelin_3_t4" />
         <equipment slot="Head" id="Item.sk_gd_osg_noble_helmet_heavy_b" />
         <equipment slot="Body" id="Item.sk_gd_osg_inf_chest_heavy_b" />
         <equipment slot="Cape" id="Item.sk_gd_osg_pauld_cape_inf_elite_b" />
@@ -6306,7 +6306,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -6345,7 +6345,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -6386,7 +6386,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -6423,7 +6423,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -6461,7 +6461,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="145" />
@@ -6499,7 +6499,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="165" />
@@ -6537,7 +6537,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="180" />
@@ -6573,7 +6573,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -6612,7 +6612,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="155" />
@@ -6653,7 +6653,7 @@
       is_basic_troop="true"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="38" />
@@ -6688,7 +6688,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="53" />
@@ -6724,7 +6724,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="85" />
@@ -6762,7 +6762,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -6799,7 +6799,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -6837,7 +6837,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="125" />
@@ -6873,7 +6873,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="105" />
@@ -6912,7 +6912,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="120" />
@@ -6951,7 +6951,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />
@@ -6988,7 +6988,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7019,6 +7019,41 @@
   </NPCCharacter>
 
   <NPCCharacter
+      id="gondor_soldiers_boss"
+      default_group="Ranged"
+      level="16"
+      name="{=taom_gondor_soldiers_boss_name}[Gondor] Soldier Captain"
+      occupation="Bandit"
+      culture="Culture.gondor_soldiers">
+    <face>
+      <face_key_template value="BodyProperty.fighter_gondor" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="90" />
+      <skill id="Riding" value="20" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="50" />
+      <skill id="Polearm" value="50" />
+      <skill id="Bow" value="85" />
+      <skill id="Crossbow" value="25" />
+      <skill id="Throwing" value="20" />
+    </skills>
+    <Equipments>
+      <EquipmentRoster>
+        <equipment slot="Item0" id="Item.wm_gondor_bow" />
+        <equipment slot="Item1" id="Item.bodkin_arrows_a" />
+        <equipment slot="Item2" id="Item.bodkin_arrows_a" />
+        <equipment slot="Item3" id="Item.wm_gondor_sword_a03" />
+        <equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+        <equipment slot="Body" id="Item.sk_gd_ano_chainmail_full_a" />
+        <equipment slot="Cape" id="Item.sk_gd_ano_pauld_inf_med_a" />
+        <equipment slot="Gloves" id="Item.sk_gd_ano_gloves_a" />
+        <equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+      </EquipmentRoster>
+    </Equipments>
+  </NPCCharacter>
+
+  <NPCCharacter
       id="gondor_ano_skirmisher"
       default_group="Ranged"
       level="16"
@@ -7026,7 +7061,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -7065,7 +7100,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7104,7 +7139,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="110" />
@@ -7144,7 +7179,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7178,7 +7213,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7211,7 +7246,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7245,7 +7280,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="100" />
@@ -7260,7 +7295,7 @@
     <upgrade_targets />
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.long_bow" />
+        <equipment slot="Item0" id="Item.noble_long_bow" />
         <equipment slot="Item1" id="Item.default_arrows" />
         <equipment slot="Item2" id="Item.default_arrows" />
         <equipment slot="Item3" id="Item.wm_gondor_sword_a02" />
@@ -7281,7 +7316,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="115" />
@@ -7323,7 +7358,7 @@
       occupation="Soldier"
       culture="Culture.gondor">
     <face>
-      <face_key_template value="BodyProperty.fighter_empire" />
+      <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
       <skill id="Athletics" value="135" />

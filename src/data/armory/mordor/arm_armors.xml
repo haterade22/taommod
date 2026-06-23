@@ -403,10 +403,6 @@
     </Item>
 
 
-    <!-- ============================================================== -->
-    <!--  KEYforce Mordor generic Orc armor (sk_gn_orc_*, sk_md_orc_*)   -->
-    <!-- ============================================================== -->
-
     <Item
         id="sk_md_orc_bracer_light_a"
         name="{=aom_sk_md_orc_bracer_light_a_name}[Mordor] Mordor Orc Light Bracer I"
@@ -515,7 +511,7 @@
         id="ar_ardunian_elite_hand"
         name="{=aom_ar_ardunian_elite_hand_name}[Mordor] Ardunian Elite Gauntlets"
         subtype="hand_armor"
-        mesh="ar_ardunian_elite_hand"
+        mesh="ar_ardunian_elite_armour_hand"
         culture="Culture.mordor"
         is_merchandise="true"
         weight="2.0"
@@ -524,6 +520,216 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Mordor armor: orc pool + Morannon sub-line           -->
+    <!--  (sk_gn_orc_*, sk_md_orc_*, sk_md_mor_*)                       -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_mor_arc_bracer_light_a"
+        name="{=aom_sk_md_mor_arc_bracer_light_a_name}[Mordor] Morannon Archer Light Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="1"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_bracer_light_b"
+        name="{=aom_sk_md_mor_arc_bracer_light_b_name}[Mordor] Morannon Archer Light Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="1"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_bracer_med_a"
+        name="{=aom_sk_md_mor_arc_bracer_med_a_name}[Mordor] Morannon Archer Medium Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_bracer_med_b"
+        name="{=aom_sk_md_mor_arc_bracer_med_b_name}[Mordor] Morannon Archer Medium Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_bracer_heavy_a"
+        name="{=aom_sk_md_mor_arc_bracer_heavy_a_name}[Mordor] Morannon Archer Heavy Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_bracer_heavy_b"
+        name="{=aom_sk_md_mor_arc_bracer_heavy_b_name}[Mordor] Morannon Archer Heavy Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_arc_bracer_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_light_a"
+        name="{=aom_sk_md_mor_inf_bracer_light_a_name}[Mordor] Morannon Infantry Light Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="1"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_light_b"
+        name="{=aom_sk_md_mor_inf_bracer_light_b_name}[Mordor] Morannon Infantry Light Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="0.6"
+        difficulty="0"
+        appearance="1"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_med_a"
+        name="{=aom_sk_md_mor_inf_bracer_med_a_name}[Mordor] Morannon Infantry Medium Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_med_b"
+        name="{=aom_sk_md_mor_inf_bracer_med_b_name}[Mordor] Morannon Infantry Medium Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_heavy_a"
+        name="{=aom_sk_md_mor_inf_bracer_heavy_a_name}[Mordor] Morannon Infantry Heavy Bracer I"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_bracer_heavy_b"
+        name="{=aom_sk_md_mor_inf_bracer_heavy_b_name}[Mordor] Morannon Infantry Heavy Bracer II"
+        subtype="hand_armor"
+        mesh="sk_md_mor_inf_bracer_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

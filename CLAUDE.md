@@ -64,7 +64,7 @@ public/         Images, favicon, CNAME
 
 ## Data Sources
 
-- **Troops**: `src/data/troops/troops_*.xml` (13 faction files; sourced from `TAOM/ModuleData/troops/`)
+- **Troops**: `src/data/troops/troops_*.xml` (16 faction files; sourced from `TAOM/ModuleData/troops/`)
 - **Characters**: `src/data/characters/` (lords.xml, heroes.xml, npcs_*.xml, clans.xml; sourced from `TAOM/ModuleData/characters/`)
 - **Armory**: `src/data/armory/` (per-culture armor folders + LOTRAOM weapons/shields/horses + LOTRLOME crafting pieces; sourced from `LOTRLOME_Armory/ModuleData/LOTRLOME_items/`. Plus vanilla reference files from SandBoxCore/Native.)
 - **Kingdoms/Cultures**: `src/data/taom_spkingdoms.xml`, `taom_spcultures.xml`

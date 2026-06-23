@@ -326,10 +326,6 @@
     </Item>
 
 
-    <!-- ============================================================== -->
-    <!--  KEYforce Mordor generic Orc armor (sk_gn_orc_*, sk_md_orc_*)   -->
-    <!-- ============================================================== -->
-
     <Item
         id="sk_md_orc_pauldron_light_a"
         name="{=aom_sk_md_orc_pauldron_light_a_name}[Mordor] Mordor Orc Light Pauldron I"
@@ -437,6 +433,318 @@
         name="{=aom_sk_md_orc_pauldron_heavy_b_name}[Mordor] Mordor Orc Heavy Pauldron II"
         subtype="head_armor"
         mesh="sk_md_orc_pauldron_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Mordor armor: orc pool + Morannon sub-line           -->
+    <!--  (sk_gn_orc_*, sk_md_orc_*, sk_md_mor_*)                       -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_mor_arc_pauld_light_a"
+        name="{=aom_sk_md_mor_arc_pauld_light_a_name}[Mordor] Morannon Archer Light Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_pauld_light_b"
+        name="{=aom_sk_md_mor_arc_pauld_light_b_name}[Mordor] Morannon Archer Light Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_pauld_med_a"
+        name="{=aom_sk_md_mor_arc_pauld_med_a_name}[Mordor] Morannon Archer Medium Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_pauld_med_b"
+        name="{=aom_sk_md_mor_arc_pauld_med_b_name}[Mordor] Morannon Archer Medium Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_pauld_heavy_a"
+        name="{=aom_sk_md_mor_arc_pauld_heavy_a_name}[Mordor] Morannon Archer Heavy Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_pauld_heavy_b"
+        name="{=aom_sk_md_mor_arc_pauld_heavy_b_name}[Mordor] Morannon Archer Heavy Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_arc_pauld_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_light_a"
+        name="{=aom_sk_md_mor_inf_pauld_light_a_name}[Mordor] Morannon Infantry Light Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_light_b"
+        name="{=aom_sk_md_mor_inf_pauld_light_b_name}[Mordor] Morannon Infantry Light Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_med_a"
+        name="{=aom_sk_md_mor_inf_pauld_med_a_name}[Mordor] Morannon Infantry Medium Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_med_b"
+        name="{=aom_sk_md_mor_inf_pauld_med_b_name}[Mordor] Morannon Infantry Medium Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_heavy_a"
+        name="{=aom_sk_md_mor_inf_pauld_heavy_a_name}[Mordor] Morannon Infantry Heavy Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_pauld_heavy_b"
+        name="{=aom_sk_md_mor_inf_pauld_heavy_b_name}[Mordor] Morannon Infantry Heavy Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_inf_pauld_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_light_a"
+        name="{=aom_sk_md_mor_pik_pauld_light_a_name}[Mordor] Morannon Polearm Light Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_light_b"
+        name="{=aom_sk_md_mor_pik_pauld_light_b_name}[Mordor] Morannon Polearm Light Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.0"
+        difficulty="0"
+        appearance="1"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="5" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_med_a"
+        name="{=aom_sk_md_mor_pik_pauld_med_a_name}[Mordor] Morannon Polearm Medium Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_med_b"
+        name="{=aom_sk_md_mor_pik_pauld_med_b_name}[Mordor] Morannon Polearm Medium Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="3"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="8" arm_armor="8" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_heavy_a"
+        name="{=aom_sk_md_mor_pik_pauld_heavy_a_name}[Mordor] Morannon Polearm Heavy Pauldron I"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="7.0"
+        difficulty="0"
+        appearance="4"
+        Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="12" arm_armor="10" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_pik_pauld_heavy_b"
+        name="{=aom_sk_md_mor_pik_pauld_heavy_b_name}[Mordor] Morannon Polearm Heavy Pauldron II"
+        subtype="head_armor"
+        mesh="sk_md_mor_pik_pauld_heavy_b"
         culture="Culture.mordor"
         is_merchandise="true"
         weight="7.0"

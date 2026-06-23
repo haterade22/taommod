@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
     <!--
       TAOM career-archetype starter horse harnesses.
@@ -382,93 +382,119 @@
         <Flags
             Civilian="true" />
     </Item>
-
-
-    <!-- ==================== SPIDER MOUNT ==================== -->
-    <!-- Giant spider mount items (Mirkwood / Dol Guldur). Three visual variants
-         matching compiled material tpacs (m_mordor_spider_a1/a2/a3_mtl.tpac).
-         Mesh: sk_spider_forest_c (62-bone skeleton, see monsters.xml id="spider").
-         Bound to Monster.spider with rider_sit_bone="chest_m" and Mountable="true".
-         Pattern mirrors Alliance.Wargs/Items/LOTR/lotr_warg.xml. -->
-    <Item id="spider_mount_a1"
-        name="{=spider_mount_a1_name}[Mirkwood] Giant Spider"
-        mesh="sk_spider_forest_bm_a1"
+    <!-- Mount item for the Giant Spider (taom_spider_creature goblin rider).
+         is_merchandise="false" + no culture → never sold, never shown in party icon path.
+         Mountable via horse-slot pattern (same as taom_war_elephant): goblin rider has
+         equipment slot="Horse" id="Item.spider_mount_a"; engine spawns spider via Monster.spider.
+         See lotr_monster_spider.xml (Mountable="true", rider_sit_bone="chest_m"). -->
+    <Item
+        id="spider_mount_a"
+        name="{=spider_mount_a}Giant Spider"
+        mesh="sk_spider_forest_c"
         subtype="horse"
         item_category="war_horse"
-        culture="Culture.dolguldur"
-        is_merchandise="true"
-        value="1500"
-        weight="600"
-        difficulty="30"
-        appearance="1"
-        Type="Horse">
-        <ItemComponent>
-            <Horse
-                monster="Monster.spider"
-                maneuver="65"
-                speed="45"
-                charge_damage="5"
-                body_length="130"
-                is_mountable="true">
-                <Materials>
-                    <Material name="m_mordor_spider_a1" />
-                </Materials>
-            </Horse>
-        </ItemComponent>
-    </Item>
-
-    <Item id="spider_mount_a2"
-        name="{=spider_mount_a2_name}[Mirkwood] Giant Spider (Dark)"
-        mesh="sk_spider_forest_bm_a1"
-        subtype="horse"
-        item_category="war_horse"
-        culture="Culture.dolguldur"
-        is_merchandise="true"
-        value="1500"
-        weight="600"
-        difficulty="30"
-        appearance="0.5"
-        Type="Horse">
-        <ItemComponent>
-            <Horse
-                monster="Monster.spider"
-                maneuver="65"
-                speed="45"
-                charge_damage="5"
-                body_length="130"
-                is_mountable="true">
-                <Materials>
-                    <Material name="m_mordor_spider_a2" />
-                </Materials>
-            </Horse>
-        </ItemComponent>
-    </Item>
-
-    <Item id="spider_mount_a3"
-        name="{=spider_mount_a3_name}[Mirkwood] Giant Spider (Brood Mother)"
-        mesh="sk_spider_forest_bm_a1"
-        subtype="horse"
-        item_category="war_horse"
-        culture="Culture.dolguldur"
-        is_merchandise="true"
-        value="2000"
-        weight="700"
-        difficulty="40"
-        appearance="0.3"
+        weight="250"
+        is_merchandise="false"
         Type="Horse">
         <ItemComponent>
             <Horse
                 monster="Monster.spider"
                 maneuver="60"
-                speed="42"
-                charge_damage="7"
-                body_length="140"
-                extra_health="100"
+                speed="40"
+                charge_damage="10"
+                body_length="100"
                 is_mountable="true">
-                <Materials>
-                    <Material name="m_mordor_spider_a3" />
-                </Materials>
+                <!-- Right body half of the L/R mesh-split (warg-pattern AdditionalMeshes on HorseComponent);
+                     base sk_spider_forest_c + this sk_spider_forest_c_2 draw as one creature. -->
+                <AdditionalMeshes>
+                    <Mesh
+                        name="sk_spider_forest_c_2"
+                        affected_by_cover="true" />
+                </AdditionalMeshes>
             </Horse>
         </ItemComponent>
     </Item>
+    <!-- War elephant mount (TAOM Elephant feature; monster -> Monster.taom_war_elephant) -->
+    <Item
+        id="taom_war_elephant"
+        name="{=taom_war_elephant}War Elephant"
+        mesh="elephant_mesh"
+        subtype="horse"
+        item_category="war_horse"
+        weight="999"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_war_elephant"
+                maneuver="20"
+                speed="20"
+                charge_damage="350"
+                body_length="100"
+                is_mountable="true"
+				family_type="10"
+                extra_health="0" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <!-- War chariot (Rhûn Wainriders — ROT 8.0 port, issue #279; provenance docs/features/chariot.md).
+         Horse-slot vehicle for wainrider_swift_chariot / wainrider_warlord_chariot (troops_rhun_new.xml).
+         Engine spawns Monster.chariot (lotr_monster_chariot.xml — 60-bone chariot_skeleton).
+         Mesh = chariot_horse_brown — a SINGLE mesh containing BOTH horses (54 active bones; merged
+         2026-06-13). The earlier per-horse split (chariot_horse_brown + _2) was REVERTED: a second
+         full-horse mesh in the AdditionalMesh slot does not render (only the base mesh draws). The
+         "~40 per-draw bone limit" that motivated the split is FALSE — the elephant renders as one
+         mesh skinned to 59 active bones, so 54 in one mesh is safe. Cart + harness + mane ride along
+         as AdditionalMeshes. chariot_ride (NOT chariot_ride_alt — alt's material has dead texture
+         refs in ROT itself). is_merchandise="false" + no culture → never sold (spider_mount_a
+         convention). Horse params 1-for-1 from ROT items.xml chariot1. See docs/features/chariot.md. -->
+    <Item
+        id="taom_chariot_a"
+        name="{=taom_chariot_a}Wainrider War Chariot"
+        mesh="chariot_horse_brown"
+        subtype="horse"
+        item_category="war_horse"
+        weight="370"
+        difficulty="120"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.chariot"
+                maneuver="25"
+                speed="55"
+                charge_damage="200"
+                body_length="100"
+                is_mountable="true">
+                <AdditionalMeshes>
+                    <Mesh name="chariot_horse_brown_mane" affected_by_cover="true" />
+                    <Mesh name="chariot_harness_e_rein" affected_by_cover="true" />
+                    <Mesh name="chariot_ride" affected_by_cover="false" />
+                </AdditionalMeshes>
+            </Horse>
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+	<Item
+	   id="sk_elephant_armor_a"
+	   name="{=aom_sk_elephant_armor_a}[Harad] Elephant Armor I"
+	   mesh="sk_elephant_armor_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="250"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+
 </Items>

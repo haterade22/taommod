@@ -383,10 +383,6 @@
     </Item>
 
 
-    <!-- ============================================================== -->
-    <!--  KEYforce Mordor generic Orc armor (sk_gn_orc_*, sk_md_orc_*)   -->
-    <!-- ============================================================== -->
-
     <Item
         id="sk_md_orc_boots_a"
         name="{=aom_sk_md_orc_boots_a_name}[Mordor] Mordor Orc Boots"
@@ -494,6 +490,165 @@
         name="{=aom_sk_md_orc_boots_heavy_b_name}[Mordor] Mordor Orc Heavy Boots II"
         subtype="leg_armor"
         mesh="sk_md_orc_boots_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Mordor armor: orc pool + Morannon sub-line           -->
+    <!--  (sk_gn_orc_*, sk_md_orc_*, sk_md_mor_*)                       -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_mor_grvs_light_a"
+        name="{=aom_sk_md_mor_grvs_light_a_name}[Mordor] Morannon Light Greaves I"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_light_b"
+        name="{=aom_sk_md_mor_grvs_light_b_name}[Mordor] Morannon Light Greaves II"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_light_c"
+        name="{=aom_sk_md_mor_grvs_light_c_name}[Mordor] Morannon Light Greaves III"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_light_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_med_a"
+        name="{=aom_sk_md_mor_grvs_med_a_name}[Mordor] Morannon Medium Greaves I"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_med_b"
+        name="{=aom_sk_md_mor_grvs_med_b_name}[Mordor] Morannon Medium Greaves II"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_med_c"
+        name="{=aom_sk_md_mor_grvs_med_c_name}[Mordor] Morannon Medium Greaves III"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_med_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_heavy_a"
+        name="{=aom_sk_md_mor_grvs_heavy_a_name}[Mordor] Morannon Heavy Greaves I"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_heavy_b"
+        name="{=aom_sk_md_mor_grvs_heavy_b_name}[Mordor] Morannon Heavy Greaves II"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_grvs_heavy_c"
+        name="{=aom_sk_md_mor_grvs_heavy_c_name}[Mordor] Morannon Heavy Greaves III"
+        subtype="leg_armor"
+        mesh="sk_md_mor_grvs_heavy_c"
         culture="Culture.mordor"
         is_merchandise="true"
         weight="3.5"

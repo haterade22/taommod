@@ -1,72 +1,71 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Items>
+	<Item id="ithilien_hood" name="{=aom_ithilien_hood_name}[Gondor] Ithilien Hood" subtype="head_armor" mesh="ithilien_hood" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    
+	<Item id="ithilien_hood_var" name="{=aom_ithilien_hood_var_name}[Gondor] Ithilien Hood Two" subtype="head_armor" mesh="ithilien_hood_var" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="ithilien_hood" name="{=aom_ithilien_hood_name}[Gondor] Ithilien Hood" subtype="head_armor" mesh="ithilien_hood" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+	<Item id="ithilien_hood_masked" name="{=aom_ithilien_hood_masked_name}[Gondor] Ithilien Hood Masked" subtype="head_armor" mesh="ithilien_hood_masked" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="20" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="ithilien_hood_var" name="{=aom_ithilien_hood_var_name}[Gondor] Ithilien Hood Two" subtype="head_armor" mesh="ithilien_hood_var" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+	<Item id="ithilien_hood_masked_var" name="{=aom_ithilien_hood_masked_var_name}[Gondor] Ithilien Hood Masked" subtype="head_armor" mesh="ithilien_hood_masked_var" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="20" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="ithilien_hood_masked" name="{=aom_ithilien_hood_masked_name}[Gondor] Ithilien Hood Masked" subtype="head_armor" mesh="ithilien_hood_masked" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="20" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+	<Item id="gondor_king_crown" name="{=aom_gondor_king_crown_name}[Gondor] King's Crown" subtype="head_armor" mesh="gondor_king_crown" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="22" has_gender_variations="false" hair_cover_type="none" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="ithilien_hood_masked_var" name="{=aom_ithilien_hood_masked_var_name}[Gondor] Ithilien Hood Masked" subtype="head_armor" mesh="ithilien_hood_masked_var" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="20" has_gender_variations="false" hair_cover_type="type2" modifier_group="cloth" material_type="Cloth" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+	<Item id="imrahil_helmet" name="{=aom_imrahil_helmet_name}[Gondor] Imrahil's Helmet" subtype="head_armor" mesh="imrahil_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="gondor_king_crown" name="{=aom_gondor_king_crown_name}[Gondor] King's Crown" subtype="head_armor" mesh="gondor_king_crown" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="22" has_gender_variations="false" hair_cover_type="none" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+	<Item id="golasgil_helment" name="{=aom_golasgil_helment_name}[Gondor] Golasgil's Helmet" subtype="head_armor" mesh="golasgil_helment" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="imrahil_helmet" name="{=aom_imrahil_helmet_name}[Gondor] Imrahil's Helmet" subtype="head_armor" mesh="imrahil_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
 
-    <Item id="golasgil_helment" name="{=aom_golasgil_helment_name}[Gondor] Golasgil's Helmet" subtype="head_armor" mesh="golasgil_helment" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
 
+	<Item id="hirluin_helmet" name="{=aom_hirluin_helmet_name}[Gondor] Hirluin's Helmet" subtype="head_armor" mesh="hirluin_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
+	<Item id="angbor_helmet" name="{=aom_angbor_helmet_name}[Gondor] Angbor's Helmet" subtype="head_armor" mesh="angbor_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item id="hirluin_helmet" name="{=aom_hirluin_helmet_name}[Gondor] Hirluin's Helmet" subtype="head_armor" mesh="hirluin_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
 
-    <Item id="angbor_helmet" name="{=aom_angbor_helmet_name}[Gondor] Angbor's Helmet" subtype="head_armor" mesh="angbor_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
 
 
 
@@ -94,14 +93,14 @@
 
 
 
+	<Item id="forlong_helmet" name="{=aom_forlong_helmet_name}[Gondor] Forlong's Helmet" subtype="head_armor" mesh="forlong_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
 
-    <Item id="forlong_helmet" name="{=aom_forlong_helmet_name}[Gondor] Forlong's Helmet" subtype="head_armor" mesh="forlong_helmet" culture="Culture.gondor" is_merchandise="true" weight="5.0" difficulty="0" appearance="2" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="50" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
 
 
 
@@ -109,192 +108,190 @@
 
 
 
-
 
 
 
-
-    
-
-
-    
-
-    <Item id="sk_gd_ano_inf_helmet_med_a" name="{=aom_sk_gd_ano_inf_helmet_med_a_name}[Gondor] Anorien Infantry Helmet" subtype="head_armor" mesh="sk_gd_ano_inf_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_inf_helmet_heavy_a" name="{=aom_sk_gd_ano_inf_helmet_heavy_a_name}[Gondor] Anorien Infantry Heavy Helmet" subtype="head_armor" mesh="sk_gd_ano_inf_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_cav_helmet_heavy_a" name="{=aom_sk_gd_ano_cav_helmet_heavy_a_name}[Gondor] Anorien Cavalry Helmet A" subtype="head_armor" mesh="sk_gd_ano_cav_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_cav_helmet_heavy_b" name="{=aom_sk_gd_ano_cav_helmet_heavy_b_name}[Gondor] Anorien Cavalry Helmet B" subtype="head_armor" mesh="sk_gd_ano_cav_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_noble_helmet_med_a" name="{=aom_sk_gd_ano_noble_helmet_med_a_name}[Gondor] Anorien Noble Helmet" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_noble_helmet_heavy_a" name="{=aom_sk_gd_ano_noble_helmet_heavy_a_name}[Gondor] Anorien Noble Heavy Helmet A" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ano_noble_helmet_heavy_b" name="{=aom_sk_gd_ano_noble_helmet_heavy_b_name}[Gondor] Anorien Noble Heavy Helmet B" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_noble_helmet_med_a" name="{=aom_sk_gd_mns_noble_helmet_med_a_name}[Gondor] Minas Tirith Noble Helmet" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_noble_helmet_heavy_a" name="{=aom_sk_gd_mns_noble_helmet_heavy_a_name}[Gondor] Minas Tirith Noble Heavy Helmet A" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_noble_helmet_heavy_b" name="{=aom_sk_gd_mns_noble_helmet_heavy_b_name}[Gondor] Minas Tirith Noble Heavy Helmet B" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_cita_helmet_heavy_a" name="{=aom_sk_gd_mns_cita_helmet_heavy_a_name}[Gondor] Citadel Guard Helmet A" subtype="head_armor" mesh="sk_gd_mns_cita_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_cita_helmet_heavy_b" name="{=aom_sk_gd_mns_cita_helmet_heavy_b_name}[Gondor] Citadel Guard Helmet B" subtype="head_armor" mesh="sk_gd_mns_cita_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_fount_helmet_heavy_a" name="{=aom_sk_gd_mns_fount_helmet_heavy_a_name}[Gondor] Fountain Guard Helmet A" subtype="head_armor" mesh="sk_gd_mns_fount_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_mns_fount_helmet_heavy_b" name="{=aom_sk_gd_mns_fount_helmet_heavy_b_name}[Gondor] Fountain Guard Helmet B" subtype="head_armor" mesh="sk_gd_mns_fount_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_osg_noble_helmet_heavy_a" name="{=aom_sk_gd_osg_noble_helmet_heavy_a_name}[Gondor] Osgiliath Noble Helmet A" subtype="head_armor" mesh="sk_gd_osg_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_osg_noble_helmet_heavy_b" name="{=aom_sk_gd_osg_noble_helmet_heavy_b_name}[Gondor] Osgiliath Noble Helmet B" subtype="head_armor" mesh="sk_gd_osg_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_osg_ward_helmet_heavy_a" name="{=aom_sk_gd_osg_ward_helmet_heavy_a_name}[Gondor] Osgiliath Warden Helmet A" subtype="head_armor" mesh="sk_gd_osg_ward_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_osg_ward_helmet_heavy_b" name="{=aom_sk_gd_osg_ward_helmet_heavy_b_name}[Gondor] Osgiliath Warden Helmet B" subtype="head_armor" mesh="sk_gd_osg_ward_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_cair_noble_helmet_heavy_a" name="{=aom_sk_gd_cair_noble_helmet_heavy_a_name}[Gondor] Cair Andros Noble Helmet A" subtype="head_armor" mesh="sk_gd_cair_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_cair_noble_helmet_heavy_b" name="{=aom_sk_gd_cair_noble_helmet_heavy_b_name}[Gondor] Cair Andros Noble Helmet B" subtype="head_armor" mesh="sk_gd_cair_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_cair_ward_helmet_heavy_a" name="{=aom_sk_gd_cair_ward_helmet_heavy_a_name}[Gondor] Cair Andros Warden Helmet A" subtype="head_armor" mesh="sk_gd_cair_ward_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_cair_ward_helmet_heavy_b" name="{=aom_sk_gd_cair_ward_helmet_heavy_b_name}[Gondor] Cair Andros Warden Helmet B" subtype="head_armor" mesh="sk_gd_cair_ward_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ith_noble_helmet_heavy_a" name="{=aom_sk_gd_ith_noble_helmet_heavy_a_name}[Gondor] Ithil Guard Helmet A" subtype="head_armor" mesh="sk_gd_ith_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-    <Item id="sk_gd_ith_noble_helmet_heavy_b" name="{=aom_sk_gd_ith_noble_helmet_heavy_b_name}[Gondor] Ithil Guard Helmet B" subtype="head_armor" mesh="sk_gd_ith_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-
-    <!-- ============================================================== -->
-    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
-    <!--  Lossarnach, Pinnath Gelin, Harondor, Anfalas, Serelond,        -->
-    <!--  Lebennin, Belfalas, Lamedon                                    -->
-    <!-- ============================================================== -->
-
-    <Item
+
+
+
+
+
+	<Item id="sk_gd_ano_inf_helmet_med_a" name="{=aom_sk_gd_ano_inf_helmet_med_a_name}[Gondor] Anorien Infantry Helmet" subtype="head_armor" mesh="sk_gd_ano_inf_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_inf_helmet_heavy_a" name="{=aom_sk_gd_ano_inf_helmet_heavy_a_name}[Gondor] Anorien Infantry Heavy Helmet" subtype="head_armor" mesh="sk_gd_ano_inf_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_cav_helmet_heavy_a" name="{=aom_sk_gd_ano_cav_helmet_heavy_a_name}[Gondor] Anorien Cavalry Helmet A" subtype="head_armor" mesh="sk_gd_ano_cav_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_cav_helmet_heavy_b" name="{=aom_sk_gd_ano_cav_helmet_heavy_b_name}[Gondor] Anorien Cavalry Helmet B" subtype="head_armor" mesh="sk_gd_ano_cav_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_noble_helmet_med_a" name="{=aom_sk_gd_ano_noble_helmet_med_a_name}[Gondor] Anorien Noble Helmet" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_noble_helmet_heavy_a" name="{=aom_sk_gd_ano_noble_helmet_heavy_a_name}[Gondor] Anorien Noble Heavy Helmet A" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ano_noble_helmet_heavy_b" name="{=aom_sk_gd_ano_noble_helmet_heavy_b_name}[Gondor] Anorien Noble Heavy Helmet B" subtype="head_armor" mesh="sk_gd_ano_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_noble_helmet_med_a" name="{=aom_sk_gd_mns_noble_helmet_med_a_name}[Gondor] Minas Tirith Noble Helmet" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_noble_helmet_heavy_a" name="{=aom_sk_gd_mns_noble_helmet_heavy_a_name}[Gondor] Minas Tirith Noble Heavy Helmet A" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_noble_helmet_heavy_b" name="{=aom_sk_gd_mns_noble_helmet_heavy_b_name}[Gondor] Minas Tirith Noble Heavy Helmet B" subtype="head_armor" mesh="sk_gd_mns_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_cita_helmet_heavy_a" name="{=aom_sk_gd_mns_cita_helmet_heavy_a_name}[Gondor] Citadel Guard Helmet A" subtype="head_armor" mesh="sk_gd_mns_cita_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_cita_helmet_heavy_b" name="{=aom_sk_gd_mns_cita_helmet_heavy_b_name}[Gondor] Citadel Guard Helmet B" subtype="head_armor" mesh="sk_gd_mns_cita_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_fount_helmet_heavy_a" name="{=aom_sk_gd_mns_fount_helmet_heavy_a_name}[Gondor] Fountain Guard Helmet A" subtype="head_armor" mesh="sk_gd_mns_fount_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_mns_fount_helmet_heavy_b" name="{=aom_sk_gd_mns_fount_helmet_heavy_b_name}[Gondor] Fountain Guard Helmet B" subtype="head_armor" mesh="sk_gd_mns_fount_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_osg_noble_helmet_heavy_a" name="{=aom_sk_gd_osg_noble_helmet_heavy_a_name}[Gondor] Osgiliath Noble Helmet A" subtype="head_armor" mesh="sk_gd_osg_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_osg_noble_helmet_heavy_b" name="{=aom_sk_gd_osg_noble_helmet_heavy_b_name}[Gondor] Osgiliath Noble Helmet B" subtype="head_armor" mesh="sk_gd_osg_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_osg_ward_helmet_heavy_a" name="{=aom_sk_gd_osg_ward_helmet_heavy_a_name}[Gondor] Osgiliath Warden Helmet A" subtype="head_armor" mesh="sk_gd_osg_ward_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_osg_ward_helmet_heavy_b" name="{=aom_sk_gd_osg_ward_helmet_heavy_b_name}[Gondor] Osgiliath Warden Helmet B" subtype="head_armor" mesh="sk_gd_osg_ward_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_cair_noble_helmet_heavy_a" name="{=aom_sk_gd_cair_noble_helmet_heavy_a_name}[Gondor] Cair Andros Noble Helmet A" subtype="head_armor" mesh="sk_gd_cair_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_cair_noble_helmet_heavy_b" name="{=aom_sk_gd_cair_noble_helmet_heavy_b_name}[Gondor] Cair Andros Noble Helmet B" subtype="head_armor" mesh="sk_gd_cair_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_cair_ward_helmet_heavy_a" name="{=aom_sk_gd_cair_ward_helmet_heavy_a_name}[Gondor] Cair Andros Warden Helmet A" subtype="head_armor" mesh="sk_gd_cair_ward_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_cair_ward_helmet_heavy_b" name="{=aom_sk_gd_cair_ward_helmet_heavy_b_name}[Gondor] Cair Andros Warden Helmet B" subtype="head_armor" mesh="sk_gd_cair_ward_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ith_noble_helmet_heavy_a" name="{=aom_sk_gd_ith_noble_helmet_heavy_a_name}[Gondor] Ithil Guard Helmet A" subtype="head_armor" mesh="sk_gd_ith_noble_helmet_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+	<Item id="sk_gd_ith_noble_helmet_heavy_b" name="{=aom_sk_gd_ith_noble_helmet_heavy_b_name}[Gondor] Ithil Guard Helmet B" subtype="head_armor" mesh="sk_gd_ith_noble_helmet_heavy_b" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="HeadArmor">
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
+
+
+	<!-- ============================================================== -->
+	<!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+	<!--  Lossarnach, Pinnath Gelin, Harondor, Anfalas, Serelond,        -->
+	<!--  Lebennin, Belfalas, Lamedon                                    -->
+	<!-- ============================================================== -->
+
+	<Item
         id="sk_gd_pin_inf_helmet_med_a"
         name="{=aom_sk_gd_pin_inf_helmet_med_a_name}[Gondor] Pinnath Gelin Infantry Helmet"
         subtype="head_armor"
@@ -305,13 +302,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_pin_spear_helmet_heavy_a"
         name="{=aom_sk_gd_pin_spear_helmet_heavy_a_name}[Gondor] Pinnath Gelin Spearman Helmet A"
         subtype="head_armor"
@@ -322,13 +319,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_pin_spear_helmet_heavy_b"
         name="{=aom_sk_gd_pin_spear_helmet_heavy_b_name}[Gondor] Pinnath Gelin Spearman Helmet B"
         subtype="head_armor"
@@ -339,13 +336,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_pin_arc_helmet_heavy_a"
         name="{=aom_sk_gd_pin_arc_helmet_heavy_a_name}[Gondor] Pinnath Gelin Archer Helmet A"
         subtype="head_armor"
@@ -356,13 +353,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_pin_arc_helmet_heavy_b"
         name="{=aom_sk_gd_pin_arc_helmet_heavy_b_name}[Gondor] Pinnath Gelin Archer Helmet B"
         subtype="head_armor"
@@ -373,13 +370,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_light_a"
         name="{=aom_sk_gd_har_inf_helmet_light_a_name}[Gondor] Harondor Light Helmet"
         subtype="head_armor"
@@ -390,13 +387,13 @@
         difficulty="0"
         appearance="1"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="leather" material_type="Leather" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_med_a"
         name="{=aom_sk_gd_har_inf_helmet_med_a_name}[Gondor] Harondor Medium Helmet"
         subtype="head_armor"
@@ -407,13 +404,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_heavy_a"
         name="{=aom_sk_gd_har_inf_helmet_heavy_a_name}[Gondor] Harondor Heavy Helmet A"
         subtype="head_armor"
@@ -424,13 +421,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_heavy_b"
         name="{=aom_sk_gd_har_inf_helmet_heavy_b_name}[Gondor] Harondor Heavy Helmet B"
         subtype="head_armor"
@@ -441,13 +438,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_elite_a"
         name="{=aom_sk_gd_har_inf_helmet_elite_a_name}[Gondor] Harondor Elite Helmet A"
         subtype="head_armor"
@@ -458,13 +455,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_har_inf_helmet_elite_b"
         name="{=aom_sk_gd_har_inf_helmet_elite_b_name}[Gondor] Harondor Elite Helmet B"
         subtype="head_armor"
@@ -475,13 +472,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_inf_helmet_med_a"
         name="{=aom_sk_gd_anf_inf_helmet_med_a_name}[Gondor] Anfalas Infantry Helmet A"
         subtype="head_armor"
@@ -492,13 +489,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_inf_helmet_med_b"
         name="{=aom_sk_gd_anf_inf_helmet_med_b_name}[Gondor] Anfalas Infantry Helmet B"
         subtype="head_armor"
@@ -509,13 +506,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_inf_helmet_heavy_a"
         name="{=aom_sk_gd_anf_inf_helmet_heavy_a_name}[Gondor] Anfalas Infantry Heavy Helmet A"
         subtype="head_armor"
@@ -526,13 +523,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_inf_helmet_heavy_b"
         name="{=aom_sk_gd_anf_inf_helmet_heavy_b_name}[Gondor] Anfalas Infantry Heavy Helmet B"
         subtype="head_armor"
@@ -543,13 +540,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_inf_helmet_heavy_c"
         name="{=aom_sk_gd_anf_inf_helmet_heavy_c_name}[Gondor] Anfalas Infantry Heavy Helmet C"
         subtype="head_armor"
@@ -560,13 +557,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_cav_helmet_heavy_a"
         name="{=aom_sk_gd_anf_cav_helmet_heavy_a_name}[Gondor] Anfalas Cavalry Helmet A"
         subtype="head_armor"
@@ -577,13 +574,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_anf_cav_helmet_heavy_b"
         name="{=aom_sk_gd_anf_cav_helmet_heavy_b_name}[Gondor] Anfalas Cavalry Helmet B"
         subtype="head_armor"
@@ -594,13 +591,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_sere_helmet_heavy_a"
         name="{=aom_sk_gd_sere_helmet_heavy_a_name}[Gondor] Serelond Heavy Helmet"
         subtype="head_armor"
@@ -611,13 +608,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_sere_helmet_elite_a"
         name="{=aom_sk_gd_sere_helmet_elite_a_name}[Gondor] Serelond Elite Helmet A"
         subtype="head_armor"
@@ -628,13 +625,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_sere_helmet_elite_b"
         name="{=aom_sk_gd_sere_helmet_elite_b_name}[Gondor] Serelond Elite Helmet B"
         subtype="head_armor"
@@ -645,13 +642,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_sere_helmet_elite_c"
         name="{=aom_sk_gd_sere_helmet_elite_c_name}[Gondor] Serelond Elite Helmet C"
         subtype="head_armor"
@@ -662,13 +659,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_light_a"
         name="{=aom_sk_gd_lam_inf_helmet_light_a_name}[Gondor] Lamedon Light Helmet"
         subtype="head_armor"
@@ -679,13 +676,13 @@
         difficulty="0"
         appearance="1"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="15" has_gender_variations="false" hair_cover_type="type2" modifier_group="leather" material_type="Leather" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_med_a"
         name="{=aom_sk_gd_lam_inf_helmet_med_a_name}[Gondor] Lamedon Medium Helmet A"
         subtype="head_armor"
@@ -696,13 +693,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_med_b"
         name="{=aom_sk_gd_lam_inf_helmet_med_b_name}[Gondor] Lamedon Medium Helmet B"
         subtype="head_armor"
@@ -713,13 +710,13 @@
         difficulty="0"
         appearance="3"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="24" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_a1"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_a1_name}[Gondor] Lamedon Heavy Helmet A"
         subtype="head_armor"
@@ -730,13 +727,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_b1"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_b1_name}[Gondor] Lamedon Heavy Helmet B"
         subtype="head_armor"
@@ -747,13 +744,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_c1"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_c1_name}[Gondor] Lamedon Heavy Helmet C"
         subtype="head_armor"
@@ -764,13 +761,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_a2"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_a2_name}[Gondor] Lamedon Heavy Helmet A (Gold)"
         subtype="head_armor"
@@ -781,13 +778,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_b2"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_b2_name}[Gondor] Lamedon Heavy Helmet B (Gold)"
         subtype="head_armor"
@@ -798,13 +795,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_heavy_c2"
         name="{=aom_sk_gd_lam_inf_helmet_heavy_c2_name}[Gondor] Lamedon Heavy Helmet C (Gold)"
         subtype="head_armor"
@@ -815,13 +812,13 @@
         difficulty="0"
         appearance="4"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="32" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_elite_a"
         name="{=aom_sk_gd_lam_inf_helmet_elite_a_name}[Gondor] Lamedon Elite Helmet A"
         subtype="head_armor"
@@ -832,13 +829,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_elite_b"
         name="{=aom_sk_gd_lam_inf_helmet_elite_b_name}[Gondor] Lamedon Elite Helmet B"
         subtype="head_armor"
@@ -849,13 +846,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_elite_c"
         name="{=aom_sk_gd_lam_inf_helmet_elite_c_name}[Gondor] Lamedon Elite Helmet C"
         subtype="head_armor"
@@ -866,13 +863,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_inf_helmet_elite_d"
         name="{=aom_sk_gd_lam_inf_helmet_elite_d_name}[Gondor] Lamedon Elite Helmet D"
         subtype="head_armor"
@@ -883,13 +880,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_nob_helmet_lord_a"
         name="{=aom_sk_gd_lam_nob_helmet_lord_a_name}[Gondor] Lamedon Lord Helmet A"
         subtype="head_armor"
@@ -900,13 +897,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_nob_helmet_lord_b"
         name="{=aom_sk_gd_lam_nob_helmet_lord_b_name}[Gondor] Lamedon Lord Helmet B"
         subtype="head_armor"
@@ -917,13 +914,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_nob_helmet_lord_c"
         name="{=aom_sk_gd_lam_nob_helmet_lord_c_name}[Gondor] Lamedon Lord Helmet C"
         subtype="head_armor"
@@ -934,13 +931,13 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
-    <Item
+	<Item
         id="sk_gd_lam_nob_helmet_lord_d"
         name="{=aom_sk_gd_lam_nob_helmet_lord_d_name}[Gondor] Lamedon Lord Helmet D"
         subtype="head_armor"
@@ -951,10 +948,10 @@
         difficulty="0"
         appearance="6"
         Type="HeadArmor">
-        <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
+		<ItemComponent>
+			<Armor head_armor="40" has_gender_variations="false" hair_cover_type="type2" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
+		</ItemComponent>
+		<Flags UseTeamColor="true" />
+	</Item>
 
 </Items>

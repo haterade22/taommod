@@ -290,6 +290,9 @@
 				<feat id="battanian_forest_speed" />
 				<feat id="battanian_militia_production" />
 				<feat id="battanian_slower_construction" />
+				<feat id="taom_dunland_plain_speed" />
+				<feat id="taom_dunland_party_size" />
+				<feat id="taom_dunland_volunteer_rate" />
 			</cultural_feats>
 
 			<!-- Pass through vanilla child elements we don't override -->
@@ -858,6 +861,7 @@
 				<feat id="taom_rohan_infantry_speed" />
 				<feat id="taom_rohan_loyalty" />
 				<feat id="taom_rohan_morale" />
+				<feat id="taom_rohan_plain_speed" />
 			</cultural_feats>
 
 			<!-- Pass through vanilla child elements we don't override -->
@@ -1145,6 +1149,23 @@
 			<xsl:attribute name="name">{=TAOM_sturgia_culture}Barding</xsl:attribute>
 			<xsl:attribute name="text">{=TAOM_sturgia_desc}The Bardings of Dale, named for Bard the Bowman, are a proud and industrious people who rose to prominence after reclaiming their homeland from the shadow of Smaug. Nestled between the Lonely Mountain and the Long Lake, Dale thrives as a hub of trade and culture. Known for their resilience and craftsmanship, the Bardings excel in forging weapons and armor, rivaling even the Dwarves of Erebor. Their armies, composed of disciplined archers, stalwart swordsmen, and agile skirmishers, defend their lands with fierce determination. United under noble leaders, the Bardings are ever watchful, guarding against the encroaching darkness and preserving their rich heritage.</xsl:attribute>
 
+			<!-- Military: troops, militias, party templates -->
+			<xsl:attribute name="basic_troop">NPCCharacter.dale_recruit</xsl:attribute>
+			<xsl:attribute name="elite_basic_troop">NPCCharacter.dale_squire</xsl:attribute>
+			<xsl:attribute name="melee_militia_troop">NPCCharacter.dale_militia_spearman</xsl:attribute>
+			<xsl:attribute name="ranged_militia_troop">NPCCharacter.dale_militia_archer</xsl:attribute>
+			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.dale_militia_veteran_spearman</xsl:attribute>
+			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.dale_militia_veteran_archer</xsl:attribute>
+			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_dale_template</xsl:attribute>
+			<xsl:attribute name="militia_party_template">PartyTemplate.militia_dale_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_dale_template</xsl:attribute>
+			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_dale</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_dale_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_dale_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_dale_template_level_3</xsl:attribute>
+			<xsl:attribute name="default_battle_equipment_roster">EquipmentRoster.dale_bat_template_medium_a</xsl:attribute>
+			<xsl:attribute name="default_civilian_equipment_roster">EquipmentRoster.dale_civ_template_default_a</xsl:attribute>
+
 			<!-- NPC references -->
 			<xsl:attribute name="tournament_master">NPCCharacter.tournament_master_dale</xsl:attribute>
 			<xsl:attribute name="villager">NPCCharacter.villager_dale</xsl:attribute>
@@ -1318,6 +1339,54 @@
 
 			<!-- Pass through vanilla child elements we don't override -->
 			<xsl:apply-templates select="*[not(self::notable_templates)]"/>
+		</xsl:copy>
+	</xsl:template>
+
+	<!-- TAOM cultural feats for vanilla-wrapped cultures: append to each culture's vanilla
+	     cultural_feats, preserving the existing vanilla feats. Covers terrain movement-speed
+	     AND the Wave 1 economy/military feats (tariff, renown, loyalty, food, raid, morale,
+	     party-size, army-influence-cost). Harad=aserai / Easterling(Rhun)=khuzait /
+	     Dale=sturgia / Khand=battania reuse the vanilla culture IDs. -->
+	<xsl:template match="Culture[@id='aserai']/cultural_feats">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()"/>
+			<feat id="taom_harad_desert_speed" />
+			<feat id="taom_harad_party_size" />
+			<feat id="taom_harad_morale" />
+			<feat id="taom_harad_food_consumption" />
+			<feat id="taom_harad_raid_damage" />
+			<feat id="taom_harad_army_influence_cost" />
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="Culture[@id='khuzait']/cultural_feats">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()"/>
+			<feat id="taom_rhun_steppe_speed" />
+			<feat id="taom_rhun_party_size" />
+			<feat id="taom_rhun_loyalty" />
+			<feat id="taom_rhun_raid_damage" />
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="Culture[@id='sturgia']/cultural_feats">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()"/>
+			<feat id="taom_dale_plain_speed" />
+			<feat id="taom_dale_tariff_income" />
+			<feat id="taom_dale_renown" />
+			<feat id="taom_dale_loyalty" />
+		</xsl:copy>
+	</xsl:template>
+
+	<xsl:template match="Culture[@id='battania']/cultural_feats">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()"/>
+			<feat id="taom_khand_steppe_speed" />
+			<feat id="taom_khand_renown" />
+			<feat id="taom_khand_tariff_income" />
+			<feat id="taom_khand_food_consumption" />
+			<feat id="taom_khand_party_size" />
 		</xsl:copy>
 	</xsl:template>
 

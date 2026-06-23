@@ -1114,10 +1114,6 @@
     </Item>
 
 
-    <!-- ============================================================== -->
-    <!--  KEYforce Mordor generic Orc armor (sk_gn_orc_*, sk_md_orc_*)   -->
-    <!-- ============================================================== -->
-
     <Item
         id="sk_md_orc_arc_chest_light_a"
         name="{=aom_sk_md_orc_arc_chest_light_a_name}[Mordor] Mordor Orc Tunic I"
@@ -1556,6 +1552,352 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor body_armor="50" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Mordor armor: orc pool + Morannon sub-line           -->
+    <!--  (sk_gn_orc_*, sk_md_orc_*, sk_md_mor_*)                       -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_mor_arc_chest_light_a"
+        name="{=aom_sk_md_mor_arc_chest_light_a_name}[Mordor] Morannon Archer Light Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_light_b"
+        name="{=aom_sk_md_mor_arc_chest_light_b_name}[Mordor] Morannon Archer Light Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_med_a"
+        name="{=aom_sk_md_mor_arc_chest_med_a_name}[Mordor] Morannon Archer Medium Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_med_b"
+        name="{=aom_sk_md_mor_arc_chest_med_b_name}[Mordor] Morannon Archer Medium Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_med_c"
+        name="{=aom_sk_md_mor_arc_chest_med_c_name}[Mordor] Morannon Archer Medium Chest III"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_med_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_med_d"
+        name="{=aom_sk_md_mor_arc_chest_med_d_name}[Mordor] Morannon Archer Medium Chest IV"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_med_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_heavy_a"
+        name="{=aom_sk_md_mor_arc_chest_heavy_a_name}[Mordor] Morannon Archer Heavy Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_heavy_b"
+        name="{=aom_sk_md_mor_arc_chest_heavy_b_name}[Mordor] Morannon Archer Heavy Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_heavy_c"
+        name="{=aom_sk_md_mor_arc_chest_heavy_c_name}[Mordor] Morannon Archer Heavy Chest III"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_heavy_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_arc_chest_heavy_d"
+        name="{=aom_sk_md_mor_arc_chest_heavy_d_name}[Mordor] Morannon Archer Heavy Chest IV"
+        subtype="body_armor"
+        mesh="sk_md_mor_arc_chest_heavy_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_light_a"
+        name="{=aom_sk_md_mor_inf_chest_light_a_name}[Mordor] Morannon Infantry Light Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_light_b"
+        name="{=aom_sk_md_mor_inf_chest_light_b_name}[Mordor] Morannon Infantry Light Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="8.0"
+        difficulty="0"
+        appearance="1"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_med_a"
+        name="{=aom_sk_md_mor_inf_chest_med_a_name}[Mordor] Morannon Infantry Medium Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_med_b"
+        name="{=aom_sk_md_mor_inf_chest_med_b_name}[Mordor] Morannon Infantry Medium Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_med_c"
+        name="{=aom_sk_md_mor_inf_chest_med_c_name}[Mordor] Morannon Infantry Medium Chest III"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_med_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_med_d"
+        name="{=aom_sk_md_mor_inf_chest_med_d_name}[Mordor] Morannon Infantry Medium Chest IV"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_med_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="13.0"
+        difficulty="0"
+        appearance="3"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_heavy_a"
+        name="{=aom_sk_md_mor_inf_chest_heavy_a_name}[Mordor] Morannon Infantry Heavy Chest I"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_heavy_b"
+        name="{=aom_sk_md_mor_inf_chest_heavy_b_name}[Mordor] Morannon Infantry Heavy Chest II"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_heavy_c"
+        name="{=aom_sk_md_mor_inf_chest_heavy_c_name}[Mordor] Morannon Infantry Heavy Chest III"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_heavy_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_mor_inf_chest_heavy_d"
+        name="{=aom_sk_md_mor_inf_chest_heavy_d_name}[Mordor] Morannon Infantry Heavy Chest IV"
+        subtype="body_armor"
+        mesh="sk_md_mor_inf_chest_heavy_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="18.0"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

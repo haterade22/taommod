@@ -1158,7 +1158,7 @@
     <Item
         id="wm_boromir_shield"
         name="{=aom_wm_boromir_shield}[Gondor] Boromir's Shield"
-        body_name="bo_cap_wm_boromir_shield"
+        body_name="bo_cap_wm_rohan_shield_a01"
         shield_body_name="bo_wm_boromir_shield"
         recalculate_body="false"
         mesh="wm_boromir_shield"
@@ -9069,4 +9069,649 @@
             HeldInOffHand="true" />
     </Item>
 
+	<Item
+        id="wm_dale_shield_a01"
+        name="{=wm_dale_shield_a01_name}[Dale] Heavy Shield I"
+        body_name="bo_cap_wm_dale_shield_a01"
+        shield_body_name="bo_wm_dale_shield_a01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a01"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a02"
+        name="{=wm_dale_shield_a02_name}[Dale] Heavy Shield II"
+        body_name="bo_cap_wm_dale_shield_a01"
+        shield_body_name="bo_wm_dale_shield_a01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a02"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a03"
+        name="{=wm_dale_shield_a03_name}[Dale] Heavy Shield III"
+        body_name="bo_cap_wm_dale_shield_a01"
+        shield_body_name="bo_wm_dale_shield_a01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a03"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a04"
+        name="{=wm_dale_shield_a04_name}[Dale] Heavy Shield IV"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a04"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a05"
+        name="{=wm_dale_shield_a05_name}[Dale] Heavy Shield V"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a05"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a06"
+        name="{=wm_dale_shield_a06_name}[Dale] Heavy Shield VI"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a06"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a07"
+        name="{=wm_dale_shield_a07_name}[Dale] Heavy Shield VII"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a07"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a08"
+        name="{=wm_dale_shield_a08_name}[Dale] Heavy Shield VIII"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a08"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_a09"
+        name="{=wm_dale_shield_a09_name}[Dale] Heavy Shield IX"
+        body_name="bo_cap_wm_dale_shield_a04"
+        shield_body_name="bo_wm_dale_shield_a04"
+        recalculate_body="false"
+        mesh="wm_dale_shield_a09"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b01"
+        name="{=wm_dale_shield_b01_name}[Dale] Shield I"
+        body_name="bo_cap_wm_dale_shield_b01"
+        shield_body_name="bo_wm_dale_shield_b01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b01"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b02"
+        name="{=wm_dale_shield_b02_name}[Dale] Shield II"
+        body_name="bo_cap_wm_dale_shield_b01"
+        shield_body_name="bo_wm_dale_shield_b01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b02"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b03"
+        name="{=wm_dale_shield_b03_name}[Dale] Shield III"
+        body_name="bo_cap_wm_dale_shield_b01"
+        shield_body_name="bo_wm_dale_shield_b01"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b03"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b04"
+        name="{=wm_dale_shield_b04_name}[Dale] Shield IV"
+        body_name="bo_cap_wm_dale_shield_b02"
+        shield_body_name="bo_wm_dale_shield_b02"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b04"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b05"
+        name="{=wm_dale_shield_b05_name}[Dale] Shield V"
+        body_name="bo_cap_wm_dale_shield_b02"
+        shield_body_name="bo_wm_dale_shield_b02"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b05"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+
+	<Item
+        id="wm_dale_shield_b06"
+        name="{=wm_dale_shield_b06_name}[Dale] Shield VI"
+        body_name="bo_cap_wm_dale_shield_b02"
+        shield_body_name="bo_wm_dale_shield_b02"
+        recalculate_body="false"
+        mesh="wm_dale_shield_b06"
+        culture="Culture.sturgia"
+        using_tableau="false"
+        weight="4.5"
+        appearance="1"
+        Type="Shield"
+        is_merchandise="true"
+        item_holsters="shield_kite:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0.0,0.1,0">
+		<ItemComponent>
+			<Weapon
+                weapon_class="LargeShield"
+                body_armor="14"
+                thrust_speed="75"
+                thrust_damage="12"
+                thrust_damage_type="Pierce"
+                speed_rating="75"
+                physics_material="metal_shield"
+                item_usage="hand_shield"
+                position="0.0, 0.00, 0.00"
+                rotation="280.00,-62.10,8.70"
+                weapon_length="140"
+                center_of_mass="0.0,0.065,0.05"
+                hit_points="450"
+                modifier_group="shield">
+				<WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+			</Weapon>
+		</ItemComponent>
+		<Flags
+            WoodenParry="true"
+            ForceAttachOffHandPrimaryItemBone="true"
+            HeldInOffHand="true" />
+	</Item>
+	
 </Items>

@@ -581,26 +581,4 @@
 
     <!-- #endregion -->
 
-
-    <!-- ============================================================== -->
-    <!--  KEYforce Isengard paint helmets (sk_is_orc_*) + scout cloth   -->
-    <!-- ============================================================== -->
-
-    <Item
-        id="clo_urukscout_body"
-        name="{=aom_clo_urukscout_body_name}[Isengard] Uruk-Hai Scout Cloth Overlay"
-        subtype="body_armor"
-        mesh="clo_urukscout_body"
-        culture="Culture.isengard"
-        is_merchandise="true"
-        weight="8.0"
-        difficulty="0"
-        appearance="1"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
 </Items>

@@ -9797,4 +9797,117 @@
 			<Piece id="wm_tuors_axe_handle" Type="Handle" scale_factor="100" />
 		</Pieces>
 	</CraftedItem>
+    <!-- ===== DALE (Culture.sturgia) crafted weapons + bows - stats proposed for review ===== -->
+    <CraftedItem id="dale_sword_a" name="{=aom_dale_sword_a_name}[Dale] Dale Sword I" crafting_template="OneHandedSword" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_sword_a01_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a01_guard" Type="Guard" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a01_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a01_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_sword_b" name="{=aom_dale_sword_b_name}[Dale] Dale Sword II" crafting_template="OneHandedSword" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_sword_a02_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a02_guard" Type="Guard" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a02_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a02_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_sword_c" name="{=aom_dale_sword_c_name}[Dale] Dale Sword III" crafting_template="OneHandedSword" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_sword_a03_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a03_guard" Type="Guard" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a03_handle" Type="Handle" scale_factor="100" />
+            <Piece id="wm_dale_ws_sword_a03_pommel" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_war_axe_a" name="{=aom_dale_war_axe_a_name}[Dale] Dale War Axe I" crafting_template="OneHandedAxe" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_1h_axe_a01_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_1h_axe_a03_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_war_axe_b" name="{=aom_dale_war_axe_b_name}[Dale] Dale War Axe II" crafting_template="OneHandedAxe" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_1h_axe_a02_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_1h_axe_a02_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_war_axe_c" name="{=aom_dale_war_axe_c_name}[Dale] Dale War Axe III" crafting_template="OneHandedAxe" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_1h_axe_a03_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_1h_axe_a03_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_great_axe_a" name="{=aom_dale_great_axe_a_name}[Dale] Dale Great Axe" crafting_template="TwoHandedAxe" is_merchandise="true" culture="Culture.sturgia">
+        <Pieces>
+            <Piece id="wm_dale_ws_2h_axe_a01_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_2h_axe_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_spear_a" name="{=aom_dale_spear_a_name}[Dale] Dale Spear I" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_spear_a01_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_spear_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_spear_b" name="{=aom_dale_spear_b_name}[Dale] Dale Spear II" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_spear_a02_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_spear_a02_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_halberd_a" name="{=aom_dale_halberd_a_name}[Dale] Dale Halberd I" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a01" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_polearm_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_halberd_b" name="{=aom_dale_halberd_b_name}[Dale] Dale Halberd II" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a02" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_polearm_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_poleaxe_a" name="{=aom_dale_poleaxe_a_name}[Dale] Dale Poleaxe" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a03" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_spear_a02_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_war_spear_a" name="{=aom_dale_war_spear_a_name}[Dale] Dale War Spear" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a04" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_polearm_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_winged_spear_a" name="{=aom_dale_winged_spear_a_name}[Dale] Dale Winged Spear I" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a05" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_spear_a02_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem id="dale_winged_spear_b" name="{=aom_dale_winged_spear_b_name}[Dale] Dale Winged Spear II" crafting_template="TwoHandedPolearm" is_merchandise="true" culture="Culture.sturgia" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_dale_ws_polearm_head_a06" Type="Blade" scale_factor="100" />
+            <Piece id="wm_dale_ws_polearm_a01_handle" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <Item id="dale_longbow_a" name="{=aom_dale_longbow_a_name}[Dale] Dale Longbow" body_name="bo_wm_dale_ws_longbow_a01" mesh="wm_dale_ws_longbow_a01" is_merchandise="true" culture="Culture.sturgia" weight="1.2" difficulty="80" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
+        <ItemComponent>
+            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="70" speed_rating="84" missile_speed="84" weapon_length="210" accuracy="96" thrust_damage="78" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
+                <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
+    <Item id="dale_recurve_bow_a" name="{=aom_dale_recurve_bow_a_name}[Dale] Dale Recurve Bow" body_name="bo_wm_dale_ws_recurve_bow_a01" mesh="wm_dale_ws_recurve_bow_a01" is_merchandise="true" culture="Culture.sturgia" weight="0.9" difficulty="50" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
+        <ItemComponent>
+            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="78" speed_rating="92" missile_speed="78" weapon_length="142" accuracy="93" thrust_damage="62" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
+                <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
 </Items>

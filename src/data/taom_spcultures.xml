@@ -224,6 +224,8 @@
       <feat id="taom_erebor_loyalty" />
       <feat id="taom_erebor_morale" />
       <feat id="taom_erebor_smithing" />
+      <feat id="taom_erebor_snow_speed" />
+      <feat id="taom_erebor_tariff_income" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -595,6 +597,7 @@
       <feat id="taom_rivendell_army_influence_cost" />
       <feat id="taom_rivendell_food_consumption" />
       <feat id="taom_rivendell_loyalty" />
+      <feat id="taom_rivendell_forest_speed" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -955,6 +958,7 @@
       <feat id="taom_mirkwood_hearth_growth" />
       <feat id="taom_mirkwood_food_consumption" />
       <feat id="taom_mirkwood_morale" />
+      <feat id="taom_mirkwood_army_influence_cost" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -1316,6 +1320,7 @@
       <feat id="taom_lothlorien_food_consumption" />
       <feat id="taom_lothlorien_loyalty" />
       <feat id="taom_lothlorien_morale" />
+      <feat id="taom_lothlorien_volunteer_rate" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -1677,6 +1682,12 @@
       <feat id="taom_isengard_construction_speed" />
       <feat id="taom_isengard_smithing" />
       <feat id="taom_isengard_raid_damage" />
+      <feat id="taom_isengard_plain_speed" />
+      <feat id="taom_isengard_swamp_speed" />
+      <feat id="taom_isengard_notable_count_town_merchant" />
+      <feat id="taom_isengard_notable_count_town_artisan" />
+      <feat id="taom_isengard_notable_count_town_gang_leader" />
+      <feat id="taom_isengard_notable_count_village" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -1752,8 +1763,17 @@
       <template name="NPCCharacter.spc_notable_isengard_gl4" />
       <template name="NPCCharacter.spc_notable_isengard_12" />
       <template name="NPCCharacter.spc_notable_isengard_13" />
+      <template name="NPCCharacter.spc_notable_isengard_gl5" />
+      <template name="NPCCharacter.spc_notable_isengard_gl6" />
+      <template name="NPCCharacter.spc_notable_isengard_gl7" />
+      <template name="NPCCharacter.spc_notable_isengard_gl8" />
+      <template name="NPCCharacter.spc_notable_isengard_gl9" />
+      <template name="NPCCharacter.spc_notable_isengard_gl10" />
+      <template name="NPCCharacter.spc_notable_isengard_gl11" />
+      <template name="NPCCharacter.spc_notable_isengard_gl12" />
       <template name="NPCCharacter.spc_notable_isengard_21" />
       <template name="NPCCharacter.spc_notable_isengard_22" />
+      <template name="NPCCharacter.spc_notable_isengard_23" />
       <template name="NPCCharacter.spc_isengard_headman_1" />
       <template name="NPCCharacter.spc_isengard_headman_2" />
       <template name="NPCCharacter.spc_isengard_headman_3" />
@@ -2037,6 +2057,11 @@
       <feat id="taom_gundabad_wage" />
       <feat id="taom_gundabad_party_size" />
       <feat id="taom_gundabad_raid_damage" />
+      <feat id="taom_gundabad_snow_speed" />
+      <feat id="taom_gundabad_volunteer_rate" />
+      <feat id="taom_gundabad_notable_count_town_artisan" />
+      <feat id="taom_gundabad_notable_count_town_gang_leader" />
+      <feat id="taom_gundabad_notable_count_village" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -2114,6 +2139,7 @@
       <template name="NPCCharacter.spc_notable_gundabad_13" />
       <template name="NPCCharacter.spc_notable_gundabad_21" />
       <template name="NPCCharacter.spc_notable_gundabad_22" />
+      <template name="NPCCharacter.spc_notable_gundabad_23" />
       <template name="NPCCharacter.spc_gundabad_headman_1" />
       <template name="NPCCharacter.spc_gundabad_headman_2" />
       <template name="NPCCharacter.spc_gundabad_headman_3" />
@@ -2396,6 +2422,9 @@
       <feat id="taom_umbar_renown" />
       <feat id="taom_umbar_wage" />
       <feat id="taom_umbar_tariff_income" />
+      <feat id="taom_umbar_desert_speed" />
+      <feat id="taom_umbar_raid_damage" />
+      <feat id="taom_umbar_food_consumption" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -2756,6 +2785,11 @@
       <feat id="taom_dolguldur_construction_speed" />
       <feat id="taom_dolguldur_party_size" />
       <feat id="taom_dolguldur_food_consumption" />
+      <feat id="taom_dolguldur_volunteer_rate" />
+      <feat id="taom_dolguldur_notable_count_town_merchant" />
+      <feat id="taom_dolguldur_notable_count_town_artisan" />
+      <feat id="taom_dolguldur_notable_count_town_gang_leader" />
+      <feat id="taom_dolguldur_notable_count_village" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -2831,8 +2865,18 @@
       <template name="NPCCharacter.spc_notable_dolguldur_gl4" />
       <template name="NPCCharacter.spc_notable_dolguldur_12" />
       <template name="NPCCharacter.spc_notable_dolguldur_13" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl5" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl6" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl7" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl8" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl9" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl10" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl11" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl12" />
+      <template name="NPCCharacter.spc_notable_dolguldur_gl13" />
       <template name="NPCCharacter.spc_notable_dolguldur_21" />
       <template name="NPCCharacter.spc_notable_dolguldur_22" />
+      <template name="NPCCharacter.spc_notable_dolguldur_23" />
       <template name="NPCCharacter.spc_dolguldur_headman_1" />
       <template name="NPCCharacter.spc_dolguldur_headman_2" />
       <template name="NPCCharacter.spc_dolguldur_headman_3" />
@@ -3122,6 +3166,7 @@
       <feat id="taom_gondor_party_size" />
       <feat id="taom_gondor_loyalty" />
       <feat id="taom_gondor_morale" />
+      <feat id="taom_gondor_plain_speed" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -3490,6 +3535,13 @@
       <feat id="taom_mordor_wage" />
       <feat id="taom_mordor_party_size" />
       <feat id="taom_mordor_raid_damage" />
+      <feat id="taom_mordor_plain_speed" />
+      <feat id="taom_mordor_swamp_speed" />
+      <feat id="taom_mordor_night_speed" />
+      <feat id="taom_mordor_volunteer_rate" />
+      <feat id="taom_mordor_smithing" />
+      <feat id="taom_mordor_notable_count_town_gang_leader" />
+      <feat id="taom_mordor_notable_count_village" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -3572,6 +3624,7 @@
       <template name="NPCCharacter.spc_notable_mordor_13" />
       <template name="NPCCharacter.spc_notable_mordor_21" />
       <template name="NPCCharacter.spc_notable_mordor_22" />
+      <template name="NPCCharacter.spc_notable_mordor_23" />
       <template name="NPCCharacter.spc_mordor_headman_1" />
       <template name="NPCCharacter.spc_mordor_headman_2" />
       <template name="NPCCharacter.spc_mordor_headman_3" />
@@ -3806,6 +3859,7 @@
       <name name="{=aom_shaghana_clan_9}Acammes" />
     </clan_names>
     <cultural_feats>
+      <feat id="taom_shaghana_desert_speed" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -4069,6 +4123,7 @@
       <name name="{=aom_abanissa_clan_8}House of Tîrdahanâ" />
     </clan_names>
     <cultural_feats>
+      <feat id="taom_abanissa_desert_speed" />
     </cultural_feats>
     <possible_clan_banner_icon_ids>
       <icon id="100" />
@@ -4157,4 +4212,1031 @@
     </basic_mercenary_troops>
   </Culture>
 
+  <!-- ============================================== -->
+  <!-- LOTR Bandit Cultures                             -->
+  <!-- ============================================== -->
+  <!-- Replace vanilla forest/mountain/desert/steppe/sea bandit cultures with lore-appropriate
+       LOTR factions. Hideouts in TAOM_Map/settlements.xml reference these cultures' StringIds.
+       Bandit clans inherit IsBanditFaction=true via is_bandit, so engine spawns them automatically.
+  -->
+
+  <!-- Dunlending Raiders (replaces forest_bandits) -->
+  <Culture
+    id="dunland_raiders"
+    name="{=taom_bandit_dunland_name}Dunlending Raiders"
+    bandit_chief="NPCCharacter.dunland_clan_warrior"
+    bandit_raider="NPCCharacter.dunland_raider"
+    bandit_bandit="NPCCharacter.dunland_peasant"
+    bandit_boss="NPCCharacter.dunland_raiders_boss"
+    elite_basic_troop="NPCCharacter.dunland_raider"
+    basic_troop="NPCCharacter.dunland_peasant"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_forest_bandit"
+    faction_banner_key="11.181.166.1528.1528.764.764.1.0.0.26004.2000.171.650.650.765.800.0.0.0"
+    bandit_boss_party_template="PartyTemplate.dunland_raiders_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_dunland_m1}Caradoc" />
+      <name name="{=taom_bandit_dunland_m2}Gwidion" />
+      <name name="{=taom_bandit_dunland_m3}Brennor" />
+      <name name="{=taom_bandit_dunland_m4}Targal" />
+      <name name="{=taom_bandit_dunland_m5}Maedrun" />
+      <name name="{=taom_bandit_dunland_m6}Drûghu" />
+      <name name="{=taom_bandit_dunland_m7}Olfan" />
+      <name name="{=taom_bandit_dunland_m8}Cethrin" />
+      <name name="{=taom_bandit_dunland_m9}Hwalbor" />
+      <name name="{=taom_bandit_dunland_m10}Idris" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_dunland_f1}Branwen" />
+      <name name="{=taom_bandit_dunland_f2}Aelis" />
+      <name name="{=taom_bandit_dunland_f3}Maerwen" />
+      <name name="{=taom_bandit_dunland_f4}Gwyneth" />
+      <name name="{=taom_bandit_dunland_f5}Olwen" />
+    </female_names>
+  </Culture>
+
+  <!-- Rhûn Raiders (replaces steppe_bandits) -->
+  <Culture
+    id="rhun_raiders"
+    name="{=taom_bandit_rhun_name}Rhûn Raiders"
+    bandit_chief="NPCCharacter.balcoth_archer"
+    bandit_raider="NPCCharacter.balcoth_footman"
+    bandit_bandit="NPCCharacter.balcoth_volunteer"
+    bandit_boss="NPCCharacter.rhun_raiders_boss"
+    elite_basic_troop="NPCCharacter.balcoth_footman"
+    basic_troop="NPCCharacter.balcoth_volunteer"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_steppe_bandit"
+    faction_banner_key="11.2014.166.1528.1528.764.764.1.0.0.14010.131.116.700.700.765.765.0.0.90"
+    bandit_boss_party_template="PartyTemplate.rhun_raiders_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_rhun_m1}Khamûl" />
+      <name name="{=taom_bandit_rhun_m2}Targon" />
+      <name name="{=taom_bandit_rhun_m3}Bûrzakh" />
+      <name name="{=taom_bandit_rhun_m4}Sangar" />
+      <name name="{=taom_bandit_rhun_m5}Hazgrim" />
+      <name name="{=taom_bandit_rhun_m6}Vorzul" />
+      <name name="{=taom_bandit_rhun_m7}Daghir" />
+      <name name="{=taom_bandit_rhun_m8}Olmec" />
+      <name name="{=taom_bandit_rhun_m9}Tarvon" />
+      <name name="{=taom_bandit_rhun_m10}Kharzul" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_rhun_f1}Sarila" />
+      <name name="{=taom_bandit_rhun_f2}Khazna" />
+      <name name="{=taom_bandit_rhun_f3}Vorina" />
+      <name name="{=taom_bandit_rhun_f4}Tahjia" />
+      <name name="{=taom_bandit_rhun_f5}Sangela" />
+    </female_names>
+  </Culture>
+
+  <!-- Haradrim Raiders (replaces desert_bandits) -->
+  <Culture
+    id="harad_raiders"
+    name="{=taom_bandit_harad_name}Haradrim Raiders"
+    bandit_chief="NPCCharacter.harad_footman"
+    bandit_raider="NPCCharacter.harad_archer"
+    bandit_bandit="NPCCharacter.harad_levy"
+    bandit_boss="NPCCharacter.harad_raiders_boss"
+    elite_basic_troop="NPCCharacter.harad_archer"
+    basic_troop="NPCCharacter.harad_levy"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_desert_bandit"
+    faction_banner_key="11.149.166.1528.1528.764.764.1.0.0.504.142.171.813.2468.764.599.0.0.178.504.116.171.771.2278.764.599.0.0.178.504.142.171.733.2225.764.599.0.0.178.505.142.171.813.2468.205.600.0.0.0.505.116.171.813.2468.196.600.0.0.0.505.142.171.813.2468.189.600.0.0.0.505.142.171.813.2468.1322.600.0.1.0.505.116.171.813.2468.1331.600.0.1.0.505.142.171.813.2468.1338.600.0.1.0.503.116.171.133.133.763.512.0.1.0.503.142.171.118.118.763.512.0.1.0.504.142.171.49.49.744.564.0.1.314.504.142.171.49.49.783.564.0.0.44.503.116.171.33.71.763.559.0.1.0.503.116.171.106.106.763.512.0.1.0.503.142.171.84.84.763.512.0.1.0.503.116.171.71.71.763.512.0.1.0.503.142.171.49.49.763.512.0.1.0.503.116.171.21.21.763.604.0.1.0.402.116.171.48.48.501.1028.0.1.89.402.116.171.48.48.501.959.0.1.89.402.116.171.48.48.501.892.0.1.89.402.116.171.48.48.501.824.0.1.89.402.116.171.48.48.501.754.0.1.89.402.116.171.48.48.501.690.0.1.89.402.116.171.48.48.501.621.0.1.89.402.116.171.48.48.501.552.0.1.89.402.116.171.48.48.501.486.0.1.89.402.116.171.48.48.501.417.0.1.89.402.116.171.48.48.501.354.0.1.89.402.116.171.48.48.1025.1028.0.1.89.402.116.171.48.48.1025.959.0.1.89.402.116.171.48.48.1025.892.0.1.89.402.116.171.48.48.1025.824.0.1.89.402.116.171.48.48.1025.754.0.1.89.402.116.171.48.48.1025.690.0.1.89.402.116.171.48.48.1025.621.0.1.89.402.116.171.48.48.1025.552.0.1.89.402.116.171.48.48.1025.486.0.1.89.402.116.171.48.48.1025.417.0.1.89.402.116.171.48.48.1025.354.0.1.89.505.116.171.813.2468.109.600.0.0.0.505.142.171.813.2468.103.600.0.0.0.505.116.171.813.2468.1418.600.0.1.0.505.142.171.813.2468.1424.600.0.1.0.504.116.171.26.139.764.408.0.1.0.504.116.171.26.139.681.574.0.1.127.504.116.171.26.139.847.574.0.0.230.504.116.171.26.139.866.521.0.0.269.504.116.171.26.139.662.521.0.1.89.504.116.171.26.139.862.473.0.0.285.504.116.171.26.139.821.423.0.0.327.504.116.171.26.139.707.423.0.1.30.504.116.171.26.139.666.473.0.1.71.13000.2000.116.300.300.755.797.0.0.0"
+    bandit_boss_party_template="PartyTemplate.harad_raiders_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_harad_m1}Suladân" />
+      <name name="{=taom_bandit_harad_m2}Azaghal" />
+      <name name="{=taom_bandit_harad_m3}Khaled" />
+      <name name="{=taom_bandit_harad_m4}Variag" />
+      <name name="{=taom_bandit_harad_m5}Dath" />
+      <name name="{=taom_bandit_harad_m6}Tarkil" />
+      <name name="{=taom_bandit_harad_m7}Mûzan" />
+      <name name="{=taom_bandit_harad_m8}Akhôr" />
+      <name name="{=taom_bandit_harad_m9}Sahir" />
+      <name name="{=taom_bandit_harad_m10}Zûran" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_harad_f1}Nilhuna" />
+      <name name="{=taom_bandit_harad_f2}Saharia" />
+      <name name="{=taom_bandit_harad_f3}Aklira" />
+      <name name="{=taom_bandit_harad_f4}Bezara" />
+      <name name="{=taom_bandit_harad_f5}Mûzana" />
+    </female_names>
+  </Culture>
+
+  <!-- Gundabad Orc Raiders (replaces mountain_bandits) -->
+  <Culture
+    id="gundabad_raiders"
+    name="{=taom_bandit_gundabad_name}Gundabad Orc Raiders"
+    bandit_chief="NPCCharacter.gundabad_scout"
+    bandit_raider="NPCCharacter.gundabad_grunt"
+    bandit_bandit="NPCCharacter.gundabad_snaga"
+    bandit_boss="NPCCharacter.gundabad_raiders_boss"
+    elite_basic_troop="NPCCharacter.gundabad_grunt"
+    basic_troop="NPCCharacter.gundabad_snaga"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_mountain_bandit"
+    faction_banner_key="11.330.166.1528.1528.764.764.1.0.0.22000.149.171.700.700.764.764.0.0.0.22001.142.116.350.350.765.854.1.0.0"
+    bandit_boss_party_template="PartyTemplate.gundabad_raiders_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_gundabad_m1}Bolg" />
+      <name name="{=taom_bandit_gundabad_m2}Yazneg" />
+      <name name="{=taom_bandit_gundabad_m3}Fimbul" />
+      <name name="{=taom_bandit_gundabad_m4}Narzug" />
+      <name name="{=taom_bandit_gundabad_m5}Gorbag" />
+      <name name="{=taom_bandit_gundabad_m6}Mauhûr" />
+      <name name="{=taom_bandit_gundabad_m7}Snaga" />
+      <name name="{=taom_bandit_gundabad_m8}Ufthak" />
+      <name name="{=taom_bandit_gundabad_m9}Radbug" />
+      <name name="{=taom_bandit_gundabad_m10}Lugdush" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_gundabad_f1}Skarra" />
+      <name name="{=taom_bandit_gundabad_f2}Vorga" />
+      <name name="{=taom_bandit_gundabad_f3}Mazra" />
+      <name name="{=taom_bandit_gundabad_f4}Grishta" />
+      <name name="{=taom_bandit_gundabad_f5}Narzga" />
+    </female_names>
+  </Culture>
+
+  <!-- Umbar Corsairs (replaces sea_raiders) -->
+  <Culture
+    id="umbar_corsairs"
+    name="{=taom_bandit_umbar_name}Corsairs of Umbar"
+    bandit_chief="NPCCharacter.umbar_elite_root0"
+    bandit_raider="NPCCharacter.umbar_elite"
+    bandit_bandit="NPCCharacter.aux_basic"
+    bandit_boss="NPCCharacter.umbar_corsairs_boss"
+    elite_basic_troop="NPCCharacter.umbar_elite"
+    basic_troop="NPCCharacter.aux_basic"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_sea_raider"
+    faction_banner_key="11.149.166.1528.1528.764.764.1.0.0.505.266.171.483.483.764.764.0.0.44.505.142.171.451.451.764.764.0.0.43.505.266.171.483.483.764.764.0.0.0.505.2014.171.451.451.764.764.0.0.0.503.266.171.40.40.764.532.0.0.0.503.266.171.40.40.764.995.0.0.0.503.266.171.40.40.995.764.0.0.0.503.266.171.40.40.533.764.0.0.0.12000.266.116.200.200.768.774.1.0.0.502.266.116.350.350.765.765.1.0.45.502.266.116.350.350.765.765.1.0.0"
+    bandit_boss_party_template="PartyTemplate.umbar_corsairs_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_umbar_m1}Castamir" />
+      <name name="{=taom_bandit_umbar_m2}Sangahyandion" />
+      <name name="{=taom_bandit_umbar_m3}Angamaitë" />
+      <name name="{=taom_bandit_umbar_m4}Herumor" />
+      <name name="{=taom_bandit_umbar_m5}Fuinur" />
+      <name name="{=taom_bandit_umbar_m6}Adûnaphel" />
+      <name name="{=taom_bandit_umbar_m7}Aragôl" />
+      <name name="{=taom_bandit_umbar_m8}Calemir" />
+      <name name="{=taom_bandit_umbar_m9}Vorondil" />
+      <name name="{=taom_bandit_umbar_m10}Karazîr" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_umbar_f1}Berúthiel" />
+      <name name="{=taom_bandit_umbar_f2}Nimreth" />
+      <name name="{=taom_bandit_umbar_f3}Adûniel" />
+      <name name="{=taom_bandit_umbar_f4}Tarmiriel" />
+      <name name="{=taom_bandit_umbar_f5}Inzilbêth" />
+    </female_names>
+  </Culture>
+
+  <!-- ============================================== -->
+  <!-- LOTR Bandit Cultures — Wave 2 (heroic-faction offshoots) -->
+  <!-- ============================================== -->
+  <!-- Gondor Soldiers, Erebor Warriors, Mirkwood Stalkers. is_bandit + can_have_settlement
+       like the wave-1 cultures. INERT until a matching bandit clan + hideouts of the culture
+       exist (no clan with this culture => not iterated in Clan.BanditFactions => no _hideouts
+       indexer hit => crash-safe). Clans are authored once the hideouts are placed. -->
+
+  <!-- Gondor Soldiers (Anórien outlaw bands) -->
+  <Culture
+    id="gondor_soldiers"
+    name="{=taom_bandit_gondor_name}Gondor Soldiers"
+    bandit_chief="NPCCharacter.gondor_ano_footman"
+    bandit_raider="NPCCharacter.gondor_ano_militia"
+    bandit_bandit="NPCCharacter.gondor_ano_peasant"
+    bandit_boss="NPCCharacter.gondor_soldiers_boss"
+    elite_basic_troop="NPCCharacter.gondor_ano_militia"
+    basic_troop="NPCCharacter.gondor_ano_peasant"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_forest_bandit"
+    faction_banner_key="11.149.149.1528.1528.764.764.1.0.0.10000.172.2000.580.580.765.825.0.0.0"
+    bandit_boss_party_template="PartyTemplate.gondor_soldiers_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_gondor_m1}Bergil" />
+      <name name="{=taom_bandit_gondor_m2}Targon" />
+      <name name="{=taom_bandit_gondor_m3}Forlong" />
+      <name name="{=taom_bandit_gondor_m4}Duilas" />
+      <name name="{=taom_bandit_gondor_m5}Hirgon" />
+      <name name="{=taom_bandit_gondor_m6}Beregond" />
+      <name name="{=taom_bandit_gondor_m7}Mardil" />
+      <name name="{=taom_bandit_gondor_m8}Orodreth" />
+      <name name="{=taom_bandit_gondor_m9}Cirion" />
+      <name name="{=taom_bandit_gondor_m10}Halmir" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_gondor_f1}Ioreth" />
+      <name name="{=taom_bandit_gondor_f2}Lothíriel" />
+      <name name="{=taom_bandit_gondor_f3}Morwen" />
+      <name name="{=taom_bandit_gondor_f4}Gilraen" />
+      <name name="{=taom_bandit_gondor_f5}Anwen" />
+    </female_names>
+  </Culture>
+
+  <!-- Erebor Warriors (exiled dwarven bands) -->
+  <Culture
+    id="erebor_warriors"
+    name="{=taom_bandit_erebor_name}Erebor Warriors"
+    bandit_chief="NPCCharacter.erebor_reg_company"
+    bandit_raider="NPCCharacter.erebor_reg_militia"
+    bandit_bandit="NPCCharacter.erebor_reg_miner"
+    bandit_boss="NPCCharacter.erebor_warriors_boss"
+    elite_basic_troop="NPCCharacter.erebor_reg_militia"
+    basic_troop="NPCCharacter.erebor_reg_miner"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_mountain_bandit"
+    faction_banner_key="11.100.75.4345.4345.764.764.1.0.0.521.172.100.62.62.630.618.0.0.268.521.172.100.54.54.548.703.0.0.268.521.172.100.42.42.571.810.0.0.268.521.172.100.62.62.899.618.0.1.88.521.172.100.54.54.980.703.0.1.88.521.172.100.42.42.957.810.0.1.88.24019.31.240.400.400.765.873.1.0.0.24510.31.240.200.200.765.556.1.0.0"
+    bandit_boss_party_template="PartyTemplate.erebor_warriors_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_erebor_m1}Nargûm" />
+      <name name="{=taom_bandit_erebor_m2}Borin" />
+      <name name="{=taom_bandit_erebor_m3}Frar" />
+      <name name="{=taom_bandit_erebor_m4}Lofar" />
+      <name name="{=taom_bandit_erebor_m5}Grimbeard" />
+      <name name="{=taom_bandit_erebor_m6}Thrar" />
+      <name name="{=taom_bandit_erebor_m7}Dwalgin" />
+      <name name="{=taom_bandit_erebor_m8}Náladr" />
+      <name name="{=taom_bandit_erebor_m9}Vidri" />
+      <name name="{=taom_bandit_erebor_m10}Hagri" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_erebor_f1}Dís" />
+      <name name="{=taom_bandit_erebor_f2}Brila" />
+      <name name="{=taom_bandit_erebor_f3}Vagna" />
+      <name name="{=taom_bandit_erebor_f4}Thora" />
+      <name name="{=taom_bandit_erebor_f5}Frida" />
+    </female_names>
+  </Culture>
+
+  <!-- Mirkwood Stalkers (renegade Silvan ambushers) -->
+  <Culture
+    id="mirkwood_stalkers"
+    name="{=taom_bandit_mirkwood_name}Mirkwood Stalkers"
+    bandit_chief="NPCCharacter.mirkwood_militia_veteran_spearman"
+    bandit_raider="NPCCharacter.mirkwood_militia_archer"
+    bandit_bandit="NPCCharacter.mirkwood_militia_spearman"
+    bandit_boss="NPCCharacter.mirkwood_stalkers_boss"
+    elite_basic_troop="NPCCharacter.mirkwood_militia_archer"
+    basic_troop="NPCCharacter.mirkwood_militia_spearman"
+    is_bandit="true"
+    can_have_settlement="true"
+    encounter_background_mesh="encounter_forest_bandit"
+    faction_banner_key="11.2.166.1528.1528.764.764.1.0.0.505.53.171.484.484.764.764.0.0.45.505.126.171.470.470.764.764.0.0.45.505.53.171.454.454.764.764.0.0.45.17003.164.116.500.500.766.770.1.0.0.17002.96.116.500.500.770.772.1.0.0"
+    bandit_boss_party_template="PartyTemplate.mirkwood_stalkers_boss_party_template">
+    <male_names>
+      <name name="{=taom_bandit_mirkwood_m1}Faeglir" />
+      <name name="{=taom_bandit_mirkwood_m2}Thranduil" />
+      <name name="{=taom_bandit_mirkwood_m3}Galion" />
+      <name name="{=taom_bandit_mirkwood_m4}Belegorn" />
+      <name name="{=taom_bandit_mirkwood_m5}Nimloth" />
+      <name name="{=taom_bandit_mirkwood_m6}Orophin" />
+      <name name="{=taom_bandit_mirkwood_m7}Rúmil" />
+      <name name="{=taom_bandit_mirkwood_m8}Haldamir" />
+      <name name="{=taom_bandit_mirkwood_m9}Tauron" />
+      <name name="{=taom_bandit_mirkwood_m10}Lindir" />
+    </male_names>
+    <female_names>
+      <name name="{=taom_bandit_mirkwood_f1}Tauriel" />
+      <name name="{=taom_bandit_mirkwood_f2}Nethloriel" />
+      <name name="{=taom_bandit_mirkwood_f3}Eowen" />
+      <name name="{=taom_bandit_mirkwood_f4}Faelivrin" />
+      <name name="{=taom_bandit_mirkwood_f5}Míriel" />
+    </female_names>
+  </Culture>
+
+  <!-- TAOM-NEWFACTIONS:goblin:BEGIN -->
+  <Culture
+    id="goblin"
+    name="{=aom_goblin_name}Goblins"
+    is_main_culture="true"
+    color="0xFF1C2A1C"
+    color2="0xFF44582E"
+    elite_basic_troop="NPCCharacter.goblin_fighter"
+    basic_troop="NPCCharacter.goblin_snaga"
+    melee_militia_troop="NPCCharacter.goblin_militia_spearman"
+    ranged_militia_troop="NPCCharacter.goblin_militia_archer"
+    melee_elite_militia_troop="NPCCharacter.goblin_militia_veteran_spearman"
+    ranged_elite_militia_troop="NPCCharacter.goblin_militia_veteran_archer"
+    can_have_settlement="true"
+    villager_party_template="PartyTemplate.villager_goblin_template"
+    default_party_template="PartyTemplate.kingdom_hero_party_goblin_template"
+    settlement_patrol_template_level_1="PartyTemplate.patrol_party_goblin_template_level_1"
+    settlement_patrol_template_level_2="PartyTemplate.patrol_party_goblin_template_level_2"
+    settlement_patrol_template_level_3="PartyTemplate.patrol_party_goblin_template_level_3"
+    militia_party_template="PartyTemplate.militia_goblin_template"
+    rebels_party_template="PartyTemplate.rebels_goblin_template"
+    vassal_reward_party_template="PartyTemplate.vassal_reward_troops_goblin"
+    prosperity_bonus="1"
+    encounter_background_mesh="encounter_sturgia"
+    faction_banner_key="11.12.12.4345.4345.764.764.1.0.0.462.13.13.512.512.764.764.1.0.0"
+    text="{=aom_goblin_desc}The Goblins of Goblin-town swarm the tunnels beneath the High Pass of the Misty Mountains. Cowardly alone but overwhelming in number, they breed endlessly in the dark and pour out to ambush travellers on the mountain roads. Under their Great Goblin and his captains they harry Elves, Dwarves, and Men alike, serving the growing Shadow for plunder and spite."
+    tournament_master="NPCCharacter.tournament_master_goblin"
+    villager="NPCCharacter.villager_goblin"
+    caravan_master="NPCCharacter.caravan_master_goblin"
+    caravan_guard="NPCCharacter.caravan_guard_goblin"
+    veteran_caravan_guard="NPCCharacter.veteran_caravan_guard_goblin"
+    prison_guard="NPCCharacter.prison_guard_goblin"
+    guard="NPCCharacter.guard_goblin"
+    blacksmith="NPCCharacter.blacksmith_goblin"
+    weaponsmith="NPCCharacter.weaponsmith_goblin"
+    townswoman="NPCCharacter.townswoman_goblin"
+    townswoman_infant="NPCCharacter.townswoman_infant_goblin"
+    townswoman_child="NPCCharacter.townswoman_child_goblin"
+    townswoman_teenager="NPCCharacter.townswoman_teenager_goblin"
+    townsman="NPCCharacter.townsman_goblin"
+    townsman_infant="NPCCharacter.townsman_infant_goblin"
+    townsman_child="NPCCharacter.townsman_child_goblin"
+    village_woman="NPCCharacter.village_woman_goblin"
+    villager_male_child="NPCCharacter.villager_child_goblin"
+    villager_male_teenager="NPCCharacter.villager_teenager_goblin"
+    villager_female_child="NPCCharacter.village_woman_child_goblin"
+    villager_female_teenager="NPCCharacter.village_woman_teenager_goblin"
+    townsman_teenager="NPCCharacter.townsman_teenager_goblin"
+    ransom_broker="NPCCharacter.ransom_broker_goblin"
+    gangleader_bodyguard="NPCCharacter.gangleader_bodyguard_goblin"
+    merchant_notary="NPCCharacter.spc_notable_goblin_0"
+    artisan_notary="NPCCharacter.spc_notable_goblin_8"
+    preacher_notary="NPCCharacter.spc_notable_goblin_5"
+    rural_notable_notary="NPCCharacter.spc_notable_goblin_21"
+    shop_worker="NPCCharacter.shop_worker_goblin"
+    tavernkeeper="NPCCharacter.tavernkeeper_goblin"
+    taverngamehost="NPCCharacter.taverngamehost_goblin"
+    musician="NPCCharacter.musician_goblin"
+    tavern_wench="NPCCharacter.tavern_wench_goblin"
+    armorer="NPCCharacter.armorer_goblin"
+    horseMerchant="NPCCharacter.horseMerchant_goblin"
+    barber="NPCCharacter.barber_goblin"
+    merchant="NPCCharacter.merchant_goblin"
+    beggar="NPCCharacter.beggar_goblin"
+    female_beggar="NPCCharacter.female_beggar_goblin"
+    female_dancer="NPCCharacter.female_dancer_goblin"
+    default_battle_equipment_roster="EquipmentRoster.goblin_bat_template_medium_a"
+    default_civilian_equipment_roster="EquipmentRoster.goblin_civ_template_default_a"
+    default_stealth_equipment_roster="EquipmentRoster.default_stealth_equipment_roster"
+    duel_preset_equipment_roster="EquipmentRoster.stu_duel_preset_template"
+    marriage_bride_equipment_roster="EquipmentRoster.marriage_female_emp_cutscene_template"
+    board_game_type="Konane"
+    default_character_creation_body_property="BodyProperty.fighter_gundabad"
+    start_point_position_x="745.754"
+    start_point_position_y="1137.235">
+    <caravan_party_templates>
+      <caravan_party_template id="PartyTemplate.caravan_template_goblin" />
+    </caravan_party_templates>
+    <elite_caravan_party_templates>
+      <caravan_party_template id="PartyTemplate.elite_caravan_template_goblin" />
+    </elite_caravan_party_templates>
+    <available_ship_hulls></available_ship_hulls>
+    <vassal_reward_items>
+      <item id="Item.wm_gundabad_mace_a02" />
+    </vassal_reward_items>
+    <banner_bearer_replacement_weapons>
+      <item id="Item.wm_dol_goldur_1h_sword_a01" />
+      <item id="Item.wm_mordor_set1_sword_a02" />
+      <item id="Item.wm_dol_goldur_1h_sword_a02" />
+      <item id="Item.wm_gundabad_sword_a02" />
+    </banner_bearer_replacement_weapons>
+    <default_policies>
+      <policy id="policy_council_of_the_commons" />
+    </default_policies>
+    <male_names>
+      <name name="{=aom_goblin_male_name_1}Azgar" />
+      <name name="{=aom_goblin_male_name_2}Drozmak" />
+      <name name="{=aom_goblin_male_name_3}Kargoth" />
+      <name name="{=aom_goblin_male_name_4}Thrazak" />
+      <name name="{=aom_goblin_male_name_5}Ulgrim" />
+      <name name="{=aom_goblin_male_name_6}Zorgath" />
+      <name name="{=aom_goblin_male_name_7}Gragor" />
+      <name name="{=aom_goblin_male_name_8}Durmash" />
+      <name name="{=aom_goblin_male_name_9}Vorgoth" />
+      <name name="{=aom_goblin_male_name_10}Mugzun" />
+      <name name="{=aom_goblin_male_name_11}Lurzok" />
+      <name name="{=aom_goblin_male_name_12}Zorgha" />
+      <name name="{=aom_goblin_male_name_13}Thrumak" />
+      <name name="{=aom_goblin_male_name_14}Nargoth" />
+      <name name="{=aom_goblin_male_name_15}Borzak" />
+      <name name="{=aom_goblin_male_name_16}Druznar" />
+      <name name="{=aom_goblin_male_name_17}Kragloth" />
+      <name name="{=aom_goblin_male_name_18}Vurzag" />
+      <name name="{=aom_goblin_male_name_19}Narlog" />
+      <name name="{=aom_goblin_male_name_20}Thalrug" />
+      <name name="{=aom_goblin_male_name_21}Urzul" />
+      <name name="{=aom_goblin_male_name_22}Gralthak" />
+      <name name="{=aom_goblin_male_name_23}Vorgrim" />
+      <name name="{=aom_goblin_male_name_24}Mazkor" />
+      <name name="{=aom_goblin_male_name_25}Bolgath" />
+      <name name="{=aom_goblin_male_name_26}Lurthak" />
+      <name name="{=aom_goblin_male_name_27}Thrugol" />
+      <name name="{=aom_goblin_male_name_28}Narzuk" />
+      <name name="{=aom_goblin_male_name_29}Kruznor" />
+      <name name="{=aom_goblin_male_name_30}Thrazgul" />
+      <name name="{=aom_goblin_male_name_31}Durzak" />
+      <name name="{=aom_goblin_male_name_32}Zulgoth" />
+      <name name="{=aom_goblin_male_name_33}Vorzak" />
+      <name name="{=aom_goblin_male_name_34}Krogar" />
+      <name name="{=aom_goblin_male_name_35}Thrunak" />
+      <name name="{=aom_goblin_male_name_36}Grazar" />
+      <name name="{=aom_goblin_male_name_37}Narzog" />
+      <name name="{=aom_goblin_male_name_38}Ulgrim" />
+      <name name="{=aom_goblin_male_name_39}Vurlak" />
+      <name name="{=aom_goblin_male_name_40}Borzak" />
+      <name name="{=aom_goblin_male_name_41}Durzor" />
+      <name name="{=aom_goblin_male_name_42}Muzrag" />
+      <name name="{=aom_goblin_male_name_43}Gralthor" />
+      <name name="{=aom_goblin_male_name_44}Tharzog" />
+      <name name="{=aom_goblin_male_name_45}Vrognak" />
+      <name name="{=aom_goblin_male_name_46}Karnak" />
+      <name name="{=aom_goblin_male_name_47}Borzak" />
+      <name name="{=aom_goblin_male_name_48}Narzul" />
+      <name name="{=aom_goblin_male_name_49}Thrulgoth" />
+      <name name="{=aom_goblin_male_name_50}Druzmok" />
+    </male_names>
+    <female_names>
+      <name name="{=aom_goblin_female_name_1}Gralza" />
+      <name name="{=aom_goblin_female_name_2}Thurka" />
+      <name name="{=aom_goblin_female_name_3}Zulgara" />
+      <name name="{=aom_goblin_female_name_4}Vorzha" />
+      <name name="{=aom_goblin_female_name_5}Durga" />
+      <name name="{=aom_goblin_female_name_6}Nargra" />
+      <name name="{=aom_goblin_female_name_7}Thrulza" />
+      <name name="{=aom_goblin_female_name_8}Muzra" />
+      <name name="{=aom_goblin_female_name_9}Kralza" />
+      <name name="{=aom_goblin_female_name_10}Ulzara" />
+      <name name="{=aom_goblin_female_name_11}Borza" />
+      <name name="{=aom_goblin_female_name_12}Zargra" />
+      <name name="{=aom_goblin_female_name_13}Grusha" />
+      <name name="{=aom_goblin_female_name_14}Dursha" />
+      <name name="{=aom_goblin_female_name_15}Thalra" />
+      <name name="{=aom_goblin_female_name_16}Vorla" />
+      <name name="{=aom_goblin_female_name_17}Nargul" />
+      <name name="{=aom_goblin_female_name_18}Thurka" />
+      <name name="{=aom_goblin_female_name_19}Ulsha" />
+      <name name="{=aom_goblin_female_name_20}Muzrak" />
+      <name name="{=aom_goblin_female_name_21}Kralsha" />
+      <name name="{=aom_goblin_female_name_22}Gralsha" />
+      <name name="{=aom_goblin_female_name_23}Dursha" />
+      <name name="{=aom_goblin_female_name_24}Thranza" />
+      <name name="{=aom_goblin_female_name_25}Nargra" />
+      <name name="{=aom_goblin_female_name_26}Ulzira" />
+      <name name="{=aom_goblin_female_name_27}Borlia" />
+      <name name="{=aom_goblin_female_name_28}Zorgla" />
+      <name name="{=aom_goblin_female_name_29}Durla" />
+      <name name="{=aom_goblin_female_name_30}Muzsha" />
+      <name name="{=aom_goblin_female_name_31}Thrulga" />
+      <name name="{=aom_goblin_female_name_32}Narsha" />
+      <name name="{=aom_goblin_female_name_33}Kralga" />
+      <name name="{=aom_goblin_female_name_34}Grinza" />
+      <name name="{=aom_goblin_female_name_35}Thalzia" />
+      <name name="{=aom_goblin_female_name_36}Vorgla" />
+      <name name="{=aom_goblin_female_name_37}Ulzila" />
+      <name name="{=aom_goblin_female_name_38}Durzha" />
+      <name name="{=aom_goblin_female_name_39}Nargula" />
+      <name name="{=aom_goblin_female_name_40}Thrugla" />
+      <name name="{=aom_goblin_female_name_41}Muzla" />
+      <name name="{=aom_goblin_female_name_42}Gralna" />
+      <name name="{=aom_goblin_female_name_43}Tharka" />
+      <name name="{=aom_goblin_female_name_44}Ulzara" />
+      <name name="{=aom_goblin_female_name_45}Kralza" />
+      <name name="{=aom_goblin_female_name_46}Durka" />
+      <name name="{=aom_goblin_female_name_47}Thruna" />
+      <name name="{=aom_goblin_female_name_48}Borza" />
+      <name name="{=aom_goblin_female_name_49}Zorga" />
+      <name name="{=aom_goblin_female_name_50}Narlia" />
+    </female_names>
+    <clan_names>
+      <name name="{=aom_goblin_clan_1}Goblin-town Horde" />
+      <name name="{=aom_goblin_clan_2}Goblin-town Clan" />
+      <name name="{=aom_goblin_clan_3}Misty Mountain Wolves" />
+      <name name="{=aom_goblin_clan_4}Warg Pack" />
+      <name name="{=aom_goblin_clan_5}Stone Giant Horde" />
+      <name name="{=aom_goblin_clan_6}Moria Remnants" />
+      <name name="{=aom_goblin_clan_7}Cirith Ungol Brood" />
+      <name name="{=aom_goblin_clan_8}Angmar's Children" />
+      <name name="{=aom_goblin_clan_9}Carn Dum Warband" />
+      <name name="{=aom_goblin_clan_10}Grey Mountain Raiders" />
+      <name name="{=aom_goblin_clan_11}Ettenmoors Horde" />
+      <name name="{=aom_goblin_clan_12}Snaga Band" />
+      <name name="{=aom_goblin_clan_13}Bolg's Kin" />
+      <name name="{=aom_goblin_clan_14}Blacktooth Clan" />
+      <name name="{=aom_goblin_clan_15}Iron Hills Scourge" />
+    </clan_names>
+        <cultural_feats>
+            <feat id="taom_goblin_party_size" />
+            <feat id="taom_goblin_volunteer_rate" />
+            <feat id="taom_goblin_snow_speed" />
+            <feat id="taom_goblin_food_consumption" />
+            <feat id="taom_goblin_smithing" />
+            <feat id="taom_goblin_raid_damage" />
+        </cultural_feats>
+    <possible_clan_banner_icon_ids>
+      <icon id="100" />
+      <icon id="101" />
+      <icon id="102" />
+      <icon id="103" />
+      <icon id="104" />
+      <icon id="105" />
+      <icon id="106" />
+      <icon id="107" />
+      <icon id="108" />
+      <icon id="109" />
+      <icon id="110" />
+      <icon id="119" />
+      <icon id="147" />
+      <icon id="148" />
+      <icon id="152" />
+      <icon id="200" />
+      <icon id="201" />
+      <icon id="202" />
+      <icon id="203" />
+      <icon id="204" />
+      <icon id="205" />
+      <icon id="206" />
+      <icon id="207" />
+      <icon id="208" />
+      <icon id="209" />
+      <icon id="210" />
+      <icon id="211" />
+      <icon id="212" />
+      <icon id="213" />
+      <icon id="214" />
+      <icon id="215" />
+      <icon id="216" />
+      <icon id="217" />
+      <icon id="218" />
+      <icon id="219" />
+      <icon id="220" />
+      <icon id="221" />
+      <icon id="222" />
+      <icon id="223" />
+      <icon id="400" />
+    </possible_clan_banner_icon_ids>
+    <notable_templates>
+      <template name="NPCCharacter.spc_wanderer_goblin_0" />
+      <template name="NPCCharacter.spc_wanderer_goblin_1" />
+      <template name="NPCCharacter.spc_wanderer_goblin_2" />
+      <template name="NPCCharacter.spc_wanderer_goblin_3" />
+      <template name="NPCCharacter.spc_wanderer_goblin_4" />
+      <template name="NPCCharacter.spc_wanderer_goblin_5" />
+      <template name="NPCCharacter.spc_wanderer_goblin_6" />
+      <template name="NPCCharacter.spc_wanderer_goblin_7" />
+      <template name="NPCCharacter.spc_wanderer_goblin_8" />
+      <template name="NPCCharacter.spc_wanderer_goblin_9" />
+      <template name="NPCCharacter.spc_notable_goblin_0" />
+      <template name="NPCCharacter.spc_notable_goblin_0b" />
+      <template name="NPCCharacter.spc_notable_goblin_1" />
+      <template name="NPCCharacter.spc_notable_goblin_1b" />
+      <template name="NPCCharacter.spc_notable_goblin_2" />
+      <template name="NPCCharacter.spc_notable_goblin_2b" />
+      <template name="NPCCharacter.spc_notable_goblin_3" />
+      <template name="NPCCharacter.spc_notable_goblin_3b" />
+      <template name="NPCCharacter.spc_notable_goblin_4" />
+      <template name="NPCCharacter.spc_notable_goblin_4b" />
+      <template name="NPCCharacter.spc_notable_goblin_5" />
+      <template name="NPCCharacter.spc_notable_goblin_6" />
+      <template name="NPCCharacter.spc_notable_goblin_7" />
+      <template name="NPCCharacter.spc_notable_goblin_8" />
+      <template name="NPCCharacter.spc_notable_goblin_9" />
+      <template name="NPCCharacter.spc_notable_goblin_gl1" />
+      <template name="NPCCharacter.spc_notable_goblin_10" />
+      <template name="NPCCharacter.spc_notable_goblin_11" />
+      <template name="NPCCharacter.spc_notable_goblin_gl4" />
+      <template name="NPCCharacter.spc_notable_goblin_12" />
+      <template name="NPCCharacter.spc_notable_goblin_13" />
+      <template name="NPCCharacter.spc_notable_goblin_21" />
+      <template name="NPCCharacter.spc_notable_goblin_22" />
+      <template name="NPCCharacter.spc_notable_goblin_23" />
+      <template name="NPCCharacter.spc_goblin_headman_1" />
+      <template name="NPCCharacter.spc_goblin_headman_2" />
+      <template name="NPCCharacter.spc_goblin_headman_3" />
+    </notable_templates>
+    <lord_templates>
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_0" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_1" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_2" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_3" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_0" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_1" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_2" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_3" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_0" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_1" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_2" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_3" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_0" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_1" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_2" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_3" />
+    </lord_templates>
+    <rebellion_hero_templates>
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_0" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_1" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_2" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_3" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_0" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_1" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_2" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_3" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_0" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_1" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_2" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_3" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_0" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_1" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_2" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_3" />
+    </rebellion_hero_templates>
+    <tournament_team_templates_one_participant>
+      <template name="NPCCharacter.tournament_template_empire_one_participant_set_v1" />
+    </tournament_team_templates_one_participant>
+    <tournament_team_templates_two_participant>
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v1" />
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v2" />
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v3" />
+    </tournament_team_templates_two_participant>
+    <tournament_team_templates_four_participant>
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v1" />
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v2" />
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v3" />
+    </tournament_team_templates_four_participant>
+    <basic_mercenary_troops>
+      <template name="NPCCharacter.eastern_mercenary" />
+      <template name="NPCCharacter.western_mercenary" />
+      <template name="NPCCharacter.sword_sisters_sister_t3" />
+    </basic_mercenary_troops>
+  </Culture>
+
+  <!-- TAOM-NEWFACTIONS:goblin:END -->
+  <!-- TAOM-NEWFACTIONS:mistymountainorcs:BEGIN -->
+  <Culture
+    id="mistymountainorcs"
+    name="{=aom_mistymountainorcs_name}Misty Mountain Orcs"
+    is_main_culture="true"
+    color="0xFF2E2E2E"
+    color2="0xFF6E5A40"
+    elite_basic_troop="NPCCharacter.mistymountainorcs_fighter"
+    basic_troop="NPCCharacter.mistymountainorcs_snaga"
+    melee_militia_troop="NPCCharacter.mistymountainorcs_militia_spearman"
+    ranged_militia_troop="NPCCharacter.mistymountainorcs_militia_archer"
+    melee_elite_militia_troop="NPCCharacter.mistymountainorcs_militia_veteran_spearman"
+    ranged_elite_militia_troop="NPCCharacter.mistymountainorcs_militia_veteran_archer"
+    can_have_settlement="true"
+    villager_party_template="PartyTemplate.villager_mistymountainorcs_template"
+    default_party_template="PartyTemplate.kingdom_hero_party_mistymountainorcs_template"
+    settlement_patrol_template_level_1="PartyTemplate.patrol_party_mistymountainorcs_template_level_1"
+    settlement_patrol_template_level_2="PartyTemplate.patrol_party_mistymountainorcs_template_level_2"
+    settlement_patrol_template_level_3="PartyTemplate.patrol_party_mistymountainorcs_template_level_3"
+    militia_party_template="PartyTemplate.militia_mistymountainorcs_template"
+    rebels_party_template="PartyTemplate.rebels_mistymountainorcs_template"
+    vassal_reward_party_template="PartyTemplate.vassal_reward_troops_mistymountainorcs"
+    prosperity_bonus="1"
+    encounter_background_mesh="encounter_sturgia"
+    faction_banner_key="11.12.12.4345.4345.764.764.1.0.0.462.13.13.512.512.764.764.1.0.0"
+    text="{=aom_mistymountainorcs_desc}The Orcs of the Misty Mountains are a savage war-host dwelling among the high peaks and deep places of the range. Driven by an ancient hatred of Elves and Dwarves, they muster vast and ill-armed legions and fall upon the lands below, serving the dark powers that stir in the East."
+    tournament_master="NPCCharacter.tournament_master_mistymountainorcs"
+    villager="NPCCharacter.villager_mistymountainorcs"
+    caravan_master="NPCCharacter.caravan_master_mistymountainorcs"
+    caravan_guard="NPCCharacter.caravan_guard_mistymountainorcs"
+    veteran_caravan_guard="NPCCharacter.veteran_caravan_guard_mistymountainorcs"
+    prison_guard="NPCCharacter.prison_guard_mistymountainorcs"
+    guard="NPCCharacter.guard_mistymountainorcs"
+    blacksmith="NPCCharacter.blacksmith_mistymountainorcs"
+    weaponsmith="NPCCharacter.weaponsmith_mistymountainorcs"
+    townswoman="NPCCharacter.townswoman_mistymountainorcs"
+    townswoman_infant="NPCCharacter.townswoman_infant_mistymountainorcs"
+    townswoman_child="NPCCharacter.townswoman_child_mistymountainorcs"
+    townswoman_teenager="NPCCharacter.townswoman_teenager_mistymountainorcs"
+    townsman="NPCCharacter.townsman_mistymountainorcs"
+    townsman_infant="NPCCharacter.townsman_infant_mistymountainorcs"
+    townsman_child="NPCCharacter.townsman_child_mistymountainorcs"
+    village_woman="NPCCharacter.village_woman_mistymountainorcs"
+    villager_male_child="NPCCharacter.villager_child_mistymountainorcs"
+    villager_male_teenager="NPCCharacter.villager_teenager_mistymountainorcs"
+    villager_female_child="NPCCharacter.village_woman_child_mistymountainorcs"
+    villager_female_teenager="NPCCharacter.village_woman_teenager_mistymountainorcs"
+    townsman_teenager="NPCCharacter.townsman_teenager_mistymountainorcs"
+    ransom_broker="NPCCharacter.ransom_broker_mistymountainorcs"
+    gangleader_bodyguard="NPCCharacter.gangleader_bodyguard_mistymountainorcs"
+    merchant_notary="NPCCharacter.spc_notable_mistymountainorcs_0"
+    artisan_notary="NPCCharacter.spc_notable_mistymountainorcs_8"
+    preacher_notary="NPCCharacter.spc_notable_mistymountainorcs_5"
+    rural_notable_notary="NPCCharacter.spc_notable_mistymountainorcs_21"
+    shop_worker="NPCCharacter.shop_worker_mistymountainorcs"
+    tavernkeeper="NPCCharacter.tavernkeeper_mistymountainorcs"
+    taverngamehost="NPCCharacter.taverngamehost_mistymountainorcs"
+    musician="NPCCharacter.musician_mistymountainorcs"
+    tavern_wench="NPCCharacter.tavern_wench_mistymountainorcs"
+    armorer="NPCCharacter.armorer_mistymountainorcs"
+    horseMerchant="NPCCharacter.horseMerchant_mistymountainorcs"
+    barber="NPCCharacter.barber_mistymountainorcs"
+    merchant="NPCCharacter.merchant_mistymountainorcs"
+    beggar="NPCCharacter.beggar_mistymountainorcs"
+    female_beggar="NPCCharacter.female_beggar_mistymountainorcs"
+    female_dancer="NPCCharacter.female_dancer_mistymountainorcs"
+    default_battle_equipment_roster="EquipmentRoster.mistymountainorcs_bat_template_medium_a"
+    default_civilian_equipment_roster="EquipmentRoster.mistymountainorcs_civ_template_default_a"
+    default_stealth_equipment_roster="EquipmentRoster.default_stealth_equipment_roster"
+    duel_preset_equipment_roster="EquipmentRoster.stu_duel_preset_template"
+    marriage_bride_equipment_roster="EquipmentRoster.marriage_female_emp_cutscene_template"
+    board_game_type="Konane"
+    default_character_creation_body_property="BodyProperty.fighter_gundabad"
+    start_point_position_x="707.946"
+    start_point_position_y="985.511">
+    <caravan_party_templates>
+      <caravan_party_template id="PartyTemplate.caravan_template_mistymountainorcs" />
+    </caravan_party_templates>
+    <elite_caravan_party_templates>
+      <caravan_party_template id="PartyTemplate.elite_caravan_template_mistymountainorcs" />
+    </elite_caravan_party_templates>
+    <available_ship_hulls></available_ship_hulls>
+    <vassal_reward_items>
+      <item id="Item.wm_gundabad_mace_a02" />
+    </vassal_reward_items>
+    <banner_bearer_replacement_weapons>
+      <item id="Item.wm_dol_goldur_1h_sword_a01" />
+      <item id="Item.wm_mordor_set1_sword_a02" />
+      <item id="Item.wm_dol_goldur_1h_sword_a02" />
+      <item id="Item.wm_gundabad_sword_a02" />
+    </banner_bearer_replacement_weapons>
+    <default_policies>
+      <policy id="policy_council_of_the_commons" />
+    </default_policies>
+    <male_names>
+      <name name="{=aom_mistymountainorcs_male_name_1}Azgar" />
+      <name name="{=aom_mistymountainorcs_male_name_2}Drozmak" />
+      <name name="{=aom_mistymountainorcs_male_name_3}Kargoth" />
+      <name name="{=aom_mistymountainorcs_male_name_4}Thrazak" />
+      <name name="{=aom_mistymountainorcs_male_name_5}Ulgrim" />
+      <name name="{=aom_mistymountainorcs_male_name_6}Zorgath" />
+      <name name="{=aom_mistymountainorcs_male_name_7}Gragor" />
+      <name name="{=aom_mistymountainorcs_male_name_8}Durmash" />
+      <name name="{=aom_mistymountainorcs_male_name_9}Vorgoth" />
+      <name name="{=aom_mistymountainorcs_male_name_10}Mugzun" />
+      <name name="{=aom_mistymountainorcs_male_name_11}Lurzok" />
+      <name name="{=aom_mistymountainorcs_male_name_12}Zorgha" />
+      <name name="{=aom_mistymountainorcs_male_name_13}Thrumak" />
+      <name name="{=aom_mistymountainorcs_male_name_14}Nargoth" />
+      <name name="{=aom_mistymountainorcs_male_name_15}Borzak" />
+      <name name="{=aom_mistymountainorcs_male_name_16}Druznar" />
+      <name name="{=aom_mistymountainorcs_male_name_17}Kragloth" />
+      <name name="{=aom_mistymountainorcs_male_name_18}Vurzag" />
+      <name name="{=aom_mistymountainorcs_male_name_19}Narlog" />
+      <name name="{=aom_mistymountainorcs_male_name_20}Thalrug" />
+      <name name="{=aom_mistymountainorcs_male_name_21}Urzul" />
+      <name name="{=aom_mistymountainorcs_male_name_22}Gralthak" />
+      <name name="{=aom_mistymountainorcs_male_name_23}Vorgrim" />
+      <name name="{=aom_mistymountainorcs_male_name_24}Mazkor" />
+      <name name="{=aom_mistymountainorcs_male_name_25}Bolgath" />
+      <name name="{=aom_mistymountainorcs_male_name_26}Lurthak" />
+      <name name="{=aom_mistymountainorcs_male_name_27}Thrugol" />
+      <name name="{=aom_mistymountainorcs_male_name_28}Narzuk" />
+      <name name="{=aom_mistymountainorcs_male_name_29}Kruznor" />
+      <name name="{=aom_mistymountainorcs_male_name_30}Thrazgul" />
+      <name name="{=aom_mistymountainorcs_male_name_31}Durzak" />
+      <name name="{=aom_mistymountainorcs_male_name_32}Zulgoth" />
+      <name name="{=aom_mistymountainorcs_male_name_33}Vorzak" />
+      <name name="{=aom_mistymountainorcs_male_name_34}Krogar" />
+      <name name="{=aom_mistymountainorcs_male_name_35}Thrunak" />
+      <name name="{=aom_mistymountainorcs_male_name_36}Grazar" />
+      <name name="{=aom_mistymountainorcs_male_name_37}Narzog" />
+      <name name="{=aom_mistymountainorcs_male_name_38}Ulgrim" />
+      <name name="{=aom_mistymountainorcs_male_name_39}Vurlak" />
+      <name name="{=aom_mistymountainorcs_male_name_40}Borzak" />
+      <name name="{=aom_mistymountainorcs_male_name_41}Durzor" />
+      <name name="{=aom_mistymountainorcs_male_name_42}Muzrag" />
+      <name name="{=aom_mistymountainorcs_male_name_43}Gralthor" />
+      <name name="{=aom_mistymountainorcs_male_name_44}Tharzog" />
+      <name name="{=aom_mistymountainorcs_male_name_45}Vrognak" />
+      <name name="{=aom_mistymountainorcs_male_name_46}Karnak" />
+      <name name="{=aom_mistymountainorcs_male_name_47}Borzak" />
+      <name name="{=aom_mistymountainorcs_male_name_48}Narzul" />
+      <name name="{=aom_mistymountainorcs_male_name_49}Thrulgoth" />
+      <name name="{=aom_mistymountainorcs_male_name_50}Druzmok" />
+    </male_names>
+    <female_names>
+      <name name="{=aom_mistymountainorcs_female_name_1}Gralza" />
+      <name name="{=aom_mistymountainorcs_female_name_2}Thurka" />
+      <name name="{=aom_mistymountainorcs_female_name_3}Zulgara" />
+      <name name="{=aom_mistymountainorcs_female_name_4}Vorzha" />
+      <name name="{=aom_mistymountainorcs_female_name_5}Durga" />
+      <name name="{=aom_mistymountainorcs_female_name_6}Nargra" />
+      <name name="{=aom_mistymountainorcs_female_name_7}Thrulza" />
+      <name name="{=aom_mistymountainorcs_female_name_8}Muzra" />
+      <name name="{=aom_mistymountainorcs_female_name_9}Kralza" />
+      <name name="{=aom_mistymountainorcs_female_name_10}Ulzara" />
+      <name name="{=aom_mistymountainorcs_female_name_11}Borza" />
+      <name name="{=aom_mistymountainorcs_female_name_12}Zargra" />
+      <name name="{=aom_mistymountainorcs_female_name_13}Grusha" />
+      <name name="{=aom_mistymountainorcs_female_name_14}Dursha" />
+      <name name="{=aom_mistymountainorcs_female_name_15}Thalra" />
+      <name name="{=aom_mistymountainorcs_female_name_16}Vorla" />
+      <name name="{=aom_mistymountainorcs_female_name_17}Nargul" />
+      <name name="{=aom_mistymountainorcs_female_name_18}Thurka" />
+      <name name="{=aom_mistymountainorcs_female_name_19}Ulsha" />
+      <name name="{=aom_mistymountainorcs_female_name_20}Muzrak" />
+      <name name="{=aom_mistymountainorcs_female_name_21}Kralsha" />
+      <name name="{=aom_mistymountainorcs_female_name_22}Gralsha" />
+      <name name="{=aom_mistymountainorcs_female_name_23}Dursha" />
+      <name name="{=aom_mistymountainorcs_female_name_24}Thranza" />
+      <name name="{=aom_mistymountainorcs_female_name_25}Nargra" />
+      <name name="{=aom_mistymountainorcs_female_name_26}Ulzira" />
+      <name name="{=aom_mistymountainorcs_female_name_27}Borlia" />
+      <name name="{=aom_mistymountainorcs_female_name_28}Zorgla" />
+      <name name="{=aom_mistymountainorcs_female_name_29}Durla" />
+      <name name="{=aom_mistymountainorcs_female_name_30}Muzsha" />
+      <name name="{=aom_mistymountainorcs_female_name_31}Thrulga" />
+      <name name="{=aom_mistymountainorcs_female_name_32}Narsha" />
+      <name name="{=aom_mistymountainorcs_female_name_33}Kralga" />
+      <name name="{=aom_mistymountainorcs_female_name_34}Grinza" />
+      <name name="{=aom_mistymountainorcs_female_name_35}Thalzia" />
+      <name name="{=aom_mistymountainorcs_female_name_36}Vorgla" />
+      <name name="{=aom_mistymountainorcs_female_name_37}Ulzila" />
+      <name name="{=aom_mistymountainorcs_female_name_38}Durzha" />
+      <name name="{=aom_mistymountainorcs_female_name_39}Nargula" />
+      <name name="{=aom_mistymountainorcs_female_name_40}Thrugla" />
+      <name name="{=aom_mistymountainorcs_female_name_41}Muzla" />
+      <name name="{=aom_mistymountainorcs_female_name_42}Gralna" />
+      <name name="{=aom_mistymountainorcs_female_name_43}Tharka" />
+      <name name="{=aom_mistymountainorcs_female_name_44}Ulzara" />
+      <name name="{=aom_mistymountainorcs_female_name_45}Kralza" />
+      <name name="{=aom_mistymountainorcs_female_name_46}Durka" />
+      <name name="{=aom_mistymountainorcs_female_name_47}Thruna" />
+      <name name="{=aom_mistymountainorcs_female_name_48}Borza" />
+      <name name="{=aom_mistymountainorcs_female_name_49}Zorga" />
+      <name name="{=aom_mistymountainorcs_female_name_50}Narlia" />
+    </female_names>
+    <clan_names>
+      <name name="{=aom_mistymountainorcs_clan_1}Misty Mountain Host" />
+      <name name="{=aom_mistymountainorcs_clan_2}Goblin-town Clan" />
+      <name name="{=aom_mistymountainorcs_clan_3}Misty Mountain Wolves" />
+      <name name="{=aom_mistymountainorcs_clan_4}Warg Pack" />
+      <name name="{=aom_mistymountainorcs_clan_5}Stone Giant Horde" />
+      <name name="{=aom_mistymountainorcs_clan_6}Moria Remnants" />
+      <name name="{=aom_mistymountainorcs_clan_7}Cirith Ungol Brood" />
+      <name name="{=aom_mistymountainorcs_clan_8}Angmar's Children" />
+      <name name="{=aom_mistymountainorcs_clan_9}Carn Dum Warband" />
+      <name name="{=aom_mistymountainorcs_clan_10}Grey Mountain Raiders" />
+      <name name="{=aom_mistymountainorcs_clan_11}Ettenmoors Horde" />
+      <name name="{=aom_mistymountainorcs_clan_12}Snaga Band" />
+      <name name="{=aom_mistymountainorcs_clan_13}Bolg's Kin" />
+      <name name="{=aom_mistymountainorcs_clan_14}Blacktooth Clan" />
+      <name name="{=aom_mistymountainorcs_clan_15}Iron Hills Scourge" />
+    </clan_names>
+        <cultural_feats>
+            <feat id="taom_mistymountainorcs_army_influence_cost" />
+            <feat id="taom_mistymountainorcs_party_size" />
+            <feat id="taom_mistymountainorcs_snow_speed" />
+            <feat id="taom_mistymountainorcs_food_consumption" />
+            <feat id="taom_mistymountainorcs_smithing" />
+            <feat id="taom_mistymountainorcs_raid_damage" />
+            <feat id="taom_mistymountainorcs_construction_speed" />
+        </cultural_feats>
+    <possible_clan_banner_icon_ids>
+      <icon id="100" />
+      <icon id="101" />
+      <icon id="102" />
+      <icon id="103" />
+      <icon id="104" />
+      <icon id="105" />
+      <icon id="106" />
+      <icon id="107" />
+      <icon id="108" />
+      <icon id="109" />
+      <icon id="110" />
+      <icon id="119" />
+      <icon id="147" />
+      <icon id="148" />
+      <icon id="152" />
+      <icon id="200" />
+      <icon id="201" />
+      <icon id="202" />
+      <icon id="203" />
+      <icon id="204" />
+      <icon id="205" />
+      <icon id="206" />
+      <icon id="207" />
+      <icon id="208" />
+      <icon id="209" />
+      <icon id="210" />
+      <icon id="211" />
+      <icon id="212" />
+      <icon id="213" />
+      <icon id="214" />
+      <icon id="215" />
+      <icon id="216" />
+      <icon id="217" />
+      <icon id="218" />
+      <icon id="219" />
+      <icon id="220" />
+      <icon id="221" />
+      <icon id="222" />
+      <icon id="223" />
+      <icon id="400" />
+    </possible_clan_banner_icon_ids>
+    <notable_templates>
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_0" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_1" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_2" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_3" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_4" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_5" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_6" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_7" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_8" />
+      <template name="NPCCharacter.spc_wanderer_mistymountainorcs_9" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_0" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_0b" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_1" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_1b" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_2" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_2b" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_3" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_3b" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_4" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_4b" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_5" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_6" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_7" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_8" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_9" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_gl1" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_10" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_11" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_gl4" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_12" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_13" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_21" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_22" />
+      <template name="NPCCharacter.spc_notable_mistymountainorcs_23" />
+      <template name="NPCCharacter.spc_mistymountainorcs_headman_1" />
+      <template name="NPCCharacter.spc_mistymountainorcs_headman_2" />
+      <template name="NPCCharacter.spc_mistymountainorcs_headman_3" />
+    </notable_templates>
+    <lord_templates>
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_0" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_1" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_2" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_3" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_0" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_1" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_2" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_3" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_0" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_1" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_2" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_3" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_0" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_1" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_2" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_3" />
+    </lord_templates>
+    <rebellion_hero_templates>
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_0" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_1" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_2" />
+      <template name="NPCCharacter.spc_legion_of_the_betrayed_leader_3" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_0" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_1" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_2" />
+      <template name="NPCCharacter.spc_hidden_hand_leader_3" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_0" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_1" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_2" />
+      <template name="NPCCharacter.spc_embers_of_flame_leader_3" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_0" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_1" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_2" />
+      <template name="NPCCharacter.spc_eleftheroi_leader_3" />
+    </rebellion_hero_templates>
+    <tournament_team_templates_one_participant>
+      <template name="NPCCharacter.tournament_template_empire_one_participant_set_v1" />
+    </tournament_team_templates_one_participant>
+    <tournament_team_templates_two_participant>
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v1" />
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v2" />
+      <template name="NPCCharacter.tournament_template_empire_two_participant_set_v3" />
+    </tournament_team_templates_two_participant>
+    <tournament_team_templates_four_participant>
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v1" />
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v2" />
+      <template name="NPCCharacter.tournament_template_empire_four_participant_set_v3" />
+    </tournament_team_templates_four_participant>
+    <basic_mercenary_troops>
+      <template name="NPCCharacter.eastern_mercenary" />
+      <template name="NPCCharacter.western_mercenary" />
+      <template name="NPCCharacter.sword_sisters_sister_t3" />
+    </basic_mercenary_troops>
+  </Culture>
+
+  <!-- TAOM-NEWFACTIONS:mistymountainorcs:END -->
 </SPCultures>

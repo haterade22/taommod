@@ -26,12 +26,16 @@ const KINGDOM_ORDER = [
   'empire',
   'erebor',
   'sturgia',
+  'lindon',
   'rivendell',
   'mirkwood',
   'lothlorien',
   'isengard',
   'gundabad',
   'dolguldur',
+  'mistymountainorcs',
+  'goblin',
+  'bluecraig',
   'umbar',
   'aserai',
   'abanissa',
@@ -46,6 +50,9 @@ const EVIL_KINGDOMS = new Set([
   'isengard',
   'gundabad',
   'dolguldur',
+  'mistymountainorcs',
+  'goblin',
+  'bluecraig',
   'umbar',
   'aserai',
   'abanissa',
@@ -73,6 +80,10 @@ const CREST_IMAGES: Record<string, string> = {
   empire: '/images/factions/dunland.png',
   abanissa: '/images/factions/abanissa.png',
   shaghana: '/images/factions/harad.png',
+  goblin: '/images/factions/gundabad.png',
+  mistymountainorcs: '/images/factions/gundabad.png',
+  bluecraig: '/images/factions/gundabad.png',
+  lindon: '/images/factions/imladris.png',
 };
 
 const KINGDOM_SUMMARIES: Record<string, string> = {
@@ -111,6 +122,14 @@ const KINGDOM_SUMMARIES: Record<string, string> = {
     'Âbanissa is the deep southern realm of Harad, a land of humid jungles and ancient stone dynasties whose great Houses command disciplined warriors and fearsome war-beasts.',
   shaghana:
     'Shaghâna is the eastern reach of Harad, a land of sun-scorched steppes and ancient fortresses whose nine tribal clans are bound by oath and blood into a fierce warrior host.',
+  goblin:
+    'Goblin-town seethes beneath the Misty Mountains, its numberless vicious hosts pouring from tunnels to raid the mountain roads and plague the Free Peoples.',
+  mistymountainorcs:
+    "The Misty Mountains hold a fierce orc-host bred for war, claiming the high peaks and deep delvings from Mount Gram to Moria's gates in service to the Shadow.",
+  bluecraig:
+    'Blue Craig is a goblin-warren in the far western Blue Mountains, a numberless host distinct from the Misty Mountain kin that haunts the crags above the Grey Havens.',
+  lindon:
+    'Lindon is the green land west of the Blue Mountains, the last realm of the High Elves where Círdan keeps watch over the Grey Havens and the white ships into the West.',
 };
 
 function getMonogram(label: string) {

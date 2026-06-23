@@ -735,10 +735,7 @@
         mesh="wm_mordor_set1_sword_a01_handle"
         length="22.1"
         weight="0.105">
-        <BuildData
-            piece_offset="0"
-            previous_piece_offset="0"
-            next_piece_offset="0" />
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="1" />
         <Materials>
             <Material
                 id="Iron5"
@@ -809,10 +806,7 @@
         mesh="wm_mordor_set1_sword_a02_guard"
         length="8.9"
         weight="0.20">
-        <BuildData
-            piece_offset="0"
-            next_piece_offset="0"
-            previous_piece_offset="0" />
+        <BuildData piece_offset="0" next_piece_offset="4" previous_piece_offset="2" />
         <StatContributions
             armor_bonus="5" />
         <Materials>
@@ -849,10 +843,7 @@
         mesh="wm_mordor_set1_sword_a02_pommel"
         length="13.6"
         weight="0.284">
-        <BuildData
-            piece_offset="0"
-            previous_piece_offset="0"
-            next_piece_offset="0" />
+        <BuildData piece_offset="-1" next_piece_offset="0" previous_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron5"
@@ -4736,7 +4727,7 @@
         <BladeData
             stack_amount="3"
             physics_material="wood_weapon"
-            body_name="bo_wm_swan_knight_lance_blade_a">
+            body_name="bo_wm_swan_knight_lance_blade">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="2.08" />
@@ -4773,7 +4764,7 @@
         <BladeData
             stack_amount="3"
             physics_material="wood_weapon"
-            body_name="bo_wm_swan_knight_lance_blade_b">
+            body_name="bo_wm_swan_knight_lance_blade">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="2.08" />
@@ -7655,7 +7646,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="20"
+            piece_offset="25"
             next_piece_offset="0"
             previous_piece_offset="0" />
         <Materials>
@@ -7678,7 +7669,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="20"
+            piece_offset="25"
             next_piece_offset="0"
             previous_piece_offset="0" />
         <Materials>
@@ -7701,7 +7692,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             next_piece_offset="0"
             previous_piece_offset="5" />
         <Materials>
@@ -7724,7 +7715,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             next_piece_offset="0"
             previous_piece_offset="5" />
         <Materials>
@@ -7747,7 +7738,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             next_piece_offset="0"
             previous_piece_offset="10" />
         <Materials>
@@ -7770,7 +7761,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             next_piece_offset="0"
             previous_piece_offset="10" />
         <Materials>
@@ -10638,7 +10629,7 @@
         length="160.07"
         weight="0.105">
         <BuildData
-            piece_offset="0"
+            piece_offset="45"
             previous_piece_offset="0"
             next_piece_offset="0" />
         <Materials>
@@ -10657,7 +10648,7 @@
         length="160.07"
         weight="0.105">
         <BuildData
-            piece_offset="0"
+            piece_offset="45"
             previous_piece_offset="0"
             next_piece_offset="0" />
         <Materials>
@@ -10676,7 +10667,7 @@
         length="160.07"
         weight="0.105">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             previous_piece_offset="0"
             next_piece_offset="0" />
         <Materials>
@@ -10695,7 +10686,7 @@
         length="160.07"
         weight="0.105">
         <BuildData
-            piece_offset="0"
+            piece_offset="40"
             previous_piece_offset="0"
             next_piece_offset="0" />
         <Materials>
@@ -11593,7 +11584,7 @@
         length="167.6"
         weight="0.296">
         <BuildData
-            piece_offset="20"
+            piece_offset="45"
             next_piece_offset="0"
             previous_piece_offset="6.5" />
         <Materials>
@@ -11680,7 +11671,7 @@
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1">
         <BuildData
-            piece_offset="20"
+            piece_offset="45"
             next_piece_offset="0"
             previous_piece_offset="3" />
         <Materials>
@@ -17374,4 +17365,197 @@
 		</Materials>
 	</CraftingPiece>
 
+
+    <!-- ===== DALE (Culture.sturgia) crafting pieces - stats proposed for review ===== -->
+    <CraftingPiece id="wm_dale_ws_sword_a01_blade" name="{=aom_wm_dale_ws_sword_a01_blade_name}Dale Sword Blade I" tier="4" piece_type="Blade" mesh="wm_dale_ws_sword_a01_blade" length="89.16" weight="1.15">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="2.9" />
+            <Swing damage_type="Cut" damage_factor="2.8" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /></Flags>
+        <Materials><Material id="Iron4" count="7" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a01_guard" name="{=aom_wm_dale_ws_sword_a01_guard_name}Dale Sword Guard I" tier="4" piece_type="Guard" mesh="wm_dale_ws_sword_a01_guard" length="8.70" weight="0.16">
+        <BuildData piece_offset="0" next_piece_offset="2" previous_piece_offset="3" />
+        <StatContributions armor_bonus="5" />
+        <Materials><Material id="Iron4" count="2" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a01_handle" name="{=aom_wm_dale_ws_sword_a01_handle_name}Dale Sword Grip I" tier="4" piece_type="Handle" mesh="wm_dale_ws_sword_a01_handle" length="15.22" weight="0.2">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a01_pommel" name="{=aom_wm_dale_ws_sword_a01_pommel_name}Dale Sword Pommel I" tier="4" piece_type="Pommel" mesh="wm_dale_ws_sword_a01_pommel" length="4.68" weight="0.1">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Iron3" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a02_blade" name="{=aom_wm_dale_ws_sword_a02_blade_name}Dale Sword Blade II" tier="3" piece_type="Blade" mesh="wm_dale_ws_sword_a02_blade" length="83.92" weight="1.0">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a02_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="2.6" />
+            <Swing damage_type="Cut" damage_factor="2.8" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /></Flags>
+        <Materials><Material id="Iron5" count="9" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a02_guard" name="{=aom_wm_dale_ws_sword_a02_guard_name}Dale Sword Guard II" tier="3" piece_type="Guard" mesh="wm_dale_ws_sword_a02_guard" length="7.32" weight="0.15">
+        <BuildData piece_offset="0" next_piece_offset="1" previous_piece_offset="3" />
+        <StatContributions armor_bonus="4" />
+        <Materials><Material id="Iron4" count="2" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a02_handle" name="{=aom_wm_dale_ws_sword_a02_handle_name}Dale Sword Grip II" tier="3" piece_type="Handle" mesh="wm_dale_ws_sword_a02_handle" length="17.98" weight="0.2">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a02_pommel" name="{=aom_wm_dale_ws_sword_a02_pommel_name}Dale Sword Pommel II" tier="3" piece_type="Pommel" mesh="wm_dale_ws_sword_a02_pommel" length="4.40" weight="0.1">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Iron3" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a03_blade" name="{=aom_wm_dale_ws_sword_a03_blade_name}Dale Sword Blade III" tier="3" piece_type="Blade" mesh="wm_dale_ws_sword_a03_blade" length="62.09" weight="0.85">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a03_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="2.3" />
+            <Swing damage_type="Cut" damage_factor="3.0" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /></Flags>
+        <Materials><Material id="Iron6" count="11" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a03_guard" name="{=aom_wm_dale_ws_sword_a03_guard_name}Dale Sword Guard III" tier="3" piece_type="Guard" mesh="wm_dale_ws_sword_a03_guard" length="8.5" weight="0.15">
+        <BuildData piece_offset="0" next_piece_offset="6" previous_piece_offset="0" />
+        <StatContributions armor_bonus="4" />
+        <Materials><Material id="Iron5" count="2" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a03_handle" name="{=aom_wm_dale_ws_sword_a03_handle_name}Dale Sword Grip III" tier="3" piece_type="Handle" mesh="wm_dale_ws_sword_a03_handle" length="8.90" weight="0.15">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_sword_a03_pommel" name="{=aom_wm_dale_ws_sword_a03_pommel_name}Dale Sword Pommel III" tier="3" piece_type="Pommel" mesh="wm_dale_ws_sword_a03_pommel" length="5.23" weight="0.1">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Iron4" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_1h_axe_a01_blade" name="{=aom_wm_dale_ws_1h_axe_a01_blade_name}Dale Axe Head I" tier="2" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a01_blade" length="18.07" weight="0.9">
+        <BladeData stack_amount="3" blade_length="18.07" blade_width="17.53" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="3.0" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="18" />
+        <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="Civilian" type="ItemFlags" /></Flags>
+        <Materials><Material id="Iron3" count="4" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_1h_axe_a02_blade" name="{=aom_wm_dale_ws_1h_axe_a02_blade_name}Dale Axe Head II" tier="3" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a02_blade" length="21.42" weight="1.0">
+        <BladeData stack_amount="3" blade_length="21.42" blade_width="16.66" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a02_blade">
+            <Swing damage_type="Cut" damage_factor="3.1" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /></Flags>
+        <Materials><Material id="Iron4" count="4" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_1h_axe_a03_blade" name="{=aom_wm_dale_ws_1h_axe_a03_blade_name}Dale Axe Head III" tier="3" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a03_blade" length="18.26" weight="1.2">
+        <BladeData stack_amount="3" blade_length="18.26" blade_width="31.09" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a03_blade">
+            <Swing damage_type="Cut" damage_factor="3.4" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="19" />
+        <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="CanKnockDown" /></Flags>
+        <Materials><Material id="Iron4" count="5" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_1h_axe_a02_handle" name="{=aom_wm_dale_ws_1h_axe_a02_handle_name}Dale Axe Haft I" tier="3" piece_type="Handle" mesh="wm_dale_ws_1h_axe_a02_handle" length="50.82" weight="0.5">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_1h_axe_a03_handle" name="{=aom_wm_dale_ws_1h_axe_a03_handle_name}Dale Axe Haft II" tier="3" piece_type="Handle" mesh="wm_dale_ws_1h_axe_a03_handle" length="68.02" weight="0.6">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_2h_axe_a01_blade" name="{=aom_wm_dale_ws_2h_axe_a01_blade_name}Dale Great Axe Head" tier="4" piece_type="Blade" mesh="wm_dale_ws_2h_axe_a01_blade" length="25" weight="2.4">
+        <BladeData stack_amount="3" blade_length="25" blade_width="42.57" physics_material="metal_weapon" body_name="bo_wm_dale_ws_2h_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="3.7" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="24" />
+        <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="CanKnockDown" /></Flags>
+        <Materials><Material id="Iron5" count="9" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_2h_axe_a01_handle" name="{=aom_wm_dale_ws_2h_axe_a01_handle_name}Dale Great Axe Haft" tier="4" piece_type="Handle" mesh="wm_dale_ws_2h_axe_a01_handle" length="121.04" weight="1.6">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="2" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_spear_a01_blade" name="{=aom_wm_dale_ws_spear_a01_blade_name}Dale Spear Head I" tier="3" piece_type="Blade" mesh="wm_dale_ws_spear_a01_blade" length="48.81" weight="0.8" excluded_item_usage_features="swing">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_dale_ws_spear_a01_blade">
+            <Thrust damage_type="Pierce" damage_factor="2.6" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="3" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="NotStackable" type="ItemFlags" /></Flags>
+        <Materials><Material id="Iron4" count="3" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_spear_a02_blade" name="{=aom_wm_dale_ws_spear_a02_blade_name}Dale Spear Head II" tier="3" piece_type="Blade" mesh="wm_dale_ws_spear_a02_blade" length="55.33" weight="0.9" excluded_item_usage_features="swing">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_dale_ws_spear_a02_blade">
+            <Thrust damage_type="Pierce" damage_factor="2.8" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="NotStackable" type="ItemFlags" /></Flags>
+        <Materials><Material id="Iron4" count="3" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_spear_a01_handle" name="{=aom_wm_dale_ws_spear_a01_handle_name}Dale Spear Shaft I" tier="4" piece_type="Handle" mesh="wm_dale_ws_spear_a01_handle" length="158.20" weight="1.5">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_spear_a02_handle" name="{=aom_wm_dale_ws_spear_a02_handle_name}Dale Spear Shaft II" tier="3" piece_type="Handle" mesh="wm_dale_ws_spear_a02_handle" length="147.28" weight="1.4">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="1" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a01" name="{=aom_wm_dale_ws_polearm_head_a01_name}Dale Halberd Head I" tier="4" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a01" length="92.60" weight="2.0">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a01">
+            <Thrust damage_type="Pierce" damage_factor="2.4" />
+            <Swing damage_type="Cut" damage_factor="3.2" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="BonusAgainstShield" /></Flags>
+        <Materials><Material id="Iron5" count="6" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a02" name="{=aom_wm_dale_ws_polearm_head_a02_name}Dale Halberd Head II" tier="4" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a02" length="93.53" weight="2.0">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a02">
+            <Thrust damage_type="Pierce" damage_factor="2.4" />
+            <Swing damage_type="Cut" damage_factor="3.2" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="BonusAgainstShield" /></Flags>
+        <Materials><Material id="Iron5" count="6" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a03" name="{=aom_wm_dale_ws_polearm_head_a03_name}Dale Poleaxe Head" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a03" length="43.03" weight="1.1">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a03">
+            <Thrust damage_type="Pierce" damage_factor="2.0" />
+            <Swing damage_type="Cut" damage_factor="2.6" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="BonusAgainstShield" /></Flags>
+        <Materials><Material id="Iron4" count="3" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a04" name="{=aom_wm_dale_ws_polearm_head_a04_name}Dale War Spear Head" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a04" length="43.47" weight="1.0" excluded_item_usage_features="swing">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_dale_ws_polearm_head_a04">
+            <Thrust damage_type="Pierce" damage_factor="2.4" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="NotStackable" type="ItemFlags" /></Flags>
+        <Materials><Material id="Iron4" count="3" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a05" name="{=aom_wm_dale_ws_polearm_head_a05_name}Dale Winged Spear Head I" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a05" length="68.14" weight="1.4">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a05">
+            <Thrust damage_type="Pierce" damage_factor="2.6" />
+            <Swing damage_type="Cut" damage_factor="2.2" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /></Flags>
+        <Materials><Material id="Iron5" count="4" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_head_a06" name="{=aom_wm_dale_ws_polearm_head_a06_name}Dale Winged Spear Head II" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a06" length="68.17" weight="1.4">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a06">
+            <Thrust damage_type="Pierce" damage_factor="2.6" />
+            <Swing damage_type="Cut" damage_factor="2.2" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /></Flags>
+        <Materials><Material id="Iron5" count="4" /></Materials>
+    </CraftingPiece>
+    <CraftingPiece id="wm_dale_ws_polearm_a01_handle" name="{=aom_wm_dale_ws_polearm_a01_handle_name}Dale Polearm Shaft (Long)" tier="4" piece_type="Handle" mesh="wm_dale_ws_polearm_a01_handle" length="192.24" weight="1.9">
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Materials><Material id="Wood" count="2" /></Materials>
+    </CraftingPiece>
 </CraftingPieces>

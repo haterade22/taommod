@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- Mirkwood -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- Mirkwood -->
+
     <Item
         id="mirkwood_helmet"
         name="{=aom_mirkwood_helmet_name}[Mirkwood] Palace Guard Helmet"
@@ -16,14 +19,15 @@
             <Armor
                 head_armor="45"
                 has_gender_variations="false"
-                hair_cover_type="type2"
+                hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="all" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="thranduil_helmet"
         name="{=aom_thranduil_helmet_name}[Mirkwood] Thranduil Crown"
@@ -39,14 +43,15 @@
             <Armor
                 head_armor="80"
                 has_gender_variations="false"
-                hair_cover_type="none"
+                hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="all" />
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t1_helmet_gold_hc"
         name="{=aom_mkwd_inf1_t1_helmet_gold_hc_name}[Mirkwood] Infantry Helmet T1-I"
@@ -69,7 +74,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t1_helmet_silver_hc"
         name="{=aom_mkwd_inf1_t1_helmet_silver_hc_name}[Mirkwood] Infantry Helmet T1-II"
@@ -92,7 +98,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t2_helmet_gold_hc"
         name="{=aom_mkwd_inf1_t2_helmet_gold_hc_name}[Mirkwood] Infantry Helmet T2-I"
@@ -115,7 +122,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t2_helmet_silver_hc"
         name="{=aom_mkwd_inf1_t2_helmet_silver_hc_name}[Mirkwood] Infantry Helmet T2-II"
@@ -138,7 +146,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t3_helmet_gold_hc"
         name="{=aom_mkwd_inf1_t3_helmet_gold_hc_name}[Mirkwood] Infantry Helmet T3-I"
@@ -161,7 +170,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t3_helmet_silver_hc"
         name="{=aom_mkwd_inf1_t3_helmet_silver_hc_name}[Mirkwood] Infantry Helmet T3-II"
@@ -184,7 +194,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t4_helmet_gold_hc"
         name="{=aom_mkwd_inf1_t4_helmet_gold_hc_name}[Mirkwood] Infantry Helmet T4-I"
@@ -207,7 +218,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf1_t4_helmet_silver_hc"
         name="{=aom_mkwd_inf1_t4_helmet_silver_hc_name}[Mirkwood] Infantry Helmet T4-II"
@@ -230,7 +242,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf2_t1_helmet_silver_hc"
         name="{=aom_mkwd_inf2_t1_helmet_silver_hc_name}[Mirkwood] Infantry Helmet II-T1"
@@ -253,7 +266,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf2_t2_helmet_silver_hc"
         name="{=aom_mkwd_inf2_t2_helmet_silver_hc_name}[Mirkwood] Infantry Helmet II-T2"
@@ -276,7 +290,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf2_t3_helmet_silver_hc"
         name="{=aom_mkwd_inf2_t3_helmet_silver_hc_name}[Mirkwood] Infantry Helmet II-T3"
@@ -299,7 +314,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf2_t4_helmet_silver_hc"
         name="{=aom_mkwd_inf2_t4_helmet_silver_hc_name}[Mirkwood] Infantry Helmet II-T4"
@@ -322,7 +338,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_t1_helmet_gold_hc"
         name="{=aom_mkwd_inf3_t1_helmet_gold_hc_name}[Mirkwood] Infantry Helmet III-T1"
@@ -345,7 +362,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_t2_helmet_gold_hc"
         name="{=aom_mkwd_inf3_t2_helmet_gold_hc_name}[Mirkwood] Infantry Helmet III-T2"
@@ -368,7 +386,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_t3_helmet_gold_hc"
         name="{=aom_mkwd_inf3_t3_helmet_gold_hc_name}[Mirkwood] Infantry Helmet III-T3"
@@ -391,7 +410,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_inf3_t4_helmet_gold_hc"
         name="{=aom_mkwd_inf3_t4_helmet_gold_hc_name}[Mirkwood] Infantry Helmet III-T4"
@@ -414,7 +434,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_palace_t1_helmet_green_hc"
         name="{=aom_mkwd_palace_t1_helmet_green_hc_name}[Mirkwood] Palace Helmet T1"
@@ -437,7 +458,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_palace_t2_helmet_green_hc"
         name="{=aom_mkwd_palace_t2_helmet_green_hc_name}[Mirkwood] Palace Helmet T2"
@@ -460,7 +482,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
+    </Item>
+
     <Item
         id="mkwd_palace_t3_helmet_green_hc"
         name="{=aom_mkwd_palace_t3_helmet_green_hc_name}[Mirkwood] Palace Helmet T3"
@@ -483,6 +506,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="false" />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

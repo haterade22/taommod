@@ -45,6 +45,8 @@ const CULTURE_OVERRIDES: Record<string, string> = {
   vlandia: 'Rohan',
   battania: 'Variag',
   khuzait: 'Rhun',
+  bluecraig: 'Goblins',
+  lindon: 'High Elves',
 };
 
 const cultureName = CULTURE_OVERRIDES[kingdom.id] || getCultureDisplayName(kingdom.culture);
@@ -63,6 +65,12 @@ const EMBLEM_IMAGES: Record<string, string> = {
   empire_s: '/images/kingdom-mordor-banner.png',
   battania: '/images/kingdom-khand-banner.png',
   khuzait: '/images/kingdom-rhun-banner.png',
+  abanissa: '/images/kingdom-harad-banner.png',
+  shaghana: '/images/kingdom-harad-banner.png',
+  goblin: '/images/kingdom-gundabad-banner.png',
+  mistymountainorcs: '/images/kingdom-gundabad-banner.png',
+  bluecraig: '/images/kingdom-gundabad-banner.png',
+  lindon: '/images/kingdom-rivendell-banner.png',
 };
 
 const KINGDOM_COLORS: Record<string, [string, string]> = {
@@ -82,6 +90,12 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
   lothlorien: ['#DAA520', '#F5F5F5'],
   umbar: ['#8B0000', '#DAA520'],
   mirkwood: ['#2E5A1E', '#8B6914'],
+  abanissa: ['#1A3560', '#AA9240'],
+  shaghana: ['#A05020', '#5A3018'],
+  goblin: ['#1C2A1C', '#44582E'],
+  mistymountainorcs: ['#2E2E2E', '#6E5A40'],
+  bluecraig: ['#20303A', '#4A6478'],
+  lindon: ['#50A090', '#C8E0D8'],
 };
 
 const emblem = EMBLEM_IMAGES[kingdom.id];
