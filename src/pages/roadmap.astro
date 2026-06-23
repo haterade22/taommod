@@ -7,6 +7,7 @@ const contributorCount = 4;
 const roadmapDisciplines = [
   {
     discipline: '3D Art',
+    lead: 'KEYforce',
     completed: ['Dale Armors', 'Dale Weapons', 'Dale Shields', 'Mordor Orcs Armor', 'Mordor Orcs Weapons'],
     wip: ['Black Númenóreans'],
     next: [
@@ -21,30 +22,35 @@ const roadmapDisciplines = [
   },
   {
     discipline: '2D Art',
+    lead: 'AI',
     completed: [],
     wip: ['Banners', 'Career UI', 'Game UI'],
     next: [],
   },
   {
     discipline: 'Map Design',
+    lead: 'Lemmy',
     completed: [],
     wip: ['Polish'],
     next: [],
   },
   {
     discipline: 'Scene Design',
+    lead: 'Kysaro',
     completed: ['Mordor Battle Maps', 'Rohan Battle Maps', 'Minas Tirith', 'West Osgiliath', 'East Osgiliath'],
     wip: ['Minas Morgul', 'Mordor Tavern/Arenas'],
     next: ['Moria', 'Edoras'],
   },
   {
     discipline: 'Animations',
+    lead: 'Haterade',
     completed: [],
     wip: ['Spider', 'Troll', 'Elephant'],
     next: ['Mumakil'],
   },
   {
     discipline: 'Coding',
+    lead: 'Haterade',
     completed: [],
     wip: ['Polishing', 'Stability'],
     next: [],
@@ -155,6 +161,7 @@ const roadmapGroups = [...roadmapDisciplines]
                   <div>
                     <p class="group-kicker">Discipline</p>
                     <h2>{group.discipline}</h2>
+                    <p class="discipline-lead">{group.lead}</p>
                   </div>
                 </div>
 
@@ -434,6 +441,13 @@ const roadmapGroups = [...roadmapDisciplines]
   .group-kicker {
     margin-bottom: 0.35rem;
     color: var(--discipline-accent);
+  }
+
+  .discipline-lead {
+    margin: 0.45rem 0 0;
+    color: rgba(238, 229, 219, 0.82);
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
   }
 
   .discipline-summary {
