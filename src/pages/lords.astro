@@ -105,33 +105,69 @@ function traitClass(value: number): string {
   return '';
 }
 
+const COMBAT_SKILLS = ['OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing', 'Riding', 'Athletics'];
+const NONCOMBAT_SKILLS = [
+  'Crafting',
+  'Scouting',
+  'Tactics',
+  'Roguery',
+  'Charm',
+  'Leadership',
+  'Trade',
+  'Steward',
+  'Medicine',
+  'Engineering',
+];
+
+function sumSkills(skills: Record<string, number>, keys: string[]): number {
+  return keys.reduce((total, key) => total + (skills[key] || 0), 0);
+}
+
+function totalColor(total: number): string {
+  if (total <= 1500) return '#922b21';
+  if (total <= 2200) return '#b9770e';
+  if (total <= 2900) return '#1e7a45';
+  if (total <= 3600) return '#1f5d8c';
+  return '#5e3a8c';
+}
+
 const headerCols = [
   { col: 'name', label: 'Name', cls: '' },
-  { col: 'culture', label: 'Culture', cls: '' },
   { col: 'kingdom', label: 'Kingdom', cls: '' },
-  { col: 'clan', label: 'Clan', cls: '' },
   { col: 'gender', label: 'Gender', cls: '' },
   { col: 'age', label: 'Age', cls: 'col-num' },
-  { col: 'spouse', label: 'Spouse', cls: 'section-start' },
-  { col: 'father', label: 'Father', cls: '' },
-  { col: 'mother', label: 'Mother', cls: '' },
-  { col: 'children', label: 'Children', cls: '' },
   { col: 'defaultGroup', label: 'Group', cls: 'section-start' },
-  { col: 'oneHanded', label: '1H', cls: 'col-num' },
+  { col: 'oneHanded', label: '1H', cls: 'col-num section-start' },
   { col: 'twoHanded', label: '2H', cls: 'col-num' },
-  { col: 'polearm', label: 'Pole', cls: 'col-num' },
+  { col: 'polearm', label: 'Pol', cls: 'col-num' },
   { col: 'bow', label: 'Bow', cls: 'col-num' },
-  { col: 'riding', label: 'Ride', cls: 'col-num' },
+  { col: 'crossbow', label: 'Xbw', cls: 'col-num' },
+  { col: 'throwing', label: 'Thr', cls: 'col-num' },
+  { col: 'riding', label: 'Rid', cls: 'col-num' },
   { col: 'athletics', label: 'Ath', cls: 'col-num' },
+  { col: 'crafting', label: 'Cra', cls: 'col-num' },
+  { col: 'scouting', label: 'Sco', cls: 'col-num' },
   { col: 'tactics', label: 'Tac', cls: 'col-num' },
-  { col: 'leadership', label: 'Lead', cls: 'col-num' },
-  { col: 'charm', label: 'Charm', cls: 'col-num' },
-  { col: 'steward', label: 'Stew', cls: 'col-num' },
+  { col: 'roguery', label: 'Rog', cls: 'col-num' },
+  { col: 'charm', label: 'Chr', cls: 'col-num' },
+  { col: 'leadership', label: 'Led', cls: 'col-num' },
+  { col: 'trade', label: 'Trd', cls: 'col-num' },
+  { col: 'steward', label: 'Stw', cls: 'col-num' },
+  { col: 'medicine', label: 'Med', cls: 'col-num' },
+  { col: 'engineering', label: 'Eng', cls: 'col-num' },
+  { col: 'combat', label: 'Cbt', cls: 'col-num section-start' },
+  { col: 'nonCombat', label: 'NonC', cls: 'col-num' },
+  { col: 'total', label: 'Total', cls: 'col-num' },
   { col: 'honor', label: 'Hon', cls: 'col-num section-start' },
   { col: 'generosity', label: 'Gen', cls: 'col-num' },
   { col: 'mercy', label: 'Merc', cls: 'col-num' },
   { col: 'valor', label: 'Val', cls: 'col-num' },
   { col: 'calculating', label: 'Calc', cls: 'col-num' },
+  { col: 'clan', label: 'Clan', cls: 'section-start' },
+  { col: 'spouse', label: 'Spouse', cls: '' },
+  { col: 'father', label: 'Father', cls: '' },
+  { col: 'mother', label: 'Mother', cls: '' },
+  { col: 'children', label: 'Children', cls: '' },
 ];
 ---
 
@@ -284,6 +320,9 @@ const headerCols = [
                       const childNames = lord.children.map((child) => lookupName(child)).join(', ');
                       const clanDisplay = lord.clan ? formatMetaLabel(lord.clan) : '';
                       const kingdomDisplay = lord.kingdom ? formatMetaLabel(lord.kingdom) : '';
+                      const combat = sumSkills(lord.skills, COMBAT_SKILLS);
+                      const nonCombat = sumSkills(lord.skills, NONCOMBAT_SKILLS);
+                      const total = combat + nonCombat;
 
                       return (
                         <tr
@@ -300,26 +339,33 @@ const headerCols = [
                             <span class="lord-name">{lord.name}</span>
                             {!lord.alive && <span class="dead-badge">Dead</span>}
                           </td>
-                          <td>{getCultureDisplayName(lord.culture)}</td>
                           <td>{kingdomDisplay}</td>
-                          <td class="col-clan">{clanDisplay}</td>
                           <td>{lord.isFemale ? 'Female' : 'Male'}</td>
                           <td class="col-num">{lord.age || ''}</td>
-                          <td class="col-family section-start">{spouseName}</td>
-                          <td class="col-family">{fatherName}</td>
-                          <td class="col-family">{motherName}</td>
-                          <td class="col-family">{childNames}</td>
                           <td class="section-start">{lord.defaultGroup}</td>
-                          <td class="col-num">{lord.skills.OneHanded || ''}</td>
+                          <td class="col-num section-start">{lord.skills.OneHanded || ''}</td>
                           <td class="col-num">{lord.skills.TwoHanded || ''}</td>
                           <td class="col-num">{lord.skills.Polearm || ''}</td>
                           <td class="col-num">{lord.skills.Bow || ''}</td>
+                          <td class="col-num">{lord.skills.Crossbow || ''}</td>
+                          <td class="col-num">{lord.skills.Throwing || ''}</td>
                           <td class="col-num">{lord.skills.Riding || ''}</td>
                           <td class="col-num">{lord.skills.Athletics || ''}</td>
+                          <td class="col-num">{lord.skills.Crafting || ''}</td>
+                          <td class="col-num">{lord.skills.Scouting || ''}</td>
                           <td class="col-num">{lord.skills.Tactics || ''}</td>
-                          <td class="col-num">{lord.skills.Leadership || ''}</td>
+                          <td class="col-num">{lord.skills.Roguery || ''}</td>
                           <td class="col-num">{lord.skills.Charm || ''}</td>
+                          <td class="col-num">{lord.skills.Leadership || ''}</td>
+                          <td class="col-num">{lord.skills.Trade || ''}</td>
                           <td class="col-num">{lord.skills.Steward || ''}</td>
+                          <td class="col-num">{lord.skills.Medicine || ''}</td>
+                          <td class="col-num">{lord.skills.Engineering || ''}</td>
+                          <td class="col-num section-start">{combat}</td>
+                          <td class="col-num">{nonCombat}</td>
+                          <td class="col-num lord-total" style={`background:${totalColor(total)}`}>
+                            {total}
+                          </td>
                           <td class={`col-num section-start ${traitClass(lord.traits.Honor || 0)}`}>
                             {lord.traits.Honor ?? ''}
                           </td>
@@ -331,6 +377,11 @@ const headerCols = [
                           <td class={`col-num ${traitClass(lord.traits.Calculating || 0)}`}>
                             {lord.traits.Calculating ?? ''}
                           </td>
+                          <td class="col-clan section-start">{clanDisplay}</td>
+                          <td class="col-family">{spouseName}</td>
+                          <td class="col-family">{fatherName}</td>
+                          <td class="col-family">{motherName}</td>
+                          <td class="col-family">{childNames}</td>
                         </tr>
                       );
                     })
@@ -972,6 +1023,11 @@ const headerCols = [
 
   .col-num {
     text-align: center;
+  }
+
+  .lord-section td.lord-total {
+    color: #ffffff !important;
+    font-weight: 700;
   }
 
   .trait-positive,
