@@ -18,6 +18,14 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -34,6 +42,15 @@
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -42,6 +59,9 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_civil_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_civil_a" />
 			</EquipmentRoster>
 		</Equipments>
@@ -54,6 +74,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -62,6 +85,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_civil_a" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -76,6 +103,10 @@
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -84,6 +115,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -99,13 +134,27 @@
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Villager (upgrades to dunland_peasant) -->
-	<NPCCharacter id="villager_dunland" default_group="Infantry" level="1" name="{=aom_dn_villager}Villager" occupation="Villager" culture="Culture.empire" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="villager_dunland" default_group="Infantry" level="1" name="{=aom_dn_villager}Villager" occupation="Villager" culture="Culture.empire">
 		<face><face_key_template value="BodyProperty.fighter_dunland_a" /></face>
-		<skills></skills>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
 		<upgrade_targets>
 			<upgrade_target id="NPCCharacter.dunland_peasant" />
 		</upgrade_targets>
@@ -139,6 +188,15 @@
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -150,6 +208,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.battania_civil_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -158,6 +219,9 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 			</EquipmentRoster>
 		</Equipments>
@@ -171,6 +235,10 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -179,6 +247,11 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_civil_a" />
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -201,6 +274,16 @@
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.empire_cape_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -215,6 +298,16 @@
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -238,6 +331,18 @@
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -251,6 +356,16 @@
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_woodland_outfit" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -272,6 +387,16 @@
 				<equipment slot="Cape" id="Item.fur_cloak_a" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Cape" id="Item.fur_cloak_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -289,6 +414,15 @@
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.empire_cape_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -301,6 +435,15 @@
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_civil_a" />
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -321,6 +464,15 @@
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -337,6 +489,15 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -346,6 +507,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.leather_scale_armor" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -365,20 +530,34 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Guards -->
-	<NPCCharacter id="prison_guard_dunland" default_group="Infantry" level="4" culture="Culture.empire" occupation="PrisonGuard" name="{=aom_dn_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="prison_guard_dunland" default_group="Infantry" level="4" culture="Culture.empire" occupation="PrisonGuard" name="{=aom_dn_prison_guard}Prison Guard">
 		<face><face_key_template value="BodyProperty.fighter_dunland_a" /></face>
 		<skills>
 			<skill id="OneHanded" value="50" />
 			<skill id="TwoHanded" value="50" />
 			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
 		</skills>
 		<upgrade_targets></upgrade_targets>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
+				<equipment slot="Item1" id="Item.dunland_wulf_shield_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
 				<equipment slot="Item1" id="Item.dunland_wulf_shield_light_a" />
 			</EquipmentRoster>
@@ -394,6 +573,14 @@
 		</skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
+				<equipment slot="Item1" id="Item.dunland_wulf_shield_light_a" />
+				<equipment slot="Head" id="Item.imperial_open_mail_coif" />
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
 				<equipment slot="Item1" id="Item.dunland_wulf_shield_light_a" />
 				<equipment slot="Head" id="Item.imperial_open_mail_coif" />
@@ -499,6 +686,15 @@
 				<equipment slot="Body" id="Item.leather_scale_armor" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Cape" id="Item.empire_cape_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -508,6 +704,12 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.sturgia_axe_2_t2" />
 				<equipment slot="Body" id="Item.leather_scale_armor" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
@@ -526,6 +728,10 @@
 				<equipment slot="Body" id="Item.battania_civil_a" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_0b" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_notable_0b}Wily dunlending peddler" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -534,6 +740,10 @@
 		<Traits><Trait id="Valor" value="-1" /><Trait id="Generosity" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -548,6 +758,10 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_1b" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.empire" name="{=aom_dn_notable_1b}Cold-eyed hill trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -556,6 +770,10 @@
 		<Traits><Trait id="Generosity" value="-1" /><Trait id="Calculating" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_woodland_outfit" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -571,6 +789,11 @@
 				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_2b" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.empire" name="{=aom_dn_notable_2b}Cautious hillman provisioner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -582,6 +805,10 @@
 				<equipment slot="Body" id="Item.battania_civil_a" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_3" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.empire" name="{=aom_dn_notable_3}Self-made dunlending merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -590,6 +817,11 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -606,6 +838,11 @@
 				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_4" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_notable_4}Sharp-tongued clan trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -618,6 +855,11 @@
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_4b" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.empire" name="{=aom_dn_notable_4b}Devious dunlending merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -626,6 +868,10 @@
 		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.leather_scale_armor" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -642,6 +888,11 @@
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_6" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.empire" name="{=aom_dn_notable_6}Stern dunlending elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
@@ -653,6 +904,11 @@
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_7" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_notable_7}Keeper of dunlending ways" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
@@ -660,6 +916,11 @@
 		<Traits><Trait id="Mercy" value="1" /><Trait id="Generosity" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -677,6 +938,11 @@
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_9" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.empire" name="{=aom_dn_notable_9}Skilled hillman craftsman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
@@ -684,6 +950,11 @@
 		<Traits><Trait id="Generosity" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.battania_woodland_outfit" />
 				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -702,6 +973,12 @@
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_10" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_notable_10}Mocking hillman gang boss" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -713,6 +990,11 @@
 				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_11" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.empire" name="{=aom_dn_notable_11}Brutal dunlending enforcer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -720,6 +1002,11 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -736,6 +1023,12 @@
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_12" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.empire" name="{=aom_dn_notable_12}Sly dunlending smuggler" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -747,6 +1040,11 @@
 				<equipment slot="Gloves" id="Item.highland_gloves" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_13" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_notable_13}Menacing clan gang leader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -754,6 +1052,12 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.leather_scale_armor" />
 				<equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
@@ -772,6 +1076,11 @@
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_dunland_22" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.empire" name="{=aom_dn_notable_22}Respected dunlending elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
@@ -779,6 +1088,11 @@
 		<Traits><Trait id="Honor" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
@@ -796,6 +1110,11 @@
 				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_woodland_outfit" />
+				<equipment slot="Cape" id="Item.battania_woodland_cloak" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_dunland_headman_2" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.empire" name="{=aom_dn_headman_2}Cautious clan headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
@@ -807,6 +1126,11 @@
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.leather_scale_armor" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_dunland_headman_3" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.empire" name="{=aom_dn_headman_3}Cunning hillman headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
@@ -814,6 +1138,12 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Honor" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Cape" id="Item.battania_civil_cape" />
+				<equipment slot="Gloves" id="Item.highland_gloves" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Cape" id="Item.battania_civil_cape" />
 				<equipment slot="Gloves" id="Item.highland_gloves" />
@@ -836,6 +1166,15 @@
 				<equipment slot="Head" id="Item.battania_civil_hood" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -848,6 +1187,10 @@
 				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sleeveless_padded_coat" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -856,6 +1199,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -872,6 +1219,15 @@
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.battania_civil_a" />
+				<equipment slot="Head" id="Item.battania_civil_hood" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>
@@ -927,6 +1283,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.nordic_sloven_leather" />
+				<equipment slot="Leg" id="Item.battania_leather_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.nordic_sloven_leather" />
 				<equipment slot="Leg" id="Item.battania_leather_boots" />
 			</EquipmentRoster>

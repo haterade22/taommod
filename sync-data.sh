@@ -97,7 +97,9 @@ GAME_DIR="${BANNERLORD_GAME_DIR:-E:/Steam/steamapps/common/Mount & Blade II Bann
 if [ -d "$GAME_DIR" ]; then
   cp "$GAME_DIR/Modules/SandBoxCore/ModuleData/Items/weapons.xml" "$DATA_DIR/armory/vanilla_weapons.xml" 2>/dev/null || true
   cp "$GAME_DIR/Modules/Native/ModuleData/crafting_pieces.xml" "$DATA_DIR/armory/vanilla_crafting_pieces.xml" 2>/dev/null || true
-  echo "  Copied vanilla weapon/crafting data"
+  # Vanilla hero roster — used by parse-lords.ts for lord-to-clan mapping
+  cp "$GAME_DIR/Modules/SandBox/ModuleData/heroes.xml" "$DATA_DIR/vanilla_heroes.xml" 2>/dev/null || true
+  echo "  Copied vanilla weapon/crafting/hero data"
 else
   echo "  Warning: Bannerlord not found at $GAME_DIR — skipping vanilla data"
 fi

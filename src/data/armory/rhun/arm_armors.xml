@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
     <!-- Easterling Glove -->
-    <Item
-        id="easterling_glove"
-        name="{=aom_easterling_glove_name}[Rhûn] Easterling Gloves I"
-        mesh="easterling_glove"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="1.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="25"
-                covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="easterlingwarriors01_gloves"
-        name="{=aom_easterlingwarriors01_gloves_name}[Rhûn] Easterling Gloves II"
-        mesh="easterlingwarriors01_gloves"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="1.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="25"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="easterling02_v1_gloves"
-        name="{=aom_easterling02_v1_gloves_name}[Rhûn] Easterling Archer Gloves I"
-        mesh="easterling02_v1_gloves"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="1.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="15"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
     <!-- ==================== LOKE-RIM BRACERS (Gold-Bronze) ==================== -->
 
     <!-- Loke-Rim Spiky Bracers -->
@@ -68,7 +10,7 @@
         mesh="sk_rh_loke_bracer_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="0.8"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -76,8 +18,8 @@
             <Armor
                 arm_armor="10"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -87,7 +29,7 @@
         mesh="sk_rh_loke_bracer_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.4"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -95,8 +37,8 @@
             <Armor
                 arm_armor="16"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -106,7 +48,7 @@
         mesh="sk_rh_loke_bracer_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -114,8 +56,8 @@
             <Armor
                 arm_armor="17"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -125,7 +67,7 @@
         mesh="sk_rh_loke_bracer_med_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.6"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -133,8 +75,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -144,7 +86,7 @@
         mesh="sk_rh_loke_bracer_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -163,7 +105,7 @@
         mesh="sk_rh_loke_bracer_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.1"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -182,7 +124,7 @@
         mesh="sk_rh_loke_bracer_heavy_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -203,7 +145,7 @@
         mesh="sk_rh_loke_bracer_scale_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -211,8 +153,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -222,7 +164,7 @@
         mesh="sk_rh_loke_bracer_scale_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -243,7 +185,7 @@
         mesh="sk_rh_loke_bracer_lam_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="0.9"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -251,8 +193,8 @@
             <Armor
                 arm_armor="12"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -262,7 +204,7 @@
         mesh="sk_rh_loke_bracer_lam_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -270,8 +212,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -281,7 +223,7 @@
         mesh="sk_rh_loke_bracer_lam_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -302,7 +244,7 @@
         mesh="sk_rh_loke_bracer_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -310,8 +252,8 @@
             <Armor
                 arm_armor="14"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -321,7 +263,7 @@
         mesh="sk_rh_loke_bracer_hplate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.6"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -329,8 +271,8 @@
             <Armor
                 arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -340,7 +282,7 @@
         mesh="sk_rh_loke_bracer_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.4"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -361,7 +303,7 @@
         mesh="sk_rh_loke_bracer_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.2"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -369,8 +311,8 @@
             <Armor
                 arm_armor="16"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -380,7 +322,7 @@
         mesh="sk_rh_loke_bracer_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.8"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -388,8 +330,8 @@
             <Armor
                 arm_armor="22"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -399,7 +341,7 @@
         mesh="sk_rh_loke_bracer_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -422,7 +364,7 @@
         mesh="sk_rh_drag_bracer_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="0.8"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -430,8 +372,8 @@
             <Armor
                 arm_armor="10"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -441,7 +383,7 @@
         mesh="sk_rh_drag_bracer_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.4"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -449,8 +391,8 @@
             <Armor
                 arm_armor="16"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -460,7 +402,7 @@
         mesh="sk_rh_drag_bracer_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -468,8 +410,8 @@
             <Armor
                 arm_armor="17"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -479,7 +421,7 @@
         mesh="sk_rh_drag_bracer_med_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.6"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -487,8 +429,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -498,7 +440,7 @@
         mesh="sk_rh_drag_bracer_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -517,7 +459,7 @@
         mesh="sk_rh_drag_bracer_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.1"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -536,7 +478,7 @@
         mesh="sk_rh_drag_bracer_heavy_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -557,7 +499,7 @@
         mesh="sk_rh_drag_bracer_scale_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -565,8 +507,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -576,7 +518,7 @@
         mesh="sk_rh_drag_bracer_scale_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -597,7 +539,7 @@
         mesh="sk_rh_drag_bracer_lam_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="0.9"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -605,8 +547,8 @@
             <Armor
                 arm_armor="12"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -616,7 +558,7 @@
         mesh="sk_rh_drag_bracer_lam_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -624,8 +566,8 @@
             <Armor
                 arm_armor="18"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -635,7 +577,7 @@
         mesh="sk_rh_drag_bracer_lam_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -656,7 +598,7 @@
         mesh="sk_rh_drag_bracer_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.0"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -664,8 +606,8 @@
             <Armor
                 arm_armor="14"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -675,7 +617,7 @@
         mesh="sk_rh_drag_bracer_hplate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.6"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -683,8 +625,8 @@
             <Armor
                 arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -694,7 +636,7 @@
         mesh="sk_rh_drag_bracer_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.4"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -715,7 +657,7 @@
         mesh="sk_rh_drag_bracer_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.2"
+        weight="0.5"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -723,8 +665,8 @@
             <Armor
                 arm_armor="16"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -734,7 +676,7 @@
         mesh="sk_rh_drag_bracer_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.8"
+        weight="0.9"
         difficulty="0"
         appearance="3"
         Type="HandArmor">
@@ -742,8 +684,8 @@
             <Armor
                 arm_armor="22"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -753,7 +695,7 @@
         mesh="sk_rh_drag_bracer_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="HandArmor">

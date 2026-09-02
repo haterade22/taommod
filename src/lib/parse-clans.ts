@@ -33,6 +33,12 @@ export const KINGDOM_ID_TO_NAME: Record<string, string> = {
   gundabad: 'Gundabad',
   umbar: 'Umbar',
   dolguldur: 'Dol Guldur',
+  goblin: 'Goblins',
+  mistymountainorcs: 'Misty Mountain Orcs',
+  bluecraig: 'Blue Craig',
+  lindon: 'Lindon',
+  abanissa: 'Âbanissa',
+  shaghana: 'Shaghâna',
 };
 
 // Map clan ID prefix to kingdom ID

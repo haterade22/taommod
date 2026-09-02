@@ -21,6 +21,7 @@ const ARMOR_SECTIONS = [
   { key: 'Body', label: 'Body', description: 'Cuirasses, robes, mail, and full torsos.' },
   { key: 'Arm', label: 'Arm', description: 'Bracers, vambraces, and forearm pieces.' },
   { key: 'Leg', label: 'Leg', description: 'Greaves, boots, and lower-body protection.' },
+  { key: 'Starter', label: 'Starter', description: 'Opening-kit gear handed out at campaign start.' },
 ];
 
 const cultures = [...new Set(allItems.map((item) => item.culture).filter(Boolean))].sort((a, b) =>

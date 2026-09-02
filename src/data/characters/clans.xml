@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- TAOM Additional Clans - All Cultures -->
 <Factions>
 
@@ -721,6 +721,32 @@
 		color2="FFC0E3B5"
 		default_party_template="PartyTemplate.kingdom_hero_party_lothlorien_lothlorien_1_template"
 		banner_key="11.172.166.1528.1528.764.764.0.0.0.509.165.165.200.200.765.765.0.0.0.16008.228.165.650.650.765.765.1.0.0.16009.228.238.350.350.765.765.1.0.0" />
+  <Faction
+		id="clan_lothlorien_2"
+		initial_home_settlement="Settlement.town_L1"
+		name="{=aom_clan_lothlorien_2_name}Wardens of the Naith"
+		tier="6"
+		owner="Hero.lord_L2_2"
+		culture="Culture.lothlorien"
+		super_faction="Kingdom.lothlorien"
+		is_noble="true"
+		color="FF184031"
+		color2="FFC0E3B5"
+		default_party_template="PartyTemplate.kingdom_hero_party_lothlorien_lothlorien_1_template"
+		banner_key="11.158.149.1528.1528.764.764.0.0.0.510.7.116.270.35.764.941.0.0.0.510.7.116.270.35.764.587.0.0.0.510.7.116.270.35.941.764.0.0.89.510.7.116.270.35.587.764.0.0.89.504.127.116.130.160.763.648.0.0.180.504.127.116.130.228.763.538.0.0.0.510.126.116.1.1243.763.578.0.0.0.510.126.116.4.705.763.601.0.0.90.504.127.116.130.160.763.879.0.1.0.504.127.116.130.228.763.989.0.1.180.510.126.116.1.1243.763.949.0.1.180.510.126.116.4.705.763.925.0.1.90.504.127.116.130.160.648.763.0.1.-90.504.127.116.130.228.538.763.0.1.90.510.126.116.1.1243.578.763.0.1.90.510.126.116.4.705.602.763.0.1.0.504.127.116.130.160.878.763.0.0.89.504.127.116.130.228.989.763.0.0.269.510.126.116.1.1353.941.763.0.0.270.510.126.116.4.705.925.763.0.0.359.504.127.116.92.114.817.704.0.0.134.504.127.116.92.162.875.649.0.0.314.510.126.116.1.891.854.669.0.0.314.510.126.116.2.506.841.681.0.0.44.504.127.116.92.114.708.704.0.1.225.504.127.116.92.162.652.649.0.1.45.510.126.116.1.891.672.669.0.1.45.510.126.116.2.506.684.681.0.1.315.504.127.116.92.114.708.821.0.0.-45.504.127.116.92.162.652.878.0.0.134.510.126.116.1.891.672.856.0.0.134.510.126.116.2.506.684.845.0.0.-136.504.127.116.92.114.817.821.0.1.45.504.127.116.92.162.875.878.0.1.225.510.126.116.1.891.854.856.0.1.225.510.126.116.2.506.841.845.0.1.135.17104.7.116.600.600.762.762.0.0.0.17371.7.116.800.800.755.755.0.0.0" />
+  <Faction
+		id="clan_lothlorien_3"
+		initial_home_settlement="Settlement.town_L1"
+		name="{=aom_clan_lothlorien_3_name}Nos Malgalad"
+		tier="5"
+		owner="Hero.lord_L3_1"
+		culture="Culture.lothlorien"
+		super_faction="Kingdom.lothlorien"
+		is_noble="true"
+		color="FF184031"
+		color2="FFC0E3B5"
+		default_party_template="PartyTemplate.kingdom_hero_party_lothlorien_lothlorien_1_template"
+		banner_key="11.205.205.1528.1528.764.764.1.0.0.17005.290.171.502.502.764.764.0.0.0" />
   <!-- ============================================== -->
   <!-- ISENGARD CLANS (isengard culture)              -->
   <!-- Uruk-hai war bands of the White Hand           -->
@@ -1461,6 +1487,141 @@
 		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_dolguldur_6_template"
 		banner_key="11.2001.2001.1528.1528.764.764.1.0.0.19009.212.171.700.700.764.764.0.0.0" />
 
+  <!-- Ghâshrûz -->
+  <Faction
+		id="clan_dolguldur_7"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_7_name}Ghâshrûz"
+		tier="4"
+		owner="Hero.lord_D7_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF5A5234"
+		color2="FF6D9C4F"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Morbhak -->
+  <Faction
+		id="clan_dolguldur_8"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_8_name}Morbhak"
+		tier="3"
+		owner="Hero.lord_D8_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF635B39"
+		color2="FF6BA654"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Skûlgath -->
+  <Faction
+		id="clan_dolguldur_9"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_9_name}Skûlgath"
+		tier="4"
+		owner="Hero.lord_D9_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF6C633E"
+		color2="FF69B059"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Drûzgûl -->
+  <Faction
+		id="clan_dolguldur_10"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_10_name}Drûzgûl"
+		tier="3"
+		owner="Hero.lord_D10_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF756B43"
+		color2="FF67BA5E"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Vrûkmog -->
+  <Faction
+		id="clan_dolguldur_11"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_11_name}Vrûkmog"
+		tier="3"
+		owner="Hero.lord_D11_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF7E7348"
+		color2="FF65C463"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Hlakûrz -->
+  <Faction
+		id="clan_dolguldur_12"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_12_name}Hlakûrz"
+		tier="3"
+		owner="Hero.lord_D12_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF877B4D"
+		color2="FF63CE68"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Throzbûz -->
+  <Faction
+		id="clan_dolguldur_13"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_13_name}Throzbûz"
+		tier="4"
+		owner="Hero.lord_D13_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF4E4530"
+		color2="FF5F8A48"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Rhâzgor -->
+  <Faction
+		id="clan_dolguldur_14"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_14_name}Rhâzgor"
+		tier="3"
+		owner="Hero.lord_D14_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF565030"
+		color2="FF659050"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
+  <!-- Uzghûl -->
+  <Faction
+		id="clan_dolguldur_15"
+		initial_home_settlement="Settlement.town_DG1"
+		name="{=aom_clan_dolguldur_15_name}Uzghûl"
+		tier="3"
+		owner="Hero.lord_D15_1"
+		culture="Culture.dolguldur"
+		super_faction="Kingdom.dolguldur"
+		is_noble="true"
+		color="FF5E5634"
+		color2="FF6A9858"
+		default_party_template="PartyTemplate.kingdom_hero_party_dolguldur_template"
+		banner_key="11.149.166.1528.1528.764.764.1.0.0.18002.2002.2000.520.520.765.765.0.0.0" />
+
 	<!-- ============================================== -->
 	<!-- LOTR Bandit Clans                                -->
 	<!-- ============================================== -->
@@ -1572,7 +1733,7 @@
 		settlement_banner_mesh="none"
 		is_bandit="true"
 		is_outlaw="true"
-		name="{=taom_bandit_erebor_name}Erebor Warriors"
+		name="{=taom_bandit_erebor_name}Blacklocks"
 		tier="1"></Faction>
 
 	<Faction
@@ -1860,7 +2021,7 @@
 		name="{=aom_clan_bluecraig_1_name}Blue Craig Warband"
 		tier="6"
 		owner="Hero.lord_BC1_1"
-		culture="Culture.goblin"
+		culture="Culture.bluecraig"
 		super_faction="Kingdom.bluecraig"
 		is_noble="true"
 		color="FF151A10"
@@ -1873,7 +2034,7 @@
 		name="{=aom_clan_bluecraig_2_name}Crag-spawn"
 		tier="5"
 		owner="Hero.lord_BC2_1"
-		culture="Culture.goblin"
+		culture="Culture.bluecraig"
 		super_faction="Kingdom.bluecraig"
 		is_noble="true"
 		color="FF191F13"
@@ -1886,7 +2047,7 @@
 		name="{=aom_clan_bluecraig_3_name}Lune-skulkers"
 		tier="4"
 		owner="Hero.lord_BC3_1"
-		culture="Culture.goblin"
+		culture="Culture.bluecraig"
 		super_faction="Kingdom.bluecraig"
 		is_noble="true"
 		color="FF1C2416"
@@ -1899,7 +2060,7 @@
 		name="{=aom_clan_bluecraig_4_name}Ered Luin Raiders"
 		tier="4"
 		owner="Hero.lord_BC4_1"
-		culture="Culture.goblin"
+		culture="Culture.bluecraig"
 		super_faction="Kingdom.bluecraig"
 		is_noble="true"
 		color="FF1E2919"
@@ -1912,7 +2073,7 @@
 		name="{=aom_clan_bluecraig_5_name}Mirkstone Tribe"
 		tier="3"
 		owner="Hero.lord_BC5_1"
-		culture="Culture.goblin"
+		culture="Culture.bluecraig"
 		super_faction="Kingdom.bluecraig"
 		is_noble="true"
 		color="FF212E1C"
@@ -1927,7 +2088,7 @@
 		name="{=aom_clan_lindon_1_name}Falathrim"
 		tier="6"
 		owner="Hero.lord_LN1_1"
-		culture="Culture.rivendell"
+		culture="Culture.lindon"
 		super_faction="Kingdom.lindon"
 		is_noble="true"
 		color="FF758DA2"
@@ -1940,7 +2101,7 @@
 		name="{=aom_clan_lindon_2_name}Edhil Mithlond"
 		tier="4"
 		owner="Hero.lord_LN2_1"
-		culture="Culture.rivendell"
+		culture="Culture.lindon"
 		super_faction="Kingdom.lindon"
 		is_noble="true"
 		color="FF7F8FA9"

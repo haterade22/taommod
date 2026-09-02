@@ -15,15 +15,30 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_heavy_a" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_b" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Villager (upgrades to snaga) -->
-	<NPCCharacter id="villager_mistymountainorcs" race="orc" default_group="Infantry" level="1" name="{=aom_mmo_villager}Slave" occupation="Villager" culture="Culture.mistymountainorcs" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="villager_mistymountainorcs" race="orc" default_group="Infantry" level="1" name="{=aom_mmo_villager}Slave" occupation="Villager" culture="Culture.mistymountainorcs">
 		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
-		<skills></skills>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
 		<upgrade_targets>
-			<upgrade_target id="NPCCharacter.mistymountainorcs_snaga" />
+			<upgrade_target id="NPCCharacter.goblin_snaga" />
 		</upgrade_targets>
 		<Equipments>
 			<EquipmentRoster>
@@ -122,16 +137,21 @@
 	</NPCCharacter>
 
 	<!-- Guards -->
-	<NPCCharacter id="prison_guard_mistymountainorcs" race="orc" default_group="Infantry" level="4" culture="Culture.mistymountainorcs" occupation="PrisonGuard" name="{=aom_mmo_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="prison_guard_mistymountainorcs" race="orc" default_group="Infantry" level="4" culture="Culture.mistymountainorcs" occupation="PrisonGuard" name="{=aom_mmo_prison_guard}Prison Guard">
 		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
 		<skills>
 			<skill id="OneHanded" value="50" />
 			<skill id="TwoHanded" value="50" />
 			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
 		</skills>
 		<upgrade_targets></upgrade_targets>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item1" id="Item.wm_gundabad_spear_a01" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item1" id="Item.wm_gundabad_spear_a01" />
 			</EquipmentRoster>
 		</Equipments>
@@ -153,6 +173,14 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gundabad_spear_a02" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a02" />
+				<equipment slot="Head" id="Item.sk_gn_orc_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -162,6 +190,12 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_mace_a02" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_mace_a02" />
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
@@ -180,6 +214,12 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_sword_a01" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -192,6 +232,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_heavy_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -200,6 +245,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_b" />
 			</EquipmentRoster>
@@ -216,6 +265,11 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_sword_a01" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -225,6 +279,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -239,6 +297,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -250,6 +312,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -258,6 +324,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -273,6 +343,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -281,6 +355,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -296,6 +374,11 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_mordor_set1_sword_a02" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -305,6 +388,13 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_mordor_set1_axe_a01" />
+				<equipment slot="Head" id="Item.sk_gn_orc_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.wm_mordor_set1_axe_a01" />
 				<equipment slot="Head" id="Item.sk_gn_orc_inf_helmet_med_a" />
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_med_a" />
@@ -331,6 +421,12 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -344,6 +440,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
@@ -364,6 +465,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -380,6 +485,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -393,6 +502,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
@@ -413,6 +526,11 @@
 				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -429,6 +547,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -441,6 +564,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -461,6 +588,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -474,6 +606,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
@@ -494,6 +630,11 @@
 				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -510,6 +651,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -522,6 +667,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
@@ -541,6 +690,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -553,6 +707,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
@@ -575,6 +734,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -589,6 +753,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
 				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
@@ -611,6 +780,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -628,6 +802,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -641,6 +819,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -661,6 +843,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -673,6 +859,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
@@ -691,6 +881,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -703,6 +897,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -719,6 +917,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_a" />
 				<equipment slot="Cape" id="Item.sk_md_orc_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
@@ -740,6 +943,11 @@
 				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_md_orc_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_b" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -756,6 +964,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -765,6 +977,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -779,6 +995,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -787,6 +1007,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -802,6 +1026,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -812,6 +1040,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -820,6 +1051,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -834,6 +1069,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -842,6 +1081,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -855,6 +1098,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -866,6 +1112,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -874,6 +1124,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -889,6 +1143,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -897,6 +1155,9 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 			</EquipmentRoster>
 		</Equipments>
@@ -910,6 +1171,10 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -920,6 +1185,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_inf_chainmail_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -928,6 +1196,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
@@ -990,7 +1262,31 @@
 				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_md_orc_arc_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_md_orc_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_mistymountainorcs_lord_* rosters. -->
+	<NPCCharacter id="spc_mistymountainorcs_lord_1" race="orc" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mistymountainorcs" name="{=aom_mistymountainorcs_lord_1}Bold Misty Mountain captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_mistymountainorcs_lord_battle_male" />
+			<EquipmentSet id="taom_mistymountainorcs_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_mistymountainorcs_lord_2" race="orc" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.mistymountainorcs" name="{=aom_mistymountainorcs_lord_2}Cautious Misty Mountain captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_gundabad" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_mistymountainorcs_lord_battle_male" />
+			<EquipmentSet id="taom_mistymountainorcs_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
 </NPCCharacters>

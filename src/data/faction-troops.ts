@@ -194,4 +194,67 @@ export const FACTION_TROOPS: Record<string, TroopBranch[]> = {
         'The shock troops of the mountain host — massive armored orcs who shatter shieldwalls and break enemy lines with crushing two-handed weapons.',
     },
   ],
+
+  bluecraig: [
+    {
+      name: 'Blue Craig Infantry',
+      tiers: 'T0–T5',
+      type: 'regular',
+      description:
+        'Warriors, brawlers, raiders, impalers, and ravagers boiling out of the warrens beneath the western Ered Luin. Cut off from their Misty Mountain kin by the whole width of Eriador, they make up for poor arms with numbers and spite.',
+    },
+    {
+      name: 'Blue Craig Skirmishers',
+      tiers: 'T0–T4',
+      type: 'regular',
+      description:
+        'Hunters, lurkers, sentries, and archers who watch the Dwarf-roads and the shores of Lune. They shoot from the crags above the Grey Havens and melt back into the rock before the Elves of Mithlond can answer.',
+    },
+    {
+      name: 'Goblin Bone Breakers',
+      tiers: 'T5–T6',
+      type: 'regional',
+      description:
+        'Oversized brutes who anchor the Blue Craig line, crushing armoured foes with two-handed mauls where the lighter goblins cannot hold.',
+    },
+    {
+      name: "Skarnak's Ironfang",
+      tiers: 'T6',
+      type: 'unique',
+      description:
+        "The warlord Skarnak's own guard — the heaviest-armoured goblins of the western warrens, held back until the shield line needs breaking.",
+    },
+  ],
+
+  lindon: [
+    {
+      name: 'Mithlond Infantry',
+      tiers: 'T2–T6',
+      type: 'regular',
+      description:
+        'The Falathrim line, from Mithlond recruits through swordguards and noblemen to blademasters. Few in number but drawn from Elves who have borne arms since the First Age, they hold ground no mortal levy could.',
+    },
+    {
+      name: 'Mithlond Archers',
+      tiers: 'T2–T6',
+      type: 'regular',
+      description:
+        'Bowmen, archers, marksmen, and marchwardens of the Grey Havens, keeping the Gulf of Lune and the roads to the Blue Mountains clear of goblin raiders.',
+    },
+    {
+      name: 'Falathrim Cavalry',
+      tiers: 'T5–T7',
+      type: 'regular',
+      description:
+        'Outriders, lancers, royal guards, and knights. Lindon is the only Elven realm in TAOM to field both heavy horse and horse archers — the Riders of Balar shoot from the saddle at a level no other Elven culture reaches.',
+    },
+    {
+      name: 'Elenath Guard',
+      tiers: 'T8',
+      type: 'unique',
+      status: 'done',
+      description:
+        "Círdan's highest captains — Aegedhrim, Megil Mallenloth, Rochannon and Megil-Aran Elenath. Level-51 heirs of Gondolin's fallen houses, the deepest tier any TAOM roster reaches.",
+    },
+  ],
 };

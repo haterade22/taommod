@@ -52,11 +52,11 @@ npx astro check   # TypeScript/Astro type checking
 ```
 src/
   components/   TroopTree.astro (SVG upgrade tree visualization)
-  data/         130+ XML files (troops/, characters/, armory/), 9 XSLT transforms, faction-troops.ts
+  data/         150+ XML files (troops/, characters/, armory/), 8 XSLT transforms, faction-troops.ts
   layouts/      BaseLayout.astro (single layout with nav, footer)
   lib/          parse-xml.ts (barrel), xml-shared.ts, parse-troops.ts, parse-kingdoms.ts, parse-clans.ts, parse-lords.ts, parse-armory.ts, parse-weaponry.ts, damage-calc.ts
   scripts/      data-table.ts (shared client-side table sorting/collapse/filters)
-  pages/        18 pages with dynamic [id].astro routes for factions, kingdoms, clans
+  pages/        31 pages with dynamic [id].astro routes for factions, kingdoms, clans
   styles/       global.css (theme, table styles, culture colors, skill colors)
 scripts/        Node.js analysis scripts (weapon balance, culture summaries)
 public/         Images, favicon, CNAME
@@ -64,7 +64,7 @@ public/         Images, favicon, CNAME
 
 ## Data Sources
 
-- **Troops**: `src/data/troops/troops_*.xml` (16 faction files; sourced from `TAOM/ModuleData/troops/`)
+- **Troops**: `src/data/troops/troops_*.xml` (18 faction files; sourced from `TAOM/ModuleData/troops/`)
 - **Characters**: `src/data/characters/` (lords.xml, heroes.xml, npcs_*.xml, clans.xml; sourced from `TAOM/ModuleData/characters/`)
 - **Armory**: `src/data/armory/` (per-culture armor folders + LOTRAOM weapons/shields/horses + LOTRLOME crafting pieces; sourced from `LOTRLOME_Armory/ModuleData/LOTRLOME_items/`. Plus vanilla reference files from SandBoxCore/Native.)
 - **Kingdoms/Cultures**: `src/data/taom_spkingdoms.xml`, `taom_spcultures.xml`

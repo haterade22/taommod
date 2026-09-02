@@ -21,6 +21,19 @@ describe('getCultureDisplayName', () => {
     expect(getCultureDisplayName('rivendell')).toBe('Rivendell');
     expect(getCultureDisplayName('umbar')).toBe('Umbar');
     expect(getCultureDisplayName('dolguldur')).toBe('Dol Guldur');
+    expect(getCultureDisplayName('bluecraig')).toBe('Blue Craig');
+    expect(getCultureDisplayName('lindon')).toBe('Lindon');
+  });
+
+  it('maps minor and raider cultures', () => {
+    expect(getCultureDisplayName('dunland_raiders')).toBe('Dunland Raiders');
+    expect(getCultureDisplayName('erebor_warriors')).toBe('Erebor Warriors');
+    expect(getCultureDisplayName('gondor_soldiers')).toBe('Gondor Soldiers');
+    expect(getCultureDisplayName('gundabad_raiders')).toBe('Gundabad Raiders');
+    expect(getCultureDisplayName('harad_raiders')).toBe('Harad Raiders');
+    expect(getCultureDisplayName('mirkwood_stalkers')).toBe('Mirkwood Stalkers');
+    expect(getCultureDisplayName('rhun_raiders')).toBe('Rhûn Raiders');
+    expect(getCultureDisplayName('umbar_corsairs')).toBe('Umbar Corsairs');
   });
 
   it('handles armory folder-name aliases', () => {
@@ -49,7 +62,6 @@ describe('getCultureDisplayName', () => {
 describe('isHiddenCulture', () => {
   it('returns true for hidden cultures', () => {
     expect(isHiddenCulture('lothlorien')).toBe(true);
-    expect(isHiddenCulture('sturgia')).toBe(true);
   });
 
   it('returns false for visible cultures', () => {
@@ -57,5 +69,7 @@ describe('isHiddenCulture', () => {
     expect(isHiddenCulture('mordor')).toBe(false);
     expect(isHiddenCulture('erebor')).toBe(false);
     expect(isHiddenCulture('aserai')).toBe(false);
+    // Dale ships under the sturgia culture id and is no longer hidden
+    expect(isHiddenCulture('sturgia')).toBe(false);
   });
 });

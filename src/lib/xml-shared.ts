@@ -53,6 +53,17 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   shaghana: 'Shaghâna',
   goblin: 'Goblins',
   mistymountainorcs: 'Misty Mountain Orcs',
+  bluecraig: 'Blue Craig',
+  lindon: 'Lindon',
+  // Minor/raider cultures
+  dunland_raiders: 'Dunland Raiders',
+  erebor_warriors: 'Erebor Warriors',
+  gondor_soldiers: 'Gondor Soldiers',
+  gundabad_raiders: 'Gundabad Raiders',
+  harad_raiders: 'Harad Raiders',
+  mirkwood_stalkers: 'Mirkwood Stalkers',
+  rhun_raiders: 'Rhûn Raiders',
+  umbar_corsairs: 'Umbar Corsairs',
   // Armory folder-name aliases
   dunland: 'Dunland',
   dol_guldur: 'Dol Guldur',
@@ -64,7 +75,7 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
 };
 
 // Cultures to exclude from display
-const HIDDEN_CULTURES = new Set(['lothlorien', 'sturgia']);
+const HIDDEN_CULTURES = new Set(['lothlorien']);
 
 export function getCultureDisplayName(culture: string): string {
   return CULTURE_DISPLAY_NAMES[culture] || culture.charAt(0).toUpperCase() + culture.slice(1);

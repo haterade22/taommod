@@ -642,104 +642,8 @@
                 head_armor="24"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
-                beard_cover_type="type3" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="ar_ardunian_elite_helmet"
-        name="{=aom_ar_ardunian_elite_helmet_name}[Mordor] Black Númenórean Helmet"
-        subtype="head_armor"
-        mesh="ar_ardunian_elite_helmet"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="2"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="33"
-                has_gender_variations="false"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
-                beard_cover_type="type3" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v1_helmet"
-        name="{=aom_moriaorc_v1_helmet_name}[Mordor] Orc Helmet I"
-        subtype="head_armor"
-        mesh="moriaorc_v1_helmet"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="2"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="28"
-                has_gender_variations="false"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
-                beard_cover_type="type3" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v2_helmet"
-        name="{=aom_moriaorc_v2_helmet_name}[Mordor] Orc Helmet II"
-        subtype="head_armor"
-        mesh="moriaorc_v2_helmet"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="2"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="28"
-                has_gender_variations="false"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
-                beard_cover_type="type3" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v3_helmet"
-        name="{=aom_moriaorc_v3_helmet_name}[Mordor] Orc Helmet III"
-        subtype="head_armor"
-        mesh="moriaorc_v3_helmet"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="2"
-        Type="HeadArmor">
-        <ItemComponent>
-            <Armor
-                head_armor="20"
-                has_gender_variations="false"
-                hair_cover_type="all"
-                modifier_group="plate"
-                material_type="Plate"
+                modifier_group="leather"
+                material_type="Leather"
                 beard_cover_type="type3" />
         </ItemComponent>
         <Flags
@@ -864,7 +768,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -881,7 +785,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -898,7 +802,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -983,7 +887,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1000,7 +904,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1034,7 +938,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1051,7 +955,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1068,7 +972,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1170,7 +1074,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1187,7 +1091,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1204,7 +1108,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1221,7 +1125,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1306,7 +1210,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1323,7 +1227,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1340,7 +1244,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1357,7 +1261,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1408,7 +1312,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1425,7 +1329,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1476,7 +1380,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1493,7 +1397,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1544,7 +1448,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1595,7 +1499,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1629,7 +1533,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1663,7 +1567,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1714,7 +1618,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1731,7 +1635,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1765,7 +1669,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1805,7 +1709,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1822,7 +1726,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1839,7 +1743,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1856,7 +1760,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1873,7 +1777,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1890,7 +1794,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1907,7 +1811,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1924,7 +1828,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1941,7 +1845,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1958,7 +1862,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1975,7 +1879,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1992,7 +1896,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2009,7 +1913,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2026,7 +1930,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2043,7 +1947,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2060,7 +1964,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2077,7 +1981,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2094,7 +1998,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2111,7 +2015,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2128,7 +2032,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2145,7 +2049,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2162,7 +2066,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2179,7 +2083,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2196,7 +2100,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2213,7 +2117,7 @@
         appearance="1"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="15" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
+            <Armor head_armor="14" has_gender_variations="false" hair_cover_type="all" modifier_group="leather" material_type="Leather" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2230,7 +2134,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2247,7 +2151,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2264,7 +2168,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="24" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2281,7 +2185,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2298,7 +2202,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2315,7 +2219,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="32" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2332,7 +2236,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2349,7 +2253,524 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="40" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Black Numenorean armor (sk_md_num_*, sm_md_num_*)    -->
+    <!--  Corrupted Men: human skeleton, troops carry NO race attribute -->
+    <!--  Spec: lotraom-assets/tools/mordor_armor_and_troops.md         -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_num_hood_a"
+        name="{=aom_sk_md_num_hood_a_name}[Mordor] Black Numenorean Plain Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="3"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_b"
+        name="{=aom_sk_md_num_hood_b_name}[Mordor] Black Numenorean Plain Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="3"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="23" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_light_a"
+        name="{=aom_sk_md_num_hood_light_a_name}[Mordor] Black Numenorean Light Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.9"
+        difficulty="0"
+        appearance="4"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_light_b"
+        name="{=aom_sk_md_num_hood_light_b_name}[Mordor] Black Numenorean Light Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_light_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.9"
+        difficulty="0"
+        appearance="4"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="31" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_med_a"
+        name="{=aom_sk_md_num_hood_med_a_name}[Mordor] Black Numenorean Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_med_b"
+        name="{=aom_sk_md_num_hood_med_b_name}[Mordor] Black Numenorean Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_heavy_a"
+        name="{=aom_sk_md_num_hood_heavy_a_name}[Mordor] Black Numenorean Heavy Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_heavy_b"
+        name="{=aom_sk_md_num_hood_heavy_b_name}[Mordor] Black Numenorean Heavy Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_heavy_c"
+        name="{=aom_sk_md_num_hood_heavy_c_name}[Mordor] Black Numenorean Heavy Hood III"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_heavy_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_heavy_d"
+        name="{=aom_sk_md_num_hood_heavy_d_name}[Mordor] Black Numenorean Heavy Hood IV"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_heavy_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_elite_a"
+        name="{=aom_sk_md_num_hood_elite_a_name}[Mordor] Black Numenorean Elite Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_elite_b"
+        name="{=aom_sk_md_num_hood_elite_b_name}[Mordor] Black Numenorean Elite Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_elite_c"
+        name="{=aom_sk_md_num_hood_elite_c_name}[Mordor] Black Numenorean Elite Hood III"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_elite_c"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_elite_d"
+        name="{=aom_sk_md_num_hood_elite_d_name}[Mordor] Black Numenorean Elite Hood IV"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_elite_d"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_lord_a"
+        name="{=aom_sk_md_num_hood_lord_a_name}[Mordor] Black Numenorean Lord's Hood I"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_lord_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_hood_lord_b"
+        name="{=aom_sk_md_num_hood_lord_b_name}[Mordor] Black Numenorean Lord's Hood II"
+        subtype="head_armor"
+        mesh="sk_md_num_hood_lord_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_med_a"
+        name="{=aom_sk_md_num_inf_helmet_med_a_name}[Mordor] Black Numenorean Infantry Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="6"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_heavy_a"
+        name="{=aom_sk_md_num_inf_helmet_heavy_a_name}[Mordor] Black Numenorean Infantry Heavy Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_heavy_b"
+        name="{=aom_sk_md_num_inf_helmet_heavy_b_name}[Mordor] Black Numenorean Infantry Heavy Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_elite_a"
+        name="{=aom_sk_md_num_inf_helmet_elite_a_name}[Mordor] Black Numenorean Infantry Elite Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_elite_b"
+        name="{=aom_sk_md_num_inf_helmet_elite_b_name}[Mordor] Black Numenorean Infantry Elite Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_lord_a"
+        name="{=aom_sk_md_num_inf_helmet_lord_a_name}[Mordor] Black Numenorean Infantry Lord's Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_lord_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_helmet_lord_b"
+        name="{=aom_sk_md_num_inf_helmet_lord_b_name}[Mordor] Black Numenorean Infantry Lord's Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_inf_helmet_lord_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_med_a"
+        name="{=aom_sk_md_num_cav_helmet_med_a_name}[Mordor] Black Numenorean Cavalry Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="6"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="39" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_heavy_a"
+        name="{=aom_sk_md_num_cav_helmet_heavy_a_name}[Mordor] Black Numenorean Cavalry Heavy Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_heavy_b"
+        name="{=aom_sk_md_num_cav_helmet_heavy_b_name}[Mordor] Black Numenorean Cavalry Heavy Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_elite_a"
+        name="{=aom_sk_md_num_cav_helmet_elite_a_name}[Mordor] Black Numenorean Cavalry Elite Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_elite_b"
+        name="{=aom_sk_md_num_cav_helmet_elite_b_name}[Mordor] Black Numenorean Cavalry Elite Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_lord_a"
+        name="{=aom_sk_md_num_cav_helmet_lord_a_name}[Mordor] Black Numenorean Cavalry Lord's Helmet I"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_lord_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_cav_helmet_lord_b"
+        name="{=aom_sk_md_num_cav_helmet_lord_b_name}[Mordor] Black Numenorean Cavalry Lord's Helmet II"
+        subtype="head_armor"
+        mesh="sk_md_num_cav_helmet_lord_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="47" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

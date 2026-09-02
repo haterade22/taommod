@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Iron Hills] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Iron Hills] -->
+
     <Item
         id="sk_dwarf_iron_chest_chain_a"
         name="{=aom_sk_dwarf_iron_chest_chain_a_name}[Iron Hills] Chain Armour A"
@@ -24,7 +27,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_a"
         name="{=aom_sk_dwarf_iron_chest_elite_a_name}[Iron Hills] Elite Armour A"
@@ -48,7 +52,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_b"
         name="{=aom_sk_dwarf_iron_chest_elite_b_name}[Iron Hills] Elite Armour B"
@@ -72,7 +77,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_c"
         name="{=aom_sk_dwarf_iron_chest_elite_c_name}[Iron Hills] Elite Armour C"
@@ -96,7 +102,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_d"
         name="{=aom_sk_dwarf_iron_chest_elite_d_name}[Iron Hills] Elite Armour D"
@@ -120,7 +127,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_e"
         name="{=aom_sk_dwarf_iron_chest_elite_e_name}[Iron Hills] Elite Armour E"
@@ -144,7 +152,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_elite_f"
         name="{=aom_sk_dwarf_iron_chest_elite_f_name}[Iron Hills] Elite Armour F"
@@ -168,7 +177,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_heavy_a"
         name="{=aom_sk_dwarf_iron_chest_heavy_a_name}[Iron Hills] Heavy Armour A"
@@ -192,7 +202,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_heavy_b"
         name="{=aom_sk_dwarf_iron_chest_heavy_b_name}[Iron Hills] Heavy Armour B"
@@ -216,7 +227,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_heavy_c"
         name="{=aom_sk_dwarf_iron_chest_heavy_c_name}[Iron Hills] Heavy Armour C"
@@ -240,7 +252,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_heavy_d"
         name="{=aom_sk_dwarf_iron_chest_heavy_d_name}[Iron Hills] Heavy Armour D"
@@ -264,7 +277,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_heavy_e"
         name="{=aom_sk_dwarf_iron_chest_heavy_e_name}[Iron Hills] Heavy Armour E"
@@ -288,7 +302,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_light_a"
         name="{=aom_sk_dwarf_iron_chest_light_a_name}[Iron Hills] Light Armour A"
@@ -307,12 +322,13 @@
                 leg_armor="16"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_light_b"
         name="{=aom_sk_dwarf_iron_chest_light_b_name}[Iron Hills] Light Armour B"
@@ -331,12 +347,13 @@
                 leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_iron_chest_scale_a"
         name="{=aom_sk_dwarf_iron_chest_scale_a_name}[Iron Hills] Scale Armour A"
@@ -355,12 +372,13 @@
                 leg_armor="19"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_heavy_a"
         name="{=aom_sk_dwarf_dain_chest_heavy_a_name}[Erebor] Dain Heavy Chest A"
@@ -374,9 +392,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="42"
-                arm_armor="26"
-                leg_armor="19"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -384,7 +402,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_heavy_b"
         name="{=aom_sk_dwarf_dain_chest_heavy_b_name}[Erebor] Dain Heavy Chest B"
@@ -398,9 +417,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="42"
-                arm_armor="26"
-                leg_armor="19"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -408,7 +427,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_heavy_c"
         name="{=aom_sk_dwarf_dain_chest_heavy_c_name}[Erebor] Dain Heavy Chest C"
@@ -422,9 +442,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="42"
-                arm_armor="26"
-                leg_armor="19"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -432,7 +452,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_heavy_d"
         name="{=aom_sk_dwarf_dain_chest_heavy_d_name}[Erebor] Dain Heavy Chest D"
@@ -446,9 +467,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="42"
-                arm_armor="26"
-                leg_armor="19"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -456,7 +477,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_med_a"
         name="{=aom_sk_dwarf_dain_chest_med_a_name}[Erebor] Dain Medium Chest A"
@@ -470,9 +492,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="20"
-                leg_armor="15"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -480,7 +502,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_med_b"
         name="{=aom_sk_dwarf_dain_chest_med_b_name}[Erebor] Dain Medium Chest B"
@@ -494,9 +517,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="21"
-                leg_armor="13"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -504,7 +527,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_med_c"
         name="{=aom_sk_dwarf_dain_chest_med_c_name}[Erebor] Dain Medium Chest C"
@@ -518,9 +542,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="21"
-                leg_armor="13"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -528,7 +552,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="sk_dwarf_dain_chest_med_d"
         name="{=aom_sk_dwarf_dain_chest_med_d_name}[Erebor] Dain Medium Chest D"
@@ -542,9 +567,9 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="32"
-                arm_armor="26"
-                leg_armor="14"
+                body_armor="56"
+                arm_armor="33"
+                leg_armor="42"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -552,7 +577,10 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
-    <!-- #endregion -->
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
+    <!-- #endregion -->
+
 </Items>

@@ -15,13 +15,28 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Villager (upgrades to mirkwood_recruit) -->
-	<NPCCharacter id="villager_mirkwood" race="elf" default_group="Infantry" level="1" name="{=aom_mk_villager}Villager" occupation="Villager" culture="Culture.mirkwood" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="villager_mirkwood" race="elf" default_group="Infantry" level="1" name="{=aom_mk_villager}Villager" occupation="Villager" culture="Culture.mirkwood">
 		<face><face_key_template value="BodyProperty.fighter_mirkwood" /></face>
-		<skills></skills>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
 		<upgrade_targets>
 			<upgrade_target id="NPCCharacter.mirkwood_recruit" />
 		</upgrade_targets>
@@ -122,16 +137,21 @@
 	</NPCCharacter>
 
 	<!-- Guards -->
-	<NPCCharacter id="prison_guard_mirkwood" race="elf" default_group="Infantry" level="4" culture="Culture.mirkwood" occupation="PrisonGuard" name="{=aom_mk_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="prison_guard_mirkwood" race="elf" default_group="Infantry" level="4" culture="Culture.mirkwood" occupation="PrisonGuard" name="{=aom_mk_prison_guard}Prison Guard">
 		<face><face_key_template value="BodyProperty.fighter_mirkwood" /></face>
 		<skills>
 			<skill id="OneHanded" value="50" />
 			<skill id="TwoHanded" value="50" />
 			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
 		</skills>
 		<upgrade_targets></upgrade_targets>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item1" id="Item.mirkwood_spear_a01" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item1" id="Item.mirkwood_spear_a01" />
 			</EquipmentRoster>
 		</Equipments>
@@ -153,6 +173,14 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.mirkwood_spear_a01" />
+				<equipment slot="Item1" id="Item.wm_mirkwood_shield_a01" />
+				<equipment slot="Head" id="Item.mkwd_inf1_t2_helmet_gold_hc" />
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -162,6 +190,11 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
@@ -179,6 +212,12 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.mirkwood_sword_a01" />
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -191,6 +230,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -199,6 +243,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -215,6 +263,11 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.mirkwood_sword_a01" />
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -224,6 +277,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -238,6 +295,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -249,6 +310,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -257,6 +322,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -272,6 +341,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -280,6 +353,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -295,6 +372,11 @@
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.mirkwood_sword_a01" />
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -304,6 +386,13 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.mirkwood_sword_a01" />
+				<equipment slot="Head" id="Item.mkwd_inf1_t2_helmet_gold_hc" />
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.mirkwood_sword_a01" />
 				<equipment slot="Head" id="Item.mkwd_inf1_t2_helmet_gold_hc" />
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
@@ -324,6 +413,11 @@
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_0b" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.mirkwood" name="{=aom_mk_notable_0b}Silvan vintner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -335,6 +429,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_1" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mirkwood" name="{=aom_mk_notable_1}Stern woodland trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -343,6 +441,11 @@
 		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
@@ -359,6 +462,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_2" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.mirkwood" name="{=aom_mk_notable_2}Woodland herb dealer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -371,6 +479,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_2b" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.mirkwood" name="{=aom_mk_notable_2b}Wise silvan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -379,6 +492,11 @@
 		<Traits><Trait id="Valor" value="-1" /><Trait id="Honor" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
@@ -396,6 +514,12 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_3b" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.mirkwood" name="{=aom_mk_notable_3b}Jovial forest trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -404,6 +528,11 @@
 		<Traits><Trait id="Generosity" value="1" /><Trait id="Honor" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
@@ -421,6 +550,12 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_4b" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.mirkwood" name="{=aom_mk_notable_4b}Devious silvan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
@@ -429,6 +564,10 @@
 		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
@@ -445,6 +584,11 @@
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_6" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mirkwood" name="{=aom_mk_notable_6}Stern silvan elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
@@ -455,6 +599,10 @@
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_7" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.mirkwood" name="{=aom_mk_notable_7}Woodland keeper of traditions" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
@@ -462,6 +610,12 @@
 		<Traits><Trait id="Mercy" value="1" /><Trait id="Generosity" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
@@ -480,6 +634,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_9" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.mirkwood" name="{=aom_mk_notable_9}Gifted woodland craftsman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
@@ -487,6 +646,11 @@
 		<Traits><Trait id="Generosity" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
@@ -504,6 +668,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_10" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.mirkwood" name="{=aom_mk_notable_10}Sardonic forest outlaw" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -511,6 +680,11 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
@@ -526,6 +700,11 @@
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_gl4" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mirkwood" name="{=aom_mk_notable_gl4}Ruthless silvan exile" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -533,6 +712,10 @@
 		<Traits><Trait id="Honor" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -547,6 +730,11 @@
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_13" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.mirkwood" name="{=aom_mk_notable_13}Menacing forest schemer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
@@ -554,6 +742,11 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
 				<equipment slot="Gloves" id="Item.mkwd_inf3_vambraces" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
@@ -571,6 +764,11 @@
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_notable_mirkwood_22" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.mirkwood" name="{=aom_mk_notable_22}Agreeable silvan elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
@@ -578,6 +776,10 @@
 		<Traits><Trait id="Honor" value="1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
 			</EquipmentRoster>
@@ -594,6 +796,11 @@
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mkwd_inf3_chest" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_mirkwood_headman_2" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mirkwood" name="{=aom_mk_headman_2}Conservative silvan headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
@@ -604,6 +811,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 	<NPCCharacter id="spc_mirkwood_headman_3" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.mirkwood" name="{=aom_mk_headman_3}Devious woodland headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
@@ -611,6 +822,11 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Honor" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
+				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
+				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mkwd_inf3_chest_bronze" />
 				<equipment slot="Cape" id="Item.mkwd_inf3_pauldrons_bronze" />
 				<equipment slot="Leg" id="Item.mkwd_inf3_greaves_bronze" />
@@ -627,6 +843,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -638,6 +858,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -646,6 +870,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -661,6 +889,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -671,6 +903,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.mirkwood_body" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -679,6 +914,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -693,6 +932,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -701,6 +944,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -714,6 +961,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.mirkwood_body" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -725,6 +975,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -733,6 +987,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -748,6 +1006,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -756,6 +1018,9 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 			</EquipmentRoster>
 		</Equipments>
@@ -769,6 +1034,10 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -779,6 +1048,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.mirkwood_body" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -787,6 +1059,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
@@ -849,7 +1125,31 @@
 				<equipment slot="Body" id="Item.mirkwood_body" />
 				<equipment slot="Leg" id="Item.mirkwood_boots" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.mirkwood_body" />
+				<equipment slot="Leg" id="Item.mirkwood_boots" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_mirkwood_lord_* rosters. -->
+	<NPCCharacter id="spc_mirkwood_lord_1" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.mirkwood" name="{=aom_mirkwood_lord_1}Bold elven lord of Mirkwood" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_mirkwood" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_mirkwood_lord_battle_male" />
+			<EquipmentSet id="taom_mirkwood_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_mirkwood_lord_2" race="elf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.mirkwood" name="{=aom_mirkwood_lord_2}Cautious elven lord of Mirkwood" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_mirkwood" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_mirkwood_lord_battle_male" />
+			<EquipmentSet id="taom_mirkwood_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
 </NPCCharacters>

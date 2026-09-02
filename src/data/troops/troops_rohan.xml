@@ -1581,7 +1581,7 @@
             <EquipmentRoster>
                 <equipment
                     slot="Item0"
-                    id="Item.wm_rohan_spear_c" />
+                    id="Item.wm_rohan_spear_a" />
                 <equipment
                     slot="Item1"
                     id="Item.wm_rohan_shield_a03_ggw" />
@@ -1658,7 +1658,7 @@
             <EquipmentRoster>
                 <equipment
                     slot="Item0"
-                    id="Item.wm_rohan_spear_f" />
+                    id="Item.wm_rohan_spear_b" />
                 <equipment
                     slot="Item1"
                     id="Item.wm_rohan_shield_a03_ggw" />
@@ -2292,10 +2292,10 @@
                 value="110" />
             <skill
                 id="TwoHanded"
-                value="125" />
+                value="140" />
             <skill
                 id="Polearm"
-                value="140" />
+                value="125" />
             <skill
                 id="Bow"
                 value="10" />
@@ -2428,10 +2428,10 @@
                 value="160" />
             <skill
                 id="TwoHanded"
-                value="170" />
+                value="180" />
             <skill
                 id="Polearm"
-                value="180" />
+                value="170" />
             <skill
                 id="Bow"
                 value="15" />
@@ -3062,7 +3062,7 @@
                     id="Item.rohan_militia_armour_c" />
                 <equipment
                     slot="Gloves"
-                    id="Item.sk_gd_ano_gloves_a" />
+                    id="Item.cts_rohan_armguard1" />
                 <equipment
                     slot="Leg"
                     id="Item.roh_sol_bts" />
@@ -3114,7 +3114,7 @@
                     id="Item.rohan_militia_armour_e" />
                 <equipment
                     slot="Gloves"
-                    id="Item.sk_gd_ano_gloves_a" />
+                    id="Item.cts_rohan_armguard1" />
                 <equipment
                     slot="Leg"
                     id="Item.roh_sol_bts" />
@@ -3200,7 +3200,7 @@
                 value="80" />
             <skill
                 id="TwoHanded"
-                value="50" />
+                value="55" />
             <skill
                 id="Polearm"
                 value="110" />
@@ -4061,7 +4061,7 @@
             <EquipmentRoster>
                 <equipment
                     slot="Item0"
-                    id="Item.wm_rohan_spear_d" />
+                    id="Item.wm_rohan_spear_a" />
                 <equipment
                     slot="Item1"
                     id="Item.wm_rohan_shield_a03_gbg" />
@@ -4279,7 +4279,7 @@
             <EquipmentRoster>
                 <equipment
                     slot="Item0"
-                    id="Item.wm_rohan_spear_f" />
+                    id="Item.wm_rohan_spear_b" />
                 <equipment
                     slot="Item1"
                     id="Item.wm_rohan_shield_a03_gbg" />
@@ -4314,7 +4314,7 @@
             <EquipmentRoster>
                 <equipment
                     slot="Item0"
-                    id="Item.wm_rohan_spear_f" />
+                    id="Item.wm_rohan_spear_b" />
                 <equipment
                     slot="Item1"
                     id="Item.wm_rohan_shield_a03_gbg" />
@@ -5809,8 +5809,7 @@
         level="11"
         name="{=aom_rohan_militia_spearman_name}[Rohan] Militia Spearman"
         occupation="Soldier"
-        culture="Culture.vlandia"
-        skill_template="SkillSet.infantry_heavyinfantry_level11_template_skills">
+        culture="Culture.vlandia">
         <face>
             <face_key_template
                 value="BodyProperty.fighter_rohan" />
@@ -5874,8 +5873,7 @@
         level="11"
         name="{=aom_rohan_militia_archer_name}[Rohan] Militia Archer"
         occupation="Soldier"
-        culture="Culture.vlandia"
-        skill_template="SkillSet.ranged_skirmisher_level11_template_skills">
+        culture="Culture.vlandia">
         <face>
             <face_key_template
                 value="BodyProperty.fighter_rohan" />
@@ -5941,8 +5939,7 @@
         level="16"
         name="{=aom_rohan_militia_veteran_spearman_name}[Rohan] Militia Veteran Spearman"
         occupation="Soldier"
-        culture="Culture.vlandia"
-        skill_template="SkillSet.infantry_heavyinfantry_level16_template_skills">
+        culture="Culture.vlandia">
         <face>
             <face_key_template
                 value="BodyProperty.fighter_rohan" />
@@ -6012,8 +6009,7 @@
         level="16"
         name="{=aom_rohan_militia_veteran_archer_name}[Rohan] Militia Veteran Archer"
         occupation="Soldier"
-        culture="Culture.vlandia"
-        skill_template="SkillSet.ranged_skirmisher_level16_template_skills">
+        culture="Culture.vlandia">
         <face>
             <face_key_template
                 value="BodyProperty.fighter_rohan" />

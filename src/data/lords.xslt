@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="xml" indent="yes" encoding="utf-8"/>
 
@@ -44,7 +44,7 @@
                                                                 <skill id="Tactics" value="250" />
                                                                 <skill id="Roguery" value="210" />
                                                                 <skill id="Charm" value="200" />
-                                                                <skill id="Leadership" value="265" />
+                                                                <skill id="Leadership" value="130" />
                                                                 <skill id="Trade" value="170" />
                                                                 <skill id="Steward" value="220" />
                                                                 <skill id="Medicine" value="150" />
@@ -99,7 +99,7 @@
                                                                 <skill id="Tactics" value="250" />
                                                                 <skill id="Roguery" value="210" />
                                                                 <skill id="Charm" value="200" />
-                                                                <skill id="Leadership" value="265" />
+                                                                <skill id="Leadership" value="130" />
                                                                 <skill id="Trade" value="170" />
                                                                 <skill id="Steward" value="220" />
                                                                 <skill id="Medicine" value="150" />
@@ -127,13 +127,13 @@
     <xsl:template match="NPCCharacter[@id='lord_1_3']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_3_name}Gorwulf, The Boar </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_3_name}Gorwulf, The Boar</xsl:attribute>
             <xsl:attribute name="age">56</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -153,7 +153,7 @@
                                                                 <skill id="Tactics" value="190" />
                                                                 <skill id="Roguery" value="240" />
                                                                 <skill id="Charm" value="140" />
-                                                                <skill id="Leadership" value="180" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="150" />
                                                                 <skill id="Medicine" value="120" />
@@ -188,7 +188,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -208,7 +208,7 @@
                                                                 <skill id="Tactics" value="130" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="240" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="180" />
                                                                 <skill id="Steward" value="240" />
                                                                 <skill id="Medicine" value="210" />
@@ -242,7 +242,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -262,7 +262,7 @@
                                                                 <skill id="Tactics" value="180" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="160" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="90" />
                                                                 <skill id="Trade" value="90" />
                                                                 <skill id="Steward" value="130" />
                                                                 <skill id="Medicine" value="90" />
@@ -296,7 +296,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -316,7 +316,7 @@
                                                                 <skill id="Tactics" value="130" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="140" />
-                                                                <skill id="Leadership" value="120" />
+                                                                <skill id="Leadership" value="55" />
                                                                 <skill id="Trade" value="80" />
                                                                 <skill id="Steward" value="110" />
                                                                 <skill id="Medicine" value="80" />
@@ -358,23 +358,23 @@
             </face>
                                                             <skills>
                                                                 <skill id="OneHanded" value="170" />
-                                                                <skill id="TwoHanded" value="130" />
-                                                                <skill id="Polearm" value="180" />
+                                                                <skill id="TwoHanded" value="120" />
+                                                                <skill id="Polearm" value="150" />
                                                                 <skill id="Bow" value="130" />
-                                                                <skill id="Crossbow" value="90" />
+                                                                <skill id="Crossbow" value="110" />
                                                                 <skill id="Throwing" value="100" />
-                                                                <skill id="Riding" value="200" />
-                                                                <skill id="Athletics" value="170" />
-                                                                <skill id="Crafting" value="150" />
-                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Riding" value="190" />
+                                                                <skill id="Athletics" value="187" />
+                                                                <skill id="Crafting" value="187" />
+                                                                <skill id="Scouting" value="187" />
                                                                 <skill id="Tactics" value="280" />
-                                                                <skill id="Roguery" value="130" />
-                                                                <skill id="Charm" value="270" />
-                                                                <skill id="Leadership" value="290" />
-                                                                <skill id="Trade" value="230" />
-                                                                <skill id="Steward" value="300" />
-                                                                <skill id="Medicine" value="160" />
-                                                                <skill id="Engineering" value="240" />
+                                                                <skill id="Roguery" value="187" />
+                                                                <skill id="Charm" value="255" />
+                                                                <skill id="Leadership" value="316" />
+                                                                <skill id="Trade" value="225" />
+                                                                <skill id="Steward" value="318" />
+                                                                <skill id="Medicine" value="187" />
+                                                                <skill id="Engineering" value="235" />
                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="1" />
@@ -387,8 +387,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="denethor_bat_equipment" />
+                <EquipmentSet id="denethor_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -422,12 +422,12 @@
                 <skill id="Athletics" value="140" />
                 <skill id="Crafting" value="160" />
                 <skill id="Scouting" value="150" />
-                <skill id="Tactics" value="230" />
+                <skill id="Tactics" value="255" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="250" />
-                <skill id="Leadership" value="210" />
+                <skill id="Leadership" value="236" />
                 <skill id="Trade" value="230" />
-                <skill id="Steward" value="275" />
+                <skill id="Steward" value="283" />
                 <skill id="Medicine" value="180" />
                 <skill id="Engineering" value="210" />
             </skills>
@@ -442,8 +442,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="hurioneth_bat_equipment" />
+                <EquipmentSet id="hurioneth_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -466,24 +466,24 @@
                 <BodyProperties version="4" weight="0.0185" build="0.7199" key="000A480FC00000022F70080860528544369289B2BF8A7E05776961088DB01839009B06030966530400000000000000000000000000000000000000003D3C1002"/>
             </face>
                                                                                                             <skills>
-                                                                                                                <skill id="OneHanded" value="290" />
-                                                                                                                <skill id="TwoHanded" value="220" />
-                                                                                                                <skill id="Polearm" value="275" />
-                                                                                                                <skill id="Bow" value="180" />
-                                                                                                                <skill id="Crossbow" value="120" />
-                                                                                                                <skill id="Throwing" value="160" />
-                                                                                                                <skill id="Riding" value="290" />
-                                                                                                                <skill id="Athletics" value="260" />
-                                                                                                                <skill id="Crafting" value="110" />
-                                                                                                                <skill id="Scouting" value="230" />
-                                                                                                                <skill id="Tactics" value="275" />
-                                                                                                                <skill id="Roguery" value="90" />
-                                                                                                                <skill id="Charm" value="270" />
-                                                                                                                <skill id="Leadership" value="290" />
-                                                                                                                <skill id="Trade" value="180" />
-                                                                                                                <skill id="Steward" value="250" />
-                                                                                                                <skill id="Medicine" value="170" />
-                                                                                                                <skill id="Engineering" value="190" />
+                                                                                                                <skill id="OneHanded" value="285" />
+                                                                                                                <skill id="TwoHanded" value="209" />
+                                                                                                                <skill id="Polearm" value="295" />
+                                                                                                                <skill id="Bow" value="203" />
+                                                                                                                <skill id="Crossbow" value="203" />
+                                                                                                                <skill id="Throwing" value="203" />
+                                                                                                                <skill id="Riding" value="320" />
+                                                                                                                <skill id="Athletics" value="203" />
+                                                                                                                <skill id="Crafting" value="203" />
+                                                                                                                <skill id="Scouting" value="203" />
+                                                                                                                <skill id="Tactics" value="228" />
+                                                                                                                <skill id="Roguery" value="203" />
+                                                                                                                <skill id="Charm" value="280" />
+                                                                                                                <skill id="Leadership" value="326" />
+                                                                                                                <skill id="Trade" value="203" />
+                                                                                                                <skill id="Steward" value="211" />
+                                                                                                                <skill id="Medicine" value="203" />
+                                                                                                                <skill id="Engineering" value="203" />
                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -531,12 +531,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="150" />
                 <skill id="Scouting" value="120" />
-                <skill id="Tactics" value="160" />
+                <skill id="Tactics" value="185" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="255" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="206" />
                 <skill id="Trade" value="200" />
-                <skill id="Steward" value="255" />
+                <skill id="Steward" value="263" />
                 <skill id="Medicine" value="215" />
                 <skill id="Engineering" value="150" />
             </skills>
@@ -551,8 +551,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_dolamroth_3" />
+                <EquipmentSet id="gondor_lord_dolamroth_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -585,12 +585,12 @@
                 <skill id="Athletics" value="255" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="230" />
+                <skill id="Tactics" value="255" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="210" />
-                <skill id="Leadership" value="235" />
+                <skill id="Leadership" value="261" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="200" />
+                <skill id="Steward" value="208" />
                 <skill id="Medicine" value="130" />
                 <skill id="Engineering" value="140" />
             </skills>
@@ -605,8 +605,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_dolamroth_4" />
+                <EquipmentSet id="gondor_lord_dolamroth_4_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -638,12 +638,12 @@
                 <skill id="Athletics" value="245" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="225" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="190" />
+                <skill id="Leadership" value="216" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="150" />
+                <skill id="Steward" value="158" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -658,8 +658,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_londgalen_1" />
+                <EquipmentSet id="gondor_lord_londgalen_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -692,12 +692,12 @@
                 <skill id="Athletics" value="225" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="250" />
-                <skill id="Tactics" value="255" />
+                <skill id="Tactics" value="280" />
                 <skill id="Roguery" value="110" />
                 <skill id="Charm" value="190" />
-                <skill id="Leadership" value="240" />
+                <skill id="Leadership" value="266" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="215" />
+                <skill id="Steward" value="223" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="180" />
             </skills>
@@ -712,8 +712,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_londgalen_2" />
+                <EquipmentSet id="gondor_lord_londgalen_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -747,12 +747,12 @@
                 <skill id="Athletics" value="150" />
                 <skill id="Crafting" value="170" />
                 <skill id="Scouting" value="160" />
-                <skill id="Tactics" value="160" />
+                <skill id="Tactics" value="185" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="220" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="206" />
                 <skill id="Trade" value="200" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="248" />
                 <skill id="Medicine" value="220" />
                 <skill id="Engineering" value="160" />
             </skills>
@@ -767,8 +767,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_1" />
+                <EquipmentSet id="gondor_lord_linhir_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -802,12 +802,12 @@
                 <skill id="Athletics" value="140" />
                 <skill id="Crafting" value="160" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="170" />
+                <skill id="Tactics" value="195" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="215" />
-                <skill id="Leadership" value="170" />
+                <skill id="Leadership" value="196" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="235" />
+                <skill id="Steward" value="243" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="150" />
             </skills>
@@ -822,8 +822,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_2" />
+                <EquipmentSet id="gondor_lord_linhir_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -844,7 +844,7 @@
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.1" build="0.99" key="0000F10E90FB50046958D3288B71766558599899863A9B25B8E39F6A978897400090876088487420000000000000000000000000000000000000000013C4040"/>
+                <BodyProperties version="4" age="42" weight="0.0046" build="0.8032" key="0002A80FC0001902578E77766AC361A634799A6658EAA5688655868BB64B66C400FC06030F78666400000000000000000000000000000000000000003FF49042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="255" />
@@ -877,8 +877,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_c" />
-                <EquipmentSet id="mordor_civ_template_default_c" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -894,7 +894,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_witch_king_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -942,7 +942,7 @@
     <xsl:template match="NPCCharacter[@id='lord_1_155']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_155</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_155_name}Nazgûl, The Dark Marshall </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_155_name}Nazgûl, The Dark Marshall</xsl:attribute>
             <xsl:attribute name="age">18</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -1003,7 +1003,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_chieftain_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -1057,8 +1057,8 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="race">elf</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_chieftain_skills</xsl:attribute>
+            <xsl:attribute name="race">sauron</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_sauron_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -1228,23 +1228,23 @@
                 <BodyProperties version="4" weight="0.7019" build="0.3678" key="00026C09851423C2DE888372433B967E7F01649228AD4DB58888888F7718F5F500C6B6030C888888000000000000000000000000000000000000000043840142"/>
             </face>
                                                                                                                                                             <skills>
-                                                                                                                                                                <skill id="OneHanded" value="235" />
-                                                                                                                                                                <skill id="TwoHanded" value="220" />
+                                                                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                                                                <skill id="TwoHanded" value="215" />
                                                                                                                                                                 <skill id="Polearm" value="215" />
-                                                                                                                                                                <skill id="Bow" value="140" />
-                                                                                                                                                                <skill id="Crossbow" value="90" />
-                                                                                                                                                                <skill id="Throwing" value="160" />
-                                                                                                                                                                <skill id="Riding" value="150" />
-                                                                                                                                                                <skill id="Athletics" value="240" />
-                                                                                                                                                                <skill id="Crafting" value="110" />
-                                                                                                                                                                <skill id="Scouting" value="200" />
-                                                                                                                                                                <skill id="Tactics" value="180" />
+                                                                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                                                                <skill id="Tactics" value="200" />
                                                                                                                                                                 <skill id="Roguery" value="200" />
-                                                                                                                                                                <skill id="Charm" value="120" />
-                                                                                                                                                                <skill id="Leadership" value="160" />
-                                                                                                                                                                <skill id="Trade" value="100" />
-                                                                                                                                                                <skill id="Steward" value="130" />
-                                                                                                                                                                <skill id="Medicine" value="70" />
+                                                                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                                                                <skill id="Medicine" value="140" />
                                                                                                                                                                 <skill id="Engineering" value="120" />
                                                                                                                                                             </skills>
             <Traits>
@@ -1282,23 +1282,23 @@
                 <BodyProperties version="4" weight="0.3278" build="0.9412" key="0018540FC32C1A546669AC7C84CA7269A89E996472AB6A254BC5AC69693A675500BE56030BB8DD4800000000000000000000000000000000000000002F7C4042"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -1347,12 +1347,12 @@
                 <skill id="Athletics" value="130" />
                 <skill id="Crafting" value="130" />
                 <skill id="Scouting" value="130" />
-                <skill id="Tactics" value="140" />
+                <skill id="Tactics" value="165" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="230" />
-                <skill id="Leadership" value="170" />
+                <skill id="Leadership" value="196" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="235" />
+                <skill id="Steward" value="243" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -1367,8 +1367,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_3" />
+                <EquipmentSet id="gondor_lord_linhir_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -1401,12 +1401,12 @@
                 <skill id="Athletics" value="230" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="150" />
-                <skill id="Tactics" value="170" />
+                <skill id="Tactics" value="195" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="100" />
-                <skill id="Steward" value="140" />
+                <skill id="Steward" value="148" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -1421,8 +1421,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_1" />
+                <EquipmentSet id="gondor_lord_arndir_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -1445,24 +1445,24 @@
                 <BodyProperties version="4" weight="0.4236" build="0.7407" key="00020006C00016029A797961AA0103D841B0830030ECF600921531198EF3BC94009B6603098C7F4732430001330223550000000000001977000000004D245002"/>
             </face>
           <skills>
-              <skill id="OneHanded" value="295" />
-              <skill id="TwoHanded" value="255" />
-              <skill id="Polearm" value="240" />
-              <skill id="Bow" value="160" />
-              <skill id="Crossbow" value="110" />
-              <skill id="Throwing" value="170" />
-              <skill id="Riding" value="260" />
-              <skill id="Athletics" value="285" />
-              <skill id="Crafting" value="80" />
+              <skill id="OneHanded" value="325" />
+              <skill id="TwoHanded" value="210" />
+              <skill id="Polearm" value="290" />
+              <skill id="Bow" value="210" />
+              <skill id="Crossbow" value="210" />
+              <skill id="Throwing" value="210" />
+              <skill id="Riding" value="210" />
+              <skill id="Athletics" value="315" />
+              <skill id="Crafting" value="210" />
               <skill id="Scouting" value="210" />
-              <skill id="Tactics" value="250" />
-              <skill id="Roguery" value="70" />
-              <skill id="Charm" value="230" />
-              <skill id="Leadership" value="285" />
-              <skill id="Trade" value="110" />
-              <skill id="Steward" value="180" />
-              <skill id="Medicine" value="130" />
-              <skill id="Engineering" value="160" />
+              <skill id="Tactics" value="320" />
+              <skill id="Roguery" value="210" />
+              <skill id="Charm" value="210" />
+              <skill id="Leadership" value="336" />
+              <skill id="Trade" value="210" />
+              <skill id="Steward" value="218" />
+              <skill id="Medicine" value="210" />
+              <skill id="Engineering" value="210" />
           </skills>
           <Traits>
               <Trait id="Honor" value="2" />
@@ -1509,12 +1509,12 @@
                 <skill id="Athletics" value="255" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="275" />
-                <skill id="Tactics" value="170" />
+                <skill id="Tactics" value="195" />
                 <skill id="Roguery" value="120" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="150" />
+                <skill id="Leadership" value="176" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="138" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="90" />
             </skills>
@@ -1529,8 +1529,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_2" />
+                <EquipmentSet id="gondor_lord_arndir_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -1540,18 +1540,17 @@
     <xsl:template match="NPCCharacter[@id='lord_1_27']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_27</xsl:attribute>
-            <xsl:attribute name="race">uruk</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_27_name}Maugrash</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_27_name_bn}Ugrukhôr</xsl:attribute>
             <xsl:attribute name="age">37</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_chieftain_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.6" build="0.3" key="000B6C02C0BC100679D8455AA9684859888735557C6493786867627857B2895800058893058735D900001105000030A30000001F000000000000000001686000"/>
+                <BodyProperties version="4" age="37" weight="0.0046" build="0.8032" key="0002740FC0001682254A76EBA9A37EAB347997BA4B3964748655868BB64B66C400FC06030F78666400000000000000000000000000000000000000003FF42042" />
             </face>
           <skills>
               <skill id="OneHanded" value="275" />
@@ -1584,8 +1583,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_e" />
-                <EquipmentSet id="mordor_civ_template_default_e" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -1601,7 +1600,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -1659,7 +1658,7 @@
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.4" build="0.6" key="000BA00B40001008A43A8AB8557888874A6A94868B767788988844778A69247900058005079777A800001105000030A30000001F000000000000000000CC0000"/>
+                <BodyProperties version="4" age="23" weight="0.0046" build="0.8032" key="0002380E40003281AA3A8B51DBB48F28899A93883962A9A018F638625568155500FC06030F27D9CB00000000000000000000000000000000000000003FF480C2" />
             </face>
             <skills>
                 <skill id="OneHanded" value="255" />
@@ -1692,8 +1691,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_b" />
-                <EquipmentSet id="mordor_civ_template_default_b" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -1717,24 +1716,24 @@
                 <BodyProperties version="4" weight="0.6213" build="0.5278" key="000DB80D0C141012B89AB3B6BA36B78C5289399A7B938997C8CDA86AA3BD1A270068960306C18788000000000000000000000000000000000000000042CC0083"/>
             </face>
                                                                                                             <skills>
-                                                                                                                <skill id="OneHanded" value="170" />
-                                                                                                                <skill id="TwoHanded" value="160" />
-                                                                                                                <skill id="Polearm" value="160" />
-                                                                                                                <skill id="Bow" value="160" />
-                                                                                                                <skill id="Crossbow" value="110" />
-                                                                                                                <skill id="Throwing" value="140" />
-                                                                                                                <skill id="Riding" value="110" />
-                                                                                                                <skill id="Athletics" value="200" />
-                                                                                                                <skill id="Crafting" value="180" />
-                                                                                                                <skill id="Scouting" value="170" />
-                                                                                                                <skill id="Tactics" value="160" />
-                                                                                                                <skill id="Roguery" value="210" />
-                                                                                                                <skill id="Charm" value="130" />
-                                                                                                                <skill id="Leadership" value="150" />
-                                                                                                                <skill id="Trade" value="130" />
-                                                                                                                <skill id="Steward" value="180" />
-                                                                                                                <skill id="Medicine" value="120" />
-                                                                                                                <skill id="Engineering" value="160" />
+                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                <skill id="TwoHanded" value="215" />
+                                                                                                                <skill id="Polearm" value="215" />
+                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                <skill id="Tactics" value="200" />
+                                                                                                                <skill id="Roguery" value="200" />
+                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                <skill id="Medicine" value="140" />
+                                                                                                                <skill id="Engineering" value="120" />
                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -1772,24 +1771,24 @@
                 <BodyProperties version="4" weight="0.3278" build="0.5208" key="0018700FC52C300A287C737B6258466A7B9869A85BB485996716C57DCCA973BB0078560307993A5700000000000000000000000000000000000000002EDC20C3"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="170" />
-                                                                <skill id="TwoHanded" value="160" />
-                                                                <skill id="Polearm" value="160" />
-                                                                <skill id="Bow" value="160" />
-                                                                <skill id="Crossbow" value="110" />
-                                                                <skill id="Throwing" value="140" />
-                                                                <skill id="Riding" value="110" />
-                                                                <skill id="Athletics" value="200" />
-                                                                <skill id="Crafting" value="180" />
-                                                                <skill id="Scouting" value="170" />
-                                                                <skill id="Tactics" value="160" />
-                                                                <skill id="Roguery" value="210" />
-                                                                <skill id="Charm" value="130" />
-                                                                <skill id="Leadership" value="150" />
-                                                                <skill id="Trade" value="130" />
-                                                                <skill id="Steward" value="180" />
-                                                                <skill id="Medicine" value="120" />
-                                                                <skill id="Engineering" value="160" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
+                                                                <skill id="Polearm" value="215" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
+                                                                <skill id="Roguery" value="200" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
+                                                                <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -1827,24 +1826,24 @@
                 <BodyProperties version="4" weight="0.2" build="0.3" key="0005640B4000000287B86998A4156688BC87B56726542344956C8B7576556786000350040397A6680000000000000FFE00000000000000000000000000F00000"/>
             </face>
             <skills>
-                <skill id="OneHanded" value="170" />
-                <skill id="TwoHanded" value="160" />
-                <skill id="Polearm" value="160" />
-                <skill id="Bow" value="160" />
-                <skill id="Crossbow" value="110" />
-                <skill id="Throwing" value="140" />
-                <skill id="Riding" value="110" />
-                <skill id="Athletics" value="200" />
-                <skill id="Crafting" value="180" />
-                <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="160" />
-                <skill id="Roguery" value="210" />
-                <skill id="Charm" value="130" />
-                <skill id="Leadership" value="150" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="180" />
-                <skill id="Medicine" value="120" />
-                <skill id="Engineering" value="160" />
+                <skill id="OneHanded" value="245" />
+                <skill id="TwoHanded" value="215" />
+                <skill id="Polearm" value="215" />
+                <skill id="Bow" value="170" />
+                <skill id="Crossbow" value="80" />
+                <skill id="Throwing" value="170" />
+                <skill id="Riding" value="180" />
+                <skill id="Athletics" value="255" />
+                <skill id="Crafting" value="120" />
+                <skill id="Scouting" value="220" />
+                <skill id="Tactics" value="200" />
+                <skill id="Roguery" value="200" />
+                <skill id="Charm" value="160" />
+                <skill id="Leadership" value="100" />
+                <skill id="Trade" value="120" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="140" />
+                <skill id="Engineering" value="120" />
             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -1881,23 +1880,23 @@
                 <BodyProperties version="4" weight="0.3278" build="0.5208" key="0018900FC42C0A00277D1767865C6D65C99ABB9D9A854973C599D87C96798E5B00785603076C374A00000000000000000000000000000000000000002EDC7102"/>
             </face>
                                                                                                             <skills>
-                                                                                                                <skill id="OneHanded" value="235" />
-                                                                                                                <skill id="TwoHanded" value="220" />
+                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                <skill id="TwoHanded" value="215" />
                                                                                                                 <skill id="Polearm" value="215" />
-                                                                                                                <skill id="Bow" value="140" />
-                                                                                                                <skill id="Crossbow" value="90" />
-                                                                                                                <skill id="Throwing" value="160" />
-                                                                                                                <skill id="Riding" value="150" />
-                                                                                                                <skill id="Athletics" value="240" />
-                                                                                                                <skill id="Crafting" value="110" />
-                                                                                                                <skill id="Scouting" value="200" />
-                                                                                                                <skill id="Tactics" value="180" />
+                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                <skill id="Tactics" value="200" />
                                                                                                                 <skill id="Roguery" value="200" />
-                                                                                                                <skill id="Charm" value="120" />
-                                                                                                                <skill id="Leadership" value="160" />
-                                                                                                                <skill id="Trade" value="100" />
-                                                                                                                <skill id="Steward" value="130" />
-                                                                                                                <skill id="Medicine" value="70" />
+                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                <skill id="Medicine" value="140" />
                                                                                                                 <skill id="Engineering" value="120" />
                                                                                                             </skills>
             <Traits>
@@ -1922,6 +1921,7 @@
     <xsl:template match="NPCCharacter[@id='lord_1_34']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_34</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_canonical_lord_1_34_skills</xsl:attribute>
             <xsl:attribute name="name">{=aom_lord_1_34_name}Faramir</xsl:attribute>
             <xsl:attribute name="age">36</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
@@ -1935,24 +1935,24 @@
                 <BodyProperties version="4" weight="0" build="0.5671" key="0000000400000182107973B1A81103B300A189083A697600991871193FB17D5300990603093A2B0532430001330223550000000000001977000000004D246002"/>
             </face>
             <skills>
-                <skill id="OneHanded" value="240" />
-                <skill id="TwoHanded" value="190" />
-                <skill id="Polearm" value="220" />
-                <skill id="Bow" value="275" />
-                <skill id="Crossbow" value="140" />
-                <skill id="Throwing" value="180" />
-                <skill id="Riding" value="210" />
-                <skill id="Athletics" value="275" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="290" />
-                <skill id="Tactics" value="270" />
-                <skill id="Roguery" value="120" />
-                <skill id="Charm" value="230" />
-                <skill id="Leadership" value="250" />
-                <skill id="Trade" value="120" />
-                <skill id="Steward" value="220" />
-                <skill id="Medicine" value="170" />
-                <skill id="Engineering" value="160" />
+                <skill id="OneHanded" value="250" />
+                <skill id="TwoHanded" value="186" />
+                <skill id="Polearm" value="189" />
+                <skill id="Bow" value="310" />
+                <skill id="Crossbow" value="189" />
+                <skill id="Throwing" value="189" />
+                <skill id="Riding" value="189" />
+                <skill id="Athletics" value="280" />
+                <skill id="Crafting" value="189" />
+                <skill id="Scouting" value="300" />
+                <skill id="Tactics" value="320" />
+                <skill id="Roguery" value="189" />
+                <skill id="Charm" value="255" />
+                <skill id="Leadership" value="215" />
+                <skill id="Trade" value="189" />
+                <skill id="Steward" value="197" />
+                <skill id="Medicine" value="189" />
+                <skill id="Engineering" value="189" />
             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -1983,7 +1983,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -2000,12 +2000,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="125" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="146" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="178" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -2020,8 +2020,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_3" />
+                <EquipmentSet id="gondor_lord_arndir_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -2031,19 +2031,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_37']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_37</xsl:attribute>
-            <xsl:attribute name="race">uruk</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_37_name}Goshank</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_37_name_bn}Dolguphel</xsl:attribute>
             <xsl:attribute name="age">21</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_female_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_bn_sorceress_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.239" build="0.7027" key="001BF40E40FC10076C63396B58A46C7159DA89AADD789458B79BDE777836067600AB47030A8BE39B000000000000000000000000000000000000000001581180"/>
+                <BodyProperties version="4" age="21" weight="0.0046" build="0.3356" key="0002840F00003002723628E3B74BDD6756886A42C8825A989A762D8867767C8600A506030A5BAC6800000000000000000000000000000000000000003F5C1042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="170" />
@@ -2076,8 +2075,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_d" />
-                <EquipmentSet id="mordor_civ_template_default_d" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -2094,7 +2093,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_bn_sorceress_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -2153,7 +2152,7 @@
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.3025" build="0.5377" key="0005F00CC02810048774371C48B5C916EA6489378A81A846D9926C347476669603A856350A065B26000000000000000000000000000000000000000061441002"/>
+                <BodyProperties version="4" age="20" weight="0.0046" build="0.3356" key="0002900600002015CB89B45B4598A7788846A6D7DB924354747A2878B298786B00A506030AB69B5400000000000000000000000000000000000000003F5C0082" />
             </face>
             <skills>
                 <skill id="OneHanded" value="140" />
@@ -2186,8 +2185,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_a" />
-                <EquipmentSet id="mordor_civ_template_default_a" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -2203,31 +2202,31 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
                 <BodyProperties version="4" weight="0.3009" build="0.9977" key="0018440543141382878F1FFF461C01FF7F018877888888888888888F7718F5F5009F560309888888000000000000000000000000000000000000000043244142"/>
             </face>
                                                                                                             <skills>
-                                                                                                                <skill id="OneHanded" value="275" />
-                                                                                                                <skill id="TwoHanded" value="265" />
-                                                                                                                <skill id="Polearm" value="240" />
-                                                                                                                <skill id="Bow" value="170" />
-                                                                                                                <skill id="Crossbow" value="110" />
+                                                                                                                <skill id="OneHanded" value="235" />
+                                                                                                                <skill id="TwoHanded" value="200" />
+                                                                                                                <skill id="Polearm" value="210" />
+                                                                                                                <skill id="Bow" value="200" />
+                                                                                                                <skill id="Crossbow" value="80" />
                                                                                                                 <skill id="Throwing" value="190" />
-                                                                                                                <skill id="Riding" value="190" />
+                                                                                                                <skill id="Riding" value="200" />
                                                                                                                 <skill id="Athletics" value="265" />
-                                                                                                                <skill id="Crafting" value="140" />
-                                                                                                                <skill id="Scouting" value="240" />
-                                                                                                                <skill id="Tactics" value="255" />
+                                                                                                                <skill id="Crafting" value="110" />
+                                                                                                                <skill id="Scouting" value="255" />
+                                                                                                                <skill id="Tactics" value="190" />
                                                                                                                 <skill id="Roguery" value="240" />
-                                                                                                                <skill id="Charm" value="180" />
-                                                                                                                <skill id="Leadership" value="270" />
-                                                                                                                <skill id="Trade" value="140" />
-                                                                                                                <skill id="Steward" value="200" />
-                                                                                                                <skill id="Medicine" value="90" />
-                                                                                                                <skill id="Engineering" value="180" />
+                                                                                                                <skill id="Charm" value="140" />
+                                                                                                                <skill id="Leadership" value="80" />
+                                                                                                                <skill id="Trade" value="130" />
+                                                                                                                <skill id="Steward" value="150" />
+                                                                                                                <skill id="Medicine" value="120" />
+                                                                                                                <skill id="Engineering" value="110" />
                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -2264,23 +2263,23 @@
                 <BodyProperties version="4" weight="0.3009" build="0.6157" key="000D6C0E47142902DEB8BE1AB5C571CD7F01649228AD4DB58888888F7718F5F50079560307888888000000000000000000000000000000000000000042FC0142"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2318,23 +2317,23 @@
                 <BodyProperties version="4" weight="0.3278" build="0.6875" key="0018540FC42C345347C7A946DB43476574B24E5B263494B3C1A8D7A142978A98008A5603088816A600000000000000000000000000000000000000002F0C7002"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2372,23 +2371,23 @@
                 <BodyProperties version="4" weight="0.4676" build="0.4745" key="000A9006C744199A9A99991D9C769875AD89C74564583655C8A8A9DD949AB9CA0087760308C46DA800000000000000000000000000000000000000002EFC5002"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2436,12 +2435,12 @@
               <skill id="Athletics" value="250" />
               <skill id="Crafting" value="80" />
               <skill id="Scouting" value="160" />
-              <skill id="Tactics" value="220" />
+              <skill id="Tactics" value="245" />
               <skill id="Roguery" value="70" />
               <skill id="Charm" value="170" />
-              <skill id="Leadership" value="210" />
+              <skill id="Leadership" value="236" />
               <skill id="Trade" value="100" />
-              <skill id="Steward" value="170" />
+              <skill id="Steward" value="178" />
               <skill id="Medicine" value="110" />
               <skill id="Engineering" value="130" />
           </skills>
@@ -2456,8 +2455,8 @@
               <Trait id="Authoritarian" value="2" />
           </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anorien_1" />
+                <EquipmentSet id="gondor_lord_anorien_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -2467,18 +2466,17 @@
     <xsl:template match="NPCCharacter[@id='lord_1_47']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_47</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_47_name}Ulbos</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_47_name_bn}Ulbar</xsl:attribute>
             <xsl:attribute name="age">45</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="race">orc</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="0011B40597BC038E94A8C26585AAA93992D5A78776779C82329B657437695D35000005A80DE9BA6200001105000030A30000001F000000000000000000000000"/>
+                <BodyProperties version="4" age="45" weight="0.0046" build="0.8032" key="0002380E400039037A769B19B5DA587BD3952795C28E8CAB8655868B3D45BA6B00FC06030F78666400000000000000000000000000000000000000003FF46042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="235" />
@@ -2511,8 +2509,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_b" />
-                <EquipmentSet id="mordor_civ_template_default_b" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -2591,24 +2589,24 @@
                 <BodyProperties version="4" weight="0.3171" build="0.331" key="0008600D81FC3001AB6396829678635A9E988688E7437D4C394454A8DC55696B00B556030B73DC76000000000000000000000000000000000000000043742083"/>
             </face>
                                                                                                                                                                                                             <skills>
-                                                                                                                                                                                                                <skill id="OneHanded" value="170" />
-                                                                                                                                                                                                                <skill id="TwoHanded" value="160" />
-                                                                                                                                                                                                                <skill id="Polearm" value="160" />
-                                                                                                                                                                                                                <skill id="Bow" value="160" />
-                                                                                                                                                                                                                <skill id="Crossbow" value="110" />
-                                                                                                                                                                                                                <skill id="Throwing" value="140" />
-                                                                                                                                                                                                                <skill id="Riding" value="110" />
-                                                                                                                                                                                                                <skill id="Athletics" value="200" />
-                                                                                                                                                                                                                <skill id="Crafting" value="180" />
-                                                                                                                                                                                                                <skill id="Scouting" value="170" />
-                                                                                                                                                                                                                <skill id="Tactics" value="160" />
-                                                                                                                                                                                                                <skill id="Roguery" value="210" />
-                                                                                                                                                                                                                <skill id="Charm" value="130" />
-                                                                                                                                                                                                                <skill id="Leadership" value="150" />
-                                                                                                                                                                                                                <skill id="Trade" value="130" />
-                                                                                                                                                                                                                <skill id="Steward" value="180" />
-                                                                                                                                                                                                                <skill id="Medicine" value="120" />
-                                                                                                                                                                                                                <skill id="Engineering" value="160" />
+                                                                                                                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                                                                                                                <skill id="TwoHanded" value="215" />
+                                                                                                                                                                                                                <skill id="Polearm" value="215" />
+                                                                                                                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                                                                                                                <skill id="Tactics" value="200" />
+                                                                                                                                                                                                                <skill id="Roguery" value="200" />
+                                                                                                                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                                                                                                                <skill id="Medicine" value="140" />
+                                                                                                                                                                                                                <skill id="Engineering" value="120" />
                                                                                                                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -2645,23 +2643,23 @@
                 <BodyProperties version="4" weight="0.3171" build="0.2245" key="0008E00FCDFC1A547589847271756C397A5E664B96794B555718B95CE9C357830083560308938B28000000000000000000000000000000000000000043044142"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2699,23 +2697,23 @@
                 <BodyProperties version="4" weight="0.2685" build="0.2662" key="00087C078158090285773B6C97789A495A4598548A747A346A86816BA837976B0074460307586266000000000000000000000000000000000000000042E41082"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2753,23 +2751,23 @@
                 <BodyProperties version="4" weight="0.2685" build="0.2662" key="00001007835813922BC272AA728143CDC46386D689785734584896A7987613AC00744603078AC199000000000000000000000000000000000000000042E41082"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2807,23 +2805,23 @@
                 <BodyProperties version="4" weight="0.2685" build="0.2662" key="00001004C3A013922B4A77BC993C89497B2786D689785734DA946A6D4229EA9300544603057983BB000000000000000000000000000000000000000042AC1082"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -2854,31 +2852,31 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
                 <BodyProperties version="4" weight="0.7" build="0.8" key="0016B40CC0BC334056A4C39BA7B77CCD78918637473D7C8CD5E5A4648B7DBC3A000004730C774E6800001105000030A30000001F000000000000000000001000"/>
             </face>
             <skills>
-                <skill id="OneHanded" value="275" />
-                <skill id="TwoHanded" value="265" />
-                <skill id="Polearm" value="240" />
-                <skill id="Bow" value="170" />
-                <skill id="Crossbow" value="110" />
+                <skill id="OneHanded" value="235" />
+                <skill id="TwoHanded" value="200" />
+                <skill id="Polearm" value="210" />
+                <skill id="Bow" value="200" />
+                <skill id="Crossbow" value="80" />
                 <skill id="Throwing" value="190" />
-                <skill id="Riding" value="190" />
+                <skill id="Riding" value="200" />
                 <skill id="Athletics" value="265" />
-                <skill id="Crafting" value="140" />
-                <skill id="Scouting" value="240" />
-                <skill id="Tactics" value="255" />
+                <skill id="Crafting" value="110" />
+                <skill id="Scouting" value="255" />
+                <skill id="Tactics" value="190" />
                 <skill id="Roguery" value="240" />
-                <skill id="Charm" value="180" />
-                <skill id="Leadership" value="270" />
-                <skill id="Trade" value="140" />
-                <skill id="Steward" value="200" />
-                <skill id="Medicine" value="90" />
-                <skill id="Engineering" value="180" />
+                <skill id="Charm" value="140" />
+                <skill id="Leadership" value="80" />
+                <skill id="Trade" value="130" />
+                <skill id="Steward" value="150" />
+                <skill id="Medicine" value="120" />
+                <skill id="Engineering" value="110" />
             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -2916,24 +2914,24 @@
                 <BodyProperties version="4" weight="0.4" build="0.4" key="0000D40E4000228BED6277444258C875446A17B9ED8932923B61997568A479EB0000047303395E480000000000000FFE00000000000000000000000000004000"/>
             </face>
             <skills>
-                <skill id="OneHanded" value="170" />
-                <skill id="TwoHanded" value="160" />
-                <skill id="Polearm" value="160" />
-                <skill id="Bow" value="160" />
-                <skill id="Crossbow" value="110" />
-                <skill id="Throwing" value="140" />
-                <skill id="Riding" value="110" />
-                <skill id="Athletics" value="200" />
-                <skill id="Crafting" value="180" />
-                <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="160" />
-                <skill id="Roguery" value="210" />
-                <skill id="Charm" value="130" />
-                <skill id="Leadership" value="150" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="180" />
-                <skill id="Medicine" value="120" />
-                <skill id="Engineering" value="160" />
+                <skill id="OneHanded" value="245" />
+                <skill id="TwoHanded" value="215" />
+                <skill id="Polearm" value="215" />
+                <skill id="Bow" value="170" />
+                <skill id="Crossbow" value="80" />
+                <skill id="Throwing" value="170" />
+                <skill id="Riding" value="180" />
+                <skill id="Athletics" value="255" />
+                <skill id="Crafting" value="120" />
+                <skill id="Scouting" value="220" />
+                <skill id="Tactics" value="200" />
+                <skill id="Roguery" value="200" />
+                <skill id="Charm" value="160" />
+                <skill id="Leadership" value="100" />
+                <skill id="Trade" value="120" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="140" />
+                <skill id="Engineering" value="120" />
             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -2970,23 +2968,23 @@
                 <BodyProperties version="4" weight="0.2685" build="0.2662" key="00004C04C7A03782CB4C93C3247A752599557696691778A256BA99AB862778B9005446030566758B000000000000000000000000000000000000000042AC2102"/>
             </face>
                                                                                                                                                             <skills>
-                                                                                                                                                                <skill id="OneHanded" value="235" />
-                                                                                                                                                                <skill id="TwoHanded" value="220" />
+                                                                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                                                                <skill id="TwoHanded" value="215" />
                                                                                                                                                                 <skill id="Polearm" value="215" />
-                                                                                                                                                                <skill id="Bow" value="140" />
-                                                                                                                                                                <skill id="Crossbow" value="90" />
-                                                                                                                                                                <skill id="Throwing" value="160" />
-                                                                                                                                                                <skill id="Riding" value="150" />
-                                                                                                                                                                <skill id="Athletics" value="240" />
-                                                                                                                                                                <skill id="Crafting" value="110" />
-                                                                                                                                                                <skill id="Scouting" value="200" />
-                                                                                                                                                                <skill id="Tactics" value="180" />
+                                                                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                                                                <skill id="Tactics" value="200" />
                                                                                                                                                                 <skill id="Roguery" value="200" />
-                                                                                                                                                                <skill id="Charm" value="120" />
-                                                                                                                                                                <skill id="Leadership" value="160" />
-                                                                                                                                                                <skill id="Trade" value="100" />
-                                                                                                                                                                <skill id="Steward" value="130" />
-                                                                                                                                                                <skill id="Medicine" value="70" />
+                                                                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                                                                <skill id="Medicine" value="140" />
                                                                                                                                                                 <skill id="Engineering" value="120" />
                                                                                                                                                             </skills>
             <Traits>
@@ -3034,12 +3032,12 @@
                 <skill id="Athletics" value="140" />
                 <skill id="Crafting" value="120" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="265" />
+                <skill id="Tactics" value="290" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="235" />
-                <skill id="Leadership" value="255" />
+                <skill id="Leadership" value="281" />
                 <skill id="Trade" value="200" />
-                <skill id="Steward" value="255" />
+                <skill id="Steward" value="263" />
                 <skill id="Medicine" value="170" />
                 <skill id="Engineering" value="200" />
             </skills>
@@ -3054,8 +3052,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="borhador_bat_equipment" />
+                <EquipmentSet id="borhador_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -3071,7 +3069,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -3088,12 +3086,12 @@
                 <skill id="Athletics" value="220" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="245" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="190" />
-                <skill id="Leadership" value="240" />
+                <skill id="Leadership" value="266" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="210" />
+                <skill id="Steward" value="218" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="150" />
             </skills>
@@ -3108,8 +3106,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anorien_3" />
+                <EquipmentSet id="gondor_lord_anorien_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -3132,24 +3130,24 @@
                 <BodyProperties version="4" weight="0.9769" build="0.9861" key="0005D40D80001A4304700800605DF10950388DB2BFEA1D017917FB0F8B00683B007FF60307911FFF00000000000000000000000000000000000000003CFC9002"/>
             </face>
                                                                                                                                                             <skills>
-                                                                                                                                                                <skill id="OneHanded" value="235" />
-                                                                                                                                                                <skill id="TwoHanded" value="210" />
-                                                                                                                                                                <skill id="Polearm" value="255" />
-                                                                                                                                                                <skill id="Bow" value="110" />
-                                                                                                                                                                <skill id="Crossbow" value="90" />
-                                                                                                                                                                <skill id="Throwing" value="130" />
-                                                                                                                                                                <skill id="Riding" value="160" />
-                                                                                                                                                                <skill id="Athletics" value="150" />
-                                                                                                                                                                <skill id="Crafting" value="110" />
-                                                                                                                                                                <skill id="Scouting" value="170" />
-                                                                                                                                                                <skill id="Tactics" value="235" />
-                                                                                                                                                                <skill id="Roguery" value="70" />
-                                                                                                                                                                <skill id="Charm" value="210" />
-                                                                                                                                                                <skill id="Leadership" value="250" />
-                                                                                                                                                                <skill id="Trade" value="210" />
-                                                                                                                                                                <skill id="Steward" value="250" />
-                                                                                                                                                                <skill id="Medicine" value="140" />
-                                                                                                                                                                <skill id="Engineering" value="190" />
+                                                                                                                                                                <skill id="OneHanded" value="240" />
+                                                                                                                                                                <skill id="TwoHanded" value="295" />
+                                                                                                                                                                <skill id="Polearm" value="200" />
+                                                                                                                                                                <skill id="Bow" value="194" />
+                                                                                                                                                                <skill id="Crossbow" value="194" />
+                                                                                                                                                                <skill id="Throwing" value="194" />
+                                                                                                                                                                <skill id="Riding" value="194" />
+                                                                                                                                                                <skill id="Athletics" value="194" />
+                                                                                                                                                                <skill id="Crafting" value="194" />
+                                                                                                                                                                <skill id="Scouting" value="194" />
+                                                                                                                                                                <skill id="Tactics" value="219" />
+                                                                                                                                                                <skill id="Roguery" value="194" />
+                                                                                                                                                                <skill id="Charm" value="194" />
+                                                                                                                                                                <skill id="Leadership" value="311" />
+                                                                                                                                                                <skill id="Trade" value="194" />
+                                                                                                                                                                <skill id="Steward" value="266" />
+                                                                                                                                                                <skill id="Medicine" value="194" />
+                                                                                                                                                                <skill id="Engineering" value="194" />
                                                                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -3196,12 +3194,12 @@
                 <skill id="Athletics" value="235" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="225" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="210" />
+                <skill id="Leadership" value="236" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="178" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="120" />
             </skills>
@@ -3216,8 +3214,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_lossarnach_1" />
+                <EquipmentSet id="gondor_lord_lossarnach_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -3240,24 +3238,24 @@
                 <BodyProperties version="4" weight="0.2176" build="0.4699" key="000594041214000E318040336E417501E7F0868F09990035BB7979087CF51E0A00873603080BB69F1F6410605020004000000000000017670000000043144003"/>
             </face>
                                                                                                             <skills>
-                                                                                                                <skill id="OneHanded" value="235" />
+                                                                                                                <skill id="OneHanded" value="250" />
                                                                                                                 <skill id="TwoHanded" value="180" />
-                                                                                                                <skill id="Polearm" value="245" />
-                                                                                                                <skill id="Bow" value="230" />
-                                                                                                                <skill id="Crossbow" value="120" />
-                                                                                                                <skill id="Throwing" value="160" />
-                                                                                                                <skill id="Riding" value="215" />
-                                                                                                                <skill id="Athletics" value="255" />
-                                                                                                                <skill id="Crafting" value="80" />
-                                                                                                                <skill id="Scouting" value="230" />
-                                                                                                                <skill id="Tactics" value="215" />
-                                                                                                                <skill id="Roguery" value="80" />
-                                                                                                                <skill id="Charm" value="250" />
-                                                                                                                <skill id="Leadership" value="235" />
-                                                                                                                <skill id="Trade" value="140" />
-                                                                                                                <skill id="Steward" value="195" />
-                                                                                                                <skill id="Medicine" value="140" />
-                                                                                                                <skill id="Engineering" value="140" />
+                                                                                                                <skill id="Polearm" value="255" />
+                                                                                                                <skill id="Bow" value="184" />
+                                                                                                                <skill id="Crossbow" value="184" />
+                                                                                                                <skill id="Throwing" value="184" />
+                                                                                                                <skill id="Riding" value="275" />
+                                                                                                                <skill id="Athletics" value="184" />
+                                                                                                                <skill id="Crafting" value="184" />
+                                                                                                                <skill id="Scouting" value="184" />
+                                                                                                                <skill id="Tactics" value="209" />
+                                                                                                                <skill id="Roguery" value="184" />
+                                                                                                                <skill id="Charm" value="184" />
+                                                                                                                <skill id="Leadership" value="274" />
+                                                                                                                <skill id="Trade" value="184" />
+                                                                                                                <skill id="Steward" value="192" />
+                                                                                                                <skill id="Medicine" value="184" />
+                                                                                                                <skill id="Engineering" value="184" />
                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -3294,24 +3292,24 @@
                 <BodyProperties version="4" weight="0" build="0.7037" key="000A140D801439C2A880010FB2807808943182694044AB107776900C8D96EA0900AB06030A9D9F080000000000000000000000000000000000000000194C9002"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="265" />
-                                                                <skill id="TwoHanded" value="215" />
-                                                                <skill id="Polearm" value="255" />
-                                                                <skill id="Bow" value="130" />
-                                                                <skill id="Crossbow" value="110" />
-                                                                <skill id="Throwing" value="150" />
-                                                                <skill id="Riding" value="230" />
-                                                                <skill id="Athletics" value="250" />
-                                                                <skill id="Crafting" value="100" />
-                                                                <skill id="Scouting" value="210" />
-                                                                <skill id="Tactics" value="245" />
-                                                                <skill id="Roguery" value="80" />
-                                                                <skill id="Charm" value="200" />
-                                                                <skill id="Leadership" value="260" />
-                                                                <skill id="Trade" value="150" />
-                                                                <skill id="Steward" value="210" />
-                                                                <skill id="Medicine" value="140" />
-                                                                <skill id="Engineering" value="160" />
+                                                                <skill id="OneHanded" value="270" />
+                                                                <skill id="TwoHanded" value="172" />
+                                                                <skill id="Polearm" value="242" />
+                                                                <skill id="Bow" value="177" />
+                                                                <skill id="Crossbow" value="177" />
+                                                                <skill id="Throwing" value="177" />
+                                                                <skill id="Riding" value="255" />
+                                                                <skill id="Athletics" value="177" />
+                                                                <skill id="Crafting" value="177" />
+                                                                <skill id="Scouting" value="177" />
+                                                                <skill id="Tactics" value="202" />
+                                                                <skill id="Roguery" value="177" />
+                                                                <skill id="Charm" value="177" />
+                                                                <skill id="Leadership" value="286" />
+                                                                <skill id="Trade" value="177" />
+                                                                <skill id="Steward" value="185" />
+                                                                <skill id="Medicine" value="177" />
+                                                                <skill id="Engineering" value="177" />
                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -3348,24 +3346,24 @@
                 <BodyProperties version="4" weight="0" build="0.7037" key="000DD00C4014168270800108B005450CDBA588004F440B0579A6906C8DE11697008B06030894B4050000000000000000000000000000000000000000190C4002"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="215" />
-                                                                <skill id="TwoHanded" value="165" />
-                                                                <skill id="Polearm" value="210" />
-                                                                <skill id="Bow" value="225" />
-                                                                <skill id="Crossbow" value="140" />
-                                                                <skill id="Throwing" value="170" />
-                                                                <skill id="Riding" value="180" />
-                                                                <skill id="Athletics" value="245" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="255" />
-                                                                <skill id="Tactics" value="230" />
-                                                                <skill id="Roguery" value="110" />
+                                                                <skill id="OneHanded" value="290" />
+                                                                <skill id="TwoHanded" value="200" />
+                                                                <skill id="Polearm" value="195" />
+                                                                <skill id="Bow" value="205" />
+                                                                <skill id="Crossbow" value="195" />
+                                                                <skill id="Throwing" value="195" />
+                                                                <skill id="Riding" value="195" />
+                                                                <skill id="Athletics" value="195" />
+                                                                <skill id="Crafting" value="195" />
+                                                                <skill id="Scouting" value="195" />
+                                                                <skill id="Tactics" value="220" />
+                                                                <skill id="Roguery" value="195" />
                                                                 <skill id="Charm" value="195" />
-                                                                <skill id="Leadership" value="225" />
-                                                                <skill id="Trade" value="230" />
-                                                                <skill id="Steward" value="210" />
-                                                                <skill id="Medicine" value="140" />
-                                                                <skill id="Engineering" value="170" />
+                                                                <skill id="Leadership" value="301" />
+                                                                <skill id="Trade" value="195" />
+                                                                <skill id="Steward" value="203" />
+                                                                <skill id="Medicine" value="195" />
+                                                                <skill id="Engineering" value="195" />
                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="2" />
@@ -3412,12 +3410,12 @@
                 <skill id="Athletics" value="235" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="205" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="206" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="150" />
+                <skill id="Steward" value="158" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -3432,8 +3430,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_lamedon_1" />
+                <EquipmentSet id="gondor_lord_lamedon_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -3449,7 +3447,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -3466,12 +3464,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="205" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="138" />
                 <skill id="Medicine" value="90" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -3486,8 +3484,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_3" />
+                <EquipmentSet id="gondor_lord_arndir_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -3558,7 +3556,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.dolguldur</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_north_orc_warrior_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -3578,9 +3576,9 @@
                                                                 <skill id="Tactics" value="180" />
                                                                 <skill id="Roguery" value="200" />
                                                                 <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="127" />
                                                                 <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
+                                                                <skill id="Steward" value="77" />
                                                                 <skill id="Medicine" value="70" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
@@ -3784,23 +3782,23 @@
                 <BodyProperties version="4" weight="0.4" build="0.8" key="0005C8058000100E63727AC8926A687A1A85878578987C9B437E6347545ABCB7000C0892057768C900001105000030A30000001F000000000000000000004000"/>
             </face>
                                                             <skills>
-                                                                <skill id="OneHanded" value="235" />
-                                                                <skill id="TwoHanded" value="220" />
+                                                                <skill id="OneHanded" value="245" />
+                                                                <skill id="TwoHanded" value="215" />
                                                                 <skill id="Polearm" value="215" />
-                                                                <skill id="Bow" value="140" />
-                                                                <skill id="Crossbow" value="90" />
-                                                                <skill id="Throwing" value="160" />
-                                                                <skill id="Riding" value="150" />
-                                                                <skill id="Athletics" value="240" />
-                                                                <skill id="Crafting" value="110" />
-                                                                <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Bow" value="170" />
+                                                                <skill id="Crossbow" value="80" />
+                                                                <skill id="Throwing" value="170" />
+                                                                <skill id="Riding" value="180" />
+                                                                <skill id="Athletics" value="255" />
+                                                                <skill id="Crafting" value="120" />
+                                                                <skill id="Scouting" value="220" />
+                                                                <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
-                                                                <skill id="Charm" value="120" />
-                                                                <skill id="Leadership" value="160" />
-                                                                <skill id="Trade" value="100" />
-                                                                <skill id="Steward" value="130" />
-                                                                <skill id="Medicine" value="70" />
+                                                                <skill id="Charm" value="160" />
+                                                                <skill id="Leadership" value="100" />
+                                                                <skill id="Trade" value="120" />
+                                                                <skill id="Steward" value="170" />
+                                                                <skill id="Medicine" value="140" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
             <Traits>
@@ -4072,7 +4070,7 @@
                                                                                                                 <skill id="Tactics" value="200" />
                                                                                                                 <skill id="Roguery" value="200" />
                                                                                                                 <skill id="Charm" value="160" />
-                                                                                                                <skill id="Leadership" value="200" />
+                                                                                                                <skill id="Leadership" value="100" />
                                                                                                                 <skill id="Trade" value="120" />
                                                                                                                 <skill id="Steward" value="170" />
                                                                                                                 <skill id="Medicine" value="140" />
@@ -4107,7 +4105,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4127,7 +4125,7 @@
                                                                 <skill id="Tactics" value="100" />
                                                                 <skill id="Roguery" value="50" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="120" />
+                                                                <skill id="Leadership" value="55" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="170" />
                                                                 <skill id="Medicine" value="150" />
@@ -4162,7 +4160,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4182,7 +4180,7 @@
                                                                 <skill id="Tactics" value="100" />
                                                                 <skill id="Roguery" value="50" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="120" />
+                                                                <skill id="Leadership" value="55" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="170" />
                                                                 <skill id="Medicine" value="150" />
@@ -4217,7 +4215,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4237,7 +4235,7 @@
                                                                 <skill id="Tactics" value="130" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="240" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="180" />
                                                                 <skill id="Steward" value="240" />
                                                                 <skill id="Medicine" value="210" />
@@ -4272,7 +4270,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4292,7 +4290,7 @@
                                                                 <skill id="Tactics" value="100" />
                                                                 <skill id="Roguery" value="50" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="120" />
+                                                                <skill id="Leadership" value="55" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="170" />
                                                                 <skill id="Medicine" value="150" />
@@ -4327,7 +4325,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4347,7 +4345,7 @@
                                                                 <skill id="Tactics" value="190" />
                                                                 <skill id="Roguery" value="240" />
                                                                 <skill id="Charm" value="140" />
-                                                                <skill id="Leadership" value="180" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="150" />
                                                                 <skill id="Medicine" value="120" />
@@ -4402,7 +4400,7 @@
                                                                 <skill id="Tactics" value="200" />
                                                                 <skill id="Roguery" value="200" />
                                                                 <skill id="Charm" value="160" />
-                                                                <skill id="Leadership" value="200" />
+                                                                <skill id="Leadership" value="100" />
                                                                 <skill id="Trade" value="120" />
                                                                 <skill id="Steward" value="170" />
                                                                 <skill id="Medicine" value="140" />
@@ -4437,7 +4435,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4457,7 +4455,7 @@
                 <skill id="Tactics" value="190" />
                 <skill id="Roguery" value="240" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="80" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="150" />
                 <skill id="Medicine" value="120" />
@@ -4492,7 +4490,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4512,7 +4510,7 @@
                 <skill id="Tactics" value="130" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="80" />
                 <skill id="Trade" value="180" />
                 <skill id="Steward" value="240" />
                 <skill id="Medicine" value="210" />
@@ -4547,7 +4545,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4567,7 +4565,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -4602,7 +4600,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4622,7 +4620,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -4657,7 +4655,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4677,7 +4675,7 @@
                                                                                                                                                                                                                                                                 <skill id="Tactics" value="190" />
                                                                                                                                                                                                                                                                 <skill id="Roguery" value="240" />
                                                                                                                                                                                                                                                                 <skill id="Charm" value="140" />
-                                                                                                                                                                                                                                                                <skill id="Leadership" value="180" />
+                                                                                                                                                                                                                                                                <skill id="Leadership" value="80" />
                                                                                                                                                                                                                                                                 <skill id="Trade" value="130" />
                                                                                                                                                                                                                                                                 <skill id="Steward" value="150" />
                                                                                                                                                                                                                                                                 <skill id="Medicine" value="120" />
@@ -4712,7 +4710,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_dunland_raider_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_marauder_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -4732,7 +4730,7 @@
                                                                 <skill id="Tactics" value="190" />
                                                                 <skill id="Roguery" value="240" />
                                                                 <skill id="Charm" value="140" />
-                                                                <skill id="Leadership" value="180" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="150" />
                                                                 <skill id="Medicine" value="120" />
@@ -4760,7 +4758,7 @@
     <xsl:template match="NPCCharacter[@id='lord_1_27_1']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_27_1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_27_1_name}Verina</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_27_1_name_bn}Nûlubêth</xsl:attribute>
             <xsl:attribute name="age">37</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -4771,7 +4769,7 @@
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.2" build="0.2" key="0005B8071070000A987877861A2999B848987C68EA6BB7869423371443C8EA4801377613036AB66200000000000000000000000000000000000000005A6C3003"/>
+                <BodyProperties version="4" age="37" weight="0.0046" build="0.3356" key="0002380E40003001AA3A8B51DBB48F28899A93883962A9A018F638625568155500A506030A27D9CB00000000000000000000000000000000000000003F5C40C2" />
             </face>
             <skills>
                 <skill id="OneHanded" value="140" />
@@ -4804,8 +4802,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_a" />
-                <EquipmentSet id="mordor_civ_template_default_a" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -4815,18 +4813,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_27_2']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_27_2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_27_2_name}Throznak</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_27_2_name_bn}Aganuzîr</xsl:attribute>
             <xsl:attribute name="age">18</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.4" build="0.4" key="000B8802C0BC1005B9D8455AA96848594597AD77996A54B899D967BA74979778010008930FBA9A7900001105000030A30000001F000000000000000001683100"/>
+                <BodyProperties version="4" age="18" weight="0.0046" build="0.8032" key="0002880D000039022DC5B5A6AA987BD9B565579889B7A4B38655868BCBEC8D7700FC06030F78666400000000000000000000000000000000000000003FF41042" />
             </face>
                                                                                                             <skills>
                                                                                                                 <skill id="OneHanded" value="235" />
@@ -4859,8 +4857,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_b" />
-                <EquipmentSet id="mordor_civ_template_default_b" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -4870,18 +4868,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_27_3']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_27_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_27_3_name}Vasilia</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_27_3_name_bn}Ugruphel</xsl:attribute>
             <xsl:attribute name="age">18</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_chieftain_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.2" build="0.3" key="000B8802C0BC1005B9D8455AA96848594597AD77996A54B899D967BA74979778010008930FBA9A7900001105000030A30000001F000000000000000001683100"/>
+                <BodyProperties version="4" age="18" weight="0.0046" build="0.3356" key="0002380E40002002AA574556B8A39774899A93883962A9A018F638625568155500A506030A27D9CB00000000000000000000000000000000000000003F5C40C2" />
             </face>
             <skills>
                 <skill id="OneHanded" value="275" />
@@ -4914,8 +4912,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_c" />
-                <EquipmentSet id="mordor_civ_template_default_c" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -4925,18 +4923,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_47_1']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_47_1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_47_1_name}Mina</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_47_1_name_bn}Zimrabêth</xsl:attribute>
             <xsl:attribute name="age">38</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_female_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_bn_sorceress_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="001CD00FD114000AE46398467C698988876DB2B863D57A6D87B96C58967BE7660187761308364A49000000000000000000000000000000000000000019142003"/>
+                <BodyProperties version="4" age="28" weight="0.0046" build="0.3356" key="0002980FC00010066C868C8A52DB7ED8A2570B75A64CB46A87B8873AA888A49E00A506030A69657400000000000000000000000000000000000000003F5C2042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="170" />
@@ -4969,8 +4967,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_d" />
-                <EquipmentSet id="mordor_civ_template_default_d" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -4980,18 +4978,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_47_2']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_47_2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_47_2_name}Casyrea</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_47_2_name_bn}Azruphel</xsl:attribute>
             <xsl:attribute name="age">14</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="001C880A111400012857DAA3C88BD254869B9BB7C7796796A6987253285773960137761303A670BD00000000000000000000000000000000000000005A741083"/>
+                <BodyProperties version="4" age="14" weight="0.0046" build="0.3356" key="0002580A4000300B56D673AAC72565DC7669B34AA98874A997625A783B1972B200A506030A48598800000000000000000000000000000000000000003F5C1102" />
             </face>
             <skills>
                 <skill id="OneHanded" value="235" />
@@ -5024,8 +5022,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_e" />
-                <EquipmentSet id="mordor_civ_template_default_e" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5035,18 +5033,18 @@
     <xsl:template match="NPCCharacter[@id='lord_1_47_3']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_47_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_47_3_name}Colambea</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_47_3_name_bn}Abrazîn</xsl:attribute>
             <xsl:attribute name="age">17</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_orc_warrior_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="00115C0A13702007997A77A685B88487865116663789A798A6A897926887369901A776130A8B49B500000000000000000000000000000000000000001F543083"/>
+                <BodyProperties version="4" age="17" weight="0.0046" build="0.3356" key="00029C06C000000A58888868764953D5697535277667DB885693A977B47BC7B400A506030A6C586700000000000000000000000000000000000000003F5C20C2" />
             </face>
             <skills>
                 <skill id="OneHanded" value="235" />
@@ -5079,8 +5077,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_a" />
-                <EquipmentSet id="mordor_civ_template_default_a" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5227,7 +5225,7 @@
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Tactics" value="200" />
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Roguery" value="200" />
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Charm" value="160" />
-                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="200" />
+                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="100" />
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Trade" value="120" />
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Steward" value="170" />
                                                                                                                                                                                                                                                                                                                                                                 <skill id="Medicine" value="140" />
@@ -5282,7 +5280,7 @@
                 <skill id="Tactics" value="200" />
                 <skill id="Roguery" value="200" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="100" />
                 <skill id="Trade" value="120" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="140" />
@@ -5317,7 +5315,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -5337,7 +5335,7 @@
                                                                                                                 <skill id="Tactics" value="100" />
                                                                                                                 <skill id="Roguery" value="50" />
                                                                                                                 <skill id="Charm" value="180" />
-                                                                                                                <skill id="Leadership" value="120" />
+                                                                                                                <skill id="Leadership" value="55" />
                                                                                                                 <skill id="Trade" value="130" />
                                                                                                                 <skill id="Steward" value="170" />
                                                                                                                 <skill id="Medicine" value="150" />
@@ -5372,7 +5370,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -5392,7 +5390,7 @@
                                                                 <skill id="Tactics" value="180" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="160" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="90" />
                                                                 <skill id="Trade" value="90" />
                                                                 <skill id="Steward" value="130" />
                                                                 <skill id="Medicine" value="90" />
@@ -5444,12 +5442,12 @@
                 <skill id="Athletics" value="120" />
                 <skill id="Crafting" value="170" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="205" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="255" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="226" />
                 <skill id="Trade" value="220" />
-                <skill id="Steward" value="265" />
+                <skill id="Steward" value="273" />
                 <skill id="Medicine" value="230" />
                 <skill id="Engineering" value="160" />
             </skills>
@@ -5464,8 +5462,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anorien_4" />
+                <EquipmentSet id="gondor_lord_anorien_4_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5499,12 +5497,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="140" />
+                <skill id="Tactics" value="165" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="215" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="185" />
-                <skill id="Steward" value="235" />
+                <skill id="Steward" value="243" />
                 <skill id="Medicine" value="200" />
                 <skill id="Engineering" value="140" />
             </skills>
@@ -5519,8 +5517,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_londgalen_1" />
+                <EquipmentSet id="gondor_lord_londgalen_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5554,12 +5552,12 @@
                 <skill id="Athletics" value="120" />
                 <skill id="Crafting" value="200" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="205" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="245" />
-                <skill id="Leadership" value="190" />
+                <skill id="Leadership" value="216" />
                 <skill id="Trade" value="230" />
-                <skill id="Steward" value="275" />
+                <skill id="Steward" value="283" />
                 <skill id="Medicine" value="225" />
                 <skill id="Engineering" value="170" />
             </skills>
@@ -5574,8 +5572,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_londgalen_2" />
+                <EquipmentSet id="gondor_lord_londgalen_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5609,12 +5607,12 @@
                 <skill id="Athletics" value="200" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="130" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="155" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="146" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="120" />
+                <skill id="Steward" value="128" />
                 <skill id="Medicine" value="80" />
                 <skill id="Engineering" value="90" />
             </skills>
@@ -5629,8 +5627,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_1" />
+                <EquipmentSet id="gondor_lord_linhir_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5664,12 +5662,12 @@
                 <skill id="Athletics" value="160" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="270" />
+                <skill id="Tactics" value="295" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="220" />
-                <skill id="Leadership" value="260" />
+                <skill id="Leadership" value="286" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="248" />
                 <skill id="Medicine" value="160" />
                 <skill id="Engineering" value="190" />
             </skills>
@@ -5684,8 +5682,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_2" />
+                <EquipmentSet id="gondor_lord_linhir_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5702,7 +5700,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -5719,12 +5717,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="125" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="146" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="178" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -5739,8 +5737,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_linhir_3" />
+                <EquipmentSet id="gondor_lord_linhir_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5767,8 +5765,8 @@
             <Traits>
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_1" />
+                <EquipmentSet id="gondor_lord_arndir_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5802,12 +5800,12 @@
                 <skill id="Athletics" value="190" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="160" />
-                <skill id="Tactics" value="140" />
+                <skill id="Tactics" value="165" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="200" />
-                <skill id="Leadership" value="130" />
+                <skill id="Leadership" value="156" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="178" />
                 <skill id="Medicine" value="140" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -5822,8 +5820,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_2" />
+                <EquipmentSet id="gondor_lord_arndir_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5857,12 +5855,12 @@
                 <skill id="Athletics" value="210" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="160" />
+                <skill id="Tactics" value="185" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="170" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="100" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="138" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -5877,8 +5875,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_arndir_3" />
+                <EquipmentSet id="gondor_lord_arndir_3_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5895,7 +5893,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -5912,12 +5910,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="155" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="248" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -5932,8 +5930,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anorien_1" />
+                <EquipmentSet id="gondor_lord_anorien_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -5943,14 +5941,14 @@
     <xsl:template match="NPCCharacter[@id='lord_1_62_1']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_62_1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_62_1_name}Arytha</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_62_1_name}Isfin</xsl:attribute>
             <xsl:attribute name="age">35</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">True</xsl:attribute>
             <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -5967,12 +5965,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="155" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="186" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="248" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -5987,8 +5985,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anorien_2" />
+                <EquipmentSet id="gondor_lord_anorien_2_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -6115,7 +6113,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
-            <xsl:attribute name="culture">Culture.dolguldur</xsl:attribute>
+            <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
@@ -6164,13 +6162,13 @@
     <xsl:template match="NPCCharacter[@id='lord_1_48_2']">
         <xsl:copy>
             <xsl:attribute name="id">lord_1_48_2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_1_48_2_name}Nazgûl, the Shadow of Northmen</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_1_48_2_name}Nazgûl, the Shadow of the Northmen</xsl:attribute>
             <xsl:attribute name="age">9</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
-            <xsl:attribute name="culture">Culture.dolguldur</xsl:attribute>
+            <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
@@ -6225,7 +6223,7 @@
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
-            <xsl:attribute name="culture">Culture.dolguldur</xsl:attribute>
+            <xsl:attribute name="culture">Culture.mordor</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_nazgul_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
@@ -6509,24 +6507,24 @@
                 <BodyProperties version="4" weight="0.5" build="0.5" key="0005240892FC1005B69C29549444BE8759679A7778478C8D78BA785C77A5C7880177761307D8873D000000000000000000000000000000000000000054F40083"/>
             </face>
                                                                                                                                                                                                                                                                                                             <skills>
-                                                                                                                                                                                                                                                                                                                <skill id="OneHanded" value="170" />
-                                                                                                                                                                                                                                                                                                                <skill id="TwoHanded" value="160" />
-                                                                                                                                                                                                                                                                                                                <skill id="Polearm" value="160" />
-                                                                                                                                                                                                                                                                                                                <skill id="Bow" value="160" />
-                                                                                                                                                                                                                                                                                                                <skill id="Crossbow" value="110" />
-                                                                                                                                                                                                                                                                                                                <skill id="Throwing" value="140" />
-                                                                                                                                                                                                                                                                                                                <skill id="Riding" value="110" />
-                                                                                                                                                                                                                                                                                                                <skill id="Athletics" value="200" />
-                                                                                                                                                                                                                                                                                                                <skill id="Crafting" value="180" />
-                                                                                                                                                                                                                                                                                                                <skill id="Scouting" value="170" />
-                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="160" />
-                                                                                                                                                                                                                                                                                                                <skill id="Roguery" value="210" />
-                                                                                                                                                                                                                                                                                                                <skill id="Charm" value="130" />
-                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="150" />
-                                                                                                                                                                                                                                                                                                                <skill id="Trade" value="130" />
-                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="180" />
-                                                                                                                                                                                                                                                                                                                <skill id="Medicine" value="120" />
-                                                                                                                                                                                                                                                                                                                <skill id="Engineering" value="160" />
+                                                                                                                                                                                                                                                                                                                <skill id="OneHanded" value="245" />
+                                                                                                                                                                                                                                                                                                                <skill id="TwoHanded" value="215" />
+                                                                                                                                                                                                                                                                                                                <skill id="Polearm" value="215" />
+                                                                                                                                                                                                                                                                                                                <skill id="Bow" value="170" />
+                                                                                                                                                                                                                                                                                                                <skill id="Crossbow" value="80" />
+                                                                                                                                                                                                                                                                                                                <skill id="Throwing" value="170" />
+                                                                                                                                                                                                                                                                                                                <skill id="Riding" value="180" />
+                                                                                                                                                                                                                                                                                                                <skill id="Athletics" value="255" />
+                                                                                                                                                                                                                                                                                                                <skill id="Crafting" value="120" />
+                                                                                                                                                                                                                                                                                                                <skill id="Scouting" value="220" />
+                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="200" />
+                                                                                                                                                                                                                                                                                                                <skill id="Roguery" value="200" />
+                                                                                                                                                                                                                                                                                                                <skill id="Charm" value="160" />
+                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="100" />
+                                                                                                                                                                                                                                                                                                                <skill id="Trade" value="120" />
+                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                                                                                                                                                                                                                <skill id="Medicine" value="140" />
+                                                                                                                                                                                                                                                                                                                <skill id="Engineering" value="120" />
                                                                                                                                                                                                                                                                                                             </skills>
             <Traits>
                 <Trait id="Honor" value="-2" />
@@ -6564,23 +6562,23 @@
                 <BodyProperties version="4" weight="0.5" build="0.5" key="0011440CD000000F85883C187A9326A926589A94B9889854776498DB88864ED701877613084688A80000000000000000000000000000000000000000411410C3"/>
             </face>
             <skills>
-                <skill id="OneHanded" value="235" />
-                <skill id="TwoHanded" value="220" />
+                <skill id="OneHanded" value="245" />
+                <skill id="TwoHanded" value="215" />
                 <skill id="Polearm" value="215" />
-                <skill id="Bow" value="140" />
-                <skill id="Crossbow" value="90" />
-                <skill id="Throwing" value="160" />
-                <skill id="Riding" value="150" />
-                <skill id="Athletics" value="240" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="180" />
+                <skill id="Bow" value="170" />
+                <skill id="Crossbow" value="80" />
+                <skill id="Throwing" value="170" />
+                <skill id="Riding" value="180" />
+                <skill id="Athletics" value="255" />
+                <skill id="Crafting" value="120" />
+                <skill id="Scouting" value="220" />
+                <skill id="Tactics" value="200" />
                 <skill id="Roguery" value="200" />
-                <skill id="Charm" value="120" />
-                <skill id="Leadership" value="160" />
-                <skill id="Trade" value="100" />
-                <skill id="Steward" value="130" />
-                <skill id="Medicine" value="70" />
+                <skill id="Charm" value="160" />
+                <skill id="Leadership" value="100" />
+                <skill id="Trade" value="120" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="140" />
                 <skill id="Engineering" value="120" />
             </skills>
             <Traits>
@@ -6881,7 +6879,7 @@
                 <skill id="Athletics" value="220" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="190" />
                 <skill id="Leadership" value="240" />
@@ -6919,7 +6917,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -6936,7 +6934,7 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
                 <skill id="Leadership" value="160" />
@@ -6967,13 +6965,13 @@
     <xsl:template match="NPCCharacter[@id='lord_2_3']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_3_name}Thorin III Stonehelm</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_3_name}Rand</xsl:attribute>
             <xsl:attribute name="age">48</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -6990,7 +6988,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -7028,7 +7026,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7045,7 +7043,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -7076,7 +7074,7 @@
     <xsl:template match="NPCCharacter[@id='lord_2_5']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_5</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_5_name}Ori</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_5_name}Ask</xsl:attribute>
             <xsl:attribute name="age">50</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -7099,7 +7097,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -7137,7 +7135,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7154,7 +7152,7 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
                 <skill id="Leadership" value="160" />
@@ -7174,8 +7172,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7191,7 +7189,7 @@
             <xsl:attribute name="default_group">HorseArcher</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7208,7 +7206,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -7228,8 +7226,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7245,7 +7243,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7262,7 +7260,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -7282,8 +7280,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7299,7 +7297,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7316,7 +7314,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -7336,8 +7334,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_a" />
+                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7354,7 +7352,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7371,116 +7369,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
-                <skill id="Roguery" value="60" />
-                <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="80" />
-                <skill id="Steward" value="110" />
-                <skill id="Medicine" value="80" />
-                <skill id="Engineering" value="80" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="2" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="0" />
-                <Trait id="Mercy" value="1" />
-                <Trait id="Valor" value="2" />
-                <Trait id="Egalitarian" value="0" />
-                <Trait id="Oligarchic" value="1" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_11 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_11']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_11</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_11_name}Idrun</xsl:attribute>
-            <xsl:attribute name="age">20</xsl:attribute>
-            <xsl:attribute name="voice">softspoken</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.4213" build="0.4275" key="0005140012B4300F2C654B99BBA57D7B9785373999A651AA78C8CCEC77955C9602C666240CE70A590000000000000000000000000000000000000000538C3041"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="40" />
-                <skill id="TwoHanded" value="20" />
-                <skill id="Polearm" value="30" />
-                <skill id="Bow" value="70" />
-                <skill id="Crossbow" value="40" />
-                <skill id="Throwing" value="40" />
-                <skill id="Riding" value="120" />
-                <skill id="Athletics" value="100" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
-                <skill id="Roguery" value="50" />
-                <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
-                <skill id="Medicine" value="150" />
-                <skill id="Engineering" value="100" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="1" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="1" />
-                <Trait id="Mercy" value="2" />
-                <Trait id="Valor" value="0" />
-                <Trait id="Egalitarian" value="1" />
-                <Trait id="Oligarchic" value="0" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_111 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_111']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_111</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_111_name}Rozhivol</xsl:attribute>
-            <xsl:attribute name="age">18</xsl:attribute>
-            <xsl:attribute name="voice">softspoken</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.3353" build="0.6434" key="0000BC04405830855960886B42587948A1E37B8355E33A7994A97756BC9575A900AA52030A0E53B8000000000000000000000000000000000000000067603042"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="160" />
-                <skill id="TwoHanded" value="120" />
-                <skill id="Polearm" value="140" />
-                <skill id="Bow" value="90" />
-                <skill id="Crossbow" value="70" />
-                <skill id="Throwing" value="100" />
-                <skill id="Riding" value="190" />
-                <skill id="Athletics" value="180" />
-                <skill id="Crafting" value="60" />
-                <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -7507,22 +7396,22 @@
         </xsl:copy>
     </xsl:template>
 
-    <!-- lord_2_12 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_12']">
+    <!-- lord_2_11 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_11']">
         <xsl:copy>
-            <xsl:attribute name="id">lord_2_12</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_12_name}Svana</xsl:attribute>
-            <xsl:attribute name="age">22</xsl:attribute>
-            <xsl:attribute name="voice">curt</xsl:attribute>
-            <xsl:attribute name="default_group">HorseArcher</xsl:attribute>
+            <xsl:attribute name="id">lord_2_11</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_11_name}Idrun</xsl:attribute>
+            <xsl:attribute name="age">20</xsl:attribute>
+            <xsl:attribute name="voice">softspoken</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.3" build="0.554" key="00001C04528830021B7213026674749A968B7726758543278B44F71278394B350CD8A6C20D4B1750000000000000000000000000000000000000000077BC10C2"/>
+                <BodyProperties version="4" weight="0.4213" build="0.4275" key="0005140012B4300F2C654B99BBA57D7B9785373999A651AA78C8CCEC77955C9602C666240CE70A590000000000000000000000000000000000000000538C3041"/>
             </face>
             <skills>
                 <skill id="OneHanded" value="40" />
@@ -7535,7 +7424,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -7562,21 +7451,21 @@
         </xsl:copy>
     </xsl:template>
 
-    <!-- lord_2_121 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_121']">
+    <!-- lord_2_111 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_111']">
         <xsl:copy>
-            <xsl:attribute name="id">lord_2_121</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_121_name}Osven</xsl:attribute>
-            <xsl:attribute name="age">19</xsl:attribute>
-            <xsl:attribute name="voice">curt</xsl:attribute>
+            <xsl:attribute name="id">lord_2_111</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_111_name}Rozhivol</xsl:attribute>
+            <xsl:attribute name="age">18</xsl:attribute>
+            <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.7176" build="0.8336" key="000518000000024217704A092588FD5A701E74747250801097A86A06811A760B00EDB0030E7AC993000000000000000000000000000000000000000053E02002"/>
+                <BodyProperties version="4" weight="0.3353" build="0.6434" key="0000BC04405830855960886B42587948A1E37B8355E33A7994A97756BC9575A900AA52030A0E53B8000000000000000000000000000000000000000067603042"/>
             </face>
             <skills>
                 <skill id="OneHanded" value="160" />
@@ -7589,7 +7478,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -7611,6 +7500,115 @@
             <Equipments>
                 <EquipmentSet id="dale_bat_template_medium_d" />
                 <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <!-- lord_2_12 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_12']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_12</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_12_name}Svana</xsl:attribute>
+            <xsl:attribute name="age">22</xsl:attribute>
+            <xsl:attribute name="voice">curt</xsl:attribute>
+            <xsl:attribute name="default_group">HorseArcher</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.3" build="0.554" key="00001C04528830021B7213026674749A968B7726758543278B44F71278394B350CD8A6C20D4B1750000000000000000000000000000000000000000077BC10C2"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="40" />
+                <skill id="TwoHanded" value="20" />
+                <skill id="Polearm" value="30" />
+                <skill id="Bow" value="70" />
+                <skill id="Crossbow" value="40" />
+                <skill id="Throwing" value="40" />
+                <skill id="Riding" value="120" />
+                <skill id="Athletics" value="100" />
+                <skill id="Crafting" value="110" />
+                <skill id="Scouting" value="90" />
+                <skill id="Tactics" value="122" />
+                <skill id="Roguery" value="50" />
+                <skill id="Charm" value="180" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="130" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="150" />
+                <skill id="Engineering" value="100" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="1" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="1" />
+                <Trait id="Mercy" value="2" />
+                <Trait id="Valor" value="0" />
+                <Trait id="Egalitarian" value="1" />
+                <Trait id="Oligarchic" value="0" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_e" />
+                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <!-- lord_2_121 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_121']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_121</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_121_name}Osven</xsl:attribute>
+            <xsl:attribute name="age">19</xsl:attribute>
+            <xsl:attribute name="voice">curt</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.7176" build="0.8336" key="000518000000024217704A092588FD5A701E74747250801097A86A06811A760B00EDB0030E7AC993000000000000000000000000000000000000000053E02002"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="160" />
+                <skill id="TwoHanded" value="120" />
+                <skill id="Polearm" value="140" />
+                <skill id="Bow" value="90" />
+                <skill id="Crossbow" value="70" />
+                <skill id="Throwing" value="100" />
+                <skill id="Riding" value="190" />
+                <skill id="Athletics" value="180" />
+                <skill id="Crafting" value="60" />
+                <skill id="Scouting" value="140" />
+                <skill id="Tactics" value="152" />
+                <skill id="Roguery" value="60" />
+                <skill id="Charm" value="140" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="80" />
+                <skill id="Steward" value="110" />
+                <skill id="Medicine" value="80" />
+                <skill id="Engineering" value="80" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="2" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="0" />
+                <Trait id="Mercy" value="1" />
+                <Trait id="Valor" value="2" />
+                <Trait id="Egalitarian" value="0" />
+                <Trait id="Oligarchic" value="1" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7643,7 +7641,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -7663,8 +7661,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7697,7 +7695,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -7717,8 +7715,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7734,7 +7732,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7751,7 +7749,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -7771,8 +7769,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_a" />
+                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7782,7 +7780,7 @@
     <xsl:template match="NPCCharacter[@id='lord_2_16']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_16</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_16_name}Bofur</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_16_name}Hauk</xsl:attribute>
             <xsl:attribute name="age">31</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -7805,7 +7803,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -7825,8 +7823,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_b" />
+                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7836,13 +7834,13 @@
     <xsl:template match="NPCCharacter[@id='lord_2_17']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_17</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_17_name}Thorin II Oakenshield</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_17_name}Stein</xsl:attribute>
             <xsl:attribute name="age">32</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7859,7 +7857,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -7879,8 +7877,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_c" />
+                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7890,7 +7888,7 @@
     <xsl:template match="NPCCharacter[@id='lord_2_18']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_18</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_18_name}Glóin</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_18_name}Ulf</xsl:attribute>
             <xsl:attribute name="age">26</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -7913,7 +7911,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -7933,8 +7931,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_d" />
+                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7944,13 +7942,13 @@
     <xsl:template match="NPCCharacter[@id='lord_2_19']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_19</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_19_name}Dwalin</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_19_name}Geir</xsl:attribute>
             <xsl:attribute name="age">33</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -7967,7 +7965,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -7987,8 +7985,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_e" />
+                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -7998,13 +7996,13 @@
     <xsl:template match="NPCCharacter[@id='lord_2_20']">
         <xsl:copy>
             <xsl:attribute name="id">lord_2_20</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_20_name}Óin</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_20_name}Val</xsl:attribute>
             <xsl:attribute name="age">29</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8021,7 +8019,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -8041,8 +8039,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8075,7 +8073,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -8095,8 +8093,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8112,7 +8110,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8129,7 +8127,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="202" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
                 <skill id="Leadership" value="160" />
@@ -8149,8 +8147,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8183,7 +8181,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -8203,8 +8201,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_a" />
+                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8237,7 +8235,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -8257,8 +8255,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_b" />
+                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8292,7 +8290,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -8312,8 +8310,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_c" />
+                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8330,7 +8328,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8347,7 +8345,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -8367,8 +8365,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_d" />
+                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8385,7 +8383,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8402,62 +8400,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
-                <skill id="Roguery" value="50" />
-                <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
-                <skill id="Medicine" value="150" />
-                <skill id="Engineering" value="100" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="1" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="1" />
-                <Trait id="Mercy" value="2" />
-                <Trait id="Valor" value="0" />
-                <Trait id="Egalitarian" value="1" />
-                <Trait id="Oligarchic" value="0" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_13_2 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_13_2']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_13_2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_13_2_name}Andruta</xsl:attribute>
-            <xsl:attribute name="age">20</xsl:attribute>
-            <xsl:attribute name="voice">curt</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="0005B002D0CC101077CA5CE759465522795799844375862757BAB56484A9788E0157761305DBD96A00000000000000000000000000000000000000005C9C4043"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="40" />
-                <skill id="TwoHanded" value="20" />
-                <skill id="Polearm" value="30" />
-                <skill id="Bow" value="70" />
-                <skill id="Crossbow" value="40" />
-                <skill id="Throwing" value="40" />
-                <skill id="Riding" value="120" />
-                <skill id="Athletics" value="100" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -8484,6 +8427,61 @@
         </xsl:copy>
     </xsl:template>
 
+    <!-- lord_2_13_2 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_13_2']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_13_2</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_13_2_name}Andruta</xsl:attribute>
+            <xsl:attribute name="age">20</xsl:attribute>
+            <xsl:attribute name="voice">curt</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.5" build="0.5" key="0005B002D0CC101077CA5CE759465522795799844375862757BAB56484A9788E0157761305DBD96A00000000000000000000000000000000000000005C9C4043"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="40" />
+                <skill id="TwoHanded" value="20" />
+                <skill id="Polearm" value="30" />
+                <skill id="Bow" value="70" />
+                <skill id="Crossbow" value="40" />
+                <skill id="Throwing" value="40" />
+                <skill id="Riding" value="120" />
+                <skill id="Athletics" value="100" />
+                <skill id="Crafting" value="110" />
+                <skill id="Scouting" value="90" />
+                <skill id="Tactics" value="122" />
+                <skill id="Roguery" value="50" />
+                <skill id="Charm" value="180" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="130" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="150" />
+                <skill id="Engineering" value="100" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="1" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="1" />
+                <Trait id="Mercy" value="2" />
+                <Trait id="Valor" value="0" />
+                <Trait id="Egalitarian" value="1" />
+                <Trait id="Oligarchic" value="0" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
     <!-- lord_2_13_3 -->
     <xsl:template match="NPCCharacter[@id='lord_2_13_3']">
         <xsl:copy>
@@ -8495,7 +8493,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8512,7 +8510,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -8532,8 +8530,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8550,7 +8548,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8567,7 +8565,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -8587,8 +8585,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8622,7 +8620,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -8642,8 +8640,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_a" />
+                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8660,7 +8658,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8677,7 +8675,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -8697,8 +8695,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_b" />
+                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8715,7 +8713,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8732,7 +8730,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -8752,8 +8750,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_c" />
+                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8770,7 +8768,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8787,7 +8785,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -8807,8 +8805,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_d" />
+                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -8825,7 +8823,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -8842,172 +8840,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
-                <skill id="Roguery" value="50" />
-                <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
-                <skill id="Medicine" value="150" />
-                <skill id="Engineering" value="100" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="1" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="1" />
-                <Trait id="Mercy" value="2" />
-                <Trait id="Valor" value="0" />
-                <Trait id="Egalitarian" value="1" />
-                <Trait id="Oligarchic" value="0" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_15_3 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_15_3']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_15_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_15_3_name}Velina</xsl:attribute>
-            <xsl:attribute name="age">17</xsl:attribute>
-            <xsl:attribute name="voice">softspoken</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="000B4C0710E4100D9BB5B85867759DB27C84967BC8BB966AF371F5599496277B00C776030CE4B6C500000000000000000000000000000000000000005B8C3043"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="40" />
-                <skill id="TwoHanded" value="20" />
-                <skill id="Polearm" value="30" />
-                <skill id="Bow" value="70" />
-                <skill id="Crossbow" value="40" />
-                <skill id="Throwing" value="40" />
-                <skill id="Riding" value="120" />
-                <skill id="Athletics" value="100" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
-                <skill id="Roguery" value="50" />
-                <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
-                <skill id="Medicine" value="150" />
-                <skill id="Engineering" value="100" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="1" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="1" />
-                <Trait id="Mercy" value="2" />
-                <Trait id="Valor" value="0" />
-                <Trait id="Egalitarian" value="1" />
-                <Trait id="Oligarchic" value="0" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_15_4 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_15_4']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_15_4</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_15_4_name}Bovan</xsl:attribute>
-            <xsl:attribute name="age">22</xsl:attribute>
-            <xsl:attribute name="voice">softspoken</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">false</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.6" build="0.6" key="00164C02C0882342BAB7B9566DA53AD368A6628171B9A586A7883546559D974501977613094979CE000000000000000000000000000000000000000041341002"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="160" />
-                <skill id="TwoHanded" value="120" />
-                <skill id="Polearm" value="140" />
-                <skill id="Bow" value="90" />
-                <skill id="Crossbow" value="70" />
-                <skill id="Throwing" value="100" />
-                <skill id="Riding" value="190" />
-                <skill id="Athletics" value="180" />
-                <skill id="Crafting" value="60" />
-                <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
-                <skill id="Roguery" value="60" />
-                <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
-                <skill id="Trade" value="80" />
-                <skill id="Steward" value="110" />
-                <skill id="Medicine" value="80" />
-                <skill id="Engineering" value="80" />
-            </skills>
-            <Traits>
-                <Trait id="Honor" value="2" />
-                <Trait id="Generosity" value="1" />
-                <Trait id="Calculating" value="0" />
-                <Trait id="Mercy" value="1" />
-                <Trait id="Valor" value="2" />
-                <Trait id="Egalitarian" value="0" />
-                <Trait id="Oligarchic" value="1" />
-                <Trait id="Authoritarian" value="0" />
-            </Traits>
-            <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
-            </Equipments>
-            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- lord_2_16_1 -->
-    <xsl:template match="NPCCharacter[@id='lord_2_16_1']">
-        <xsl:copy>
-            <xsl:attribute name="id">lord_2_16_1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_2_16_1_name}Tyaska</xsl:attribute>
-            <xsl:attribute name="age">21</xsl:attribute>
-            <xsl:attribute name="voice">earnest</xsl:attribute>
-            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
-            <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
-            <xsl:attribute name="occupation">Lord</xsl:attribute>
-            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
-            <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="000B2802D088000AC4886AA8789859A797CAD63996786A57CBB8885895D177B60197761309D8CA7600000000000000000000000000000000000000002B2C1083"/>
-            </face>
-            <skills>
-                <skill id="OneHanded" value="40" />
-                <skill id="TwoHanded" value="20" />
-                <skill id="Polearm" value="30" />
-                <skill id="Bow" value="70" />
-                <skill id="Crossbow" value="40" />
-                <skill id="Throwing" value="40" />
-                <skill id="Riding" value="120" />
-                <skill id="Athletics" value="100" />
-                <skill id="Crafting" value="110" />
-                <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9034,6 +8867,171 @@
         </xsl:copy>
     </xsl:template>
 
+    <!-- lord_2_15_3 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_15_3']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_15_3</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_15_3_name}Velina</xsl:attribute>
+            <xsl:attribute name="age">17</xsl:attribute>
+            <xsl:attribute name="voice">softspoken</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.5" build="0.5" key="000B4C0710E4100D9BB5B85867759DB27C84967BC8BB966AF371F5599496277B00C776030CE4B6C500000000000000000000000000000000000000005B8C3043"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="40" />
+                <skill id="TwoHanded" value="20" />
+                <skill id="Polearm" value="30" />
+                <skill id="Bow" value="70" />
+                <skill id="Crossbow" value="40" />
+                <skill id="Throwing" value="40" />
+                <skill id="Riding" value="120" />
+                <skill id="Athletics" value="100" />
+                <skill id="Crafting" value="110" />
+                <skill id="Scouting" value="90" />
+                <skill id="Tactics" value="122" />
+                <skill id="Roguery" value="50" />
+                <skill id="Charm" value="180" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="130" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="150" />
+                <skill id="Engineering" value="100" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="1" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="1" />
+                <Trait id="Mercy" value="2" />
+                <Trait id="Valor" value="0" />
+                <Trait id="Egalitarian" value="1" />
+                <Trait id="Oligarchic" value="0" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <!-- lord_2_15_4 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_15_4']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_15_4</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_15_4_name}Bovan</xsl:attribute>
+            <xsl:attribute name="age">22</xsl:attribute>
+            <xsl:attribute name="voice">softspoken</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="is_female">false</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.6" build="0.6" key="00164C02C0882342BAB7B9566DA53AD368A6628171B9A586A7883546559D974501977613094979CE000000000000000000000000000000000000000041341002"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="160" />
+                <skill id="TwoHanded" value="120" />
+                <skill id="Polearm" value="140" />
+                <skill id="Bow" value="90" />
+                <skill id="Crossbow" value="70" />
+                <skill id="Throwing" value="100" />
+                <skill id="Riding" value="190" />
+                <skill id="Athletics" value="180" />
+                <skill id="Crafting" value="60" />
+                <skill id="Scouting" value="140" />
+                <skill id="Tactics" value="152" />
+                <skill id="Roguery" value="60" />
+                <skill id="Charm" value="140" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="80" />
+                <skill id="Steward" value="110" />
+                <skill id="Medicine" value="80" />
+                <skill id="Engineering" value="80" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="2" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="0" />
+                <Trait id="Mercy" value="1" />
+                <Trait id="Valor" value="2" />
+                <Trait id="Egalitarian" value="0" />
+                <Trait id="Oligarchic" value="1" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <!-- lord_2_16_1 -->
+    <xsl:template match="NPCCharacter[@id='lord_2_16_1']">
+        <xsl:copy>
+            <xsl:attribute name="id">lord_2_16_1</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_2_16_1_name}Tyaska</xsl:attribute>
+            <xsl:attribute name="age">21</xsl:attribute>
+            <xsl:attribute name="voice">earnest</xsl:attribute>
+            <xsl:attribute name="default_group">Cavalry</xsl:attribute>
+            <xsl:attribute name="is_hero">true</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
+            <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="occupation">Lord</xsl:attribute>
+            <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
+            <face>
+                <BodyProperties version="4" weight="0.5" build="0.5" key="000B2802D088000AC4886AA8789859A797CAD63996786A57CBB8885895D177B60197761309D8CA7600000000000000000000000000000000000000002B2C1083"/>
+            </face>
+            <skills>
+                <skill id="OneHanded" value="40" />
+                <skill id="TwoHanded" value="20" />
+                <skill id="Polearm" value="30" />
+                <skill id="Bow" value="70" />
+                <skill id="Crossbow" value="40" />
+                <skill id="Throwing" value="40" />
+                <skill id="Riding" value="120" />
+                <skill id="Athletics" value="100" />
+                <skill id="Crafting" value="110" />
+                <skill id="Scouting" value="90" />
+                <skill id="Tactics" value="122" />
+                <skill id="Roguery" value="50" />
+                <skill id="Charm" value="180" />
+                <skill id="Leadership" value="120" />
+                <skill id="Trade" value="130" />
+                <skill id="Steward" value="170" />
+                <skill id="Medicine" value="150" />
+                <skill id="Engineering" value="100" />
+            </skills>
+            <Traits>
+                <Trait id="Honor" value="1" />
+                <Trait id="Generosity" value="1" />
+                <Trait id="Calculating" value="1" />
+                <Trait id="Mercy" value="2" />
+                <Trait id="Valor" value="0" />
+                <Trait id="Egalitarian" value="1" />
+                <Trait id="Oligarchic" value="0" />
+                <Trait id="Authoritarian" value="0" />
+            </Traits>
+            <Equipments>
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
+            </Equipments>
+            <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
+        </xsl:copy>
+    </xsl:template>
+
     <!-- lord_2_17_1 -->
     <xsl:template match="NPCCharacter[@id='lord_2_17_1']">
         <xsl:copy>
@@ -9045,7 +9043,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9062,7 +9060,7 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
                 <skill id="Leadership" value="160" />
@@ -9100,7 +9098,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9117,7 +9115,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9155,7 +9153,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9172,7 +9170,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9210,7 +9208,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9227,7 +9225,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9265,7 +9263,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9282,7 +9280,7 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
                 <skill id="Leadership" value="160" />
@@ -9320,7 +9318,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9337,7 +9335,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9357,8 +9355,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_f" />
+                <EquipmentSet id="dale_civ_template_default_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -9375,7 +9373,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9392,7 +9390,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9412,8 +9410,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_g" />
+                <EquipmentSet id="dale_civ_template_default_g" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -9447,7 +9445,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -9467,8 +9465,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_h" />
+                <EquipmentSet id="dale_civ_template_default_h" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -9501,7 +9499,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -9535,7 +9533,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -9552,7 +9550,7 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="122" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
                 <skill id="Leadership" value="120" />
@@ -9638,7 +9636,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_2']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_2_name}Harad Place Holder</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_2_name}Khalida</xsl:attribute>
             <xsl:attribute name="age">45</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -9693,7 +9691,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_3']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_3</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_3_name}Calemir</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_3_name}Marzuk</xsl:attribute>
             <xsl:attribute name="age">49</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -9802,7 +9800,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_5']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_5</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_5_name}Haldir</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_5_name}Akhôr</xsl:attribute>
             <xsl:attribute name="age">45</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">HorseArcher</xsl:attribute>
@@ -10449,7 +10447,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_16']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_16</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_16_name}Rúmil</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_16_name}Zafar</xsl:attribute>
             <xsl:attribute name="age">28</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Ranged</xsl:attribute>
@@ -10502,7 +10500,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_17']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_17</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_17_name}Orophin</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_17_name}Azrak</xsl:attribute>
             <xsl:attribute name="age">28</xsl:attribute>
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">Ranged</xsl:attribute>
@@ -10555,7 +10553,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_18']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_18</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_18_name}Aranthon</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_18_name}Kareem</xsl:attribute>
             <xsl:attribute name="age">48</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -10609,7 +10607,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_19']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_19</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_19_name}Aethirion</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_19_name}Zulkhan</xsl:attribute>
             <xsl:attribute name="age">48</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -10771,7 +10769,7 @@
     <xsl:template match="NPCCharacter[@id='lord_3_22']">
         <xsl:copy>
             <xsl:attribute name="id">lord_3_22</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_3_22_name}Duilin</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_3_22_name}Namir</xsl:attribute>
             <xsl:attribute name="age">39</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -10994,7 +10992,7 @@
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">false</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.aserai</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_haradrim_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
@@ -12169,12 +12167,12 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Athletics" value="235" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Crafting" value="90" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Scouting" value="190" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="275" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="298" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Roguery" value="80" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Charm" value="240" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="295" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="307" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Trade" value="160" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="255" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="262" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Medicine" value="140" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Engineering" value="160" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </skills>
@@ -12224,12 +12222,12 @@
                 <skill id="Athletics" value="130" />
                 <skill id="Crafting" value="160" />
                 <skill id="Scouting" value="120" />
-                <skill id="Tactics" value="150" />
+                <skill id="Tactics" value="173" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="250" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="210" />
-                <skill id="Steward" value="255" />
+                <skill id="Steward" value="262" />
                 <skill id="Medicine" value="215" />
                 <skill id="Engineering" value="140" />
             </skills>
@@ -12262,7 +12260,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12279,12 +12277,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -12334,12 +12332,12 @@
                 <skill id="Athletics" value="230" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="190" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="170" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="192" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -12365,12 +12363,11 @@
     <xsl:template match="NPCCharacter[@id='lord_4_6']">
         <xsl:copy>
             <xsl:attribute name="id">lord_4_6</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_4_6_name}Grimbold Grimingas </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_4_6_name}Grimbold Grimingas</xsl:attribute>
             <xsl:attribute name="age">45</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_canonical_lord_4_6_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
@@ -12389,12 +12386,12 @@
                                                                                                                                                                                                                 <skill id="Athletics" value="255" />
                                                                                                                                                                                                                 <skill id="Crafting" value="80" />
                                                                                                                                                                                                                 <skill id="Scouting" value="215" />
-                                                                                                                                                                                                                <skill id="Tactics" value="240" />
+                                                                                                                                                                                                                <skill id="Tactics" value="263" />
                                                                                                                                                                                                                 <skill id="Roguery" value="70" />
                                                                                                                                                                                                                 <skill id="Charm" value="195" />
-                                                                                                                                                                                                                <skill id="Leadership" value="235" />
+                                                                                                                                                                                                                <skill id="Leadership" value="247" />
                                                                                                                                                                                                                 <skill id="Trade" value="120" />
-                                                                                                                                                                                                                <skill id="Steward" value="185" />
+                                                                                                                                                                                                                <skill id="Steward" value="192" />
                                                                                                                                                                                                                 <skill id="Medicine" value="130" />
                                                                                                                                                                                                                 <skill id="Engineering" value="130" />
                                                                                                                                                                                                             </skills>
@@ -12462,8 +12459,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rohan_bat_template_medium_a" />
-                <EquipmentSet id="rohan_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="theodred_bat_equipment" />
+                <EquipmentSet id="theodred_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -12496,12 +12493,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12550,12 +12547,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12588,7 +12585,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12605,12 +12602,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -12643,7 +12640,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12660,12 +12657,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="123" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="177" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12715,12 +12712,12 @@
                 <skill id="Athletics" value="225" />
                 <skill id="Crafting" value="90" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="190" />
+                <skill id="Tactics" value="213" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="190" />
-                <skill id="Leadership" value="170" />
+                <skill id="Leadership" value="182" />
                 <skill id="Trade" value="120" />
-                <skill id="Steward" value="180" />
+                <skill id="Steward" value="187" />
                 <skill id="Medicine" value="160" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12769,12 +12766,12 @@
                 <skill id="Athletics" value="225" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="190" />
+                <skill id="Tactics" value="213" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="170" />
+                <skill id="Leadership" value="182" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="150" />
+                <skill id="Steward" value="157" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12806,7 +12803,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12823,12 +12820,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="203" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="137" />
                 <skill id="Medicine" value="90" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12860,7 +12857,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12877,12 +12874,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="203" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="137" />
                 <skill id="Medicine" value="90" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -12914,7 +12911,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -12931,12 +12928,12 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="80" />
-                <skill id="Steward" value="110" />
+                <skill id="Steward" value="117" />
                 <skill id="Medicine" value="80" />
                 <skill id="Engineering" value="80" />
             </skills>
@@ -12985,12 +12982,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -13039,12 +13036,12 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Athletics" value="245" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Crafting" value="90" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Scouting" value="205" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="250" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Tactics" value="273" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Roguery" value="70" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Charm" value="205" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="265" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="277" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Trade" value="150" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="225" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Steward" value="232" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Medicine" value="140" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Engineering" value="170" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </skills>
@@ -13059,8 +13056,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rohan_bat_template_medium_b" />
-                <EquipmentSet id="rohan_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="erkenbrand_bat_equipment" />
+                <EquipmentSet id="erkenbrand_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -13077,7 +13074,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13094,12 +13091,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="203" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="137" />
                 <skill id="Medicine" value="90" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -13148,12 +13145,12 @@
                 <skill id="Athletics" value="215" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="170" />
-                <skill id="Tactics" value="160" />
+                <skill id="Tactics" value="183" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="170" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="140" />
+                <skill id="Steward" value="147" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -13185,7 +13182,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13202,12 +13199,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="203" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="90" />
-                <skill id="Steward" value="130" />
+                <skill id="Steward" value="137" />
                 <skill id="Medicine" value="90" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -13257,12 +13254,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="210" />
+                <skill id="Tactics" value="233" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="192" />
                 <skill id="Trade" value="120" />
-                <skill id="Steward" value="190" />
+                <skill id="Steward" value="197" />
                 <skill id="Medicine" value="170" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -13311,12 +13308,12 @@
                 <skill id="Athletics" value="235" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="230" />
+                <skill id="Tactics" value="253" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="190" />
-                <skill id="Leadership" value="230" />
+                <skill id="Leadership" value="242" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="205" />
+                <skill id="Steward" value="212" />
                 <skill id="Medicine" value="130" />
                 <skill id="Engineering" value="150" />
             </skills>
@@ -13342,7 +13339,7 @@
     <xsl:template match="NPCCharacter[@id='lord_4_21']">
         <xsl:copy>
             <xsl:attribute name="id">lord_4_21</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_4_21_name}Cuthræd Ordlacing </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_4_21_name}Cuthræd Ordlacing</xsl:attribute>
             <xsl:attribute name="age">30</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -13418,12 +13415,12 @@
                                                                 <skill id="Athletics" value="240" />
                                                                 <skill id="Crafting" value="70" />
                                                                 <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="200" />
+                                                                <skill id="Tactics" value="223" />
                                                                 <skill id="Roguery" value="70" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="200" />
+                                                                <skill id="Leadership" value="212" />
                                                                 <skill id="Trade" value="110" />
-                                                                <skill id="Steward" value="160" />
+                                                                <skill id="Steward" value="167" />
                                                                 <skill id="Medicine" value="110" />
                                                                 <skill id="Engineering" value="100" />
                                                             </skills>
@@ -13472,12 +13469,12 @@
                                                                 <skill id="Athletics" value="210" />
                                                                 <skill id="Crafting" value="190" />
                                                                 <skill id="Scouting" value="200" />
-                                                                <skill id="Tactics" value="160" />
+                                                                <skill id="Tactics" value="183" />
                                                                 <skill id="Roguery" value="80" />
                                                                 <skill id="Charm" value="170" />
-                                                                <skill id="Leadership" value="170" />
+                                                                <skill id="Leadership" value="182" />
                                                                 <skill id="Trade" value="210" />
-                                                                <skill id="Steward" value="200" />
+                                                                <skill id="Steward" value="207" />
                                                                 <skill id="Medicine" value="150" />
                                                                 <skill id="Engineering" value="120" />
                                                             </skills>
@@ -13509,7 +13506,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13526,12 +13523,12 @@
                                                                 <skill id="Athletics" value="240" />
                                                                 <skill id="Crafting" value="60" />
                                                                 <skill id="Scouting" value="140" />
-                                                                <skill id="Tactics" value="180" />
+                                                                <skill id="Tactics" value="203" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="160" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="172" />
                                                                 <skill id="Trade" value="90" />
-                                                                <skill id="Steward" value="130" />
+                                                                <skill id="Steward" value="137" />
                                                                 <skill id="Medicine" value="90" />
                                                                 <skill id="Engineering" value="100" />
                                                             </skills>
@@ -13580,12 +13577,12 @@
                 <skill id="Athletics" value="250" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="215" />
-                <skill id="Tactics" value="235" />
+                <skill id="Tactics" value="258" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="200" />
-                <skill id="Leadership" value="235" />
+                <skill id="Leadership" value="247" />
                 <skill id="Trade" value="140" />
-                <skill id="Steward" value="200" />
+                <skill id="Steward" value="207" />
                 <skill id="Medicine" value="130" />
                 <skill id="Engineering" value="140" />
             </skills>
@@ -13634,12 +13631,12 @@
                 <skill id="Athletics" value="245" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="235" />
-                <skill id="Tactics" value="230" />
+                <skill id="Tactics" value="253" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="185" />
-                <skill id="Leadership" value="220" />
+                <skill id="Leadership" value="232" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="185" />
+                <skill id="Steward" value="192" />
                 <skill id="Medicine" value="130" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -13665,13 +13662,13 @@
     <xsl:template match="NPCCharacter[@id='lord_4_27']">
         <xsl:copy>
             <xsl:attribute name="id">lord_4_27</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_4_27_name}Ælle Æthellafing </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_4_27_name}Ælle Æthellafing</xsl:attribute>
             <xsl:attribute name="age">27</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13688,12 +13685,12 @@
                                                                                                                                                                 <skill id="Athletics" value="240" />
                                                                                                                                                                 <skill id="Crafting" value="60" />
                                                                                                                                                                 <skill id="Scouting" value="140" />
-                                                                                                                                                                <skill id="Tactics" value="180" />
+                                                                                                                                                                <skill id="Tactics" value="203" />
                                                                                                                                                                 <skill id="Roguery" value="60" />
                                                                                                                                                                 <skill id="Charm" value="160" />
-                                                                                                                                                                <skill id="Leadership" value="160" />
+                                                                                                                                                                <skill id="Leadership" value="172" />
                                                                                                                                                                 <skill id="Trade" value="90" />
-                                                                                                                                                                <skill id="Steward" value="130" />
+                                                                                                                                                                <skill id="Steward" value="137" />
                                                                                                                                                                 <skill id="Medicine" value="90" />
                                                                                                                                                                 <skill id="Engineering" value="100" />
                                                                                                                                                             </skills>
@@ -13719,7 +13716,7 @@
     <xsl:template match="NPCCharacter[@id='lord_4_28']">
         <xsl:copy>
             <xsl:attribute name="id">lord_4_28</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_4_28_name}Fasthelm Morcargas </xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_4_28_name}Fasthelm Morcargas</xsl:attribute>
             <xsl:attribute name="age">40</xsl:attribute>
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -13742,12 +13739,12 @@
                                                                 <skill id="Athletics" value="235" />
                                                                 <skill id="Crafting" value="80" />
                                                                 <skill id="Scouting" value="245" />
-                                                                <skill id="Tactics" value="225" />
+                                                                <skill id="Tactics" value="248" />
                                                                 <skill id="Roguery" value="80" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="215" />
+                                                                <skill id="Leadership" value="227" />
                                                                 <skill id="Trade" value="130" />
-                                                                <skill id="Steward" value="195" />
+                                                                <skill id="Steward" value="202" />
                                                                 <skill id="Medicine" value="130" />
                                                                 <skill id="Engineering" value="140" />
                                                             </skills>
@@ -13797,12 +13794,12 @@
                                                                 <skill id="Athletics" value="275" />
                                                                 <skill id="Crafting" value="80" />
                                                                 <skill id="Scouting" value="240" />
-                                                                <skill id="Tactics" value="265" />
+                                                                <skill id="Tactics" value="288" />
                                                                 <skill id="Roguery" value="80" />
                                                                 <skill id="Charm" value="220" />
-                                                                <skill id="Leadership" value="275" />
+                                                                <skill id="Leadership" value="287" />
                                                                 <skill id="Trade" value="130" />
-                                                                <skill id="Steward" value="200" />
+                                                                <skill id="Steward" value="207" />
                                                                 <skill id="Medicine" value="130" />
                                                                 <skill id="Engineering" value="140" />
                                                             </skills>
@@ -13817,8 +13814,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rohan_bat_template_medium_a" />
-                <EquipmentSet id="rohan_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="eomer_bat_equipment" />
+                <EquipmentSet id="eomer_civ_equipment" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -13852,12 +13849,12 @@
                 <skill id="Athletics" value="220" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="190" />
-                <skill id="Tactics" value="180" />
+                <skill id="Tactics" value="203" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="170" />
-                <skill id="Leadership" value="170" />
+                <skill id="Leadership" value="182" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="150" />
+                <skill id="Steward" value="157" />
                 <skill id="Medicine" value="100" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -13890,7 +13887,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13907,12 +13904,12 @@
                                                                                                                 <skill id="Athletics" value="110" />
                                                                                                                 <skill id="Crafting" value="140" />
                                                                                                                 <skill id="Scouting" value="110" />
-                                                                                                                <skill id="Tactics" value="130" />
+                                                                                                                <skill id="Tactics" value="153" />
                                                                                                                 <skill id="Roguery" value="60" />
                                                                                                                 <skill id="Charm" value="240" />
-                                                                                                                <skill id="Leadership" value="160" />
+                                                                                                                <skill id="Leadership" value="172" />
                                                                                                                 <skill id="Trade" value="180" />
-                                                                                                                <skill id="Steward" value="240" />
+                                                                                                                <skill id="Steward" value="247" />
                                                                                                                 <skill id="Medicine" value="210" />
                                                                                                                 <skill id="Engineering" value="130" />
                                                                                                             </skills>
@@ -13945,7 +13942,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -13962,12 +13959,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -14000,7 +13997,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14017,12 +14014,12 @@
                                                                                                                 <skill id="Athletics" value="110" />
                                                                                                                 <skill id="Crafting" value="140" />
                                                                                                                 <skill id="Scouting" value="110" />
-                                                                                                                <skill id="Tactics" value="130" />
+                                                                                                                <skill id="Tactics" value="153" />
                                                                                                                 <skill id="Roguery" value="60" />
                                                                                                                 <skill id="Charm" value="240" />
-                                                                                                                <skill id="Leadership" value="160" />
+                                                                                                                <skill id="Leadership" value="172" />
                                                                                                                 <skill id="Trade" value="180" />
-                                                                                                                <skill id="Steward" value="240" />
+                                                                                                                <skill id="Steward" value="247" />
                                                                                                                 <skill id="Medicine" value="210" />
                                                                                                                 <skill id="Engineering" value="130" />
                                                                                                             </skills>
@@ -14055,7 +14052,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14072,12 +14069,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -14127,12 +14124,12 @@
                 <skill id="Athletics" value="215" />
                 <skill id="Crafting" value="200" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="170" />
+                <skill id="Tactics" value="193" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="192" />
                 <skill id="Trade" value="215" />
-                <skill id="Steward" value="200" />
+                <skill id="Steward" value="207" />
                 <skill id="Medicine" value="160" />
                 <skill id="Engineering" value="120" />
             </skills>
@@ -14182,12 +14179,12 @@
                 <skill id="Athletics" value="200" />
                 <skill id="Crafting" value="180" />
                 <skill id="Scouting" value="190" />
-                <skill id="Tactics" value="140" />
+                <skill id="Tactics" value="163" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="150" />
+                <skill id="Leadership" value="162" />
                 <skill id="Trade" value="190" />
-                <skill id="Steward" value="180" />
+                <skill id="Steward" value="187" />
                 <skill id="Medicine" value="140" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -14220,7 +14217,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14237,12 +14234,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="123" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="177" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14275,7 +14272,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14292,12 +14289,12 @@
                                                                                                                                                                                                                                                                 <skill id="Athletics" value="100" />
                                                                                                                                                                                                                                                                 <skill id="Crafting" value="110" />
                                                                                                                                                                                                                                                                 <skill id="Scouting" value="90" />
-                                                                                                                                                                                                                                                                <skill id="Tactics" value="100" />
+                                                                                                                                                                                                                                                                <skill id="Tactics" value="123" />
                                                                                                                                                                                                                                                                 <skill id="Roguery" value="50" />
                                                                                                                                                                                                                                                                 <skill id="Charm" value="180" />
-                                                                                                                                                                                                                                                                <skill id="Leadership" value="120" />
+                                                                                                                                                                                                                                                                <skill id="Leadership" value="132" />
                                                                                                                                                                                                                                                                 <skill id="Trade" value="130" />
-                                                                                                                                                                                                                                                                <skill id="Steward" value="170" />
+                                                                                                                                                                                                                                                                <skill id="Steward" value="177" />
                                                                                                                                                                                                                                                                 <skill id="Medicine" value="150" />
                                                                                                                                                                                                                                                                 <skill id="Engineering" value="100" />
                                                                                                                                                                                                                                                             </skills>
@@ -14330,7 +14327,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14347,12 +14344,12 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="80" />
-                <skill id="Steward" value="110" />
+                <skill id="Steward" value="117" />
                 <skill id="Medicine" value="80" />
                 <skill id="Engineering" value="80" />
             </skills>
@@ -14385,7 +14382,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14402,12 +14399,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="123" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="177" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14457,12 +14454,12 @@
                                                                                                                                                                 <skill id="Athletics" value="240" />
                                                                                                                                                                 <skill id="Crafting" value="70" />
                                                                                                                                                                 <skill id="Scouting" value="200" />
-                                                                                                                                                                <skill id="Tactics" value="200" />
+                                                                                                                                                                <skill id="Tactics" value="223" />
                                                                                                                                                                 <skill id="Roguery" value="70" />
                                                                                                                                                                 <skill id="Charm" value="180" />
-                                                                                                                                                                <skill id="Leadership" value="200" />
+                                                                                                                                                                <skill id="Leadership" value="212" />
                                                                                                                                                                 <skill id="Trade" value="110" />
-                                                                                                                                                                <skill id="Steward" value="160" />
+                                                                                                                                                                <skill id="Steward" value="167" />
                                                                                                                                                                 <skill id="Medicine" value="110" />
                                                                                                                                                                 <skill id="Engineering" value="100" />
                                                                                                                                                             </skills>
@@ -14512,12 +14509,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="80" />
                 <skill id="Scouting" value="180" />
-                <skill id="Tactics" value="210" />
+                <skill id="Tactics" value="233" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="192" />
                 <skill id="Trade" value="120" />
-                <skill id="Steward" value="190" />
+                <skill id="Steward" value="197" />
                 <skill id="Medicine" value="170" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14567,12 +14564,12 @@
                 <skill id="Athletics" value="255" />
                 <skill id="Crafting" value="100" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="243" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="215" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="210" />
+                <skill id="Steward" value="217" />
                 <skill id="Medicine" value="200" />
                 <skill id="Engineering" value="110" />
             </skills>
@@ -14605,7 +14602,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14622,12 +14619,12 @@
                 <skill id="Athletics" value="110" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="110" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="172" />
                 <skill id="Trade" value="180" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="210" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -14660,7 +14657,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14677,12 +14674,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="123" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="177" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14732,12 +14729,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14786,12 +14783,12 @@
                 <skill id="Athletics" value="140" />
                 <skill id="Crafting" value="140" />
                 <skill id="Scouting" value="130" />
-                <skill id="Tactics" value="160" />
+                <skill id="Tactics" value="183" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="235" />
-                <skill id="Leadership" value="180" />
+                <skill id="Leadership" value="192" />
                 <skill id="Trade" value="190" />
-                <skill id="Steward" value="240" />
+                <skill id="Steward" value="247" />
                 <skill id="Medicine" value="205" />
                 <skill id="Engineering" value="130" />
             </skills>
@@ -14824,7 +14821,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14841,12 +14838,12 @@
                 <skill id="Athletics" value="100" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="90" />
-                <skill id="Tactics" value="100" />
+                <skill id="Tactics" value="123" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="130" />
-                <skill id="Steward" value="170" />
+                <skill id="Steward" value="177" />
                 <skill id="Medicine" value="150" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -14878,7 +14875,7 @@
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.vlandia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_rohan_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -14895,12 +14892,12 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="153" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="132" />
                 <skill id="Trade" value="80" />
-                <skill id="Steward" value="110" />
+                <skill id="Steward" value="117" />
                 <skill id="Medicine" value="80" />
                 <skill id="Engineering" value="80" />
             </skills>
@@ -14949,12 +14946,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -15003,12 +15000,12 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="70" />
                 <skill id="Scouting" value="200" />
-                <skill id="Tactics" value="200" />
+                <skill id="Tactics" value="223" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="212" />
                 <skill id="Trade" value="110" />
-                <skill id="Steward" value="160" />
+                <skill id="Steward" value="167" />
                 <skill id="Medicine" value="110" />
                 <skill id="Engineering" value="100" />
             </skills>
@@ -15093,7 +15090,7 @@
     <xsl:template match="NPCCharacter[@id='lord_5_7']">
         <xsl:copy>
             <xsl:attribute name="id">lord_5_7</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_5_7_name}Khand PlaceHolder</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_5_7_name}Kharzul</xsl:attribute>
             <xsl:attribute name="age">20</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Ranged</xsl:attribute>
@@ -16281,7 +16278,7 @@
     <xsl:template match="NPCCharacter[@id='lord_5_1_1']">
         <xsl:copy>
             <xsl:attribute name="id">lord_5_1_1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_5_1_1_name}RandomDude</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_5_1_1_name}Khazna</xsl:attribute>
             <xsl:attribute name="age">12</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
@@ -17396,8 +17393,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17428,8 +17425,8 @@
                 <Trait id="Generosity" value="-1"/>
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17482,8 +17479,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17535,8 +17532,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_c" />
+                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17589,8 +17586,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_d" />
+                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17642,8 +17639,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_e" />
+                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17696,8 +17693,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17751,8 +17748,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17806,8 +17803,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17861,8 +17858,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_c" />
+                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17914,8 +17911,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_d" />
+                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -17968,8 +17965,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_e" />
+                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18022,8 +18019,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18076,8 +18073,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18130,8 +18127,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18184,8 +18181,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_c" />
+                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18238,8 +18235,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_d" />
+                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18292,8 +18289,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_e" />
+                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18346,8 +18343,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18400,8 +18397,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18454,8 +18451,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18509,8 +18506,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_c" />
+                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18564,8 +18561,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_d" />
+                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18619,8 +18616,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_e" />
+                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -18674,8 +18671,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19004,8 +19001,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19059,8 +19056,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19114,8 +19111,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19169,8 +19166,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_c" />
+                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19224,8 +19221,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_e" />
-                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_d" />
+                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19279,8 +19276,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_a" />
-                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_e" />
+                <EquipmentSet id="rhun_civ_template_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19334,8 +19331,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_b" />
-                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_f" />
+                <EquipmentSet id="rhun_civ_template_f" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19389,8 +19386,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_c" />
-                <EquipmentSet id="rhun_civ_template_c" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_a" />
+                <EquipmentSet id="rhun_civ_template_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19444,8 +19441,8 @@
                 <Trait id="Authoritarian" value="2" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="rhun_bat_template_medium_d" />
-                <EquipmentSet id="rhun_civ_template_d" equipmentType="Civilian" />
+                <EquipmentSet id="rhun_bat_template_medium_b" />
+                <EquipmentSet id="rhun_civ_template_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -19940,7 +19937,7 @@
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
+            <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.battania</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_variag_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
@@ -19995,7 +19992,7 @@
             <xsl:attribute name="voice">curt</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">false</xsl:attribute>
+            <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.battania</xsl:attribute>
             <xsl:attribute name="skill_template">SkillSet.taom_variag_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
@@ -20072,7 +20069,7 @@
                 <skill id="Tactics" value="200" />
                 <skill id="Roguery" value="200" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="200" />
+                <skill id="Leadership" value="100" />
                 <skill id="Trade" value="120" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="140" />
@@ -20107,7 +20104,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20127,7 +20124,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Tactics" value="130" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Roguery" value="60" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Charm" value="140" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="120" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="55" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Trade" value="80" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Steward" value="110" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Medicine" value="80" />
@@ -20162,7 +20159,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20182,7 +20179,7 @@
                                                                 <skill id="Tactics" value="100" />
                                                                 <skill id="Roguery" value="50" />
                                                                 <skill id="Charm" value="180" />
-                                                                <skill id="Leadership" value="120" />
+                                                                <skill id="Leadership" value="55" />
                                                                 <skill id="Trade" value="130" />
                                                                 <skill id="Steward" value="170" />
                                                                 <skill id="Medicine" value="150" />
@@ -20217,7 +20214,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20237,7 +20234,7 @@
                                                                 <skill id="Tactics" value="180" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="160" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="90" />
                                                                 <skill id="Trade" value="90" />
                                                                 <skill id="Steward" value="130" />
                                                                 <skill id="Medicine" value="90" />
@@ -20272,7 +20269,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20292,7 +20289,7 @@
                                                                 <skill id="Tactics" value="130" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="240" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="180" />
                                                                 <skill id="Steward" value="240" />
                                                                 <skill id="Medicine" value="210" />
@@ -20327,7 +20324,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20347,7 +20344,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -20382,7 +20379,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20402,7 +20399,7 @@
                 <skill id="Tactics" value="180" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="90" />
                 <skill id="Trade" value="90" />
                 <skill id="Steward" value="130" />
                 <skill id="Medicine" value="90" />
@@ -20437,7 +20434,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20457,7 +20454,7 @@
                 <skill id="Tactics" value="130" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="80" />
                 <skill id="Steward" value="110" />
                 <skill id="Medicine" value="80" />
@@ -20509,7 +20506,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -20529,8 +20526,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_d" />
-                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_a" />
+                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20547,7 +20544,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.sturgia</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dale_young_lord_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20564,7 +20561,7 @@
                 <skill id="Athletics" value="180" />
                 <skill id="Crafting" value="60" />
                 <skill id="Scouting" value="140" />
-                <skill id="Tactics" value="130" />
+                <skill id="Tactics" value="152" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
                 <skill id="Leadership" value="120" />
@@ -20584,8 +20581,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_e" />
-                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_b" />
+                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20595,7 +20592,7 @@
     <xsl:template match="NPCCharacter[@id='lord_S9_l']">
         <xsl:copy>
             <xsl:attribute name="id">lord_S9_l</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_S9_l_name}Bombur</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_S9_l_name}Orvar</xsl:attribute>
             <xsl:attribute name="age">52</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
@@ -20619,7 +20616,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -20639,8 +20636,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_a" />
-                <EquipmentSet id="dale_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_c" />
+                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20674,7 +20671,7 @@
                 <skill id="Athletics" value="90" />
                 <skill id="Crafting" value="170" />
                 <skill id="Scouting" value="130" />
-                <skill id="Tactics" value="190" />
+                <skill id="Tactics" value="212" />
                 <skill id="Roguery" value="70" />
                 <skill id="Charm" value="285" />
                 <skill id="Leadership" value="220" />
@@ -20694,8 +20691,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_b" />
-                <EquipmentSet id="dale_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_d" />
+                <EquipmentSet id="dale_civ_template_default_d" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20729,7 +20726,7 @@
                 <skill id="Athletics" value="240" />
                 <skill id="Crafting" value="110" />
                 <skill id="Scouting" value="230" />
-                <skill id="Tactics" value="220" />
+                <skill id="Tactics" value="242" />
                 <skill id="Roguery" value="80" />
                 <skill id="Charm" value="200" />
                 <skill id="Leadership" value="235" />
@@ -20749,8 +20746,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="dale_bat_template_medium_c" />
-                <EquipmentSet id="dale_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="dale_bat_template_medium_e" />
+                <EquipmentSet id="dale_civ_template_default_e" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20760,14 +20757,14 @@
     <xsl:template match="NPCCharacter[@id='lord_SE8_c']">
         <xsl:copy>
             <xsl:attribute name="id">lord_SE8_c</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_SE8_c_name}Itaria</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_SE8_c_name}Shagrala</xsl:attribute>
             <xsl:attribute name="age">19</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_young_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -20787,7 +20784,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -20815,18 +20812,18 @@
     <xsl:template match="NPCCharacter[@id='lord_SE9_c1']">
         <xsl:copy>
             <xsl:attribute name="id">lord_SE9_c1</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_SE9_c1_name}Pagarios</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_SE9_c1_name_bn}Zigûrbêl</xsl:attribute>
             <xsl:attribute name="age">26</xsl:attribute>
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lord_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="000B700E402C325968215CB4D9779D947BABE1EA12D7B9649975B5856DB7C355016776130655A58500000000000000000000000000000000000000002AD42042"/>
+                <BodyProperties version="4" age="26" weight="0.0046" build="0.8032" key="0002780E40001603685C3C9329356424C68B4AD33377895A6A69692453B178A800FC06030FF3D56B00000000000000000000000000000000000000003FF46042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="160" />
@@ -20842,7 +20839,7 @@
                 <skill id="Tactics" value="130" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="140" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="80" />
                 <skill id="Steward" value="110" />
                 <skill id="Medicine" value="80" />
@@ -20859,8 +20856,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_d" />
-                <EquipmentSet id="mordor_civ_template_default_d" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20870,18 +20867,18 @@
     <xsl:template match="NPCCharacter[@id='lord_SE9_c2']">
         <xsl:copy>
             <xsl:attribute name="id">lord_SE9_c2</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_SE9_c2_name}Diasca</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_SE9_c2_name_bn}Zimrazîn</xsl:attribute>
             <xsl:attribute name="age">24</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_bn_sorceress_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.4" build="0.3" key="0000080FCEFC290B4756896A6356B7D0C06B9C989782C82458739F1C6A48C62501877613081867C80000000000000000000000000000000000000000370C2102"/>
+                <BodyProperties version="4" age="24" weight="0.0046" build="0.3356" key="0002A806C0000010CBD7CB989B8A41D5DAADA6D7DB9243548A5A4C587688468800A506030AB5D86300000000000000000000000000000000000000003F5C0042" />
             </face>
             <skills>
                 <skill id="OneHanded" value="40" />
@@ -20897,7 +20894,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -20914,8 +20911,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_e" />
-                <EquipmentSet id="mordor_civ_template_default_e" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20925,18 +20922,18 @@
     <xsl:template match="NPCCharacter[@id='lord_SE9_l']">
         <xsl:copy>
             <xsl:attribute name="id">lord_SE9_l</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_SE9_l_name}Grishnákh, Uruk Captain</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_SE9_l_name_bn}Zagarkhôr</xsl:attribute>
             <xsl:attribute name="age">58</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Infantry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_black_numenorean_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.6" key="000BDC0FCFCC038F3D38B65122600AD02FEE2A646411F7F894359F648858075D064976670485629500000000000000000000000044FC1002000000007E7C4084"/>
+                <BodyProperties version="4" age="30" weight="0.0046" build="0.8032" key="0002940E40003A434868B38BD5266AA769489CA8213C7BCB79B7967577B9294800FC06030F7A927400000000000000000000000000000000000000003FF41142" />
             </face>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <skills>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="OneHanded" value="230" />
@@ -20952,7 +20949,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Tactics" value="180" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Roguery" value="60" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Charm" value="160" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="160" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <skill id="Leadership" value="90" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Trade" value="90" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Steward" value="130" />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <skill id="Medicine" value="90" />
@@ -20969,8 +20966,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_a" />
-                <EquipmentSet id="mordor_civ_template_default_a" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_inf" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_inf" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -20980,18 +20977,18 @@
     <xsl:template match="NPCCharacter[@id='lord_SE9_s']">
         <xsl:copy>
             <xsl:attribute name="id">lord_SE9_s</xsl:attribute>
-            <xsl:attribute name="name">{=aom_lord_SE9_s_name}Jonna</xsl:attribute>
+            <xsl:attribute name="name">{=aom_lord_SE9_s_name_bn}Pharazîn</xsl:attribute>
             <xsl:attribute name="age">46</xsl:attribute>
             <xsl:attribute name="voice">ironic</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_bn_sorceress_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="0000080FD0FC100D4776686376266B93426B9C989782C82458739F1CB876963401577613051867C8000000000000000000000000000000000000000022A420C3"/>
+                <BodyProperties version="4" age="46" weight="0.0046" build="0.3356" key="0002C006C000300DBB819D7BA4AAAA86A5A83867A3769C666827A32B6C74B51700A506030ADD775B00000000000000000000000000000000000000003F5C0102" />
             </face>
             <skills>
                 <skill id="OneHanded" value="60" />
@@ -21007,7 +21004,7 @@
                 <skill id="Tactics" value="130" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="240" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="80" />
                 <skill id="Trade" value="180" />
                 <skill id="Steward" value="240" />
                 <skill id="Medicine" value="210" />
@@ -21024,8 +21021,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="mordor_bat_template_medium_b" />
-                <EquipmentSet id="mordor_civ_template_default_b" equipmentType="Civilian" />
+            	<EquipmentSet id="mordor_num_bat_template_lord_cav" />
+            	<EquipmentSet id="mordor_num_civ_template_lord_cav" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -21040,13 +21037,12 @@
             <xsl:attribute name="voice">softspoken</xsl:attribute>
             <xsl:attribute name="default_group">HorseArcher</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
-            <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_young_lady_skills</xsl:attribute>
+            <xsl:attribute name="culture">Culture.gondor</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_canonical_lord_WE8_c_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
-                <BodyProperties version="4" weight="0.5" build="0.5" key="0005580B4000300DA55B8899724689763869956B7B86578578658A96886733790003000203B8789800001105000030A30000001F000000000000000000000000"/>
+                <BodyProperties version="4" weight="0.2534" build="0.5733" key="00057C0D0000131AC186C84D4697AC7356B46C8983BEB92A379743C66986654300B946030BACA5A60000000000000000000000000000000000000000676C6082"/>
             </face>
             <skills>
                 <skill id="OneHanded" value="40" />
@@ -21062,7 +21058,7 @@
                 <skill id="Tactics" value="100" />
                 <skill id="Roguery" value="50" />
                 <skill id="Charm" value="180" />
-                <skill id="Leadership" value="120" />
+                <skill id="Leadership" value="55" />
                 <skill id="Trade" value="130" />
                 <skill id="Steward" value="170" />
                 <skill id="Medicine" value="150" />
@@ -21079,8 +21075,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_c" />
-                <EquipmentSet id="gondor_civ_template_default_c" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anfalas_1" />
+                <EquipmentSet id="gondor_lord_anfalas_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -21097,7 +21093,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">false</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_knight_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -21117,7 +21113,7 @@
                 <skill id="Tactics" value="180" />
                 <skill id="Roguery" value="60" />
                 <skill id="Charm" value="160" />
-                <skill id="Leadership" value="160" />
+                <skill id="Leadership" value="90" />
                 <skill id="Trade" value="90" />
                 <skill id="Steward" value="130" />
                 <skill id="Medicine" value="90" />
@@ -21134,8 +21130,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_d" />
-                <EquipmentSet id="gondor_civ_template_default_d" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_anfalas_1" />
+                <EquipmentSet id="gondor_lord_anfalas_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -21169,12 +21165,12 @@
                                                                                                                                                                                                                 <skill id="Athletics" value="160" />
                                                                                                                                                                                                                 <skill id="Crafting" value="110" />
                                                                                                                                                                                                                 <skill id="Scouting" value="180" />
-                                                                                                                                                                                                                <skill id="Tactics" value="270" />
+                                                                                                                                                                                                                <skill id="Tactics" value="295" />
                                                                                                                                                                                                                 <skill id="Roguery" value="80" />
                                                                                                                                                                                                                 <skill id="Charm" value="220" />
-                                                                                                                                                                                                                <skill id="Leadership" value="260" />
+                                                                                                                                                                                                                <skill id="Leadership" value="286" />
                                                                                                                                                                                                                 <skill id="Trade" value="180" />
-                                                                                                                                                                                                                <skill id="Steward" value="240" />
+                                                                                                                                                                                                                <skill id="Steward" value="248" />
                                                                                                                                                                                                                 <skill id="Medicine" value="160" />
                                                                                                                                                                                                                 <skill id="Engineering" value="190" />
                                                                                                                                                                                                             </skills>
@@ -21189,8 +21185,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_e" />
-                <EquipmentSet id="gondor_civ_template_default_e" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_blackroot_1" />
+                <EquipmentSet id="gondor_lord_blackroot_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -21205,9 +21201,8 @@
             <xsl:attribute name="voice">earnest</xsl:attribute>
             <xsl:attribute name="default_group">Cavalry</xsl:attribute>
             <xsl:attribute name="is_hero">true</xsl:attribute>
-            <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_matriarch_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_gondor_knight_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -21224,7 +21219,7 @@
                                                                 <skill id="Athletics" value="90" />
                                                                 <skill id="Crafting" value="170" />
                                                                 <skill id="Scouting" value="130" />
-                                                                <skill id="Tactics" value="190" />
+                                                                <skill id="Tactics" value="212" />
                                                                 <skill id="Roguery" value="70" />
                                                                 <skill id="Charm" value="285" />
                                                                 <skill id="Leadership" value="220" />
@@ -21244,8 +21239,8 @@
                 <Trait id="Authoritarian" value="1" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_a" />
-                <EquipmentSet id="gondor_civ_template_default_a" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_blackroot_1" />
+                <EquipmentSet id="gondor_lord_blackroot_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>
@@ -21262,7 +21257,7 @@
             <xsl:attribute name="is_hero">true</xsl:attribute>
             <xsl:attribute name="is_female">true</xsl:attribute>
             <xsl:attribute name="culture">Culture.empire</xsl:attribute>
-            <xsl:attribute name="skill_template">SkillSet.taom_lady_skills</xsl:attribute>
+            <xsl:attribute name="skill_template">SkillSet.taom_dunland_lady_skills</xsl:attribute>
             <xsl:attribute name="occupation">Lord</xsl:attribute>
             <xsl:attribute name="face_mesh_cache">true</xsl:attribute>
             <face>
@@ -21282,7 +21277,7 @@
                                                                 <skill id="Tactics" value="130" />
                                                                 <skill id="Roguery" value="60" />
                                                                 <skill id="Charm" value="240" />
-                                                                <skill id="Leadership" value="160" />
+                                                                <skill id="Leadership" value="80" />
                                                                 <skill id="Trade" value="180" />
                                                                 <skill id="Steward" value="240" />
                                                                 <skill id="Medicine" value="210" />
@@ -21299,8 +21294,8 @@
                 <Trait id="Authoritarian" value="0" />
             </Traits>
             <Equipments>
-                <EquipmentSet id="gondor_bat_template_medium_b" />
-                <EquipmentSet id="gondor_civ_template_default_b" equipmentType="Civilian" />
+                <EquipmentSet id="gondor_lord_blackroot_1" />
+                <EquipmentSet id="gondor_lord_blackroot_1_civ" equipmentType="Civilian" />
             </Equipments>
             <xsl:apply-templates select="node()[not(self::face or self::skills or self::Traits or self::Equipments)]"/>
         </xsl:copy>

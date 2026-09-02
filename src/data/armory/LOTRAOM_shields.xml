@@ -556,49 +556,6 @@
 
     <!--Easterling-->
 
-    <Item
-        id="easterling_shield"
-        name="{=aom_easterling_shield_name}[Rhûn] Easterling Shield"
-        body_name="bo_cap_battania_large_shield_b"
-        shield_body_name="bo_battania_large_shield_b"
-        recalculate_body="false"
-        mesh="easterling_shield"
-        culture="Culture.aserai"
-        using_tableau="false"
-        weight="3.5"
-        appearance="1"
-        Type="Shield"
-        is_merchandise="true"
-        item_holsters="shield_kite:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0.0,0.1,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="9"
-                thrust_speed="82"
-                thrust_damage="10"
-                thrust_damage_type="Pierce"
-                speed_rating="82"
-                physics_material="metal_shield"
-                item_usage="hand_shield"
-                position="0.0, 0.00, 0.00"
-                rotation="280.00,-62.10,8.70"
-                weapon_length="118"
-                center_of_mass="0.0,0.065,0.05"
-                hit_points="380"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            ForceAttachOffHandPrimaryItemBone="true"
-            HeldInOffHand="true" />
-    </Item>
-
     <!--[Rohan]
 	Shields-->
 
@@ -735,216 +692,6 @@
 	Shields-->
 
     <Item
-        id="gond_shld4"
-        name="{=aom_gond_shld4_name}[Gondor] Shield III"
-        body_name="bo_wm_gondor_shield_a"
-        shield_body_name="bo_wm_gondor_shield_a"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_a"
-        culture="Culture.gondor"
-        using_tableau="false"
-        is_merchandise="true"
-        weight="7.0"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.2,0.05"
-                hit_points="520"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
-        id="wm_gondor_shield_a02"
-        name="{=aom_wm_gondor_shield_a02_name}[Gondor] Regular Shield"
-        body_name="bo_cap_wm_gondor_shield_a02"
-        shield_body_name="bo_wm_gondor_shield_a02"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_a02"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        using_tableau="false"
-        weight="4.0"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="100"
-                center_of_mass="-0.0,0.2,0.05"
-                hit_points="520"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
-        id="gond_shield_one_red"
-        name="{=aom_gond_shield_one_red_name}[Gondor] Shield I - Lamedon"
-        body_name="bo_cap_wm_gondor_shield_aa"
-        shield_body_name="bo_wm_gondor_shield_aa"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_aaa"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        using_tableau="false"
-        weight="7.0"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.2,0.05"
-                hit_points="520"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
-        id="gond_shield_one_greyscale"
-        name="{=aom_gond_shield_one_greyscale_name}[Gondor] Shield I"
-        body_name="bo_cap_wm_gondor_shield_aa"
-        shield_body_name="bo_wm_gondor_shield_aa"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_aa"
-        culture="Culture.gondor"
-        using_tableau="false"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.2,0.05"
-                hit_points="520"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
-        id="gond_shield_two_black"
-        name="{=aom_gond_shield_two_black_name}[Gondor] Shield II"
-        body_name="bo_cap_wm_gondor_shield_b"
-        shield_body_name="bo_wm_gondor_shield_b"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_bb"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        using_tableau="false"
-        weight="5.0"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.0,0.00"
-                hit_points="420"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
         id="gond_shield_two_swan"
         name="{=aom_gond_shield_two_swan_name}[Gondor] Shield II - Belfalas"
         body_name="bo_cap_wm_gondor_shield_b"
@@ -1072,93 +819,9 @@
     </Item>
 
     <Item
-        id="gond_shield_four_black"
-        name="{=aom_gond_shield_four_black_name}[Gondor] Shield IV - Black"
-        body_name="bo_cap_wm_gondor_shield_d"
-        shield_body_name="bo_wm_gondor_shield_d"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_d"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        using_tableau="false"
-        weight="4.5"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.0,0.00"
-                hit_points="400"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
-        id="gond_shield_four_mustard"
-        name="{=aom_gond_shield_four_mustard_name}[Gondor] Shield IV - Ringló Vale"
-        body_name="bo_cap_wm_gondor_shield_d"
-        shield_body_name="bo_wm_gondor_shield_d"
-        recalculate_body="false"
-        mesh="wm_gondor_shield_dd"
-        culture="Culture.gondor"
-        using_tableau="false"
-        is_merchandise="true"
-        weight="4.5"
-        appearance="0.7"
-        Type="Shield"
-        item_holsters="shield:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0,0,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="89"
-                thrust_damage_type="Blunt"
-                speed_rating="89"
-                physics_material="wood_shield"
-                item_usage="shield"
-                position="0.0, 0.00, 0.00"
-                rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.0,0.00"
-                hit_points="400"
-                modifier_group="shield">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            HeldInOffHand="true"
-            ForceAttachOffHandSecondaryItemBone="true" />
-    </Item>
-
-    <Item
         id="wm_boromir_shield"
         name="{=aom_wm_boromir_shield}[Gondor] Boromir's Shield"
-        body_name="bo_cap_wm_rohan_shield_a01"
+        body_name="bo_cap_wm_boromir_shield"
         shield_body_name="bo_wm_boromir_shield"
         recalculate_body="false"
         mesh="wm_boromir_shield"
@@ -1324,15 +987,15 @@
     </Item>
 
     <Item
-        id="wm_gondor_shield_a_cair_andros"
-        name="{=aom_wm_gondor_shield_a_cair_andros}[Gondor] Shield I - Cair Andros"
-        body_name="bo_cap_wm_gondor_shield_a_cair_andros"
-        shield_body_name="bo_wm_gondor_shield_a_cair_andros"
+        id="sm_gd_shield_a1"
+        name="{=aom_sm_gd_shield_a1_name}[Gondor] Wood Shield A1"
+        body_name="bo_cap_sm_gd_shield_a"
+        shield_body_name="bo_sm_gd_shield_a"
         recalculate_body="false"
-        mesh="wm_gondor_shield_a_cair_andros"
+        mesh="sm_gd_shield_a1"
         culture="Culture.gondor"
-        using_tableau="false"
         is_merchandise="true"
+        using_tableau="true"
         weight="4.0"
         appearance="0.7"
         Type="Shield"
@@ -1350,7 +1013,7 @@
                 item_usage="shield"
                 position="0.0, 0.00, 0.00"
                 rotation="0.0,10.0,40.00"
-                weapon_length="90"
+                weapon_length="100"
                 center_of_mass="-0.0,0.2,0.05"
                 hit_points="520"
                 modifier_group="shield">
@@ -1366,15 +1029,15 @@
     </Item>
 
     <Item
-        id="wm_gondor_shield_a_minas_ithil"
-        name="{=aom_wm_gondor_shield_a_minas_ithil}[Gondor] Shield I - Minas Ithil"
-        body_name="bo_cap_wm_gondor_shield_a_minas_ithil"
-        shield_body_name="bo_wm_gondor_shield_a_minas_ithil"
+        id="sm_gd_shield_a2"
+        name="{=aom_sm_gd_shield_a2_name}[Gondor] Wood Shield A2"
+        body_name="bo_cap_sm_gd_shield_a"
+        shield_body_name="bo_sm_gd_shield_a"
         recalculate_body="false"
-        mesh="wm_gondor_shield_a_minas_ithil"
+        mesh="sm_gd_shield_a2"
         culture="Culture.gondor"
-        using_tableau="false"
         is_merchandise="true"
+        using_tableau="true"
         weight="4.0"
         appearance="0.7"
         Type="Shield"
@@ -1392,7 +1055,7 @@
                 item_usage="shield"
                 position="0.0, 0.00, 0.00"
                 rotation="0.0,10.0,40.00"
-                weapon_length="90"
+                weapon_length="100"
                 center_of_mass="-0.0,0.2,0.05"
                 hit_points="520"
                 modifier_group="shield">
@@ -1408,16 +1071,16 @@
     </Item>
 
     <Item
-        id="wm_gondor_shield_d_new_minas_ithil"
-        name="{=aom_wm_gondor_shield_d_new_minas_ithil}[Gondor] Shield IV - Minas Ithil"
-        body_name="bo_cap_wm_gondor_shield_d_new_minas_ithil"
-        shield_body_name="bo_wm_gondor_shield_d_new_minas_ithil"
+        id="sm_gd_shield_a3"
+        name="{=aom_sm_gd_shield_a3_name}[Gondor] Leather Shield A3"
+        body_name="bo_cap_sm_gd_shield_a"
+        shield_body_name="bo_sm_gd_shield_a"
         recalculate_body="false"
-        mesh="wm_gondor_shield_d_new_minas_ithil"
+        mesh="sm_gd_shield_a3"
         culture="Culture.gondor"
-        using_tableau="false"
         is_merchandise="true"
-        weight="4.5"
+        using_tableau="true"
+        weight="4.0"
         appearance="0.7"
         Type="Shield"
         item_holsters="shield:shield_2:shield_3:shield_4"
@@ -1434,9 +1097,51 @@
                 item_usage="shield"
                 position="0.0, 0.00, 0.00"
                 rotation="0.0,10.0,40.00"
-                weapon_length="90"
-                center_of_mass="-0.0,0.0,0.00"
-                hit_points="400"
+                weapon_length="100"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="520"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            WoodenParry="true"
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_gd_shield_a4"
+        name="{=aom_sm_gd_shield_a4_name}[Gondor] Leather Shield A4"
+        body_name="bo_cap_sm_gd_shield_a"
+        shield_body_name="bo_sm_gd_shield_a"
+        recalculate_body="false"
+        mesh="sm_gd_shield_a4"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        using_tableau="true"
+        weight="4.0"
+        appearance="0.7"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="0,0,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="wood_shield"
+                item_usage="shield"
+                position="0.0, 0.00, 0.00"
+                rotation="0.0,10.0,40.00"
+                weapon_length="100"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="520"
                 modifier_group="shield">
                 <WeaponFlags
                     CanBlockRanged="true"
@@ -7049,48 +6754,6 @@
     </Item>
 
     <Item
-        id="rhun_tournament_sparring_shield"
-        name="{=aom_rhun_tournament_sparring_shield_name}[Rhûn] Tournament Sparring Shield"
-        body_name="bo_cap_battania_large_shield_b"
-        shield_body_name="bo_battania_large_shield_b"
-        recalculate_body="false"
-        mesh="easterling_shield"
-        culture="Culture.aserai"
-        using_tableau="false"
-        weight="3.5"
-        appearance="1"
-        Type="Shield"
-        is_merchandise="false"
-        item_holsters="shield_kite:shield_2:shield_3:shield_4"
-        has_lower_holster_priority="true"
-        holster_position_shift="0.0,0.1,0">
-        <ItemComponent>
-            <Weapon
-                weapon_class="LargeShield"
-                body_armor="1"
-                thrust_speed="82"
-                thrust_damage_type="Blunt"
-                speed_rating="82"
-                physics_material="wood_shield"
-                item_usage="hand_shield"
-                position="0.0, 0.00, 0.00"
-                rotation="280.00,-62.10,8.70"
-                weapon_length="118"
-                center_of_mass="0.0,0.065,0.05"
-                hit_points="265"
-                modifier_group="shield_wood">
-                <WeaponFlags
-                    CanBlockRanged="true"
-                    HasHitPoints="true" />
-            </Weapon>
-        </ItemComponent>
-        <Flags
-            WoodenParry="true"
-            ForceAttachOffHandPrimaryItemBone="true"
-            HeldInOffHand="true" />
-    </Item>
-
-    <Item
         id="rohan_tournament_sparring_shield"
         name="{=aom_rohan_tournament_sparring_shield_name}[Rohan] Tournament Sparring Shield"
         body_name="bo_cap_wm_rohan_shield_a02"
@@ -7346,10 +7009,10 @@
     <Item
         id="gondor_tournament_sparring_shield"
         name="{=aom_gondor_tournament_sparring_shield_name}[Gondor] Tournament Sparring Shield"
-        body_name="bo_cap_wm_gondor_shield_a02"
-        shield_body_name="bo_wm_gondor_shield_a02"
+        body_name="bo_cap_sm_gd_shield_a"
+        shield_body_name="bo_sm_gd_shield_a"
         recalculate_body="false"
-        mesh="wm_gondor_shield_a02"
+        mesh="sm_gd_shield_a1"
         culture="Culture.gondor"
         is_merchandise="false"
         using_tableau="false"
@@ -9714,4 +9377,256 @@
             HeldInOffHand="true" />
 	</Item>
 	
+
+    <!-- Black Numenorean weapons -->
+    <Item
+        id="sm_md_num_inf_shield_med_a"
+        name="{=aom_sm_md_num_inf_shield_med_a_name}[Mordor] Black Numenorean Infantry Shield I"
+        body_name="bo_cap_sm_md_num_inf_shield_med_a"
+        shield_body_name="bo_sm_md_num_inf_shield_med_a"
+        recalculate_body="false"
+        mesh="sm_md_num_inf_shield_med_a"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.5"
+        appearance="0.7"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="wood_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="118"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="440"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            WoodenParry="true"
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_shield_med_b"
+        name="{=aom_sm_md_num_inf_shield_med_b_name}[Mordor] Black Numenorean Infantry Shield II"
+        body_name="bo_cap_sm_md_num_inf_shield_med_a"
+        shield_body_name="bo_sm_md_num_inf_shield_med_a"
+        recalculate_body="false"
+        mesh="sm_md_num_inf_shield_med_b"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.5"
+        appearance="0.7"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="wood_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="118"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="440"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            WoodenParry="true"
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_shield_heavy_a"
+        name="{=aom_sm_md_num_inf_shield_heavy_a_name}[Mordor] Black Numenorean Infantry Heavy Shield I"
+        body_name="bo_cap_sm_md_num_inf_shield_heavy_a"
+        shield_body_name="bo_sm_md_num_inf_shield_heavy_a"
+        recalculate_body="false"
+        mesh="sm_md_num_inf_shield_heavy_a"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.5"
+        appearance="0.8"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="wood_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="122"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="505"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            WoodenParry="true"
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_shield_heavy_b"
+        name="{=aom_sm_md_num_inf_shield_heavy_b_name}[Mordor] Black Numenorean Infantry Heavy Shield II"
+        body_name="bo_cap_sm_md_num_inf_shield_heavy_a"
+        shield_body_name="bo_sm_md_num_inf_shield_heavy_a"
+        recalculate_body="false"
+        mesh="sm_md_num_inf_shield_heavy_b"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.5"
+        appearance="0.8"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="wood_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="122"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="505"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            WoodenParry="true"
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_shield_med_a"
+        name="{=aom_sm_md_num_cav_shield_med_a_name}[Mordor] Black Numenorean Cavalry Shield"
+        body_name="bo_cap_sm_md_num_cav_shield_med_a"
+        shield_body_name="bo_sm_md_num_cav_shield_med_a"
+        recalculate_body="false"
+        mesh="sm_md_num_cav_shield_med_a"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.0"
+        appearance="0.75"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="metal_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="111"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="415"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_shield_heavy_a"
+        name="{=aom_sm_md_num_cav_shield_heavy_a_name}[Mordor] Black Numenorean Cavalry Heavy Shield"
+        body_name="bo_cap_sm_md_num_cav_shield_heavy_a"
+        shield_body_name="bo_sm_md_num_cav_shield_heavy_a"
+        recalculate_body="false"
+        mesh="sm_md_num_cav_shield_heavy_a"
+        culture="Culture.mordor"
+        using_tableau="false"
+        is_merchandise="true"
+        weight="4.5"
+        appearance="0.85"
+        Type="Shield"
+        item_holsters="shield:shield_2:shield_3:shield_4"
+        has_lower_holster_priority="true"
+        holster_position_shift="-0.1,-0.1,0">
+        <ItemComponent>
+            <Weapon
+                weapon_class="LargeShield"
+                body_armor="1"
+                thrust_speed="89"
+                thrust_damage_type="Blunt"
+                speed_rating="89"
+                physics_material="metal_shield"
+                item_usage="shield"
+                position="0.18, 0.14, -0.02"
+                rotation="0.0,10.0,40.00"
+                weapon_length="116"
+                center_of_mass="-0.0,0.2,0.05"
+                hit_points="470"
+                modifier_group="shield">
+                <WeaponFlags
+                    CanBlockRanged="true"
+                    HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags
+            HeldInOffHand="true"
+            ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
+
 </Items>

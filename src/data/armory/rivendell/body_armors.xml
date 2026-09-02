@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Rivendell] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Rivendell] -->
+
     <Item
         id="rivendell_body_gold_a"
         name="{=aom_rivendell_body_gold_a_name}[Noldor] Armour I - Gold I"
@@ -8,7 +11,7 @@
         mesh="rivendell_body_gold_a"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -23,7 +26,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_gold_b"
         name="{=aom_rivendell_body_gold_b_name}[Noldor] Armour I - Gold II"
@@ -31,7 +35,7 @@
         mesh="rivendell_body_gold_b"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -46,7 +50,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_gold_c"
         name="{=aom_rivendell_body_gold_c_name}[Noldor] Armour I - Gold III"
@@ -69,7 +74,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_gold_d"
         name="{=aom_rivendell_body_gold_d_name}[Noldor] Armour I - Gold IV"
@@ -77,7 +83,7 @@
         mesh="rivendell_body_gold_d"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -92,7 +98,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_silver_a"
         name="{=aom_rivendell_body_silver_a_name}[Noldor] Armour I - Silver I"
@@ -115,7 +122,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_silver_b"
         name="{=aom_rivendell_body_silver_b_name}[Noldor] Armour I - Silver II"
@@ -123,7 +131,7 @@
         mesh="rivendell_body_silver_b"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -138,7 +146,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_silver_c"
         name="{=aom_rivendell_body_silver_c_name}[Noldor] Armour I - Silver III"
@@ -146,7 +155,7 @@
         mesh="rivendell_body_silver_c"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -161,7 +170,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_body_silver_d"
         name="{=aom_rivendell_body_silver_d_name}[Noldor] Armour I - Silver IV"
@@ -169,7 +179,7 @@
         mesh="rivendell_body_silver_d"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -184,7 +194,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_light_tier1"
         name="{=aom_rivendell_torso_light_light_tier1_name}[Noldor] Light Armour I"
@@ -192,7 +203,7 @@
         mesh="rivendell_torso_light_light_tier1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="1"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -203,12 +214,13 @@
                 leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_light_tier2"
         name="{=aom_rivendell_torso_light_light_tier2_name}[Noldor] Light Armor II"
@@ -216,7 +228,7 @@
         mesh="rivendell_torso_light_light_tier2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="2"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -227,12 +239,13 @@
                 leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_light_tier3"
         name="{=aom_rivendell_torso_light_light_tier3_name}[Noldor] Light Armor III"
@@ -240,7 +253,7 @@
         mesh="rivendell_torso_light_light_tier3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="2.5"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -251,12 +264,13 @@
                 leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_light_tier4"
         name="{=aom_rivendell_torso_light_light_tier4_name}[Noldor] Light Armor IV"
@@ -264,7 +278,7 @@
         mesh="rivendell_torso_light_light_tier4"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="3"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -275,12 +289,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier1"
         name="{=aom_rivendell_torso_heavy_tier1_name}[Noldor] Gold Heavy Armor I"
@@ -288,7 +303,7 @@
         mesh="rivendell_torso_heavy_tier1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="8"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -304,7 +319,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier2"
         name="{=aom_rivendell_torso_heavy_tier2_name}[Noldor] Gold Heavy Armor II"
@@ -312,7 +328,7 @@
         mesh="rivendell_torso_heavy_tier2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -328,7 +344,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier3"
         name="{=aom_rivendell_torso_heavy_tier3_name}[Noldor] Gold Heavy Armor III"
@@ -336,7 +353,7 @@
         mesh="rivendell_torso_heavy_tier3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -352,7 +369,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier1"
         name="{=aom_rivendell_torso_infantry_tier1_name}[Noldor] Gold Infantry Armor I"
@@ -360,7 +378,7 @@
         mesh="rivendell_torso_infantry_tier1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -376,7 +394,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier2"
         name="{=aom_rivendell_torso_infantry_tier2_name}[Noldor] Gold Infantry Armor II"
@@ -384,7 +403,7 @@
         mesh="rivendell_torso_infantry_tier2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="9.1"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -400,7 +419,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier3"
         name="{=aom_rivendell_torso_infantry_tier3_name}[Noldor] Gold Infantry Armor III"
@@ -408,7 +428,7 @@
         mesh="rivendell_torso_infantry_tier3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="9.1"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -424,7 +444,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier4"
         name="{=aom_rivendell_torso_infantry_tier4_name}[Noldor] Gold Infantry Armor IV"
@@ -432,7 +453,7 @@
         mesh="rivendell_torso_infantry_tier4"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -448,7 +469,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier1"
         name="{=aom_rivendell_torso_light_armored_tier1_name}[Noldor] Gold Medium Armor I"
@@ -456,7 +478,7 @@
         mesh="rivendell_torso_light_armored_tier1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="5"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -467,12 +489,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier2"
         name="{=aom_rivendell_torso_light_armored_tier2_name}[Noldor] Gold Medium Armor II"
@@ -480,7 +503,7 @@
         mesh="rivendell_torso_light_armored_tier2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -491,12 +514,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier3"
         name="{=aom_rivendell_torso_light_armored_tier3_name}[Noldor] Gold Medium Armor III"
@@ -504,7 +528,7 @@
         mesh="rivendell_torso_light_armored_tier3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -515,12 +539,13 @@
                 leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord1"
         name="{=aom_rivendell_torso_lord1_name}[Noldor] Gold Lord Armor I"
@@ -528,7 +553,7 @@
         mesh="rivendell_torso_lord1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -544,7 +569,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord2"
         name="{=aom_rivendell_torso_lord2_name}[Noldor] Gold Lord Armor II"
@@ -552,7 +578,7 @@
         mesh="rivendell_torso_lord2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -568,7 +594,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord3"
         name="{=aom_rivendell_torso_lord3_name}[Noldor] Gold Lord Armor III"
@@ -576,7 +603,7 @@
         mesh="rivendell_torso_lord3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -592,7 +619,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier1"
         name="{=aom_rivendell_torso_scalemail_tier1_name}[Noldor] Gold Scalemail Armor I"
@@ -600,7 +628,7 @@
         mesh="rivendell_torso_scalemail_tier1"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -611,12 +639,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier2"
         name="{=aom_rivendell_torso_scalemail_tier2_name}[Noldor] Gold Scalemail Armor II"
@@ -624,7 +653,7 @@
         mesh="rivendell_torso_scalemail_tier2"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -635,12 +664,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier3"
         name="{=aom_rivendell_torso_scalemail_tier3_name}[Noldor] Gold Scalemail Armor III"
@@ -648,7 +678,7 @@
         mesh="rivendell_torso_scalemail_tier3"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -659,12 +689,13 @@
                 leg_armor="45"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier1_silver"
         name="{=aom_rivendell_torso_heavy_tier1_silver_name}[Noldor] Silver Heavy Armor I"
@@ -672,7 +703,7 @@
         mesh="rivendell_torso_heavy_tier1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="8"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -688,7 +719,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier2_silver"
         name="{=aom_rivendell_torso_heavy_tier2_silver_name}[Noldor] Silver Heavy Armor II"
@@ -696,7 +728,7 @@
         mesh="rivendell_torso_heavy_tier2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -712,7 +744,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier3_silver"
         name="{=aom_rivendell_torso_heavy_tier3_silver_name}[Noldor] Silver Heavy Armor III"
@@ -720,7 +753,7 @@
         mesh="rivendell_torso_heavy_tier3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -736,7 +769,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier1_silver"
         name="{=aom_rivendell_torso_infantry_tier1_silver_name}[Noldor] Silver Infantry Armor I"
@@ -744,7 +778,7 @@
         mesh="rivendell_torso_infantry_tier1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -760,7 +794,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier2_silver"
         name="{=aom_rivendell_torso_infantry_tier2_silver_name}[Noldor] Silver Infantry Armor II"
@@ -768,7 +803,7 @@
         mesh="rivendell_torso_infantry_tier2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -784,7 +819,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier3_silver"
         name="{=aom_rivendell_torso_infantry_tier3_silver_name}[Noldor] Silver Infantry Armor III"
@@ -792,7 +828,7 @@
         mesh="rivendell_torso_infantry_tier3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -808,7 +844,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier4_silver"
         name="{=aom_rivendell_torso_infantry_tier4_silver_name}[Noldor] Silver Infantry Armor IV"
@@ -816,7 +853,7 @@
         mesh="rivendell_torso_infantry_tier4_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -832,7 +869,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier1_silver"
         name="{=aom_rivendell_torso_light_armored_tier1_silver_name}[Noldor] Silver Medium Armor I"
@@ -840,7 +878,7 @@
         mesh="rivendell_torso_light_armored_tier1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="5"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -851,12 +889,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier2_silver"
         name="{=aom_rivendell_torso_light_armored_tier2_silver_name}[Noldor] Silver Medium Armor II"
@@ -864,7 +903,7 @@
         mesh="rivendell_torso_light_armored_tier2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -875,12 +914,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier3_silver"
         name="{=aom_rivendell_torso_light_armored_tier3_silver_name}[Noldor] Silver Medium Armor III"
@@ -888,7 +928,7 @@
         mesh="rivendell_torso_light_armored_tier3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -899,12 +939,13 @@
                 leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord1_silver"
         name="{=aom_rivendell_torso_lord1_silver_name}[Noldor] Silver Lord Armor I"
@@ -912,7 +953,7 @@
         mesh="rivendell_torso_lord1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -928,7 +969,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord2_silver"
         name="{=aom_rivendell_torso_lord2_silver_name}[Noldor] Silver Lord Armor II"
@@ -936,7 +978,7 @@
         mesh="rivendell_torso_lord2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -952,7 +994,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord3_silver"
         name="{=aom_rivendell_torso_lord3_silver_name}[Noldor] Silver Lord Armor III"
@@ -960,7 +1003,7 @@
         mesh="rivendell_torso_lord3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -976,7 +1019,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier1_silver"
         name="{=aom_rivendell_torso_scalemail_tier1_silver_name}[Noldor] Silver Scalemail Armor I"
@@ -984,7 +1028,7 @@
         mesh="rivendell_torso_scalemail_tier1_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -995,12 +1039,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier2_silver"
         name="{=aom_rivendell_torso_scalemail_tier2_silver_name}[Noldor] Silver Scalemail Armor II"
@@ -1008,7 +1053,7 @@
         mesh="rivendell_torso_scalemail_tier2_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1019,12 +1064,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier3_silver"
         name="{=aom_rivendell_torso_scalemail_tier3_silver_name}[Noldor] Silver Scalemail Armor III"
@@ -1032,7 +1078,7 @@
         mesh="rivendell_torso_scalemail_tier3_silver"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1043,12 +1089,13 @@
                 leg_armor="45"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier3_silverb"
         name="{=aom_rivendell_torso_heavy_tier3_silverb_name}[Noldor] Silver Heavy Armor III - B"
@@ -1056,7 +1103,7 @@
         mesh="rivendell_torso_heavy_tier3_silverb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1072,7 +1119,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier4_silverb"
         name="{=aom_rivendell_torso_infantry_tier4_silverb_name}[Noldor] Silver Infantry Armor IV - B"
@@ -1080,7 +1128,7 @@
         mesh="rivendell_torso_infantry_tier4_silverb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1096,7 +1144,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier2_silverb"
         name="{=aom_rivendell_torso_scalemail_tier2_silverb_name}[Noldor] Silver Scalemail Armor II - B"
@@ -1104,7 +1153,7 @@
         mesh="rivendell_torso_scalemail_tier2_silverb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1115,12 +1164,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier3_silverb"
         name="{=aom_rivendell_torso_scalemail_tier3_silverb_name}[Noldor] Silver Scalemail Armor III - B"
@@ -1128,7 +1178,7 @@
         mesh="rivendell_torso_scalemail_tier3_silverb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1139,12 +1189,13 @@
                 leg_armor="45"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier1_silvergold"
         name="{=aom_rivendell_torso_heavy_tier1_silvergold_name}[Noldor] Silver-Gold Heavy Armor I"
@@ -1152,7 +1203,7 @@
         mesh="rivendell_torso_heavy_tier1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="8"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1168,7 +1219,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier2_silvergold"
         name="{=aom_rivendell_torso_heavy_tier2_silvergold_name}[Noldor] Silver-Gold Heavy Armor II"
@@ -1176,7 +1228,7 @@
         mesh="rivendell_torso_heavy_tier2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1192,7 +1244,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier3_silvergold"
         name="{=aom_rivendell_torso_heavy_tier3_silvergold_name}[Noldor] Silver-Gold Heavy Armor III"
@@ -1200,7 +1253,7 @@
         mesh="rivendell_torso_heavy_tier3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1216,7 +1269,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier1_silvergold"
         name="{=aom_rivendell_torso_infantry_tier1_silvergold_name}[Noldor] Silver-Gold Infantry Armor I"
@@ -1224,7 +1278,7 @@
         mesh="rivendell_torso_infantry_tier1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1240,7 +1294,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier2_silvergold"
         name="{=aom_rivendell_torso_infantry_tier2_silvergold_name}[Noldor] Silver-Gold Infantry Armor II"
@@ -1248,7 +1303,7 @@
         mesh="rivendell_torso_infantry_tier2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1264,7 +1319,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier3_silvergold"
         name="{=aom_rivendell_torso_infantry_tier3_silvergold_name}[Noldor] Silver-Gold Infantry Armor III"
@@ -1272,7 +1328,7 @@
         mesh="rivendell_torso_infantry_tier3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1288,7 +1344,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier4_silvergold"
         name="{=aom_rivendell_torso_infantry_tier4_silvergold_name}[Noldor] Silver-Gold Infantry Armor IV"
@@ -1296,7 +1353,7 @@
         mesh="rivendell_torso_infantry_tier4_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1312,7 +1369,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier1_silvergold"
         name="{=aom_rivendell_torso_light_armored_tier1_silvergold_name}[Noldor] Silver-Gold Medium Armor I"
@@ -1320,7 +1378,7 @@
         mesh="rivendell_torso_light_armored_tier1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="5"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1331,12 +1389,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier2_silvergold"
         name="{=aom_rivendell_torso_light_armored_tier2_silvergold_name}[Noldor] Silver-Gold Medium Armor II"
@@ -1344,7 +1403,7 @@
         mesh="rivendell_torso_light_armored_tier2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1355,12 +1414,13 @@
                 leg_armor="20"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_light_armored_tier3_silvergold"
         name="{=aom_rivendell_torso_light_armored_tier3_silvergold_name}[Noldor] Silver-Gold Medium Armor III"
@@ -1368,7 +1428,7 @@
         mesh="rivendell_torso_light_armored_tier3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="9"
+        weight="5.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1379,12 +1439,13 @@
                 leg_armor="30"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord1_silvergold"
         name="{=aom_rivendell_torso_lord1_silvergold_name}[Noldor] Silver-Gold Lord Armor I"
@@ -1392,7 +1453,7 @@
         mesh="rivendell_torso_lord1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1408,7 +1469,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord2_silvergold"
         name="{=aom_rivendell_torso_lord2_silvergold_name}[Noldor] Silver-Gold Lord Armor II"
@@ -1416,7 +1478,7 @@
         mesh="rivendell_torso_lord2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1432,7 +1494,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_lord3_silvergold"
         name="{=aom_rivendell_torso_lord3_silvergold_name}[Noldor] Silver-Gold Lord Armor III"
@@ -1440,7 +1503,7 @@
         mesh="rivendell_torso_lord3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="17"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1456,7 +1519,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier1_silvergold"
         name="{=aom_rivendell_torso_scalemail_tier1_silvergold_name}[Noldor] Silver-Gold Scalemail Armor I"
@@ -1464,7 +1528,7 @@
         mesh="rivendell_torso_scalemail_tier1_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="7"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1475,12 +1539,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier2_silvergold"
         name="{=aom_rivendell_torso_scalemail_tier2_silvergold_name}[Noldor] Silver-Gold Scalemail Armor II"
@@ -1488,7 +1553,7 @@
         mesh="rivendell_torso_scalemail_tier2_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1499,12 +1564,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier3_silvergold"
         name="{=aom_rivendell_torso_scalemail_tier3_silvergold_name}[Noldor] Silver-Gold Scalemail Armor III"
@@ -1512,7 +1578,7 @@
         mesh="rivendell_torso_scalemail_tier3_silvergold"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1523,12 +1589,13 @@
                 leg_armor="45"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_heavy_tier3_silvergoldb"
         name="{=aom_rivendell_torso_heavy_tier3_silvergoldb_name}[Noldor] Silver-Gold Heavy Armor III - B"
@@ -1536,7 +1603,7 @@
         mesh="rivendell_torso_heavy_tier3_silvergoldb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="12.6"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1552,7 +1619,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_infantry_tier4_silvergoldb"
         name="{=aom_rivendell_torso_infantry_tier4_silvergoldb_name}[Noldor] Silver-Gold Infantry Armor IV - B"
@@ -1560,7 +1628,7 @@
         mesh="rivendell_torso_infantry_tier4_silvergoldb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="15"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1576,7 +1644,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier2_silvergoldb"
         name="{=aom_rivendell_torso_scalemail_tier2_silvergoldb_name}[Noldor] Silver-Gold Scalemail Armor II - B"
@@ -1584,7 +1653,7 @@
         mesh="rivendell_torso_scalemail_tier2_silvergoldb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="10"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1595,12 +1664,13 @@
                 leg_armor="35"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="rivendell_torso_scalemail_tier3_silvergoldb"
         name="{=aom_rivendell_torso_scalemail_tier3_silvergoldb_name}[Noldor] Silver-Gold Scalemail Armor III - B"
@@ -1608,7 +1678,7 @@
         mesh="rivendell_torso_scalemail_tier3_silvergoldb"
         culture="Culture.rivendell"
         is_merchandise="true"
-        weight="12"
+        weight="15.4"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1619,12 +1689,13 @@
                 leg_armor="45"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="glorfindel_body"
         name="{=aom_glorfindel_body_name}[Noldor] Glorfindel Chestplate"
@@ -1648,7 +1719,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_body_1"
         name="{=aom_gf_body_1_name}[Noldor] Golden Flower Knight Chestplate I"
@@ -1672,7 +1744,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_body_2"
         name="{=aom_gf_body_2_name}[Noldor] Golden Flower Knight Chestplate II"
@@ -1696,7 +1769,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_body_3"
         name="{=aom_gf_body_3_name}[Noldor] Golden Flower Knight Chestplate III"
@@ -1720,7 +1794,8 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
     <Item
         id="gf_body_4"
         name="{=aom_gf_body_4_name}[Noldor] Golden Flower Knight Chestplate IV"
@@ -1744,5 +1819,6 @@
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
-    </Item>
+    </Item>
+
 </Items>

@@ -17,9 +17,13 @@
         <ItemComponent>
             <Armor
                 body_armor="10"
+                mane_cover_type="all"
+                family_type="1"
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
+        <Flags
+            Civilian="true" />
     </Item>
     <Item
         id="gondor_swan_horse_armor_1"
@@ -253,7 +257,7 @@
         id="rohan_horse_armor_scalemail"
         name="{=aom_rohan_horse_armor_scalemail_name}[Rohan] Horse Armour - Scalemail"
         mesh="lrd_horse_armour_10"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -272,7 +276,7 @@
         id="rohan_horse_armor_theoden"
         name="{=aom_rohan_horse_armor_theoden_name}[Rohan] Horse Armour - Theoden"
         mesh="lrd_horse_armour_11"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -291,7 +295,7 @@
         id="rohan_horse_armor_one"
         name="{=aom_rohan_horse_armor_one_name}[Rohan] Horse Armour I"
         mesh="lrd_horse_armour_6"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -310,7 +314,7 @@
         id="rohan_horse_armor_two"
         name="{=aom_rohan_horse_armor_two_name}[Rohan] Horse Armour II"
         mesh="lrd_horse_armour_7"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -329,7 +333,7 @@
         id="rohan_horse_armor_three"
         name="{=aom_rohan_horse_armor_three_name}[Rohan] Horse Armour III"
         mesh="lrd_horse_armour_8"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -348,7 +352,7 @@
         id="rohan_horse_armor_four"
         name="{=aom_rohan_horse_armor_four_name}[Rohan] Horse Armour IV"
         mesh="lrd_horse_armour_9"
-        culture="Culture.rohan"
+        culture="Culture.vlandia"
         weight="25"
         is_merchandise="true"
         appearance="0.65"
@@ -399,9 +403,9 @@
         <ItemComponent>
             <Horse
                 monster="Monster.spider"
-                maneuver="60"
+                maneuver="80"
                 speed="40"
-                charge_damage="10"
+                charge_damage="20"
                 body_length="100"
                 is_mountable="true">
                 <!-- Right body half of the L/R mesh-split (warg-pattern AdditionalMeshes on HorseComponent);
@@ -423,17 +427,53 @@
         item_category="war_horse"
         weight="999"
         is_merchandise="false"
+		difficulty="170"
         Type="Horse">
         <ItemComponent>
             <Horse
                 monster="Monster.taom_war_elephant"
-                maneuver="20"
-                speed="20"
-                charge_damage="350"
+                maneuver="10"
+                speed="10"
+                charge_damage="125"
                 body_length="100"
                 is_mountable="true"
 				family_type="10"
                 extra_health="0" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <!-- Mumakil mount (TAOM Mumakil feature; monster -> Monster.taom_mumakil).
+         A scaled-up war elephant: shares elephant_skeleton + as_elephant clips. SIZE lives HERE -
+         body_length="300" => SetInitialAgentScale(3.0) at build (there is no Monster-XML scale field).
+         Body = sk_mumakil_basemesh_a1; the war-platform is an AdditionalMesh (spider pattern). No
+         HorseHarness (Phase 1 = single rider, no platform crew) so the AdditionalMesh is never suppressed. -->
+    <Item
+        id="taom_mumakil"
+        name="{=taom_mumakil}Mumakil"
+        mesh="sk_mumakil_basemesh_a1"
+        subtype="horse"
+        item_category="war_horse"
+        weight="999"
+		difficulty="200"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_mumakil"
+                maneuver="5"
+                speed="5"
+                charge_damage="200"
+                body_length="300"
+                is_mountable="true"
+                family_type="10"
+                extra_health="0">
+                <AdditionalMeshes>
+                    <Mesh
+                        name="sk_mumakil_platform_a1"
+                        affected_by_cover="true" />
+                </AdditionalMeshes>
+            </Horse>
         </ItemComponent>
         <Flags Civilian="true" />
     </Item>
@@ -464,15 +504,65 @@
                 monster="Monster.chariot"
                 maneuver="25"
                 speed="55"
-                charge_damage="200"
+                charge_damage="90"
                 body_length="100"
+                family_type="4"
                 is_mountable="true">
+                <!-- cart (chariot_ride) + reins (chariot_harness_e_rein) are BAKED INTO the base mesh
+                     chariot_horse_brown (2026-06-13): a HorseHarness equipped on the mount suppresses the
+                     Horse item's AdditionalMeshes (native compositing), which dropped the cart when the
+                     Rhûn barding was worn. The cart/reins are the vehicle, not accessories, so they belong
+                     in the always-rendered base mesh; only the mane stays optional (the barding's
+                     mane_cover_type="all" hides it anyway when worn). Base = 59 active bones (≤63 cap). -->
                 <AdditionalMeshes>
                     <Mesh name="chariot_horse_brown_mane" affected_by_cover="true" />
-                    <Mesh name="chariot_harness_e_rein" affected_by_cover="true" />
-                    <Mesh name="chariot_ride" affected_by_cover="false" />
                 </AdditionalMeshes>
             </Horse>
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <!-- War-chariot HorseHarness barding (Rhûn Wainriders, issue #279). Two-horse meshes bound to
+         chariot_skeleton (built 2026-06-13 by duplicating the single LRD_horse_armour_4 / imperial
+         horse armor to BOTH chariot horse positions, A-bones +0.5X / B-bones -0.5X — the same
+         construction as chariot_horse_harness_imperial_b). family_type="4" matches taom_chariot_a so
+         these (and only these) fit the chariot; normal single-horse harnesses (family_type 1) don't.
+         Meshes live in chariot_correct_geo.tpac (a custom-skeleton harness must ship inside the
+         creature FBX that defines chariot_skeleton — a standalone _notused harness FBX crashes the
+         Kit on import because the editor binds the B-set/cart bones to the stock horse skeleton). -->
+    <Item
+        id="taom_chariot_armour_rhun"
+        name="{=taom_chariot_armour_rhun}[Rhûn] Wainrider Chariot Barding"
+        mesh="chariot_horse_armour_rhun"
+        culture="Culture.khuzait"
+        weight="50"
+        is_merchandise="false"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                mane_cover_type="all"
+                family_type="4"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_chariot_armour_imperial"
+        name="{=taom_chariot_armour_imperial}[Rhûn] Imperial Chariot Barding"
+        mesh="chariot_horse_harness_imperial_b"
+        culture="Culture.khuzait"
+        weight="50"
+        is_merchandise="false"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="45"
+                mane_cover_type="all"
+                family_type="4"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags Civilian="true" />
     </Item>
@@ -488,7 +578,7 @@
 	   Type="HorseHarness">
 		<ItemComponent>
 			<Armor
-                body_armor="250"
+                body_armor="80"
                 mane_cover_type="all"
                 family_type="10"
                 material_type="Plate" />
@@ -496,5 +586,495 @@
 		<Flags
             Civilian="true" />
 	</Item>
+    <Item
+        id="sk_rh_khml_barding_a"
+        name="{=aom_sk_rh_khml_barding_a_name}[Rhun] Khamul Barding"
+        mesh="sk_rh_khml_barding_a"
+        culture="Culture.khuzait"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="55"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            Civilian="true" />
+    </Item>
+    <Item
+        id="sk_rh_khml_barding_b"
+        name="{=aom_sk_rh_khml_barding_b_name}[Rhun] Easterling Barding"
+        mesh="sk_rh_khml_barding_b"
+        culture="Culture.khuzait"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags
+            Civilian="true" />
+    </Item>
 
+
+    <!-- ============================================================================================
+         DWARVEN WAR RAM (TAOM WarRam feature, Ironpass cavalry, issue #515).
+
+         Mesh provenance: both pelts and all eight bardings are skinned to the STOCK VANILLA HORSE
+         SKELETON, bone for bone, so Monster.taom_war_ram is a horse_2 shaped base_monster="horse"
+         entry and vanilla horse clips bind with nothing authored. See
+         Monsters/LOTR/lotr_monster_war_ram.xml for the full rationale.
+
+         SIZE: body_length="100" gives SetInitialAgentScale(1.0) on the MOUNT agent only (the rider
+         is untouched), i.e. the ram ships at its AUTHORED size and is deliberately not shrunk.
+
+         This was 75 first, on the reasoning that TAOM dwarves render at ~82% of human height so a
+         horse-sized ram would dwarf its rider. That reasoning was backwards: the war goat is MEANT
+         to dwarf its rider. The film reference (Dain at the Battle of the Five Armies) is a beast
+         taller at the horns than the dwarf on it, with the rider perched high and his feet well
+         clear of the ground, and 75 read visibly too small in game.
+
+         The mesh is authored at exactly vanilla horse scale, confirmed by measurement rather than
+         assumption: horsepelvis sits at 1.396m in this rig against vanilla horse's declared
+         standing_pelvis_height="1.40". So 1.0 IS the artist's intended size. At 1.0 the ram is
+         2.39m long and 2.27m to the horn tips against a ~1.47m dwarf, with its back at 1.40m.
+
+         TWO PELTS, NOT AdditionalMeshes: sk_eb_goat_a and sk_eb_goat_b are alternate bodies, so
+         they are two separate mount items. They must NOT be combined via <AdditionalMeshes>,
+         because a HorseHarness equipped on a mount SUPPRESSES the Horse item's AdditionalMeshes
+         (native compositing). That is exactly how the chariot lost its cart when barding was worn.
+
+         family_type is INHERITED as 1 from the horse, which is what carries vanilla's complete
+         rider-death, dismount and rider-fall surface. The known trade is that ram bardings also fit
+         horses in the player inventory UI and vice versa. creature-mount-authoring.md Phase 2 is
+         explicit that this is the right call and that isolation belongs in C#, not in the family:
+         the spider tried family 11 and simply had no rider-death surface at all.
+         ============================================================================================ -->
+    <Item
+        id="taom_war_ram_a"
+        name="{=taom_war_ram_a}War Ram"
+        mesh="sk_eb_goat_a"
+        culture="Culture.erebor"
+        subtype="horse"
+        item_category="war_horse"
+        value="950"
+        weight="300"
+        difficulty="0"
+        is_merchandise="true"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_war_ram"
+                maneuver="75"
+                speed="42"
+                charge_damage="18"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_war_ram_b"
+        name="{=taom_war_ram_b}Highland War Ram"
+        mesh="sk_eb_goat_b"
+        culture="Culture.erebor"
+        subtype="horse"
+        item_category="war_horse"
+        value="950"
+        weight="300"
+        difficulty="0"
+        is_merchandise="true"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_war_ram"
+                maneuver="75"
+                speed="42"
+                charge_damage="18"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <!-- War-ram barding ladder. Eight meshes ship in SK_EB_Goat_Bard_A_geo.tpac: four coverage
+         tiers crossed with two variants. Measured from the FBX, the tiers really are a ladder
+         (Light covers 1.78m of the body, Med 2.25m, Heavy 2.34m, Elite 2.42m) and every _b variant
+         drapes lower (z0 0.65 against 0.71 or 0.82), so _b is MORE armour than _a, not a recolour.
+         The body_armor values below follow that measured coverage. The ceiling stays under the
+         Khamul barding's 55, which is the top of this file.
+
+         mane_cover_type is inert here (the ram items carry no mane AdditionalMesh) but must be a
+         valid value.
+
+         NOTE: only two barding materials exist (m_eb_ram_barding_a1 and _a2) for eight meshes, so
+         the _a meshes and the _b meshes presumably share one material each. Confirm that binding in
+         the Modding Kit before shipping. -->
+    <Item
+        id="taom_ram_barding_light_a"
+        name="{=taom_ram_barding_light_a}[Erebor] Ram Barding I"
+        mesh="sk_eb_goat_bard_light_a"
+        culture="Culture.erebor"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_light_b"
+        name="{=taom_ram_barding_light_b}[Erebor] Ram Barding II"
+        mesh="sk_eb_goat_bard_light_b"
+        culture="Culture.erebor"
+        weight="14"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="24"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_med_a"
+        name="{=taom_ram_barding_med_a}[Erebor] Ram Mail Barding I"
+        mesh="sk_eb_goat_bard_med_a"
+        culture="Culture.erebor"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_med_b"
+        name="{=taom_ram_barding_med_b}[Erebor] Ram Mail Barding II"
+        mesh="sk_eb_goat_bard_med_b"
+        culture="Culture.erebor"
+        weight="20"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="34"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_heavy_a"
+        name="{=taom_ram_barding_heavy_a}[Erebor] Ram Plated Barding I"
+        mesh="sk_eb_goat_bard_heavy_a"
+        culture="Culture.erebor"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_heavy_b"
+        name="{=taom_ram_barding_heavy_b}[Erebor] Ram Plated Barding II"
+        mesh="sk_eb_goat_bard_heavy_b"
+        culture="Culture.erebor"
+        weight="27"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="44"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_elite_a"
+        name="{=taom_ram_barding_elite_a}[Erebor] Ironpass Ram Barding"
+        mesh="sk_eb_goat_bard_elite_a"
+        culture="Culture.erebor"
+        weight="30"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="50"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_ram_barding_elite_b"
+        name="{=taom_ram_barding_elite_b}[Erebor] Vanguard Ram Barding"
+        mesh="sk_eb_goat_bard_elite_b"
+        culture="Culture.erebor"
+        weight="32"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="54"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+	<!-- ===== WARG mounts + saddle (absorbed from Alliance.Wargs 2026-08-28) =====
+	     Byak0 assets, used with the author's permission (docs/reference/provenance-register.md).
+	     Ids are UNCHANGED on purpose: 392 Item.warg_* references across 12 TAOM ModuleData files
+	     and every existing save resolve against these exact ids. Do not rename them. -->
+	<Item id="warg_brown"
+		name="{=warg_brown}[Isengard] Warg"
+		mesh="warg_low"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.isengard"
+		is_merchandise="true"
+		value="1220"
+		weight="500"
+		difficulty="20"
+		appearance="1"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.warg"
+				maneuver="70"
+				speed="48"
+				charge_damage="6"
+				body_length="110"
+				is_mountable="true" >
+				<AdditionalMeshes>
+					<Mesh
+						name="warg_low_fur_with_saddle"
+						affected_by_cover="true" />
+				</AdditionalMeshes>
+				<Materials>
+					<Material
+						name="warg_skin">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFffffff"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFb3b3b3"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+					<Material
+						name="warg_skin2">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFbaae9a"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFffefd3"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+					<Material
+						name="warg_skin3">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFadb8ac"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFf1ffef"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+					<Material
+						name="warg_skin4">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFabb9ce"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFd4e6ff"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+				</Materials>
+			</Horse>
+		</ItemComponent>
+	</Item>
+
+	<Item id="warg_dark"
+		name="{=warg_dark}[Isengard] Dark Warg"
+		mesh="warg_low"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.isengard"
+		is_merchandise="true"
+		weight="500"
+		difficulty="20"
+		appearance="0"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.warg"
+				maneuver="70"
+				speed="48"
+				charge_damage="6"
+				body_length="110"
+				is_mountable="true" >
+				<AdditionalMeshes>
+					<Mesh
+						name="warg_low_fur_with_saddle_2"
+						affected_by_cover="true" />
+				</AdditionalMeshes>
+				<Materials>
+					<Material
+						name="warg_skin_2">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFffffff"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFb3b3b3"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+				</Materials>
+			</Horse>
+		</ItemComponent>
+	</Item>
+
+	<Item id="warg_albino"
+	name="{=warg_albino}[Isengard] White Warg"
+	mesh="warg_low"
+	subtype="horse"
+	item_category="war_horse"
+	culture="Culture.isengard"
+	is_merchandise="true"
+	weight="600"
+	difficulty="30"
+	appearance="0"
+	Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.warg"
+				maneuver="70"
+				speed="48"
+				charge_damage="8"
+				body_length="115"
+				extra_health="100"
+				is_mountable="true" >
+				<AdditionalMeshes>
+					<Mesh
+						name="warg_low_fur_with_saddle_3"
+						affected_by_cover="true" />
+				</AdditionalMeshes>
+				<Materials>
+					<Material
+						name="warg_skin_3">
+						<MeshMultipliers>
+							<MeshMultiplier
+								mesh_multiplier="FFffffff"
+								percentage="0.75" />
+							<MeshMultiplier
+								mesh_multiplier="FFffffff"
+								percentage="0.25" />
+						</MeshMultipliers>
+					</Material>
+				</Materials>
+			</Horse>
+		</ItemComponent>
+	</Item>
+
+	<Item
+    id="warg_saddle"
+    name="{=warg_saddle}[Isengard] Warg Saddle"
+    mesh="orc_rider_saddle"
+    is_merchandise="true"
+	culture="Culture.isengard"
+    weight="16"
+    appearance="0.5"
+    Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+        body_armor="12"
+        mane_cover_type="none"        
+        family_type="1"
+        material_type="Leather" />
+		</ItemComponent>
+		<Flags
+      Civilian="true" />
+	</Item>
+	<Item id="fell_warg"
+		name="{=fell_warg}[Dol Guldur] Fell Warg"
+		mesh="sk_gd_fellwarg"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.dolguldur"
+		is_merchandise="true"
+		weight="650"
+		difficulty="35"
+		appearance="0"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.fell_warg"
+				maneuver="72"
+				speed="50"
+				charge_damage="9"
+				body_length="110"
+				is_mountable="true" >
+				<AdditionalMeshes>
+					<Mesh
+						name="sk_gd_fellwarg_fur"
+						affected_by_cover="true" />
+				</AdditionalMeshes>
+			</Horse>
+		</ItemComponent>
+	</Item>
+	<!-- ===== /WARG ===== -->
 </Items>

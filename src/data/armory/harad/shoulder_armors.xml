@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- Harad -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- Harad -->
+
     <Item
         id="haradrim02_pauldrons"
         name="{=aom_haradrim02_pauldrons_name}[Harad] Pauldrons - Tier 3"
@@ -14,11 +17,12 @@
             <Armor
                 body_armor="12"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad03_cape"
         name="{=aom_harad03_cape_name}[Harad] Pauldrons - Tier 4"
@@ -32,11 +36,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad04_cape"
         name="{=aom_harad04_cape_name}[Harad] Pauldrons - Tier 5"
@@ -50,11 +55,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad05_v1_cape"
         name="{=aom_harad05_v1_cape_name}[Harad] Cavalry Pauldrons - Red"
@@ -68,11 +74,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad05_v2_cape"
         name="{=aom_harad05_v2_cape_name}[Harad] Cavalry Pauldrons - Green"
@@ -86,11 +93,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad05_v3_cape"
         name="{=aom_harad05_v3_cape_name}[Harad] Cavalry Pauldrons - Blue"
@@ -104,11 +112,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad05_v4_cape"
         name="{=aom_harad05_v4_cape_name}[Harad] Cavalry Pauldrons - Black"
@@ -122,11 +131,12 @@
             <Armor
                 body_armor="15"
                 arm_armor="12"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad06_v1_cape"
         name="{=aom_harad06_v1_cape_name}[Harad] Serpent Gaurd Pauldrons"
@@ -140,11 +150,12 @@
             <Armor
                 body_armor="20"
                 arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="harad07_cape"
         name="{=aom_harad07_cape_name}[Harad] Bone Pauldrons"
@@ -158,10 +169,12 @@
             <Armor
                 body_armor="20"
                 arm_armor="15"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

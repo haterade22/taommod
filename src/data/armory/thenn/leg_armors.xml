@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- empire -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- empire -->
+
     <Item
         id="thenn_boots"
         name="{=aom_thenn_boots_name} Thenn Boots"
@@ -15,11 +18,12 @@
             <Armor
                 leg_armor="15"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="thenn_boots_fur"
         name="{=aom_thenn_boots_fur_name} Thenn Boots Fur"
@@ -34,10 +38,12 @@
             <Armor
                 leg_armor="20"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

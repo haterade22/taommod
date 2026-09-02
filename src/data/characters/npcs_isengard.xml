@@ -19,13 +19,32 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Villager (upgrades to urukhai_recruit) -->
-	<NPCCharacter id="villager_isengard" race="uruk_hai" default_group="Infantry" level="1" name="{=aom_ig_villager}Villager" occupation="Villager" culture="Culture.isengard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="villager_isengard" race="uruk_hai" default_group="Infantry" level="1" name="{=aom_ig_villager}Villager" occupation="Villager" culture="Culture.isengard">
 		<face><face_key_template value="BodyProperty.fighter_empire" /></face>
-		<skills></skills>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
 		<upgrade_targets>
 			<upgrade_target id="NPCCharacter.urukhai_recruit" />
 		</upgrade_targets>
@@ -55,6 +74,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -168,12 +195,14 @@
 	</NPCCharacter>
 
 	<!-- Guards -->
-	<NPCCharacter id="prison_guard_isengard" race="uruk_hai" default_group="Infantry" level="4" culture="Culture.isengard" occupation="PrisonGuard" name="{=aom_ig_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="prison_guard_isengard" race="uruk_hai" default_group="Infantry" level="4" culture="Culture.isengard" occupation="PrisonGuard" name="{=aom_ig_prison_guard}Prison Guard">
 		<face><face_key_template value="BodyProperty.fighter_empire" /></face>
 		<skills>
 			<skill id="OneHanded" value="50" />
 			<skill id="TwoHanded" value="50" />
 			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
 		</skills>
 		<upgrade_targets></upgrade_targets>
 		<Equipments>
@@ -181,6 +210,12 @@
 				<equipment slot="Item1" id="Item.isengard_1h_sword_b" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item1" id="Item.isengard_1h_sword_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item1" id="Item.isengard_1h_sword_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item1" id="Item.isengard_1h_sword_b" />
 			</EquipmentRoster>
 		</Equipments>
@@ -210,6 +245,22 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Item1" id="Item.wm_isengard_shield_a03" />
+				<equipment slot="Head" id="Item.sk_uruk_hai_helmet_spear_med_a4" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Item1" id="Item.wm_isengard_shield_a03" />
+				<equipment slot="Head" id="Item.sk_uruk_hai_helmet_sword_med_a4" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -225,6 +276,18 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
@@ -249,6 +312,18 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -262,6 +337,16 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -282,6 +367,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -293,6 +386,12 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
 		</Equipments>
@@ -307,6 +406,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -325,6 +432,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -337,6 +452,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -353,6 +476,12 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -365,6 +494,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -383,6 +520,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -395,6 +540,12 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
 		</Equipments>
@@ -412,6 +563,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -423,6 +582,12 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
 		</Equipments>
@@ -440,6 +605,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -454,6 +627,16 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -479,6 +662,20 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Head" id="Item.sk_uruk_hai_helmet_spear_med_a4" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Head" id="Item.sk_uruk_hai_helmet_sword_med_a4" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -492,6 +689,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -513,6 +715,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -526,6 +733,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -547,6 +759,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -560,6 +777,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -581,6 +803,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -596,6 +823,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -608,6 +839,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -628,6 +864,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -641,6 +881,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -661,6 +905,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -677,6 +926,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -689,6 +942,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -709,6 +967,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -721,6 +984,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -743,6 +1011,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -757,6 +1030,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -779,6 +1057,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -797,6 +1080,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -810,6 +1098,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -832,6 +1125,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -845,6 +1143,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -854,6 +1156,11 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -871,6 +1178,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -883,6 +1195,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -892,6 +1208,11 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -909,6 +1230,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -922,6 +1248,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -931,6 +1262,10 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -949,6 +1284,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -961,6 +1300,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -979,6 +1322,10 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -992,6 +1339,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_bracer_light_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
@@ -1013,6 +1365,11 @@
 				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Gloves" id="Item.sk_uruk_hai_gloves_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1026,6 +1383,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -1045,6 +1406,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1058,6 +1427,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -1076,6 +1453,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1088,6 +1473,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -1106,6 +1499,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1121,6 +1522,14 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1133,6 +1542,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -1154,6 +1571,16 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.isengard_1h_sword_b" />
+				<equipment slot="Body" id="Item.sk_uruk_hai_plate_light_b2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1167,6 +1594,13 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
 		</Equipments>
@@ -1183,6 +1617,13 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1195,6 +1636,14 @@
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
@@ -1281,7 +1730,35 @@
 				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
 				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a2" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_uruk_hai_chainmail_a1" />
+				<equipment slot="Leg" id="Item.sk_uruk_hai_shoes_a1" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_isengard_lord_* rosters. -->
+	<NPCCharacter id="spc_isengard_lord_1" race="uruk_hai" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.isengard" name="{=aom_isengard_lord_1}Bold Uruk-hai captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_uruk_hai" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_isengard_lord_battle_male" />
+			<EquipmentSet id="taom_isengard_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_isengard_lord_2" race="uruk_hai" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.isengard" name="{=aom_isengard_lord_2}Cautious Uruk-hai captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_uruk_hai" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_isengard_lord_battle_male" />
+			<EquipmentSet id="taom_isengard_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
 </NPCCharacters>

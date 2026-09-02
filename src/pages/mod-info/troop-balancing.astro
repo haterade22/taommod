@@ -9,7 +9,7 @@ const cultures = [
     color: '#c8d0d8',
     alignment: 'good',
     race: 'Men',
-    troops: 71,
+    troops: 189,
     identity:
       'The Men of Gondor, the Land of Stone, are among the last remaining remnants of old Númenor. Infantry is the backbone of the Gondorian army, though each region provides its own unique bonuses and specializations. From the knights of Dol Amroth to the rangers of Ithilien, Gondorian soldiers rely on steel and discipline.',
     strengths: [
@@ -53,7 +53,7 @@ const cultures = [
     color: '#6a9fd4',
     alignment: 'good',
     race: 'Dwarf',
-    troops: 47,
+    troops: 64,
     identity:
       "Durin's Folk, the most well known clan of the dwarves. After the death of the dragon under the Lonely Mountain and the ascension of Dáin Ironfoot to King, the Iron Hills have been integrated into the Kingdom of Erebor. The Longbeards favor one-handed axes with shield, polearms and bows — disciplined, heavily armored infantry.",
     strengths: [
@@ -67,6 +67,21 @@ const cultures = [
     groups: ['Infantry', 'Ranged'],
     notes:
       'Erebor shares the troop file with Iron Hills but uses different cultural modifiers. Longbeards favor one-handed axes with shield, polearms and bows, while Ironfists favor two-handed axes, maces, mattocks and crossbows.',
+  },
+  {
+    id: 'dale',
+    name: 'Dalemen',
+    color: '#4169e1',
+    alignment: 'good',
+    race: 'Men',
+    troops: 35,
+    identity:
+      'Dale is a restored kingdom of Men beneath the Lonely Mountain, rebuilt from ruin into a vigilant and prosperous realm. Long trade with Erebor has given the Dalemen good steel and better bows, and their levies field a balanced line of spearmen, archers and light horse.',
+    strengths: [],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged', 'Cavalry'],
+    notes:
+      'Dale ships a 35-troop roster spanning levels 6-31 with infantry, ranged and cavalry branches. Cultural skill modifiers are applied by the mod at runtime and are not published in the culture XML, so the modifier table below is left blank for now.',
   },
   {
     id: 'iron_hills',
@@ -96,7 +111,7 @@ const cultures = [
     color: '#7ec8e3',
     alignment: 'good',
     race: 'Elf',
-    troops: 28,
+    troops: 30,
     identity:
       'The Noldor of Lindon and Imladris are among the last of the High Elves remaining in Middle-earth. Once mighty princes of Beleriand and jewel-smiths without equal, their glory is tempered by sorrow. Proud but no longer wrathful, they are implacable to enemies. Millennia of martial training gives them unmatched combat prowess across every discipline.',
     strengths: [
@@ -120,7 +135,7 @@ const cultures = [
     color: '#4a9e6d',
     alignment: 'good',
     race: 'Elf',
-    troops: 17,
+    troops: 19,
     identity:
       'The Silvan Elves of Mirkwood are a woodland folk in the truest sense — hunters, foresters and wardens of Greenwood the Great. Under King Thranduil, they favor strong drink, hearty feasts and skilled archery. Having endured the shadow of Dol Guldur, the Silvan Elves are wary and resolute.',
     strengths: [
@@ -163,12 +178,27 @@ const cultures = [
       'Lothlorien sits between Rivendell and Mirkwood — not quite as dominant in any single area, but the most well-rounded elven faction. Their troops have no weaknesses and perform well in any role.',
   },
   {
+    id: 'lindon',
+    name: 'Falathrim',
+    color: '#50a090',
+    alignment: 'good',
+    race: 'Elf',
+    troops: 30,
+    identity:
+      'The Falathrim of Lindon are the last of the Sindar shipwrights, dwelling at Mithlond where the Gulf of Lune meets the sea. Cirdan has kept the Grey Havens since the First Age, and the host he musters is small but drawn from ages of practice at arms.',
+    strengths: [],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
+    notes:
+      'Lindon fields the deepest tier spread of any roster, reaching level 51, and is the only Elven culture with both cavalry and horse-archer branches. Cultural skill modifiers are applied at runtime and are not published in the culture XML.',
+  },
+  {
     id: 'isengard',
     name: 'Uruk-Hai',
     color: '#a0a0a0',
     alignment: 'evil',
     race: 'Uruk-Hai',
-    troops: 38,
+    troops: 52,
     identity:
       "The Uruk-hai are the pinnacle of Orc-kind's breeding, wrought for war and discipline. Larger, stronger and more enduring beneath the sun than lesser Orcs, they fight in ordered companies. Strength commands obedience; weakness invites death. Where they march, they do so for conquest and slaughter.",
     strengths: [
@@ -191,7 +221,7 @@ const cultures = [
     color: '#b44444',
     alignment: 'evil',
     race: 'Orc',
-    troops: 28,
+    troops: 62,
     identity:
       'The Orcs of Mordor are as harsh and varied as the land that birthed them. Drawn from many breeds and tribes, they gather beneath the Dark Tower in uneasy unity. Cruel, cunning and ever watchful for advantage, they survive through brutality and hierarchy. In siege and attrition, they excel. The Black Land shapes its children well.',
     strengths: [
@@ -234,6 +264,51 @@ const cultures = [
       "Gundabad's heavy infantry is the strongest orc melee force in the game, devastating in open-field charges. In the future, creatures such as cave trolls, great bats and other mountain horrors will add unique gameplay to compensate for their ranged and cavalry weaknesses.",
   },
   {
+    id: 'goblin',
+    name: 'Goblins',
+    color: '#44582e',
+    alignment: 'evil',
+    race: 'Goblin',
+    troops: 23,
+    identity:
+      'The Goblins of Goblin-town swarm the tunnels beneath the High Pass of the Misty Mountains. Cowardly alone but overwhelming in number, they breed endlessly in the dark and pour out to ambush travellers on the mountain roads, serving the growing Shadow for plunder and spite.',
+    strengths: [],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged'],
+    notes:
+      'Goblin-town fields 23 troops across levels 11-36, infantry and ranged only, with no mounted branch. Cultural skill modifiers are applied at runtime and are not published in the culture XML.',
+  },
+  {
+    id: 'mistymountainorcs',
+    name: 'Misty Mountain Orcs',
+    color: '#6e5a40',
+    alignment: 'evil',
+    race: 'Orc',
+    troops: 23,
+    identity:
+      'The Orcs of the Misty Mountains are a savage war-host dwelling among the high peaks and deep places of the range. Driven by an ancient hatred of Elves and Dwarves, they muster vast and ill-armed legions and fall upon the lands below.',
+    strengths: [],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged'],
+    notes:
+      'A 23-troop roster spanning levels 11-36 with infantry and ranged branches. Cultural skill modifiers are applied at runtime and are not published in the culture XML.',
+  },
+  {
+    id: 'bluecraig',
+    name: 'Blue Craig Goblins',
+    color: '#4a6478',
+    alignment: 'evil',
+    race: 'Goblin',
+    troops: 23,
+    identity:
+      'The goblins of Blue Craig hold the western spurs of the Ered Luin, cut off from their kin by the length of Eriador. They raid the Dwarf-roads and the shores of Lune, and the Elves of Mithlond count them the nearer enemy.',
+    strengths: [],
+    weaknesses: [],
+    groups: ['Infantry', 'Ranged'],
+    notes:
+      'Blue Craig mirrors the Goblin-town structure at 23 troops across levels 11-36, infantry and ranged only. Cultural skill modifiers are applied at runtime and are not published in the culture XML.',
+  },
+  {
     id: 'dolguldur',
     name: 'Dol Guldur Orcs',
     color: '#7a9a5a',
@@ -261,7 +336,7 @@ const cultures = [
     color: '#c43c3c',
     alignment: 'evil',
     race: 'Men',
-    troops: 29,
+    troops: 33,
     identity:
       'The Haruze are the product of the constant intermingling of many different tribes of Harad. Many are simple herders and oasis farmers, able to traverse the deadly Dune Sea with ease. Their pack animals and horses they call Târag — Windwalkers. Like the wind their cavalry and light infantry can wash over entire armies.',
     strengths: [
@@ -283,7 +358,7 @@ const cultures = [
     color: '#d4a24c',
     alignment: 'evil',
     race: 'Men',
-    troops: 91,
+    troops: 117,
     identity:
       'The Easterlings of Rhûn hail from the vast lands beyond the Sea of Rhûn. Chief among their realms is the Medlóshukain — a dominion of wealth, pageantry and disciplined might. Their armies are no rabble host: shielded infantry, chariots and armored horsemen march in measured ranks, drilled for cohesion.',
     strengths: [
@@ -298,7 +373,7 @@ const cultures = [
     ],
     groups: ['Infantry', 'Ranged', 'Cavalry', 'HorseArcher'],
     notes:
-      'Rhun has the largest troop roster (91 troops) and fields the most diverse army among evil factions. Their polearm infantry excels at holding defensive positions, and their cavalry — second only to Rohan among human factions — adds significant mounted strength.',
+      'Rhun has the largest troop roster of any evil faction (117 troops) and fields the most diverse army among them. Their polearm infantry excels at holding defensive positions, and their cavalry — second only to Rohan among human factions — adds significant mounted strength.',
   },
   {
     id: 'dunland',
@@ -306,7 +381,7 @@ const cultures = [
     color: '#9a7a5a',
     alignment: 'evil',
     race: 'Men',
-    troops: 45,
+    troops: 46,
     identity:
       'The Dunlendings are a proud and ancient folk of the White Mountains and the wild hills of Dunland. Clannish and fiercely independent, they dwell in timber halls and hill-forts, bound tightly by blood and oath. They are herdsmen, hunters and raiders in equal measure. Old grudges die hard in Dunland and the hills remember.',
     strengths: [
@@ -326,7 +401,7 @@ const cultures = [
     color: '#5a8a8a',
     alignment: 'neutral',
     race: 'Men',
-    troops: 14,
+    troops: 16,
     identity:
       'The people of Umbar are the heirs of a divided legacy. A seafaring people above all else, the Umbareans command swift corsair fleets that prowl the coasts. Trade and piracy walk hand in hand, and few vessels pass the Bay of Belfalas without paying heed to its black-sailed ships. They measure worth in strength and dominance.',
     strengths: [
@@ -337,7 +412,7 @@ const cultures = [
     weaknesses: [{ skill: 'Riding', mod: '-15', note: 'Sailors, not horsemen' }],
     groups: ['Infantry', 'Ranged'],
     notes:
-      'Umbar has the smallest troop roster (14 troops) and is focused entirely on infantry combat. Their significant riding penalty (-15) reflects a seafaring culture with no cavalry tradition. Best suited for siege defense and close-quarters engagements.',
+      'Umbar has the smallest troop roster (16 troops) and is focused entirely on infantry combat. Their significant riding penalty (-15) reflects a seafaring culture with no cavalry tradition. Best suited for siege defense and close-quarters engagements.',
   },
   {
     id: 'khand',
@@ -358,7 +433,7 @@ const cultures = [
 
 const skillOrder = ['Athletics', 'Riding', 'OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing'];
 const totalTroops = cultures.reduce((sum, culture) => sum + culture.troops, 0);
-const implementedCultures = cultures.filter((culture) => culture.groups.length > 0).length;
+const implementedCultures = cultures.filter((culture) => culture.troops > 0).length;
 const baselineFamilies = 4;
 
 const skillLabels: Record<(typeof skillOrder)[number], { short: string; long: string }> = {
@@ -382,7 +457,7 @@ const groupLabels: Record<string, string> = {
 
 <BaseLayout
   title="Troop Balancing"
-  description="Detailed breakdown of troop skill balancing across all 15 TAOM cultures"
+  description="Detailed breakdown of troop skill balancing across all 21 TAOM cultures"
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-troop-balance-body"
@@ -432,7 +507,7 @@ const groupLabels: Record<string, string> = {
         <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Overview</h2>
         <div class="collapsible-content" style="display:none">
           <p class="section-desc">
-            TAOM rebalances all <strong>545 troops</strong> across <strong>15 cultures</strong> using a uniform formula: every
+            TAOM rebalances all <strong>899 troops</strong> across <strong>18 cultures</strong> using a uniform formula: every
             troop's 8 combat skills are calculated from a <strong>level-based baseline</strong> plus a
             <strong>cultural modifier</strong>. This ensures all same-tier troops are within 5-10 skill points of each
             other, while giving each culture a distinct tactical identity.

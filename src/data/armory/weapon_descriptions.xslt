@@ -44,34 +44,10 @@
 			<AvailablePiece id="wm_gondor_sword_a03_guard"/>
 			<AvailablePiece id="wm_gondor_sword_a03_hilt"/>
 			<AvailablePiece id="wm_gondor_sword_a03_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a04_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a04_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a04_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a04_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a05_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a05_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a05_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a05_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a06_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a06_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a06_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a06_pommel"/>
 			<AvailablePiece id="wm_gondor_sword_a07_blade"/>
 			<AvailablePiece id="wm_gondor_sword_a07_guard"/>
 			<AvailablePiece id="wm_gondor_sword_a07_hilt"/>
 			<AvailablePiece id="wm_gondor_sword_a07_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a08_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a08_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a08_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a08_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a09_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a09_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a09_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a09_pommel"/>
-			<AvailablePiece id="wm_gondor_sword_a10_blade"/>
-			<AvailablePiece id="wm_gondor_sword_a10_guard"/>
-			<AvailablePiece id="wm_gondor_sword_a10_hilt"/>
-			<AvailablePiece id="wm_gondor_sword_a10_pommel"/>
 			<AvailablePiece id="wm_witch_king_sword_blade"/>
 			<AvailablePiece id="wm_witch_king_sword_guard"/>
 			<AvailablePiece id="wm_witch_king_sword_hilt"/>
@@ -306,6 +282,15 @@
 			<AvailablePiece id="sm_dg_khml_sword_pommel_a"/>
 			<AvailablePiece id="sm_dg_khml_sword_pommel_b"/>
 			<AvailablePiece id="sm_dg_khml_sword_handle_a"/>
+			<AvailablePiece id="sm_md_num_sword_1h_blade_a" />
+			<AvailablePiece id="sm_md_num_sword_1h_blade_b" />
+			<AvailablePiece id="sm_md_num_sword_1h_blade_c" />
+			<AvailablePiece id="sm_md_num_sword_1h_guard_a" />
+			<AvailablePiece id="sm_md_num_sword_1h_guard_b" />
+			<AvailablePiece id="sm_md_num_sword_1h_handle_a" />
+			<AvailablePiece id="sm_md_num_sword_1h_handle_b" />
+			<AvailablePiece id="sm_md_num_sword_1h_pommel_a" />
+			<AvailablePiece id="sm_md_num_sword_1h_pommel_b" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>
@@ -386,6 +371,17 @@
 			<AvailablePiece id="wm_harad_sword_a02_blade"/>
 			<AvailablePiece id="wm_harad_sword_a02_guard"/>
 			<AvailablePiece id="wm_harad_sword_a02_handle"/>
+			<AvailablePiece id="sm_md_num_sword_2h_blade_a" />
+			<AvailablePiece id="sm_md_num_sword_2h_blade_b" />
+			<AvailablePiece id="sm_md_num_sword_2h_blade_c" />
+			<AvailablePiece id="sm_md_num_sword_2h_guard_a" />
+			<AvailablePiece id="sm_md_num_sword_2h_guard_b" />
+			<AvailablePiece id="sm_md_num_sword_2h_guard_c" />
+			<AvailablePiece id="sm_md_num_sword_2h_handle_a" />
+			<AvailablePiece id="sm_md_num_sword_2h_handle_b" />
+			<AvailablePiece id="sm_md_num_sword_2h_handle_c" />
+			<AvailablePiece id="sm_md_num_sword_2h_pommel_a" />
+			<AvailablePiece id="sm_md_num_sword_2h_pommel_b" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>
@@ -436,14 +432,6 @@
 			<AvailablePiece id="wm_swan_knight_lance_blade_a"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_b"/>
 			<AvailablePiece id="wm_swan_knight_lance_handle_a"/>
-			<AvailablePiece id="wm_rohan_spear_a_blade"/>
-			<AvailablePiece id="wm_rohan_spear_a_handle"/>
-			<AvailablePiece id="wm_rohan_spear_b_blade"/>
-			<AvailablePiece id="wm_rohan_spear_b_handle"/>
-			<AvailablePiece id="wm_rohan_spear_c_blade"/>
-			<AvailablePiece id="wm_rohan_spear_c_handle"/>
-			<AvailablePiece id="wm_rohan_spear_d_blade"/>
-			<AvailablePiece id="wm_rohan_spear_d_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_blade"/>
 			<AvailablePiece id="wm_swan_knight_spear_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_banner"/>
@@ -543,6 +531,13 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
+			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
+			<AvailablePiece id="sm_md_num_lance_blade_a" />
+			<AvailablePiece id="sm_md_num_lance_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>
@@ -583,17 +578,6 @@
 			<AvailablePiece id="wm_elven_spear_shaft"/>
 			<AvailablePiece id="wm_gondor_spear_blade"/>
 			<AvailablePiece id="wm_gondor_spear_shaft"/>
-			<AvailablePiece id="wm_rohan_spear_a_blade"/>
-			<AvailablePiece id="wm_rohan_spear_a_handle"/>
-			<AvailablePiece id="wm_rohan_spear_b_blade"/>
-			<AvailablePiece id="wm_rohan_spear_b_handle"/>
-			<AvailablePiece id="wm_rohan_spear_c_blade"/>
-			<AvailablePiece id="wm_rohan_spear_c_handle"/>
-			<AvailablePiece id="wm_rohan_spear_d_blade"/>
-			<AvailablePiece id="wm_rohan_spear_d_handle"/>
-			<AvailablePiece id="wm_rohan_spear_e_blade"/>
-			<AvailablePiece id="wm_rohan_spear_f_blade"/>
-			<AvailablePiece id="wm_rohan_spear_f_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_blade"/>
 			<AvailablePiece id="wm_swan_knight_spear_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_banner"/>
@@ -680,7 +664,23 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
+			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
+			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
 			<xsl:apply-templates select="@*|node()"/>
+			<!-- TAOM-1H-POLEARM:START -->
+			<AvailablePiece id="wm_dale_ws_spear_a01_blade"/>
+			<AvailablePiece id="wm_dale_ws_spear_a02_blade"/>
+			<AvailablePiece id="sm_md_num_lance_blade_a"/>
+			<AvailablePiece id="wm_dale_ws_polearm_head_a05"/>
+			<AvailablePiece id="wm_dale_ws_polearm_head_a06"/>
+			<AvailablePiece id="wm_dale_ws_spear_a01_handle"/>
+			<AvailablePiece id="wm_dale_ws_spear_a02_handle"/>
+			<AvailablePiece id="wm_dale_ws_polearm_a01_handle"/>
+			<AvailablePiece id="sm_md_num_lance_handle_a"/>
+			<!-- TAOM-1H-POLEARM:END -->
 		</AvailablePieces>
 	</xsl:template>
 
@@ -729,14 +729,6 @@
 			<AvailablePiece id="wm_swan_knight_lance_blade_a"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_b"/>
 			<AvailablePiece id="wm_swan_knight_lance_handle_a"/>
-			<AvailablePiece id="wm_rohan_spear_a_blade"/>
-			<AvailablePiece id="wm_rohan_spear_a_handle"/>
-			<AvailablePiece id="wm_rohan_spear_b_blade"/>
-			<AvailablePiece id="wm_rohan_spear_b_handle"/>
-			<AvailablePiece id="wm_rohan_spear_c_blade"/>
-			<AvailablePiece id="wm_rohan_spear_c_handle"/>
-			<AvailablePiece id="wm_rohan_spear_d_blade"/>
-			<AvailablePiece id="wm_rohan_spear_d_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_blade"/>
 			<AvailablePiece id="wm_swan_knight_spear_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_banner"/>
@@ -828,6 +820,13 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
+			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>			
+			<AvailablePiece id="sm_md_num_lance_blade_a" />
+			<AvailablePiece id="sm_md_num_lance_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>
@@ -874,14 +873,6 @@
 			<AvailablePiece id="wm_gondor_spear_a_shaft"/>
 			<AvailablePiece id="wm_gondor_spear_b_blade"/>
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
-			<AvailablePiece id="wm_rohan_spear_a_blade"/>
-			<AvailablePiece id="wm_rohan_spear_a_handle"/>
-			<AvailablePiece id="wm_rohan_spear_b_blade"/>
-			<AvailablePiece id="wm_rohan_spear_b_handle"/>
-			<AvailablePiece id="wm_rohan_spear_c_blade"/>
-			<AvailablePiece id="wm_rohan_spear_c_handle"/>
-			<AvailablePiece id="wm_rohan_spear_d_blade"/>
-			<AvailablePiece id="wm_rohan_spear_d_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_blade"/>
 			<AvailablePiece id="wm_swan_knight_spear_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_banner"/>
@@ -957,7 +948,7 @@
 			<AvailablePiece id="wm_gundabad_spear_a03_handle"/>
 			<AvailablePiece id="easterling_spear_blade"/>
 			<AvailablePiece id="easterling_spear_handle"/>
-<AvailablePiece id="dunland_caerdh_spear_head_a"/>
+			<AvailablePiece id="dunland_caerdh_spear_head_a"/>
 			<AvailablePiece id="dunland_caerdh_spear_head_b"/>
 			<AvailablePiece id="dunland_caerdh_spear_head_c"/>
 			<AvailablePiece id="dunland_caerdh_spear_head_d"/>
@@ -982,14 +973,6 @@
 			<AvailablePiece id="wm_gondor_spear_a_shaft"/>
 			<AvailablePiece id="wm_gondor_spear_b_blade"/>
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
-			<AvailablePiece id="wm_rohan_spear_a_blade"/>
-			<AvailablePiece id="wm_rohan_spear_a_handle"/>
-			<AvailablePiece id="wm_rohan_spear_b_blade"/>
-			<AvailablePiece id="wm_rohan_spear_b_handle"/>
-			<AvailablePiece id="wm_rohan_spear_c_blade"/>
-			<AvailablePiece id="wm_rohan_spear_c_handle"/>
-			<AvailablePiece id="wm_rohan_spear_d_blade"/>
-			<AvailablePiece id="wm_rohan_spear_d_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_blade"/>
 			<AvailablePiece id="wm_swan_knight_spear_handle"/>
 			<AvailablePiece id="wm_swan_knight_spear_banner"/>
@@ -1087,6 +1070,13 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
+			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
+			<AvailablePiece id="sm_md_num_lance_blade_a" />
+			<AvailablePiece id="sm_md_num_lance_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
+			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>

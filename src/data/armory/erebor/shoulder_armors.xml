@@ -17,8 +17,8 @@
             <Armor
                 body_armor="20"
                 arm_armor="20"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -36,8 +36,8 @@
             <Armor
                 body_armor="21"
                 arm_armor="22"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -55,8 +55,8 @@
             <Armor
                 body_armor="21"
                 arm_armor="22"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -74,7 +74,7 @@
             <Armor
                 body_armor="22"
                 arm_armor="20"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -93,7 +93,7 @@
             <Armor
                 body_armor="24"
                 arm_armor="21"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -112,7 +112,7 @@
             <Armor
                 body_armor="26"
                 arm_armor="22"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -131,7 +131,7 @@
             <Armor
                 body_armor="28"
                 arm_armor="23"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -150,7 +150,7 @@
             <Armor
                 body_armor="30"
                 arm_armor="24"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -169,7 +169,7 @@
             <Armor
                 body_armor="32"
                 arm_armor="25"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -188,7 +188,7 @@
             <Armor
                 body_armor="34"
                 arm_armor="26"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -207,7 +207,7 @@
             <Armor
                 body_armor="36"
                 arm_armor="27"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -226,7 +226,7 @@
             <Armor
                 body_armor="26"
                 arm_armor="22"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -245,7 +245,7 @@
             <Armor
                 body_armor="28"
                 arm_armor="23"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -264,7 +264,7 @@
             <Armor
                 body_armor="30"
                 arm_armor="24"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -283,7 +283,7 @@
             <Armor
                 body_armor="32"
                 arm_armor="25"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -302,7 +302,7 @@
             <Armor
                 body_armor="34"
                 arm_armor="26"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -321,7 +321,7 @@
             <Armor
                 body_armor="36"
                 arm_armor="27"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -340,7 +340,7 @@
             <Armor
                 body_armor="32"
                 arm_armor="25"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -359,7 +359,7 @@
             <Armor
                 body_armor="34"
                 arm_armor="26"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
@@ -378,8 +378,8 @@
             <Armor
                 body_armor="18"
                 arm_armor="16"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -397,123 +397,11 @@
             <Armor
                 body_armor="20"
                 arm_armor="18"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_a_blue"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_a_blue_name}[Erebor] Royal Plate Pauldrons I - Cape - Blue"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_a_blue"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="20"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_b_blue"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_b_blue_name}[Erebor]Royal Plate Pauldrons II - Cape - Blue"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_b_blue"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.2"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="24"
-                arm_armor="21"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_a_green"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_a_green_name}[Erebor] Royal Plate Pauldrons III - Cape - Green"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_a_green"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="20"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_b_green"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_b_green_name}[Erebor]Royal Plate Pauldrons IV - Cape - Green"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_b_green"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.2"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="24"
-                arm_armor="21"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_a_red"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_a_red_name}[Iron Hills] Royal Plate Pauldrons I - Cape - Red"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_a_red"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="20"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_pauldron_plate_cape_elite_b_red"
-        name="{=aom_sk_dwarf_erebor_pauldron_plate_cape_elite_b_red_name}[Iron Hills]Royal Plate Pauldrons II - Cape - Red"
-        mesh="sk_dwarf_erebor_pauldron_plate_cape_elite_b_red"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="6.2"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="24"
-                arm_armor="21"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
     <!-- #endregion -->
 
 

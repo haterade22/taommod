@@ -15,13 +15,28 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_heavy_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_heavy_d" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_heavy_d" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_heavy_d" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
 	<!-- Villager (upgrades to goblin slave) -->
-	<NPCCharacter id="villager_dolguldur" race="dg_uruk" default_group="Infantry" level="1" name="{=aom_dg_villager}Slave" occupation="Villager" culture="Culture.dolguldur" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="villager_dolguldur" race="dg_uruk" default_group="Infantry" level="1" name="{=aom_dg_villager}Slave" occupation="Villager" culture="Culture.dolguldur">
 		<face><face_key_template value="BodyProperty.fighter_dolguldur" /></face>
-		<skills></skills>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
 		<upgrade_targets>
 			<upgrade_target id="NPCCharacter.dg_goblin_slave" />
 		</upgrade_targets>
@@ -122,16 +137,21 @@
 	</NPCCharacter>
 
 	<!-- Guards -->
-	<NPCCharacter id="prison_guard_dolguldur" race="dg_uruk" default_group="Infantry" level="4" culture="Culture.dolguldur" occupation="PrisonGuard" name="{=aom_dg_prison_guard}Prison Guard" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+	<NPCCharacter id="prison_guard_dolguldur" race="dg_uruk" default_group="Infantry" level="4" culture="Culture.dolguldur" occupation="PrisonGuard" name="{=aom_dg_prison_guard}Prison Guard">
 		<face><face_key_template value="BodyProperty.fighter_dolguldur" /></face>
 		<skills>
 			<skill id="OneHanded" value="50" />
 			<skill id="TwoHanded" value="50" />
 			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
 		</skills>
 		<upgrade_targets></upgrade_targets>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item1" id="Item.wm_dol_goldur_halberd_a01" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item1" id="Item.wm_dol_goldur_halberd_a01" />
 			</EquipmentRoster>
 		</Equipments>
@@ -153,6 +173,14 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_halberd_a02" />
+				<equipment slot="Item1" id="Item.wm_gundabad_shield_a02" />
+				<equipment slot="Head" id="Item.sk_dg_uruk_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -162,6 +190,12 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_mace_a01" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_mace_a01" />
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
@@ -180,6 +214,12 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_sword_a01" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -192,6 +232,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_heavy_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_heavy_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_heavy_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_heavy_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -200,6 +245,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_b" />
 			</EquipmentRoster>
@@ -216,6 +265,11 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_sword_a01" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -225,6 +279,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -239,6 +297,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -250,6 +312,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -258,6 +324,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -273,6 +343,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -281,6 +355,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -296,6 +374,11 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_dol_goldur_1h_sword_a02" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -305,6 +388,13 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_dol_goldur_axe_a03" />
+				<equipment slot="Head" id="Item.sk_dg_uruk_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_c" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Item0" id="Item.wm_dol_goldur_axe_a03" />
 				<equipment slot="Head" id="Item.sk_dg_uruk_helmet_med_a" />
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_c" />
@@ -331,6 +421,12 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -344,6 +440,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
@@ -364,6 +465,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -380,6 +485,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -393,6 +502,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
@@ -413,6 +526,11 @@
 				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -429,6 +547,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -441,6 +564,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -461,6 +588,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -474,6 +606,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
@@ -494,6 +630,11 @@
 				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -510,6 +651,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -522,6 +667,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
@@ -541,6 +690,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -553,6 +707,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
@@ -575,6 +734,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -589,6 +753,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
@@ -611,6 +780,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -628,6 +802,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -641,6 +819,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -661,6 +843,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -671,6 +857,10 @@
 		<Traits><Trait id="Calculating" value="1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -686,6 +876,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -695,6 +889,10 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
@@ -710,6 +908,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -719,6 +921,10 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -734,6 +940,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -743,6 +953,10 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -758,6 +972,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -767,6 +985,10 @@
 		<Traits><Trait id="Valor" value="1" /><Trait id="Mercy" value="-1" /></Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_med_a" />
 			</EquipmentRoster>
@@ -785,6 +1007,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -797,6 +1023,10 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -815,6 +1045,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_c" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -828,6 +1062,11 @@
 		</Traits>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
+				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_a" />
 				<equipment slot="Cape" id="Item.sk_dg_uruk_pauldron_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
@@ -849,6 +1088,11 @@
 				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dg_uruk_bracer_med_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -865,6 +1109,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -874,6 +1122,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -888,6 +1140,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -896,6 +1152,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -911,6 +1171,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -921,6 +1185,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -929,6 +1196,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -943,6 +1214,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -951,6 +1226,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -964,6 +1243,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -975,6 +1257,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -983,6 +1269,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -998,6 +1288,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1006,6 +1300,9 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 			</EquipmentRoster>
 		</Equipments>
@@ -1019,6 +1316,10 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1029,6 +1330,9 @@
 			<EquipmentRoster civilian="true">
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
@@ -1037,6 +1341,10 @@
 		<skills></skills>
 		<Equipments>
 			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
@@ -1099,7 +1407,31 @@
 				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
 				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
 			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dg_uruk_chest_light_b" />
+				<equipment slot="Leg" id="Item.sk_dg_uruk_boots_light_a" />
+			</EquipmentRoster>
 		</Equipments>
 	</NPCCharacter>
 
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_dolguldur_lord_* rosters. -->
+	<NPCCharacter id="spc_dolguldur_lord_1" race="dg_uruk" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.dolguldur" name="{=aom_dolguldur_lord_1}Bold Dol Guldur captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_dolguldur" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_dolguldur_lord_battle_male" />
+			<EquipmentSet id="taom_dolguldur_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_dolguldur_lord_2" race="dg_uruk" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.dolguldur" name="{=aom_dolguldur_lord_2}Cautious Dol Guldur captain" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_dolguldur" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_dolguldur_lord_battle_male" />
+			<EquipmentSet id="taom_dolguldur_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
 </NPCCharacters>

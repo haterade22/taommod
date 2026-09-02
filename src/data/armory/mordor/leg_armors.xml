@@ -14,7 +14,7 @@
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="16"
+                leg_armor="11"
                 covers_legs="true"
                 modifier_group="leather"
                 material_type="Leather" />
@@ -34,10 +34,10 @@
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="20"
+                leg_armor="19"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -54,10 +54,10 @@
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="20"
+                leg_armor="19"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -74,10 +74,10 @@
         Type="LegArmor">
         <ItemComponent>
             <Armor
-                leg_armor="20"
+                leg_armor="19"
                 covers_legs="true"
-                modifier_group="leather"
-                material_type="Leather" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -203,66 +203,6 @@
     </Item>
 
     <Item
-        id="moriaorc_v1_boots"
-        name="{=aom_moriaorc_v1_boots_name}[Mordor] Orc Boots I"
-        mesh="moriaorc_v1_boots"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="25"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v2_boots"
-        name="{=aom_moriaorc_v2_boots_name}[Mordor] Orc Boots II"
-        mesh="moriaorc_v2_boots"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="25"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v3_boots"
-        name="{=aom_moriaorc_v3_boots_name}[Mordor] Orc Boots III"
-        mesh="moriaorc_v3_boots"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.5"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="20"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
         id="witch_king_boots"
         name="{=aom_witch_king_boots_name}[Mordor] Witch King's Greaves"
         mesh="witch_king_boots"
@@ -336,28 +276,8 @@
             <Armor
                 leg_armor="25"
                 covers_legs="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="ar_ardunian_elite_shoses"
-        name="{=aom_ar_ardunian_elite_shoses_name}[Mordor] Black Númenórean Boots"
-        mesh="ar_ardunian_elite_shoses"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="1.6"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="30"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -395,7 +315,7 @@
         appearance="1"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="12" covers_legs="true" modifier_group="cloth" material_type="Cloth" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -446,7 +366,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="20" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -463,7 +383,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="20" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -520,7 +440,7 @@
         appearance="1"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="11" covers_legs="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -537,7 +457,7 @@
         appearance="1"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="11" covers_legs="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -554,7 +474,7 @@
         appearance="1"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="11" covers_legs="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -571,7 +491,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="19" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -588,7 +508,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="19" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -605,7 +525,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="19" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -622,7 +542,7 @@
         appearance="4"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="27" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -639,7 +559,7 @@
         appearance="4"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="27" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -656,7 +576,82 @@
         appearance="4"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="27" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Black Numenorean armor (sk_md_num_*, sm_md_num_*)    -->
+    <!--  Corrupted Men: human skeleton, troops carry NO race attribute -->
+    <!--  Spec: lotraom-assets/tools/mordor_armor_and_troops.md         -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sm_md_num_grvs_light_a"
+        name="{=aom_sm_md_num_grvs_light_a_name}[Mordor] Black Numenorean Light Greaves"
+        subtype="leg_armor"
+        mesh="sm_md_num_grvs_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="3.9"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="27" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_grvs_med_a"
+        name="{=aom_sm_md_num_grvs_med_a_name}[Mordor] Black Numenorean Greaves"
+        subtype="leg_armor"
+        mesh="sm_md_num_grvs_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="7"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="41" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_grvs_heavy_a"
+        name="{=aom_sm_md_num_grvs_heavy_a_name}[Mordor] Black Numenorean Heavy Greaves"
+        subtype="leg_armor"
+        mesh="sm_md_num_grvs_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="7"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="41" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_grvs_elite_a"
+        name="{=aom_sm_md_num_grvs_elite_a_name}[Mordor] Black Numenorean Elite Greaves"
+        subtype="leg_armor"
+        mesh="sm_md_num_grvs_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="5.0"
+        difficulty="0"
+        appearance="7"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="41" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

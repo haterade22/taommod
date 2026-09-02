@@ -16,7 +16,7 @@
             <Armor
                 body_armor="15"
                 arm_armor="5"
-                has_gender_variations="true"
+                has_gender_variations="false"
                 covers_body="true"
                 modifier_group="leather"
                 material_type="Leather" />
@@ -39,7 +39,7 @@
             <Armor
                 body_armor="15"
                 arm_armor="5"
-                has_gender_variations="true"
+                has_gender_variations="false"
                 covers_body="true"
                 modifier_group="leather"
                 material_type="Leather" />
@@ -54,29 +54,6 @@
         name="{=aom_m_northern_armor_a1_name}[Northern] Padded Armour I"
         subtype="body_armor"
         mesh="sk_northern_armor_light_a"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="7.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="20"
-                arm_armor="8"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="m_northern_armor_a2"
-        name="{=aom_m_northern_armor_a2_name}[Northern] Padded Armour II"
-        subtype="body_armor"
-        mesh="sk_northern_armor_light_a_slim"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="7.5"
@@ -144,29 +121,6 @@
             UseTeamColor="true" />
     </Item>
     <Item
-        id="m_northern_armor_b2"
-        name="{=aom_m_northern_armor_b2_name}[Northern] Armour II"
-        subtype="body_armor"
-        mesh="sk_northern_armor_medium_a_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="9.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="24"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
         id="m_northern_armor_b3"
         name="{=aom_m_northern_armor_b3_name}[Northern] Armour III"
         subtype="body_armor"
@@ -189,30 +143,6 @@
         <Flags
             UseTeamColor="true" />
     </Item>
-    <Item
-        id="m_northern_armor_b4"
-        name="{=aom_m_northern_armor_b4_name}[Northern] Armour IV"
-        subtype="body_armor"
-        mesh="sk_northern_armor_medium_b_slim"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        weight="9.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="24"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
     <!-- [Northern] Body Armor - Medium (sk_ with gender variants) -->
     <Item
         id="sk_northern_armor_medium_a"
@@ -229,7 +159,7 @@
             <Armor
                 body_armor="30"
                 arm_armor="15"
-                has_gender_variations="true"
+                has_gender_variations="false"
                 covers_body="true"
                 modifier_group="chain"
                 material_type="Chainmail" />
@@ -252,7 +182,7 @@
             <Armor
                 body_armor="30"
                 arm_armor="15"
-                has_gender_variations="true"
+                has_gender_variations="false"
                 covers_body="true"
                 modifier_group="chain"
                 material_type="Chainmail" />

@@ -1,151 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
     <!-- Rhun -->
-    <Item
-        id="easterling_torso"
-        name="{=aom_easterling_torso_name}[Rhûn] Easterling Armour V"
-        subtype="body_armor"
-        mesh="easterling_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="16.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="48"
-                arm_armor="20"
-                leg_armor="20"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="easterlingwarriors01_torso"
-        name="{=aom_easterlingwarriors01_torso_name}[Rhûn] Easterling Armour III"
-        subtype="body_armor"
-        mesh="easterlingwarriors01_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="6.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="15"
-                leg_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="easterlingwarriors02_torso"
-        name="{=aom_easterlingwarriors02_torso_name}[Rhûn] Easterling Armour IV"
-        subtype="body_armor"
-        mesh="easterlingwarriors02_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="5.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="15"
-                leg_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="easterlingwarriors03_torso"
-        name="{=aom_easterlingwarriors03_torso_name}[Rhûn] Easterling Armour II"
-        subtype="body_armor"
-        mesh="easterlingwarriors03_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="20"
-                arm_armor="15"
-                leg_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="easterlingwarriors04_torso"
-        name="{=aom_easterlingwarriors04_torso_name}[Rhûn] Easterling Armour I"
-        subtype="body_armor"
-        mesh="easterlingwarriors04_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
-                arm_armor="15"
-                leg_armor="8"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-    <Item
-        id="easterling02_v1_torso"
-        name="{=aom_easterling02_v1_torso_name}[Rhûn] Easterling Archer Armour I"
-        subtype="body_armor"
-        mesh="easterling02_v1_torso"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="15"
-                arm_armor="15"
-                leg_armor="6"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
     <!-- ==================== LOKE-RIM CHEST ARMORS (Gold-Bronze) ==================== -->
 
     <!-- Loke-Rim Tunics -->
@@ -156,7 +11,7 @@
         mesh="sk_rh_loke_tunic_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -182,7 +37,7 @@
         mesh="sk_rh_loke_chest_light_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="4.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -193,8 +48,8 @@
                 leg_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -206,7 +61,7 @@
         mesh="sk_rh_loke_chest_light_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="5.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -217,8 +72,8 @@
                 leg_armor="11"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -231,7 +86,7 @@
         mesh="sk_rh_loke_chest_med_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="9.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -242,8 +97,8 @@
                 leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -255,7 +110,7 @@
         mesh="sk_rh_loke_chest_med_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -266,8 +121,8 @@
                 leg_armor="16"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -279,7 +134,7 @@
         mesh="sk_rh_loke_chest_heavy_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="14.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -303,7 +158,7 @@
         mesh="sk_rh_loke_chest_heavy_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -329,7 +184,7 @@
         mesh="sk_rh_loke_scalemail_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="6.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -340,8 +195,8 @@
                 leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -353,7 +208,7 @@
         mesh="sk_rh_loke_scalemail_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="7.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -364,8 +219,8 @@
                 leg_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -377,7 +232,7 @@
         mesh="sk_rh_loke_scalemail_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="11.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -388,8 +243,8 @@
                 leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -401,7 +256,7 @@
         mesh="sk_rh_loke_scalemail_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="12.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -412,8 +267,8 @@
                 leg_armor="18"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -425,7 +280,7 @@
         mesh="sk_rh_loke_scalemail_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="16.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -449,7 +304,7 @@
         mesh="sk_rh_loke_scalemail_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="17.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -474,7 +329,7 @@
         mesh="sk_rh_loke_scalemail_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -498,7 +353,7 @@
         mesh="sk_rh_loke_scalemail_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="20.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -522,7 +377,7 @@
         mesh="sk_rh_loke_scalemail_lord_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="22.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -548,7 +403,7 @@
         mesh="sk_rh_loke_chest_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="5.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -559,8 +414,8 @@
                 leg_armor="11"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -572,7 +427,7 @@
         mesh="sk_rh_loke_chest_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="6.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -583,8 +438,8 @@
                 leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -596,7 +451,7 @@
         mesh="sk_rh_loke_chest_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -607,8 +462,8 @@
                 leg_armor="16"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -620,7 +475,7 @@
         mesh="sk_rh_loke_chest_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="11.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -631,8 +486,8 @@
                 leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -644,7 +499,7 @@
         mesh="sk_rh_loke_chest_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -668,7 +523,7 @@
         mesh="sk_rh_loke_chest_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="16.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -692,7 +547,7 @@
         mesh="sk_rh_loke_chest_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="18.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -716,7 +571,7 @@
         mesh="sk_rh_loke_chest_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -740,7 +595,7 @@
         mesh="sk_rh_loke_chest_lord_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="21.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -764,7 +619,7 @@
         mesh="sk_rh_loke_chest_lord_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -790,7 +645,7 @@
         mesh="sk_rh_loke_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="8.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -814,7 +669,7 @@
         mesh="sk_rh_loke_hplate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="13.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -838,7 +693,7 @@
         mesh="sk_rh_loke_hplate_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="14.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -862,7 +717,7 @@
         mesh="sk_rh_loke_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="17.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -886,7 +741,7 @@
         mesh="sk_rh_loke_hplate_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="18.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -910,7 +765,7 @@
         mesh="sk_rh_loke_hplate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="21.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -934,7 +789,7 @@
         mesh="sk_rh_loke_hplate_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="22.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -958,7 +813,7 @@
         mesh="sk_rh_loke_hplate_elite_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -984,7 +839,7 @@
         mesh="sk_rh_loke_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1008,7 +863,7 @@
         mesh="sk_rh_loke_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1032,7 +887,7 @@
         mesh="sk_rh_loke_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1056,7 +911,7 @@
         mesh="sk_rh_loke_plate_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="20.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1080,7 +935,7 @@
         mesh="sk_rh_loke_plate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1104,7 +959,7 @@
         mesh="sk_rh_loke_plate_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="24.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1128,7 +983,7 @@
         mesh="sk_rh_loke_plate_elite_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="25.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1156,7 +1011,7 @@
         mesh="sk_rh_drag_chainmail_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="8.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1167,8 +1022,8 @@
                 leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1182,7 +1037,7 @@
         mesh="sk_rh_drag_chest_light_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="4.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1193,8 +1048,8 @@
                 leg_armor="10"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1206,7 +1061,7 @@
         mesh="sk_rh_drag_chest_light_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="5.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1217,8 +1072,8 @@
                 leg_armor="11"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1230,7 +1085,7 @@
         mesh="sk_rh_drag_chest_med_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="9.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1241,8 +1096,8 @@
                 leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1254,7 +1109,7 @@
         mesh="sk_rh_drag_chest_med_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1265,8 +1120,8 @@
                 leg_armor="16"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1278,7 +1133,7 @@
         mesh="sk_rh_drag_chest_heavy_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="14.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1302,7 +1157,7 @@
         mesh="sk_rh_drag_chest_heavy_d"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1328,7 +1183,7 @@
         mesh="sk_rh_drag_scalemail_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="6.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1339,8 +1194,8 @@
                 leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1352,7 +1207,7 @@
         mesh="sk_rh_drag_scalemail_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="7.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1363,8 +1218,8 @@
                 leg_armor="13"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1376,7 +1231,7 @@
         mesh="sk_rh_drag_scalemail_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="11.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1387,8 +1242,8 @@
                 leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1400,7 +1255,7 @@
         mesh="sk_rh_drag_scalemail_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="12.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1411,8 +1266,8 @@
                 leg_armor="18"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1424,7 +1279,7 @@
         mesh="sk_rh_drag_scalemail_heav_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="16.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1448,7 +1303,7 @@
         mesh="sk_rh_drag_scalemail_heav_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="17.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1472,7 +1327,7 @@
         mesh="sk_rh_drag_scalemail_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1496,7 +1351,7 @@
         mesh="sk_rh_drag_scalemail_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="20.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1520,7 +1375,7 @@
         mesh="sk_rh_drag_scalemail_lord_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="22.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1546,7 +1401,7 @@
         mesh="sk_rh_drag_chest_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="5.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1557,8 +1412,8 @@
                 leg_armor="11"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1570,7 +1425,7 @@
         mesh="sk_rh_drag_chest_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="6.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1581,8 +1436,8 @@
                 leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1594,7 +1449,7 @@
         mesh="sk_rh_drag_chest_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1605,8 +1460,8 @@
                 leg_armor="16"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1618,7 +1473,7 @@
         mesh="sk_rh_drag_chest_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="11.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1629,8 +1484,8 @@
                 leg_armor="17"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1642,7 +1497,7 @@
         mesh="sk_rh_drag_chest_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1666,7 +1521,7 @@
         mesh="sk_rh_drag_chest_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="16.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1690,7 +1545,7 @@
         mesh="sk_rh_drag_chest_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="18.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1714,7 +1569,7 @@
         mesh="sk_rh_drag_chest_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1738,7 +1593,7 @@
         mesh="sk_rh_drag_chest_lord_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="21.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1762,7 +1617,7 @@
         mesh="sk_rh_drag_chest_lord_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1788,7 +1643,7 @@
         mesh="sk_rh_drag_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="8.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1812,7 +1667,7 @@
         mesh="sk_rh_drag_hplate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="13.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1836,7 +1691,7 @@
         mesh="sk_rh_drag_hplate_med_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="14.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1860,7 +1715,7 @@
         mesh="sk_rh_drag_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="17.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1884,7 +1739,7 @@
         mesh="sk_rh_drag_hplate_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="18.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1908,7 +1763,7 @@
         mesh="sk_rh_drag_hplate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="21.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1932,7 +1787,7 @@
         mesh="sk_rh_drag_hplate_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="22.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1956,7 +1811,7 @@
         mesh="sk_rh_drag_hplate_elite_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -1982,7 +1837,7 @@
         mesh="sk_rh_drag_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="10.0"
+        weight="7.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2006,7 +1861,7 @@
         mesh="sk_rh_drag_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="15.0"
+        weight="11.7"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2030,7 +1885,7 @@
         mesh="sk_rh_drag_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="19.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2054,7 +1909,7 @@
         mesh="sk_rh_drag_plate_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="20.0"
+        weight="16.2"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2078,7 +1933,7 @@
         mesh="sk_rh_drag_plate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="23.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2102,7 +1957,7 @@
         mesh="sk_rh_drag_plate_elite_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="24.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">
@@ -2126,7 +1981,7 @@
         mesh="sk_rh_drag_plate_elite_c"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="25.0"
+        weight="19.8"
         difficulty="0"
         appearance="1.5"
         Type="BodyArmor">

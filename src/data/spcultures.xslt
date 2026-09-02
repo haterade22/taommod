@@ -30,14 +30,20 @@
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.dunland_militia_veteran_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.dunland_militia_veteran_archer</xsl:attribute>
 
-			<!-- Party templates -->
-			<xsl:attribute name="villager_party_template">PartyTemplate.villager_empire_template</xsl:attribute>
+			<!-- Party templates. Every engine-read attribute must be set explicitly: the
+			     <xsl:apply-templates select="@*"/> above copies the vanilla value in, so an
+			     attribute this block does not name silently keeps its Calradian binding.
+			     Verified against CultureObject.Deserialize (v1.4.8, CultureObject.cs:269-280).
+			     Caravans are NOT in this list because the deserializer reads them only from the
+			     plural child elements further down. CulturePartyTemplateTests pins all of it. -->
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_dunland_template</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_dunland_template</xsl:attribute>
-			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_empire</xsl:attribute>
-			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_empire</xsl:attribute>
 			<xsl:attribute name="militia_party_template">PartyTemplate.militia_dunland_template</xsl:attribute>
-			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_empire_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_dunland_template</xsl:attribute>
 			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_dunland</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_dunland_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_dunland_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_dunland_template_level_3</xsl:attribute>
 
 			<!-- Encounter/display -->
 			<xsl:attribute name="encounter_background_mesh">encounter_empire</xsl:attribute>
@@ -295,8 +301,20 @@
 				<feat id="taom_dunland_volunteer_rate" />
 			</cultural_feats>
 
+			<!-- Caravans. CultureObject.Deserialize reads caravans ONLY from these plural child
+			     elements; the singular caravan_party_template attribute is never read. It also APPENDS
+			     every matching element into one list rather than replacing, so vanilla's copy must be
+			     excluded from the passthrough below or the culture carries both and rolls Calradian
+			     roughly half the time. CulturePartyTemplateTests pins the emit and the exclusion. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_dunland" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_dunland" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -320,14 +338,16 @@
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.harad_militia_veteran_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.harad_militia_veteran_archer</xsl:attribute>
 
-			<!-- Party templates -->
-			<xsl:attribute name="villager_party_template">PartyTemplate.villager_aserai_template</xsl:attribute>
+			<!-- Party templates. See the Dunland block above for why every engine-read attribute
+			     is set explicitly and why caravans are handled as child elements instead. -->
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_harad_template</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_template</xsl:attribute>
-			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_aserai</xsl:attribute>
-			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_aserai</xsl:attribute>
-			<xsl:attribute name="militia_party_template">PartyTemplate.militia_aserai_template</xsl:attribute>
-			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_aserai_template</xsl:attribute>
-			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_aserai</xsl:attribute>
+			<xsl:attribute name="militia_party_template">PartyTemplate.militia_harad_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_harad_template</xsl:attribute>
+			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_harad</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_harad_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_harad_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_harad_template_level_3</xsl:attribute>
 
 			<!-- Encounter/display -->
 			<xsl:attribute name="encounter_background_mesh">encounter_aserai</xsl:attribute>
@@ -575,8 +595,16 @@
 				<template name="NPCCharacter.spc_harad_headman_3" />
 			</notable_templates>
 
+			<!-- Caravans. See the Dunland block above for why these are children, not attributes. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_harad" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_harad" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -600,14 +628,16 @@
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.rohan_militia_veteran_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.rohan_militia_veteran_archer</xsl:attribute>
 
-			<!-- Party templates -->
-			<xsl:attribute name="villager_party_template">PartyTemplate.villager_vlandia_template</xsl:attribute>
+			<!-- Party templates. See the Dunland block above for why every engine-read attribute
+			     is set explicitly and why caravans are handled as child elements instead. -->
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_rohan_template</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_rohan_template</xsl:attribute>
-			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_rohan</xsl:attribute>
-			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_rohan</xsl:attribute>
-			<xsl:attribute name="militia_party_template">PartyTemplate.militia_vlandia_template</xsl:attribute>
-			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_vlandia_template</xsl:attribute>
-			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_vlandia</xsl:attribute>
+			<xsl:attribute name="militia_party_template">PartyTemplate.militia_rohan_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_rohan_template</xsl:attribute>
+			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_rohan</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_rohan_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_rohan_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_rohan_template_level_3</xsl:attribute>
 
 			<!-- Encounter/display -->
 			<xsl:attribute name="encounter_background_mesh">encounter_vlandia</xsl:attribute>
@@ -864,8 +894,16 @@
 				<feat id="taom_rohan_plain_speed" />
 			</cultural_feats>
 
+			<!-- Caravans. See the Dunland block above for why these are children, not attributes. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_rohan" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_rohan" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates or self::cultural_feats)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -889,14 +927,16 @@
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.rhun_militia_veteran_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.rhun_militia_veteran_archer</xsl:attribute>
 
-			<!-- Party templates -->
-			<xsl:attribute name="villager_party_template">PartyTemplate.villager_khuzait_template</xsl:attribute>
+			<!-- Party templates. See the Dunland block above for why every engine-read attribute
+			     is set explicitly and why caravans are handled as child elements instead. -->
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_rhun_template</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_rhun_template</xsl:attribute>
-			<xsl:attribute name="caravan_party_template">PartyTemplate.caravan_template_rhun</xsl:attribute>
-			<xsl:attribute name="elite_caravan_party_template">PartyTemplate.elite_caravan_template_rhun</xsl:attribute>
-			<xsl:attribute name="militia_party_template">PartyTemplate.militia_khuzait_template</xsl:attribute>
-			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_khuzait_template</xsl:attribute>
-			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_khuzait</xsl:attribute>
+			<xsl:attribute name="militia_party_template">PartyTemplate.militia_rhun_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_rhun_template</xsl:attribute>
+			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_rhun</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_rhun_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_rhun_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_rhun_template_level_3</xsl:attribute>
 
 			<!-- Encounter/display -->
 			<xsl:attribute name="encounter_background_mesh">encounter_khuzait</xsl:attribute>
@@ -1134,8 +1174,16 @@
 				<template name="NPCCharacter.spc_rhun_headman_3" />
 			</notable_templates>
 
+			<!-- Caravans. See the Dunland block above for why these are children, not attributes. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_rhun" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_rhun" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::vassal_reward_items or self::banner_bearer_replacement_weapons or self::default_policies or self::male_names or self::female_names or self::clan_names or self::notable_templates)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -1157,6 +1205,7 @@
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.dale_militia_veteran_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.dale_militia_veteran_archer</xsl:attribute>
 			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_dale_template</xsl:attribute>
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_dale_template</xsl:attribute>
 			<xsl:attribute name="militia_party_template">PartyTemplate.militia_dale_template</xsl:attribute>
 			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_dale_template</xsl:attribute>
 			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_dale</xsl:attribute>
@@ -1244,8 +1293,21 @@
 				<template name="NPCCharacter.spc_dale_headman_3" />
 			</notable_templates>
 
+			<!-- Vassal reward items (Dale longbow — Bard's black-arrow theme) -->
+			<vassal_reward_items>
+				<item id="Item.dale_longbow_a" />
+			</vassal_reward_items>
+
+			<!-- Caravans. See the Dunland block above for why these are children, not attributes. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_dale" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_dale" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::notable_templates or self::vassal_reward_items)]"/>
 		</xsl:copy>
 	</xsl:template>
 
@@ -1257,6 +1319,55 @@
 
 			<!-- Name and description -->
 			<xsl:attribute name="name">{=TAOM_battania_culture}Variag</xsl:attribute>
+			<!-- Vassal reward: Khand has no native LOTR roster; the Variags serve Mordor -->
+			<xsl:attribute name="vassal_reward_party_template">PartyTemplate.vassal_reward_troops_mordor</xsl:attribute>
+
+			<!-- Troop bindings. These stayed vanilla until 2026-08-04 because no settlement carried
+			     Culture.battania, so they were dormant: the Khand cluster was tagged Culture.khuzait
+			     and drew Rhun militia through the khuzait template below. Retagging the 26 K-series
+			     settlements to Variag (crash 099f650c — a landless culture makes vanilla
+			     SpawnLordParty's Settlement.All.First(culture) throw) activated them, which would
+			     have garrisoned Sturlurtsa Khand with Calradian battanian_militia_* — TAOM does not
+			     redefine those ids anywhere. Pointing them at the Rhun roster keeps Khand recruiting
+			     and garrisoning exactly what it did before the retag; Khand still has no roster of
+			     its own to point at.
+
+			     MANDATORY when editing ANY Culture[@id=...] template, including a partial re-point
+			     like this one: enumerate every attribute CultureObject.Deserialize reads and
+			     classify each BIND / PASSTHROUGH / N-A. The first cut of this block bound six
+			     attributes and left elite_basic_troop plus five party templates inheriting vanilla
+			     Calradian values through the @* passthrough — the same failure as the Dale culture
+			     (Codex #227, 2026-05-26), whose lesson prescribes exactly this enumeration.
+			     Mechanical check: transform with lxml and diff the emitted Culture element against
+			     an already-re-themed sibling (khuzait) for any value still matching /battania/i. -->
+			<xsl:attribute name="basic_troop">NPCCharacter.loke_rim_initiate</xsl:attribute>
+			<xsl:attribute name="elite_basic_troop">NPCCharacter.loke_rim_cavalry</xsl:attribute>
+			<xsl:attribute name="melee_militia_troop">NPCCharacter.rhun_militia_spearman</xsl:attribute>
+			<xsl:attribute name="ranged_militia_troop">NPCCharacter.rhun_militia_archer</xsl:attribute>
+			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.rhun_militia_veteran_spearman</xsl:attribute>
+			<xsl:attribute name="ranged_elite_militia_troop">NPCCharacter.rhun_militia_veteran_archer</xsl:attribute>
+			<xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_rhun_template</xsl:attribute>
+
+			<!-- Party templates. These are the remaining engine-READ attributes that the
+			     `<xsl:apply-templates select="@*"/>` passthrough above would otherwise inherit from
+			     vanilla battania, i.e. Calradian. Verified against CultureObject.Deserialize (v1.4.8):
+			     all six below ARE read; `caravan_party_template` / `elite_caravan_party_template`
+			     are NOT read as attributes (the deserializer reads only the plural child elements),
+			     so binding them would be dead markup. Caravans are handled below as children.
+
+			     These pointed at khuzait's templates until 2026-08-12, which restored exact
+			     pre-retag parity (the K-series settlements were Culture.khuzait until 2026-08-04)
+			     but meant Khand spawned Calradian villagers, militia, rebels and town patrols. That
+			     was recorded here as separate content work; this is it. They now mirror Rhun, which
+			     is the established sharing target for Khand: no khand_* troop or party template
+			     exists, and this block's own basic/militia troops and default_party_template are
+			     already Rhun's. CulturePartyTemplateTests pins every binding below. -->
+			<xsl:attribute name="villager_party_template">PartyTemplate.villager_rhun_template</xsl:attribute>
+			<xsl:attribute name="militia_party_template">PartyTemplate.militia_rhun_template</xsl:attribute>
+			<xsl:attribute name="rebels_party_template">PartyTemplate.rebels_rhun_template</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_1">PartyTemplate.patrol_party_rhun_template_level_1</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_2">PartyTemplate.patrol_party_rhun_template_level_2</xsl:attribute>
+			<xsl:attribute name="settlement_patrol_template_level_3">PartyTemplate.patrol_party_rhun_template_level_3</xsl:attribute>
 			<xsl:attribute name="text">{=TAOM_battania_desc}The Variags of Khand are a fierce and warlike people, hailing from the dry and rugged lands east of Mordor. Known for their mercenary prowess and loyalty to Sauron, the Variags fight with unmatched ferocity. They ride swift warhorses into battle, wielding curved blades and long spears with deadly precision. Their bronze and crimson armor, adorned with intricate designs, reflects their proud and martial heritage. Divided into tribes and clans, the Variags unite under powerful warlords, bringing fear and chaos to the enemies of the Dark Lord.</xsl:attribute>
 
 			<!-- NPC references -->
@@ -1337,8 +1448,21 @@
 				<template name="NPCCharacter.spc_khand_headman_3" />
 			</notable_templates>
 
+			<!-- Vassal reward items (Mordor sword — Khand serves Mordor) -->
+			<vassal_reward_items>
+				<item id="Item.wm_mordor_set1_sword_a02" />
+			</vassal_reward_items>
+
+			<!-- Caravans. See the Dunland block above for why these are children, not attributes. -->
+			<caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.caravan_template_rhun" />
+			</caravan_party_templates>
+			<elite_caravan_party_templates>
+				<caravan_party_template id="PartyTemplate.elite_caravan_template_rhun" />
+			</elite_caravan_party_templates>
+
 			<!-- Pass through vanilla child elements we don't override -->
-			<xsl:apply-templates select="*[not(self::notable_templates)]"/>
+			<xsl:apply-templates select="*[not(self::caravan_party_templates or self::elite_caravan_party_templates or self::notable_templates or self::vassal_reward_items)]"/>
 		</xsl:copy>
 	</xsl:template>
 

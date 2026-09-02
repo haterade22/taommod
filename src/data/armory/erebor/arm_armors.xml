@@ -218,8 +218,8 @@
             <Armor
                 arm_armor="20"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -238,8 +238,8 @@
             <Armor
                 arm_armor="22"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -258,8 +258,8 @@
             <Armor
                 arm_armor="23"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -278,8 +278,8 @@
             <Armor
                 arm_armor="23"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -298,8 +298,8 @@
             <Armor
                 arm_armor="23"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -318,8 +318,8 @@
             <Armor
                 arm_armor="23"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -340,66 +340,6 @@
                 covers_hands="true"
                 modifier_group="leather"
                 material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_bracers_elite_d_blue"
-        name="{=aom_sk_dwarf_erebor_bracers_elite_d_blue_name}[Erebor] Elite Bracers X"
-        mesh="sk_dwarf_erebor_bracers_elite_d_blue"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="39"
-                covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_bracers_elite_d_green"
-        name="{=aom_sk_dwarf_erebor_bracers_elite_d_green_name}[Erebor] Elite Bracers XI"
-        mesh="sk_dwarf_erebor_bracers_elite_d_green"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="39"
-                covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="sk_dwarf_erebor_bracers_elite_d_red"
-        name="{=aom_sk_dwarf_erebor_bracers_elite_d_red_name}[Iron Hills] Elite Bracers X"
-        mesh="sk_dwarf_erebor_bracers_elite_d_red"
-        culture="Culture.erebor"
-        is_merchandise="true"
-        weight="3.5"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="39"
-                covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
         </ItemComponent>
         <Flags />
     </Item>

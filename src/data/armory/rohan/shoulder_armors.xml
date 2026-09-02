@@ -1,24 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Items>
-    <!-- [Rohan] -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<Items>
+
+    <!-- [Rohan] -->
+
     <Item
         id="cts_rohan_royal_guard_shoulder_armor"
         name="{=aom_cts_rohan_royal_guard_shoulder_armor_name}[Rohan] Royal Guard Pauldrons"
         mesh="cts_rohan_royal_guard_shoulder_armor"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="9.0"
+        weight="8.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="12"
-                arm_armor="12"
-                modifier_group="plate"
+                body_armor="17"
+                arm_armor="16"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="whiterun_cloak"
         name="{=aom_whiterun_cloak_name}[Rohan] Royal Guard Cloak"
@@ -32,101 +36,107 @@
             <Armor
                 body_armor="12"
                 arm_armor="12"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="rohan_militia_pauldron_both"
         name="{=aom_rohan_militia_pauldron_both_name}[Rohan] Militia Leather Pauldron"
         mesh="rohan_militia_pauldron_both"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="5.0"
+        weight="2.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
-                modifier_group="leather"
+                body_armor="3"
+                arm_armor="2"
+                modifier_group="cloth"
                 material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_roha_cape1"
         name="{=aom_cts_roha_cape1_name}[Rohan] Cloak I"
         mesh="cts_roha_cape1"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.0"
+        weight="4.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="7"
+                arm_armor="5"
+                modifier_group="leather"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_rohan_cape2"
         name="{=aom_cts_rohan_cape2_name}[Rohan] Cloak II"
         mesh="cts_rohan_cape2"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.0"
+        weight="4.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="7"
+                arm_armor="5"
+                modifier_group="leather"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_rohan_cape3"
         name="{=aom_cts_rohan_cape3_name}[Rohan] Cloak III"
         mesh="cts_rohan_cape3"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.0"
+        weight="2.7"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="3"
+                arm_armor="2"
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_rohan_cape4"
         name="{=aom_cts_rohan_cape4_name}[Rohan] Cloak IV"
         mesh="cts_rohan_cape4"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="2.0"
+        weight="4.5"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="5"
-                arm_armor="1"
-                modifier_group="plate"
-                material_type="Plate" />
+                body_armor="7"
+                arm_armor="5"
+                modifier_group="leather"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="theodred_pauldrons"
         name="{=aom_theodred_pauldrons_name}[Rohan] Theodred's Pauldrons"
@@ -144,7 +154,8 @@
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_gorg_tst_6"
         name="{=aom_roh_nbl_gorg_tst_6_name}[Rohan] Noble's Pauldrons I"
@@ -158,11 +169,12 @@
             <Armor
                 body_armor="25"
                 arm_armor="25"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_c"
         name="{=aom_roh_nbl_shldr_c_name}[Rohan] Noble's Cloak"
@@ -176,29 +188,31 @@
             <Armor
                 body_armor="9"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_cgs_2"
         name="{=aom_roh_nbl_shldr_cgs_2_name}[Rohan] Noble's Pauldrons II"
         mesh="roh_nbl_shldr_cgs_2"
         culture="Culture.vlandia"
         is_merchandise="true"
-        weight="11.0"
+        weight="8.1"
         appearance="6"
         Type="Cape">
         <ItemComponent>
             <Armor
-                body_armor="15"
-                arm_armor="5"
-                modifier_group="plate"
+                body_armor="17"
+                arm_armor="16"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_cs"
         name="{=aom_roh_nbl_shldr_cs_name}[Rohan] Noble's Pauldrons III"
@@ -212,11 +226,12 @@
             <Armor
                 body_armor="12"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_g_2"
         name="{=aom_roh_nbl_shldr_g_2_name}[Rohan] Noble's Pauldrons IV"
@@ -230,11 +245,12 @@
             <Armor
                 body_armor="9"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_gs"
         name="{=aom_roh_nbl_shldr_gs_name}[Rohan] Noble's Pauldrons V"
@@ -248,11 +264,12 @@
             <Armor
                 body_armor="9"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_gs_2"
         name="{=aom_roh_nbl_shldr_gs_2_name}[Rohan] Noble's Pauldrons VI"
@@ -266,11 +283,12 @@
             <Armor
                 body_armor="9"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="roh_nbl_shldr_s"
         name="{=aom_roh_nbl_shldr_s_name}[Rohan] Noble's Pauldrons VII"
@@ -284,11 +302,12 @@
             <Armor
                 body_armor="7"
                 arm_armor="5"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="cloth_unarmoured"
+                material_type="Cloth" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_rohan_shoulder_captain1"
         name="{=aom_cts_rohan_shoulder_captain1_name}[Rohan] Captain's Pauldrons II"
@@ -302,11 +321,12 @@
             <Armor
                 body_armor="14"
                 arm_armor="14"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="cts_rohan_captain_shoulder"
         name="{=aom_cts_rohan_captain_shoulder_name}[Rohan] Captain's Pauldrons I"
@@ -320,11 +340,12 @@
             <Armor
                 body_armor="14"
                 arm_armor="14"
-                modifier_group="plate"
+                modifier_group="chain"
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="theoden_shoulder"
         name="{=aom_theoden_shoulder_name}[Rohan] Theoden's Pauldrons I"
@@ -342,7 +363,8 @@
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
+    </Item>
+
     <Item
         id="erkenbrand_shoulder"
         name="{=aom_erkenbrand_shoulder_name}[Rohan] Erkenbrand Pauldrons"
@@ -360,6 +382,8 @@
                 material_type="Plate" />
         </ItemComponent>
         <Flags />
-    </Item>
-    <!-- #endregion -->
+    </Item>
+
+    <!-- #endregion -->
+
 </Items>

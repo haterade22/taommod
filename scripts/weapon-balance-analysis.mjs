@@ -12,14 +12,47 @@ const SWING_MULTIPLIER = 25;
 const THRUST_MULTIPLIER = 18;
 
 const CULTURE_DISPLAY_NAMES = {
-  aserai: 'Harad', khuzait: 'Rhun', battania: 'Khand', empire: 'Dunland',
-  vlandia: 'Rohan', sturgia: 'Dale', erebor: 'Erebor', gondor: 'Gondor',
-  mordor: 'Mordor', isengard: 'Isengard', gundabad: 'Gundabad',
-  mirkwood: 'Mirkwood', rivendell: 'Rivendell', umbar: 'Umbar',
-  dolguldur: 'Dol Guldur', thenn: 'Mercenary', iron_hills: 'Iron Hills',
-  arnor: 'Arnor', troll: 'Troll', mercenary: 'Mercenary',
-  dunland: 'Dunland', dol_guldur: 'Dol Guldur', harad: 'Harad',
-  rohan: 'Rohan', rhun: 'Rhun', lothlorien: 'Lothlorien',
+  aserai: 'Harad',
+  khuzait: 'Rhun',
+  battania: 'Khand',
+  empire: 'Dunland',
+  vlandia: 'Rohan',
+  sturgia: 'Dale',
+  erebor: 'Erebor',
+  gondor: 'Gondor',
+  mordor: 'Mordor',
+  isengard: 'Isengard',
+  gundabad: 'Gundabad',
+  mirkwood: 'Mirkwood',
+  rivendell: 'Rivendell',
+  umbar: 'Umbar',
+  dolguldur: 'Dol Guldur',
+  thenn: 'Mercenary',
+  iron_hills: 'Iron Hills',
+  arnor: 'Arnor',
+  troll: 'Troll',
+  mercenary: 'Mercenary',
+  dunland: 'Dunland',
+  dol_guldur: 'Dol Guldur',
+  harad: 'Harad',
+  rohan: 'Rohan',
+  rhun: 'Rhun',
+  lothlorien: 'Lothlorien',
+  dale: 'Dale',
+  abanissa: 'Âbanissa',
+  shaghana: 'Shaghâna',
+  goblin: 'Goblins',
+  mistymountainorcs: 'Misty Mountain Orcs',
+  bluecraig: 'Blue Craig',
+  lindon: 'Lindon',
+  dunland_raiders: 'Dunland Raiders',
+  erebor_warriors: 'Erebor Warriors',
+  gondor_soldiers: 'Gondor Soldiers',
+  gundabad_raiders: 'Gundabad Raiders',
+  harad_raiders: 'Harad Raiders',
+  mirkwood_stalkers: 'Mirkwood Stalkers',
+  rhun_raiders: 'Rhûn Raiders',
+  umbar_corsairs: 'Umbar Corsairs',
 };
 
 function stripLocKey(name) {
@@ -34,19 +67,19 @@ function stripPrefix(val, prefix) {
 
 // Map crafting_template to weapon class category
 const TEMPLATE_TO_CLASS = {
-  'OneHandedSword': 'OneHandedSword',
-  'TwoHandedSword': 'TwoHandedSword',
-  'OneHandedAxe': 'OneHandedAxe',
-  'TwoHandedAxe': 'TwoHandedAxe',
-  'Mace': 'Mace',
-  'TwoHandedMace': 'TwoHandedMace',
-  'TwoHandedPolearm': 'TwoHandedPolearm',
-  'Pike': 'Pike',
-  'Javelin': 'Javelin',
-  'ThrowingAxe': 'ThrowingAxe',
-  'ThrowingKnife': 'ThrowingKnife',
-  'OneHandedPolearm': 'OneHandedPolearm',
-  'Dagger': 'Dagger',
+  OneHandedSword: 'OneHandedSword',
+  TwoHandedSword: 'TwoHandedSword',
+  OneHandedAxe: 'OneHandedAxe',
+  TwoHandedAxe: 'TwoHandedAxe',
+  Mace: 'Mace',
+  TwoHandedMace: 'TwoHandedMace',
+  TwoHandedPolearm: 'TwoHandedPolearm',
+  Pike: 'Pike',
+  Javelin: 'Javelin',
+  ThrowingAxe: 'ThrowingAxe',
+  ThrowingKnife: 'ThrowingKnife',
+  OneHandedPolearm: 'OneHandedPolearm',
+  Dagger: 'Dagger',
 };
 
 const armoryDir = path.resolve('src/data/armory');
@@ -96,15 +129,16 @@ const weapons = [];
 const craftedItems = parsed?.Items?.CraftedItem || [];
 for (const item of craftedItems) {
   const pieces = item.Pieces?.Piece || [];
-  const bladePiece = pieces.find(p => p['@_Type'] === 'Blade');
+  const bladePiece = pieces.find((p) => p['@_Type'] === 'Blade');
   const blade = bladePiece ? bladeMap.get(bladePiece['@_id'] || '') : undefined;
 
   const swingFactor = blade?.swingDamageFactor || 0;
   const thrustFactor = blade?.thrustDamageFactor || 0;
   const bladeWeight = blade?.bladeWeight || 0;
 
-  const estSwing = (bladeWeight > 0 && swingFactor > 0) ? Math.round(bladeWeight * swingFactor * SWING_MULTIPLIER) : 0;
-  const estThrust = (bladeWeight > 0 && thrustFactor > 0) ? Math.round(bladeWeight * thrustFactor * THRUST_MULTIPLIER) : 0;
+  const estSwing = bladeWeight > 0 && swingFactor > 0 ? Math.round(bladeWeight * swingFactor * SWING_MULTIPLIER) : 0;
+  const estThrust =
+    bladeWeight > 0 && thrustFactor > 0 ? Math.round(bladeWeight * thrustFactor * THRUST_MULTIPLIER) : 0;
 
   const template = item['@_crafting_template'] || '';
   const weaponClass = TEMPLATE_TO_CLASS[template] || template;
@@ -181,15 +215,22 @@ for (const [culture, cultureWeapons] of Object.entries(byCulture)) {
 
   for (const [wc, wcWeapons] of Object.entries(byClass)) {
     const count = wcWeapons.length;
-    const swingDamages = wcWeapons.filter(w => w.estimatedSwingDamage > 0).map(w => w.estimatedSwingDamage);
-    const thrustDamages = wcWeapons.filter(w => w.estimatedThrustDamage > 0).map(w => w.estimatedThrustDamage);
+    const swingDamages = wcWeapons.filter((w) => w.estimatedSwingDamage > 0).map((w) => w.estimatedSwingDamage);
+    const thrustDamages = wcWeapons.filter((w) => w.estimatedThrustDamage > 0).map((w) => w.estimatedThrustDamage);
 
-    const avgSwing = swingDamages.length > 0 ? Math.round(swingDamages.reduce((a, b) => a + b, 0) / swingDamages.length * 10) / 10 : 0;
-    const avgThrust = thrustDamages.length > 0 ? Math.round(thrustDamages.reduce((a, b) => a + b, 0) / thrustDamages.length * 10) / 10 : 0;
+    const avgSwing =
+      swingDamages.length > 0
+        ? Math.round((swingDamages.reduce((a, b) => a + b, 0) / swingDamages.length) * 10) / 10
+        : 0;
+    const avgThrust =
+      thrustDamages.length > 0
+        ? Math.round((thrustDamages.reduce((a, b) => a + b, 0) / thrustDamages.length) * 10) / 10
+        : 0;
 
     // Best damage = max of swing or thrust for each weapon
-    const bestDamages = wcWeapons.map(w => Math.max(w.estimatedSwingDamage, w.estimatedThrustDamage));
-    const avgBest = bestDamages.length > 0 ? Math.round(bestDamages.reduce((a, b) => a + b, 0) / bestDamages.length * 10) / 10 : 0;
+    const bestDamages = wcWeapons.map((w) => Math.max(w.estimatedSwingDamage, w.estimatedThrustDamage));
+    const avgBest =
+      bestDamages.length > 0 ? Math.round((bestDamages.reduce((a, b) => a + b, 0) / bestDamages.length) * 10) / 10 : 0;
 
     classStats[wc] = {
       count,
@@ -211,21 +252,21 @@ for (const [culture, cultureWeapons] of Object.entries(byCulture)) {
     }
   }
 
-  const overallAvgDamage = totalDamageCount > 0 ? Math.round(totalDamageSum / totalDamageCount * 10) / 10 : 0;
+  const overallAvgDamage = totalDamageCount > 0 ? Math.round((totalDamageSum / totalDamageCount) * 10) / 10 : 0;
 
   result[displayName] = {
     cultureId: culture,
     totalWeapons: cultureWeapons.length,
     overallAvgDamage,
     weaponClasses: classStats,
-    missingBlades: cultureWeapons.filter(w => w.type === 'CraftedItem' && !w.bladeFound).map(w => ({ id: w.id, bladePieceId: w.bladePieceId })),
+    missingBlades: cultureWeapons
+      .filter((w) => w.type === 'CraftedItem' && !w.bladeFound)
+      .map((w) => ({ id: w.id, bladePieceId: w.bladePieceId })),
   };
 }
 
 // Sort by culture name
-const sorted = Object.fromEntries(
-  Object.entries(result).sort(([a], [b]) => a.localeCompare(b))
-);
+const sorted = Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b)));
 
 console.log(JSON.stringify(sorted, null, 2));
 
@@ -236,8 +277,8 @@ console.error('-'.repeat(55));
 for (const [name, data] of Object.entries(sorted)) {
   console.error(
     name.padEnd(15) +
-    String(data.totalWeapons).padEnd(10) +
-    String(data.overallAvgDamage).padEnd(10) +
-    String(data.missingBlades.length)
+      String(data.totalWeapons).padEnd(10) +
+      String(data.overallAvgDamage).padEnd(10) +
+      String(data.missingBlades.length),
   );
 }

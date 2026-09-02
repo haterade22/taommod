@@ -1306,12 +1306,10 @@
         modifier_group="polearm">
         <Pieces>
             <Piece
-                id="wm_rohan_spear_a_blade"
-                Type="Blade"
+                id="sm_ro_rohan_spear_blade_a" Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_rohan_spear_a_handle"
-                Type="Handle"
+                id="sm_ro_rohan_spear_handle_a" Type="Handle"
                 scale_factor="100" />
         </Pieces>
     </CraftedItem>
@@ -1325,69 +1323,10 @@
         modifier_group="polearm">
         <Pieces>
             <Piece
-                id="wm_rohan_spear_b_blade"
-                Type="Blade"
+                id="sm_ro_rohan_spear_blade_b" Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_rohan_spear_b_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_rohan_spear_f"
-        name="{=aom_wm_rohan_spear_f_name}[Rohan] Spear F"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.vlandia"
-        is_merchandise="true"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_rohan_spear_f_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_rohan_spear_f_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_rohan_spear_c"
-        name="{=aom_wm_rohan_spear_c_name}[Rohan] Spear III"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.vlandia"
-        is_merchandise="true"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_rohan_spear_c_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_rohan_spear_c_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_rohan_spear_d"
-        name="{=aom_wm_rohan_spear_d_name}[Rohan] Spear IV"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.vlandia"
-        is_merchandise="true"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_rohan_spear_d_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_rohan_spear_d_handle"
-                Type="Handle"
+                id="sm_ro_rohan_spear_handle_b" Type="Handle"
                 scale_factor="100" />
         </Pieces>
     </CraftedItem>
@@ -1418,7 +1357,6 @@
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
-        value="6000"
         modifier_group="polearm">
         <Pieces>
             <Piece
@@ -1721,19 +1659,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a10_blade"
+                id="wm_gondor_sword_a01_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a10_guard"
+                id="wm_gondor_sword_a02_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a10_hilt"
+                id="wm_gondor_sword_a07_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a10_pommel"
+                id="wm_gondor_sword_a03_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -1747,19 +1685,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a09_blade"
+                id="wm_gondor_sword_a02_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a09_guard"
+                id="wm_gondor_sword_a07_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a09_hilt"
+                id="wm_gondor_sword_a01_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a09_pommel"
+                id="wm_gondor_sword_a03_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -1773,19 +1711,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a08_blade"
+                id="wm_gondor_sword_a07_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a08_guard"
+                id="wm_gondor_sword_a02_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a08_hilt"
+                id="wm_gondor_sword_a03_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a08_pommel"
+                id="wm_gondor_sword_a01_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -1825,19 +1763,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a06_blade"
+                id="wm_gondor_sword_a03_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a06_guard"
+                id="wm_gondor_sword_a07_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a06_hilt"
+                id="wm_gondor_sword_a01_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a06_pommel"
+                id="wm_gondor_sword_a02_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -1851,19 +1789,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a05_blade"
+                id="wm_gondor_sword_a01_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a05_guard"
+                id="wm_gondor_sword_a03_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a05_hilt"
+                id="wm_gondor_sword_a02_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a05_pommel"
+                id="wm_gondor_sword_a01_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -1877,19 +1815,19 @@
         culture="Culture.gondor">
         <Pieces>
             <Piece
-                id="wm_gondor_sword_a04_blade"
+                id="wm_gondor_sword_a02_blade"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a04_guard"
+                id="wm_gondor_sword_a01_guard"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a04_hilt"
+                id="wm_gondor_sword_a03_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
-                id="wm_gondor_sword_a04_pommel"
+                id="wm_gondor_sword_a07_pommel"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -2982,7 +2920,6 @@
         culture="Culture.empire"
         crafting_template="TwoHandedPolearm"
         is_merchandise="true"
-        value="4000"
         modifier_group="polearm">
         <Pieces>
             <Piece
@@ -5177,7 +5114,7 @@
         name="{=aom_wm_elven_arrow_v1_a_name}[Noldor] Elven Arrow I"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_a"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v1"
         holster_mesh_with_weapon="wm_elven_quiver_1_v1"
         weight="0.041"
@@ -5220,7 +5157,7 @@
         name="{=aom_wm_elven_arrow_v2_a_name}[Noldor] Elven Arrow II"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_a"
+        mesh="wm_mirkwood_arrow_a02"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5263,7 +5200,7 @@
         name="{=aom_wm_elven_arrow_v3_a_name}[Noldor] Elven Arrow III"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_a"
+        mesh="wm_mirkwood_arrow_a01"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5306,7 +5243,7 @@
         name="{=aom_wm_elven_arrow_v4_a_name}[Noldor] Elven Arrow IV"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_a"
+        mesh="wm_mirkwood_arrow_a02"
         culture="Culture.rivendell"
         is_merchandise="true"
         weight="0.05"
@@ -5349,7 +5286,7 @@
         name="{=aom_wm_elven_arrow_v1_b_name}[Noldor] Elven Arrow V"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_b"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v1"
         holster_mesh_with_weapon="wm_elven_quiver_1_v1"
         weight="0.041"
@@ -5392,7 +5329,7 @@
         name="{=aom_wm_elven_arrow_v1_c_name}[Noldor] Elven Arrow VI"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_c"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v1"
         holster_mesh_with_weapon="wm_elven_quiver_1_v1"
         weight="0.041"
@@ -5435,7 +5372,7 @@
         name="{=aom_wm_elven_arrow_v1_d_name}[Noldor] Elven Arrow VII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_d"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v1"
         holster_mesh_with_weapon="wm_elven_quiver_1_v1"
         weight="0.041"
@@ -5478,7 +5415,7 @@
         name="{=aom_wm_elven_arrow_v2_b_name}[Noldor] Elven Arrow VIII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_b"
+        mesh="wm_mirkwood_arrow_a02"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5521,7 +5458,7 @@
         name="{=aom_wm_elven_arrow_v2_c_name}[Noldor] Elven Arrow IX"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_c"
+        mesh="wm_mirkwood_arrow_a02"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5564,7 +5501,7 @@
         name="{=aom_wm_elven_arrow_v2_d_name}[Noldor] Elven Arrow X"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_d"
+        mesh="wm_mirkwood_arrow_a02"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5611,7 +5548,7 @@
         name="{=aom_wm_elven_arrow_q1v2_name}[Noldor] Elven Arrow XI"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_a"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v2"
         holster_mesh_with_weapon="wm_elven_quiver_1_v2"
         weight="0.041"
@@ -5635,7 +5572,7 @@
         name="{=aom_wm_elven_arrow_q1v3_name}[Noldor] Elven Arrow XII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_b"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v3"
         holster_mesh_with_weapon="wm_elven_quiver_1_v3"
         weight="0.041"
@@ -5659,7 +5596,7 @@
         name="{=aom_wm_elven_arrow_q1v4_name}[Noldor] Elven Arrow XIII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_c"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_1_v4"
         holster_mesh_with_weapon="wm_elven_quiver_1_v4"
         weight="0.041"
@@ -5683,7 +5620,7 @@
         name="{=aom_wm_elven_arrow_q2v2_name}[Noldor] Elven Arrow XIV"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_a"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_2_v2"
         holster_mesh_with_weapon="wm_elven_quiver_2_v2"
         weight="0.05"
@@ -5707,7 +5644,7 @@
         name="{=aom_wm_elven_arrow_q2v3_name}[Noldor] Elven Arrow XV"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_b"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_2_v3"
         holster_mesh_with_weapon="wm_elven_quiver_2_v3"
         weight="0.05"
@@ -5731,7 +5668,7 @@
         name="{=aom_wm_elven_arrow_q2v4_name}[Noldor] Elven Arrow XVI"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_c"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_2_v4"
         holster_mesh_with_weapon="wm_elven_quiver_2_v4"
         weight="0.05"
@@ -5755,7 +5692,7 @@
         name="{=aom_wm_elven_arrow_q3v2_name}[Noldor] Elven Arrow XVII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_d"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_3_v2"
         holster_mesh_with_weapon="wm_elven_quiver_3_v2"
         weight="0.041"
@@ -5779,7 +5716,7 @@
         name="{=aom_wm_elven_arrow_q3v3_name}[Noldor] Elven Arrow XVIII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_a"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_3_v3"
         holster_mesh_with_weapon="wm_elven_quiver_3_v3"
         weight="0.041"
@@ -5803,7 +5740,7 @@
         name="{=aom_wm_elven_arrow_q3v4_name}[Noldor] Elven Arrow XIX"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v1_b"
+        mesh="wm_mirkwood_arrow_a01"
         holster_mesh="wm_elven_quiver_3_v4"
         holster_mesh_with_weapon="wm_elven_quiver_3_v4"
         weight="0.041"
@@ -5827,7 +5764,7 @@
         name="{=aom_wm_elven_arrow_q4v2_name}[Noldor] Elven Arrow XX"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_d"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_4_v2"
         holster_mesh_with_weapon="wm_elven_quiver_4_v2"
         weight="0.05"
@@ -5851,7 +5788,7 @@
         name="{=aom_wm_elven_arrow_q4v3_name}[Noldor] Elven Arrow XXI"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_a"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_4_v3"
         holster_mesh_with_weapon="wm_elven_quiver_4_v3"
         weight="0.05"
@@ -5875,7 +5812,7 @@
         name="{=aom_wm_elven_arrow_q4v4_name}[Noldor] Elven Arrow XXII"
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
-        mesh="wm_elven_arrow_v2_b"
+        mesh="wm_mirkwood_arrow_a02"
         holster_mesh="wm_elven_quiver_4_v4"
         holster_mesh_with_weapon="wm_elven_quiver_4_v4"
         weight="0.05"
@@ -6290,7 +6227,6 @@
         is_merchandise="true"
         culture="Culture.erebor"
         crafting_template="OneHandedAxe"
-        value="6000"
         modifier_group="axe">
         <Pieces>
             <Piece
@@ -9910,4 +9846,187 @@
         </ItemComponent>
         <Flags ForceAttachOffHandPrimaryItemBone="true" />
     </Item>
+
+    <!-- Black Numenorean weapons -->
+    <CraftedItem
+        id="sm_md_num_sword_1h_a"
+        name="{=aom_sm_md_num_sword_1h_a_name}[Mordor] Black Numenorean Sword I"
+        crafting_template="OneHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_1h_blade_a" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_guard_a" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_handle_a" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_pommel_a" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_sword_1h_b"
+        name="{=aom_sm_md_num_sword_1h_b_name}[Mordor] Black Numenorean Sword II"
+        crafting_template="OneHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_1h_blade_b" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_guard_b" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_handle_b" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_pommel_b" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_sword_1h_c"
+        name="{=aom_sm_md_num_sword_1h_c_name}[Mordor] Black Numenorean Sword III"
+        crafting_template="OneHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_1h_blade_c" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_guard_a" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_handle_b" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_1h_pommel_b" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_sword_2h_a"
+        name="{=aom_sm_md_num_sword_2h_a_name}[Mordor] Black Numenorean Greatsword I"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_2h_blade_a" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_guard_a" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_handle_a" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_pommel_a" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_sword_2h_b"
+        name="{=aom_sm_md_num_sword_2h_b_name}[Mordor] Black Numenorean Greatsword II"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_2h_blade_b" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_guard_b" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_handle_b" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_pommel_b" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_sword_2h_c"
+        name="{=aom_sm_md_num_sword_2h_c_name}[Mordor] Black Numenorean Greatsword III"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        culture="Culture.mordor">
+        <Pieces>
+            <Piece id="sm_md_num_sword_2h_blade_c" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_guard_c" Type="Guard" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_handle_c" Type="Handle" scale_factor="100" />
+            <Piece id="sm_md_num_sword_2h_pommel_a" Type="Pommel" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="sm_md_num_lance_a"
+        name="{=aom_sm_md_num_lance_a_name}[Mordor] Black Numenorean Lance"
+        crafting_template="TwoHandedPolearm"
+        is_merchandise="true"
+        culture="Culture.mordor"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece id="sm_md_num_lance_blade_a" Type="Blade" scale_factor="100" />
+            <Piece id="sm_md_num_lance_handle_a" Type="Handle" scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <Item
+        id="sm_md_num_bow_a"
+        name="{=aom_sm_md_num_bow_a_name}[Mordor] Black Numenorean Numenorean Steelbow I"
+        body_name="bo_short_bow_a"
+        mesh="gondor_steelbow_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.2"
+        difficulty="60"
+        appearance="0.1"
+        Type="Bow"
+        item_holsters="bow_hip:bow_hip_2:bow_back:bow_back_2">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Bow"
+                ammo_class="Arrow"
+                ammo_limit="1"
+                thrust_speed="96"
+                speed_rating="96"
+                missile_speed="92"
+                weapon_length="113"
+                accuracy="93"
+                thrust_damage="107"
+                thrust_damage_type="Pierce"
+                item_usage="bow"
+                physics_material="wood_weapon"
+                center_of_mass="0.15,0,0"
+                modifier_group="bow"
+                position="0.0, 0.0, 0.0">
+                <WeaponFlags
+                    RangedWeapon="true"
+                    HasString="true"
+                    StringHeldByHand="true"
+                    NotUsableWithOneHand="true"
+                    TwoHandIdleOnMount="true"
+                    AutoReload="true"
+                    UnloadWhenSheathed="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_bow_b"
+        name="{=aom_sm_md_num_bow_b_name}[Mordor] Black Numenorean Numenorean Steelbow II"
+        body_name="bo_short_bow_a"
+        mesh="gondor_steelbow_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="1.2"
+        difficulty="80"
+        appearance="0.1"
+        Type="Bow"
+        item_holsters="bow_hip:bow_hip_2:bow_back:bow_back_2">
+        <ItemComponent>
+            <Weapon
+                weapon_class="Bow"
+                ammo_class="Arrow"
+                ammo_limit="1"
+                thrust_speed="97"
+                speed_rating="97"
+                missile_speed="95"
+                weapon_length="113"
+                accuracy="96"
+                thrust_damage="111"
+                thrust_damage_type="Pierce"
+                item_usage="bow"
+                physics_material="wood_weapon"
+                center_of_mass="0.15,0,0"
+                modifier_group="bow"
+                position="0.0, 0.0, 0.0">
+                <WeaponFlags
+                    RangedWeapon="true"
+                    HasString="true"
+                    StringHeldByHand="true"
+                    NotUsableWithOneHand="true"
+                    TwoHandIdleOnMount="true"
+                    AutoReload="true"
+                    UnloadWhenSheathed="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
+
 </Items>

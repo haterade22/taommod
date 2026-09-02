@@ -2,6 +2,42 @@
 
 All notable changes to the TAOM website data and features are documented here.
 
+## [2026-09-02] — Full Mod Data Sync
+
+### New Factions
+
+- **Blue Craig** (`troops_bluecraig.xml`, `npcs_bluecraig.xml`) — 23 goblin troops, levels 11–36, infantry and ranged branches. Previously the faction page borrowed Goblin-town's roster; it now renders its own.
+- **Lindon** (`troops_lindon.xml`, `npcs_lindon.xml`) — 30 Falathrim troops, levels 11–51. The deepest tier spread of any roster and the only Elven culture fielding both cavalry and horse archers. Previously borrowed Rivendell's roster.
+
+### Troops
+
+- Roster grew to **899 unique troops** across 18 troop-fielding cultures (was 818).
+- **Dale is now visible.** Its 35 troops use `Culture.sturgia`, which was in `HIDDEN_CULTURES` and filtered every Dale troop and lord off `/troops` and `/lords`.
+- Ten culture ids new to the data were added to `CULTURE_DISPLAY_NAMES`: `bluecraig`, `lindon`, and the minor/raider cultures `dunland_raiders`, `erebor_warriors`, `gondor_soldiers`, `gundabad_raiders`, `harad_raiders`, `mirkwood_stalkers`, `rhun_raiders`, `umbar_corsairs`. Without entries these rendered as raw ids (`Gondor_soldiers`).
+
+### Armour
+
+- **2,904 items** across 18 culture sets. Erebor and Rhun shrank substantially; Gondor and Mordor grew.
+- **Starter kits added** — 12 new `starter_armors.xml` files (78 items) in cultures that previously had none. `/armoury` gained a **Starter** tab; these items were otherwise reachable only under "All".
+
+### Weapons
+
+- 636 weapons/shields/bows: **344 melee**, 38 ranged, 30 ammunition, 224 shields. New horse data (`LOTRAOM_horses.xml` more than doubled).
+
+### Lords, Heroes & Clans
+
+- **1,580 lords and heroes**, 232 clans. `lords.xml` grew 2.55 MB → 2.73 MB.
+- Newer kingdoms (`goblin`, `mistymountainorcs`, `bluecraig`, `lindon`, `abanissa`, `shaghana`) were missing from `KINGDOM_ID_TO_NAME`, so their ids leaked raw into the Kingdom column on `/lords`.
+
+### Mod Info
+
+- Per-faction and headline counts on the troop, armour, weapon and overview balancing pages were recomputed from the XML — several had been stale since March (e.g. "545 troops", "2,368 armour items", "300 melee weapons").
+- Added cards for Dale, Lindon, Goblins, Misty Mountain Orcs and Blue Craig. Cultural skill modifiers are applied by the mod at runtime and are not present in the culture XML, so those cards carry counts, races, groups and tier ranges but no modifier table.
+
+### Known Data Issues
+
+- `bluecraig_bolgs_ironfang` and `mistymountainorcs_bolgs_ironfang` are each defined **twice** — once in `troops_goblin.xml` and once in their own faction file. The site counts unique ids (899); a raw element count reports 901.
+
 ## [2026-03-19] — Full Mod Data Sync
 
 ### Troops — Skill Rebalance (All Factions)

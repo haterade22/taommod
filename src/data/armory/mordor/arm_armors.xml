@@ -14,10 +14,10 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="20"
+                arm_armor="13"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -34,10 +34,10 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="20"
+                arm_armor="13"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -54,10 +54,10 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="20"
+                arm_armor="13"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -74,10 +74,10 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="20"
+                arm_armor="13"
                 covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="chain"
+                material_type="Chainmail" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -94,7 +94,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -114,7 +114,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -134,7 +134,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -154,7 +154,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -174,7 +174,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -194,7 +194,7 @@
         Type="HandArmor">
         <ItemComponent>
             <Armor
-                arm_armor="30"
+                arm_armor="25"
                 covers_hands="false"
                 modifier_group="plate"
                 material_type="Plate" />
@@ -276,88 +276,8 @@
             <Armor
                 arm_armor="25"
                 covers_hands="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v1_bracers"
-        name="{=aom_moriaorc_v1_bracers_name}[Mordor] Orc Bracers I"
-        mesh="moriaorc_v1_bracers"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.0"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="19"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v2_bracers"
-        name="{=aom_moriaorc_v2_bracers_name}[Mordor] Orc Bracers II"
-        mesh="moriaorc_v2_bracers"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.0"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="19"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v3_bracers"
-        name="{=aom_moriaorc_v3_bracers_name}[Mordor] Orc Bracers III"
-        mesh="moriaorc_v3_bracers"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.0"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="19"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="moriaorc_v4_bracers"
-        name="{=aom_moriaorc_v4_bracers_name}[Mordor] Orc Bracers IV"
-        mesh="moriaorc_v4_bracers"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.0"
-        difficulty="0"
-        appearance="3"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor
-                arm_armor="19"
-                covers_hands="false"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -449,7 +369,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="14" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -466,7 +386,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="14" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -507,24 +427,6 @@
 
 
     <!-- Patch: missing companion piece to ar_ardunian_elite_helmet/_armour/_shoses set -->
-    <Item
-        id="ar_ardunian_elite_hand"
-        name="{=aom_ar_ardunian_elite_hand_name}[Mordor] Ardunian Elite Gauntlets"
-        subtype="hand_armor"
-        mesh="ar_ardunian_elite_armour_hand"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="2.0"
-        difficulty="0"
-        appearance="6"
-        Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-
-
     <!-- ============================================================== -->
     <!--  KEYforce Mordor armor: orc pool + Morannon sub-line           -->
     <!--  (sk_gn_orc_*, sk_md_orc_*, sk_md_mor_*)                       -->
@@ -542,7 +444,7 @@
         appearance="1"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+            <Armor arm_armor="7" covers_hands="false" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -559,7 +461,7 @@
         appearance="1"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+            <Armor arm_armor="7" covers_hands="false" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -576,7 +478,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="13" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -593,7 +495,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="13" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -610,7 +512,7 @@
         appearance="4"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="19" covers_hands="false" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -627,7 +529,7 @@
         appearance="4"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="19" covers_hands="false" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -644,7 +546,7 @@
         appearance="1"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+            <Armor arm_armor="7" covers_hands="false" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -661,7 +563,7 @@
         appearance="1"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="8" covers_hands="false" modifier_group="leather" material_type="Leather" />
+            <Armor arm_armor="7" covers_hands="false" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -678,7 +580,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="13" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -695,7 +597,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="13" covers_hands="false" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -712,7 +614,7 @@
         appearance="4"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="19" covers_hands="false" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -729,7 +631,150 @@
         appearance="4"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="false" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="19" covers_hands="false" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Black Numenorean armor (sk_md_num_*, sm_md_num_*)    -->
+    <!--  Corrupted Men: human skeleton, troops carry NO race attribute -->
+    <!--  Spec: lotraom-assets/tools/mordor_armor_and_troops.md         -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_md_num_arc_bracer_med_a"
+        name="{=aom_sk_md_num_arc_bracer_med_a_name}[Mordor] Black Numenorean Archer Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_arc_bracer_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.2"
+        difficulty="0"
+        appearance="6"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="25" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_arc_bracer_heavy_a"
+        name="{=aom_sk_md_num_arc_bracer_heavy_a_name}[Mordor] Black Numenorean Archer Heavy Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_arc_bracer_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_arc_bracer_elite_a"
+        name="{=aom_sk_md_num_arc_bracer_elite_a_name}[Mordor] Black Numenorean Archer Elite Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_arc_bracer_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_arc_bracer_lord_a"
+        name="{=aom_sk_md_num_arc_bracer_lord_a_name}[Mordor] Black Numenorean Archer Lord's Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_arc_bracer_lord_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_bracer_med_a"
+        name="{=aom_sk_md_num_inf_bracer_med_a_name}[Mordor] Black Numenorean Infantry Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_inf_bracer_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.2"
+        difficulty="0"
+        appearance="6"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="25" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_bracer_heavy_a"
+        name="{=aom_sk_md_num_inf_bracer_heavy_a_name}[Mordor] Black Numenorean Infantry Heavy Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_inf_bracer_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_bracer_elite_a"
+        name="{=aom_sk_md_num_inf_bracer_elite_a_name}[Mordor] Black Numenorean Infantry Elite Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_inf_bracer_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_md_num_inf_bracer_lord_a"
+        name="{=aom_sk_md_num_inf_bracer_lord_a_name}[Mordor] Black Numenorean Infantry Lord's Bracer"
+        subtype="hand_armor"
+        mesh="sk_md_num_inf_bracer_lord_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="2.8"
+        difficulty="0"
+        appearance="7"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="33" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

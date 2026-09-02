@@ -17,52 +17,6 @@
         <Flags />
     </Item>
 
-    <Item id="golasgil_gloves" name="{=aom_golasgil_gloves_name}[Gondor] Golasgil's Bracers" mesh="golasgil_gloves" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="3" Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="35" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item id="imrahil_gloves" name="{=aom_imrahil_gloves_name}[Gondor] Imrahil's Bracers" mesh="imrahil_gloves" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="3" Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="35" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item id="hirluin_gloves" name="{=aom_hirluin_gloves_name}[Gondor] Hirluin's Bracers" mesh="hirluin_gloves" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="3" Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="35" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item id="angbor_gloves" name="{=aom_angbor_gloves_name}[Gondor] Angbor's Bracers" mesh="angbor_gloves" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="3" Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="35" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-
-    <Item id="forlong_gloves" name="{=aom_forlong_gloves_name}[Gondor] Forlong's Gloves" mesh="forlong_gloves" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="3" Type="HandArmor">
-        <ItemComponent>
-            <Armor arm_armor="35" covers_hands="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-
-
-
-
-
-
-
-
-
-
     
 
 
@@ -70,63 +24,63 @@
 
     <Item id="sk_gd_ano_gloves_a" name="{=aom_sk_gd_ano_gloves_a_name}[Gondor] Anorien Gloves" subtype="hand_armor" mesh="sk_gd_ano_gloves_a" culture="Culture.gondor" is_merchandise="true" weight="0.6" difficulty="0" appearance="1" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="8" covers_hands="true" modifier_group="leather" material_type="Leather" />
+            <Armor arm_armor="8" covers_hands="true" modifier_group="cloth" material_type="Cloth" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_bracer_inf_med_a" name="{=aom_sk_gd_ano_bracer_inf_med_a_name}[Gondor] Anorien Infantry Bracer" subtype="hand_armor" mesh="sk_gd_ano_bracer_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_bracer_noble_med_a" name="{=aom_sk_gd_ano_bracer_noble_med_a_name}[Gondor] Anorien Noble Bracer" subtype="hand_armor" mesh="sk_gd_ano_bracer_noble_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_bracer_noble_heavy_a" name="{=aom_sk_gd_ano_bracer_noble_heavy_a_name}[Gondor] Anorien Noble Heavy Bracer" subtype="hand_armor" mesh="sk_gd_ano_bracer_noble_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="4" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="21" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_bracer_noble_elite_a" name="{=aom_sk_gd_ano_bracer_noble_elite_a_name}[Gondor] Anorien Noble Elite Bracer" subtype="hand_armor" mesh="sk_gd_ano_bracer_noble_elite_a" culture="Culture.gondor" is_merchandise="true" weight="2" difficulty="0" appearance="4" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="27" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_osg_bracer_noble_med_a" name="{=aom_sk_gd_osg_bracer_noble_med_a_name}[Gondor] Osgiliath Noble Bracer" subtype="hand_armor" mesh="sk_gd_osg_bracer_noble_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_osg_bracer_noble_heavy_a" name="{=aom_sk_gd_osg_bracer_noble_heavy_a_name}[Gondor] Osgiliath Noble Heavy Bracer" subtype="hand_armor" mesh="sk_gd_osg_bracer_noble_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="4" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="21" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_osg_bracer_noble_elite_a" name="{=aom_sk_gd_osg_bracer_noble_elite_a_name}[Gondor] Osgiliath Noble Elite Bracer" subtype="hand_armor" mesh="sk_gd_osg_bracer_noble_elite_a" culture="Culture.gondor" is_merchandise="true" weight="2" difficulty="0" appearance="4" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="27" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_cair_bracer_inf_med_a" name="{=aom_sk_gd_cair_bracer_inf_med_a_name}[Gondor] Cair Andros Infantry Bracer" subtype="hand_armor" mesh="sk_gd_cair_bracer_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="1.0" difficulty="0" appearance="3" Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -150,7 +104,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -167,7 +121,7 @@
         appearance="3"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="14" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -184,7 +138,7 @@
         appearance="4"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="21" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -201,7 +155,7 @@
         appearance="6"
         Type="HandArmor">
         <ItemComponent>
-            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+            <Armor arm_armor="27" covers_hands="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -211,6 +165,190 @@
         name="{=aom_sk_gd_sere_bracer_lord_a_name}[Gondor] Serelond Lord Bracer"
         subtype="hand_armor"
         mesh="sk_gd_sere_bracer_lord_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+    <!--  Lossarnach, Pinnath Gelin, Harondor, Anfalas, Serelond,        -->
+    <!--  Lebennin, Belfalas, Lamedon                                    -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_gd_los_bracer_noble_med_a"
+        name="{=aom_sk_gd_los_bracer_noble_med_a_name}[Gondor] Lossarnach Noble Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_los_bracer_noble_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="15" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_los_bracer_noble_heavy_a"
+        name="{=aom_sk_gd_los_bracer_noble_heavy_a_name}[Gondor] Lossarnach Noble Heavy Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_los_bracer_noble_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="21" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_los_bracer_noble_elite_a"
+        name="{=aom_sk_gd_los_bracer_noble_elite_a_name}[Gondor] Lossarnach Noble Elite Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_los_bracer_noble_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="27" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+    <!--  incl. noble drops: Anfalas/Lossarnach (2026-06),               -->
+    <!--  Dol-Amroth, Linhir, Blackroot Vale, Arndir/Pinnath (2026-07)   -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_gd_dol_bracer_med_a"
+        name="{=aom_sk_gd_dol_bracer_med_a_name}[Gondor] Dol Amroth Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_dol_bracer_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_dol_bracer_heavy_a"
+        name="{=aom_sk_gd_dol_bracer_heavy_a_name}[Gondor] Dol Amroth Heavy Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_dol_bracer_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_dol_bracer_elite_a"
+        name="{=aom_sk_gd_dol_bracer_elite_a_name}[Gondor] Dol Amroth Elite Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_dol_bracer_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.0"
+        difficulty="0"
+        appearance="6"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="26" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_bracer_med_a"
+        name="{=aom_sk_gd_lin_bracer_med_a_name}[Gondor] Linhir Bracer A"
+        subtype="hand_armor"
+        mesh="sk_gd_lin_bracer_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_bracer_med_b"
+        name="{=aom_sk_gd_lin_bracer_med_b_name}[Gondor] Linhir Bracer B"
+        subtype="hand_armor"
+        mesh="sk_gd_lin_bracer_med_b"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.0"
+        difficulty="0"
+        appearance="3"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="14" covers_hands="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_bracer_heavy_a"
+        name="{=aom_sk_gd_lin_bracer_heavy_a_name}[Gondor] Linhir Heavy Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_lin_bracer_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="4"
+        Type="HandArmor">
+        <ItemComponent>
+            <Armor arm_armor="20" covers_hands="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_bracer_elite_a"
+        name="{=aom_sk_gd_lin_bracer_elite_a_name}[Gondor] Linhir Elite Bracer"
+        subtype="hand_armor"
+        mesh="sk_gd_lin_bracer_elite_a"
         culture="Culture.gondor"
         is_merchandise="true"
         weight="2.0"

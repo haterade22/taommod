@@ -3,7 +3,7 @@
 
     <Item id="ithilien_boots_heavy" name="{=aom_ithilien_boots_heavy_name}[Gondor] Ithilien Heavy Leather Boots" mesh="ithilien_boots_heavy" culture="Culture.gondor" is_merchandise="true" weight="1.9" difficulty="0" appearance="3" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="20" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -15,102 +15,53 @@
         <Flags />
     </Item>
 
-    <Item id="imrahil_boot" name="{=aom_imrahil_boot_name}[Gondor] Imrahil's Boots" mesh="imrahil_boot" culture="Culture.gondor" is_merchandise="true" weight="3.6" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="45" covers_legs="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item id="golasgil_boots" name="{=aom_golasgil_boots_name}[Gondor]Golasgil's Boots" mesh="golasgil_boots" culture="Culture.gondor" is_merchandise="true" weight="3.6" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="40" covers_legs="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-
-
-    <Item id="hirluin_boots" name="{=aom_hirluin_boots_name}[Gondor] Hirluin's Boots" mesh="hirluin_boots" culture="Culture.gondor" is_merchandise="true" weight="3.6" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="40" covers_legs="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item id="angbor_boots" name="{=aom_angbor_boots_name}[Gondor] Angbor's Boots" mesh="angbor_boots" culture="Culture.gondor" is_merchandise="true" weight="3.6" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="40" covers_legs="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-
-
-
-    <Item id="forlong_boots" name="{=aom_forlong_boots_name}[Gondor] Forlong's Boots" mesh="forlong_boots" culture="Culture.gondor" is_merchandise="true" weight="3.6" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="45" covers_legs="true" modifier_group="plate" material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-
-
-
-
-
-
-
-
-
     
 
     <Item id="sk_gd_ano_boots_a" name="{=aom_sk_gd_ano_boots_a_name}[Gondor] Anorien Boots" subtype="leg_armor" mesh="sk_gd_ano_boots_a" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="1" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="12" covers_legs="true" modifier_group="cloth" material_type="Cloth" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_inf_light_a" name="{=aom_sk_gd_ano_grvs_inf_light_a_name}[Gondor] Anorien Infantry Light Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_inf_light_a" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="1" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="13" covers_legs="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_inf_med_a" name="{=aom_sk_gd_ano_grvs_inf_med_a_name}[Gondor] Anorien Infantry Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_inf_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="21" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_inf_heavy_a" name="{=aom_sk_gd_ano_grvs_inf_heavy_a_name}[Gondor] Anorien Infantry Heavy Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_inf_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="29" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_noble_light_a" name="{=aom_sk_gd_ano_grvs_noble_light_a_name}[Gondor] Anorien Noble Light Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_noble_light_a" culture="Culture.gondor" is_merchandise="true" weight="1.5" difficulty="0" appearance="1" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="12" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="13" covers_legs="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_noble_med_a" name="{=aom_sk_gd_ano_grvs_noble_med_a_name}[Gondor] Anorien Noble Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_noble_med_a" culture="Culture.gondor" is_merchandise="true" weight="2.5" difficulty="0" appearance="3" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="21" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
 
     <Item id="sk_gd_ano_grvs_noble_heavy_a" name="{=aom_sk_gd_ano_grvs_noble_heavy_a_name}[Gondor] Anorien Noble Heavy Greaves" subtype="leg_armor" mesh="sk_gd_ano_grvs_noble_heavy_a" culture="Culture.gondor" is_merchandise="true" weight="3.5" difficulty="0" appearance="4" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="29" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -141,7 +92,7 @@
         appearance="3"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="20" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="21" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -158,7 +109,7 @@
         appearance="4"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="29" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -175,7 +126,7 @@
         appearance="6"
         Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="34" covers_legs="true" modifier_group="plate" material_type="Plate" />
+            <Armor leg_armor="35" covers_legs="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -193,6 +144,156 @@
         Type="LegArmor">
         <ItemComponent>
             <Armor leg_armor="34" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+    <!--  incl. noble drops: Anfalas/Lossarnach (2026-06),               -->
+    <!--  Dol-Amroth, Linhir, Blackroot Vale, Arndir/Pinnath (2026-07)   -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_gd_dol_grvs_light_a"
+        name="{=aom_sk_gd_dol_grvs_light_a_name}[Gondor] Dol Amroth Light Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_dol_grvs_light_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_dol_grvs_med_a"
+        name="{=aom_sk_gd_dol_grvs_med_a_name}[Gondor] Dol Amroth Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_dol_grvs_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="20" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_dol_grvs_heavy_a"
+        name="{=aom_sk_gd_dol_grvs_heavy_a_name}[Gondor] Dol Amroth Heavy Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_dol_grvs_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_dol_grvs_elite_a"
+        name="{=aom_sk_gd_dol_grvs_elite_a_name}[Gondor] Dol Amroth Elite Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_dol_grvs_elite_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="4.0"
+        difficulty="0"
+        appearance="6"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="34" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_grvs_light_a"
+        name="{=aom_sk_gd_lin_grvs_light_a_name}[Gondor] Linhir Light Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_lin_grvs_light_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_grvs_med_a"
+        name="{=aom_sk_gd_lin_grvs_med_a_name}[Gondor] Linhir Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_lin_grvs_med_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="2.5"
+        difficulty="0"
+        appearance="3"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="20" covers_legs="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_gd_lin_grvs_heavy_a"
+        name="{=aom_sk_gd_lin_grvs_heavy_a_name}[Gondor] Linhir Heavy Greaves"
+        subtype="leg_armor"
+        mesh="sk_gd_lin_grvs_heavy_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="3.5"
+        difficulty="0"
+        appearance="4"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="28" covers_legs="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  Phase-2 Gondor regional armor (issue #99, KEYforce)            -->
+    <!--  incl. noble drops: Anfalas/Lossarnach (2026-06),               -->
+    <!--  Dol-Amroth, Linhir, Blackroot Vale, Arndir/Pinnath (2026-07)   -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sk_gd_bel_boots_a"
+        name="{=aom_sk_gd_bel_boots_a_name}[Gondor] Belfalas Boots"
+        subtype="leg_armor"
+        mesh="sk_gd_bel_boots_a"
+        culture="Culture.gondor"
+        is_merchandise="true"
+        weight="1.5"
+        difficulty="0"
+        appearance="1"
+        Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="12" covers_legs="true" modifier_group="cloth" material_type="Cloth" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

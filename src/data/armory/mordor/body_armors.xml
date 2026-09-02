@@ -687,7 +687,7 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="19"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -735,7 +735,7 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="19"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -783,7 +783,7 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="19"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -807,7 +807,7 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="19"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -831,7 +831,7 @@
         Type="BodyArmor">
         <ItemComponent>
             <Armor
-                body_armor="35"
+                body_armor="19"
                 arm_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
@@ -931,8 +931,8 @@
                 arm_armor="5"
                 has_gender_variations="false"
                 covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -941,7 +941,7 @@
     <Item
         id="ar_ardunian_elite_armour"
         name="{=aom_ar_ardunian_elite_armour_name}[Mordor] Black Númenórean Armour"
-        mesh="ar_ardunian_elite_armour"
+        mesh="sm_md_num_inf_chest_elite_a"
         subtype="body_armor"
         culture="Culture.mordor"
         is_merchandise="true"
@@ -954,106 +954,6 @@
                 body_armor="40"
                 arm_armor="45"
                 leg_armor="35"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v1_torso"
-        name="{=aom_moriaorc_v1_torso_name}[Mordor] Orc Armour I"
-        mesh="moriaorc_v1_torso"
-        subtype="body_armor"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="6.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="25"
-                leg_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v2_torso"
-        name="{=aom_moriaorc_v2_torso_name}[Mordor] Orc Armour II"
-        mesh="moriaorc_v2_torso"
-        subtype="body_armor"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="6.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="25"
-                leg_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v3_torso"
-        name="{=aom_moriaorc_v3_torso_name}[Mordor] Orc Armour III"
-        mesh="moriaorc_v3_torso"
-        subtype="body_armor"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="6.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="25"
-                leg_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="moriaorc_v4_torso"
-        name="{=aom_moriaorc_v4_torso_name}[Mordor] Orc Armour IV"
-        mesh="moriaorc_v4_torso"
-        subtype="body_armor"
-        culture="Culture.mordor"
-        is_merchandise="true"
-        weight="6.5"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="25"
-                arm_armor="25"
-                leg_armor="15"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="plate"
@@ -1177,7 +1077,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1194,7 +1094,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1211,7 +1111,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1228,7 +1128,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1245,7 +1145,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1296,7 +1196,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1313,7 +1213,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1381,7 +1281,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1398,7 +1298,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1415,7 +1315,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1432,7 +1332,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1574,7 +1474,7 @@
         appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+            <Armor body_armor="19" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1591,7 +1491,7 @@
         appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+            <Armor body_armor="19" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1608,7 +1508,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="31" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1625,7 +1525,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="31" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1642,7 +1542,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="31" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1659,7 +1559,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="31" arm_armor="8" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1676,7 +1576,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="41" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1693,7 +1593,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="41" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1710,7 +1610,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="41" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1727,7 +1627,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="41" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1744,7 +1644,7 @@
         appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="19" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1761,7 +1661,7 @@
         appearance="1"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="20" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="19" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1778,7 +1678,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="31" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1795,7 +1695,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="31" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1812,7 +1712,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="31" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1829,7 +1729,7 @@
         appearance="3"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="32" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="31" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1846,7 +1746,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="41" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1863,7 +1763,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="41" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1880,7 +1780,7 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="41" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1897,7 +1797,337 @@
         appearance="4"
         Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="42" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+            <Armor body_armor="41" arm_armor="14" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+    <!-- ============================================================== -->
+    <!--  KEYforce Black Numenorean armor (sk_md_num_*, sm_md_num_*)    -->
+    <!--  Corrupted Men: human skeleton, troops carry NO race attribute -->
+    <!--  Spec: lotraom-assets/tools/mordor_armor_and_troops.md         -->
+    <!-- ============================================================== -->
+
+    <Item
+        id="sm_md_num_chest_light_a"
+        name="{=aom_sm_md_num_chest_light_a_name}[Mordor] Black Numenorean Initiate Chest"
+        subtype="body_armor"
+        mesh="sm_md_num_chest_light_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="19.8"
+        difficulty="0"
+        appearance="4"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="41" arm_armor="10" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_med_a"
+        name="{=aom_sm_md_num_arc_chest_med_a_name}[Mordor] Black Numenorean Archer Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_med_b"
+        name="{=aom_sm_md_num_arc_chest_med_b_name}[Mordor] Black Numenorean Archer Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_heavy_a"
+        name="{=aom_sm_md_num_arc_chest_heavy_a_name}[Mordor] Black Numenorean Archer Heavy Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="30" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_heavy_b"
+        name="{=aom_sm_md_num_arc_chest_heavy_b_name}[Mordor] Black Numenorean Archer Heavy Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="26" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_elite_a"
+        name="{=aom_sm_md_num_arc_chest_elite_a_name}[Mordor] Black Numenorean Archer Elite Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_arc_chest_elite_b"
+        name="{=aom_sm_md_num_arc_chest_elite_b_name}[Mordor] Black Numenorean Archer Elite Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_arc_chest_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_med_a"
+        name="{=aom_sm_md_num_cav_chest_med_a_name}[Mordor] Black Numenorean Cavalry Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_med_b"
+        name="{=aom_sm_md_num_cav_chest_med_b_name}[Mordor] Black Numenorean Cavalry Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_heavy_a"
+        name="{=aom_sm_md_num_cav_chest_heavy_a_name}[Mordor] Black Numenorean Cavalry Heavy Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="30" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_heavy_b"
+        name="{=aom_sm_md_num_cav_chest_heavy_b_name}[Mordor] Black Numenorean Cavalry Heavy Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="26" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_elite_a"
+        name="{=aom_sm_md_num_cav_chest_elite_a_name}[Mordor] Black Numenorean Cavalry Elite Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_cav_chest_elite_b"
+        name="{=aom_sm_md_num_cav_chest_elite_b_name}[Mordor] Black Numenorean Cavalry Elite Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_cav_chest_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_med_a"
+        name="{=aom_sm_md_num_inf_chest_med_a_name}[Mordor] Black Numenorean Infantry Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_med_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_med_b"
+        name="{=aom_sm_md_num_inf_chest_med_b_name}[Mordor] Black Numenorean Infantry Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_med_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="24.2"
+        difficulty="0"
+        appearance="6"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="49" arm_armor="20" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_heavy_a"
+        name="{=aom_sm_md_num_inf_chest_heavy_a_name}[Mordor] Black Numenorean Infantry Heavy Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_heavy_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="30" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_heavy_b"
+        name="{=aom_sm_md_num_inf_chest_heavy_b_name}[Mordor] Black Numenorean Infantry Heavy Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_heavy_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="26" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_elite_a"
+        name="{=aom_sm_md_num_inf_chest_elite_a_name}[Mordor] Black Numenorean Infantry Elite Chest I"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_elite_a"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sm_md_num_inf_chest_elite_b"
+        name="{=aom_sm_md_num_inf_chest_elite_b_name}[Mordor] Black Numenorean Infantry Elite Chest II"
+        subtype="body_armor"
+        mesh="sm_md_num_inf_chest_elite_b"
+        culture="Culture.mordor"
+        is_merchandise="true"
+        weight="26.4"
+        difficulty="0"
+        appearance="7"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="59" arm_armor="36" has_gender_variations="false" covers_body="true" modifier_group="plate" material_type="Plate" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>

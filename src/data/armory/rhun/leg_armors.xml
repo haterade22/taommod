@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Items>
     <!-- Rhun -->
-    <Item
-        id="easterling_boots"
-        name="{=aom_easterling_boots_name}[Rhûn] Easterling Boots I"
-        mesh="easterling_boots"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="2.6"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="26"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="easterlingwarriors01_boots"
-        name="{=aom_easterlingwarriors01_boots_name}[Rhûn] Easterling Boots II"
-        mesh="easterlingwarriors01_boots"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="2.6"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="20"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item
-        id="easterling02_v1_boots"
-        name="{=aom_easterling02_v1_boots_name}[Rhûn] Easterling Archer Boots I"
-        mesh="easterling02_v1_boots"
-        culture="Culture.khuzait"
-        is_merchandise="true"
-        weight="2.6"
-        difficulty="0"
-        appearance="3"
-        Type="LegArmor">
-        <ItemComponent>
-            <Armor
-                leg_armor="15"
-                covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
     <!-- ==================== LOKE-RIM BOOTS/GREAVES (Gold-Bronze) ==================== -->
 
     <!-- Loke-Rim Noble Boots -->
@@ -68,7 +10,7 @@
         mesh="sk_rh_loke_boots_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.5"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -76,8 +18,8 @@
             <Armor
                 leg_armor="15"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -89,7 +31,7 @@
         mesh="sk_rh_loke_grvs_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.8"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -97,8 +39,8 @@
             <Armor
                 leg_armor="18"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -108,7 +50,7 @@
         mesh="sk_rh_loke_grvs_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -116,8 +58,8 @@
             <Armor
                 leg_armor="20"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -127,7 +69,7 @@
         mesh="sk_rh_loke_grvs_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -146,7 +88,7 @@
         mesh="sk_rh_loke_grvs_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.8"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -167,7 +109,7 @@
         mesh="sk_rh_loke_grvs_scale_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -175,8 +117,8 @@
             <Armor
                 leg_armor="22"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -186,7 +128,7 @@
         mesh="sk_rh_loke_grvs_scale_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.0"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -207,7 +149,7 @@
         mesh="sk_rh_loke_grvs_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.4"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -226,7 +168,7 @@
         mesh="sk_rh_loke_grvs_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.2"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -247,7 +189,7 @@
         mesh="sk_rh_loke_grvs_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -266,7 +208,7 @@
         mesh="sk_rh_loke_grvs_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.0"
+        weight="2.2"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -285,7 +227,7 @@
         mesh="sk_rh_loke_grvs_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.4"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -304,7 +246,7 @@
         mesh="sk_rh_loke_grvs_plate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.8"
+        weight="3.6"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -327,7 +269,7 @@
         mesh="sk_rh_drag_grvs_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="1.8"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -335,8 +277,8 @@
             <Armor
                 leg_armor="18"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -346,7 +288,7 @@
         mesh="sk_rh_drag_grvs_light_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.0"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -354,8 +296,8 @@
             <Armor
                 leg_armor="20"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -365,7 +307,7 @@
         mesh="sk_rh_drag_grvs_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -384,7 +326,7 @@
         mesh="sk_rh_drag_grvs_heavy_b"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.8"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -405,7 +347,7 @@
         mesh="sk_rh_drag_grvs_scale_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.2"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -413,8 +355,8 @@
             <Armor
                 leg_armor="22"
                 covers_legs="true"
-                modifier_group="plate"
-                material_type="Plate" />
+                modifier_group="leather"
+                material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -424,7 +366,7 @@
         mesh="sk_rh_drag_grvs_scale_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.0"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -445,7 +387,7 @@
         mesh="sk_rh_drag_grvs_hplate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.4"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -464,7 +406,7 @@
         mesh="sk_rh_drag_grvs_hplate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.2"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -485,7 +427,7 @@
         mesh="sk_rh_drag_grvs_plate_light_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="2.6"
+        weight="1.4"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -504,7 +446,7 @@
         mesh="sk_rh_drag_grvs_plate_med_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.0"
+        weight="2.2"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -523,7 +465,7 @@
         mesh="sk_rh_drag_grvs_plate_heavy_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.4"
+        weight="3.1"
         difficulty="0"
         appearance="3"
         Type="LegArmor">
@@ -542,7 +484,7 @@
         mesh="sk_rh_drag_grvs_plate_elite_a"
         culture="Culture.khuzait"
         is_merchandise="true"
-        weight="3.8"
+        weight="3.6"
         difficulty="0"
         appearance="3"
         Type="LegArmor">

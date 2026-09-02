@@ -1,10 +1,10 @@
 {
   "mordor": {
-    "count": 41,
-    "avgSwing": 88,
-    "avgThrust": 37,
-    "avgMelee": 67,
-    "avgSpeed": 77,
+    "count": 48,
+    "avgSwing": 90,
+    "avgThrust": 41,
+    "avgMelee": 68,
+    "avgSpeed": 79,
     "weapons": [
       {
         "id": "wm_sauron_mace",
@@ -325,37 +325,37 @@
         "id": "wm_cave_troll_1h_mace_b",
         "name": "[Mordor] Troll Mace II",
         "template": "Mace",
-        "swing": 41,
+        "swing": 46,
         "thrust": 0,
-        "swingSpeed": 20,
-        "thrustSpeed": 78
+        "swingSpeed": 26,
+        "thrustSpeed": 85
       },
       {
         "id": "wm_cave_troll_1h_mace_c",
         "name": "[Mordor] Troll Mace III",
         "template": "Mace",
-        "swing": 53,
+        "swing": 60,
         "thrust": 0,
-        "swingSpeed": 20,
-        "thrustSpeed": 79
+        "swingSpeed": 26,
+        "thrustSpeed": 86
       },
       {
         "id": "wm_cave_troll_2h_mace_a",
         "name": "[Mordor] Troll 2H Mace I",
         "template": "TwoHandedMace",
-        "swing": 22,
+        "swing": 81,
         "thrust": 0,
-        "swingSpeed": 12,
-        "thrustSpeed": 81
+        "swingSpeed": 27,
+        "thrustSpeed": 87
       },
       {
         "id": "wm_cave_troll_spear_a",
         "name": "[Mordor] Troll Spear I",
         "template": "TwoHandedPolearm",
         "swing": 2,
-        "thrust": 47,
+        "thrust": 51,
         "swingSpeed": 2,
-        "thrustSpeed": 68
+        "thrustSpeed": 74
       },
       {
         "id": "wm_gundabad_mace_b01",
@@ -374,15 +374,78 @@
         "thrust": 0,
         "swingSpeed": 97,
         "thrustSpeed": 99
+      },
+      {
+        "id": "sm_md_num_sword_1h_a",
+        "name": "[Mordor] Black Numenorean Sword I",
+        "template": "OneHandedSword",
+        "swing": 59,
+        "thrust": 48,
+        "swingSpeed": 99,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_sword_1h_b",
+        "name": "[Mordor] Black Numenorean Sword II",
+        "template": "OneHandedSword",
+        "swing": 59,
+        "thrust": 48,
+        "swingSpeed": 99,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_sword_1h_c",
+        "name": "[Mordor] Black Numenorean Sword III",
+        "template": "OneHandedSword",
+        "swing": 60,
+        "thrust": 49,
+        "swingSpeed": 99,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_sword_2h_a",
+        "name": "[Mordor] Black Numenorean Greatsword I",
+        "template": "TwoHandedSword",
+        "swing": 112,
+        "thrust": 58,
+        "swingSpeed": 94,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_sword_2h_b",
+        "name": "[Mordor] Black Numenorean Greatsword II",
+        "template": "TwoHandedSword",
+        "swing": 112,
+        "thrust": 58,
+        "swingSpeed": 94,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_sword_2h_c",
+        "name": "[Mordor] Black Numenorean Greatsword III",
+        "template": "TwoHandedSword",
+        "swing": 114,
+        "thrust": 60,
+        "swingSpeed": 94,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "sm_md_num_lance_a",
+        "name": "[Mordor] Black Numenorean Lance",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 54,
+        "swingSpeed": 31,
+        "thrustSpeed": 80
       }
     ]
   },
   "gondor": {
-    "count": 37,
-    "avgSwing": 91,
-    "avgThrust": 51,
-    "avgMelee": 70,
-    "avgSpeed": 82,
+    "count": 48,
+    "avgSwing": 95,
+    "avgThrust": 50,
+    "avgMelee": 73,
+    "avgSpeed": 79,
     "weapons": [
       {
         "id": "anduril",
@@ -401,15 +464,6 @@
         "thrust": 37,
         "swingSpeed": 85,
         "thrustSpeed": 91
-      },
-      {
-        "id": "gond_spear2",
-        "name": "[Gondor] Spear I",
-        "template": "TwoHandedPolearm",
-        "swing": 0,
-        "thrust": 35,
-        "swingSpeed": 56,
-        "thrustSpeed": 86
       },
       {
         "id": "wm_gondor_spear",
@@ -439,8 +493,26 @@
         "thrustSpeed": 83
       },
       {
+        "id": "wm_swan_knight_lance_a",
+        "name": "[Gondor] Swan Knight Lance I",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 33,
+        "swingSpeed": 26,
+        "thrustSpeed": 77
+      },
+      {
+        "id": "wm_swan_knight_lance_b",
+        "name": "[Gondor] Swan Knight Lance II",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 29,
+        "swingSpeed": 4,
+        "thrustSpeed": 55
+      },
+      {
         "id": "wm_gondor_swanknight_spearb",
-        "name": "[Gondor] Banner Spear - Belfalas",
+        "name": "[Gondor] Spear - Belfalas I",
         "template": "TwoHandedPolearm",
         "swing": 0,
         "thrust": 37,
@@ -458,7 +530,7 @@
       },
       {
         "id": "wm_gondor_gondorknight_speara",
-        "name": "[Gondor] Banner Spear",
+        "name": "[Gondor] Banner Spear I",
         "template": "TwoHandedPolearm",
         "swing": 0,
         "thrust": 37,
@@ -467,7 +539,25 @@
       },
       {
         "id": "wm_gondor_pg_speara",
-        "name": "[Gondor] Banner Spear - Pinnath Gelin",
+        "name": "[Gondor] Spear - Pinnath Gelin  I",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 37,
+        "swingSpeed": 53,
+        "thrustSpeed": 86
+      },
+      {
+        "id": "wm_gondor_gondorknight_spearb",
+        "name": "[Gondor] Banner Spear II",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 37,
+        "swingSpeed": 53,
+        "thrustSpeed": 86
+      },
+      {
+        "id": "wm_gondor_pg_spearb",
+        "name": "[Gondor] Banner Spear - Pinnath Gelin I",
         "template": "TwoHandedPolearm",
         "swing": 0,
         "thrust": 37,
@@ -514,28 +604,28 @@
         "id": "wm_gondor_sword_a10",
         "name": "[Gondor] One-Handed Sword X",
         "template": "OneHandedSword",
-        "swing": 86,
-        "thrust": 57,
-        "swingSpeed": 92,
-        "thrustSpeed": 93
+        "swing": 81,
+        "thrust": 58,
+        "swingSpeed": 99,
+        "thrustSpeed": 92
       },
       {
         "id": "wm_gondor_sword_a09",
         "name": "[Gondor] One-Handed Sword IX",
         "template": "OneHandedSword",
-        "swing": 68,
+        "swing": 85,
         "thrust": 57,
-        "swingSpeed": 101,
-        "thrustSpeed": 94
+        "swingSpeed": 94,
+        "thrustSpeed": 92
       },
       {
         "id": "wm_gondor_sword_a08",
         "name": "[Gondor] One-Handed Sword VIII",
         "template": "OneHandedSword",
         "swing": 78,
-        "thrust": 57,
-        "swingSpeed": 94,
-        "thrustSpeed": 91
+        "thrust": 59,
+        "swingSpeed": 96,
+        "thrustSpeed": 90
       },
       {
         "id": "wm_gondor_sword_a07",
@@ -550,9 +640,9 @@
         "id": "wm_gondor_sword_a06",
         "name": "[Gondor] One-Handed Sword VI",
         "template": "OneHandedSword",
-        "swing": 77,
-        "thrust": 58,
-        "swingSpeed": 95,
+        "swing": 84,
+        "thrust": 57,
+        "swingSpeed": 97,
         "thrustSpeed": 92
       },
       {
@@ -560,18 +650,18 @@
         "name": "[Gondor] One-Handed Sword V",
         "template": "OneHandedSword",
         "swing": 82,
-        "thrust": 57,
-        "swingSpeed": 86,
-        "thrustSpeed": 91
+        "thrust": 58,
+        "swingSpeed": 99,
+        "thrustSpeed": 92
       },
       {
         "id": "wm_gondor_sword_a04",
         "name": "[Gondor] One-Handed Sword IV",
         "template": "OneHandedSword",
-        "swing": 71,
-        "thrust": 58,
-        "swingSpeed": 99,
-        "thrustSpeed": 93
+        "swing": 81,
+        "thrust": 57,
+        "swingSpeed": 97,
+        "thrustSpeed": 92
       },
       {
         "id": "wm_gondor_sword_a03",
@@ -628,8 +718,26 @@
         "thrustSpeed": 96
       },
       {
+        "id": "wm_gondor_lossarnach_1h_axe_silver_a",
+        "name": "[Gondor] Lossarnach One-Handed Axe I - Silver",
+        "template": "OneHandedAxe",
+        "swing": 65,
+        "thrust": 0,
+        "swingSpeed": 94,
+        "thrustSpeed": 96
+      },
+      {
         "id": "wm_gondor_lossarnach_1h_axe_b",
         "name": "[Gondor] Lossarnach One-Handed Axe II",
+        "template": "OneHandedAxe",
+        "swing": 65,
+        "thrust": 0,
+        "swingSpeed": 94,
+        "thrustSpeed": 96
+      },
+      {
+        "id": "wm_gondor_lossarnach_1h_axe_silver_b",
+        "name": "[Gondor] Lossarnach One-Handed Axe II - Silver",
         "template": "OneHandedAxe",
         "swing": 65,
         "thrust": 0,
@@ -646,8 +754,62 @@
         "thrustSpeed": 89
       },
       {
+        "id": "wm_gondor_lossarnach_2h_axe_silver_a",
+        "name": "[Gondor] Lossarnach Two-Handed Axe I - Silver",
+        "template": "TwoHandedAxe",
+        "swing": 146,
+        "thrust": 0,
+        "swingSpeed": 76,
+        "thrustSpeed": 89
+      },
+      {
         "id": "wm_gondor_lossarnach_2h_axe_b",
         "name": "[Gondor] Lossarnach Two-Handed Axe II",
+        "template": "TwoHandedAxe",
+        "swing": 146,
+        "thrust": 0,
+        "swingSpeed": 76,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "wm_gondor_lossarnach_2h_axe_silver_b",
+        "name": "[Gondor] Lossarnach Two-Handed Axe II - Silver",
+        "template": "TwoHandedAxe",
+        "swing": 146,
+        "thrust": 0,
+        "swingSpeed": 76,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "wm_gondor_lossarnach_1h_axe_black_ash_a",
+        "name": "[Gondor] Lossarnach One-Handed Axe - Black Ash",
+        "template": "OneHandedAxe",
+        "swing": 60,
+        "thrust": 0,
+        "swingSpeed": 98,
+        "thrustSpeed": 96
+      },
+      {
+        "id": "wm_gondor_lossarnach_1h_axe_silver_full_a",
+        "name": "[Gondor] Lossarnach One-Handed Axe - Silver",
+        "template": "OneHandedAxe",
+        "swing": 65,
+        "thrust": 0,
+        "swingSpeed": 94,
+        "thrustSpeed": 96
+      },
+      {
+        "id": "wm_gondor_lossarnach_2h_axe_black_ash_a",
+        "name": "[Gondor] Lossarnach Two-Handed Axe - Black Ash",
+        "template": "TwoHandedAxe",
+        "swing": 146,
+        "thrust": 0,
+        "swingSpeed": 76,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "wm_gondor_lossarnach_2h_axe_silver_full_a",
+        "name": "[Gondor] Lossarnach Two-Handed Axe - Silver",
         "template": "TwoHandedAxe",
         "swing": 146,
         "thrust": 0,
@@ -720,11 +882,11 @@
     ]
   },
   "vlandia": {
-    "count": 17,
+    "count": 14,
     "avgSwing": 87,
-    "avgThrust": 50,
-    "avgMelee": 67,
-    "avgSpeed": 74,
+    "avgThrust": 52,
+    "avgMelee": 70,
+    "avgSpeed": 83,
     "weapons": [
       {
         "id": "theoden_sword",
@@ -740,45 +902,18 @@
         "name": "[Rohan] Spear I",
         "template": "TwoHandedPolearm",
         "swing": 0,
-        "thrust": 50,
-        "swingSpeed": 41,
-        "thrustSpeed": 83
+        "thrust": 53,
+        "swingSpeed": 52,
+        "thrustSpeed": 86
       },
       {
         "id": "wm_rohan_spear_b",
         "name": "[Rohan] Spear II",
         "template": "TwoHandedPolearm",
         "swing": 0,
-        "thrust": 30,
-        "swingSpeed": 41,
-        "thrustSpeed": 84
-      },
-      {
-        "id": "wm_rohan_spear_f",
-        "name": "[Rohan] Spear F",
-        "template": "TwoHandedPolearm",
-        "swing": 0,
-        "thrust": 30,
-        "swingSpeed": 41,
-        "thrustSpeed": 83
-      },
-      {
-        "id": "wm_rohan_spear_c",
-        "name": "[Rohan] Spear III",
-        "template": "TwoHandedPolearm",
-        "swing": 0,
-        "thrust": 51,
-        "swingSpeed": 39,
-        "thrustSpeed": 83
-      },
-      {
-        "id": "wm_rohan_spear_d",
-        "name": "[Rohan] Spear IV",
-        "template": "TwoHandedPolearm",
-        "swing": 0,
-        "thrust": 50,
-        "swingSpeed": 39,
-        "thrustSpeed": 82
+        "thrust": 32,
+        "swingSpeed": 55,
+        "thrustSpeed": 87
       },
       {
         "id": "eomer_sword",
@@ -965,8 +1100,8 @@
   "isengard": {
     "count": 11,
     "avgSwing": 85,
-    "avgThrust": 45,
-    "avgMelee": 68,
+    "avgThrust": 52,
+    "avgMelee": 73,
     "avgSpeed": 68,
     "weapons": [
       {
@@ -1010,7 +1145,7 @@
         "name": "[Isengard] Berserker Sword",
         "template": "OneHandedSword",
         "swing": 81,
-        "thrust": 26,
+        "thrust": 0,
         "swingSpeed": 77,
         "thrustSpeed": 91
       },
@@ -1019,7 +1154,7 @@
         "name": "[Isengard] Berserker Sword 2H",
         "template": "TwoHandedSword",
         "swing": 81,
-        "thrust": 26,
+        "thrust": 0,
         "swingSpeed": 77,
         "thrustSpeed": 91
       },
@@ -1909,54 +2044,54 @@
   },
   "erebor": {
     "count": 36,
-    "avgSwing": 77,
+    "avgSwing": 78,
     "avgThrust": 39,
     "avgMelee": 74,
-    "avgSpeed": 78,
+    "avgSpeed": 74,
     "weapons": [
       {
         "id": "sm_dwarf_erebor_1h_axe_a",
         "name": "[Erebor] One-Handed Axe I",
         "template": "OneHandedAxe",
-        "swing": 47,
+        "swing": 48,
         "thrust": 0,
-        "swingSpeed": 82,
+        "swingSpeed": 80,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_1h_axe_b",
         "name": "[Erebor] One-Handed Axe II",
         "template": "OneHandedAxe",
-        "swing": 50,
+        "swing": 51,
         "thrust": 0,
-        "swingSpeed": 81,
+        "swingSpeed": 79,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_1h_axe_c",
         "name": "[Erebor] One-Handed Axe III",
         "template": "OneHandedAxe",
-        "swing": 54,
+        "swing": 53,
         "thrust": 0,
-        "swingSpeed": 63,
+        "swingSpeed": 61,
         "thrustSpeed": 85
       },
       {
         "id": "sm_dwarf_erebor_1h_axe_d",
         "name": "[Erebor] One-Handed Axe IV",
         "template": "OneHandedAxe",
-        "swing": 54,
+        "swing": 53,
         "thrust": 0,
-        "swingSpeed": 63,
+        "swingSpeed": 61,
         "thrustSpeed": 85
       },
       {
         "id": "sm_dwarf_erebor_1h_axe_e",
         "name": "[Erebor] One-Handed Axe V",
         "template": "OneHandedAxe",
-        "swing": 55,
+        "swing": 53,
         "thrust": 0,
-        "swingSpeed": 65,
+        "swingSpeed": 62,
         "thrustSpeed": 85
       },
       {
@@ -1965,88 +2100,88 @@
         "template": "OneHandedAxe",
         "swing": 55,
         "thrust": 0,
-        "swingSpeed": 71,
+        "swingSpeed": 68,
         "thrustSpeed": 85
       },
       {
         "id": "sm_dwarf_erebor_1h_axe_b2",
         "name": "[Erebor] One-Handed Axe VII",
         "template": "OneHandedAxe",
-        "swing": 60,
+        "swing": 59,
         "thrust": 0,
-        "swingSpeed": 63,
+        "swingSpeed": 61,
         "thrustSpeed": 85
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_a",
         "name": "[Erebor] Two-Handed Axe I",
         "template": "TwoHandedAxe",
-        "swing": 96,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 65,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_a2",
         "name": "[Erebor] Two-Handed Axe III",
         "template": "TwoHandedAxe",
-        "swing": 94,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 69,
-        "thrustSpeed": 90
+        "swingSpeed": 61,
+        "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_b",
         "name": "[Erebor] Two-Handed Axe II",
         "template": "TwoHandedAxe",
-        "swing": 96,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 65,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_b2",
         "name": "[Erebor] Two-Handed Axe IV",
         "template": "TwoHandedAxe",
-        "swing": 107,
+        "swing": 103,
         "thrust": 0,
-        "swingSpeed": 65,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_c",
         "name": "[Erebor] Two-Handed Axe V",
         "template": "TwoHandedAxe",
-        "swing": 97,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 66,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_c2",
         "name": "[Erebor] Two-Handed Axe VI",
         "template": "TwoHandedAxe",
-        "swing": 107,
+        "swing": 103,
         "thrust": 0,
-        "swingSpeed": 66,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_d",
         "name": "[Erebor] Two-Handed Axe VII",
         "template": "TwoHandedAxe",
-        "swing": 96,
+        "swing": 90,
         "thrust": 0,
-        "swingSpeed": 62,
+        "swingSpeed": 53,
         "thrustSpeed": 87
       },
       {
         "id": "sm_dwarf_erebor_axe_2h_d2",
         "name": "[Erebor] Two-Handed Axe VIII",
         "template": "TwoHandedAxe",
-        "swing": 97,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 66,
+        "swingSpeed": 57,
         "thrustSpeed": 89
       },
       {
@@ -2071,28 +2206,28 @@
         "id": "sm_dwarf_erebor_mace_a",
         "name": "[Erebor] Mace I",
         "template": "TwoHandedMace",
-        "swing": 94,
+        "swing": 96,
         "thrust": 0,
-        "swingSpeed": 74,
-        "thrustSpeed": 93
+        "swingSpeed": 67,
+        "thrustSpeed": 92
       },
       {
         "id": "sm_dwarf_erebor_mace_b",
         "name": "[Erebor] Mace II",
         "template": "TwoHandedMace",
-        "swing": 94,
+        "swing": 96,
         "thrust": 0,
-        "swingSpeed": 74,
-        "thrustSpeed": 93
+        "swingSpeed": 67,
+        "thrustSpeed": 92
       },
       {
         "id": "sm_dwarf_dain_hammer_a",
         "name": "[Iron Hills] Dáin's Hammer",
         "template": "TwoHandedMace",
-        "swing": 106,
+        "swing": 107,
         "thrust": 0,
-        "swingSpeed": 75,
-        "thrustSpeed": 91
+        "swingSpeed": 70,
+        "thrustSpeed": 90
       },
       {
         "id": "sm_dwarf_dain_axe_a",
@@ -2100,124 +2235,124 @@
         "template": "TwoHandedAxe",
         "swing": 86,
         "thrust": 0,
-        "swingSpeed": 68,
-        "thrustSpeed": 91
+        "swingSpeed": 64,
+        "thrustSpeed": 90
       },
       {
         "id": "sm_dwarf_iron_hammer_a",
         "name": "[Iron Hills] 2H Hammer I",
         "template": "TwoHandedMace",
-        "swing": 83,
+        "swing": 88,
         "thrust": 0,
-        "swingSpeed": 92,
+        "swingSpeed": 87,
         "thrustSpeed": 98
       },
       {
         "id": "sm_dwarf_iron_hammer_b",
         "name": "[Iron Hills] 2H Hammer II",
         "template": "TwoHandedMace",
-        "swing": 86,
+        "swing": 92,
         "thrust": 0,
-        "swingSpeed": 90,
+        "swingSpeed": 87,
         "thrustSpeed": 98
       },
       {
         "id": "sm_dwarf_iron_hammer_c",
         "name": "[Iron Hills] 2H Hammer III",
         "template": "TwoHandedMace",
-        "swing": 85,
+        "swing": 91,
         "thrust": 0,
-        "swingSpeed": 91,
+        "swingSpeed": 87,
         "thrustSpeed": 98
       },
       {
         "id": "sm_dwarf_iron_hammer_d",
         "name": "[Iron Hills] 2H Hammer IV",
         "template": "TwoHandedMace",
-        "swing": 87,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 93,
+        "swingSpeed": 90,
         "thrustSpeed": 99
       },
       {
         "id": "sm_dwarf_iron_hammer_e",
         "name": "[Iron Hills] 2H Hammer V",
         "template": "TwoHandedMace",
-        "swing": 89,
+        "swing": 93,
         "thrust": 0,
-        "swingSpeed": 87,
+        "swingSpeed": 83,
         "thrustSpeed": 98
       },
       {
         "id": "sm_dwarf_iron_mattock_a",
         "name": "[Iron Hills] Mattock I",
         "template": "TwoHandedMace",
-        "swing": 106,
+        "swing": 113,
         "thrust": 0,
-        "swingSpeed": 93,
+        "swingSpeed": 90,
         "thrustSpeed": 99
       },
       {
         "id": "sm_dwarf_iron_mattock_b",
         "name": "[Iron Hills] Mattock II",
         "template": "TwoHandedMace",
-        "swing": 82,
+        "swing": 87,
         "thrust": 0,
-        "swingSpeed": 94,
-        "thrustSpeed": 99
+        "swingSpeed": 91,
+        "thrustSpeed": 100
       },
       {
         "id": "sm_dwarf_iron_mattock_c",
         "name": "[Iron Hills] Mattock III",
         "template": "TwoHandedMace",
-        "swing": 95,
+        "swing": 99,
         "thrust": 0,
-        "swingSpeed": 82,
+        "swingSpeed": 77,
         "thrustSpeed": 94
       },
       {
         "id": "sm_dwarf_iron_mattock_d",
         "name": "[Iron Hills] Mattock IV",
         "template": "TwoHandedMace",
-        "swing": 81,
+        "swing": 86,
         "thrust": 0,
-        "swingSpeed": 96,
+        "swingSpeed": 92,
         "thrustSpeed": 100
       },
       {
         "id": "sm_dwarf_iron_axe_a",
         "name": "[Iron Hills] Two-Handed Axe I",
         "template": "TwoHandedAxe",
-        "swing": 72,
+        "swing": 75,
         "thrust": 0,
-        "swingSpeed": 97,
+        "swingSpeed": 95,
         "thrustSpeed": 102
       },
       {
         "id": "sm_dwarf_iron_axe_b",
         "name": "[Iron Hills] Two-Handed Axe II",
         "template": "TwoHandedAxe",
-        "swing": 73,
+        "swing": 76,
         "thrust": 0,
-        "swingSpeed": 97,
+        "swingSpeed": 95,
         "thrustSpeed": 102
       },
       {
         "id": "sm_dwarf_iron_axe_c",
         "name": "[Iron Hills] Two-Handed Axe III",
         "template": "TwoHandedAxe",
-        "swing": 71,
+        "swing": 76,
         "thrust": 0,
-        "swingSpeed": 98,
+        "swingSpeed": 95,
         "thrustSpeed": 102
       },
       {
         "id": "sm_dwarf_iron_axe_d",
         "name": "[Iron Hills] Two-Handed Axe IV",
         "template": "TwoHandedAxe",
-        "swing": 72,
+        "swing": 76,
         "thrust": 0,
-        "swingSpeed": 97,
+        "swingSpeed": 95,
         "thrustSpeed": 102
       },
       {
@@ -2309,195 +2444,6 @@
         "thrust": 52,
         "swingSpeed": 87,
         "thrustSpeed": 93
-      }
-    ]
-  },
-  "rhun": {
-    "count": 20,
-    "avgSwing": 69,
-    "avgThrust": 35,
-    "avgMelee": 52,
-    "avgSpeed": 89,
-    "weapons": [
-      {
-        "id": "rhun_1h_sword_a",
-        "name": "[Rhûn] Sword I",
-        "template": "OneHandedSword",
-        "swing": 85,
-        "thrust": 33,
-        "swingSpeed": 85,
-        "thrustSpeed": 89
-      },
-      {
-        "id": "rhun_1h_sword_b",
-        "name": "[Rhûn] Sword II",
-        "template": "OneHandedSword",
-        "swing": 84,
-        "thrust": 36,
-        "swingSpeed": 86,
-        "thrustSpeed": 88
-      },
-      {
-        "id": "rhun_1h_sword_c",
-        "name": "[Rhûn] Sword III",
-        "template": "OneHandedSword",
-        "swing": 84,
-        "thrust": 34,
-        "swingSpeed": 87,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_d",
-        "name": "[Rhûn] Sword IV",
-        "template": "OneHandedSword",
-        "swing": 84,
-        "thrust": 36,
-        "swingSpeed": 87,
-        "thrustSpeed": 88
-      },
-      {
-        "id": "rhun_1h_sword_a_t4",
-        "name": "[Rhûn] Sword V",
-        "template": "OneHandedSword",
-        "swing": 70,
-        "thrust": 37,
-        "swingSpeed": 88,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_b_t4",
-        "name": "[Rhûn] Sword VI",
-        "template": "OneHandedSword",
-        "swing": 76,
-        "thrust": 37,
-        "swingSpeed": 84,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_c_t4",
-        "name": "[Rhûn] Sword VII",
-        "template": "OneHandedSword",
-        "swing": 71,
-        "thrust": 37,
-        "swingSpeed": 89,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_d_t4",
-        "name": "[Rhûn] Sword VIII",
-        "template": "OneHandedSword",
-        "swing": 75,
-        "thrust": 36,
-        "swingSpeed": 82,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_a_t3",
-        "name": "[Rhûn] Sword IX",
-        "template": "OneHandedSword",
-        "swing": 67,
-        "thrust": 49,
-        "swingSpeed": 88,
-        "thrustSpeed": 92
-      },
-      {
-        "id": "rhun_1h_sword_b_t3",
-        "name": "[Rhûn] Sword X",
-        "template": "OneHandedSword",
-        "swing": 77,
-        "thrust": 36,
-        "swingSpeed": 79,
-        "thrustSpeed": 88
-      },
-      {
-        "id": "rhun_1h_sword_c_t3",
-        "name": "[Rhûn] Sword XI",
-        "template": "OneHandedSword",
-        "swing": 67,
-        "thrust": 49,
-        "swingSpeed": 88,
-        "thrustSpeed": 91
-      },
-      {
-        "id": "rhun_1h_sword_d_t3",
-        "name": "[Rhûn] Sword XII",
-        "template": "OneHandedSword",
-        "swing": 76,
-        "thrust": 36,
-        "swingSpeed": 85,
-        "thrustSpeed": 90
-      },
-      {
-        "id": "rhun_1h_sword_a_t2",
-        "name": "[Rhûn] Sword XIII",
-        "template": "OneHandedSword",
-        "swing": 70,
-        "thrust": 34,
-        "swingSpeed": 88,
-        "thrustSpeed": 92
-      },
-      {
-        "id": "rhun_1h_sword_b_t2",
-        "name": "[Rhûn] Sword XIV",
-        "template": "OneHandedSword",
-        "swing": 51,
-        "thrust": 32,
-        "swingSpeed": 98,
-        "thrustSpeed": 94
-      },
-      {
-        "id": "rhun_1h_sword_c_t2",
-        "name": "[Rhûn] Sword XV",
-        "template": "OneHandedSword",
-        "swing": 70,
-        "thrust": 34,
-        "swingSpeed": 88,
-        "thrustSpeed": 92
-      },
-      {
-        "id": "rhun_1h_sword_d_t2",
-        "name": "[Rhûn] Sword XVI",
-        "template": "OneHandedSword",
-        "swing": 48,
-        "thrust": 31,
-        "swingSpeed": 102,
-        "thrustSpeed": 94
-      },
-      {
-        "id": "rhun_1h_sword_a_t1",
-        "name": "[Rhûn] Sword XVII",
-        "template": "OneHandedSword",
-        "swing": 50,
-        "thrust": 31,
-        "swingSpeed": 100,
-        "thrustSpeed": 94
-      },
-      {
-        "id": "rhun_1h_sword_b_t1",
-        "name": "[Rhûn] Sword XVIII",
-        "template": "OneHandedSword",
-        "swing": 57,
-        "thrust": 30,
-        "swingSpeed": 93,
-        "thrustSpeed": 94
-      },
-      {
-        "id": "rhun_1h_sword_c_t1",
-        "name": "[Rhûn] Sword XIX",
-        "template": "OneHandedSword",
-        "swing": 51,
-        "thrust": 31,
-        "swingSpeed": 100,
-        "thrustSpeed": 94
-      },
-      {
-        "id": "rhun_1h_sword_d_t1",
-        "name": "[Rhûn] Sword XX",
-        "template": "OneHandedSword",
-        "swing": 59,
-        "thrust": 30,
-        "swingSpeed": 91,
-        "thrustSpeed": 92
       }
     ]
   },
@@ -3146,6 +3092,150 @@
         "thrust": 0,
         "swingSpeed": 69,
         "thrustSpeed": 84
+      }
+    ]
+  },
+  "sturgia": {
+    "count": 15,
+    "avgSwing": 75,
+    "avgThrust": 42,
+    "avgMelee": 59,
+    "avgSpeed": 73,
+    "weapons": [
+      {
+        "id": "dale_sword_a",
+        "name": "[Dale] Dale Sword I",
+        "template": "OneHandedSword",
+        "swing": 55,
+        "thrust": 44,
+        "swingSpeed": 85,
+        "thrustSpeed": 90
+      },
+      {
+        "id": "dale_sword_b",
+        "name": "[Dale] Dale Sword II",
+        "template": "OneHandedSword",
+        "swing": 52,
+        "thrust": 39,
+        "swingSpeed": 90,
+        "thrustSpeed": 92
+      },
+      {
+        "id": "dale_sword_c",
+        "name": "[Dale] Dale Sword III",
+        "template": "OneHandedSword",
+        "swing": 47,
+        "thrust": 35,
+        "swingSpeed": 103,
+        "thrustSpeed": 94
+      },
+      {
+        "id": "dale_war_axe_a",
+        "name": "[Dale] Dale War Axe I",
+        "template": "OneHandedAxe",
+        "swing": 53,
+        "thrust": 0,
+        "swingSpeed": 98,
+        "thrustSpeed": 91
+      },
+      {
+        "id": "dale_war_axe_b",
+        "name": "[Dale] Dale War Axe II",
+        "template": "OneHandedAxe",
+        "swing": 52,
+        "thrust": 0,
+        "swingSpeed": 102,
+        "thrustSpeed": 92
+      },
+      {
+        "id": "dale_war_axe_c",
+        "name": "[Dale] Dale War Axe III",
+        "template": "OneHandedAxe",
+        "swing": 66,
+        "thrust": 0,
+        "swingSpeed": 91,
+        "thrustSpeed": 88
+      },
+      {
+        "id": "dale_great_axe_a",
+        "name": "[Dale] Dale Great Axe",
+        "template": "TwoHandedAxe",
+        "swing": 138,
+        "thrust": 0,
+        "swingSpeed": 63,
+        "thrustSpeed": 79
+      },
+      {
+        "id": "dale_spear_a",
+        "name": "[Dale] Dale Spear I",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 45,
+        "swingSpeed": 74,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "dale_spear_b",
+        "name": "[Dale] Dale Spear II",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 49,
+        "swingSpeed": 74,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "dale_halberd_a",
+        "name": "[Dale] Dale Halberd I",
+        "template": "TwoHandedPolearm",
+        "swing": 89,
+        "thrust": 41,
+        "swingSpeed": 37,
+        "thrustSpeed": 77
+      },
+      {
+        "id": "dale_halberd_b",
+        "name": "[Dale] Dale Halberd II",
+        "template": "TwoHandedPolearm",
+        "swing": 89,
+        "thrust": 41,
+        "swingSpeed": 37,
+        "thrustSpeed": 77
+      },
+      {
+        "id": "dale_poleaxe_a",
+        "name": "[Dale] Dale Poleaxe",
+        "template": "TwoHandedPolearm",
+        "swing": 98,
+        "thrust": 36,
+        "swingSpeed": 73,
+        "thrustSpeed": 89
+      },
+      {
+        "id": "dale_war_spear_a",
+        "name": "[Dale] Dale War Spear",
+        "template": "TwoHandedPolearm",
+        "swing": 0,
+        "thrust": 42,
+        "swingSpeed": 59,
+        "thrustSpeed": 84
+      },
+      {
+        "id": "dale_winged_spear_a",
+        "name": "[Dale] Dale Winged Spear I",
+        "template": "TwoHandedPolearm",
+        "swing": 84,
+        "thrust": 47,
+        "swingSpeed": 64,
+        "thrustSpeed": 86
+      },
+      {
+        "id": "dale_winged_spear_b",
+        "name": "[Dale] Dale Winged Spear II",
+        "template": "TwoHandedPolearm",
+        "swing": 76,
+        "thrust": 45,
+        "swingSpeed": 49,
+        "thrustSpeed": 81
       }
     ]
   }

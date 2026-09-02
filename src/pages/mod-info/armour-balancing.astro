@@ -9,7 +9,7 @@ const cultures = [
     color: '#c8d0d8',
     alignment: 'good',
     race: 'Men',
-    items: 247,
+    items: 346,
     protection: '+1',
     weightMult: '1.00x',
     identity:
@@ -25,7 +25,7 @@ const cultures = [
     color: '#6db36d',
     alignment: 'good',
     race: 'Men',
-    items: 104,
+    items: 109,
     protection: '-2',
     weightMult: '0.90x',
     identity:
@@ -41,7 +41,7 @@ const cultures = [
     color: '#6a9fd4',
     alignment: 'good',
     race: 'Dwarf',
-    items: 211,
+    items: 137,
     protection: '+4',
     weightMult: '1.05x',
     identity:
@@ -52,12 +52,28 @@ const cultures = [
       'Erebor armour is the second-best among non-elven factions, reflecting their legendary smithing tradition. Slightly heavier than standard but with significantly better protection.',
   },
   {
+    id: 'dale',
+    name: 'Dalemen',
+    color: '#4169e1',
+    alignment: 'good',
+    race: 'Men',
+    items: 160,
+    protection: 'baseline',
+    weightMult: '1.0x',
+    identity:
+      'Dale armour is northern mannish work, made prosperous again by trade with Erebor. Mail and scale predominate, cut for men who fight beside Dwarves and share their smiths, without the Dwarven weight penalty or the Dwarven protection bonus.',
+    strengths: [],
+    weaknesses: [],
+    notes:
+      'Dale fields 160 armour pieces across all five slots plus a starter kit. Cultural protection and weight modifiers are applied by the mod at runtime and are not published in the item XML.',
+  },
+  {
     id: 'iron_hills',
     name: 'Ironfists',
     color: '#a04030',
     alignment: 'good',
     race: 'Dwarf',
-    items: 146,
+    items: 168,
     protection: '+5',
     weightMult: '1.10x',
     identity:
@@ -73,7 +89,7 @@ const cultures = [
     color: '#7ec8e3',
     alignment: 'good',
     race: 'Elf',
-    items: 179,
+    items: 185,
     protection: '+5',
     weightMult: '0.70x',
     identity:
@@ -92,7 +108,7 @@ const cultures = [
     color: '#4a9e6d',
     alignment: 'good',
     race: 'Elf',
-    items: 45,
+    items: 51,
     protection: '+5',
     weightMult: '0.65x',
     identity:
@@ -103,7 +119,7 @@ const cultures = [
     ],
     weaknesses: [],
     notes:
-      'Mirkwood armour is the lightest in the game at 0.65x weight multiplier. Their small roster (45 items) reflects a woodland kingdom with fewer armor variants than Rivendell, but what they have is exceptional.',
+      'Mirkwood armour is the lightest in the game at 0.65x weight multiplier. Their small roster (51 items) reflects a woodland kingdom with fewer armor variants than Rivendell, but what they have is exceptional.',
   },
   {
     id: 'lothlorien',
@@ -130,7 +146,7 @@ const cultures = [
     color: '#a0a0a0',
     alignment: 'evil',
     race: 'Uruk-Hai',
-    items: 137,
+    items: 156,
     protection: '+2',
     weightMult: '1.15x',
     identity:
@@ -146,7 +162,7 @@ const cultures = [
     color: '#b44444',
     alignment: 'evil',
     race: 'Orc',
-    items: 136,
+    items: 398,
     protection: '-1',
     weightMult: '1.10x',
     identity:
@@ -165,7 +181,7 @@ const cultures = [
     color: '#7a8a9a',
     alignment: 'evil',
     race: 'Orc',
-    items: 101,
+    items: 107,
     protection: '+0',
     weightMult: '1.15x',
     identity:
@@ -181,7 +197,7 @@ const cultures = [
     color: '#7a9a5a',
     alignment: 'evil',
     race: 'Orc',
-    items: 113,
+    items: 138,
     protection: '+0',
     weightMult: '1.10x',
     identity:
@@ -197,7 +213,7 @@ const cultures = [
     color: '#c43c3c',
     alignment: 'evil',
     race: 'Men',
-    items: 56,
+    items: 62,
     protection: '-3',
     weightMult: '0.85x',
     identity:
@@ -213,7 +229,7 @@ const cultures = [
     color: '#d4a24c',
     alignment: 'evil',
     race: 'Men',
-    items: 603,
+    items: 594,
     protection: '+0',
     weightMult: '1.00x',
     identity:
@@ -221,7 +237,7 @@ const cultures = [
     strengths: [],
     weaknesses: [],
     notes:
-      'Rhun is baseline-equivalent to Gondor in armour quality. Their massive item count (603) reflects the largest culture roster in the game, with multiple regional sub-styles (Loke-rim, standard Easterling, etc.).',
+      'Rhun is baseline-equivalent to Gondor in armour quality. Their massive item count (594) reflects the largest culture roster in the game, with multiple regional sub-styles (Loke-rim, standard Easterling, etc.).',
   },
   {
     id: 'dunland',
@@ -229,7 +245,7 @@ const cultures = [
     color: '#9a7a5a',
     alignment: 'evil',
     race: 'Men',
-    items: 152,
+    items: 158,
     protection: '-2',
     weightMult: '0.95x',
     identity:
@@ -352,7 +368,7 @@ const masterworkCultures = cultures.filter((culture) => culture.protection === '
         <h2 class="section-toggle"><span class="collapse-arrow">&#9660;</span> Overview</h2>
         <div class="collapsible-content">
           <p class="section-desc">
-            TAOM rebalances all <strong>2,368 armour items</strong> across <strong>17 cultures</strong> using a uniform formula:
+            TAOM rebalances all <strong>2,904 armour items</strong> across <strong>18 cultures</strong> using a uniform formula:
             every item's protection values and weight are calculated from a <strong>tier-based baseline</strong> plus a
             <strong>cultural modifier</strong>. This ensures consistent progression within each culture while giving
             each faction a distinct armour identity.
