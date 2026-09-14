@@ -2,6 +2,37 @@
 
 All notable changes to the TAOM website data and features are documented here.
 
+## [2026-09-14] — Mod Data Sync
+
+### Weapons — Gondor / Rhûn / Númenórean Rebalance
+
+- **329 custom melee weapons** (was 344); shields 224 → 226.
+- **Gondor** trimmed from 48 to 34 melee weapons: the Lossarnach axe line collapsed from ten variants to two (`_1h_axe_light`, `_2h_axe_light`), `wm_gondor_sword_a04`–`a10` removed, `wm_gondor_spear` replaced by `wm_gondor_light_spear`, and a Lamedon heavy bastard sword added. Average swing 95 → 91.
+- **Rhûn** grew from 33 to 45: each of the Khamûl, Dragon and Lôke-rim lines gained a second spear and three two-handed swords (`sm_*_sword_2h_a/b/c`). Average swing 91 → 110 — now the highest of any implemented culture.
+- **Númenórean** (cultureless) two-handers restructured: the 26 `numenorean_sword_2h_a`–`z` variants were replaced by a 14-piece set — bastard and greatsword at medium/heavy/elite in a/b, plus two poleaxes.
+- **Harad** lost the two misattributed `easterling_spear`/`easterling_sword` items (6 melee, no two-handers).
+- Crafting pieces grew 509 KB → 553 KB to back the new blades.
+
+### Troops
+
+- **901 unique troops** (was 899). Erebor gained `ironpass_ram_herder` and `ironpass_ram_marshal` (64 → 66).
+- Minor stat tweaks across every roster; no cultures added or removed.
+
+### Armoury — New Generated Item Sets (Excluded)
+
+- The mod now ships two generated, non-merchandise files in each culture folder that are **not** player-facing armour:
+  - `ranged_ladder.xml` — an AI missile-speed ladder of bow/crossbow clones (13 cultures, 15 per culture).
+  - `starter_kit.xml` — stat-floored twins of the player's starting loadout, mixing armour, shields, bows and crafted weapons (14 cultures).
+- `parse-armory.ts` now skips both files and any `<Item>` without an `<Armor>` component, so `/armoury` stays at **2,904** real items. `starter_armors.xml` (purchasable starter sets) is unaffected and still feeds the Starter tab.
+
+### Vanilla References
+
+- `vanilla_weapons.xml` and `vanilla_crafting_pieces.xml` refreshed from the current Bannerlord install.
+
+### Known Data Issues
+
+- `bluecraig_bolgs_ironfang` and `mistymountainorcs_bolgs_ironfang` remain defined twice (in `troops_goblin.xml` and their own faction files). Counts use unique ids.
+
 ## [2026-09-02] — Full Mod Data Sync
 
 ### New Factions

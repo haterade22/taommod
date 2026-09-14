@@ -2546,7 +2546,7 @@
     <CraftingPiece
         id="numenorean_sword_blade_a"
         name="{=aom_numenorean_sword_blade_a_name}Numenorean Sword Blade A"
-        tier="2"
+        tier="3"
         piece_type="Blade"
         mesh="numenorean_sword_blade_a"
         length="114.61"
@@ -2583,9 +2583,10 @@
         tier="3"
         piece_type="Guard"
         mesh="numenorean_sword_guard_a"
-        length="2.53"
+        length="1"
         weight="0.15">
         <BuildData
+            piece_offset="0"
             next_piece_offset="0"
             previous_piece_offset="0" />
         <StatContributions
@@ -2603,7 +2604,7 @@
         tier="3"
         piece_type="Handle"
         mesh="numenorean_sword_handle_a"
-        length="30.36"
+        length="30.5"
         weight="0.2">
         <BuildData
             piece_offset="0"
@@ -2622,7 +2623,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="numenorean_sword_pommel_a"
-        length="11.73"
+        length="11.5"
         weight="0.3">
         <BuildData
             piece_offset="0"
@@ -2638,7 +2639,7 @@
     <CraftingPiece
         id="numenorean_sword_blade_b"
         name="{=aom_numenorean_sword_blade_b_name}Numenorean Sword Blade B"
-        tier="3"
+        tier="4"
         piece_type="Blade"
         mesh="numenorean_sword_blade_b"
         length="114.61"
@@ -2675,9 +2676,10 @@
         tier="3"
         piece_type="Guard"
         mesh="numenorean_sword_guard_b"
-        length="3.64"
+        length="3.6"
         weight="0.15">
         <BuildData
+            piece_offset="0"
             next_piece_offset="0"
             previous_piece_offset="0" />
         <StatContributions
@@ -2696,7 +2698,7 @@
         piece_type="Handle"
         mesh="numenorean_sword_handle_b"
         weight="0.2"
-        length="30.36">
+        length="30.5">
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
@@ -2714,7 +2716,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="numenorean_sword_pommel_b"
-        length="11.73"
+        length="11"
         weight="0.3">
         <BuildData
             piece_offset="0"
@@ -2730,7 +2732,7 @@
     <CraftingPiece
         id="numenorean_sword_blade_c"
         name="{=aom_numenorean_sword_blade_c_name}Numenorean Sword Blade C"
-        tier="4"
+        tier="5"
         piece_type="Blade"
         mesh="numenorean_sword_blade_c"
         length="114.61"
@@ -2749,8 +2751,6 @@
         </BladeData>
         <Flags>
             <Flag
-                name="CanKnockDown" />
-            <Flag
                 name="Civilian"
                 type="ItemFlags" />
         </Flags>
@@ -2767,11 +2767,12 @@
         tier="3"
         piece_type="Guard"
         mesh="numenorean_sword_guard_c"
-        length="6.40"
+        length="5"
         weight="0.15">
         <BuildData
-            next_piece_offset="0"
-            previous_piece_offset="2.9" />
+            piece_offset="0"
+            next_piece_offset="2"
+            previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
         <Materials>
@@ -2787,7 +2788,7 @@
         tier="3"
         piece_type="Handle"
         mesh="numenorean_sword_handle_c"
-        length="30.36"
+        length="30.5"
         weight="0.2">
         <BuildData
             piece_offset="0"
@@ -2806,7 +2807,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="numenorean_sword_pommel_c"
-        length="10.59"
+        length="8"
         weight="0.3">
         <BuildData
             piece_offset="0"
@@ -2841,7 +2842,37 @@
         </BladeData>
         <Flags>
             <Flag
-                name="CanKnockDown" />
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="numenorean_sword_blade_d_elite"
+        name="{=aom_numenorean_sword_blade_d_elite_name}Numenorean Sword Blade D (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="numenorean_sword_blade_d"
+        length="114.61"
+        weight="0.95">
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_numenorean_sword_blade_d"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.28" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.83" />
+        </BladeData>
+        <Flags>
             <Flag
                 name="Civilian"
                 type="ItemFlags" />
@@ -2859,11 +2890,12 @@
         tier="3"
         piece_type="Guard"
         mesh="numenorean_sword_guard_d"
-        length="8.22"
+        length="5"
         weight="0.15">
         <BuildData
+            piece_offset="0"
             next_piece_offset="0"
-            previous_piece_offset="2.9" />
+            previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
         <Materials>
@@ -2879,7 +2911,7 @@
         tier="3"
         piece_type="Handle"
         mesh="numenorean_sword_handle_d"
-        length="30.36"
+        length="30.5"
         weight="0.2">
         <BuildData
             piece_offset="0"
@@ -2898,7 +2930,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="numenorean_sword_pommel_d"
-        length="15.94"
+        length="15"
         weight="0.5">
         <BuildData
             piece_offset="0"
@@ -2914,7 +2946,41 @@
     <CraftingPiece
         id="numenorean_sword_blade_e"
         name="{=aom_numenorean_sword_blade_e_name}Numenorean Sword Blade E"
-        tier="3"
+        tier="4"
+        piece_type="Blade"
+        mesh="numenorean_sword_blade_e"
+        length="114.61"
+        weight="0.95">
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_numenorean_sword_blade_e"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.37" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.83" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="numenorean_sword_blade_e_royal"
+        name="{=aom_numenorean_sword_blade_e_royal_name}Numenorean Sword Blade E (Royal)"
+        tier="5"
         piece_type="Blade"
         mesh="numenorean_sword_blade_e"
         length="114.61"
@@ -2951,64 +3017,11 @@
         tier="3"
         piece_type="Guard"
         mesh="numenorean_sword_guard_e"
-        length="7.17"
+        length="3"
         weight="0.15">
         <BuildData
+            piece_offset="0"
             next_piece_offset="0"
-            previous_piece_offset="2.9" />
-        <StatContributions
-            armor_bonus="5" />
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <!--Easterling Sword-->
-
-    <CraftingPiece
-        id="easterling_sword_blade"
-        name="{=aom_easterling_sword_blade_name}Easterling Sword Blade"
-        tier="3"
-        piece_type="Blade"
-        mesh="sm_rh_loke_sword_blade_a"
-        length="111"
-        weight="0.95">
-        <BladeData
-            stack_amount="3"
-            physics_material="metal_weapon"
-            body_name="bo_sword_one_handed"
-            holster_mesh="">
-            <Thrust
-                damage_type="Pierce"
-                damage_factor="2.66" />
-            <Swing
-                damage_type="Cut"
-                damage_factor="2.54" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="easterling_sword_guard"
-        name="{=aom_easterling_sword_guard_name}Easterling Sword Guard"
-        tier="3"
-        piece_type="Guard"
-        mesh="sm_rh_loke_sword_guard_a"
-        length="2.34"
-        weight="0.15">
-        <BuildData
-            next_piece_offset="-5.0"
             previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
@@ -3019,98 +3032,117 @@
         </Materials>
     </CraftingPiece>
 
+    <!--Arnor Poleaxe-->
+
     <CraftingPiece
-        id="easterling_sword_handle"
-        name="{=aom_easterling_sword_handle_name}Easterling Sword Grip"
-        tier="2"
-        piece_type="Handle"
-        mesh="sm_rh_loke_sword_handle_a"
-        length="7"
-        weight="0.15">
+        id="sm_ar_art_poleaxe_blade_a"
+        name="{=aom_sm_ar_art_poleaxe_blade_a_name}Arnor Poleaxe Blade (Heavy)"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_ar_art_poleaxe_blade_a"
+        length="28"
+        weight="1.15">
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="5.0" />
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_ar_art_poleaxe_blade_a"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.0" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="4.2" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="sm_ar_art_poleaxe_blade_b"
+        name="{=aom_sm_ar_art_poleaxe_blade_b_name}Arnor Poleaxe Blade (Medium)"
+        tier="2"
+        piece_type="Blade"
+        mesh="sm_ar_art_poleaxe_blade_b"
+        length="28"
+        weight="1.05">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_ar_art_poleaxe_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.7" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.8" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
         <Materials>
             <Material
                 id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="sm_ar_art_poleaxe_handle_a"
+        name="{=aom_sm_ar_art_poleaxe_handle_a_name}Arnor Poleaxe Handle"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_ar_art_poleaxe_handle_a"
+        length="170"
+        weight="1.6">
+        <BuildData
+            piece_offset="20" />
+        <Materials>
+            <Material
+                id="Wood"
                 count="1" />
         </Materials>
     </CraftingPiece>
 
     <CraftingPiece
-        id="easterling_sword_pommel"
-        name="{=aom_easterling_sword_pommel_name}Easterling Sword Pommel"
-        tier="2"
+        id="sm_ar_art_poleaxe_pommel_a"
+        name="{=aom_sm_ar_art_poleaxe_pommel_a_name}Arnor Poleaxe Pommel"
+        tier="3"
         piece_type="Pommel"
-        mesh="sm_rh_loke_sword_pommel_a"
-        length="3"
-        weight="0.284">
+        mesh="sm_ar_art_poleaxe_pommel_a"
+        length="9"
+        weight="0.2">
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
-                id="Iron3"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <!--Easterling Spears-->
-
-    <CraftingPiece
-        id="easterling_spear_blade"
-        name="{=aom_easterling_spear_blade_name}Easterling Polearm Blade"
-        tier="4"
-        piece_type="Blade"
-        mesh="sm_rh_loke_spear_blade_a"
-        length="19"
-        weight="0.67">
-        <BuildData
-            piece_offset="-10" />
-        <BladeData
-            stack_amount="3"
-            physics_material="metal_weapon"
-            body_name="bo_spear_b">
-            <Thrust
-                damage_type="Pierce"
-                damage_factor="3.38" />
-            <Swing
-                damage_type="Cut"
-                damage_factor="3.14" />
-        </BladeData>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="4" />
-        </Materials>
-        <Flags>
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanHook" />
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="easterling_spear_handle"
-        name="{=aom_easterling_spear_handle_name}Easterling Polearm Handle"
-        tier="4"
-        piece_type="Handle"
-        mesh="wm_harad_spear_a01_handle"
-        length="138"
-        weight="0.8"
-        CraftingCost="90">
-        <Materials>
-            <Material
-                id="Wood"
-                count="5" />
+                id="Iron4"
+                count="1" />
         </Materials>
     </CraftingPiece>
 
@@ -3118,8 +3150,8 @@
 
     <CraftingPiece
         id="wm_swan_knight_sword_a_blade"
-        name="{=aom_wm_swan_knight_sword_a_blade_name}Swan Knight Sword Blade"
-        tier="3"
+        name="{=aom_wm_swan_knight_sword_a_blade_name}Swan Knight Sword Blade A"
+        tier="4"
         piece_type="Blade"
         mesh="wm_swan_knight_sword_a_blade"
         length="105.06"
@@ -3134,7 +3166,7 @@
                 damage_factor="3.83" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="4.15" />
         </BladeData>
         <Flags>
             <Flag
@@ -3209,7 +3241,7 @@
     <CraftingPiece
         id="wm_swan_knight_sword_b_blade"
         name="{=aom_wm_swan_knight_sword_b_blade_name}Swan Knight Sword Blade B"
-        tier="3"
+        tier="4"
         piece_type="Blade"
         mesh="wm_swan_knight_sword_b_blade"
         length="105.06"
@@ -3299,7 +3331,7 @@
     <CraftingPiece
         id="wm_boromir_sword_blade"
         name="{=aom_wm_boromir_sword_blade_name}Boromir Sword Blade"
-        tier="3"
+        tier="5"
         piece_type="Blade"
         mesh="wm_boromir_sword_blade"
         length="76.44"
@@ -3311,10 +3343,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.5" />
+                damage_factor="4.2" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.5" />
+                damage_factor="5.0" />
         </BladeData>
         <Flags>
             <Flag
@@ -3389,7 +3421,7 @@
     <CraftingPiece
         id="wm_faramir_sword_blade"
         name="{=aom_wm_faramir_sword_blade_name}Faramir Sword Blade"
-        tier="3"
+        tier="4"
         piece_type="Blade"
         mesh="wm_faramir_sword_blade"
         length="79.56"
@@ -3478,12 +3510,12 @@
 
     <CraftingPiece
         id="wm_gondor_sword_a01_blade"
-        name="{=aom_wm_gondor_sword_a01_blade_name}Gondor A01 Sword Blade"
-        tier="3"
+        name="{=aom_wm_gondor_sword_a01_blade_name}Gondor Sword Blade Medium A"
+        tier="2"
         piece_type="Blade"
         mesh="wm_gondor_sword_a01_blade"
         length="76.08"
-        weight="0.75">
+        weight="0.68">
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -3491,10 +3523,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="3.26" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.92" />
+                damage_factor="4.18" />
         </BladeData>
         <Flags>
             <Flag
@@ -3569,12 +3601,12 @@
 
     <CraftingPiece
         id="wm_gondor_sword_a02_blade"
-        name="{=aom_wm_gondor_sword_a02_blade_name}Gondor A02 Sword Blade"
-        tier="3"
+        name="{=aom_wm_gondor_sword_a02_blade_name}Gondor Sword Blade Medium B"
+        tier="2"
         piece_type="Blade"
         mesh="wm_gondor_sword_a02_blade"
         length="82.96"
-        weight="0.75">
+        weight="0.68">
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -3582,10 +3614,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="3.26" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.81" />
+                damage_factor="4.09" />
         </BladeData>
         <Flags>
             <Flag
@@ -3659,12 +3691,12 @@
 
     <CraftingPiece
         id="wm_gondor_sword_a03_blade"
-        name="{=aom_wm_gondor_sword_a03_blade_name}Gondor A03 Sword Blade"
-        tier="3"
+        name="{=aom_wm_gondor_sword_a03_blade_name}Gondor Sword Blade Elite A"
+        tier="4"
         piece_type="Blade"
         mesh="wm_gondor_sword_a03_blade"
         length="73.92"
-        weight="0.75">
+        weight="0.83">
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -3672,10 +3704,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="4.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.92" />
+                damage_factor="5.41" />
         </BladeData>
         <Flags>
             <Flag
@@ -3749,12 +3781,12 @@
 
     <CraftingPiece
         id="wm_gondor_sword_a07_blade"
-        name="{=aom_wm_gondor_sword_a07_blade_name}Gondor A07 Sword Blade"
-        tier="3"
+        name="{=aom_wm_gondor_sword_a07_blade_name}Gondor Sword Blade Elite B"
+        tier="4"
         piece_type="Blade"
         mesh="wm_gondor_sword_a07_blade"
         length="73.88"
-        weight="0.96">
+        weight="1.06">
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -3762,10 +3794,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="4.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.37" />
+                damage_factor="4.81" />
         </BladeData>
         <Flags>
             <Flag
@@ -4020,58 +4052,6 @@
     <!--Gondor Spears-->
 
     <CraftingPiece
-        id="wm_gondor_spear_blade"
-        name="{=aom_wm_gondor_spear_blade_name}Gondor Spear Head B"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_gondor_spear_blade"
-        length="47"
-        weight="0.92"
-        excluded_item_usage_features="swing">
-        <BladeData
-            stack_amount="3"
-            physics_material="wood_weapon"
-            body_name="bo_wm_gondor_spear_blade">
-            <Thrust
-                damage_type="Pierce"
-                damage_factor="1.97" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanHook" />
-            <Flag
-                name="NotStackable"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_gondor_spear_shaft"
-        name="{=aom_wm_gondor_spear_shaft_name}Gondor Spear Handle B"
-        tier="4"
-        piece_type="Handle"
-        mesh="wm_gondor_spear_shaft"
-        length="190"
-        weight="1.6">
-        <BuildData
-            piece_offset="22.9" />
-        <Materials>
-            <Material
-                id="Wood"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
         id="wm_gondor_spear_b_blade"
         name="{=aom_wm_gondor_spear_b_blade_name}Gondor Spear Head C"
         tier="3"
@@ -4086,7 +4066,7 @@
             body_name="bo_wm_gondor_spear_blade">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.08" />
+                damage_factor="2.29" />
         </BladeData>
         <Flags>
             <Flag
@@ -4126,7 +4106,7 @@
     <CraftingPiece
         id="wm_gondor_spear_a_blade"
         name="{=aom_wm_gondor_spear_a_blade_name}Gondor Spear Head D"
-        tier="3"
+        tier="4"
         piece_type="Blade"
         mesh="wm_gondor_spear_a_blade"
         length="50"
@@ -4138,7 +4118,7 @@
             body_name="bo_wm_gondor_spear_blade">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.97" />
+                damage_factor="2.46" />
         </BladeData>
         <Flags>
             <Flag
@@ -4168,6 +4148,58 @@
         weight="1.6">
         <BuildData
             piece_offset="30" />
+        <Materials>
+            <Material
+                id="Wood"
+                count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_light_spear_blade"
+        name="{=aom_wm_gondor_light_spear_blade_name}Gondor Spear Head (Light)"
+        tier="1"
+        piece_type="Blade"
+        mesh="wm_gondor_spear_blade"
+        length="47"
+        weight="0.72"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_wm_gondor_spear_blade">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.00" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+            <Flag
+                name="NotStackable"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_light_spear_shaft"
+        name="{=aom_wm_gondor_light_spear_shaft_name}Gondor Spear Handle (Light)"
+        tier="1"
+        piece_type="Handle"
+        mesh="wm_gondor_spear_shaft"
+        length="190"
+        weight="1.6">
+        <BuildData
+            piece_offset="22.9" />
         <Materials>
             <Material
                 id="Wood"
@@ -4556,136 +4588,20 @@
     <!--Gondor One Handed Axes-->
 
     <CraftingPiece
-        id="wm_lossarnach_1h_axe__blade"
-        name="{=aom_wm_lossarnach_1h_axe__blade_name}Gondor Lossarnach 1H Axe Blade A"
-        tier="4"
-        piece_type="Blade"
-        mesh="wm_lossarnach_1h_axe__blade"
-        length="28.47"
-        distance_to_next_piece="0"
-        distance_to_previous_piece="0"
-        weight="0.734">
-        <BuildData
-            piece_offset="0" />
-        <BladeData
-            stack_amount="3"
-            blade_length="28.47"
-            blade_width="23.45"
-            physics_material="metal_weapon"
-            body_name="bo_wm_lossarnach_1h_axe__blade">
-            <Swing
-                damage_type="Cut"
-                damage_factor="3.61" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="BonusAgainstShield" />
-            <Flag
-                name="CanBePickedUpFromCorpse"
-                type="ItemFlags" />
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_1h_axe_silver_blade"
-        name="{=aom_wm_lossarnach_1h_axe_silver_blade_name}Gondor Lossarnach 1H Axe Blade B"
-        tier="4"
-        piece_type="Blade"
-        mesh="wm_lossarnach_1h_axe_silver_blade"
-        length="28.47"
-        distance_to_next_piece="0"
-        distance_to_previous_piece="0"
-        weight="0.734">
-        <BuildData
-            piece_offset="-40" />
-        <BladeData
-            stack_amount="3"
-            blade_length="28.47"
-            blade_width="23.45"
-            physics_material="metal_weapon"
-            body_name="bo_wm_lossarnach_1h_axe_silver_blade">
-            <Swing
-                damage_type="Cut"
-                damage_factor="3.61" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="BonusAgainstShield" />
-            <Flag
-                name="CanBePickedUpFromCorpse"
-                type="ItemFlags" />
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_1h_axe_handle"
-        name="{=aom_wm_lossarnach_1h_axe_handle_name}Gondor Lossarnach 1H Axe Handle A"
-        tier="3"
-        piece_type="Handle"
-        mesh="wm_lossarnach_1h_axe_handle"
-        length="69.74"
-        weight="0.296">
-        <BuildData
-            piece_offset="20"
-            next_piece_offset="0"
-            previous_piece_offset="0" />
-        <Materials>
-            <Material
-                id="Wood"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
         id="wm_lossarnach_1h_axe_black_ash_handle"
         name="{=aom_wm_lossarnach_1h_axe_black_ash_handle_name}Gondor Lossarnach 1H Black Ash Axe Handle A"
         tier="3"
         piece_type="Handle"
         mesh="wm_lossarnach_1h_axe_black_ash_handle"
-        length="69.74"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="10"
-            next_piece_offset="0"
-            previous_piece_offset="0" />
+            previous_piece_offset="0"
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Wood"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_1h_axe_pommel"
-        name="{=aom_wm_lossarnach_1h_axe_pommel_name}Gondor Lossnarnach 1H Pommel A"
-        tier="3"
-        piece_type="Pommel"
-        mesh="wm_lossarnach_1h_axe_pommel"
-        length="20.7"
-        weight="0">
-        <BuildData
-            piece_offset="0"
-            next_piece_offset="0"
-            previous_piece_offset="0" />
-        <Materials>
-            <Material
-                id="Iron4"
                 count="1" />
         </Materials>
     </CraftingPiece>
@@ -4693,156 +4609,23 @@
     <!--Gondor Two Handed Axes-->
 
     <CraftingPiece
-        id="wm_lossarnach_2h_axe_blade"
-        name="{=aom_wm_lossarnach_2h_axe_blade_name}Gondor Lossarnach Axe 2H Blade A"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_lossarnach_2h_axe_blade"
-        length="41.59"
-        distance_to_next_piece="0"
-        distance_to_previous_piece="0"
-        weight="1.75">
-        <BuildData
-            piece_offset="0" />
-        <BladeData
-            stack_amount="3"
-            blade_length="41.59"
-            blade_width="31.16"
-            physics_material="metal_weapon"
-            body_name="bo_wm_lossarnach_2h_axe_blade">
-            <Swing
-                damage_type="Cut"
-                damage_factor="3.93" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="BonusAgainstShield" />
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanBePickedUpFromCorpse"
-                type="ItemFlags" />
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="3" />
-            <Material
-                id="Iron2"
-                count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_2h_axe_silver_blade"
-        name="{=aom_wm_lossarnach_2h_axe_silver_blade_name}Gondor Lossarnach Axe 2H Blade B"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_lossarnach_2h_axe_silver_blade"
-        length="41.59"
-        distance_to_next_piece="0"
-        distance_to_previous_piece="0"
-        weight="1.75">
-        <BuildData
-            piece_offset="-20" />
-        <BladeData
-            stack_amount="3"
-            blade_length="41.59"
-            blade_width="31.16"
-            physics_material="metal_weapon"
-            body_name="bo_wm_lossarnach_2h_axe_silver_blade">
-            <Swing
-                damage_type="Cut"
-                damage_factor="3.93" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="BonusAgainstShield" />
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanBePickedUpFromCorpse"
-                type="ItemFlags" />
-            <Flag
-                name="Civilian"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron3"
-                count="3" />
-            <Material
-                id="Iron2"
-                count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_2h_axe_handle"
-        name="{=aom_wm_lossarnach_2h_axe_handle_name}Lossarnach 2H Axe Handle A"
-        tier="3"
-        piece_type="Handle"
-        mesh="wm_lossarnach_2h_axe_handle"
-        length="96.04"
-        weight="0.644"
-        item_holster_pos_shift="0,0,-0.1"
-        excluded_item_usage_features="widegrip">
-        <BuildData
-            piece_offset="20"
-            next_piece_offset="-19.5"
-            previous_piece_offset="-17" />
-        <Materials>
-            <Material
-                id="Wood"
-                count="5" />
-            <Material
-                id="Iron4"
-                count="5" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
         id="wm_lossarnach_2h_axe_black_ash_handle"
         name="{=aom_wm_lossarnach_2h_axe_black_ash_handle_name}Lossarnach 2H Axe Black Ash Handle A"
         tier="3"
         piece_type="Handle"
         mesh="wm_lossarnach_2h_axe_black_ash_handle"
-        length="96.04"
+        length="180"
         weight="0.644"
         item_holster_pos_shift="0,0,-0.1"
         excluded_item_usage_features="widegrip">
         <BuildData
             piece_offset="20"
-            next_piece_offset="-19.5"
-            previous_piece_offset="-17" />
+            previous_piece_offset="0"
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Wood"
                 count="1" />
-            <Material
-                id="Iron4"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_2h_axe_pommel"
-        name="{=aom_wm_lossarnach_2h_axe_pommel_name}Lossarnach 2h Axe Pommel"
-        tier="3"
-        piece_type="Pommel"
-        mesh="wm_lossarnach_2h_axe_pommel"
-        length="15.95"
-        weight="0">
-        <BuildData
-            piece_offset="0" />
-        <Materials>
             <Material
                 id="Iron4"
                 count="1" />
@@ -4857,35 +4640,37 @@
         tier="4"
         piece_type="Blade"
         mesh="wm_lossarnach_1h_axe_black_ash_blade"
-        length="28.47"
+        length="14"
         distance_to_next_piece="0"
         distance_to_previous_piece="0"
         weight="0.734">
-        <BuildData piece_offset="0" />
+        <BuildData
+            piece_offset="-14"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
         <BladeData stack_amount="3" blade_length="28.47" blade_width="23.45" physics_material="metal_weapon" body_name="bo_wm_lossarnach_1h_axe__blade">
             <Swing damage_type="Cut" damage_factor="3.61" />
         </BladeData>
-        <Flags>
-            <Flag name="BonusAgainstShield" />
-            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
-            <Flag name="Civilian" type="ItemFlags" />
-        </Flags>
+		<Flags>
+			<Flag
+                name="BonusAgainstShield" />
+			<Flag
+                name="CanKnockDown" />
+			<Flag
+                name="CanDismount" />			
+			<Flag
+                name="CanPenetrateShield" />
+			<Flag
+                name="CanCrushThrough" />
+			<Flag
+                name="CanBePickedUpFromCorpse"
+                type="ItemFlags" />
+			<Flag
+                name="Civilian"
+                type="ItemFlags" />
+		</Flags>
         <Materials>
             <Material id="Iron3" count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_1h_axe_silver_handle"
-        name="{=aom_wm_lossarnach_1h_axe_silver_handle_name}Gondor Lossarnach 1H Silver Axe Handle A"
-        tier="3"
-        piece_type="Handle"
-        mesh="wm_lossarnach_1h_axe_silver_handle"
-        length="69.74"
-        weight="0.296">
-        <BuildData piece_offset="20" next_piece_offset="0" previous_piece_offset="0" />
-        <Materials>
-            <Material id="Wood" count="1" />
         </Materials>
     </CraftingPiece>
 
@@ -4895,21 +4680,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="wm_lossarnach_1h_axe_black_ash_pommel"
-        length="20.7"
-        weight="0">
-        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
-        <Materials>
-            <Material id="Iron4" count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_1h_axe_silver_pommel"
-        name="{=aom_wm_lossarnach_1h_axe_silver_pommel_name}Gondor Lossarnach 1H Silver Pommel A"
-        tier="3"
-        piece_type="Pommel"
-        mesh="wm_lossarnach_1h_axe_silver_pommel"
-        length="20.7"
+        length="12"
         weight="0">
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Materials>
@@ -4923,41 +4694,38 @@
         tier="3"
         piece_type="Blade"
         mesh="wm_lossarnach_2h_axe_black_ash_blade"
-        length="41.59"
+        length="50"
         distance_to_next_piece="0"
         distance_to_previous_piece="0"
         weight="1.75">
-        <BuildData piece_offset="0" />
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
         <BladeData stack_amount="3" blade_length="41.59" blade_width="31.16" physics_material="metal_weapon" body_name="bo_wm_lossarnach_2h_axe_blade">
-            <Swing damage_type="Cut" damage_factor="3.93" />
+            <Swing damage_type="Cut" damage_factor="4.20" />
         </BladeData>
-        <Flags>
-            <Flag name="BonusAgainstShield" />
-            <Flag name="CanKnockDown" />
-            <Flag name="CanDismount" />
-            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
-            <Flag name="Civilian" type="ItemFlags" />
-        </Flags>
+		<Flags>
+			<Flag
+                name="BonusAgainstShield" />
+			<Flag
+                name="CanKnockDown" />
+			<Flag
+                name="CanDismount" />
+			<Flag
+                name="CanPenetrateShield" />
+			<Flag
+                name="CanCrushThrough" />
+			<Flag
+                name="CanBePickedUpFromCorpse"
+                type="ItemFlags" />
+			<Flag
+                name="Civilian"
+                type="ItemFlags" />
+		</Flags>
         <Materials>
             <Material id="Iron3" count="3" />
             <Material id="Iron2" count="3" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_2h_axe_silver_handle"
-        name="{=aom_wm_lossarnach_2h_axe_silver_handle_name}Lossarnach 2H Silver Axe Handle A"
-        tier="3"
-        piece_type="Handle"
-        mesh="wm_lossarnach_2h_axe_silver_handle"
-        length="96.04"
-        weight="0.644"
-        item_holster_pos_shift="0,0,-0.1"
-        excluded_item_usage_features="widegrip">
-        <BuildData piece_offset="20" next_piece_offset="-19.5" previous_piece_offset="-17" />
-        <Materials>
-            <Material id="Wood" count="1" />
-            <Material id="Iron4" count="1" />
         </Materials>
     </CraftingPiece>
 
@@ -4967,21 +4735,7 @@
         tier="3"
         piece_type="Pommel"
         mesh="wm_lossarnach_2h_axe_black_ash_pommel"
-        length="15.95"
-        weight="0">
-        <BuildData piece_offset="0" />
-        <Materials>
-            <Material id="Iron4" count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_lossarnach_2h_axe_silver_pommel"
-        name="{=aom_wm_lossarnach_2h_axe_silver_pommel_name}Lossarnach 2H Silver Axe Pommel A"
-        tier="3"
-        piece_type="Pommel"
-        mesh="wm_lossarnach_2h_axe_silver_pommel"
-        length="15.95"
+        length="15"
         weight="0">
         <BuildData piece_offset="0" />
         <Materials>
@@ -14168,16 +13922,16 @@
     <!--[Rhun] Loke Sword-->
     <CraftingPiece
         id="sm_rh_loke_sword_blade_a"
-        name="{=aom_sm_rh_loke_sword_blade_a_name}Loke Sword Blade A"
-        tier="3"
+        name="{=aom_sm_rh_loke_sword_blade_a_name}Loke Sword Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_rh_loke_sword_blade_a"
         length="80"
-        weight="0.95">
+        weight="0.68">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -14185,10 +13939,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="3.26" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="4.18" />
         </BladeData>
         <Flags>
             <Flag
@@ -14203,16 +13957,16 @@
     </CraftingPiece>
     <CraftingPiece
         id="sm_rh_loke_sword_blade_b"
-        name="{=aom_sm_rh_loke_sword_blade_b_name}Loke Sword Blade B"
-        tier="3"
+        name="{=aom_sm_rh_loke_sword_blade_b_name}Loke Sword Blade (Elite)"
+        tier="4"
         piece_type="Blade"
         mesh="sm_rh_loke_sword_blade_b"
         length="80"
-        weight="0.95">
+        weight="0.75">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -14220,10 +13974,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="4.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="5.41" />
         </BladeData>
         <Flags>
             <Flag
@@ -14245,7 +13999,8 @@
         length="11.2"
         weight="0.15">
         <BuildData
-            next_piece_offset="-5.0"
+            piece_offset="-4"
+            next_piece_offset="0"
             previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
@@ -14264,9 +14019,9 @@
         length="6.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -14282,9 +14037,9 @@
         length="8.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -14302,11 +14057,186 @@
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="5.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron5"
                 count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Rhun] Loke 2H Sword-->
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_blade_a"
+        name="{=aom_sm_rh_loke_sword_2h_blade_a_name}Loke Greatsword Blade (Medium)"
+        tier="2"
+        piece_type="Blade"
+        mesh="sm_rh_loke_sword_2h_blade_a"
+        length="100"
+        weight="0.855">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_a"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.07" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.53" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_blade_b"
+        name="{=aom_sm_rh_loke_sword_2h_blade_b_name}Loke Greatsword Blade (Heavy)"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_rh_loke_sword_2h_blade_b"
+        length="100"
+        weight="0.95">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.97" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="4.57" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_blade_c"
+        name="{=aom_sm_rh_loke_sword_2h_blade_c_name}Loke Greatsword Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_rh_loke_sword_2h_blade_b"
+        length="100"
+        weight="1.0">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.37" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="5.03" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_guard_a"
+        name="{=aom_sm_rh_loke_sword_2h_guard_a_name}Loke Greatsword Guard"
+        tier="3"
+        piece_type="Guard"
+        mesh="sm_rh_loke_sword_2h_guard_a"
+        length="7"
+        weight="0.15">
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_handle_a"
+        name="{=aom_sm_rh_loke_sword_2h_handle_a_name}Loke Greatsword Handle"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_rh_loke_sword_2h_handle_a"
+        length="25"
+        weight="0.2"
+        excluded_item_usage_features="widegrip">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="1" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_pommel_a"
+        name="{=aom_sm_rh_loke_sword_2h_pommel_a_name}Loke Greatsword Pommel (Light)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_rh_loke_sword_2h_pommel_a"
+        length="8.1"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_sword_2h_pommel_b"
+        name="{=aom_sm_rh_loke_sword_2h_pommel_b_name}Loke Greatsword Pommel (Heavy)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_rh_loke_sword_2h_pommel_b"
+        length="8.5"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
         </Materials>
     </CraftingPiece>
     <!--[Rhun] Loke 1H Axe-->
@@ -14392,7 +14322,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_rh_loke_axe_handle_c"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -14410,7 +14340,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_rh_loke_axe_handle_d"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -14889,8 +14819,8 @@
     <!--[Rhun] Loke Spear-->
     <CraftingPiece
         id="sm_rh_loke_spear_blade_a"
-        name="{=aom_sm_rh_loke_spear_blade_a_name}Loke Spear Blade"
-        tier="4"
+        name="{=aom_sm_rh_loke_spear_blade_a_name}Loke Spear Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_rh_loke_spear_blade_a"
         length="30"
@@ -14922,19 +14852,54 @@
                 name="CanHook" />
         </Flags>
     </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_loke_spear_blade_b"
+        name="{=aom_sm_rh_loke_spear_blade_b_name}Loke Spear Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_rh_loke_spear_blade_b"
+        length="30"
+        weight="0.74">
+        <BuildData
+            piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_spear_blade_b">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.00" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.72" />
+        </BladeData>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="4" />
+        </Materials>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+        </Flags>
+    </CraftingPiece>
     <!--[Rhun] Dragon Sword-->
     <CraftingPiece
         id="sm_rh_drag_sword_blade_a"
-        name="{=aom_sm_rh_drag_sword_blade_a_name}Dragon Sword Blade A"
-        tier="3"
+        name="{=aom_sm_rh_drag_sword_blade_a_name}Dragon Sword Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_rh_drag_sword_blade_a"
         length="80"
-        weight="0.95">
+        weight="0.68">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -14942,10 +14907,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="3.26" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="4.18" />
         </BladeData>
         <Flags>
             <Flag
@@ -14960,16 +14925,16 @@
     </CraftingPiece>
     <CraftingPiece
         id="sm_rh_drag_sword_blade_b"
-        name="{=aom_sm_rh_drag_sword_blade_b_name}Dragon Sword Blade B"
-        tier="3"
+        name="{=aom_sm_rh_drag_sword_blade_b_name}Dragon Sword Blade (Elite)"
+        tier="4"
         piece_type="Blade"
         mesh="sm_rh_drag_sword_blade_b"
         length="80"
-        weight="0.95">
+        weight="0.75">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -14977,10 +14942,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="4.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="5.41" />
         </BladeData>
         <Flags>
             <Flag
@@ -15002,7 +14967,8 @@
         length="11.2"
         weight="0.15">
         <BuildData
-            next_piece_offset="-5.0"
+            piece_offset="-4"
+            next_piece_offset="0"
             previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
@@ -15021,9 +14987,9 @@
         length="6.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -15039,9 +15005,9 @@
         length="8.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -15059,11 +15025,186 @@
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="5.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron5"
                 count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Rhun] Dragon 2H Sword-->
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_blade_a"
+        name="{=aom_sm_rh_drag_sword_2h_blade_a_name}Dragon Greatsword Blade (Medium)"
+        tier="2"
+        piece_type="Blade"
+        mesh="sm_rh_drag_sword_2h_blade_a"
+        length="100"
+        weight="0.855">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_a"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.07" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.53" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_blade_b"
+        name="{=aom_sm_rh_drag_sword_2h_blade_b_name}Dragon Greatsword Blade (Heavy)"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_rh_drag_sword_2h_blade_b"
+        length="100"
+        weight="0.95">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.97" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="4.57" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_blade_c"
+        name="{=aom_sm_rh_drag_sword_2h_blade_c_name}Dragon Greatsword Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_rh_drag_sword_2h_blade_b"
+        length="100"
+        weight="1.0">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.37" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="5.03" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_guard_a"
+        name="{=aom_sm_rh_drag_sword_2h_guard_a_name}Dragon Greatsword Guard"
+        tier="3"
+        piece_type="Guard"
+        mesh="sm_rh_drag_sword_2h_guard_a"
+        length="7"
+        weight="0.15">
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_handle_a"
+        name="{=aom_sm_rh_drag_sword_2h_handle_a_name}Dragon Greatsword Handle"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_rh_drag_sword_2h_handle_a"
+        length="25"
+        weight="0.2"
+        excluded_item_usage_features="widegrip">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="1" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_pommel_a"
+        name="{=aom_sm_rh_drag_sword_2h_pommel_a_name}Dragon Greatsword Pommel (Light)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_rh_drag_sword_2h_pommel_a"
+        length="8.1"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_sword_2h_pommel_b"
+        name="{=aom_sm_rh_drag_sword_2h_pommel_b_name}Dragon Greatsword Pommel (Heavy)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_rh_drag_sword_2h_pommel_b"
+        length="8.5"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
         </Materials>
     </CraftingPiece>
     <!--[Rhun] Dragon 1H Axe-->
@@ -15149,7 +15290,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_rh_drag_axe_handle_c"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -15167,7 +15308,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_rh_drag_axe_handle_d"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -15646,8 +15787,8 @@
     <!--[Rhun] Dragon Spear-->
     <CraftingPiece
         id="sm_rh_drag_spear_blade_a"
-        name="{=aom_sm_rh_drag_spear_blade_a_name}Dragon Spear Blade"
-        tier="4"
+        name="{=aom_sm_rh_drag_spear_blade_a_name}Dragon Spear Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_rh_drag_spear_blade_a"
         length="30"
@@ -15679,19 +15820,54 @@
                 name="CanHook" />
         </Flags>
     </CraftingPiece>
+    <CraftingPiece
+        id="sm_rh_drag_spear_blade_b"
+        name="{=aom_sm_rh_drag_spear_blade_b_name}Dragon Spear Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_rh_drag_spear_blade_b"
+        length="30"
+        weight="0.74">
+        <BuildData
+            piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_spear_blade_b">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.00" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.72" />
+        </BladeData>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="4" />
+        </Materials>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+        </Flags>
+    </CraftingPiece>
     <!--[Rhun] Khamul Sword-->
     <CraftingPiece
         id="sm_dg_khml_sword_blade_a"
-        name="{=aom_sm_dg_khml_sword_blade_a_name}Khamul Sword Blade A"
-        tier="3"
+        name="{=aom_sm_dg_khml_sword_blade_a_name}Khamul Sword Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_dg_khml_sword_blade_a"
         length="80"
-        weight="0.95">
+        weight="0.68">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -15699,10 +15875,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="3.26" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="4.18" />
         </BladeData>
         <Flags>
             <Flag
@@ -15717,16 +15893,16 @@
     </CraftingPiece>
     <CraftingPiece
         id="sm_dg_khml_sword_blade_b"
-        name="{=aom_sm_dg_khml_sword_blade_b_name}Khamul Sword Blade B"
-        tier="3"
+        name="{=aom_sm_dg_khml_sword_blade_b_name}Khamul Sword Blade (Elite)"
+        tier="4"
         piece_type="Blade"
         mesh="sm_dg_khml_sword_blade_b"
         length="80"
-        weight="0.95">
+        weight="0.75">
 		<BuildData
-            piece_offset="-12"
+            piece_offset="-5"
             previous_piece_offset="0"
-            next_piece_offset="-0" />
+            next_piece_offset="0" />
         <BladeData
             stack_amount="3"
             physics_material="metal_weapon"
@@ -15734,10 +15910,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.42" />
+                damage_factor="4.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.31" />
+                damage_factor="5.41" />
         </BladeData>
         <Flags>
             <Flag
@@ -15759,7 +15935,8 @@
         length="11.2"
         weight="0.15">
         <BuildData
-            next_piece_offset="-5.0"
+            piece_offset="-4"
+            next_piece_offset="0"
             previous_piece_offset="0" />
         <StatContributions
             armor_bonus="5" />
@@ -15778,9 +15955,9 @@
         length="6.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -15796,9 +15973,9 @@
         length="8.5"
         weight="0.284">
         <BuildData
-            piece_offset="-15"
+            piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="-15.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron3"
@@ -15816,11 +15993,186 @@
         <BuildData
             piece_offset="0"
             previous_piece_offset="0"
-            next_piece_offset="5.0" />
+            next_piece_offset="0" />
         <Materials>
             <Material
                 id="Iron5"
                 count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Rhun] Khamul 2H Sword-->
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_blade_a"
+        name="{=aom_sm_dg_khml_sword_2h_blade_a_name}Khamul Greatsword Blade (Medium)"
+        tier="2"
+        piece_type="Blade"
+        mesh="sm_dg_khml_sword_2h_blade_a"
+        length="100"
+        weight="0.855">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_a"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.07" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.53" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_blade_b"
+        name="{=aom_sm_dg_khml_sword_2h_blade_b_name}Khamul Greatsword Blade (Heavy)"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_dg_khml_sword_2h_blade_b"
+        length="100"
+        weight="0.95">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="3.97" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="4.57" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_blade_c"
+        name="{=aom_sm_dg_khml_sword_2h_blade_c_name}Khamul Greatsword Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_dg_khml_sword_2h_blade_b"
+        length="100"
+        weight="1.0">
+        <BuildData
+            piece_offset="-3"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_sword_2h_blade_b"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.37" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="5.03" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron6"
+                count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_guard_a"
+        name="{=aom_sm_dg_khml_sword_2h_guard_a_name}Khamul Greatsword Guard"
+        tier="3"
+        piece_type="Guard"
+        mesh="sm_dg_khml_sword_2h_guard_a"
+        length="7"
+        weight="0.15">
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_handle_a"
+        name="{=aom_sm_dg_khml_sword_2h_handle_a_name}Khamul Greatsword Handle"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_dg_khml_sword_2h_handle_a"
+        length="25"
+        weight="0.2"
+        excluded_item_usage_features="widegrip">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="1" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_pommel_a"
+        name="{=aom_sm_dg_khml_sword_2h_pommel_a_name}Khamul Greatsword Pommel (Light)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_dg_khml_sword_2h_pommel_a"
+        length="8.1"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_sword_2h_pommel_b"
+        name="{=aom_sm_dg_khml_sword_2h_pommel_b_name}Khamul Greatsword Pommel (Heavy)"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_dg_khml_sword_2h_pommel_b"
+        length="8.5"
+        weight="0.5">
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
         </Materials>
     </CraftingPiece>
     <!--[Rhun] Khamul 1H Axe-->
@@ -15906,7 +16258,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_dg_khml_axe_handle_c"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -15924,7 +16276,7 @@
         tier="3"
         piece_type="Handle"
         mesh="sm_dg_khml_axe_handle_d"
-        length="80"
+        length="100"
         weight="0.296">
         <BuildData
             piece_offset="0"
@@ -16403,8 +16755,8 @@
     <!--[Rhun] Khamul Spear-->
     <CraftingPiece
         id="sm_dg_khml_spear_blade_a"
-        name="{=aom_sm_dg_khml_spear_blade_a_name}Khamul Spear Blade"
-        tier="4"
+        name="{=aom_sm_dg_khml_spear_blade_a_name}Khamul Spear Blade (Medium)"
+        tier="2"
         piece_type="Blade"
         mesh="sm_dg_khml_spear_blade_a"
         length="30"
@@ -16421,6 +16773,41 @@
             <Swing
                 damage_type="Cut"
                 damage_factor="2.86" />
+        </BladeData>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="4" />
+        </Materials>
+        <Flags>
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+        </Flags>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_dg_khml_spear_blade_b"
+        name="{=aom_sm_dg_khml_spear_blade_b_name}Khamul Spear Blade (Elite)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_dg_khml_spear_blade_b"
+        length="30"
+        weight="0.74">
+        <BuildData
+            piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sm_rh_loke_spear_blade_b">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="4.00" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="3.72" />
         </BladeData>
         <Materials>
             <Material
@@ -17002,4 +17389,520 @@
             <Material id="Wood" count="5" />
         </Materials>
     </CraftingPiece>
+    <!-- TAOM-STARTER-KIT:START -->
+    <CraftingPiece id="starter_wm_gondor_sword_a01_blade" name="{=starter_wm_gondor_sword_a01_blade}Gondor Sword Blade Medium A (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_sword_a01_blade" length="76.08" weight="0.68" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_gondor_sword_a01" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gondor_light_spear_blade" name="{=starter_wm_gondor_light_spear_blade}Gondor Spear Head (Light) (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_spear_blade" length="47" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_blade">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_lossarnach_1h_axe_black_ash_blade" name="{=starter_wm_lossarnach_1h_axe_black_ash_blade}Gondor Lossarnach 1H Black Ash Axe Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_lossarnach_1h_axe_black_ash_blade" length="14" distance_to_next_piece="0" distance_to_previous_piece="0" weight="0.734" is_hidden="true">
+        <BuildData piece_offset="-14" previous_piece_offset="0" next_piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="28.47" blade_width="23.45" physics_material="metal_weapon" body_name="bo_wm_lossarnach_1h_axe__blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mordor_set1_sword_a01_blade" name="{=starter_wm_mordor_set1_sword_a01_blade}Mordor Orc Sword Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_sword_a01_blade" length="74.1" weight="0.70" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mordor_set1_polearm_a01_blade" name="{=starter_wm_mordor_set1_polearm_a01_blade}Mordor Orc Polearm Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_polearm_a01_blade" length="30.64" weight="1.04" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_polearm_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="0.0" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mordor_set1_axe_a01_blade" name="{=starter_wm_mordor_set1_axe_a01_blade}Mordor Orc Axe 1H Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_axe_a01_blade" length="26.72" distance_to_next_piece="0" distance_to_previous_piece="0" weight="0.734" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="26.72" blade_width="23.18" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_sm_dwarf_iron_sword_blade_a" name="{=starter_sm_dwarf_iron_sword_blade_a}Iron Hills  Sword Blade A (Starter)" tier="1" piece_type="Blade" mesh="sm_dwarf_iron_sword_blade_a" length="100" weight="1.07" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_dwarf_iron_sword_blade_a" holster_mesh="sm_dwarf_iron_sword_scabbard_a">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_sm_dwarf_erebor_spear_blade_a" name="{=starter_sm_dwarf_erebor_spear_blade_a}Erebor Spear Blade A (Starter)" tier="1" piece_type="Blade" mesh="sm_dwarf_erebor_spear_blade_a" length="50.33" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.0" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="50.33" physics_material="metal_weapon" body_name="bo_sm_dwarf_erebor_spear_blade_a">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="0.76" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+            <Material id="Iron2" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_sm_dwarf_erebor_axe_blade_1h_a" name="{=starter_sm_dwarf_erebor_axe_blade_1h_a}Erebor 1H Axe Blade A (Starter)" tier="1" piece_type="Blade" mesh="sm_dwarf_erebor_axe_blade_1h_a" length="20.17" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.0" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="20.17" blade_width="17.98" physics_material="metal_weapon" body_name="bo_sm_dwarf_erebor_axe_blade_1h_a">
+            <Swing damage_type="Cut" damage_factor="2.28" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+            <Material id="Iron2" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rivendell_sword_a01_blade" name="{=starter_wm_rivendell_sword_a01_blade}Rivendell Sword Sword Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rivendell_sword_a01_blade" length="90.87" weight="0.93" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rivendell_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rivendell_spear_a01_blade" name="{=starter_wm_rivendell_spear_a01_blade}Rivendell Spear Spear I Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rivendell_spear_a01_blade" length="57.37" weight="0.99" is_hidden="true">
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rivendell_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.22" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mirkwood_sword_a01_blade" name="{=starter_wm_mirkwood_sword_a01_blade}[Mirkwood] Sword Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_mirkwood_sword_a01_blade" length="87" weight="0.90" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mirkwood_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mirkwood_spear_a01_blade" name="{=starter_wm_mirkwood_spear_a01_blade}[Mirkwood] Spear Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_mirkwood_spear_a01_blade" length="79" weight="0.99" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mirkwood_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="BonusAgainstShield" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_isengard_1h_sword_a01_blade" name="{=starter_wm_isengard_1h_sword_a01_blade}Isengard Sword Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_1h_sword_a01_blade" length="101.6" weight="0.80" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_isengard_1h_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.41" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="-17" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_isengard_1h_spear_a01_blade" name="{=starter_wm_isengard_1h_spear_a01_blade}Isengard Spear Blade A01 (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_1h_spear_a01_blade" length="93" weight="0.87" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_isengard_1h_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.17" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_isengard_2h_axe_a01_blade" name="{=starter_wm_isengard_2h_axe_a01_blade}Isengard 2H Axe A01 Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_2h_axe_a01_blade" length="41.6" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.3" is_hidden="true">
+        <BuildData piece_offset="-15" />
+        <BladeData stack_amount="3" blade_length="41.6" blade_width="20.8" physics_material="metal_weapon" body_name="bo_wm_isengard_2h_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanPenetrateShield" />
+            <Flag name="CanKnockDown" />
+            <Flag name="CanCrushThrough" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+            <Material id="Iron2" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gundabad_sword_a01_blade" name="{=starter_wm_gundabad_sword_a01_blade}Gundabad Orc Sword Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_gundabad_sword_a01_blade" length="57.5" weight="0.90" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_gundabad_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.05" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gundabad_spear_a01_blade" name="{=starter_wm_gundabad_spear_a01_blade}Gundabad Orc Spear Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_gundabad_spear_a01_blade" length="47" weight="0.87" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_gundabad_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gundabad_javelin_a01_blade" name="{=starter_wm_gundabad_javelin_a01_blade}Gundabad Javelin Head (Starter)" tier="1" piece_type="Blade" mesh="wm_gundabad_javelin_a01_blade" length="28.24" weight="0.54" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="5" physics_material="wood_weapon" body_name="bo_spear_b" holster_mesh="throwing_spear_quiver_1" holster_body_name="bo_throwing_spear_quiver_1" holster_mesh_length="68.9">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron3" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gundabad_axe_a01_blade" name="{=starter_wm_gundabad_axe_a01_blade}Gundabad Orc Axe 1H Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_gundabad_axe_a01_blade" length="40.27" distance_to_next_piece="0" distance_to_previous_piece="0" weight="0.95" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="40.27" blade_width="18.14" physics_material="metal_weapon" body_name="bo_wm_gundabad_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dol_goldur_1h_sword_a01_blade" name="{=starter_wm_dol_goldur_1h_sword_a01_blade}Dol Guldur Orc Sword Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_dol_goldur_1h_sword_a01_blade" length="83.44" weight="0.90" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_1h_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.36" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dol_goldur_2h_halberd_a01_blade" name="{=starter_wm_dol_goldur_2h_halberd_a01_blade}Dol Guldur Orc Spear Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_dol_goldur_halberd_a01_blade" length="77.81" weight="0.87" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_halberd_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="0.79" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dol_goldur_1h_mace_a01_blade" name="{=starter_wm_dol_goldur_1h_mace_a01_blade}Dol Guldur Orc Mace 1H Head I (Starter)" tier="1" piece_type="Blade" mesh="wm_dol_goldur_1h_mace_a01_blade" length="28.06" distance_to_next_piece="0" distance_to_previous_piece="0" weight="0.65" excluded_item_usage_features="thrust" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="28.06" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_1h_mace_a01_blade">
+            <Swing damage_type="Blunt" damage_factor="1.9" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_khuzait_blade_7" name="{=starter_khuzait_blade_7}Thick Saber Blade (Starter)" tier="1" piece_type="Blade" mesh="khuzait_blade_7" culture="Culture.khuzait" length="82.5" weight="0.85" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sword_one_handed">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+            <Flag name="Stealth" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_sm_rh_loke_spear_blade_a" name="{=starter_sm_rh_loke_spear_blade_a}Loke Spear Blade (Medium) (Starter)" tier="1" piece_type="Blade" mesh="sm_rh_loke_spear_blade_a" length="30" weight="0.67" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_rh_loke_spear_blade_a">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron3" count="4" />
+        </Materials>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+        </Flags>
+    </CraftingPiece>
+    <CraftingPiece id="starter_aserai_blade_2" name="{=starter_aserai_blade_2}Slightly Ridged Flyssa Blade (Starter)" tier="1" piece_type="Blade" mesh="aserai_blade_2" culture="Culture.aserai" length="106" weight="1.08" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sword_one_handed" holster_mesh="aserai_blade_2_scabbard_2">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron4" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_spear_blade_27" name="{=starter_spear_blade_27}Thin Fine Steel Hewing Spear Head (Starter)" tier="1" piece_type="Blade" mesh="spear_blade_27" length="69.5" weight="0.5" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="5" physics_material="wood_weapon" body_name="bo_spear_b" holster_mesh="throwing_spear_quiver_2" holster_body_name="bo_throwing_spear_quiver_2" holster_mesh_length="94.6">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron5" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_aserai_blade_8" name="{=starter_aserai_blade_8}Long Fine Steel Scimitar Blade (Starter)" tier="1" piece_type="Blade" mesh="aserai_blade_8" culture="Culture.aserai" length="105" weight="1.06" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sword_one_handed" holster_mesh="aserai_blade_8_scabbard_8">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron5" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_spear_blade_42" name="{=starter_spear_blade_42}Fine Steel Leaf Spear Head (Starter)" tier="1" piece_type="Blade" mesh="spear_blade_42" length="42" weight="0.2456" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="5" physics_material="wood_weapon" body_name="bo_spear_b" holster_mesh="throwing_spear_quiver_4_1" holster_body_name="bo_throwing_spear_quiver_4_1" holster_mesh_length="96.2">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron4" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_mordor_set1_sword_a02_blade" name="{=starter_wm_mordor_set1_sword_a02_blade}Mordor Orc Sword Blade B (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_sword_a02_blade" length="57.4" weight="0.70" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_sword_a02_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_gondor_spear_a_blade" name="{=starter_wm_gondor_spear_a_blade}Gondor Spear Head D (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_spear_a_blade" length="50" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_blade">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_empire_blade_4" name="{=starter_empire_blade_4}Flat Ridged Spatha Blade (Starter)" tier="1" piece_type="Blade" mesh="empire_blade_4" culture="Culture.empire" length="91.4" weight="0.94" is_hidden="true">
+        <BuildData previous_piece_offset="0" />
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sword_one_handed" holster_mesh="empire_blade_4_scabbard_4">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+            <Flag name="Stealth" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dol_goldur_2h_axe_a01_blade" name="{=starter_wm_dol_goldur_2h_axe_a01_blade}Dol Guldur Orc Axe 2H Blade I (Starter)" tier="1" piece_type="Blade" length="38.11" mesh="wm_dol_goldur_2h_axe_a01_blade" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.15" is_hidden="true">
+        <BuildData piece_offset="0" />
+        <BladeData stack_amount="3" blade_length="38.11" blade_width="24.56" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_2h_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanPenetrateShield" />
+            <Flag name="CanKnockDown" />
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rohan_ws_sword_a01_blade" name="{=starter_wm_rohan_ws_sword_a01_blade}Rohan Sword A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_sword_a01_blade" length="70.86" weight="0.67" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rohan_ws_spear_a01_blade" name="{=starter_wm_rohan_ws_spear_a01_blade}Rohan Spear WS A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_spear_a01_blade" length="52.41" weight="1.47" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.24" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_dunland_caerdh_spear_head_a" name="{=starter_dunland_caerdh_spear_head_a}Dunland Caerdh Spear Head A (Starter)" tier="1" piece_type="Blade" mesh="dunland_caerdh_spear_head_a" length="50.11" weight="0.21" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="4" physics_material="wood_weapon" body_name="bo_dunland_caerdh_spear_head_a" holster_mesh="throwing_spear_quiver_1_1" holster_body_name="bo_throwing_spear_quiver_1_1" holster_mesh_length="68.9">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron2" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_harad_sword_a01_blade" name="{=starter_wm_harad_sword_a01_blade}[Harad] Scimitar Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_harad_sword_a01_blade" length="55.75" weight="0.90" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_harad_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_harad_spear_a01_head" name="{=starter_wm_harad_spear_a01_head}[Harad] Spear Head I (Starter)" tier="1" piece_type="Blade" mesh="wm_harad_spear_a01_head" length="40.91" weight="0.99" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_harad_spear_a01_head" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="1.4" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="BonusAgainstShield" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_spear_blade_15" name="{=starter_spear_blade_15}Short Simple Spear Head (Starter)" tier="1" piece_type="Blade" mesh="spear_blade_15" length="23.2" weight="0.2136" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="4" physics_material="wood_weapon" body_name="bo_spear_b" holster_mesh="throwing_spear_quiver_1_1" holster_body_name="bo_throwing_spear_quiver_1_1" holster_mesh_length="68.9">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron2" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!-- TAOM-STARTER-KIT:END -->
 </CraftingPieces>

@@ -1017,53 +1017,6 @@
         </Pieces>
     </CraftedItem>
 
-    <!--Easterling-->
-
-    <CraftedItem
-        id="easterling_sword"
-        name="{=aom_easterling_sword_name}[Rhûn] Easterling Sword"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true"
-        culture="Culture.aserai">
-        <Pieces>
-            <Piece
-                id="easterling_sword_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="easterling_sword_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="easterling_sword_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="easterling_sword_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="easterling_spear"
-        name="{=aom_easterling_spear_name}[Rhûn] Easterling Spear"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="easterling_spear_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="easterling_spear_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
     <!--Isengard-->
 
     <CraftedItem
@@ -1332,20 +1285,19 @@
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_spear"
-        name="{=aom_wm_gondor_spear_name}[Gondor] Spear II"
+        id="wm_gondor_light_spear"
+        name="{=aom_wm_gondor_light_spear_name}[Gondor] Light Spear"
         crafting_template="TwoHandedPolearm"
-        is_merchandise="true"
         culture="Culture.gondor"
-        value="4000"
+        is_merchandise="true"
         modifier_group="polearm">
         <Pieces>
             <Piece
-                id="wm_gondor_spear_blade"
+                id="wm_gondor_light_spear_blade"
                 Type="Blade"
                 scale_factor="110" />
             <Piece
-                id="wm_gondor_spear_shaft"
+                id="wm_gondor_light_spear_shaft"
                 Type="Handle"
                 scale_factor="110" />
         </Pieces>
@@ -1353,7 +1305,7 @@
 
     <CraftedItem
         id="wm_gondor_spear_a"
-        name="{=aom_wm_gondor_spear_a_name}[Gondor] Spear III"
+        name="{=aom_wm_gondor_spear_a_name}[Gondor] Fountain Guard Spear"
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
@@ -1372,7 +1324,7 @@
 
     <CraftedItem
         id="wm_gondor_spear_b"
-        name="{=aom_wm_gondor_spear_b_name}[Gondor] Spear IV"
+        name="{=aom_wm_gondor_spear_b_name}[Gondor] Heavy Spear"
         crafting_template="TwoHandedPolearm"
         culture="Culture.gondor"
         is_merchandise="true"
@@ -1576,7 +1528,7 @@
     <CraftedItem
         id="wm_gondor_faramir_sword"
         name="{=aom_wm_gondor_faramir_sword_name}[Gondor] Faramir's Sword"
-        crafting_template="OneHandedSword"
+        crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
         <Pieces>
@@ -1601,7 +1553,7 @@
 
     <CraftedItem
         id="wm_swan_knight_sworda"
-        name="{=aom_wm_swan_knight_sworda_name}[Gondor] Swan Knight Sword I"
+        name="{=aom_wm_swan_knight_sworda_name}[Gondor] Swan Knight Sword A"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1609,7 +1561,7 @@
             <Piece
                 id="wm_swan_knight_sword_a_blade"
                 Type="Blade"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="wm_swan_knight_sword_a_guard"
                 Type="Guard"
@@ -1627,7 +1579,7 @@
 
     <CraftedItem
         id="wm_swan_knight_swordb"
-        name="{=aom_wm_swan_knight_swordb_name}[Gondor] Swan Knight Sword II"
+        name="{=aom_wm_swan_knight_swordb_name}[Gondor] Swan Knight Sword B"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1635,7 +1587,7 @@
             <Piece
                 id="wm_swan_knight_sword_b_blade"
                 Type="Blade"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="wm_swan_knight_sword_b_guard"
                 Type="Guard"
@@ -1652,86 +1604,8 @@
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_sword_a10"
-        name="{=aom_wm_gondor_sword_a10_name}[Gondor] One-Handed Sword X"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a01_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a02_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a07_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a03_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_sword_a09"
-        name="{=aom_wm_gondor_sword_a09_name}[Gondor] One-Handed Sword IX"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a02_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a07_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a01_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a03_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_sword_a08"
-        name="{=aom_wm_gondor_sword_a08_name}[Gondor] One-Handed Sword VIII"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a07_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a02_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a03_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a01_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
         id="wm_gondor_sword_a07"
-        name="{=aom_wm_gondor_sword_a07_name}[Gondor] One-Handed Sword VII"
+        name="{=aom_wm_gondor_sword_a07_name}[Gondor] Sword Elite B"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1746,84 +1620,6 @@
                 scale_factor="100" />
             <Piece
                 id="wm_gondor_sword_a07_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a07_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_sword_a06"
-        name="{=aom_wm_gondor_sword_a06_name}[Gondor] One-Handed Sword VI"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a03_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a07_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a01_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a02_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_sword_a05"
-        name="{=aom_wm_gondor_sword_a05_name}[Gondor] One-Handed Sword V"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a01_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a03_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a02_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a01_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_sword_a04"
-        name="{=aom_wm_gondor_sword_a04_name}[Gondor] One-Handed Sword IV"
-        crafting_template="OneHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_gondor_sword_a02_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a01_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_gondor_sword_a03_hilt"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
@@ -1835,7 +1631,7 @@
 
     <CraftedItem
         id="wm_gondor_sword_a03"
-        name="{=aom_wm_gondor_sword_a03_name}[Gondor] One-Handed Sword III"
+        name="{=aom_wm_gondor_sword_a03_name}[Gondor] Sword Elite A"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1861,7 +1657,7 @@
 
     <CraftedItem
         id="wm_gondor_sword_a02"
-        name="{=aom_wm_gondor_sword_a02_name}[Gondor] One-Handed Sword II"
+        name="{=aom_wm_gondor_sword_a02_name}[Gondor] Sword Medium B"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1887,7 +1683,7 @@
 
     <CraftedItem
         id="wm_gondor_sword_a01"
-        name="{=aom_wm_gondor_sword_a01_name}[Gondor] One-Handed Sword I"
+        name="{=aom_wm_gondor_sword_a01_name}[Gondor] Sword Medium A"
         crafting_template="OneHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -1964,186 +1760,8 @@
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_lossarnach_1h_axe_a"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_a_name}[Gondor] Lossarnach One-Handed Axe I"
-        crafting_template="OneHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_1h_axe__blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_1h_axe_silver_a"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_a_name}[Gondor] Lossarnach One-Handed Axe I - Silver"
-        crafting_template="OneHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_1h_axe_silver_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_1h_axe_b"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_b_name}[Gondor] Lossarnach One-Handed Axe II"
-        crafting_template="OneHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_1h_axe__blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_1h_axe_silver_b"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_b_name}[Gondor] Lossarnach One-Handed Axe II - Silver"
-        crafting_template="OneHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_1h_axe_silver_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_1h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_2h_axe_a"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_a_name}[Gondor] Lossarnach Two-Handed Axe I"
-        crafting_template="TwoHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_2h_axe_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_2h_axe_silver_a"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_a_name}[Gondor] Lossarnach Two-Handed Axe I - Silver"
-        crafting_template="TwoHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_2h_axe_silver_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_2h_axe_b"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_b_name}[Gondor] Lossarnach Two-Handed Axe II"
-        crafting_template="TwoHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_2h_axe_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_black_ash_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_lossarnach_2h_axe_silver_b"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_b_name}[Gondor] Lossarnach Two-Handed Axe II - Silver"
-        crafting_template="TwoHandedAxe"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="wm_lossarnach_2h_axe_silver_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_black_ash_handle"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lossarnach_2h_axe_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <!-- Full-finish Lossarnach axe variants (uses new black-ash + silver pieces matched across blade/handle/pommel). -->
-
-    <CraftedItem
         id="wm_gondor_lossarnach_1h_axe_black_ash_a"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_black_ash_a_name}[Gondor] Lossarnach One-Handed Axe - Black Ash"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_black_ash_a_name}[Gondor] Lossarnach Axe Heavy"
         crafting_template="OneHandedAxe"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -2155,41 +1773,39 @@
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_lossarnach_1h_axe_silver_full_a"
-        name="{=aom_wm_gondor_lossarnach_1h_axe_silver_full_a_name}[Gondor] Lossarnach One-Handed Axe - Silver"
+        id="wm_gondor_lossarnach_1h_axe_light"
+        name="{=aom_wm_gondor_lossarnach_1h_axe_light_name}[Gondor] Lossarnach Axe Light"
         crafting_template="OneHandedAxe"
         is_merchandise="true"
         culture="Culture.gondor">
         <Pieces>
-            <Piece id="wm_lossarnach_1h_axe_silver_blade" Type="Blade" scale_factor="100" />
-            <Piece id="wm_lossarnach_1h_axe_silver_handle" Type="Handle" scale_factor="100" />
-            <Piece id="wm_lossarnach_1h_axe_silver_pommel" Type="Pommel" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_black_ash_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_1h_axe_black_ash_handle" Type="Handle" scale_factor="100" />
         </Pieces>
     </CraftedItem>
 
     <CraftedItem
         id="wm_gondor_lossarnach_2h_axe_black_ash_a"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_black_ash_a_name}[Gondor] Lossarnach Two-Handed Axe - Black Ash"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_black_ash_a_name}[Gondor] Lossarnach Greataxe Heavy"
         crafting_template="TwoHandedAxe"
         is_merchandise="true"
         culture="Culture.gondor">
         <Pieces>
-            <Piece id="wm_lossarnach_2h_axe_black_ash_blade" Type="Blade" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_black_ash_blade" Type="Blade" scale_factor="110" />
             <Piece id="wm_lossarnach_2h_axe_black_ash_handle" Type="Handle" scale_factor="100" />
             <Piece id="wm_lossarnach_2h_axe_black_ash_pommel" Type="Pommel" scale_factor="100" />
         </Pieces>
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_lossarnach_2h_axe_silver_full_a"
-        name="{=aom_wm_gondor_lossarnach_2h_axe_silver_full_a_name}[Gondor] Lossarnach Two-Handed Axe - Silver"
+        id="wm_gondor_lossarnach_2h_axe_light"
+        name="{=aom_wm_gondor_lossarnach_2h_axe_light_name}[Gondor] Lossarnach Greataxe Light"
         crafting_template="TwoHandedAxe"
         is_merchandise="true"
         culture="Culture.gondor">
         <Pieces>
-            <Piece id="wm_lossarnach_2h_axe_silver_blade" Type="Blade" scale_factor="100" />
-            <Piece id="wm_lossarnach_2h_axe_silver_handle" Type="Handle" scale_factor="100" />
-            <Piece id="wm_lossarnach_2h_axe_silver_pommel" Type="Pommel" scale_factor="100" />
+            <Piece id="wm_lossarnach_2h_axe_black_ash_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_lossarnach_2h_axe_black_ash_handle" Type="Handle" scale_factor="100" />
         </Pieces>
     </CraftedItem>
 
@@ -2226,8 +1842,8 @@
 
     <CraftedItem
         id="wm_gondor_lamedon_1h_sword_a"
-        name="{=aom_wm_gondor_lamedon_1h_sword_a_name}[Gondor] Lamedon One-Handed Sword I"
-        crafting_template="OneHandedSword"
+        name="{=aom_wm_gondor_lamedon_1h_sword_a_name}[Gondor] Lamedon Bastard Medium Sword"
+        crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
         <Pieces>
@@ -2251,8 +1867,34 @@
     </CraftedItem>
 
     <CraftedItem
+        id="wm_gondor_lamedon_bastard_heavy"
+        name="{=aom_wm_gondor_lamedon_bastard_heavy_name}[Gondor] Lamedon Bastard Elite Sword"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        culture="Culture.gondor">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_d_elite"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_lamedon_1h_sword_a_guard"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="wm_lamedon_1h_sword_a_hilt"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="wm_lamedon_1h_sword_a_pommel"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
         id="wm_gondor_lamedon_2h_sword_a"
-        name="{=aom_wm_gondor_lamedon_2h_sword_a_name}[Gondor] Lamedon Two-Handed Sword I"
+        name="{=aom_wm_gondor_lamedon_2h_sword_a_name}[Gondor] Lamedon Greatsword Heavy A"
         crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -2278,7 +1920,7 @@
 
     <CraftedItem
         id="wm_gondor_lamedon_2h_sword_b"
-        name="{=aom_wm_gondor_lamedon_2h_sword_b_name}[Gondor] Lamedon Two-Handed Sword II"
+        name="{=aom_wm_gondor_lamedon_2h_sword_b_name}[Gondor] Lamedon Greatsword Heavy B"
         crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -2304,7 +1946,7 @@
 
     <CraftedItem
         id="wm_gondor_lamedon_2h_sword_c"
-        name="{=aom_wm_gondor_lamedon_2h_sword_c_name}[Gondor] Lamedon Two-Handed Sword III"
+        name="{=aom_wm_gondor_lamedon_2h_sword_c_name}[Gondor] Lamedon Greatsword Elite A"
         crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -2329,34 +1971,8 @@
     </CraftedItem>
 
     <CraftedItem
-        id="wm_gondor_lamedon_2h_sword_d"
-        name="{=aom_wm_gondor_lamedon_2h_sword_d_name}[Gondor] Lamedon Two-Handed Sword IV"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true"
-        culture="Culture.gondor">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_d"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_lamedon_2h_sword_a_guard"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_lamedon_2h_sword_a_hilt"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="wm_lamedon_2h_sword_a_pommel"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
         id="wm_gondor_lamedon_2h_sword_e"
-        name="{=aom_wm_gondor_lamedon_2h_sword_e_name}[Gondor] Lamedon Two-Handed Sword V"
+        name="{=aom_wm_gondor_lamedon_2h_sword_e_name}[Gondor] Lamedon Greatsword Elite B"
         crafting_template="TwoHandedSword"
         is_merchandise="true"
         culture="Culture.gondor">
@@ -3213,20 +2829,68 @@
         </Pieces>
     </CraftedItem>
 
+    <!--Arnor Poleaxe-->
+
+    <CraftedItem
+        id="numenorean_poleaxe_heavy"
+        name="{=aom_numenorean_poleaxe_heavy_name}[Númenor] Poleaxe Heavy"
+        crafting_template="TwoHandedPolearm"
+        is_merchandise="true"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="sm_ar_art_poleaxe_blade_a"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="sm_ar_art_poleaxe_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_ar_art_poleaxe_pommel_a"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_poleaxe_medium"
+        name="{=aom_numenorean_poleaxe_medium_name}[Númenor] Poleaxe Medium"
+        crafting_template="TwoHandedPolearm"
+        is_merchandise="true"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="sm_ar_art_poleaxe_blade_b"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="sm_ar_art_poleaxe_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_ar_art_poleaxe_pommel_a"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
     <!--Numenorean Swords -->
 
+
     <CraftedItem
-        id="numenorean_sword_2h_a"
-        name="{=aom_numenorean_sword_2h_a_name}[Númenor] Two-Handed Sword I"
+        id="numenorean_greatsword_medium_a"
+        name="{=aom_numenorean_greatsword_medium_a_name}[Númenor] Greatsword Heavy A"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="12000">
         <Pieces>
             <Piece
                 id="numenorean_sword_blade_a"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
-                id="numenorean_sword_guard_a"
+                id="numenorean_sword_guard_c"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
@@ -3241,160 +2905,11 @@
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_b"
-        name="{=aom_numenorean_sword_2h_b_name}[Númenor] Two-Handed Sword II"
+        id="numenorean_greatsword_medium_b"
+        name="{=aom_numenorean_greatsword_medium_b_name}[Númenor] Greatsword Heavy B"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_b"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_b"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_b"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_b"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_c"
-        name="{=aom_numenorean_sword_2h_c_name}[Númenor] Two-Handed Sword III"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_c"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_c"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_c"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_c"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_d"
-        name="{=aom_numenorean_sword_2h_d_name}[Númenor] Two-Handed Sword IV"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_d"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_d"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_e"
-        name="{=aom_numenorean_sword_2h_e_name}[Númenor] Two-Handed Sword V"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_e"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_e"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_f"
-        name="{=aom_numenorean_sword_2h_f_name}[Númenor] Two-Handed Sword VI"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_a"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_b"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_b"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_b"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_h"
-        name="{=aom_numenorean_sword_2h_h_name}[Númenor] Two-Handed Sword VII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_a"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_c"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_c"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_c"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_i"
-        name="{=aom_numenorean_sword_2h_i_name}[Númenor] Two-Handed Sword VIII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="12000">
         <Pieces>
             <Piece
                 id="numenorean_sword_blade_a"
@@ -3405,57 +2920,7 @@
                 Type="Guard"
                 scale_factor="100" />
             <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_j"
-        name="{=aom_numenorean_sword_2h_j_name}[Númenor] Two-Handed Sword IX"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_a"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_e"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_k"
-        name="{=aom_numenorean_sword_2h_k_name}[Númenor] Two-Handed Sword X"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_b"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_a"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_a"
+                id="numenorean_sword_handle_b"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
@@ -3466,246 +2931,152 @@
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_l"
-        name="{=aom_numenorean_sword_2h_l_name}[Númenor] Two-Handed Sword XI"
+        id="numenorean_greatsword_heavy_a"
+        name="{=aom_numenorean_greatsword_heavy_a_name}[Númenor] Greatsword Elite A"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="20000">
         <Pieces>
             <Piece
                 id="numenorean_sword_blade_b"
                 Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_c"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_c"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_c"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_m"
-        name="{=aom_numenorean_sword_2h_m_name}[Númenor] Two-Handed Sword XII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_a"
-                Type="Blade"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="numenorean_sword_guard_d"
                 Type="Guard"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
-                id="numenorean_sword_handle_d"
+                id="numenorean_sword_handle_a"
                 Type="Handle"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="numenorean_sword_pommel_d"
                 Type="Pommel"
-                scale_factor="100" />
+                scale_factor="110" />
         </Pieces>
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_n"
-        name="{=aom_numenorean_sword_2h_n_name}N[Númenor] Two-Handed Sword XIII"
+        id="numenorean_greatsword_heavy_b"
+        name="{=aom_numenorean_greatsword_heavy_b_name}[Númenor] Greatsword Elite B"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="20000">
         <Pieces>
             <Piece
                 id="numenorean_sword_blade_b"
                 Type="Blade"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="numenorean_sword_guard_e"
                 Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_o"
-        name="{=aom_numenorean_sword_2h_o_name}[Númenor] Two-Handed Sword XIV"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_c"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_a"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_a"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_a"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_p"
-        name="{=aom_numenorean_sword_2h_p_name}[Númenor] Two-Handed Sword XV"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_c"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_b"
-                Type="Guard"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="numenorean_sword_handle_b"
                 Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_b"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_q"
-        name="{=aom_numenorean_sword_2h_q_name}[Númenor] Two-Handed Sword XVI"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_c"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_d"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
+                scale_factor="110" />
             <Piece
                 id="numenorean_sword_pommel_d"
                 Type="Pommel"
-                scale_factor="100" />
+                scale_factor="110" />
         </Pieces>
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_r"
-        name="{=aom_numenorean_sword_2h_r_name}[Númenor] Two-Handed Sword XVII"
+        id="numenorean_greatsword_elite_a"
+        name="{=aom_numenorean_greatsword_elite_a_name}[Númenor] Greatsword Royal A"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="30000">
         <Pieces>
             <Piece
-                id="numenorean_sword_blade_c"
+                id="numenorean_sword_blade_e_royal"
                 Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_e"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_s"
-        name="{=aom_numenorean_sword_2h_s_name}[Númenor] Two-Handed Sword XVIII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_d"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_a"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_a"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_a"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_t"
-        name="{=aom_numenorean_sword_2h_t_name}[Númenor] Two-Handed Sword XIX"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_d"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_b"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_b"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_b"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_u"
-        name="{=aom_numenorean_sword_2h_u_name}[Númenor] Two-Handed Sword XX"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_d"
-                Type="Blade"
-                scale_factor="100" />
+                scale_factor="120" />
             <Piece
                 id="numenorean_sword_guard_c"
+                Type="Guard"
+                scale_factor="120" />
+            <Piece
+                id="numenorean_sword_handle_a"
+                Type="Handle"
+                scale_factor="120" />
+            <Piece
+                id="numenorean_sword_pommel_d"
+                Type="Pommel"
+                scale_factor="120" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_greatsword_elite_b"
+        name="{=aom_numenorean_greatsword_elite_b_name}[Númenor] Greatsword Royal B"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        value="30000">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_e_royal"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="numenorean_sword_guard_e"
+                Type="Guard"
+                scale_factor="120" />
+            <Piece
+                id="numenorean_sword_handle_b"
+                Type="Handle"
+                scale_factor="120" />
+            <Piece
+                id="numenorean_sword_pommel_a"
+                Type="Pommel"
+                scale_factor="120" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_bastard_medium_a"
+        name="{=aom_numenorean_bastard_medium_a_name}[Númenor] Bastard Sword Heavy A"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        value="13000">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_d"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="numenorean_sword_guard_a"
                 Type="Guard"
                 scale_factor="100" />
             <Piece
                 id="numenorean_sword_handle_c"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="numenorean_sword_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_bastard_medium_b"
+        name="{=aom_numenorean_bastard_medium_b_name}[Númenor] Bastard Sword Heavy B"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        value="13000">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_d"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="numenorean_sword_guard_b"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="numenorean_sword_handle_d"
                 Type="Handle"
                 scale_factor="100" />
             <Piece
@@ -3716,127 +3087,106 @@
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_v"
-        name="{=aom_numenorean_sword_2h_v_name}[Númenor] Two-Handed Sword XXI"
+        id="numenorean_bastard_heavy_a"
+        name="{=aom_numenorean_bastard_heavy_a_name}[Númenor] Bastard Sword Elite A"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="22000">
         <Pieces>
             <Piece
-                id="numenorean_sword_blade_d"
+                id="numenorean_sword_blade_d_elite"
                 Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_e"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_d"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_d"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_w"
-        name="{=aom_numenorean_sword_2h_w_name}[Númenor] Two-Handed Sword XXII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_e"
-                Type="Blade"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
                 id="numenorean_sword_guard_a"
                 Type="Guard"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
-                id="numenorean_sword_handle_a"
+                id="numenorean_sword_handle_d"
                 Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_a"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_x"
-        name="{=aom_numenorean_sword_2h_x_name}[Númenor] Two-Handed Sword XXIII"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_e"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_b"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_b"
-                Type="Handle"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_pommel_b"
-                Type="Pommel"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="numenorean_sword_2h_y"
-        name="{=aom_numenorean_sword_2h_y_name}[Númenor] Two-Handed Sword XXIV"
-        crafting_template="TwoHandedSword"
-        is_merchandise="true">
-        <Pieces>
-            <Piece
-                id="numenorean_sword_blade_e"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_guard_c"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="numenorean_sword_handle_c"
-                Type="Handle"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
                 id="numenorean_sword_pommel_c"
                 Type="Pommel"
-                scale_factor="100" />
+                scale_factor="105" />
         </Pieces>
     </CraftedItem>
 
     <CraftedItem
-        id="numenorean_sword_2h_z"
-        name="{=aom_numenorean_sword_2h_z_name}[Númenor] Two-Handed Sword XXV"
+        id="numenorean_bastard_heavy_b"
+        name="{=aom_numenorean_bastard_heavy_b_name}[Númenor] Bastard Sword Elite B"
         crafting_template="TwoHandedSword"
-        is_merchandise="true">
+        is_merchandise="true"
+        value="22000">
         <Pieces>
             <Piece
-                id="numenorean_sword_blade_e"
+                id="numenorean_sword_blade_d_elite"
                 Type="Blade"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
-                id="numenorean_sword_guard_e"
+                id="numenorean_sword_guard_b"
                 Type="Guard"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
-                id="numenorean_sword_handle_a"
+                id="numenorean_sword_handle_c"
                 Type="Handle"
-                scale_factor="100" />
+                scale_factor="105" />
             <Piece
                 id="numenorean_sword_pommel_b"
                 Type="Pommel"
-                scale_factor="100" />
+                scale_factor="105" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_bastard_elite_a"
+        name="{=aom_numenorean_bastard_elite_a_name}[Númenor] Bastard Sword Royal A"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        value="32000">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_c"
+                Type="Blade"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_guard_a"
+                Type="Guard"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_handle_c"
+                Type="Handle"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_pommel_b"
+                Type="Pommel"
+                scale_factor="115" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="numenorean_bastard_elite_b"
+        name="{=aom_numenorean_bastard_elite_b_name}[Númenor] Bastard Sword Royal B"
+        crafting_template="TwoHandedSword"
+        is_merchandise="true"
+        value="32000">
+        <Pieces>
+            <Piece
+                id="numenorean_sword_blade_c"
+                Type="Blade"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_guard_b"
+                Type="Guard"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_handle_d"
+                Type="Handle"
+                scale_factor="115" />
+            <Piece
+                id="numenorean_sword_pommel_c"
+                Type="Pommel"
+                scale_factor="115" />
         </Pieces>
     </CraftedItem>
 
@@ -8982,7 +8332,7 @@
     <!--[Rhun] Loke Crafted Weapons-->
     <CraftedItem
         id="sm_rh_loke_1h_sword_a"
-        name="{=aom_sm_rh_loke_1h_sword_a_name}[Rhûn] Loke Sword I"
+        name="{=aom_sm_rh_loke_1h_sword_a_name}[Rhûn] Loke Sword Medium"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9008,7 +8358,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_rh_loke_1h_sword_b"
-        name="{=aom_sm_rh_loke_1h_sword_b_name}[Rhûn] Loke Sword II"
+        name="{=aom_sm_rh_loke_1h_sword_b_name}[Rhûn] Loke Sword Elite"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9028,6 +8378,84 @@
                 scale_factor="100" />
             <Piece
                 id="sm_rh_loke_sword_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_loke_sword_2h_a"
+        name="{=aom_sm_rh_loke_sword_2h_a_name}[Rhûn] Loke Greatsword Medium"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_loke_sword_2h_blade_a"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_loke_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_pommel_a"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_loke_sword_2h_b"
+        name="{=aom_sm_rh_loke_sword_2h_b_name}[Rhûn] Loke Greatsword Heavy"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_loke_sword_2h_blade_b"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_loke_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_loke_sword_2h_c"
+        name="{=aom_sm_rh_loke_sword_2h_c_name}[Rhûn] Loke Greatsword Elite"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_loke_sword_2h_blade_c"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_loke_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_loke_sword_2h_pommel_b"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -9174,7 +8602,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_rh_loke_spear_a"
-        name="{=aom_sm_rh_loke_spear_a_name}[Rhûn] Loke Spear"
+        name="{=aom_sm_rh_loke_spear_a_name}[Rhûn] Loke Spear Medium"
         crafting_template="TwoHandedPolearm"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9182,6 +8610,24 @@
         <Pieces>
             <Piece
                 id="sm_rh_loke_spear_blade_a"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_harad_spear_a01_handle"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_loke_spear_b"
+        name="{=aom_sm_rh_loke_spear_b_name}[Rhûn] Loke Spear Elite"
+        crafting_template="TwoHandedPolearm"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="sm_rh_loke_spear_blade_b"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
@@ -9236,7 +8682,7 @@
     <!--[Rhun] Dragon Crafted Weapons-->
     <CraftedItem
         id="sm_rh_drag_1h_sword_a"
-        name="{=aom_sm_rh_drag_1h_sword_a_name}[Rhûn] Dragon Sword I"
+        name="{=aom_sm_rh_drag_1h_sword_a_name}[Rhûn] Dragon Sword Medium"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9262,7 +8708,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_rh_drag_1h_sword_b"
-        name="{=aom_sm_rh_drag_1h_sword_b_name}[Rhûn] Dragon Sword II"
+        name="{=aom_sm_rh_drag_1h_sword_b_name}[Rhûn] Dragon Sword Elite"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9282,6 +8728,84 @@
                 scale_factor="100" />
             <Piece
                 id="sm_rh_drag_sword_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_drag_sword_2h_a"
+        name="{=aom_sm_rh_drag_sword_2h_a_name}[Rhûn] Dragon Greatsword Medium"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_drag_sword_2h_blade_a"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_drag_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_pommel_a"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_drag_sword_2h_b"
+        name="{=aom_sm_rh_drag_sword_2h_b_name}[Rhûn] Dragon Greatsword Heavy"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_drag_sword_2h_blade_b"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_drag_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_drag_sword_2h_c"
+        name="{=aom_sm_rh_drag_sword_2h_c_name}[Rhûn] Dragon Greatsword Elite"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_rh_drag_sword_2h_blade_c"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_rh_drag_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_rh_drag_sword_2h_pommel_b"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -9428,7 +8952,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_rh_drag_spear_a"
-        name="{=aom_sm_rh_drag_spear_a_name}[Rhûn] Dragon Spear"
+        name="{=aom_sm_rh_drag_spear_a_name}[Rhûn] Dragon Spear Medium"
         crafting_template="TwoHandedPolearm"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9436,6 +8960,24 @@
         <Pieces>
             <Piece
                 id="sm_rh_drag_spear_blade_a"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_harad_spear_a01_handle"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_rh_drag_spear_b"
+        name="{=aom_sm_rh_drag_spear_b_name}[Rhûn] Dragon Spear Elite"
+        crafting_template="TwoHandedPolearm"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="sm_rh_drag_spear_blade_b"
                 Type="Blade"
                 scale_factor="100" />
             <Piece
@@ -9490,7 +9032,7 @@
     <!--[Rhun] Khamul Crafted Weapons-->
     <CraftedItem
         id="sm_dg_khml_1h_sword_a"
-        name="{=aom_sm_dg_khml_1h_sword_a_name}[Rhûn] Khamul Sword I"
+        name="{=aom_sm_dg_khml_1h_sword_a_name}[Rhûn] Khamul Sword Medium"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9516,7 +9058,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_dg_khml_1h_sword_b"
-        name="{=aom_sm_dg_khml_1h_sword_b_name}[Rhûn] Khamul Sword II"
+        name="{=aom_sm_dg_khml_1h_sword_b_name}[Rhûn] Khamul Sword Elite"
         crafting_template="OneHandedSword"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9536,6 +9078,84 @@
                 scale_factor="100" />
             <Piece
                 id="sm_dg_khml_sword_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_dg_khml_sword_2h_a"
+        name="{=aom_sm_dg_khml_sword_2h_a_name}[Rhûn] Khamul Greatsword Medium"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_dg_khml_sword_2h_blade_a"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_dg_khml_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_pommel_a"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_dg_khml_sword_2h_b"
+        name="{=aom_sm_dg_khml_sword_2h_b_name}[Rhûn] Khamul Greatsword Heavy"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_dg_khml_sword_2h_blade_b"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_dg_khml_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_pommel_b"
+                Type="Pommel"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_dg_khml_sword_2h_c"
+        name="{=aom_sm_dg_khml_sword_2h_c_name}[Rhûn] Khamul Greatsword Elite"
+        crafting_template="TwoHandedSword"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="sword">
+        <Pieces>
+            <Piece
+                id="sm_dg_khml_sword_2h_blade_c"
+                Type="Blade"
+                scale_factor="120" />
+            <Piece
+                id="sm_dg_khml_sword_2h_guard_a"
+                Type="Guard"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_handle_a"
+                Type="Handle"
+                scale_factor="100" />
+            <Piece
+                id="sm_dg_khml_sword_2h_pommel_b"
                 Type="Pommel"
                 scale_factor="100" />
         </Pieces>
@@ -9682,7 +9302,7 @@
     </CraftedItem>
     <CraftedItem
         id="sm_dg_khml_spear_a"
-        name="{=aom_sm_dg_khml_spear_a_name}[Rhûn] Khamul Spear"
+        name="{=aom_sm_dg_khml_spear_a_name}[Rhûn] Khamul Spear Medium"
         crafting_template="TwoHandedPolearm"
         culture="Culture.khuzait"
         is_merchandise="true"
@@ -9690,6 +9310,24 @@
         <Pieces>
             <Piece
                 id="sm_dg_khml_spear_blade_a"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_harad_spear_a01_handle"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+    <CraftedItem
+        id="sm_dg_khml_spear_b"
+        name="{=aom_sm_dg_khml_spear_b_name}[Rhûn] Khamul Spear Elite"
+        crafting_template="TwoHandedPolearm"
+        culture="Culture.khuzait"
+        is_merchandise="true"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="sm_dg_khml_spear_blade_b"
                 Type="Blade"
                 scale_factor="100" />
             <Piece

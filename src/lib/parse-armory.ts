@@ -13,6 +13,11 @@ const ARMOR_SLOT_MAP: Record<string, string> = {
   starter_armors: 'Starter',
 };
 
+// Generated, non-merchandise item sets that live in the culture folders but are not
+// player-facing armour: ranged_ladder is an AI missile-speed ladder of bow clones,
+// starter_kit is stat-floored twins of the player's starting loadout (mixed weapons/armour).
+const EXCLUDED_ARMOR_FILES = new Set(['ranged_ladder', 'starter_kit']);
+
 export function parseArmory(): ArmorItem[] {
   const dataDir = getDataDir();
   const armoryDir = path.join(dataDir, 'armory');
@@ -29,12 +34,15 @@ export function parseArmory(): ArmorItem[] {
     const files = fs.readdirSync(cultureDir).filter((f) => f.endsWith('.xml'));
     for (const file of files) {
       const slotKey = file.replace('.xml', '');
+      if (EXCLUDED_ARMOR_FILES.has(slotKey)) continue;
       const slot = ARMOR_SLOT_MAP[slotKey] || slotKey;
       const xml = fs.readFileSync(path.join(cultureDir, file), 'utf-8');
       const parsed = parser.parse(xml);
       const xmlItems = parsed?.Items?.Item || [];
       for (const item of xmlItems) {
         const armor = item.ItemComponent?.Armor;
+        // Weapons and shields occasionally share a folder with armour; only armour belongs here.
+        if (!armor) continue;
         items.push({
           id: item['@_id'] || '',
           name: stripLocKey(item['@_name'] || ''),

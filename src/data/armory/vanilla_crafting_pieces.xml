@@ -2768,7 +2768,7 @@
 		mesh="cleaver_blade_3"
 		culture="Culture.aserai"
 		length="101"
-		weight="1.4"
+		weight="1.75"
 		excluded_item_usage_features="thrust">
 		<BladeData
 			stack_amount="3"
@@ -3233,13 +3233,13 @@
 	</CraftingPiece>
 	<CraftingPiece
 		id="sturgian_noble_blade_3"
-		name="{=vx2VIbmb}Decorated Long Warsword Blade"
+		name="{=P5dUGIl7}Decorated Warsword Blade"
 		tier="5"
 		piece_type="Blade"
 		mesh="sturgian_noble_blade_3"
 		culture="Culture.sturgia"
 		length="73.5"
-		weight="0.9">
+		weight="0.7">
 		<BladeData
 			stack_amount="3"
 			physics_material="metal_weapon"
@@ -3247,10 +3247,10 @@
 			holster_mesh="sturgian_noble_blade_3_scabbard_3">
 			<Thrust
 				damage_type="Pierce"
-				damage_factor="2.7" />
+				damage_factor="3.5" />
 			<Swing
 				damage_type="Cut"
-				damage_factor="2.8" />
+				damage_factor="3.5" />
 		</BladeData>
 		<Flags>
 			<Flag
@@ -3755,10 +3755,10 @@
 			holster_mesh="sturgian_noble_blade_4_scabbard_4">
 			<Thrust
 				damage_type="Pierce"
-				damage_factor="1.5" />
+				damage_factor="3.6" />
 			<Swing
 				damage_type="Cut"
-				damage_factor="2.5" />
+				damage_factor="3.3" />
 		</BladeData>
 		<Flags>
 			<Flag
@@ -3787,10 +3787,10 @@
 			holster_mesh="sturgian_noble_blade_5_scabbard_5">
 			<Thrust
 				damage_type="Pierce"
-				damage_factor="1.5" />
+				damage_factor="3.5" />
 			<Swing
 				damage_type="Cut"
-				damage_factor="2.5" />
+				damage_factor="3.6" />
 		</BladeData>
 		<Flags>
 			<Flag
@@ -3805,7 +3805,7 @@
 	</CraftingPiece>
 	<CraftingPiece
 		id="sturgian_noble_blade_6"
-		name="{=P5dUGIl7}Decorated Warsword Blade"
+		name="{=vx2VIbmb}Decorated Long Warsword Blade"
 		tier="5"
 		piece_type="Blade"
 		mesh="sturgian_noble_blade_6"
@@ -3819,10 +3819,10 @@
 			holster_mesh="sturgian_noble_blade_6_scabbard_6">
 			<Thrust
 				damage_type="Pierce"
-				damage_factor="2.7" />
+				damage_factor="3.4" />
 			<Swing
 				damage_type="Cut"
-				damage_factor="2.8" />
+				damage_factor="3.8" />
 		</BladeData>
 		<Flags>
 			<Flag
@@ -14905,7 +14905,7 @@
 			body_name="bo_spear_b">
 			<Swing
 				damage_type="Cut"
-				damage_factor="4.1" />
+				damage_factor="3" />
 		</BladeData>
 		<Flags>
 			<Flag
@@ -15391,10 +15391,10 @@
 			body_name="bo_spear_b">
 			<Thrust
 				damage_type="Pierce"
-				damage_factor="1.7" />
+				damage_factor="0.9" />
 			<Swing
 				damage_type="Cut"
-				damage_factor="3.8" />
+				damage_factor="3" />
 		</BladeData>
 		<Materials>
 			<Material
