@@ -51,20 +51,42 @@ All notable changes to the TAOM website data and features are documented here.
 - **Blue Craig** (`troops_bluecraig.xml`, `npcs_bluecraig.xml`) — 23 goblin troops, levels 11–36, infantry and ranged branches. Previously the faction page borrowed Goblin-town's roster; it now renders its own.
 - **Lindon** (`troops_lindon.xml`, `npcs_lindon.xml`) — 30 Falathrim troops, levels 11–51. The deepest tier spread of any roster and the only Elven culture fielding both cavalry and horse archers. Previously borrowed Rivendell's roster.
 
-### Troops
+### Troops — New Lines, Mercenaries, and Skill Rebalance
 
-- Roster grew to **899 unique troops** across 18 troop-fielding cultures (was 818).
+- Roster grew to **899 unique troops** across 18 troop-fielding cultures (was 802). 97 added, none removed, no upgrade paths changed.
+- **Mordor — Black Númenórean line** (14 troops): Initiate (L26) → Infantry / Archer / Cavalry (L31) → Veteran Infantry / Archer / Cavalry (L36) → Warden / Knight / Marksman (L41) → Temple Guard / Temple Knight / Temple Shadowbow (L46).
+- **Gondor — Lossarnach Noble line** (5): Noble (L16) → Noble Veteran (L21) → Noble Sergeant (L26) → Noble Warden (L31) → Noble Captain (L36).
+- **Erebor — Ironpass ram cavalry** (4): Ram Rider (L21) → Goatback Charger (L26) → Ram-Breaker (L31) → Ram Vanguard (L36). Erebor's first mounted line.
+- **Harad — Mûmakil Rider** (L51).
+- **21 hired mercenary variants** (`*_merc`) across Dol Guldur, Erebor, Goblin-town, Gondor (3), Gundabad (2), Harad, Rivendell (2), Isengard (3), Mirkwood, Misty Mountain Orcs, Mordor (4) and Umbar — recruitable copies of existing troops for the mercenary pool.
+- **Skill rebalance:**
+  - **Dale**: every one of its 35 troops re-statted — Two-Handed +100 avg (+30 to +222), Polearm +50, One-Handed +40, Throwing +31, Crossbow +27. The roster was effectively unfinished before this pass.
+  - **Mordor** (29 troops): Polearm +41, Two-Handed +34, One-Handed +23, Bow +18.
+  - **Gondor** (35 troops): Two-Handed +44; eleven units re-roled from bow to crossbow (Crossbow +56, Bow −50).
+  - **Rhûn** (24 troops): Two-Handed +26; six archers Bow +118.
+  - **Erebor** (8 troops): Polearm +100, Two-Handed +97, One-Handed +82, Athletics +26.
+  - **Dol Guldur** (14 troops): Two-Handed +41, Polearm +28, Athletics +12.
+  - **Isengard**: two troops swapped Bow → Crossbow (−90 / +90).
+- **Equipment changed** on 140 Gondor troops, 28 Rhûn, 21 Dale, 8 Erebor, 3 Gundabad, 3 Mordor, 2 Isengard, 1 Dol Guldur.
+- `erebor_warriors_boss` renamed "[Erebor] Warrior Captain" → "Blacklock Chieftain".
 - **Dale is now visible.** Its 35 troops use `Culture.sturgia`, which was in `HIDDEN_CULTURES` and filtered every Dale troop and lord off `/troops` and `/lords`.
 - Ten culture ids new to the data were added to `CULTURE_DISPLAY_NAMES`: `bluecraig`, `lindon`, and the minor/raider cultures `dunland_raiders`, `erebor_warriors`, `gondor_soldiers`, `gundabad_raiders`, `harad_raiders`, `mirkwood_stalkers`, `rhun_raiders`, `umbar_corsairs`. Without entries these rendered as raw ids (`Gondor_soldiers`).
 
-### Armour
+### Armour — Regional Sets, Black Númenórean Kit, Legacy Cleanup
 
-- **2,904 items** across 18 culture sets. Erebor and Rhun shrank substantially; Gondor and Mordor grew.
-- **Starter kits added** — 12 new `starter_armors.xml` files (78 items) in cultures that previously had none. `/armoury` gained a **Starter** tab; these items were otherwise reachable only under "All".
+- **2,904 items** across 18 culture sets: 276 added, 160 removed, and 1,910 existing items re-statted.
+- **Mordor — Black Númenórean armour** (78 pieces, `sm_md_num_*` / `sk_md_num_*`) to equip the new troop line above. 18 legacy pieces removed.
+- **Gondor — six regional sets** (120 pieces): Dol Amroth (33), Linhir (22), Pinnath Gelin (21), Blackroot Vale (20), Lossarnach (18), Lond-Galen (10). 44 older generic pieces removed.
+- **Erebor**: 57 legacy `sk_dwarf_*` pieces removed (the roster shrank 34% by file size). **Rhûn**: 16 legacy `easterling_*` pieces removed, twelve of them helmets.
+- **Starter kits added** — 12 new `starter_armors.xml` files (six purchasable sets per culture, 78 items) in cultures that previously had none. `/armoury` gained a **Starter** tab; these items were otherwise reachable only under "All".
+- **Stat pass**: Iron Hills buffed hard (body +23 avg, leg +22, arm +14, head +14); Mirkwood head +17; Rivendell body +10; Rohan body +8, head +8; Dunland leg +11; Dale +5 to +6 across every slot; Thenn body +23. Mordor trimmed slightly (body −5, arm −5). `material_type` reassigned on roughly 800 items and weight retuned on most.
 
-### Weapons
+### Weapons, Shields & Mounts
 
-- 636 weapons/shields/bows: **344 melee**, 38 ranged, 30 ammunition, 224 shields. New horse data (`LOTRAOM_horses.xml` more than doubled).
+- 636 weapons/shields/bows: **344 melee**, 38 ranged, 30 ammunition, 224 shields.
+- **Mordor — Black Númenórean weapons** (9): bows a/b, lance, one-handed swords a/b/c, two-handed swords a/b/c. Three Rohan spears (`wm_rohan_spear_c/d/f`) removed.
+- **Shields**: ten added — four Gondor (`sm_gd_shield_a1`–`a4`) and six Black Númenórean (infantry and cavalry, medium and heavy); twelve legacy Gondor / Easterling shields and the Rhûn tournament sparring shield removed.
+- **Mounts doubled, 24 → 44**: Mûmakil; two war rams with eight ram bardings (light / medium / heavy / elite, a/b); fell warg, albino / brown / dark wargs and a warg saddle; Rhûn and imperial chariot armour; two Khamûl bardings. These back the new Ironpass, Mûmakil Rider and warg-rider troops.
 
 ### Lords, Heroes & Clans
 
