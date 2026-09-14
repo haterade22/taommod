@@ -15,8 +15,19 @@ All notable changes to the TAOM website data and features are documented here.
 
 ### Troops
 
-- **901 unique troops** (was 899). Erebor gained `ironpass_ram_herder` and `ironpass_ram_marshal` (64 → 66).
-- Minor stat tweaks across every roster; no cultures added or removed.
+- **901 unique troops** (was 899). Erebor gained two Iron Pass units: `ironpass_ram_herder` (L16) and `ironpass_ram_marshal` (L41). No cultures added or removed, no upgrade paths changed.
+- **Dol Guldur Uruk line pushed up a tier.** Eleven `dg_uruk_*` troops moved +5 levels — Fighter 13 → 16, Skirmisher and Warrior 16 → 21, Swordsman and Bowman 21 → 26, Fell Infantry / Fell Archer / Fell Fang 26 → 31, Black Guard / Black Sharpshooter / Black Slayer 31 → 36. The line now spans T2–T7.
+- **Gondor Blackroot Vale ranged line renamed in place**: Ranger → Shadowbow, Shadowbow → Shadowhunter, Shadowhunter → Vanguard (ids unchanged).
+- **Skill re-roles on elite ranged and skirmish units.** Gondor (12 troops): Throwing +15 to +130, Polearm +15 to +80, Two-Handed +15 to +70, with Bow cut by up to 150 on units moved to melee. Rhûn (4 troops): Throwing +15 to +170, Polearm +15 to +155, Bow cut by up to 215. Mordor (10 troops): Two-Handed +23 to +85, Crossbow/Throwing/Polearm +15 to +45. Isengard and Dale: two troops each +15 across all eight skills.
+- **Equipment refresh** on 153 Gondor troops, 51 Rhûn, 18 Mordor, 13 Dale and 12 Dol Guldur — largely tracking the weapon rebalance above.
+
+### Armour — Protection Rebalance
+
+- No items added or removed (2,904), but **2,476 items had stat changes** — the largest armour pass since March.
+- **Buffed**: Erebor (body +16 avg, arm +12), Iron Hills (head +16, body +16, arm +13), Gondor (head +12, body +11, arm +7), Arnor (body +9, head +8, arm +7), Rhûn (head +9, body +7, arm +7), Rivendell (body +9, arm +6), Gundabad (head +9), Mirkwood (head +9).
+- **Trimmed**: Dunland (head −10, leg −5), Dale (leg −11), Rohan (leg −9, body −3), Dol Guldur (leg −5, arm −3), Isengard (arm −3, leg −3), Thenn (body −8), Mordor (leg −7). Leg armour came down almost everywhere.
+- Net effect: Iron Hills is now the best non-Elven body armour (55.3 avg, just under Rivendell 56.8 and Mirkwood 55.5); Rhûn and Gondor sit level at 43.7 / 43.2; Erebor has the highest head armour of any culture (56.1).
+- Two new Gondor shields, `sm_gd_shield_b1` and `sm_gd_shield_b2`. Horses unchanged.
 
 ### Armoury — New Generated Item Sets (Excluded)
 
