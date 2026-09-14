@@ -18,7 +18,7 @@ npx astro check   # TypeScript/Astro type checking
 
 **Data Pipeline**: XML mod data → `fast-xml-parser` → Astro pages (all at build time, no runtime data fetching)
 
-- `sync-data.sh` wipe-and-replaces XML files in `src/data/` from two local mod modules: `TAOM/ModuleData` (troops, characters, XSLT, cultures/kingdoms) and `LOTRLOME_Armory/ModuleData` (per-culture armor folders, weapons, shields, horses, crafting pieces)
+- `sync-data.sh` wipe-and-replaces XML files in `src/data/` from two local mod modules: `TAOM/ModuleData` (troops, characters, XSLT, cultures/kingdoms) and `LOTRLOME_Armory/ModuleData` (per-culture armor folders, weapons, shields, horses, crafting pieces), plus vanilla reference copies from the Bannerlord install. It preserves `faction-troops.ts` and `patreon-posts.json`.
 - `src/lib/parse-xml.ts` is a barrel re-export; actual parsing lives in modular files:
   - `xml-shared.ts` — parser config, types, culture mappings, helpers
   - `parse-troops.ts`, `parse-kingdoms.ts`, `parse-clans.ts`, `parse-lords.ts`, `parse-armory.ts`, `parse-weaponry.ts`
@@ -38,7 +38,7 @@ npx astro check   # TypeScript/Astro type checking
 
 ## Key Conventions
 
-- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland)
+- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland, `sturgia` → Dale). Every culture id present in the data must have an entry or it renders as a raw capitalised id; `HIDDEN_CULTURES` (currently only `lothlorien`) filters `/troops` and `/lords`. Kingdom ids for the Kingdom column on `/lords` come from `KINGDOM_ID_TO_NAME` in `parse-clans.ts` — keep both in step when the mod adds a faction.
 - **XML name cleanup**: `stripLocKey()` removes `{=key}` prefixes, `stripPrefix()` removes `Item.`/`Hero.`/etc prefixes
 - **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/global.css`)
 - **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/global.css`)
@@ -52,7 +52,7 @@ npx astro check   # TypeScript/Astro type checking
 ```
 src/
   components/   TroopTree.astro (SVG upgrade tree visualization)
-  data/         150+ XML files (troops/, characters/, armory/), 8 XSLT transforms, faction-troops.ts
+  data/         180 XML files (troops/, characters/, armory/), 8 XSLT transforms, faction-troops.ts
   layouts/      BaseLayout.astro (single layout with nav, footer)
   lib/          parse-xml.ts (barrel), xml-shared.ts, parse-troops.ts, parse-kingdoms.ts, parse-clans.ts, parse-lords.ts, parse-armory.ts, parse-weaponry.ts, damage-calc.ts
   scripts/      data-table.ts (shared client-side table sorting/collapse/filters)
