@@ -102,6 +102,70 @@ All notable changes to the TAOM website data and features are documented here.
 
 - `bluecraig_bolgs_ironfang` and `mistymountainorcs_bolgs_ironfang` are each defined **twice** — once in `troops_goblin.xml` and once in their own faction file. The site counts unique ids (899); a raw element count reports 901.
 
+## [2026-06-22] — Mod Data Sync (Goblin-town, Misty Mountain Orcs, Dale)
+
+_Recorded retroactively on 2026-09-14; this sync (`f338c8c`) shipped without a changelog entry._
+
+### New Factions
+
+- **Goblin-town** (`troops_goblin.xml`, 22 troops) and **Misty Mountain Orcs** (`troops_mistymountainorcs.xml`, 22 troops) — two new orc cultures, each with infantry and ranged branches.
+- **Dale** (`troops_dale.xml`, 35 troops, culture id `sturgia`) — first full roster for Dale, with its own `dale` armoury folder. Its `sturgia` id was still in `HIDDEN_CULTURES` at this point, so the roster did not appear on `/troops` or `/lords` until 2026-09-02.
+- Kingdom, clan and faction pages wired for Goblins, Misty Mountain Orcs, Blue Craig and Lindon. Blue Craig and Lindon had no rosters yet and temporarily borrowed Goblin-town's and Rivendell's.
+
+### Troops
+
+- **802 unique troops** (was 707): 98 added, 3 removed.
+- **Mordor — Morannon line** (10): Recruit → Scout / Skirmisher / Fighter → Infantry / Spearman / Archer / Warrior → Heavy Infantry / Heavy Spearman.
+- **Harad — Elephant Rider.**
+- **Eight minor-culture bandit bosses**, one each: `gondor_soldiers`, `erebor_warriors`, `mirkwood_stalkers`, `gundabad_raiders`, `harad_raiders`, `rhun_raiders`, `dunland_raiders`, `umbar_corsairs`.
+- Removed: Dol Guldur Giant Spider Rider, Isengard Chosen Marksman and Hunter.
+- Equipment changed on 13 Rhûn, 9 Gondor and 4 Harad troops. No skill pass.
+
+### Armour
+
+- **2,788 items** (was 2,544): 246 added, 2 removed, nothing re-statted.
+- **Dale — full culture set** (154 pieces): Lake-town mariner kit (36) plus chest (24), boots (24), helmets (24), gauntlets (24) and shoulders (22).
+- **Mordor — Morannon set** (92 pieces, `sk_md_mor_*`) to equip the new line.
+- Isengard: two Uruk-scout pieces removed.
+
+### Weapons, Shields & Mounts
+
+- **Dale weapons** (17): three war axes, two winged spears, war spear, spears a/b, halberd, sword, longbow and matching pieces. **Dale shields** (15, `wm_dale_shield_*`).
+- **Mounts**: war elephant with elephant armour, a Rhûn chariot; the three Dol Guldur spider mount variants consolidated into one.
+
+## [2026-05-25] — Mod Data Sync (Âbanissa, Shaghâna, Roster Rebuilds)
+
+_Recorded retroactively on 2026-09-14; this sync (`dc8b431`) shipped without a changelog entry._
+
+### New Factions
+
+- **Âbanissa** and **Shaghâna** — two Harad sub-kingdoms with their own kingdoms, clans, lords and NPCs (`npcs_abanissa.xml`, `npcs_shaghana.xml`). They field Harad's troop roster.
+
+### Troops — Four Rosters Rebuilt
+
+- **707 unique troops** (was 683): 128 added, 104 removed, 50 level changes.
+- **Erebor rebuilt** (−43 / +54): the Iron Hills line reworked (23 → 21 troops), plus a new **Erebor Noble line** (13), a regular line (8), Oathsworn (3) and the first Ironpass infantry and veterans (3).
+- **Rhûn rebuilt** (−27 / +25): the legacy `troops_rhun.xml` was removed in favour of `troops_rhun_new.xml`. New **Black Sun line** (11, including Chosen Marksman), **Darkhûn line** (6) and Balcoth horse archers; Easterling Bloodsworn, Pillar, Scout and Dragon Knight removed.
+- **Mordor** (−13 / +20): the Uruk line cut from ten troops to five; Orc line rebuilt (9 — Archer, Fighter, Hunter, Impaler…); six Warg riders.
+- **Isengard** (+13): a new **Orc line** (Grunt, Brawler, Butcher, Berserker…) alongside the Uruk-hai.
+- **Dol Guldur rebuilt** (−12 / +12): the old `dg_uruk_*` berserker/howler/butcher line and the archer/warden/initiate/disciple units replaced by **Khamûl's line** (8), Goblin Harrier / Impaler / Fellbow (3) and a Giant Spider Rider.
+- Gondor: five Lossarnach troops removed, three added. Gundabad: four removed, one added.
+- **Equipment changed** on 151 Gondor, 91 Rhûn, 23 Dol Guldur and 17 Gundabad troops.
+
+### Armour — Gondor Regional Sets, Orc Kits, Stat Pass
+
+- **2,544 items** (was 2,368): 377 added, 201 removed, **2,090 re-statted**.
+- **Gondor** (+211 / −194): regional sets for Anórien (49), Lamedon (24), Serelond (22), Osgiliath (16) and Anfalas (13) replaced the legacy Swan Knight (30 pieces), Pelargir Marine helmet, Dol Amroth and Lord Marine sets.
+- **Mordor** (+104): two orc kits, `sk_md_orc_*` (61) and `sk_gn_orc_*` (42).
+- **Rhûn** (+22): Lôke-rim set. **Dol Guldur** (+19) and **Isengard** (+15): orc kits. **Iron Hills** (+5). Erebor: six legacy dwarf pieces removed.
+- **Stat pass**: Rhûn trimmed across the board (head −6, body −5, leg −5); Rivendell buffed (arm +16, leg +10, head +9); Erebor head +17; Mordor arm +11, body −7; Iron Hills leg −10; Dunland leg −13.
+
+### Weapons, Shields & Mounts
+
+- **+31 / −21 weapons.** Added: an 18-step **Elven arrow quality ladder** (`wm_elven_arrow_q1`–`q4`, `v2`–`v4`), the **Gondor Lossarnach axe line** (8 — one- and two-handed in black ash, silver and silver-full), two Swan Knight lances, a Gondor bow, a Gondor knight spear and a Pinnath Gelin spear. Removed: all twenty tiered `rhun_1h_sword_a*` variants and `gond_spear2`.
+- **Shields** +7 / −2: three Gondor, two Pelargir, a pavise and Boromir's shield added; two legacy Gondor shields removed.
+- **Mounts** +4: three Dol Guldur spider mounts and a Gondor starter cavalry horse.
+
 ## [2026-03-19] — Full Mod Data Sync
 
 ### Troops — Skill Rebalance (All Factions)
