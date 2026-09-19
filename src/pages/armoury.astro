@@ -2,6 +2,7 @@
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseArmory, getCultureDisplayName, parseKingdomsFromXslt } from '../lib/parse-xml';
+import { findArmourTurntable, getArmourTurntableMap } from '../lib/turntable-videos';
 
 const allItems = parseArmory();
 const kingdoms = parseKingdomsFromXslt();
@@ -13,6 +14,13 @@ allItems.sort((a, b) => {
   if (aBottom !== bBottom) return aBottom - bBottom;
   return a.name.localeCompare(b.name);
 });
+
+const armourTurntableMap = getArmourTurntableMap();
+const itemsWithTurntables = allItems.map((item) => ({
+  ...item,
+  turntableVideo: findArmourTurntable(item, armourTurntableMap),
+}));
+const turntableVideoCount = armourTurntableMap.size;
 
 const ARMOR_SECTIONS = [
   { key: 'all', label: 'All', description: 'Every armour slot in one ledger.' },
@@ -155,6 +163,10 @@ function formatModifierGroup(value: string): string {
             <span class="summary-label">Merchant Stock</span>
             <strong>{merchantItemCount}</strong>
           </article>
+          <article class="summary-card">
+            <span class="summary-label">Videos Loaded</span>
+            <strong>{turntableVideoCount}</strong>
+          </article>
         </section>
 
         <section class="utility-panel">
@@ -248,6 +260,12 @@ function formatModifierGroup(value: string): string {
               <span class="section-count" id="table-count">({allItems.length})</span>
             </div>
 
+            {
+              turntableVideoCount > 0 && (
+                <p class="turntable-note">Click any row marked View to open its armour turntable.</p>
+              )
+            }
+
             <div class="data-table-wrapper">
               <table class="data-table armour-section">
                 <thead>
@@ -268,19 +286,35 @@ function formatModifierGroup(value: string): string {
                 </thead>
                 <tbody id="armour-table-body">
                   {
-                    allItems.map((item) => (
+                    itemsWithTurntables.map((item) => (
                       <tr
+                        class:list={{ 'has-turntable': Boolean(item.turntableVideo) }}
+                        title={item.turntableVideo ? 'Click to open armour turntable' : undefined}
                         data-name={item.name.toLowerCase()}
                         data-id={item.id.toLowerCase()}
+                        data-mesh={item.mesh.toLowerCase()}
                         data-culture={item.culture}
                         data-slot={item.slot}
                         data-material={item.materialType}
                         data-trade={item.isMerchandise ? 'market' : 'locked'}
                         data-modifier={item.modifierGroup.toLowerCase()}
+                        data-video={item.turntableVideo}
+                        data-display-name={item.name}
+                        data-display-id={item.id}
+                        data-display-mesh={item.mesh}
                         style={getCultureRowStyle(item.culture)}
                       >
                         <td class="item-name-cell">
                           <span class="item-name">{item.name}</span>
+                          {item.turntableVideo && (
+                            <button
+                              type="button"
+                              class="turntable-chip"
+                              aria-label={`Open turntable video for ${item.name}`}
+                            >
+                              View
+                            </button>
+                          )}
                         </td>
                         <td>{getCultureDisplayName(item.culture)}</td>
                         <td>{item.slot}</td>
@@ -313,6 +347,23 @@ function formatModifierGroup(value: string): string {
         </div>
       </section>
     </main>
+
+    <dialog class="turntable-modal" id="turntable-modal" aria-labelledby="turntable-title">
+      <div class="turntable-frame">
+        <div class="turntable-head">
+          <div>
+            <p class="turntable-kicker">Armour Turntable</p>
+            <h2 id="turntable-title">Armour Preview</h2>
+            <p id="turntable-subtitle"></p>
+          </div>
+          <button type="button" class="turntable-close" id="turntable-close" aria-label="Close turntable video">
+            Close
+          </button>
+        </div>
+
+        <video id="turntable-video" class="turntable-video" controls loop playsinline preload="metadata"></video>
+      </div>
+    </dialog>
   </div>
 </BaseLayout>
 
@@ -329,6 +380,11 @@ function formatModifierGroup(value: string): string {
     const emptyState = document.getElementById('empty-state') as HTMLElement;
     const slotTitle = document.getElementById('slot-title') as HTMLElement;
     const slotDescription = document.getElementById('slot-description') as HTMLElement;
+    const turntableModal = document.getElementById('turntable-modal') as HTMLDialogElement | null;
+    const turntableVideo = document.getElementById('turntable-video') as HTMLVideoElement | null;
+    const turntableTitle = document.getElementById('turntable-title') as HTMLElement | null;
+    const turntableSubtitle = document.getElementById('turntable-subtitle') as HTMLElement | null;
+    const turntableClose = document.getElementById('turntable-close') as HTMLButtonElement | null;
     const tabButtons = Array.from(document.querySelectorAll('.slot-tab')) as HTMLButtonElement[];
     const tableBody = document.getElementById('armour-table-body') as HTMLTableSectionElement;
     const rows = Array.from(tableBody.querySelectorAll('tr')) as HTMLTableRowElement[];
@@ -387,6 +443,7 @@ function formatModifierGroup(value: string): string {
       for (const row of rows) {
         const name = row.dataset.name || '';
         const id = row.dataset.id || '';
+        const mesh = row.dataset.mesh || '';
         const rowCulture = row.dataset.culture || '';
         const rowSlot = row.dataset.slot || '';
         const rowMaterial = row.dataset.material || '';
@@ -394,7 +451,12 @@ function formatModifierGroup(value: string): string {
         const rowModifier = row.dataset.modifier || '';
 
         const matchesSlot = activeSlot === 'all' || rowSlot === activeSlot;
-        const matchesSearch = !search || name.includes(search) || id.includes(search) || rowModifier.includes(search);
+        const matchesSearch =
+          !search ||
+          name.includes(search) ||
+          id.includes(search) ||
+          mesh.includes(search) ||
+          rowModifier.includes(search);
         const matchesCulture = !culture || rowCulture === culture;
         const matchesMaterial = !material || rowMaterial === material;
         const matchesTrade = !trade || rowTrade === trade;
@@ -422,6 +484,59 @@ function formatModifierGroup(value: string): string {
         activeSlot = button.dataset.slot || 'all';
         filterRows();
       });
+    });
+
+    function closeTurntable() {
+      if (!turntableModal || !turntableVideo) return;
+      turntableVideo.pause();
+      turntableVideo.removeAttribute('src');
+      turntableVideo.load();
+      if (turntableModal.open) {
+        turntableModal.close();
+      }
+    }
+
+    function openTurntable(row: HTMLTableRowElement) {
+      if (!turntableModal || !turntableVideo || !turntableTitle || !turntableSubtitle) return;
+      const video = row.dataset.video;
+      if (!video) return;
+
+      turntableTitle.textContent = row.dataset.displayName || 'Armour Preview';
+      turntableSubtitle.textContent = [row.dataset.displayId, row.dataset.displayMesh].filter(Boolean).join(' / ');
+      turntableVideo.src = video;
+      turntableVideo.load();
+
+      if (typeof turntableModal.showModal === 'function') {
+        turntableModal.showModal();
+      } else {
+        turntableModal.setAttribute('open', '');
+      }
+
+      turntableVideo.play().catch(() => {
+        // Browser autoplay policies may require a second click on the video controls.
+      });
+    }
+
+    rows.forEach((row) => {
+      if (!row.dataset.video) return;
+      row.tabIndex = 0;
+      row.addEventListener('click', () => openTurntable(row));
+      row.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openTurntable(row);
+      });
+    });
+
+    turntableClose?.addEventListener('click', closeTurntable);
+    turntableModal?.addEventListener('click', (event) => {
+      if (event.target === turntableModal) closeTurntable();
+    });
+    turntableModal?.addEventListener('close', () => {
+      if (!turntableVideo) return;
+      turntableVideo.pause();
+      turntableVideo.removeAttribute('src');
+      turntableVideo.load();
     });
 
     searchInput.addEventListener('input', filterRows);
@@ -542,7 +657,7 @@ function formatModifierGroup(value: string): string {
 
   .armour-summary {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.95rem;
   }
 
@@ -817,6 +932,13 @@ function formatModifierGroup(value: string): string {
     letter-spacing: 0.12em;
   }
 
+  .turntable-note {
+    margin: 0;
+    color: #f8e6bd;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
   .data-table-wrapper {
     position: relative;
     overflow: auto;
@@ -867,6 +989,17 @@ function formatModifierGroup(value: string): string {
       rgba(11, 9, 8, 0.8);
   }
 
+  .armour-section tbody tr.has-turntable,
+  .armour-section tbody tr.has-turntable td,
+  .armour-section tbody tr.has-turntable td * {
+    cursor: pointer;
+  }
+
+  .armour-section tbody tr.has-turntable:focus {
+    outline: 2px solid rgba(220, 166, 69, 0.72);
+    outline-offset: -2px;
+  }
+
   .armour-section th.section-start,
   .armour-section td.section-start {
     border-left: 1px solid rgba(179, 135, 62, 0.3);
@@ -883,8 +1016,40 @@ function formatModifierGroup(value: string): string {
     min-width: 15rem;
   }
 
+  .item-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
   .item-name {
     font-weight: 600;
+  }
+
+  .turntable-chip {
+    flex: 0 0 auto;
+    min-height: 1.65rem;
+    padding: 0.12rem 0.48rem;
+    border: 1px solid rgba(226, 177, 88, 0.42);
+    background: rgba(201, 151, 72, 0.14);
+    color: #ffe1a6;
+    font: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 160ms ease,
+      background 160ms ease,
+      color 160ms ease;
+  }
+
+  .turntable-chip:hover,
+  .turntable-chip:focus {
+    border-color: rgba(247, 202, 112, 0.72);
+    background: rgba(224, 169, 72, 0.22);
+    color: #fff5dd;
+    outline: none;
   }
 
   .col-num {
@@ -944,9 +1109,111 @@ function formatModifierGroup(value: string): string {
     font-size: 0.98rem;
   }
 
+  .turntable-modal {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(68rem, calc(100vw - 2rem));
+    height: min(56rem, calc(100dvh - 2rem));
+    max-height: calc(100dvh - 2rem);
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid rgba(187, 133, 54, 0.58);
+    background: rgba(8, 7, 7, 0.98);
+    color: #f3eadf;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.62);
+  }
+
+  .turntable-modal::backdrop {
+    background: rgba(0, 0, 0, 0.76);
+    backdrop-filter: blur(4px);
+  }
+
+  :global(body.taom-armour-body:has(.turntable-modal[open])) {
+    overflow: hidden;
+  }
+
+  .turntable-frame {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    background:
+      linear-gradient(180deg, rgba(24, 17, 12, 0.96), rgba(8, 7, 7, 0.98)),
+      radial-gradient(circle at top left, rgba(209, 154, 51, 0.16), transparent 34%);
+  }
+
+  .turntable-head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .turntable-head > div {
+    min-width: 0;
+  }
+
+  .turntable-kicker {
+    margin: 0 0 0.35rem;
+    color: #c19748;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .turntable-head h2 {
+    margin: 0;
+    color: #fff2df;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.65rem;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .turntable-head p:last-child {
+    margin: 0.35rem 0 0;
+    color: rgba(223, 209, 188, 0.72);
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  .turntable-close {
+    flex-shrink: 0;
+    min-height: 2.5rem;
+    padding: 0.48rem 0.8rem;
+    border: 1px solid rgba(218, 192, 149, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f8e6bd;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .turntable-close:hover,
+  .turntable-close:focus {
+    border-color: rgba(247, 202, 112, 0.64);
+    background: rgba(224, 169, 72, 0.16);
+    outline: none;
+  }
+
+  .turntable-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+    background: #050505;
+  }
+
   @media (max-width: 1180px) {
     .armour-summary {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .utility-panel {
@@ -1003,6 +1270,18 @@ function formatModifierGroup(value: string): string {
     .armour-section th,
     .armour-section td {
       padding-inline: 0.7rem;
+    }
+
+    .turntable-frame {
+      padding: 0.75rem;
+    }
+
+    .turntable-head {
+      gap: 0.75rem;
+    }
+
+    .turntable-head h2 {
+      font-size: 1.2rem;
     }
   }
 </style>

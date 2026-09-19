@@ -164,6 +164,7 @@ export interface Lord {
 export interface ArmorItem {
   id: string;
   name: string;
+  mesh: string;
   culture: string;
   type: string;
   slot: string;

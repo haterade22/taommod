@@ -46,6 +46,7 @@ export function parseArmory(): ArmorItem[] {
         items.push({
           id: item['@_id'] || '',
           name: stripLocKey(item['@_name'] || ''),
+          mesh: item['@_mesh'] || '',
           culture: culture,
           type: item['@_Type'] || '',
           slot,

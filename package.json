@@ -16,6 +16,8 @@
     "check": "astro check",
     "test": "vitest",
     "test:ci": "vitest run",
+    "sync:turntables": "node scripts/sync-turntable-videos.mjs",
+    "sync:turntables:all": "node scripts/sync-turntable-videos.mjs --all",
     "prepare": "husky"
   },
   "dependencies": {
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@types/node": "^26.6.1",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
     "eslint": "^10.0.3",
