@@ -91,21 +91,73 @@ export interface TablePager {
  * Show a table's rows in pages. Rows a filter hid (style.display = 'none') are left out; the rest are split into
  * pages and off-page rows get data-off-page (display: none in global.css), so the browser only lays out one page.
  * Call refresh() after filtering (or dispatch 'datatable:filtered' on the table); sorting refreshes it automatically.
+ *
+ * Without a fixed pageSize, each page holds as many rows as fit on screen below the fixed top bar (header row and
+ * page buttons included), so the table never scrolls; the wrapper gets .is-paged, which removes its scroll box.
  */
-export function initPager(tableSelector: string, pageSize = 50): TablePager {
+export function initPager(tableSelector: string, fixedPageSize?: number): TablePager {
   const table = document.querySelector<HTMLTableElement>(tableSelector);
   const tbody = table?.tBodies[0];
-  const wrapper = table?.closest('.data-table-wrapper');
+  const wrapper = table?.closest<HTMLElement>('.data-table-wrapper');
   if (!table || !tbody || !wrapper) return { refresh() {} };
 
   const nav = document.createElement('nav');
   nav.className = 'table-pager';
   nav.setAttribute('aria-label', 'Table pages');
   wrapper.after(nav);
+  wrapper.classList.add('is-paged');
 
   let page = 1;
+  let pageSize = fixedPageSize ?? 20;
+  let rowHeight = 0;
   // Only the table's own rows are paged. Rows added later (e.g. a lord's biography row) follow the row before them.
   const ownRows = new WeakSet(Array.from(tbody.rows));
+
+  // With fewer rows shown the browser would narrow the columns (and wrap text, making rows taller), so every page
+  // would have different column widths. Lock each column to its width with all rows shown, and use the usual row
+  // height (95th percentile) for the rows-per-page sum. Skipped while the table is hidden (width 0); then measured
+  // from the first page instead.
+  function lockColumnsAndMeasure() {
+    const headers = Array.from(table!.tHead?.rows[0]?.cells ?? []);
+    const widths = headers.map((th) => th.getBoundingClientRect().width);
+    if (!widths.length || widths.some((w) => w === 0)) return;
+    // Table cells ignore min-width; a width on a header cell acts as the column's minimum in auto table layout.
+    headers.forEach((th, i) => (th.style.width = `${Math.ceil(widths[i])}px`));
+    rowHeight = rowPitch(Array.from(tbody!.rows));
+  }
+
+  /** Space one row takes, including any gap between rows (some tables use border-spacing). */
+  function rowPitch(rows: HTMLTableRowElement[]) {
+    const shown = rows.filter((row) => row.getBoundingClientRect().height > 0);
+    if (shown.length < 2) return shown[0]?.getBoundingClientRect().height ?? 0;
+    const first = shown[0].getBoundingClientRect();
+    const last = shown[shown.length - 1].getBoundingClientRect();
+    return (last.bottom - first.top) / shown.length;
+  }
+  lockColumnsAndMeasure();
+
+  const topBarHeight = () => document.querySelector('.topbar')?.getBoundingClientRect().height ?? 0;
+
+  /** Rows that fit between the top bar and the bottom of the window, after the header row and the page buttons. */
+  function rowsThatFit() {
+    if (fixedPageSize) return fixedPageSize;
+    const headerHeight = table!.tHead?.getBoundingClientRect().height || 44;
+    const navStyle = getComputedStyle(nav);
+    const navHeight = (nav.getBoundingClientRect().height || 72) + parseFloat(navStyle.marginTop || '0');
+    // 52px: gap under the top bar plus the wrapper's padding and borders, with a little to spare.
+    const available = window.innerHeight - topBarHeight() - headerHeight - navHeight - 52;
+    return Math.min(50, Math.max(5, Math.floor(available / (rowHeight || 44))));
+  }
+
+  /** Row pitch measured from the rows now on screen (used when the table was hidden at start). */
+  function measureRowHeight() {
+    return rowPitch(Array.from(tbody!.rows).filter((row) => ownRows.has(row) && !row.hasAttribute('data-off-page')));
+  }
+
+  function scrollTableIntoView() {
+    const top = wrapper!.getBoundingClientRect().top + window.scrollY - topBarHeight() - 12;
+    window.scrollTo({ top: Math.max(0, top) });
+  }
 
   const pageButton = (label: string, target: number, opts: { current?: boolean; disabled?: boolean } = {}) => {
     const button = document.createElement('button');
@@ -120,12 +172,26 @@ export function initPager(tableSelector: string, pageSize = 50): TablePager {
     button.addEventListener('click', () => {
       page = target;
       render();
-      wrapper.scrollTop = 0;
+      scrollTableIntoView();
     });
     return button;
   };
 
   function render() {
+    pageSize = rowsThatFit();
+    draw();
+    // If the table was hidden at start (no measurement yet), measure the page now on screen and redraw once.
+    const measured = rowHeight ? 0 : measureRowHeight();
+    if (!fixedPageSize && measured > 0) {
+      rowHeight = measured;
+      const firstShown = (page - 1) * pageSize;
+      pageSize = rowsThatFit();
+      page = Math.floor(firstShown / pageSize) + 1;
+      draw();
+    }
+  }
+
+  function draw() {
     const rows = Array.from(tbody!.rows);
     const matching = rows.filter((row) => ownRows.has(row) && row.style.display !== 'none');
     const pages = Math.max(1, Math.ceil(matching.length / pageSize));
@@ -174,6 +240,19 @@ export function initPager(tableSelector: string, pageSize = 50): TablePager {
       render();
     });
   }
+
+  // A different window height fits a different number of rows; keep the first row on screen in view.
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      if (!table.isConnected) return;
+      const firstShown = (page - 1) * pageSize;
+      pageSize = rowsThatFit();
+      page = Math.floor(firstShown / pageSize) + 1;
+      draw();
+    }, 150);
+  });
 
   return {
     refresh(resetPage = true) {

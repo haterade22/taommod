@@ -337,6 +337,14 @@ a:hover {
   overflow: auto;
 }
 
+/* Tables run by initPager show one screen of rows per page, so they need no scroll box (wide tables can still
+   scroll sideways on narrow screens). Without JavaScript the 75vh scroll box above stays as the fallback. */
+.data-table-wrapper.is-paged {
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
 /* Sticky table headers for mod-info table wrappers */
 .table-wrapper {
   max-height: 75vh;
