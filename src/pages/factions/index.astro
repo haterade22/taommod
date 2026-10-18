@@ -164,7 +164,7 @@ function getKingdomBackground(kingdomId: string, theme: 'good' | 'evil') {
     return customBackgroundPath;
   }
 
-  return theme === 'evil' ? '/images/factions/mordor-background.png' : '/images/factions/gondor-background.png';
+  return theme === 'evil' ? '/images/factions/mordor-background.png' : '/images/factions/gondor-background.webp';
 }
 
 const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
@@ -180,7 +180,7 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
       crest: CREST_IMAGES[kingdom.id] || '',
       monogram: getMonogram(kingdom.shortName || kingdom.name),
       background: getKingdomBackground(kingdom.id, theme),
-      foreground: theme === 'evil' ? '/images/factions/evil.png' : '/images/factions/good.png',
+      foreground: theme === 'evil' ? '/images/factions/evil.png' : '/images/factions/good.webp',
       href: `/factions/${kingdom.id}`,
     };
   })
@@ -226,12 +226,12 @@ const initialKingdom = kingdoms[0];
         aria-label="Faction showcase"
       >
         <div class="layer-stack" aria-hidden="true">
-          <img class="stage-layer layer-1" src="/images/factions/map-background.png" alt="" />
+          <img class="stage-layer layer-1" src="/images/factions/map-background.webp" alt="" />
           <img class="stage-layer layer-2" id="layer-background" src={initialKingdom.background} alt="" />
           <img class="stage-layer layer-3" id="layer-foreground" src={initialKingdom.foreground} alt="" />
           <img class="stage-layer layer-4" src="/images/factions/background-border.png" alt="" />
           <img class="stage-layer layer-5" src="/images/factions/title-text.png" alt="" />
-          <img class="stage-layer layer-6" src="/images/factions/card-background.png" alt="" />
+          <img class="stage-layer layer-6" src="/images/factions/card-background.webp" alt="" />
           <img class="stage-layer layer-7" src="/images/factions/card-border.png" alt="" />
         </div>
 
