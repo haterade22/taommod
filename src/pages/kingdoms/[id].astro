@@ -103,7 +103,7 @@ const emblem = existingPublicAsset(EMBLEM_IMAGES[kingdom.id]);
 const colors = KINGDOM_COLORS[kingdom.id];
 ---
 
-<BaseLayout title={kingdom.name} description={kingdom.description}>
+<BaseLayout title={`${kingdom.name} (Kingdom)`} description={kingdom.description}>
   <section class="kingdom-header" style={colors ? `--kc1: ${colors[0]}; --kc2: ${colors[1]}` : ''}>
     {emblem && <img src={emblem} alt={`${kingdom.name} emblem`} class="header-emblem" />}
     <div class="header-content">

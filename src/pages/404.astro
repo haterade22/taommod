@@ -1,0 +1,122 @@
+---
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// GitHub Pages serves dist/404.html for any address that doesn't exist.
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/download', label: 'Download' },
+  { href: '/database', label: 'Database' },
+  { href: '/factions', label: 'Factions' },
+  { href: '/news', label: 'News' },
+];
+---
+
+<BaseLayout
+  title="Page not found"
+  description="This page does not exist on taommod.com."
+  hideNav={true}
+  bodyClass="taom-notfound-body"
+  mainClass="taom-notfound-main"
+  noindex={true}
+>
+  <div class="notfound-page">
+    <Topbar />
+
+    <main class="notfound-shell">
+      <p class="eyebrow">404 · Lost in the Wild</p>
+      <h1>Not all those who wander are lost.</h1>
+      <p class="intro">But this page is: the link may be old, or the page has moved. Try one of these instead.</p>
+      <nav class="notfound-links" aria-label="Main pages">
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-notfound-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.7), rgba(7, 5, 5, 0.96)),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(.taom-notfound-main) {
+    display: block;
+  }
+
+  .notfound-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .notfound-shell {
+    width: min(100%, 44rem);
+    margin: 0 auto;
+    padding: 6rem 0 7rem;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .notfound-links a {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.05;
+    color: #f5eee5;
+  }
+
+  .intro {
+    margin: 1.2rem 0 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(231, 222, 214, 0.82);
+  }
+
+  .notfound-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .notfound-links a {
+    padding: 0.85rem 1.25rem;
+    border: 1px solid rgba(205, 153, 52, 0.46);
+    background: linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96));
+    color: #fff5e3;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .notfound-links a:hover {
+    text-decoration: none;
+    border-color: rgba(205, 153, 52, 0.86);
+  }
+
+  @media (max-width: 760px) {
+    .notfound-page {
+      padding: 1rem;
+    }
+
+    .notfound-shell {
+      padding: 3.5rem 0 4.5rem;
+    }
+  }
+</style>

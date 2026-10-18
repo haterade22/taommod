@@ -15,6 +15,8 @@ const shortFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const fallbackImage = '/images/logo.webp';
+// Patreon image links expire; show the logo instead of a broken image.
+const swapToFallback = `this.onerror=null;this.src='${fallbackImage}'`;
 
 const stripHtml = (value = '') =>
   value
@@ -101,7 +103,12 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                   data-search={featuredPost.searchText}
                 >
                   <a class="featured-media" href={`/news/${featuredPost.slug}`}>
-                    <img src={featuredPost.coverImage} alt={featuredPost.title} loading="eager" />
+                    <img
+                      src={featuredPost.coverImage}
+                      alt={featuredPost.title}
+                      loading="eager"
+                      onerror={swapToFallback}
+                    />
                   </a>
 
                   <div class="featured-body">
@@ -150,7 +157,7 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                     data-search={post.searchText}
                   >
                     <a class="post-thumb" href={`/news/${post.slug}`}>
-                      <img src={post.coverImage} alt={post.title} loading="lazy" />
+                      <img src={post.coverImage} alt={post.title} loading="lazy" onerror={swapToFallback} />
                     </a>
 
                     <div class="post-copy">
@@ -214,7 +221,7 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                       data-year={post.year}
                       data-search={post.searchText}
                     >
-                      <img src={post.coverImage} alt={post.title} loading="lazy" />
+                      <img src={post.coverImage} alt={post.title} loading="lazy" onerror={swapToFallback} />
                       <span>
                         <strong>{post.title}</strong>
                         <small>{post.publishedLabel}</small>
@@ -637,5 +644,11 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
     .post-copy h3 {
       font-size: 1.3rem;
     }
+  }
+
+  /* Fallback logo (expired Patreon picture): show the whole logo instead of a cropped part. */
+  img[src='/images/logo.webp'] {
+    object-fit: contain !important;
+    padding: 1.5rem;
   }
 </style>

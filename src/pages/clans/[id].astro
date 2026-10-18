@@ -70,7 +70,7 @@ const CULTURE_OVERRIDES: Record<string, string> = {
 const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : clan.kingdom;
 ---
 
-<BaseLayout title={clan.name} description={`${clan.name} — a clan of ${kingdomName}`}>
+<BaseLayout title={`${clan.name} (Clan)`} description={`${clan.name} — a clan of ${kingdomName}`}>
   <div class="page-content">
     <nav class="breadcrumb">
       <a href="/kingdoms">Kingdoms</a>
