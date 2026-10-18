@@ -361,7 +361,7 @@ const headerCols = [
 </BaseLayout>
 
 <script>
-  import { initSorting } from '../scripts/data-table';
+  import { initPager, initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -403,6 +403,8 @@ const headerCols = [
       window.history.replaceState({}, '', url);
     }
 
+    const pager = initPager('table.weapon-section');
+
     function filterRows() {
       const search = searchInput.value.toLowerCase();
       const category = categoryFilter.value;
@@ -437,6 +439,7 @@ const headerCols = [
       resultCount.textContent = `${visibleCount} items`;
       tableCount.textContent = `(${visibleCount})`;
       emptyState.hidden = visibleCount !== 0;
+      pager.refresh();
       updateUrl();
     }
 

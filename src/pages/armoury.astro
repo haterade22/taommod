@@ -368,7 +368,7 @@ function formatModifierGroup(value: string): string {
 </BaseLayout>
 
 <script>
-  import { initSorting } from '../scripts/data-table';
+  import { initPager, initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -433,6 +433,8 @@ function formatModifierGroup(value: string): string {
       slotDescription.textContent = description;
     }
 
+    const pager = initPager('table.armour-section');
+
     function filterRows() {
       const search = searchInput.value.toLowerCase();
       const culture = cultureFilter.value;
@@ -476,6 +478,7 @@ function formatModifierGroup(value: string): string {
       resultCount.textContent = `${visibleCount} items`;
       tableCount.textContent = `(${visibleCount})`;
       emptyState.hidden = visibleCount !== 0;
+      pager.refresh();
       updateUrl();
     }
 

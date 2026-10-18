@@ -399,7 +399,7 @@ const headerCols = [
 </BaseLayout>
 
 <script>
-  import { initSorting } from '../scripts/data-table';
+  import { initPager, initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -480,6 +480,8 @@ const headerCols = [
       });
     }
 
+    const pager = initPager('table.lord-section');
+
     function filterRows() {
       clearBiographyRows();
 
@@ -518,6 +520,7 @@ const headerCols = [
       resultCount.textContent = `${visibleCount} lords`;
       tableCount.textContent = `(${visibleCount})`;
       emptyState.hidden = visibleCount !== 0;
+      pager.refresh();
       updateUrl();
     }
 

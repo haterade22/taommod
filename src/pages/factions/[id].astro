@@ -987,6 +987,7 @@ const troopHeaderCols = [
         if (troopResultCount) troopResultCount.textContent = `${visibleCount} units`;
         if (troopTableCount) troopTableCount.textContent = `(${visibleCount})`;
         if (troopEmptyState) troopEmptyState.hidden = visibleCount !== 0;
+        document.querySelector('table.faction-troop-section')?.dispatchEvent(new CustomEvent('datatable:filtered'));
 
         updateUrl();
       }
@@ -1094,10 +1095,11 @@ const troopHeaderCols = [
   </script>
 
   <script>
-    import { initSorting } from '../../scripts/data-table';
+    import { initPager, initSorting } from '../../scripts/data-table';
 
     document.addEventListener('astro:page-load', () => {
       initSorting('table.faction-troop-section');
+      initPager('table.faction-troop-section').refresh();
     });
   </script>
 </BaseLayout>

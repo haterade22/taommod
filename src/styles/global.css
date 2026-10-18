@@ -749,3 +749,74 @@ a:hover {
     padding: 1rem;
   }
 }
+
+/* Table pages (initPager in src/scripts/data-table.ts): only one page of rows is laid out at a time. */
+tr[data-off-page] {
+  display: none !important;
+}
+
+.table-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 1rem;
+  font-family: 'Cinzel', 'Times New Roman', serif;
+}
+
+.table-pager[hidden] {
+  display: none;
+}
+
+.table-pager-pages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.table-pager-button {
+  min-width: 2.4rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(124, 93, 47, 0.38);
+  background: rgba(9, 8, 8, 0.78);
+  color: rgba(243, 236, 229, 0.84);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.table-pager-button:hover:not(:disabled) {
+  border-color: rgba(205, 153, 52, 0.86);
+  color: #f5d48a;
+}
+
+.table-pager-button.is-current {
+  border-color: rgba(205, 153, 52, 0.86);
+  background: linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96));
+  color: #fff5e3;
+  cursor: default;
+}
+
+.table-pager-button:disabled:not(.is-current) {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.table-pager-gap {
+  color: rgba(214, 176, 106, 0.7);
+}
+
+.table-pager-info {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(214, 176, 106, 0.8);
+}

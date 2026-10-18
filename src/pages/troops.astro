@@ -274,7 +274,7 @@ const headerCols = [
 </BaseLayout>
 
 <script>
-  import { initSorting } from '../scripts/data-table';
+  import { initPager, initSorting } from '../scripts/data-table';
 
   document.addEventListener('astro:page-load', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -312,6 +312,8 @@ const headerCols = [
       tableCount.textContent = `(${visibleCount})`;
     }
 
+    const pager = initPager('table.troop-section');
+
     function filterRows() {
       const search = searchInput.value.toLowerCase();
       const group = groupFilter.value;
@@ -348,6 +350,7 @@ const headerCols = [
       resultCount.textContent = `${visibleCount} troops`;
       emptyState.hidden = visibleCount !== 0;
       updateRealmHeader(visibleCount);
+      pager.refresh();
       updateUrl();
     }
 
