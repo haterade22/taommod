@@ -2,7 +2,9 @@
 import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const cards = [
+type DatabaseCard = { href: string; title: string; image?: string; imageClass?: string; active?: boolean };
+
+const cards: DatabaseCard[] = [
   {
     href: '/troops',
     title: 'Troops',

@@ -206,10 +206,11 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     const filename = entry.name;
     const filePath = path.join(galleryDirectory, filename);
     const extension = path.extname(filename).toLowerCase();
-    const kind = imageExtensions.has(extension) ? 'image' : 'video';
+    const kind: GalleryItem['kind'] = imageExtensions.has(extension) ? 'image' : 'video';
     const { width, height } = kind === 'image' ? readImageDimensions(filePath) : readVideoDimensions(filePath);
     const modifiedAt = statSync(filePath).mtimeMs;
-    const orientation = width === height ? 'square' : width > height ? 'landscape' : 'portrait';
+    const orientation: GalleryItem['orientation'] =
+      width === height ? 'square' : width > height ? 'landscape' : 'portrait';
     const title = titleFromFilename(filename);
     const href = webAssetHref(filename, kind === 'image' ? '.webp' : extension);
     const thumbHref = kind === 'image' ? webAssetHref(filename, '-thumb.webp') : href;

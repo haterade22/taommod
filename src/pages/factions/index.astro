@@ -169,7 +169,7 @@ function getKingdomBackground(kingdomId: string, theme: 'good' | 'evil') {
 
 const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
   .map((kingdom) => {
-    const theme = EVIL_KINGDOMS.has(kingdom.id) ? 'evil' : 'good';
+    const theme: ShowcaseKingdom['theme'] = EVIL_KINGDOMS.has(kingdom.id) ? 'evil' : 'good';
     return {
       id: kingdom.id,
       name: kingdom.name,

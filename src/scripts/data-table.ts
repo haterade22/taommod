@@ -85,7 +85,7 @@ export function applyUrlParams(paramMap: Record<string, HTMLSelectElement | HTML
 export function collectRows(tableSelector: string): HTMLTableRowElement[] {
   const rows: HTMLTableRowElement[] = [];
   document.querySelectorAll(tableSelector).forEach((t) => {
-    rows.push(...Array.from(t.querySelectorAll('tbody tr')));
+    rows.push(...Array.from(t.querySelectorAll<HTMLTableRowElement>('tbody tr')));
   });
   return rows;
 }
