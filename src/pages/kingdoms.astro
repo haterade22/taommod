@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseKingdomsFromXslt, getCultureDisplayName } from '../lib/parse-xml';
+import { existingPublicAsset } from '../lib/public-assets';
 
 const kingdoms = parseKingdomsFromXslt();
 
@@ -82,7 +83,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
       {
         kingdoms.map((k) => {
           const bgImage = KINGDOM_IMAGES[k.id];
-          const emblemImage = EMBLEM_IMAGES[k.id];
+          const emblemImage = existingPublicAsset(EMBLEM_IMAGES[k.id]);
           const colors = KINGDOM_COLORS[k.id];
           return (
             <a href={`/kingdoms/${k.id}`} class="kingdom-card-link">
