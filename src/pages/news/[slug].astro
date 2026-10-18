@@ -12,6 +12,9 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 
+// Patreon images carry no alt text; mark them decorative so screen readers skip the file names.
+const articleHtml = post.html ? post.html.replace(/<img\b(?![^>]*\balt=)/gi, '<img alt=""') : '';
+
 const formatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
@@ -47,7 +50,7 @@ const formatter = new Intl.DateTimeFormat('en-US', {
         <article class="post-article">
           {
             post.html ? (
-              <div class="article-body" set:html={post.html} />
+              <div class="article-body" set:html={articleHtml} />
             ) : (
               <p class="empty-copy">No post content was returned from Patreon for this entry.</p>
             )
