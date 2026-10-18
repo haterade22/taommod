@@ -15,6 +15,8 @@ interface Props {
 const { title, description = 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II' } =
   Astro.props;
 const { hideNav = false, bodyClass, mainClass } = Astro.props;
+// Pages that hide this nav render the Topbar and their own <main>; a second <main> around it is invalid.
+const MainTag = hideNav ? 'div' : 'main';
 
 type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
 
@@ -150,9 +152,9 @@ const layoutMenuId = `site-nav-menu-${Math.random().toString(36).slice(2, 10)}`;
       )
     }
 
-    <main class={mainClass}>
+    <MainTag class={mainClass}>
       <slot />
-    </main>
+    </MainTag>
 
     <CookieNotice />
     <SiteFooter />

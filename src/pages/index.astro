@@ -15,7 +15,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <Topbar />
 
-    <section class="home-landing">
+    <main class="home-landing">
+      <h1 class="visually-hidden">Tales from the Age of Men</h1>
       <div class="home-landing-glow" aria-hidden="true"></div>
 
       <div class="home-hero" aria-label="Tales from the Age of Men landing page">
@@ -31,11 +32,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <a class="home-secondary-button" href="/database">Browse Database</a>
         </div>
       </div>
-    </section>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   :global(body.taom-home-body) {
     min-height: 100vh;
     background: #060505;
