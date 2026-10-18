@@ -45,6 +45,11 @@ html {
   line-height: 1.5;
 }
 
+/* Pages with the fixed top bar: jumps to #anchors stop below the bar instead of under it. */
+html:has(.topbar-spacer) {
+  scroll-padding-top: 8.5rem;
+}
+
 body {
   min-height: 100vh;
 }
@@ -353,6 +358,13 @@ a:hover {
   white-space: nowrap;
 }
 
+/* The whole header row sticks (one sticky box); sticky on every <th> made Firefox repaint the whole table while scrolling. */
+.data-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 .data-table th {
   background: var(--bg-secondary);
   color: #fff;
@@ -363,9 +375,6 @@ a:hover {
   border-bottom: 1px solid var(--border-color);
   cursor: pointer;
   user-select: none;
-  position: sticky;
-  top: 0;
-  z-index: 10;
   box-shadow: 0 1px 0 var(--border-color);
 }
 

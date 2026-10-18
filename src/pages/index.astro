@@ -14,15 +14,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div class="home-page">
     <div class="home-background" aria-hidden="true">
-      <!-- The 16 MB video only loads on larger screens without reduced-motion or data-saver; others keep the poster. -->
+      <!-- The video is pre-blurred and darkened (no CSS filters, which are slow on a playing video, especially in
+           Firefox) and only 0.6 MB. It loads unless reduced-motion or data-saver is on; then the poster stays. -->
       <video
         class="home-background-video"
         muted
         loop
         playsinline
         preload="none"
-        poster="/images/hero-bg.jpg"
-        data-src="/images/sauron.mp4"
+        poster="/images/sauron-bg-poster.webp"
+        data-src="/images/sauron-bg.mp4"
         data-home-video
       >
       </video>
@@ -59,9 +60,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (!video || video.src) return;
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const smallScreen = window.matchMedia('(max-width: 760px)').matches;
       const saveData = navigator.connection && navigator.connection.saveData;
-      if (reducedMotion || smallScreen || saveData) return;
+      if (reducedMotion || saveData) return;
 
       video.src = video.dataset.src;
       video.play().catch(() => {});
@@ -86,18 +86,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     white-space: nowrap;
   }
 
+  /* The home page is one screen: hero fills the space between the top bar and the footer, so there is nothing
+     to scroll unless the screen is too small for the content. */
   :global(body.taom-home-body) {
     min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     background: #060505;
     color: #ece7e0;
   }
 
   :global(.taom-home-main) {
-    display: block;
+    display: flex;
+    flex: 1 0 auto;
   }
 
   .home-page {
-    min-height: 100vh;
+    flex: 1;
     position: relative;
     isolation: isolate;
     padding: 2rem;
@@ -120,8 +126,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     height: 100%;
     object-fit: cover;
     object-position: center 58%;
-    transform: scale(1.05);
-    filter: blur(5px) brightness(0.42) saturate(0.9);
   }
 
   .home-background-overlay {
@@ -221,10 +225,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .home-landing {
     position: relative;
-    min-height: calc(100vh - 7.5rem);
     display: grid;
     place-items: center;
-    padding: 4rem 1rem 6rem;
+    padding: 2rem 1rem;
   }
 
   .home-landing-glow {
@@ -232,7 +235,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     inset: auto 0 10% 0;
     height: 18rem;
     background: radial-gradient(circle, rgba(191, 125, 56, 0.08), transparent 70%);
-    filter: blur(28px);
     pointer-events: none;
   }
 
