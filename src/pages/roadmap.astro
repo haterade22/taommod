@@ -66,7 +66,15 @@ const roadmapDisciplines = [
 
 const totalWip = roadmapDisciplines.reduce((sum, group) => sum + group.wip.length, 0);
 const totalNext = roadmapDisciplines.reduce((sum, group) => sum + group.next.length, 0);
-const disciplineOrder: string[] = ['3D Art', '2D Art', 'Map Design', 'Scene Design', 'Animations', 'Coding'];
+const disciplineOrder: string[] = ['3D Art', '2D Art', 'Map Design', 'Coding', 'Scene Design', 'Animations'];
+const disciplineFocus: Record<string, string> = {
+  '3D Art': 'Armour, weapons & shields',
+  '2D Art': 'Banners & interface',
+  'Map Design': 'Campaign map',
+  Coding: 'Systems & stability',
+  'Scene Design': 'Battle maps & settlements',
+  Animations: 'Creatures & monsters',
+};
 const disciplineThemes: Record<string, { accent: string; glow: string; tint: string }> = {
   '3D Art': {
     accent: '#cf9b52',
@@ -100,11 +108,32 @@ const disciplineThemes: Record<string, { accent: string; glow: string; tint: str
   },
 };
 
-const roadmapGroups = [...roadmapDisciplines]
+// A roadmap entry is a name, or { name, eta } once the team has a target date (e.g. 'Q1 2027'); eta shows on the timeline.
+type RoadmapItem = string | { name: string; eta?: string };
+const toItem = (item: RoadmapItem) => (typeof item === 'string' ? { name: item, eta: undefined } : item);
+
+const timelineLanes = [...roadmapDisciplines]
   .sort((left, right) => disciplineOrder.indexOf(left.discipline) - disciplineOrder.indexOf(right.discipline))
   .map((group) => ({
-    ...group,
+    discipline: group.discipline,
+    lead: group.lead,
+    focus: disciplineFocus[group.discipline] ?? '',
     theme: disciplineThemes[group.discipline] ?? disciplineThemes['3D Art'],
+    stages: [
+      {
+        key: 'done',
+        title: 'Done',
+        items: (group.completed as RoadmapItem[]).map(toItem),
+        empty: 'Nothing finished yet.',
+      },
+      {
+        key: 'now',
+        title: 'In progress',
+        items: (group.wip as RoadmapItem[]).map(toItem),
+        empty: 'Nothing in progress.',
+      },
+      { key: 'next', title: 'Up next', items: (group.next as RoadmapItem[]).map(toItem), empty: 'Nothing queued yet.' },
+    ],
   }));
 ---
 
@@ -152,90 +181,39 @@ const roadmapGroups = [...roadmapDisciplines]
         </div>
       </section>
 
-      <section class="discipline-grid" aria-label="Roadmap by discipline">
+      <section class="timeline" aria-label="Roadmap timeline by discipline">
         {
-          roadmapGroups.map((group) => (
-            <article
-              class:list={[
-                'discipline-card',
-                {
-                  'discipline-card-3d': group.discipline === '3D Art',
-                  'discipline-card-2d': group.discipline === '2D Art',
-                  'discipline-card-map': group.discipline === 'Map Design',
-                  'discipline-card-scene': group.discipline === 'Scene Design',
-                  'discipline-card-animations': group.discipline === 'Animations',
-                  'discipline-card-coding': group.discipline === 'Coding',
-                },
-              ]}
-              style={`--discipline-accent: ${group.theme.accent}; --discipline-glow: ${group.theme.glow}; --discipline-tint: ${group.theme.tint};`}
-            >
-              <div class="discipline-card-shell">
-                <div class="discipline-card-top">
-                  <div>
-                    <p class="group-kicker">Discipline</p>
-                    <h2>{group.discipline}</h2>
-                    <p class="discipline-lead">{group.lead}</p>
-                  </div>
-                </div>
+          timelineLanes.map((lane) => (
+            <article class="lane" style={`--lane-accent: ${lane.theme.accent}; --lane-glow: ${lane.theme.glow};`}>
+              <header class="lane-head">
+                <h2>{lane.discipline}</h2>
+                <p class="lane-focus">{lane.focus}</p>
+                <p class="lane-lead">{lane.lead}</p>
+              </header>
 
-                <p class="discipline-summary">
-                  {group.wip.length} in progress <span aria-hidden="true">/</span> {group.next.length} queued next
-                </p>
-
-                <div class="status-streams">
-                  {group.completed.length > 0 && (
-                    <section class="status-stream">
-                      <div class="status-stream-heading">
-                        <span class="status-dot status-dot-completed" />
-                        <h3>Completed</h3>
-                        <span class="status-count">{group.completed.length}</span>
-                      </div>
-
-                      <ul class="task-chip-list">
-                        {group.completed.map((item) => (
-                          <li>{item}</li>
-                        ))}
-                      </ul>
-                    </section>
-                  )}
-
-                  <section class="status-stream">
-                    <div class="status-stream-heading">
-                      <span class="status-dot status-dot-wip" />
-                      <h3>WIP</h3>
-                      <span class="status-count">{group.wip.length}</span>
-                    </div>
-
-                    {group.wip.length > 0 ? (
-                      <ul class="task-chip-list">
-                        {group.wip.map((item) => (
-                          <li>{item}</li>
+              <ol class="lane-track">
+                {lane.stages.map((stage) => (
+                  <li class:list={['stage', `stage-${stage.key}`]}>
+                    <p class="stage-title">
+                      <span class="stage-dot" aria-hidden="true" />
+                      {stage.title}
+                      <span class="stage-count">{stage.items.length}</span>
+                    </p>
+                    {stage.items.length > 0 ? (
+                      <ul class="stage-items">
+                        {stage.items.map((item) => (
+                          <li>
+                            <span class="item-name">{item.name}</span>
+                            {item.eta && <span class="item-eta">{item.eta}</span>}
+                          </li>
                         ))}
                       </ul>
                     ) : (
-                      <p class="empty-state">No active item listed yet.</p>
+                      <p class="stage-empty">{stage.empty}</p>
                     )}
-                  </section>
-
-                  <section class="status-stream">
-                    <div class="status-stream-heading">
-                      <span class="status-dot status-dot-next" />
-                      <h3>Next</h3>
-                      <span class="status-count">{group.next.length}</span>
-                    </div>
-
-                    {group.next.length > 0 ? (
-                      <ul class="task-chip-list">
-                        {group.next.map((item) => (
-                          <li>{item}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p class="empty-state">Nothing queued after the current task.</p>
-                    )}
-                  </section>
-                </div>
-              </div>
+                  </li>
+                ))}
+              </ol>
             </article>
           ))
         }
@@ -647,6 +625,194 @@ const roadmapGroups = [...roadmapDisciplines]
 
     .discipline-card-shell {
       padding: 1.4rem;
+    }
+  }
+
+  /* Timeline: one lane per discipline, stages left to right (Done -> In progress -> Up next). */
+  .timeline {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .lane {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    border: 1px solid rgba(151, 110, 51, 0.38);
+    border-left: 3px solid var(--lane-accent);
+    background:
+      linear-gradient(90deg, var(--lane-glow), transparent 18%),
+      linear-gradient(180deg, rgba(17, 13, 12, 0.92), rgba(10, 8, 8, 0.95));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+  }
+
+  .lane-head {
+    padding: 1.3rem 1.4rem;
+    border-right: 1px solid rgba(151, 110, 51, 0.25);
+  }
+
+  .lane-head h2 {
+    margin: 0;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.35rem;
+    color: #f5eee5;
+  }
+
+  .lane-focus {
+    margin: 0.3rem 0 0;
+    font-size: 0.85rem;
+    color: var(--lane-accent);
+  }
+
+  .lane-lead {
+    margin: 0.55rem 0 0;
+    font-size: 0.8rem;
+    color: rgba(231, 222, 214, 0.6);
+  }
+
+  .lane-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 1.3rem 1.4rem;
+    list-style: none;
+  }
+
+  /* The lane's line runs through the three stage dots. */
+  .lane-track::before {
+    content: '';
+    position: absolute;
+    left: 1.4rem;
+    right: 1.4rem;
+    top: calc(1.3rem + 0.45rem);
+    height: 2px;
+    background: linear-gradient(90deg, var(--lane-accent) 0 40%, rgba(214, 176, 106, 0.25) 70%, transparent);
+  }
+
+  .stage-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f0e7db;
+    /* Backing so the lane line stops at the label instead of striking through it. */
+    width: fit-content;
+    padding-right: 0.6rem;
+    background: rgb(14, 11, 10);
+  }
+
+  .stage-dot {
+    flex: none;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 2px solid var(--lane-accent);
+    border-radius: 50%;
+    background: #0d0a09;
+  }
+
+  .stage-done .stage-dot {
+    background: var(--lane-accent);
+  }
+
+  .stage-now .stage-dot {
+    background: var(--lane-accent);
+    box-shadow: 0 0 0 4px var(--lane-glow);
+  }
+
+  .stage-next .stage-dot {
+    border-style: dashed;
+  }
+
+  .stage-count {
+    color: rgba(214, 176, 106, 0.7);
+  }
+
+  .stage-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .stage-items li {
+    padding: 0.32rem 0.6rem;
+    border: 1px solid rgba(151, 110, 51, 0.3);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.86rem;
+    color: rgba(231, 222, 214, 0.86);
+  }
+
+  .stage-done .stage-items li {
+    color: rgba(231, 222, 214, 0.62);
+  }
+
+  .stage-done .stage-items li::before {
+    content: '\2713  ';
+    color: var(--lane-accent);
+  }
+
+  .stage-now .stage-items li {
+    border-color: var(--lane-accent);
+    background: var(--lane-glow);
+    color: #fff5e3;
+  }
+
+  .stage-next .stage-items li {
+    border-style: dashed;
+  }
+
+  .item-eta {
+    margin-left: 0.45rem;
+    font-size: 0.74rem;
+    color: var(--lane-accent);
+  }
+
+  .stage-empty {
+    margin: 0.8rem 0 0;
+    font-size: 0.84rem;
+    font-style: italic;
+    color: rgba(231, 222, 214, 0.45);
+  }
+
+  @media (max-width: 900px) {
+    .lane {
+      grid-template-columns: 1fr;
+    }
+
+    .lane-head {
+      border-right: 0;
+      border-bottom: 1px solid rgba(151, 110, 51, 0.25);
+    }
+
+    .lane-track {
+      grid-template-columns: 1fr;
+    }
+
+    .lane-track::before {
+      left: calc(1.4rem + 0.45rem - 1px);
+      right: auto;
+      top: 1.3rem;
+      bottom: 1.3rem;
+      width: 2px;
+      height: auto;
+      background: linear-gradient(180deg, var(--lane-accent) 0 40%, rgba(214, 176, 106, 0.25) 70%, transparent);
+    }
+
+    .stage-items {
+      padding-left: 1.45rem;
+    }
+
+    .stage-empty {
+      padding-left: 1.45rem;
     }
   }
 </style>
