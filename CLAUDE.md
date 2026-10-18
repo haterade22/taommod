@@ -44,7 +44,7 @@ npx astro check   # TypeScript/Astro type checking
 - **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/global.css`)
 - **Dark theme**: CSS custom properties defined in `:root` in `global.css` (`--bg-primary`, `--accent`, etc.)
 - **Font**: Self-hosted Cinzel (woff2 in `public/fonts/`) for navigation, system font stack for body text
-- **Shared DataTable utilities**: `src/scripts/data-table.ts` provides `initSorting()`, `initCollapse()`, `applyUrlParams()`, `collectRows()` for all data table pages
+- **Shared DataTable utilities**: `src/scripts/data-table.ts` provides `initSorting()`, `initPager()`, `initCollapse()`, `applyUrlParams()`, `collectRows()` for all data table pages. Tables show 50 rows per page: `initPager()` pages the rows the filters left visible (call `pager.refresh()` at the end of the filter function, or dispatch `datatable:filtered` on the table from scripts that cannot import it; sorting refreshes it itself). Off-page rows get `data-off-page` (hidden in `global.css`)
 - **Sticky table headers**: All tables use Excel-style freeze-pane behavior — `.data-table-wrapper` and `.table-wrapper` are capped at `max-height: 75vh` with `overflow: auto`, and `thead th` is `position: sticky; top: 0` so column labels stay pinned while rows scroll within the wrapper. New tables should reuse one of these wrapper classes (defined in `styles/global.css`) rather than rolling their own scroll container.
 
 ## File Organization
