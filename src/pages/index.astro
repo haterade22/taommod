@@ -4,7 +4,14 @@ import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" hideNav={true} hideFooter={true} bodyClass="taom-home-body" mainClass="taom-home-main">
+<BaseLayout
+  title="Home"
+  description="TAOM - Tales From the Age of Men: a Lord of the Rings total conversion mod for Mount & Blade II: Bannerlord. Factions, troop and lord database, downloads and news."
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-home-body"
+  mainClass="taom-home-main"
+>
   <div class="home-page">
     <div class="home-background" aria-hidden="true">
       <video class="home-background-video" autoplay muted loop playsinline preload="auto">
