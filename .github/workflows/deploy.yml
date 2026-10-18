@@ -12,9 +12,12 @@ permissions:
   pages: write
   id-token: write
 
+# A newer run replaces an older one. With cancel-in-progress: false a deploy that got stuck (5 Oct 2026: the
+# deploy job sat queued for weeks) blocked every later run; every run rebuilds the whole site, so dropping the
+# older one loses nothing.
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   quality:
@@ -77,6 +80,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 15
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
