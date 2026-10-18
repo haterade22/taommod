@@ -60,6 +60,8 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     <a class="mobile-side-link" href="/community">Join the Community</a>
   </div>
 </header>
+<!-- The bar is fixed to the top edge; this keeps its old space in the page so content doesn't move up. -->
+<div class="topbar-spacer" aria-hidden="true"></div>
 
 <script is:inline>
   (() => {
@@ -122,19 +124,57 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 
 <style>
   .topbar {
-    position: sticky;
-    top: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 1.75rem;
-    padding: 1.15rem 1.6rem;
-    border: 1px solid rgba(58, 48, 30, 0.7);
+    height: 7.2rem;
+    padding: 0 2rem 1.7rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(201, 164, 74, 0.22);
+    background: linear-gradient(90deg, rgb(16, 12, 10), rgb(11, 12, 10) 50%, rgb(16, 11, 8));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Bottom band: a thin gold line with the glowing ring inscription (as in the Discord guide) centred on it. */
+  .topbar::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    bottom: 0.85rem;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 164, 74, 0.6) 12%,
+      rgba(201, 164, 74, 0.6) 88%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .topbar::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0.2rem;
+    width: min(24rem, 64%);
+    height: 1.3rem;
+    transform: translateX(-50%);
     background:
-      linear-gradient(90deg, rgba(16, 12, 10, 0.97), rgba(9, 13, 10, 0.96) 45%, rgba(16, 11, 8, 0.97)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+      url('/images/ui/ring-inscription.webp') center / contain no-repeat,
+      linear-gradient(90deg, transparent, rgb(11, 12, 10) 8%, rgb(11, 12, 10) 92%, transparent);
+    pointer-events: none;
+  }
+
+  .topbar-spacer {
+    height: 7.2rem;
   }
 
   .brand {
@@ -268,7 +308,17 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     .topbar {
       grid-template-columns: minmax(0, 1fr) auto !important;
       gap: 1rem !important;
-      padding: 1rem 1.25rem;
+      height: 6.2rem;
+      padding: 0 1.25rem 1.6rem;
+    }
+
+    .topbar::before {
+      left: 1.25rem;
+      right: 1.25rem;
+    }
+
+    .topbar-spacer {
+      height: 6.2rem;
     }
 
     .brand {
@@ -292,8 +342,8 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     .mobile-panel {
       display: block;
       position: absolute;
-      top: calc(100% + 0.9rem);
-      right: 0;
+      top: calc(100% + 1.2rem);
+      right: 1rem;
       width: min(24rem, calc(100vw - 2rem));
       padding: 1.1rem;
       border: 1px solid rgba(58, 48, 30, 0.82);
@@ -343,14 +393,28 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 
   @media (max-width: 720px) {
     .topbar {
-      top: 1rem;
+      height: 5.4rem;
       padding-right: 1rem !important;
       padding-left: 1rem !important;
     }
 
+    .topbar::before {
+      left: 1rem;
+      right: 1rem;
+    }
+
+    .topbar::after {
+      width: min(16rem, 76%);
+      height: 1.05rem;
+    }
+
+    .topbar-spacer {
+      height: 5.4rem;
+    }
+
     .mobile-panel {
-      width: min(100%, calc(100vw - 1.5rem));
-      right: 0;
+      width: calc(100vw - 1.5rem);
+      right: 0.75rem;
     }
 
     .brand-logo {
