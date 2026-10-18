@@ -26,7 +26,7 @@ echo "Syncing from TAOM:           $TAOM_DIR"
 echo "Syncing from LOTRLOME_Armory: $LOTRLOME_ARMORY"
 
 # --- Pre-clean: prune stale files so anything removed from the mod disappears here too ---
-# Preserves: src/data/faction-troops.ts, src/data/patreon-posts.json,
+# Preserves: src/data/faction-troops.ts, src/data/patreon-posts.json, src/data/roadmap.json,
 #           src/data/armory/vanilla_weapons.xml, src/data/armory/vanilla_crafting_pieces.xml
 echo "Cleaning stale files..."
 mkdir -p "$DATA_DIR/troops" "$DATA_DIR/characters" "$DATA_DIR/armory"
