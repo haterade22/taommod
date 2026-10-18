@@ -12,11 +12,12 @@ interface Props {
   mainClass?: string;
   /** Link-preview image (site-relative path). Defaults to the home hero image. */
   image?: string;
+  noindex?: boolean;
 }
 
 const { title, description = 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II' } =
   Astro.props;
-const { hideNav = false, bodyClass, mainClass, image = '/images/hero-bg.jpg' } = Astro.props;
+const { hideNav = false, bodyClass, mainClass, image = '/images/hero-bg.jpg', noindex = false } = Astro.props;
 // Pages that hide this nav render the Topbar and their own <main>; a second <main> around it is invalid.
 const MainTag = hideNav ? 'div' : 'main';
 
@@ -96,6 +97,7 @@ const layoutMenuId = `site-nav-menu-${Math.random().toString(36).slice(2, 10)}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:type" content="website" />

@@ -1,0 +1,228 @@
+---
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// DRAFT: placeholder text. The final Terms of Service and Privacy Policy for the bot will replace the
+// paragraphs below before this page is published. Section ids (#terms, #privacy) are the URLs given to Discord.
+const lastUpdated = 'DRAFT';
+
+const termsSections = [
+  {
+    title: 'About the bot',
+    body: 'Placeholder: what The Great Eye is and which Discord servers it serves.',
+  },
+  {
+    title: 'Using the bot',
+    body: 'Placeholder: who may use it and the rules that apply when you do.',
+  },
+  {
+    title: 'Moderation actions and appeals',
+    body: 'Placeholder: how warnings, timeouts, kicks and bans work, and how to appeal them.',
+  },
+  {
+    title: 'Availability and changes',
+    body: 'Placeholder: no guarantee of uptime; these terms may change.',
+  },
+  {
+    title: 'Contact',
+    body: 'Placeholder: how to reach the team about these terms.',
+  },
+];
+
+const privacySections = [
+  {
+    title: 'What the bot collects',
+    body: 'Placeholder: the Discord data the bot processes and stores.',
+  },
+  {
+    title: 'Why it is collected',
+    body: 'Placeholder: moderation, logging, reports, modmail and appeals.',
+  },
+  {
+    title: 'How long it is kept',
+    body: 'Placeholder: retention periods for member records and log entries.',
+  },
+  {
+    title: 'Who can see it',
+    body: 'Placeholder: server staff access, and that data is not sold or shared.',
+  },
+  {
+    title: 'Your choices',
+    body: 'Placeholder: how to ask for your data to be shown or removed.',
+  },
+];
+---
+
+<BaseLayout
+  title="Discord Bot Terms & Privacy"
+  description="Terms of Service and Privacy Policy for The Great Eye, the TAOM Discord bot."
+  hideNav={true}
+  bodyClass="taom-policy-body"
+  mainClass="taom-policy-main"
+  noindex={true}
+>
+  <div class="policy-page">
+    <Topbar />
+
+    <div class="page-shell">
+      <section class="hero-copy">
+        <p class="eyebrow">The Great Eye</p>
+        <h1>Discord bot terms &amp; privacy</h1>
+        <p class="intro-copy">
+          The Great Eye is the moderation bot of the TAOM Discord server. This page holds its Terms of Service and its
+          Privacy Policy. Last updated: {lastUpdated}.
+        </p>
+        <nav class="jump-links" aria-label="On this page">
+          <a href="#terms">Terms of Service</a>
+          <a href="#privacy">Privacy Policy</a>
+        </nav>
+      </section>
+
+      <section class="policy-card" id="terms" aria-labelledby="terms-heading">
+        <p class="card-kicker">Terms of Service</p>
+        <h2 id="terms-heading">Terms of Service</h2>
+        {
+          termsSections.map((section) => (
+            <div class="policy-section">
+              <h3>{section.title}</h3>
+              <p>{section.body}</p>
+            </div>
+          ))
+        }
+      </section>
+
+      <section class="policy-card" id="privacy" aria-labelledby="privacy-heading">
+        <p class="card-kicker">Privacy Policy</p>
+        <h2 id="privacy-heading">Privacy Policy</h2>
+        {
+          privacySections.map((section) => (
+            <div class="policy-section">
+              <h3>{section.title}</h3>
+              <p>{section.body}</p>
+            </div>
+          ))
+        }
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-policy-body) {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(.taom-policy-main) {
+    display: block;
+  }
+
+  .policy-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .page-shell {
+    width: min(100%, 56rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-copy,
+  .policy-card {
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background: linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92));
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    padding: 2.5rem;
+    scroll-margin-top: 2rem;
+  }
+
+  .eyebrow,
+  .card-kicker,
+  .jump-links a {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: #f5eee5;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+  }
+
+  h3 {
+    margin-top: 1.6rem;
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: rgba(231, 222, 214, 0.82);
+    line-height: 1.7;
+  }
+
+  .intro-copy {
+    margin: 1.15rem 0 0;
+  }
+
+  .policy-section p {
+    margin: 0.5rem 0 0;
+  }
+
+  .jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.35rem;
+  }
+
+  .jump-links a {
+    padding: 0.7rem 1.1rem;
+    border: 1px solid rgba(205, 153, 52, 0.46);
+    color: #fff5e3;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+  }
+
+  .jump-links a:hover {
+    text-decoration: none;
+    border-color: rgba(205, 153, 52, 0.86);
+  }
+
+  @media (max-width: 760px) {
+    .policy-page {
+      padding: 1rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-copy,
+    .policy-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
