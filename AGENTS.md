@@ -60,6 +60,7 @@ src/
   styles/       global.css (theme, table styles, culture colors, skill colors)
 scripts/        Node.js analysis scripts (weapon balance, culture summaries)
 public/         Images, favicon, CNAME
+gallery-media/  Gallery source images and videos (not deployed). `scripts/sync-gallery-assets.mjs` (run before dev/build) writes WebP full-size + thumbnail copies to `public/images/gallery/` (generated, git-ignored). To add to the gallery, drop the file in `gallery-media/`.
 ```
 
 ## Data Sources

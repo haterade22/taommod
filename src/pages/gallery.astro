@@ -10,6 +10,7 @@ type GalleryItem = {
   filename: string;
   height: number;
   href: string;
+  thumbHref: string;
   kind: 'image' | 'video';
   mimeType: string;
   modifiedAt: number;
@@ -21,7 +22,8 @@ type GalleryItem = {
 const imageExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif']);
 const videoExtensions = new Set(['.mp4', '.m4v', '.mov', '.webm']);
 const projectRoot = fileURLToPath(new URL('../../', import.meta.url));
-const galleryDirectory = path.join(projectRoot, 'public', 'images', 'gallery');
+// Sources (not deployed); scripts/sync-gallery-assets.mjs writes the web copies to public/images/gallery.
+const galleryDirectory = path.join(projectRoot, 'gallery-media');
 const VIDEO_DIMENSION_FALLBACK = { width: 16, height: 9 };
 
 function titleFromFilename(filename: string) {
@@ -36,11 +38,11 @@ function assetHref(filename: string) {
   return `/images/gallery/${encodePathSegment(filename)}`;
 }
 
-function safeAssetHref(filename: string) {
-  const extension = path.extname(filename).toLowerCase();
-  const baseName = path.basename(filename, extension);
-  const safeName = `${Buffer.from(baseName, 'utf8').toString('hex')}${extension}`;
-  return `/images/gallery/_safe/${encodePathSegment(safeName)}`;
+/** URL of a generated web copy; must match the names written by scripts/sync-gallery-assets.mjs. */
+function webAssetHref(filename: string, suffix: string) {
+  const extension = path.extname(filename);
+  const safeBase = Buffer.from(path.basename(filename, extension), 'utf8').toString('hex');
+  return `/images/gallery/${encodePathSegment(`${safeBase}${suffix}`)}`;
 }
 
 function parsePngDimensions(buffer: Buffer) {
@@ -209,13 +211,15 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     const modifiedAt = statSync(filePath).mtimeMs;
     const orientation = width === height ? 'square' : width > height ? 'landscape' : 'portrait';
     const title = titleFromFilename(filename);
-    const href = safeAssetHref(filename);
+    const href = webAssetHref(filename, kind === 'image' ? '.webp' : extension);
+    const thumbHref = kind === 'image' ? webAssetHref(filename, '-thumb.webp') : href;
 
     return {
       alt: `${title} gallery ${kind}`,
       filename,
       height,
       href,
+      thumbHref,
       kind,
       mimeType: mimeTypeForExtension(extension),
       modifiedAt,
@@ -256,7 +260,14 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
                 <div class="gallery-media">
                   {item.kind === 'image' ? (
                     <a href={item.href} target="_blank" rel="noopener" class="gallery-media-link">
-                      <img src={item.href} alt={item.alt} loading="lazy" width={item.width} height={item.height} />
+                      <img
+                        src={item.thumbHref}
+                        alt={item.alt}
+                        loading="lazy"
+                        decoding="async"
+                        width={item.width}
+                        height={item.height}
+                      />
                     </a>
                   ) : (
                     <video
