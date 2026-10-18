@@ -873,10 +873,14 @@ const headerCols = [
     border-spacing: 0;
   }
 
-  .weapon-section th {
+  /* The whole header row sticks (one sticky box); sticky on every <th> made Firefox repaint the whole table while scrolling. */
+  .weapon-section thead {
     position: sticky;
     top: 0;
     z-index: 2;
+  }
+
+  .weapon-section th {
     background:
       linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
       linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
