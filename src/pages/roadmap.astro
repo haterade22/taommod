@@ -1,75 +1,13 @@
 ---
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+// Roadmap content lives in src/data/roadmap.json so it can be edited without touching this page (and by the
+// Discord bot later). Items are names, or { "name": ..., "eta": ... } to show a target date.
+import roadmap from '../data/roadmap.json';
 
-const contributorCount = 4;
+const contributorCount = roadmap.contributors;
 
-const roadmapDisciplines = [
-  {
-    discipline: '3D Art',
-    lead: 'KEYforce',
-    completed: [
-      'Dale Armors',
-      'Dale Weapons',
-      'Dale Shields',
-      'Mordor Orcs Armor',
-      'Mordor Orcs Weapons',
-      'Black Númenóreans',
-      'Gondor Revamp 3/4',
-      'Gondor Revamp 4/4',
-      'Harad Regular Armors (Harwan & Shaghana)',
-      'Harad Barding (Harwan & Shaghana)',
-      'Harad Shields (Harwan & Shaghana)',
-      'Gondor Barding',
-    ],
-    wip: ['Lórien Armors'],
-    next: ['Mirkwood Armors', 'Gondor Barding (Dol Amroth)', 'Khand', 'Umbar', 'Map Icons Revamp'],
-  },
-  {
-    discipline: '2D Art',
-    lead: 'Thyrell, AI',
-    completed: [],
-    wip: ['Banners', 'Career UI', 'Game UI'],
-    next: [],
-  },
-  {
-    discipline: 'Map Design',
-    lead: 'Lemmy',
-    completed: [],
-    wip: ['Polish'],
-    next: [],
-  },
-  {
-    discipline: 'Scene Design',
-    lead: 'Kysaro',
-    completed: [
-      'Mordor Battle Maps',
-      'Rohan Battle Maps',
-      'Minas Tirith',
-      'West Osgiliath',
-      'East Osgiliath',
-      'Minas Morgul',
-      'Moria',
-      'Edoras',
-    ],
-    wip: ['Mordor', 'Gondor', "Rohan (Helm's Deep)", 'Dwarf'],
-    next: [],
-  },
-  {
-    discipline: 'Animations',
-    lead: 'Haterade',
-    completed: [],
-    wip: ['Spider', 'Troll', 'Elephant'],
-    next: ['Mumakil'],
-  },
-  {
-    discipline: 'Coding',
-    lead: 'Haterade, Yotthani',
-    completed: [],
-    wip: ['Polishing', 'Stability'],
-    next: [],
-  },
-];
+const roadmapDisciplines = roadmap.disciplines;
 
 const totalWip = roadmapDisciplines.reduce((sum, group) => sum + group.wip.length, 0);
 const totalNext = roadmapDisciplines.reduce((sum, group) => sum + group.next.length, 0);
