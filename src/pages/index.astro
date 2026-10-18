@@ -14,8 +14,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div class="home-page">
     <div class="home-background" aria-hidden="true">
-      <video class="home-background-video" autoplay muted loop playsinline preload="auto">
-        <source src="/images/sauron.mp4" type="video/mp4" />
+      <!-- The 16 MB video only loads on larger screens without reduced-motion or data-saver; others keep the poster. -->
+      <video
+        class="home-background-video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="/images/hero-bg.jpg"
+        data-src="/images/sauron.mp4"
+        data-home-video
+      >
       </video>
       <div class="home-background-overlay"></div>
     </div>
@@ -42,6 +51,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </main>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const startHomeVideo = () => {
+      const video = document.querySelector('[data-home-video]');
+      if (!video || video.src) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const smallScreen = window.matchMedia('(max-width: 760px)').matches;
+      const saveData = navigator.connection && navigator.connection.saveData;
+      if (reducedMotion || smallScreen || saveData) return;
+
+      video.src = video.dataset.src;
+      video.play().catch(() => {});
+    };
+
+    if (!window.__taomHomeVideoBound) {
+      window.__taomHomeVideoBound = true;
+      document.addEventListener('astro:page-load', startHomeVideo);
+    }
+
+    startHomeVideo();
+  })();
+</script>
 
 <style>
   .visually-hidden {
