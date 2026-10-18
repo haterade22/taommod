@@ -236,8 +236,8 @@ const retention = [
                 collectedData.map((row) => (
                   <tr>
                     <th scope="row">{row.feature}</th>
-                    <td>{row.kept}</td>
-                    <td>{row.where}</td>
+                    <td data-label="What is kept">{row.kept}</td>
+                    <td data-label="Where">{row.where}</td>
                   </tr>
                 ))
               }
@@ -284,7 +284,7 @@ const retention = [
                 retention.map((row) => (
                   <tr>
                     <th scope="row">{row.data}</th>
-                    <td>{row.keptFor}</td>
+                    <td data-label="Kept for">{row.keptFor}</td>
                   </tr>
                 ))
               }
@@ -599,6 +599,44 @@ const retention = [
 
     tbody th {
       white-space: normal;
+    }
+  }
+
+  /* Phones: each table row becomes a small stacked card with its column name above each value. */
+  @media (max-width: 600px) {
+    thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    tbody tr {
+      display: block;
+      padding: 0.85rem 0.9rem;
+      border-bottom: 1px solid rgba(151, 110, 51, 0.22);
+    }
+
+    tbody th,
+    tbody td {
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+
+    tbody td {
+      margin-top: 0.5rem;
+    }
+
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-family: 'Cinzel', 'Times New Roman', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(214, 176, 106, 0.75);
     }
   }
 </style>
