@@ -2,60 +2,84 @@
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// DRAFT: placeholder text. The final Terms of Service and Privacy Policy for the bot will replace the
-// paragraphs below before this page is published. Section ids (#terms, #privacy) are the URLs given to Discord.
-const lastUpdated = 'DRAFT';
+// Terms of Service (#terms) and Privacy Policy (#privacy) of The Great Eye, the TAOM Discord bot.
+// These two URLs are the ones given to Discord; keep the section ids stable.
+const termsUpdated = 'Oct 17, 2026';
+const privacyUpdated = 'Oct 17, 2026';
+const privacyEmail = 'thegreateyeprivacy@gmail.com';
 
-const termsSections = [
+const collectedData = [
   {
-    title: 'About the bot',
-    body: 'Placeholder: what The Great Eye is and which Discord servers it serves.',
+    feature: 'Moderation cases',
+    kept: 'Your Discord ID and username, the action (warning, timeout, kick, ban), the reason, the duration, the moderator, whether the DM reached you, and whether a warning was removed on appeal',
+    where: 'Bot database',
+  },
+  { feature: 'Staff notes', kept: 'Notes moderators write about a member', where: 'Bot database' },
+  {
+    feature: 'Reports',
+    kept: "The reported message's text, who reported it and why",
+    where: 'Bot database and a staff channel',
   },
   {
-    title: 'Using the bot',
-    body: 'Placeholder: who may use it and the rules that apply when you do.',
+    feature: 'Modmail',
+    kept: 'Which staff thread belongs to which member. The messages themselves are copied into that private staff thread',
+    where: 'Bot database (link only) and a staff thread',
   },
   {
-    title: 'Moderation actions and appeals',
-    body: 'Placeholder: how warnings, timeouts, kicks and bans work, and how to appeal them.',
+    feature: 'Appeals',
+    kept: 'Your answers on the form, the reason for the ban, timeout or warning, and the staff decision and note',
+    where: 'Bot database and a staff channel',
   },
   {
-    title: 'Availability and changes',
-    body: 'Placeholder: no guarantee of uptime; these terms may change.',
+    feature: 'Server logs',
+    kept: 'Edited and deleted messages, uploaded file names and types, joins, leaves, nickname, display name and avatar changes, role changes, voice joins and leaves, AutoMod blocks',
+    where: 'Staff-only log channels',
   },
   {
-    title: 'Contact',
-    body: 'Placeholder: how to reach the team about these terms.',
+    feature: 'Deleted images and videos',
+    kept: 'A temporary copy, so a quickly deleted file can still be shown in the log',
+    where: 'Bot memory only, for at most 30 minutes',
+  },
+  {
+    feature: 'Mount Doom',
+    kept: 'The message that triggered the trap, kept as evidence',
+    where: 'Staff-only log channel',
+  },
+  {
+    feature: 'Long slowmode',
+    kept: 'When you last posted in a channel with slowmode over 6 hours',
+    where: 'Bot database',
+  },
+  {
+    feature: 'FAQ auto-replies',
+    kept: 'How often each answer was used. Your message is not stored',
+    where: 'Bot database (counts only)',
   },
 ];
 
-const privacySections = [
+const retention = [
   {
-    title: 'What the bot collects',
-    body: 'Placeholder: the Discord data the bot processes and stores.',
+    data: 'Moderation cases and staff notes',
+    keptFor:
+      '2 years, then deleted automatically, so earlier rule breaks stay visible to moderators for that time. The case for a ban that still stands is kept until the ban is lifted',
   },
   {
-    title: 'Why it is collected',
-    body: 'Placeholder: moderation, logging, reports, modmail and appeals.',
+    data: 'Reports, modmail records and appeals',
+    keptFor:
+      '2 years, then deleted automatically. Open modmail and appeals still waiting for a decision are kept until they are closed',
   },
   {
-    title: 'How long it is kept',
-    body: 'Placeholder: retention periods for member records and log entries.',
+    data: 'Log channel entries',
+    keptFor: "Until staff delete them. They live on Discord, not in the bot's database",
   },
-  {
-    title: 'Who can see it',
-    body: 'Placeholder: server staff access, and that data is not sold or shared.',
-  },
-  {
-    title: 'Your choices',
-    body: 'Placeholder: how to ask for your data to be shown or removed.',
-  },
+  { data: 'Long-slowmode post times', keptFor: 'Until slowmode is turned off in that channel' },
+  { data: 'Deleted-image copies', keptFor: 'At most 30 minutes, in memory' },
 ];
 ---
 
 <BaseLayout
-  title="Discord Bot Terms & Privacy"
-  description="Terms of Service and Privacy Policy for The Great Eye, the TAOM Discord bot."
+  title="The Great Eye: Terms & Privacy"
+  description="Terms of Service and Privacy Policy for The Great Eye, the moderation bot of the TAOM Discord server."
   hideNav={true}
   bodyClass="taom-policy-body"
   mainClass="taom-policy-main"
@@ -64,13 +88,13 @@ const privacySections = [
   <div class="policy-page">
     <Topbar />
 
-    <div class="page-shell">
+    <main class="page-shell">
       <section class="hero-copy">
         <p class="eyebrow">The Great Eye</p>
         <h1>Discord bot terms &amp; privacy</h1>
         <p class="intro-copy">
-          The Great Eye is the moderation bot of the TAOM Discord server. This page holds its Terms of Service and its
-          Privacy Policy. Last updated: {lastUpdated}.
+          The Great Eye is the moderation and help bot of the Tales from the Age of Men Discord server. This page holds
+          its Terms of Service and its Privacy Policy.
         </p>
         <nav class="jump-links" aria-label="On this page">
           <a href="#terms">Terms of Service</a>
@@ -78,40 +102,247 @@ const privacySections = [
         </nav>
       </section>
 
-      <section class="policy-card" id="terms" aria-labelledby="terms-heading">
+      <article class="policy-card" id="terms" aria-labelledby="terms-heading">
         <p class="card-kicker">Terms of Service</p>
-        <h2 id="terms-heading">Terms of Service</h2>
-        {
-          termsSections.map((section) => (
-            <div class="policy-section">
-              <h3>{section.title}</h3>
-              <p>{section.body}</p>
-            </div>
-          ))
-        }
-      </section>
+        <h2 id="terms-heading">The Great Eye: Terms of Service</h2>
+        <p class="updated">Last updated {termsUpdated}</p>
+        <p class="lead">
+          By using the TAOM Discord server or contacting The Great Eye, you agree to these terms and to the server
+          rules.
+        </p>
 
-      <section class="policy-card" id="privacy" aria-labelledby="privacy-heading">
+        <h3>About the bot</h3>
+        <p>
+          The Great Eye is the moderation and help bot of the Tales from the Age of Men (TAOM) Discord server (<a
+            href="https://discord.gg/taom">discord.gg/taom</a
+          >), run by the TAOM staff team. It moderates the server, keeps logs for the staff, answers common mod
+          questions, and handles reports, modmail and appeals.
+        </p>
+        <p>
+          These terms add to Discord's <a href="https://discord.com/terms">Terms of Service</a> and
+          <a href="https://discord.com/guidelines">Community Guidelines</a>, which always apply. How the bot handles
+          your data is in the <a href="#privacy">Privacy Policy</a>.
+        </p>
+        <p>The bot is private: it only works in the TAOM server and can't be added to other servers.</p>
+
+        <h3>Using the bot</h3>
+        <ul>
+          <li>
+            <strong>Reports.</strong> Report a message or member only when you believe it breaks the rules. False or spam
+            reports can lead to moderation. Each member can send 6 reports an hour.
+          </li>
+          <li>
+            <strong>Modmail.</strong> DMs to the bot go to the staff team. Use it for moderation matters, not mod install
+            help, which the help channels answer faster. Abusing modmail can get you blocked from it.
+          </li>
+          <li>
+            <strong>Appeals.</strong> Staff may let you appeal a ban, timeout or warning with the Appeal button in the bot's
+            DM. If you are banned, you first join the TAOM appeals server so the bot can reach you. Each warning or timeout
+            can be appealed once. For a ban you can have one appeal open at a time, and after a denied appeal you wait 30
+            days before the next one. Staff decide every appeal at their own discretion and may decline without giving a reason.
+            Staff can stop accepting appeals from an account.
+          </li>
+          <li>
+            <strong>FAQ answers.</strong> Automatic answers are written by the staff, not generated by the bot. They may be
+            out of date for the newest mod version; ask in the help channels if an answer doesn't fit.
+          </li>
+          <li>
+            <strong>Warning DMs.</strong> When you are warned, timed out, kicked or banned, the bot tries to DM you the reason.
+            If your DMs are closed you won't get it, but the action still stands.
+          </li>
+        </ul>
+        <p>Don't try to break, overload or trick the bot, or use it to harass anyone.</p>
+
+        <h3>Automatic moderation</h3>
+        <p>Some actions happen without a moderator pressing a button. Each one is logged as a case.</p>
+        <ul>
+          <li>
+            <strong>Mount Doom.</strong> Posting anything in the Mount Doom trap channel removes you from the server at once
+            and deletes your recent messages (a softban). The channel is a trap for spam bots and says so clearly. The bot
+            may DM you an invite back. If the bot was offline, it checks the posts made in the last 24 hours when it comes
+            back.
+          </li>
+          <li>
+            <strong>Warning escalation.</strong> Reaching a set number of warnings in a set time (for example 3 in 30 days)
+            brings an automatic timeout, kick or ban. A warning removed on appeal no longer counts.
+          </li>
+          <li>
+            <strong>Raid protection.</strong> When many accounts join at once, staff may lock the server for a while, or the
+            bot may lock it by itself.
+          </li>
+          <li>
+            <strong>Long slowmode.</strong> In channels with slowmode over 6 hours, posts sent too early are removed, and
+            the bot may DM you when you can post again.
+          </li>
+          <li>
+            <strong>Discord AutoMod.</strong> Messages Discord's AutoMod blocks are shown to the staff in the logs.
+          </li>
+        </ul>
+
+        <h3>No guarantees</h3>
+        <p>
+          The bot is a free community tool, run by volunteers and provided as it is. It may be offline, slow or wrong at
+          times, and features may change or stop. The TAOM staff are not liable for losses from using it, as far as the
+          law allows. Nothing here limits rights you have under the law where you live.
+        </p>
+
+        <h3>Losing access</h3>
+        <p>
+          Staff can stop you from using the bot's features (reports, modmail, appeals) if you misuse them, in addition
+          to normal server moderation. Leaving the server ends your use of the bot; your data is then handled as the
+          <a href="#privacy">Privacy Policy</a> describes.
+        </p>
+
+        <h3>Changes and contact</h3>
+        <p>
+          These terms may change. The current version is at <a href="#terms">taommod.com/discord-bot#terms</a> with its date.
+          Questions go to the staff through modmail (DM the bot) or a moderator.
+        </p>
+      </article>
+
+      <article class="policy-card" id="privacy" aria-labelledby="privacy-heading">
         <p class="card-kicker">Privacy Policy</p>
-        <h2 id="privacy-heading">Privacy Policy</h2>
-        {
-          privacySections.map((section) => (
-            <div class="policy-section">
-              <h3>{section.title}</h3>
-              <p>{section.body}</p>
-            </div>
-          ))
-        }
-      </section>
-    </div>
+        <h2 id="privacy-heading">The Great Eye: Privacy Policy</h2>
+        <p class="updated">Last updated {privacyUpdated}</p>
+        <p class="lead">
+          The Great Eye stores only what the TAOM staff need to moderate the TAOM Discord, and never sells or shares it.
+        </p>
+
+        <h3>Who we are</h3>
+        <p>
+          The Great Eye is the moderation and help bot of the Tales from the Age of Men (TAOM) Discord server (<a
+            href="https://discord.gg/taom">discord.gg/taom</a
+          >). It is run by the TAOM staff team, who are responsible for the data it handles. This policy covers the bot
+          inside Discord, including the TAOM appeals server.
+        </p>
+        <p>
+          The bot is not made by Discord. Discord's own <a href="https://discord.com/privacy">Privacy Policy</a> covers everything
+          Discord itself does with your data.
+        </p>
+        <p>Privacy contact: <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a></p>
+
+        <h3>What the bot collects</h3>
+        <p>
+          The bot only sees what happens in the TAOM server and in direct messages sent to it. It does not read your
+          online status, your activity or voice audio.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th scope="col">Feature</th><th scope="col">What is kept</th><th scope="col">Where</th></tr>
+            </thead>
+            <tbody>
+              {
+                collectedData.map((row) => (
+                  <tr>
+                    <th scope="row">{row.feature}</th>
+                    <td>{row.kept}</td>
+                    <td>{row.where}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <p>Ordinary chat messages are never written to the bot's database.</p>
+        <p>
+          When you join the TAOM appeals server, the bot checks whether you are banned from TAOM, only to DM you an
+          Appeal button. Nothing new is stored.
+        </p>
+
+        <h3>What it is used for</h3>
+        <p>The data is used only to keep the TAOM server safe and running:</p>
+        <ul>
+          <li>
+            enforcing the server rules, and keeping a history of earlier actions so moderators treat repeat cases fairly
+          </li>
+          <li>handling reports, modmail conversations and appeals</li>
+          <li>spotting raids, spam and deleted rule-breaking content</li>
+          <li>answering common mod questions in help channels</li>
+          <li>counting staff activity (/modstats)</li>
+        </ul>
+        <p>The legal basis is the TAOM community's legitimate interest in a safe, moderated server.</p>
+        <p>
+          The data is never sold, used for advertising, used to train AI models, or used to build profiles of members
+          beyond their moderation history. The bot makes no automatic decisions about you except the ones its rules
+          describe: the Mount Doom trap, warning escalation rules and raid protection.
+        </p>
+
+        <h3>Storage, retention and access</h3>
+        <p>
+          The database sits on an encrypted disk on a server run by the TAOM staff, online around the clock. Only the
+          TAOM staff who run the bot can reach it. Log, report, modmail and appeal channels are visible to TAOM
+          moderators only.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th scope="col">Data</th><th scope="col">Kept for</th></tr>
+            </thead>
+            <tbody>
+              {
+                retention.map((row) => (
+                  <tr>
+                    <th scope="row">{row.data}</th>
+                    <td>{row.keptFor}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Sharing</h3>
+        <p>
+          The data is not shared with anyone outside the TAOM staff. It passes through Discord, which delivers the bot's
+          messages, and through GitHub only as code (no member data). Data is handed to authorities only when the law
+          requires it.
+        </p>
+
+        <h3>Your rights</h3>
+        <p>
+          Under data protection law you can ask for access to the data the bot holds about you, and ask for it to be
+          corrected, deleted or restricted. Because the data is used on the basis of legitimate interest, you can also
+          object to that use. You can complain to a data protection authority.
+        </p>
+        <p>
+          Send requests to <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>. Requests are answered within one
+          month; this can be extended by two more months for complex or numerous requests, in which case you are told
+          within the first month. Data may be kept where the law allows it, for example the reason for a ban that still
+          stands. If a request is refused, you are told why.
+        </p>
+
+        <h3>Changes</h3>
+        <p>
+          When this policy changes, the new version is posted at <a href="#privacy">taommod.com/discord-bot#privacy</a> with
+          a new date. The bot's <a href="#terms">Terms of Service</a> are there too.
+        </p>
+      </article>
+    </main>
   </div>
 </BaseLayout>
 
 <style>
   :global(body.taom-policy-body) {
     min-height: 100vh;
-    background: linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 16% 18%, rgba(128, 72, 34, 0.18), transparent 25%),
+      radial-gradient(circle at 84% 14%, rgba(98, 44, 26, 0.16), transparent 24%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
     color: #ece4db;
+  }
+
+  :global(body.taom-policy-body::before) {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.jpg') center top / cover no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -2;
   }
 
   :global(.taom-policy-main) {
@@ -125,7 +356,7 @@ const privacySections = [
   }
 
   .page-shell {
-    width: min(100%, 56rem);
+    width: min(100%, 64rem);
     margin: 0 auto;
     padding: 4rem 0 5rem;
     display: grid;
@@ -134,16 +365,69 @@ const privacySections = [
 
   .hero-copy,
   .policy-card {
+    position: relative;
+    overflow: hidden;
     border: 1px solid rgba(151, 110, 51, 0.44);
-    background: linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92));
+    background:
+      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
-    padding: 2.5rem;
     scroll-margin-top: 2rem;
+  }
+
+  .policy-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(214, 168, 89, 0.08),
+      transparent 40%,
+      transparent 70%,
+      rgba(214, 168, 89, 0.04)
+    );
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.42), rgba(8, 7, 7, 0.7)),
+      url('/images/community/block-background.png') center / cover no-repeat;
+    padding: 3rem;
+  }
+
+  .hero-copy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/community/block-overlay.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/community/block-border.png') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-copy > *,
+  .policy-card > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  .policy-card {
+    padding: 2.5rem 2.75rem;
   }
 
   .eyebrow,
   .card-kicker,
-  .jump-links a {
+  .jump-links a,
+  h3,
+  th {
     font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
@@ -164,42 +448,126 @@ const privacySections = [
   }
 
   h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.05;
+    max-width: 16ch;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1;
   }
 
   h2 {
-    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    line-height: 1.1;
   }
 
   h3 {
-    margin-top: 1.6rem;
-    font-size: 1.1rem;
+    margin-top: 2rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(151, 110, 51, 0.32);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: #e8cf9a;
   }
 
-  p {
-    color: rgba(231, 222, 214, 0.82);
+  p,
+  li,
+  td {
+    color: rgba(231, 222, 214, 0.84);
     line-height: 1.7;
   }
 
-  .intro-copy {
-    margin: 1.15rem 0 0;
+  p {
+    margin: 0.85rem 0 0;
   }
 
-  .policy-section p {
-    margin: 0.5rem 0 0;
+  .intro-copy {
+    max-width: 44rem;
+    margin-top: 1.15rem;
+    font-size: 1.04rem;
+  }
+
+  .updated {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(214, 176, 106, 0.75);
+  }
+
+  .lead {
+    font-size: 1.06rem;
+    color: #f0e7db;
+  }
+
+  ul {
+    margin: 0.85rem 0 0;
+    padding-left: 1.3rem;
+  }
+
+  li + li {
+    margin-top: 0.55rem;
+  }
+
+  li::marker {
+    color: rgba(214, 176, 106, 0.8);
+  }
+
+  strong {
+    color: #f5eee5;
+  }
+
+  a {
+    color: #e2b867;
+  }
+
+  .table-scroll {
+    margin-top: 1rem;
+    overflow-x: auto;
+    border: 1px solid rgba(151, 110, 51, 0.32);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(151, 110, 51, 0.22);
+  }
+
+  thead th {
+    background: rgba(70, 50, 39, 0.55);
+    color: #f5eee5;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  tbody th {
+    color: #e8cf9a;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .jump-links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.85rem;
-    margin-top: 1.35rem;
+    margin-top: 1.5rem;
   }
 
   .jump-links a {
-    padding: 0.7rem 1.1rem;
+    padding: 0.85rem 1.2rem;
     border: 1px solid rgba(205, 153, 52, 0.46);
+    background:
+      linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96)),
+      radial-gradient(circle at top, rgba(255, 239, 193, 0.08), transparent 56%);
     color: #fff5e3;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -223,6 +591,14 @@ const privacySections = [
     .hero-copy,
     .policy-card {
       padding: 1.5rem;
+    }
+
+    h1 {
+      max-width: none;
+    }
+
+    tbody th {
+      white-space: normal;
     }
   }
 </style>
