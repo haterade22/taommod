@@ -2,6 +2,7 @@
 const topNavLinks = [
   { href: '/', label: 'Home' },
   { href: '/factions', label: 'Factions' },
+  { href: '/kingdoms', label: 'Kingdoms' },
   { href: '/database', label: 'Database' },
   { href: '/mod-info', label: 'Mod Info' },
   { href: '/gallery', label: 'Gallery' },
@@ -9,22 +10,26 @@ const topNavLinks = [
   { href: '/news', label: 'News' },
   { href: '/community', label: 'Community' },
   { href: '/download', label: 'Download' },
+  { href: '/troubleshooting', label: 'Troubleshooting' },
   { href: '/credits', label: 'Credits' },
 ];
 
 const currentPath = Astro.url.pathname;
+// Highlight a menu item on its own page and on pages below it (e.g. /factions/gondor under Factions).
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(`${href}/`);
 const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 ---
 
 <header class="topbar" data-topbar>
   <a class="brand" href="/" aria-label="Tales from the Age of Men home">
-    <img class="brand-logo" src="/images/logo-navbar.png" alt="Tales from the Age of Men" />
+    <img class="brand-logo" src="/images/logo-navbar.png" alt="Tales from the Age of Men" width="479" height="345" />
   </a>
 
   <nav class="main-nav" aria-label="Main navigation">
     {
       topNavLinks.map((link) => (
-        <a href={link.href} class:list={[{ 'is-active': currentPath === link.href }]}>
+        <a href={link.href} class:list={[{ 'is-active': isActive(link.href) }]}>
           {link.label}
         </a>
       ))
@@ -50,7 +55,7 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     <nav class="mobile-nav" aria-label="Mobile navigation">
       {
         topNavLinks.map((link) => (
-          <a href={link.href} class:list={['mobile-link', { 'is-active': currentPath === link.href }]}>
+          <a href={link.href} class:list={['mobile-link', { 'is-active': isActive(link.href) }]}>
             {link.label}
           </a>
         ))
@@ -65,7 +70,7 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 
 <script is:inline>
   (() => {
-    const breakpoint = 1100;
+    const breakpoint = 1360;
 
     const closeTopbar = (topbar) => {
       const toggle = topbar.querySelector('[data-topbar-toggle]');
@@ -304,7 +309,20 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     display: none !important;
   }
 
-  @media (max-width: 1100px) {
+  /* 12 menu items: tighten them on medium-wide screens so the menu stays on one line. */
+  @media (max-width: 1600px) {
+    .main-nav {
+      gap: 0.6rem 0.5rem;
+    }
+
+    .main-nav a,
+    .side-link {
+      padding: 0.3rem 0.2rem 0.45rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 1360px) {
     .topbar {
       grid-template-columns: minmax(0, 1fr) auto !important;
       gap: 1rem !important;

@@ -161,19 +161,31 @@ const policyHref = '/cookie-policy';
       width: calc(100vw - 1.5rem);
     }
 
+    /* Phones: a compact strip (title plus buttons on one row) instead of a card covering half the screen;
+       the full text is one tap away on the cookie policy page. */
     .cookie-notice__panel {
-      border-radius: 0.9rem;
-      padding: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      padding: 0.7rem 0.85rem;
+    }
+
+    .cookie-notice__eyebrow,
+    .cookie-notice__copy {
+      display: none;
+    }
+
+    .cookie-notice__title {
+      flex: 1 1 12rem;
+      margin: 0;
+      font-size: 0.85rem;
     }
 
     .cookie-notice__actions {
-      align-items: stretch;
-    }
-
-    .cookie-notice__link,
-    .cookie-notice__button {
-      width: 100%;
-      text-align: center;
+      margin: 0;
+      gap: 0.6rem;
     }
   }
 </style>

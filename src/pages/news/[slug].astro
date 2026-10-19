@@ -13,7 +13,14 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 
 // Patreon images carry no alt text; mark them decorative so screen readers skip the file names.
-const articleHtml = post.html ? post.html.replace(/<img\b(?![^>]*\balt=)/gi, '<img alt=""') : '';
+// Patreon post HTML: images get alt="" (no alt text from Patreon) and are removed if their Patreon link has expired
+// (otherwise a broken-image box shows); links opening a new tab get rel="noopener".
+const articleHtml = post.html
+  ? post.html
+      .replace(/<img\b(?![^>]*\balt=)/gi, '<img alt=""')
+      .replace(/<img\b/gi, '<img onerror="this.remove()"')
+      .replace(/<a\b(?=[^>]*target="_blank")(?![^>]*\brel=)/gi, '<a rel="noopener"')
+  : '';
 
 const formatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',

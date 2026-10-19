@@ -416,6 +416,7 @@ const troopHeaderCols = [
 <BaseLayout
   title={displayName}
   description={`${displayName} faction archive in TAOM - troop tree, military roster, clans, and lords`}
+  canonicalPath={routeId !== kingdomId ? `/factions/${kingdomId}/` : undefined}
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-faction-detail-body"

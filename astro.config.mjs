@@ -4,8 +4,8 @@ import { defineConfig } from 'astro/config';
 
 const site = 'https://taommod.com';
 
-// Pages kept out of search results (they also carry a noindex meta tag).
-const sitemapExclude = new Set(['discord-bot/']);
+// discord-bot is noindex; factions/gondor and factions/mordor are older addresses of factions/empire_w and empire_s.
+const sitemapExclude = new Set(['discord-bot/', 'factions/gondor/', 'factions/mordor/']);
 
 /**
  * Writes dist/sitemap.xml listing every built page. Small inline replacement for @astrojs/sitemap.
@@ -32,5 +32,8 @@ function sitemap() {
 export default defineConfig({
   site,
   output: 'static',
+  // Scoped styles mark elements with a class instead of a data-astro-cid-* attribute: same CSS specificity, but
+  // the big data pages (thousands of table cells) come out 7-13% smaller.
+  scopedStyleStrategy: 'class',
   integrations: [sitemap()],
 });
