@@ -180,8 +180,10 @@ const timelineLanes = [...roadmapDisciplines]
 
   :global(body.taom-roadmap-body::before) {
     content: '';
-    position: fixed;
-    inset: 0;
+    /* Scrolls with the page (a fixed full-screen layer made Firefox scrolling stutter). */
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 11, 10, 0.08), rgba(8, 7, 7, 0.56)),
       repeating-linear-gradient(

@@ -345,6 +345,13 @@ a:hover {
   overflow-y: hidden !important;
 }
 
+/* Until initPager has drawn the first page (.is-ready), only the first 40 rows are shown: laying out thousands of
+   rows while the page loads made Firefox take a second or more to open these pages. BaseLayout undoes this when
+   JavaScript is off. */
+.data-table-wrapper:not(.is-ready) > table > tbody > tr:nth-child(n + 41):not([data-measure]) {
+  display: none;
+}
+
 /* Sticky table headers for mod-info table wrappers */
 .table-wrapper {
   max-height: 75vh;
