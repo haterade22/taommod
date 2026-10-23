@@ -1118,8 +1118,10 @@ const troopHeaderCols = [
 
   :global(body.taom-faction-detail-body::before) {
     content: '';
-    position: fixed;
-    inset: 0;
+    /* Scrolls with the page (a fixed full-screen layer made Firefox scrolling stutter). */
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
     background:
       linear-gradient(180deg, rgba(14, 10, 9, 0.42), rgba(8, 6, 6, 0.86)),
       url('/images/hero-bg.jpg') center top / cover no-repeat;
@@ -1176,9 +1178,8 @@ const troopHeaderCols = [
     background:
       linear-gradient(180deg, rgba(15, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
       linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.06), transparent 52%);
-    box-shadow:
-      0 18px 40px rgba(0, 0, 0, 0.28),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    /* Small shadow: large blurred shadows on many cards made Firefox scrolling stutter. */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     min-width: 0;
   }
 

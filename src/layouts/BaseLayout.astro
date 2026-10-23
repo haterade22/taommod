@@ -57,6 +57,15 @@ const imageUrl = new URL(image, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
     <ViewTransitions />
+    <!-- Without JavaScript there is no pager, so show every table row (global.css shows only the first rows until
+         the pager has run). -->
+    <noscript
+      ><style>
+        .data-table-wrapper tbody tr {
+          display: table-row !important;
+        }
+      </style></noscript
+    >
   </head>
   <body class={bodyClass}>
     <!-- Every page uses the same gold top bar; pages with hideNav render it themselves inside their own wrapper. -->

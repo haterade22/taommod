@@ -117,13 +117,34 @@ export function initPager(tableSelector: string, fixedPageSize?: number): TableP
   // would have different column widths. Lock each column to its width with all rows shown, and use the usual row
   // height (95th percentile) for the rows-per-page sum. Skipped while the table is hidden (width 0); then measured
   // from the first page instead.
+  //
+  // Until the first page is drawn, global.css shows only the first rows (laying out thousands of rows made Firefox
+  // slow to open these pages). So for measuring, the row with the longest text in each column is shown as well
+  // (data-measure), which gives the same column widths as all rows would.
   function lockColumnsAndMeasure() {
     const headers = Array.from(table!.tHead?.rows[0]?.cells ?? []);
+    const rows = Array.from(tbody!.rows);
+    const widest = new Set<HTMLTableRowElement>();
+    headers.forEach((_, i) => {
+      let best: HTMLTableRowElement | undefined;
+      let bestLength = -1;
+      for (const row of rows) {
+        const length = row.cells[i]?.textContent?.trim().length ?? 0;
+        if (length > bestLength) {
+          bestLength = length;
+          best = row;
+        }
+      }
+      if (best) widest.add(best);
+    });
+    widest.forEach((row) => row.setAttribute('data-measure', ''));
     const widths = headers.map((th) => th.getBoundingClientRect().width);
-    if (!widths.length || widths.some((w) => w === 0)) return;
-    // Table cells ignore min-width; a width on a header cell acts as the column's minimum in auto table layout.
-    headers.forEach((th, i) => (th.style.width = `${Math.ceil(widths[i])}px`));
-    rowHeight = rowPitch(Array.from(tbody!.rows));
+    if (widths.length && widths.every((w) => w > 0)) {
+      // Table cells ignore min-width; a width on a header cell acts as the column's minimum in auto table layout.
+      headers.forEach((th, i) => (th.style.width = `${Math.ceil(widths[i])}px`));
+      rowHeight = rowPitch(rows);
+    }
+    widest.forEach((row) => row.removeAttribute('data-measure'));
   }
 
   /** Space one row takes, including any gap between rows (some tables use border-spacing). */
@@ -205,6 +226,8 @@ export function initPager(tableSelector: string, fixedPageSize?: number): TableP
       row.toggleAttribute('data-off-page', off);
       if (ownRows.has(row)) previousOff = off;
     }
+    // Off-page rows are now marked, so the "first rows only" rule in global.css can step aside.
+    wrapper!.classList.add('is-ready');
 
     nav.replaceChildren();
     nav.hidden = pages <= 1;

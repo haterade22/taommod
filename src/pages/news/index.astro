@@ -262,8 +262,10 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
 
   :global(body.taom-news-body::before) {
     content: '';
-    position: fixed;
-    inset: 0;
+    /* Scrolls with the page (a fixed full-screen layer made Firefox scrolling stutter). */
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
     background:
       linear-gradient(180deg, rgba(7, 7, 7, 0.72), rgba(5, 5, 5, 0.94)),
       url('/images/hero-bg.jpg') center top / cover no-repeat;

@@ -383,8 +383,10 @@ const headerCols = [
 
   :global(body.taom-troops-body::before) {
     content: '';
-    position: fixed;
-    inset: 0;
+    /* Scrolls with the page (a fixed full-screen layer made Firefox scrolling stutter). */
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
       url('/images/hero-bg.jpg') center top / cover no-repeat;
