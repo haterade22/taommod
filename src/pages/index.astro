@@ -1,5 +1,4 @@
 ---
-import BrandWordmark from '../components/BrandWordmark.astro';
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -37,7 +36,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="home-landing-glow" aria-hidden="true"></div>
 
       <div class="home-hero" aria-label="Tales from the Age of Men landing page">
-        <BrandWordmark variant="hero" class="home-hero-wordmark" ariaLabel="Tales from the Age of Men" />
+        <img
+          class="home-hero-logo"
+          src="/images/logo.webp"
+          alt="Tales from the Age of Men"
+          width="900"
+          height="320"
+          fetchpriority="high"
+        />
 
         <div class="home-hero-copy">
           <p>Total Conversion Mod</p>
@@ -234,7 +240,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     position: absolute;
     inset: auto 0 10% 0;
     height: 18rem;
-    background: radial-gradient(circle, rgba(191, 125, 56, 0.08), transparent 70%);
+    /* closest-side: the glow fades to nothing before the box edge, so no hard-edged band shows (no blur filter needed). */
+    background: radial-gradient(ellipse closest-side, rgba(191, 125, 56, 0.1), transparent);
     pointer-events: none;
   }
 
@@ -247,8 +254,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
 
-  .home-hero-wordmark {
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.42)) drop-shadow(0 28px 45px rgba(0, 0, 0, 0.35));
+  .home-hero-logo {
+    display: block;
+    width: min(44rem, 90vw);
+    height: auto;
   }
 
   .home-hero-copy {
