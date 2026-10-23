@@ -85,7 +85,7 @@ public/         Images, fonts, favicon, CNAME
 
 Hand-maintained files that the sync preserves: `src/data/faction-troops.ts` (troop-branch prose per faction) and `src/data/patreon-posts.json` (written by `scripts/sync-patreon-posts.mjs` on every build). Backup files (`*.bak*`, `*~`) left in the mod source are stripped.
 
-The armoury culture folders also carry generated `ranged_ladder.xml` (AI missile-speed bow clones) and `starter_kit.xml` (stat-floored player-start twins). They are synced for completeness but `parse-armory.ts` deliberately skips them — they are not player-facing gear.
+The armoury culture folders also carry generated `ranged_ladder.xml` (AI missile-speed bow clones) and `starter_kit.xml` (stat-floored player-start twins). They are synced for completeness but both equipment parsers deliberately skip them — they are not player-facing gear. Regular `starter_armors.xml` entries remain visible. `parse-weaponry.ts` reads weapons and shields from culture folders, including `harad/weapons.xml`, as well as the top-level weapon/shield files.
 ### Armour Turntables
 
 Armour videos are hosted in R2. `src/data/armour-turntables.json` contains the public base URL and verified uploaded filenames. Builds read this manifest without contacting R2, and the player loads a video only when its item is opened.

@@ -4,348 +4,1226 @@
 
     <!-- Harad -->
 
-    <Item
-        id="haradrim_torso"
-        name="{=aom_haradrim_torso_name}[Harad] Mail Armour"
-        mesh="haradrim_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
-                arm_armor="10"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
+    <!-- #endregion -->
+
+    <!-- #endregion -->
+
 
     <Item
-        id="haradrim02_toso"
-        name="{=aom_haradrim02_toso_name}[Harad] Scalemail Armour - Maroon"
-        mesh="haradrim02_toso"
+        id="sk_hr_st_chest_arc_heavy_a"
+        name="{=aom_sk_hr_st_chest_arc_heavy_a_name}[Harwan] Archer Heavy Chest A"
+        mesh="sk_hr_st_chest_arc_heavy_a"
         subtype="body_armor"
         culture="Culture.aserai"
         is_merchandise="true"
-        weight="6.8"
+        weight="5.5"
         difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
-                arm_armor="12"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="haradrim02a_toso"
-        name="{=aom_haradrim02a_toso_name}[Harad] Scalemail Armour - Green"
-        mesh="haradrim02a_toso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="28"
-                arm_armor="18"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="haradrim02b_toso"
-        name="{=aom_haradrim02b_toso_name}[Harad] Scalemail Armour - Grey"
-        mesh="haradrim02b_toso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="20"
-                arm_armor="13"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="haradrim02c_toso"
-        name="{=aom_haradrim02c_toso_name}[Harad] Scalemail Armour - Gold"
-        mesh="haradrim02c_toso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="28"
-                arm_armor="18"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad03_torso"
-        name="{=aom_harad03_torso_name}[Harad] Armour - Orange"
-        mesh="harad03_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="28"
-                arm_armor="19"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad04_body"
-        name="{=aom_harad04_body_name}[Harad] Armour - Black"
-        mesh="harad04_body"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="15"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="leather"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v1_torso"
-        name="{=aom_harad05_v1_torso_name}[Harad] Cavalry Armour - Red"
-        mesh="harad05_v1_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="37"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v2_torso"
-        name="{=aom_harad05_v2_torso_name}[Harad] Cavalry Armour - Green"
-        mesh="harad05_v2_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="37"
-                arm_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v3_torso"
-        name="{=aom_harad05_v3_torso_name}[Harad] Cavalry Armour - Blue"
-        mesh="harad05_v3_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
+        appearance="2"
         Type="BodyArmor">
         <ItemComponent>
             <Armor
                 body_armor="30"
-                arm_armor="20"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="chain"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad05_v4_torso"
-        name="{=aom_harad05_v4_torso_name}[Harad] Cavalry Armour - Black"
-        mesh="harad05_v4_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="18"
                 arm_armor="12"
-                leg_armor="12"
                 has_gender_variations="false"
                 covers_body="true"
                 modifier_group="leather"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad06_v1_torso"
-        name="{=aom_harad06_v1_torso_name}[Harad] Serpent Guard Armour"
-        mesh="harad06_v1_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="37"
-                arm_armor="24"
-                leg_armor="13"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Plate" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad07_torso"
-        name="{=aom_harad07_torso_name}[Harad] Armour - Bone"
-        mesh="harad07_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="11.0"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="37"
-                arm_armor="19"
-                leg_armor="26"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
-                material_type="Chainmail" />
-        </ItemComponent>
-        <Flags
-            UseTeamColor="true" />
-    </Item>
-
-    <Item
-        id="harad08_torso"
-        name="{=aom_harad08_torso_name}[Harad] Archer Armour"
-        mesh="harad08_torso"
-        subtype="body_armor"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="6.8"
-        difficulty="0"
-        appearance="1.5"
-        Type="BodyArmor">
-        <ItemComponent>
-            <Armor
-                body_armor="37"
-                arm_armor="37"
-                leg_armor="25"
-                has_gender_variations="false"
-                covers_body="true"
-                modifier_group="plate"
                 material_type="Leather" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
 
-    <!-- #endregion -->
+    <Item
+        id="sk_hr_st_chest_arc_heavy_b"
+        name="{=aom_sk_hr_st_chest_arc_heavy_b_name}[Harwan] Archer Heavy Chest B"
+        mesh="sk_hr_st_chest_arc_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
 
-    <!-- #endregion -->
+    <Item
+        id="sk_hr_st_chest_arc_light_a"
+        name="{=aom_sk_hr_st_chest_arc_light_a_name}[Harwan] Archer Light Chest A"
+        mesh="sk_hr_st_chest_arc_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_arc_light_b"
+        name="{=aom_sk_hr_st_chest_arc_light_b_name}[Harwan] Archer Light Chest B"
+        mesh="sk_hr_st_chest_arc_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_arc_med_a"
+        name="{=aom_sk_hr_st_chest_arc_med_a_name}[Harwan] Archer Med Chest A"
+        mesh="sk_hr_st_chest_arc_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_arc_med_b"
+        name="{=aom_sk_hr_st_chest_arc_med_b_name}[Harwan] Archer Med Chest B"
+        mesh="sk_hr_st_chest_arc_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_heavy_a"
+        name="{=aom_sk_hr_st_chest_cav_heavy_a_name}[Harwan] Cavalry Heavy Chest A"
+        mesh="sk_hr_st_chest_cav_heavy_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_heavy_b"
+        name="{=aom_sk_hr_st_chest_cav_heavy_b_name}[Harwan] Cavalry Heavy Chest B"
+        mesh="sk_hr_st_chest_cav_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_light_a"
+        name="{=aom_sk_hr_st_chest_cav_light_a_name}[Harwan] Cavalry Light Chest A"
+        mesh="sk_hr_st_chest_cav_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_light_b"
+        name="{=aom_sk_hr_st_chest_cav_light_b_name}[Harwan] Cavalry Light Chest B"
+        mesh="sk_hr_st_chest_cav_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_med_a"
+        name="{=aom_sk_hr_st_chest_cav_med_a_name}[Harwan] Cavalry Med Chest A"
+        mesh="sk_hr_st_chest_cav_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_cav_med_b"
+        name="{=aom_sk_hr_st_chest_cav_med_b_name}[Harwan] Cavalry Med Chest B"
+        mesh="sk_hr_st_chest_cav_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_heavy_a"
+        name="{=aom_sk_hr_st_chest_inf_chest_heavy_a_name}[Harwan] Infantry Heavy Chest A"
+        mesh="sk_hr_st_chest_inf_chest_heavy_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_heavy_b"
+        name="{=aom_sk_hr_st_chest_inf_chest_heavy_b_name}[Harwan] Infantry Heavy Chest B"
+        mesh="sk_hr_st_chest_inf_chest_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_light_a"
+        name="{=aom_sk_hr_st_chest_inf_chest_light_a_name}[Harwan] Infantry Light Chest A"
+        mesh="sk_hr_st_chest_inf_chest_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_light_b"
+        name="{=aom_sk_hr_st_chest_inf_chest_light_b_name}[Harwan] Infantry Light Chest B"
+        mesh="sk_hr_st_chest_inf_chest_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_med_a"
+        name="{=aom_sk_hr_st_chest_inf_chest_med_a_name}[Harwan] Infantry Med Chest A"
+        mesh="sk_hr_st_chest_inf_chest_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_chest_inf_chest_med_b"
+        name="{=aom_sk_hr_st_chest_inf_chest_med_b_name}[Harwan] Infantry Med Chest B"
+        mesh="sk_hr_st_chest_inf_chest_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_tunic_a"
+        name="{=aom_sk_hr_st_tunic_a_name}[Harwan] Tunic A"
+        mesh="sk_hr_st_tunic_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="1"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_hr_st_tunic_b"
+        name="{=aom_sk_hr_st_tunic_b_name}[Harwan] Tunic B"
+        mesh="sk_hr_st_tunic_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="6"
+                arm_armor="1"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_heavy_a"
+        name="{=aom_sk_sg_st_chest_arc_heavy_a_name}[Shaghana] Archer Heavy Chest A"
+        mesh="sk_sg_st_chest_arc_heavy_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_heavy_b"
+        name="{=aom_sk_sg_st_chest_arc_heavy_b_name}[Shaghana] Archer Heavy Chest B"
+        mesh="sk_sg_st_chest_arc_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_light_a"
+        name="{=aom_sk_sg_st_chest_arc_light_a_name}[Shaghana] Archer Light Chest A"
+        mesh="sk_sg_st_chest_arc_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_light_b"
+        name="{=aom_sk_sg_st_chest_arc_light_b_name}[Shaghana] Archer Light Chest B"
+        mesh="sk_sg_st_chest_arc_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_med_a"
+        name="{=aom_sk_sg_st_chest_arc_med_a_name}[Shaghana] Archer Med Chest A"
+        mesh="sk_sg_st_chest_arc_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_arc_med_b"
+        name="{=aom_sk_sg_st_chest_arc_med_b_name}[Shaghana] Archer Med Chest B"
+        mesh="sk_sg_st_chest_arc_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_heavy_a"
+        name="{=aom_sk_sg_st_chest_cav_heavy_a_name}[Shaghana] Cavalry Heavy Chest A"
+        mesh="sk_sg_st_chest_cav_heavy_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_heavy_b"
+        name="{=aom_sk_sg_st_chest_cav_heavy_b_name}[Shaghana] Cavalry Heavy Chest B"
+        mesh="sk_sg_st_chest_cav_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_light_a"
+        name="{=aom_sk_sg_st_chest_cav_light_a_name}[Shaghana] Cavalry Light Chest A"
+        mesh="sk_sg_st_chest_cav_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_light_b"
+        name="{=aom_sk_sg_st_chest_cav_light_b_name}[Shaghana] Cavalry Light Chest B"
+        mesh="sk_sg_st_chest_cav_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_med_a"
+        name="{=aom_sk_sg_st_chest_cav_med_a_name}[Shaghana] Cavalry Med Chest A"
+        mesh="sk_sg_st_chest_cav_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_cav_med_b"
+        name="{=aom_sk_sg_st_chest_cav_med_b_name}[Shaghana] Cavalry Med Chest B"
+        mesh="sk_sg_st_chest_cav_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_heavy_a"
+        name="{=aom_sk_sg_st_chest_inf_chest_heavy_a_name}[Shaghana] Infantry Heavy Chest A"
+        mesh="sk_sg_st_chest_inf_chest_heavy_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_heavy_b"
+        name="{=aom_sk_sg_st_chest_inf_chest_heavy_b_name}[Shaghana] Infantry Heavy Chest B"
+        mesh="sk_sg_st_chest_inf_chest_heavy_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="30"
+                arm_armor="12"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_light_a"
+        name="{=aom_sk_sg_st_chest_inf_chest_light_a_name}[Shaghana] Infantry Light Chest A"
+        mesh="sk_sg_st_chest_inf_chest_light_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_light_b"
+        name="{=aom_sk_sg_st_chest_inf_chest_light_b_name}[Shaghana] Infantry Light Chest B"
+        mesh="sk_sg_st_chest_inf_chest_light_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="10"
+                arm_armor="3"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_med_a"
+        name="{=aom_sk_sg_st_chest_inf_chest_med_a_name}[Shaghana] Infantry Med Chest A"
+        mesh="sk_sg_st_chest_inf_chest_med_a"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_sg_st_chest_inf_chest_med_b"
+        name="{=aom_sk_sg_st_chest_inf_chest_med_b_name}[Shaghana] Infantry Med Chest B"
+        mesh="sk_sg_st_chest_inf_chest_med_b"
+        subtype="body_armor"
+        culture="Culture.aserai"
+        is_merchandise="true"
+        weight="5.5"
+        difficulty="0"
+        appearance="2"
+        Type="BodyArmor">
+        <ItemComponent>
+            <Armor
+                body_armor="18"
+                arm_armor="6"
+                has_gender_variations="false"
+                covers_body="true"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags
+            UseTeamColor="true" />
+    </Item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Pezarsan Camel Barding -->
+
+    <Item id="sk_hr_pz_camel_bard_light_a" name="{=aom_sk_hr_pz_camel_bard_light_a_name}[Harad] Pezarsan Camel Barding - Light" mesh="sk_hr_pz_camel_bard_light_a" culture="Culture.aserai" is_merchandise="true" weight="60" appearance="1" Type="HorseHarness">
+        <ItemComponent>
+            <Armor body_armor="15" mane_cover_type="none" family_type="2" material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <Item id="sk_hr_pz_camel_bard_med_a" name="{=aom_sk_hr_pz_camel_bard_med_a_name}[Harad] Pezarsan Camel Barding - Med" mesh="sk_hr_pz_camel_bard_med_a" culture="Culture.aserai" is_merchandise="true" weight="60" appearance="1" Type="HorseHarness">
+        <ItemComponent>
+            <Armor body_armor="25" mane_cover_type="none" family_type="2" material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <Item id="sk_hr_pz_camel_bard_heavy_a" name="{=aom_sk_hr_pz_camel_bard_heavy_a_name}[Harad] Pezarsan Camel Barding - Heavy" mesh="sk_hr_pz_camel_bard_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="60" appearance="1" Type="HorseHarness">
+        <ItemComponent>
+            <Armor body_armor="35" mane_cover_type="none" family_type="2" material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <Item id="sk_hr_pz_camel_bard_elite_a" name="{=aom_sk_hr_pz_camel_bard_elite_a_name}[Harad] Pezarsan Camel Barding - Elite" mesh="sk_hr_pz_camel_bard_elite_a" culture="Culture.aserai" is_merchandise="true" weight="60" appearance="1" Type="HorseHarness">
+        <ItemComponent>
+            <Armor body_armor="45" mane_cover_type="none" family_type="2" material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+
+    <!-- Harad regular horse bardings (Harwan + Shaghana): light T3 / med T4 / heavy T5 cavalry, A/B variants.
+         Saddles are shop stock only. clo_sk_hr_st_* are cloth overlays (no item). -->
+    <Item
+        id="sk_hr_st_bard_cav_light_a"
+        name="{=aom_sk_hr_st_bard_cav_light_a_name}[Harwan] Harad Light Barding I"
+        mesh="sk_hr_st_bard_cav_light_a"
+        culture="Culture.aserai"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_bard_cav_light_b"
+        name="{=aom_sk_hr_st_bard_cav_light_b_name}[Harwan] Harad Light Barding II"
+        mesh="sk_hr_st_bard_cav_light_b"
+        culture="Culture.aserai"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_bard_cav_med_a"
+        name="{=aom_sk_hr_st_bard_cav_med_a_name}[Harwan] Harad Barding I"
+        mesh="sk_hr_st_bard_cav_med_a"
+        culture="Culture.aserai"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_bard_cav_med_b"
+        name="{=aom_sk_hr_st_bard_cav_med_b_name}[Harwan] Harad Barding II"
+        mesh="sk_hr_st_bard_cav_med_b"
+        culture="Culture.aserai"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_bard_cav_heavy_a"
+        name="{=aom_sk_hr_st_bard_cav_heavy_a_name}[Harwan] Harad Heavy Barding I"
+        mesh="sk_hr_st_bard_cav_heavy_a"
+        culture="Culture.aserai"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_bard_cav_heavy_b"
+        name="{=aom_sk_hr_st_bard_cav_heavy_b_name}[Harwan] Harad Heavy Barding II"
+        mesh="sk_hr_st_bard_cav_heavy_b"
+        culture="Culture.aserai"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_hr_st_saddle_a"
+        name="{=aom_sk_hr_st_saddle_a_name}[Harwan] Harad Saddle"
+        mesh="sk_hr_st_saddle_a"
+        culture="Culture.aserai"
+        weight="10"
+        is_merchandise="true"
+        appearance="1"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                mane_cover_type="none"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_light_a"
+        name="{=aom_sk_sg_st_bard_cav_light_a_name}[Shaghana] Southron Light Barding I"
+        mesh="sk_sg_st_bard_cav_light_a"
+        culture="Culture.shaghana"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_light_b"
+        name="{=aom_sk_sg_st_bard_cav_light_b_name}[Shaghana] Southron Light Barding II"
+        mesh="sk_sg_st_bard_cav_light_b"
+        culture="Culture.shaghana"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="20"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_med_a"
+        name="{=aom_sk_sg_st_bard_cav_med_a_name}[Shaghana] Southron Barding I"
+        mesh="sk_sg_st_bard_cav_med_a"
+        culture="Culture.shaghana"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_med_b"
+        name="{=aom_sk_sg_st_bard_cav_med_b_name}[Shaghana] Southron Barding II"
+        mesh="sk_sg_st_bard_cav_med_b"
+        culture="Culture.shaghana"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="32"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_heavy_a"
+        name="{=aom_sk_sg_st_bard_cav_heavy_a_name}[Shaghana] Southron Heavy Barding I"
+        mesh="sk_sg_st_bard_cav_heavy_a"
+        culture="Culture.shaghana"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_bard_cav_heavy_b"
+        name="{=aom_sk_sg_st_bard_cav_heavy_b_name}[Shaghana] Southron Heavy Barding II"
+        mesh="sk_sg_st_bard_cav_heavy_b"
+        culture="Culture.shaghana"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="40"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+    <Item
+        id="sk_sg_st_saddle_a"
+        name="{=aom_sk_sg_st_saddle_a_name}[Shaghana] Southron Saddle"
+        mesh="sk_sg_st_saddle_a"
+        culture="Culture.shaghana"
+        weight="10"
+        is_merchandise="true"
+        appearance="1"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="12"
+                mane_cover_type="none"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
 
 </Items>

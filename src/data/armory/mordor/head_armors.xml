@@ -183,10 +183,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="25"
+                head_armor="33"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type3" />
         </ItemComponent>
@@ -231,10 +231,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="25"
+                head_armor="33"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type3" />
         </ItemComponent>
@@ -279,10 +279,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="25"
+                head_armor="33"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type3" />
         </ItemComponent>
@@ -327,10 +327,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="15"
+                head_armor="33"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="leather"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type3" />
         </ItemComponent>
@@ -519,7 +519,7 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="33"
+                head_armor="39"
                 has_gender_variations="false"
                 hair_cover_type="all"
                 modifier_group="plate"
@@ -569,10 +569,11 @@
             <Armor
                 head_armor="48"
                 has_gender_variations="false"
+                covers_head="true"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type3" />
+                beard_cover_type="all" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -593,10 +594,11 @@
             <Armor
                 head_armor="48"
                 has_gender_variations="false"
+                covers_head="true"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type3" />
+                beard_cover_type="all" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -664,6 +666,7 @@
             <Armor
                 head_armor="50"
                 has_gender_variations="false"
+                covers_head="true"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
@@ -688,6 +691,7 @@
             <Armor
                 head_armor="50"
                 has_gender_variations="false"
+                covers_head="true"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
@@ -712,6 +716,7 @@
             <Armor
                 head_armor="50"
                 has_gender_variations="false"
+                covers_head="true"
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
@@ -1448,7 +1453,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="22" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
+            <Armor head_armor="29" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1465,7 +1470,7 @@
         appearance="4"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="29" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="34" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -1669,7 +1674,7 @@
         appearance="3"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="22" has_gender_variations="false" hair_cover_type="all" modifier_group="chain" material_type="Chainmail" beard_cover_type="all" />
+            <Armor head_armor="29" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Chainmail" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -2773,6 +2778,23 @@
             <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item
+        id="sk_mordor_mouth_of_sauron_helm"
+        name="{=aom_sk_mordor_mouth_of_sauron_helm_name}[Mordor] Helm of the Mouth of Sauron"
+        subtype="head_armor"
+        mesh="sk_mordor_mouth_of_sauron_helm"
+        culture="Culture.mordor"
+        is_merchandise="false"
+        weight="5.5"
+        difficulty="0"
+        appearance="7"
+        Type="HeadArmor">
+        <ItemComponent>
+            <Armor head_armor="50" has_gender_variations="false" covers_head="true" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+        </ItemComponent>
+        <Flags Civilian="true" />
     </Item>
 
 </Items>

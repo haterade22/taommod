@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { parser, getDataDir, stripLocKey } from './xml-shared';
+import { parser, getDataDir, stripLocKey, GENERATED_EQUIPMENT_FILES } from './xml-shared';
 import type { ArmorItem } from './xml-shared';
 
 // Map subfolder name to slot display name
@@ -12,11 +12,6 @@ const ARMOR_SLOT_MAP: Record<string, string> = {
   shoulder_armors: 'Shoulder',
   starter_armors: 'Starter',
 };
-
-// Generated, non-merchandise item sets that live in the culture folders but are not
-// player-facing armour: ranged_ladder is an AI missile-speed ladder of bow clones,
-// starter_kit is stat-floored twins of the player's starting loadout (mixed weapons/armour).
-const EXCLUDED_ARMOR_FILES = new Set(['ranged_ladder', 'starter_kit']);
 
 export function parseArmory(): ArmorItem[] {
   const dataDir = getDataDir();
@@ -33,8 +28,8 @@ export function parseArmory(): ArmorItem[] {
     const cultureDir = path.join(armoryDir, culture);
     const files = fs.readdirSync(cultureDir).filter((f) => f.endsWith('.xml'));
     for (const file of files) {
+      if (GENERATED_EQUIPMENT_FILES.has(file)) continue;
       const slotKey = file.replace('.xml', '');
-      if (EXCLUDED_ARMOR_FILES.has(slotKey)) continue;
       const slot = ARMOR_SLOT_MAP[slotKey] || slotKey;
       const xml = fs.readFileSync(path.join(cultureDir, file), 'utf-8');
       const parsed = parser.parse(xml);
@@ -49,7 +44,7 @@ export function parseArmory(): ArmorItem[] {
           mesh: item['@_mesh'] || '',
           culture: culture,
           type: item['@_Type'] || '',
-          slot,
+          slot: item['@_Type'] === 'HorseHarness' ? 'Mount' : slot,
           weight: parseFloat(item['@_weight']) || 0,
           appearance: parseFloat(item['@_appearance']) || 0,
           headArmor: parseInt(armor?.['@_head_armor']) || 0,

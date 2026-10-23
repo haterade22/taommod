@@ -4,7 +4,7 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: sm_dg_khml_shield_med_a, khuzait_sword_1_t2, sm_rh_loke_shield_med_a, sm_rh_loke_spear_a, sk_rh_loke_chest_light_a, sk_rh_loke_boots_a, sk_rh_loke_tunic_a, sk_rh_loke_pauldron_lam_heavy_a, hunting_bow, composite_steppe_bow, steppe_arrows
+  theirs from the floored stats. Donors: sm_dg_khml_shield_med_a, khuzait_sword_1_t2, sm_rh_loke_shield_med_a, sm_rh_loke_spear_a, sk_rh_loke_chest_light_a, sk_rh_loke_boots_a, sk_rh_loke_tunic_a, sk_rh_loke_pauldron_lam_heavy_a, hunting_bow, eastern_leather_boots, composite_steppe_bow, steppe_arrows
 -->
 <Items>
     <Item id="starter_sm_dg_khml_shield_med_a" name="{=starter_sm_dg_khml_shield_med_a}[Rhûn] Khamul Medium Shield I (Starter)" body_name="bo_cap_sm_rh_loke_shield_a" shield_body_name="bo_sm_rh_loke_shield_a" recalculate_body="false" mesh="sm_dg_khml_shield_med_a" culture="Culture.khuzait" using_tableau="false" weight="3.5" appearance="1" Type="Shield" is_merchandise="false" item_holsters="shield_kite:shield_2:shield_3:shield_4" has_lower_holster_priority="true" holster_position_shift="0.0,0.1,0" difficulty="0">
@@ -39,19 +39,19 @@
     </CraftedItem>
     <Item id="starter_sk_rh_loke_chest_light_a" name="{=starter_sk_rh_loke_chest_light_a}[Rhûn] Loke-Rim Lamellar Armor (Starter)" subtype="body_armor" mesh="sk_rh_loke_chest_light_a" culture="Culture.khuzait" is_merchandise="false" weight="7.2" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
     <Item id="starter_sk_rh_loke_boots_a" name="{=starter_sk_rh_loke_boots_a}[Rhûn] Loke-Rim Noble Boots (Starter)" mesh="sk_rh_loke_boots_a" culture="Culture.khuzait" is_merchandise="false" weight="1.4" difficulty="0" appearance="3" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="9" covers_legs="true" modifier_group="cloth" material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
     <Item id="starter_sk_rh_loke_tunic_a" name="{=starter_sk_rh_loke_tunic_a}[Rhûn] Loke-Rim Tunic (Starter)" subtype="body_armor" mesh="sk_rh_loke_tunic_a" culture="Culture.khuzait" is_merchandise="false" weight="7.2" difficulty="0" appearance="1.5" Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="cloth" material_type="Cloth" />
+            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Cloth" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -68,6 +68,12 @@
             </Weapon>
         </ItemComponent>
         <Flags ForceAttachOffHandPrimaryItemBone="true" />
+    </Item>
+    <Item id="starter_eastern_leather_boots" name="{=starter_eastern_leather_boots}Leather Riding Boots (Starter)" mesh="plated_leather_armor_boot" culture="Culture.khuzait" weight="1.1" appearance="1" Type="LegArmor" is_merchandise="false" difficulty="0">
+        <ItemComponent>
+            <Armor leg_armor="6" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
     </Item>
     <Item id="starter_composite_steppe_bow" name="{=starter_composite_steppe_bow}Steppe Recurve Bow (Starter)" body_name="bo_shortbow_d" mesh="shortbow_d" holster_mesh="shortbow_d_holster" holster_mesh_with_weapon="shortbow_d_holster_weapon" culture="Culture.khuzait" weight="0.3" difficulty="0" appearance="0.4" Type="Bow" item_holsters="bow_hip:bow_hip_2" is_merchandise="false">
         <ItemComponent>

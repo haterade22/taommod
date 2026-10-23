@@ -37,7 +37,7 @@
     </Item>
     <Item id="starter_rivendell_boots_leather1" name="{=starter_rivendell_boots_leather1}[Noldor] Leather Boots I (Starter)" mesh="rivendell_boots_leather1" culture="Culture.rivendell" is_merchandise="false" weight="1.0" difficulty="0" appearance="3" Type="LegArmor">
         <ItemComponent>
-            <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
+            <Armor leg_armor="9" covers_legs="true" modifier_group="cloth" material_type="Leather" />
         </ItemComponent>
         <Flags />
     </Item>
@@ -53,7 +53,7 @@
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
-    <Item id="starter_highelf_longbow" name="{=starter_highelf_longbow}[Noldor] Longbow - Starting (Starter)" body_name="bo_wm_elven_bow_v1" mesh="wm_elven_bow_v1" is_merchandise="false" culture="Culture.rivendell" weight="0.4" difficulty="0" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
+    <Item id="starter_highelf_longbow" name="{=starter_highelf_longbow}[Noldor] Longbow - Starting (Starter)" body_name="bo_wm_elven_bow_a01" mesh="wm_elven_bow_a01" is_merchandise="false" culture="Culture.rivendell" weight="0.4" difficulty="0" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
         <ItemComponent>
             <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="78" speed_rating="75" missile_speed="70" weapon_length="182" accuracy="70" thrust_damage="45" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
                 <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
@@ -61,7 +61,7 @@
         </ItemComponent>
         <Flags ForceAttachOffHandPrimaryItemBone="true" />
     </Item>
-    <Item id="starter_wm_elven_arrow_v1_a" name="{=starter_wm_elven_arrow_v1_a}[Noldor] Elven Arrow I (Starter)" body_name="bo_capsule_arrow" holster_body_name="bo_axe_short" mesh="wm_mirkwood_arrow_a01" holster_mesh="wm_elven_quiver_1_v1" holster_mesh_with_weapon="wm_elven_quiver_1_v1" weight="0.041" culture="Culture.rivendell" is_merchandise="false" flying_mesh="arrow_bl_flying" appearance="1" Type="Arrows" item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts" holster_position_shift="0.0,0.0,0.15" difficulty="0">
+    <Item id="starter_wm_elven_arrow_v1_a" name="{=starter_wm_elven_arrow_v1_a}[Noldor] Elven Arrow I (Starter)" body_name="bo_capsule_arrow" holster_body_name="bo_axe_short" mesh="wm_mirkwood_arrow_a01" holster_mesh="wm_elven_quiver_v1_a" holster_mesh_with_weapon="wm_elven_quiver_v1_a" weight="0.041" culture="Culture.rivendell" is_merchandise="false" flying_mesh="arrow_bl_flying" appearance="1" Type="Arrows" item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts" holster_position_shift="0.0,0.0,0.15" difficulty="0">
         <ItemComponent>
             <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="1" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />

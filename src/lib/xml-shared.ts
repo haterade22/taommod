@@ -27,6 +27,9 @@ export function getDataDir(): string {
   return path.resolve(process.cwd(), 'src', 'data');
 }
 
+// AI bow-speed clones and stat-floored player-start twins are not catalogue equipment.
+export const GENERATED_EQUIPMENT_FILES = new Set(['ranged_ladder.xml', 'starter_kit.xml']);
+
 // Map vanilla Bannerlord culture IDs to LOTR faction names
 const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   aserai: 'Harad',

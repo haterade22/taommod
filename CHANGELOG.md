@@ -2,6 +2,15 @@
 
 All notable changes to the TAOM website data and features are documented here.
 
+## [2026-10-23] — 2.0.35 Equipment Sync
+
+- Synced 135 equipment XML/XSLT sources from the `TAOM_Development_2_0_35` release, including armour, weapons, shields, mounts, harnesses, crafting pieces and weapon descriptions.
+- **Armoury: 2,904 → 3,023 entries**, including 18 new horse/camel harnesses stored with Harad body armour and displayed under a new Mount tab. Harwan and Shaghana equipment replaces the legacy Haradrim pieces; Gondor gains new Lamedon and Ringló Vale pieces.
+- **Weaponry: 623 → 667 entries** — melee 329 → 345, bows/crossbows 38 → 41, ammunition 30 → 31, and shields 226 → 250.
+- The weapon parser now reads regular equipment from culture folders as well as the main weapon/shield files. This includes all 41 entries in the new `harad/weapons.xml`, with shield protection and crafted weapon damage preserved.
+- **Mount sources: 10 → 22 mounts; harnesses 34 → 68.** New entries include spiders, elk and other animal mounts, plus additional elephant and Black Númenórean barding.
+- Both equipment parsers share the exclusions for generated `ranged_ladder.xml` and `starter_kit.xml` clones. Regular `starter_armors.xml` entries remain in the catalogue.
+
 ## [2026-09-14] — Mod Data Sync
 
 ### Weapons — Gondor / Rhûn / Númenórean Rebalance

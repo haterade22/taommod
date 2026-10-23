@@ -26,7 +26,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_med_a"
-        name="{=aom_sk_ar_art_helmet_inf_med_a_name}[Arnor] Infantry Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_med_a_name}[Arnor] Infantry Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_med_a"
         culture="Culture.gondor"
@@ -49,7 +49,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_med_b"
-        name="{=aom_sk_ar_art_helmet_inf_med_b_name}[Arnor] Infantry Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_med_b_name}[Arnor] Infantry Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_med_b"
         culture="Culture.gondor"
@@ -72,7 +72,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_hvy_a"
-        name="{=aom_sk_ar_art_helmet_inf_hvy_a_name}[Arnor] Infantry Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_hvy_a_name}[Arnor] Infantry Heavy Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_hvy_a"
         culture="Culture.gondor"
@@ -88,14 +88,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_hvy_b"
-        name="{=aom_sk_ar_art_helmet_inf_hvy_b_name}[Arnor] Infantry Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_hvy_b_name}[Arnor] Infantry Heavy Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_hvy_b"
         culture="Culture.gondor"
@@ -118,7 +118,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_elite_a"
-        name="{=aom_sk_ar_art_helmet_inf_elite_a_name}[Arnor] Infantry Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_elite_a_name}[Arnor] Infantry Elite Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_elite_a"
         culture="Culture.gondor"
@@ -134,14 +134,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_inf_elite_b"
-        name="{=aom_sk_ar_art_helmet_inf_elite_b_name}[Arnor] Infantry Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_inf_elite_b_name}[Arnor] Infantry Elite Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_inf_elite_b"
         culture="Culture.gondor"
@@ -189,7 +189,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_med_a"
-        name="{=aom_sk_ar_art_helmet_noble_med_a_name}[Arnor] Noble Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_med_a_name}[Arnor] Noble Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_med_a"
         culture="Culture.gondor"
@@ -212,7 +212,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_med_b"
-        name="{=aom_sk_ar_art_helmet_noble_med_b_name}[Arnor] Noble Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_med_b_name}[Arnor] Noble Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_med_b"
         culture="Culture.gondor"
@@ -235,7 +235,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_heavy_a"
-        name="{=aom_sk_ar_art_helmet_noble_heavy_a_name}[Arnor] Noble Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_heavy_a_name}[Arnor] Noble Heavy Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_heavy_a"
         culture="Culture.gondor"
@@ -251,14 +251,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_heavy_b"
-        name="{=aom_sk_ar_art_helmet_noble_heavy_b_name}[Arnor] Noble Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_heavy_b_name}[Arnor] Noble Heavy Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_heavy_b"
         culture="Culture.gondor"
@@ -281,7 +281,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_elite_a"
-        name="{=aom_sk_ar_art_helmet_noble_elite_a_name}[Arnor] Noble Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_elite_a_name}[Arnor] Noble Elite Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_elite_a"
         culture="Culture.gondor"
@@ -297,14 +297,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_elite_b"
-        name="{=aom_sk_ar_art_helmet_noble_elite_b_name}[Arnor] Noble Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_elite_b_name}[Arnor] Noble Elite Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_elite_b"
         culture="Culture.gondor"
@@ -350,7 +350,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_prince_a"
-        name="{=aom_sk_ar_art_helmet_noble_prince_a_name}[Arnor] Prince's Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_prince_a_name}[Arnor] Prince's Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_prince_a"
         culture="Culture.gondor"
@@ -366,14 +366,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_noble_prince_b"
-        name="{=aom_sk_ar_art_helmet_noble_prince_b_name}[Arnor] Prince's Helmet"
+        name="{=aom_sk_ar_art_helmet_noble_prince_b_name}[Arnor] Prince's Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_noble_prince_b"
         culture="Culture.gondor"
@@ -414,7 +414,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -423,7 +423,7 @@
     <!-- [Arnor] Head Armor - Cavalry -->
     <Item
         id="sk_ar_art_helmet_cav_heavy_a"
-        name="{=aom_sk_ar_art_helmet_cav_heavy_a_name}[Arnor] Cavalry Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_cav_heavy_a_name}[Arnor] Cavalry Heavy Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_cav_heavy_a"
         culture="Culture.gondor"
@@ -439,14 +439,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_cav_heavy_b"
-        name="{=aom_sk_ar_art_helmet_cav_heavy_b_name}[Arnor] Cavalry Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_cav_heavy_b_name}[Arnor] Cavalry Heavy Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_cav_heavy_b"
         culture="Culture.gondor"
@@ -469,7 +469,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_cav_elite_a"
-        name="{=aom_sk_ar_art_helmet_cav_elite_a_name}[Arnor] Cavalry Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_cav_elite_a_name}[Arnor] Cavalry Elite Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_cav_elite_a"
         culture="Culture.gondor"
@@ -492,7 +492,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_cav_elite_b"
-        name="{=aom_sk_ar_art_helmet_cav_elite_b_name}[Arnor] Cavalry Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_cav_elite_b_name}[Arnor] Cavalry Elite Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_cav_elite_b"
         culture="Culture.gondor"
@@ -508,7 +508,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -517,7 +517,7 @@
     <!-- [Arnor] Head Armor - Guard -->
     <Item
         id="sk_ar_art_helmet_guard_heavy_a"
-        name="{=aom_sk_ar_art_helmet_guard_heavy_a_name}[Arnor] Guard Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_guard_heavy_a_name}[Arnor] Guard Heavy Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_guard_heavy_a"
         culture="Culture.gondor"
@@ -533,14 +533,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_guard_heavy_b"
-        name="{=aom_sk_ar_art_helmet_guard_heavy_b_name}[Arnor] Guard Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_guard_heavy_b_name}[Arnor] Guard Heavy Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_guard_heavy_b"
         culture="Culture.gondor"
@@ -556,14 +556,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_guard_elite_a"
-        name="{=aom_sk_ar_art_helmet_guard_elite_a_name}[Arnor] Guard Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_guard_elite_a_name}[Arnor] Guard Elite Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_guard_elite_a"
         culture="Culture.gondor"
@@ -586,7 +586,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_guard_elite_b"
-        name="{=aom_sk_ar_art_helmet_guard_elite_b_name}[Arnor] Guard Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_guard_elite_b_name}[Arnor] Guard Elite Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_guard_elite_b"
         culture="Culture.gondor"
@@ -602,7 +602,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -611,7 +611,7 @@
     <!-- [Arnor] Head Armor - Warden -->
     <Item
         id="sk_ar_art_helmet_warden_heavy_a"
-        name="{=aom_sk_ar_art_helmet_warden_heavy_a_name}[Arnor] Warden Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_warden_heavy_a_name}[Arnor] Warden Heavy Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_warden_heavy_a"
         culture="Culture.gondor"
@@ -627,14 +627,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="type1" />
+                beard_cover_type="none" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_ar_art_helmet_warden_heavy_b"
-        name="{=aom_sk_ar_art_helmet_warden_heavy_b_name}[Arnor] Warden Heavy Helmet"
+        name="{=aom_sk_ar_art_helmet_warden_heavy_b_name}[Arnor] Warden Heavy Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_warden_heavy_b"
         culture="Culture.gondor"
@@ -657,7 +657,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_warden_elite_a"
-        name="{=aom_sk_ar_art_helmet_warden_elite_a_name}[Arnor] Warden Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_warden_elite_a_name}[Arnor] Warden Elite Helmet I"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_warden_elite_a"
         culture="Culture.gondor"
@@ -680,7 +680,7 @@
     </Item>
     <Item
         id="sk_ar_art_helmet_warden_elite_b"
-        name="{=aom_sk_ar_art_helmet_warden_elite_b_name}[Arnor] Warden Elite Helmet"
+        name="{=aom_sk_ar_art_helmet_warden_elite_b_name}[Arnor] Warden Elite Helmet II"
         subtype="head_armor"
         mesh="sk_ar_art_helmet_warden_elite_b"
         culture="Culture.gondor"
@@ -696,7 +696,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type2" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />

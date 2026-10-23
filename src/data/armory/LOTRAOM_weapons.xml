@@ -926,7 +926,7 @@
         id="wm_cave_troll_1h_mace_a"
         name="{=aom_wm_cave_troll_1h_mace_a_name}[Mordor] Troll Mace I"
         crafting_template="Mace"
-        is_merchandise="true"
+        is_merchandise="false"
         culture="Culture.mordor"
         modifier_group="false">
         <Pieces>
@@ -993,6 +993,25 @@
                 scale_factor="100" />
             <Piece
                 id="wm_cave_troll_2h_mace_handle"
+                Type="Handle"
+                scale_factor="100" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem
+        id="wm_hill_troll_2h_hammer_a"
+        name="{=aom_wm_hill_troll_2h_hammer_a_name}[Mordor] Hill Troll War Hammer I"
+        crafting_template="TwoHandedMace"
+        culture="Culture.mordor"
+        is_merchandise="false"
+        modifier_group="polearm">
+        <Pieces>
+            <Piece
+                id="wm_hill_troll_2h_hammer_head"
+                Type="Blade"
+                scale_factor="100" />
+            <Piece
+                id="wm_hill_troll_2h_hammer_handle"
                 Type="Handle"
                 scale_factor="100" />
         </Pieces>
@@ -1342,6 +1361,70 @@
         </Pieces>
     </CraftedItem>
 
+    <CraftedItem id="wm_gondor_light_spear_pg" name="{=aom_wm_gondor_light_spear_pg_name}[Gondor] Light Spear - Pinnath Gelin" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_light_spear_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_pg" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_light_spear_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_light_spear_swan" name="{=aom_wm_gondor_light_spear_swan_name}[Gondor] Light Spear - Swan Knight" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_light_spear_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_swan" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_light_spear_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_light_spear_gondor" name="{=aom_wm_gondor_light_spear_gondor_name}[Gondor] Light Spear - Gondor" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_light_spear_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_gondor" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_light_spear_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_light_spear_cardolan" name="{=aom_wm_gondor_light_spear_cardolan_name}[Gondor] Light Spear - Cardolan" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_light_spear_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_cardolan" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_light_spear_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_spear_b_pg" name="{=aom_wm_gondor_spear_b_pg_name}[Gondor] Heavy Spear - Pinnath Gelin" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" value="6000" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_spear_b_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_pg" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_spear_b_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_spear_b_swan" name="{=aom_wm_gondor_spear_b_swan_name}[Gondor] Heavy Spear - Swan Knight" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" value="6000" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_spear_b_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_swan" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_spear_b_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_spear_b_gondor" name="{=aom_wm_gondor_spear_b_gondor_name}[Gondor] Heavy Spear - Gondor" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" value="6000" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_spear_b_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_gondor" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_spear_b_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
+    <CraftedItem id="wm_gondor_spear_b_cardolan" name="{=aom_wm_gondor_spear_b_cardolan_name}[Gondor] Heavy Spear - Cardolan" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="true" value="6000" modifier_group="polearm">
+        <Pieces>
+            <Piece id="wm_gondor_spear_b_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_cardolan" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_spear_b_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+
     <CraftedItem
         id="wm_swan_knight_lance_a"
         name="{=wm_swan_knight_lance_a}[Gondor] Swan Knight Lance I"
@@ -1382,119 +1465,7 @@
         </Pieces>
     </CraftedItem>
 
-    <CraftedItem
-        id="wm_gondor_swanknight_spearb"
-        name="{=aom_wm_gondor_swanknight_spearb_name}[Gondor] Spear - Belfalas I"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_swan_knight_spear_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_swanknight_speara"
-        name="{=aom_wm_gondor_swanknight_speara_name}[Gondor] Banner Spear - Belfalas"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_swan_knight_spear_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_banner"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_gondorknight_speara"
-        name="{=aom_wm_gondor_gondorknight_speara_name}[Gondor] Banner Spear I"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece
-                id="wm_swan_knight_spear_blade"
-                Type="Blade"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_gondor_banner"
-                Type="Guard"
-                scale_factor="100" />
-            <Piece
-                id="wm_swan_knight_spear_handle"
-                Type="Handle"
-                scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_pg_speara"
-        name="{=aom_wm_gondor_pg_speara_name}[Gondor] Spear - Pinnath Gelin  I"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-			<Piece id="wm_swan_knight_spear_pg_blade" Type="Blade" scale_factor="100" />
-			<Piece id="wm_swan_knight_spear_pg_handle" Type="Handle" scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
     <!-- Swan Knight full-variant spears (Gondor + PG blade/handle/banner finishes matched) -->
-
-    <CraftedItem
-        id="wm_gondor_gondorknight_spearb"
-        name="{=aom_wm_gondor_gondorknight_spearb_name}[Gondor] Banner Spear II"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece id="wm_swan_knight_spear_gondor_blade" Type="Blade" scale_factor="100" />
-            <Piece id="wm_swan_knight_spear_gondor_banner" Type="Guard" scale_factor="100" />
-            <Piece id="wm_swan_knight_spear_gondor_handle" Type="Handle" scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
-
-    <CraftedItem
-        id="wm_gondor_pg_spearb"
-        name="{=aom_wm_gondor_pg_spearb_name}[Gondor] Banner Spear - Pinnath Gelin I"
-        crafting_template="TwoHandedPolearm"
-        culture="Culture.gondor"
-        is_merchandise="true"
-        value="6000"
-        modifier_group="polearm">
-        <Pieces>
-            <Piece id="wm_swan_knight_spear_pg_blade" Type="Blade" scale_factor="100" />
-            <Piece id="wm_swan_knight_spear_pg_banner" Type="Guard" scale_factor="100" />
-            <Piece id="wm_swan_knight_spear_pg_handle" Type="Handle" scale_factor="100" />
-        </Pieces>
-    </CraftedItem>
 
     <!--Gondor
 	1H Sword-->
@@ -3476,8 +3447,8 @@
     <Item
         id="highelf_longbowa"
         name="{=aom_highelf_longbowa_name}[Noldor] Longbow I"
-        body_name="bo_wm_elven_bow_v1"
-        mesh="wm_elven_bow_v1"
+        body_name="bo_wm_elven_bow_a01"
+        mesh="wm_elven_bow_a01"
         is_merchandise="true"
         culture="Culture.rivendell"
         weight="0.1"
@@ -3494,8 +3465,8 @@
                 speed_rating="88"
                 missile_speed="88"
                 weapon_length="182"
-                accuracy="100"
-                thrust_damage="105"
+                accuracy="98"
+                thrust_damage="72"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3519,8 +3490,8 @@
     <Item
         id="highelf_longbow_starter"
         name="{=aom_highelf_longbow_starter_name}[Noldor] Longbow - Starting"
-        body_name="bo_wm_elven_bow_v1"
-        mesh="wm_elven_bow_v1"
+        body_name="bo_wm_elven_bow_a01"
+        mesh="wm_elven_bow_a01"
         is_merchandise="true"
         culture="Culture.rivendell"
         weight="0.4"
@@ -3538,7 +3509,7 @@
                 missile_speed="70"
                 weapon_length="182"
                 accuracy="70"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3562,8 +3533,8 @@
     <Item
         id="highelf_longbowb"
         name="{=aom_highelf_longbowb_name}[Noldor] Longbow II"
-        body_name="bo_wm_elven_bow_v2"
-        mesh="wm_elven_bow_v2"
+        body_name="bo_wm_elven_bow_a02"
+        mesh="wm_elven_bow_a02"
         is_merchandise="true"
         culture="Culture.rivendell"
         weight="0.2"
@@ -3580,8 +3551,8 @@
                 speed_rating="88"
                 missile_speed="90"
                 weapon_length="182"
-                accuracy="100"
-                thrust_damage="110"
+                accuracy="98"
+                thrust_damage="78"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3605,8 +3576,8 @@
     <Item
         id="highelf_longbowc"
         name="{=aom_highelf_longbowc_name}[Noldor] Longbow III"
-        body_name="bo_wm_elven_bow_v3"
-        mesh="wm_elven_bow_v3"
+        body_name="bo_wm_elven_bow_a03"
+        mesh="wm_elven_bow_a03"
         is_merchandise="true"
         culture="Culture.rivendell"
         weight="0.3"
@@ -3623,8 +3594,8 @@
                 speed_rating="88"
                 missile_speed="95"
                 weapon_length="184"
-                accuracy="100"
-                thrust_damage="112"
+                accuracy="98"
+                thrust_damage="84"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3648,8 +3619,8 @@
     <Item
         id="highelf_longbowd"
         name="{=aom_highelf_longbowd_name}[Noldor] Longbow IV"
-        body_name="bo_wm_elven_bow_v4"
-        mesh="wm_elven_bow_v4"
+        body_name="bo_wm_elven_bow_a04"
+        mesh="wm_elven_bow_a04"
         is_merchandise="true"
         culture="Culture.rivendell"
         weight="0.3"
@@ -3666,8 +3637,8 @@
                 speed_rating="99"
                 missile_speed="100"
                 weapon_length="188"
-                accuracy="100"
-                thrust_damage="115"
+                accuracy="98"
+                thrust_damage="90"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3710,7 +3681,7 @@
                 missile_speed="92"
                 weapon_length="182"
                 accuracy="95"
-                thrust_damage="93"
+                thrust_damage="70"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -3753,7 +3724,7 @@
                 missile_speed="94"
                 weapon_length="182"
                 accuracy="95"
-                thrust_damage="99"
+                thrust_damage="78"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -3795,8 +3766,8 @@
                 speed_rating="95"
                 missile_speed="97"
                 weapon_length="182"
-                accuracy="100"
-                thrust_damage="102"
+                accuracy="98"
+                thrust_damage="86"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -3839,7 +3810,7 @@
                 missile_speed="75"
                 weapon_length="182"
                 accuracy="75"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -3882,7 +3853,7 @@
                 missile_speed="88"
                 weapon_length="182"
                 accuracy="90"
-                thrust_damage="85"
+                thrust_damage="60"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -3925,7 +3896,7 @@
                 missile_speed="85"
                 weapon_length="113"
                 accuracy="90"
-                thrust_damage="81"
+                thrust_damage="52"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -3968,7 +3939,7 @@
                 missile_speed="89"
                 weapon_length="113"
                 accuracy="93"
-                thrust_damage="85"
+                thrust_damage="66"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4011,7 +3982,7 @@
                 missile_speed="70"
                 weapon_length="113"
                 accuracy="75"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4054,7 +4025,7 @@
                 missile_speed="85"
                 weapon_length="113"
                 accuracy="85"
-                thrust_damage="81"
+                thrust_damage="56"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4097,7 +4068,7 @@
                 missile_speed="70"
                 weapon_length="113"
                 accuracy="70"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4140,7 +4111,7 @@
                 missile_speed="90"
                 weapon_length="131"
                 accuracy="90"
-                thrust_damage="83"
+                thrust_damage="58"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4183,7 +4154,7 @@
                 missile_speed="75"
                 weapon_length="131"
                 accuracy="75"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4226,7 +4197,7 @@
                 missile_speed="90"
                 weapon_length="131"
                 accuracy="90"
-                thrust_damage="86"
+                thrust_damage="66"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4267,7 +4238,7 @@
                 ammo_class="Bolt"
                 missile_speed="60"
                 accuracy="90"
-                thrust_damage="97"
+                thrust_damage="90"
                 thrust_speed="80"
                 speed_rating="80"
                 weapon_length="94"
@@ -4310,8 +4281,8 @@
                 speed_rating="99"
                 missile_speed="99"
                 weapon_length="156"
-                accuracy="99"
-                thrust_damage="99"
+                accuracy="98"
+                thrust_damage="86"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -4352,8 +4323,8 @@
                 speed_rating="99"
                 missile_speed="99"
                 weapon_length="156"
-                accuracy="99"
-                thrust_damage="94"
+                accuracy="98"
+                thrust_damage="80"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4395,7 +4366,7 @@
                 missile_speed="85"
                 weapon_length="156"
                 accuracy="80"
-                thrust_damage="83"
+                thrust_damage="62"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4437,7 +4408,7 @@
                 missile_speed="85"
                 weapon_length="156"
                 accuracy="80"
-                thrust_damage="99"
+                thrust_damage="86"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -4465,8 +4436,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        holster_mesh="wm_elven_quiver_v1_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4484,7 +4455,7 @@
                 speed_rating="0"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4513,8 +4484,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_2_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        holster_mesh="wm_elven_quiver_v2_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4527,7 +4498,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4556,8 +4527,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_3_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v1"
+        holster_mesh="wm_elven_quiver_v3_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4570,7 +4541,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4599,8 +4570,8 @@
         weight="0.05"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_4_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_4_v1"
+        holster_mesh="wm_elven_quiver_v4_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v4_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4613,7 +4584,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4637,8 +4608,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        holster_mesh="wm_elven_quiver_v1_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4656,7 +4627,7 @@
                 speed_rating="0"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4680,8 +4651,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        holster_mesh="wm_elven_quiver_v1_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4699,7 +4670,7 @@
                 speed_rating="0"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4723,8 +4694,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v1"
+        holster_mesh="wm_elven_quiver_v1_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4742,7 +4713,7 @@
                 speed_rating="0"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4771,8 +4742,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_2_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        holster_mesh="wm_elven_quiver_v2_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4785,7 +4756,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4814,8 +4785,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_2_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        holster_mesh="wm_elven_quiver_v2_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4828,7 +4799,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4857,8 +4828,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_2_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v1"
+        holster_mesh="wm_elven_quiver_v2_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -4871,7 +4842,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -4899,8 +4870,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v2"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v2"
+        holster_mesh="wm_elven_quiver_v1_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_b"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4910,7 +4881,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -4923,8 +4894,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v3"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v3"
+        holster_mesh="wm_elven_quiver_v1_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4934,7 +4905,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -4947,8 +4918,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_1_v4"
-        holster_mesh_with_weapon="wm_elven_quiver_1_v4"
+        holster_mesh="wm_elven_quiver_v1_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v1_b"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4958,7 +4929,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -4971,8 +4942,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_2_v2"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v2"
+        holster_mesh="wm_elven_quiver_v2_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_b"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -4982,7 +4953,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -4995,8 +4966,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_2_v3"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v3"
+        holster_mesh="wm_elven_quiver_v2_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_a"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5006,7 +4977,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5019,8 +4990,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_2_v4"
-        holster_mesh_with_weapon="wm_elven_quiver_2_v4"
+        holster_mesh="wm_elven_quiver_v2_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v2_b"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5030,7 +5001,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5043,8 +5014,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_3_v2"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v2"
+        holster_mesh="wm_elven_quiver_v3_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_b"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5054,7 +5025,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5067,8 +5038,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_3_v3"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v3"
+        holster_mesh="wm_elven_quiver_v3_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_a"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5078,7 +5049,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5091,8 +5062,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a01"
-        holster_mesh="wm_elven_quiver_3_v4"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v4"
+        holster_mesh="wm_elven_quiver_v3_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_b"
         weight="0.041"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5102,7 +5073,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5115,8 +5086,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_4_v2"
-        holster_mesh_with_weapon="wm_elven_quiver_4_v2"
+        holster_mesh="wm_elven_quiver_v4_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v4_b"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5126,7 +5097,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5139,8 +5110,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_4_v3"
-        holster_mesh_with_weapon="wm_elven_quiver_4_v3"
+        holster_mesh="wm_elven_quiver_v4_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v4_a"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5150,7 +5121,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5163,8 +5134,8 @@
         body_name="bo_capsule_arrow"
         holster_body_name="bo_axe_short"
         mesh="wm_mirkwood_arrow_a02"
-        holster_mesh="wm_elven_quiver_4_v4"
-        holster_mesh_with_weapon="wm_elven_quiver_4_v4"
+        holster_mesh="wm_elven_quiver_v4_b"
+        holster_mesh_with_weapon="wm_elven_quiver_v4_b"
         weight="0.05"
         culture="Culture.rivendell"
         is_merchandise="true"
@@ -5174,7 +5145,7 @@
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
         <ItemComponent>
-            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="5" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
+            <Weapon weapon_class="Arrow" stack_amount="50" physics_material="missile" thrust_speed="0" speed_rating="0" missile_speed="10" weapon_length="97" thrust_damage="4" thrust_damage_type="Pierce" item_usage="arrow_right" passby_sound_code="event:/mission/combat/missile/passby" rotation="0, -80, 25" sticking_position="0,-0.97,0" sticking_rotation="90,0,0" center_of_mass="0,0,-0.13" modifier_group="arrow">
                 <WeaponFlags Consumable="true" AmmoSticksWhenShot="true" AmmoBreaksOnBounceBack="true" />
             </Weapon>
         </ItemComponent>
@@ -5192,8 +5163,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_3_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v1"
+        holster_mesh="wm_elven_quiver_v3_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -5206,7 +5177,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -5235,8 +5206,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_3_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v1"
+        holster_mesh="wm_elven_quiver_v3_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -5249,7 +5220,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -5278,8 +5249,8 @@
         is_merchandise="true"
         appearance="1"
         flying_mesh="arrow_bl_flying"
-        holster_mesh="wm_elven_quiver_3_v1"
-        holster_mesh_with_weapon="wm_elven_quiver_3_v1"
+        holster_mesh="wm_elven_quiver_v3_a"
+        holster_mesh_with_weapon="wm_elven_quiver_v3_a"
         Type="Arrows"
         item_holsters="quiver_back_middle:quiver_bolts_2:quiver_bolts"
         holster_position_shift="0.0,0.0,0.15">
@@ -5292,7 +5263,7 @@
                 physics_material="missile"
                 missile_speed="10"
                 weapon_length="97"
-                thrust_damage="5"
+                thrust_damage="4"
                 thrust_damage_type="Pierce"
                 item_usage="arrow_right"
                 passby_sound_code="event:/mission/combat/missile/passby"
@@ -5375,7 +5346,7 @@
                 weapon_class="Bolt"
                 stack_amount="20"
                 thrust_speed="0"
-                thrust_damage="8"
+                thrust_damage="5"
                 thrust_damage_type="Pierce"
                 speed_rating="0"
                 missile_speed="10"
@@ -5509,7 +5480,7 @@
                 missile_speed="85"
                 weapon_length="110"
                 accuracy="90"
-                thrust_damage="89"
+                thrust_damage="56"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -5551,7 +5522,7 @@
                 missile_speed="85"
                 weapon_length="110"
                 accuracy="90"
-                thrust_damage="92"
+                thrust_damage="62"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -6377,7 +6348,7 @@
                 ammo_class="Bolt"
                 missile_speed="70"
                 accuracy="90"
-                thrust_damage="120"
+                thrust_damage="96"
                 thrust_speed="80"
                 speed_rating="80"
                 weapon_length="77"
@@ -6417,7 +6388,7 @@
                 ammo_class="Bolt"
                 missile_speed="75"
                 accuracy="90"
-                thrust_damage="130"
+                thrust_damage="104"
                 thrust_speed="80"
                 speed_rating="80"
                 weapon_length="74"
@@ -6457,7 +6428,7 @@
                 weapon_class="Bolt"
                 stack_amount="40"
                 thrust_speed="0"
-                thrust_damage="8"
+                thrust_damage="5"
                 thrust_damage_type="Pierce"
                 speed_rating="0"
                 missile_speed="10"
@@ -6906,7 +6877,7 @@
                 missile_speed="88"
                 weapon_length="158"
                 accuracy="89"
-                thrust_damage="89"
+                thrust_damage="68"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -6949,7 +6920,7 @@
                 missile_speed="70"
                 weapon_length="158"
                 accuracy="75"
-                thrust_damage="76"
+                thrust_damage="48"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -8203,7 +8174,7 @@
                 missile_speed="92"
                 weapon_length="117"
                 accuracy="95"
-                thrust_damage="93"
+                thrust_damage="66"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -8246,7 +8217,7 @@
                 missile_speed="92"
                 weapon_length="117"
                 accuracy="95"
-                thrust_damage="93"
+                thrust_damage="74"
                 thrust_damage_type="Pierce"
                 item_usage="long_bow"
                 physics_material="wood_weapon"
@@ -8290,7 +8261,7 @@
     <Item
         id="sm_rh_loke_longbow_a"
         name="{=aom_sm_rh_loke_longbow_a_name}[Rhûn] Loke Longbow"
-        body_name="bo_wm_elven_bow_v3"
+        body_name="bo_sm_rh_loke_longbow_a"
         mesh="sm_rh_loke_longbow_a"
         is_merchandise="true"
         culture="Culture.khuzait"
@@ -8309,7 +8280,7 @@
                 missile_speed="92"
                 weapon_length="187"
                 accuracy="90"
-                thrust_damage="105"
+                thrust_damage="78"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -8640,7 +8611,7 @@
     <Item
         id="sm_rh_drag_longbow_a"
         name="{=aom_sm_rh_drag_longbow_a_name}[Rhûn] Dragon Longbow"
-        body_name="bo_wm_elven_bow_v3"
+        body_name="bo_sm_rh_drag_longbow_a"
         mesh="sm_rh_drag_longbow_a"
         is_merchandise="true"
         culture="Culture.khuzait"
@@ -8658,8 +8629,8 @@
                 speed_rating="92"
                 missile_speed="92"
                 weapon_length="187"
-                accuracy="100"
-                thrust_damage="92"
+                accuracy="98"
+                thrust_damage="76"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -8990,7 +8961,7 @@
     <Item
         id="sm_dg_khml_longbow_a"
         name="{=aom_sm_dg_khml_longbow_a_name}[Rhûn] Khamul Longbow"
-        body_name="bo_wm_elven_bow_v3"
+        body_name="bo_sm_dg_khml_longbow_a"
         mesh="sm_dg_khml_longbow_a"
         is_merchandise="true"
         culture="Culture.khuzait"
@@ -9009,7 +8980,7 @@
                 missile_speed="92"
                 weapon_length="187"
                 accuracy="91"
-                thrust_damage="93"
+                thrust_damage="72"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -9470,7 +9441,7 @@
     </CraftedItem>
     <Item id="dale_longbow_a" name="{=aom_dale_longbow_a_name}[Dale] Dale Longbow" body_name="bo_wm_dale_ws_longbow_a01" mesh="wm_dale_ws_longbow_a01" is_merchandise="true" culture="Culture.sturgia" weight="1.2" difficulty="80" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
         <ItemComponent>
-            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="70" speed_rating="84" missile_speed="84" weapon_length="210" accuracy="96" thrust_damage="78" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
+            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="70" speed_rating="84" missile_speed="84" weapon_length="210" accuracy="96" thrust_damage="66" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
                 <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
             </Weapon>
         </ItemComponent>
@@ -9478,7 +9449,7 @@
     </Item>
     <Item id="dale_recurve_bow_a" name="{=aom_dale_recurve_bow_a_name}[Dale] Dale Recurve Bow" body_name="bo_wm_dale_ws_recurve_bow_a01" mesh="wm_dale_ws_recurve_bow_a01" is_merchandise="true" culture="Culture.sturgia" weight="0.9" difficulty="50" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
         <ItemComponent>
-            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="78" speed_rating="92" missile_speed="78" weapon_length="142" accuracy="93" thrust_damage="62" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
+            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="78" speed_rating="92" missile_speed="78" weapon_length="142" accuracy="93" thrust_damage="52" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.01, 0.0, 0.0">
                 <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" />
             </Weapon>
         </ItemComponent>
@@ -9605,7 +9576,7 @@
                 missile_speed="92"
                 weapon_length="113"
                 accuracy="93"
-                thrust_damage="107"
+                thrust_damage="74"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"
@@ -9647,7 +9618,7 @@
                 missile_speed="95"
                 weapon_length="113"
                 accuracy="96"
-                thrust_damage="111"
+                thrust_damage="82"
                 thrust_damage_type="Pierce"
                 item_usage="bow"
                 physics_material="wood_weapon"

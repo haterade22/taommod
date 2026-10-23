@@ -386,6 +386,205 @@
         <Flags
             Civilian="true" />
     </Item>
+    <!-- ============================================================================================
+         BLACK NUMENOREAN BARDING LADDER (issue #602).
+
+         Ten meshes in Assets/mordor_barding/SK_MD_Num_Barding_A_geo.tpac, five coverage tiers
+         crossed with two variants, rigged to the stock horse skeleton (family_type 1, the family
+         of t2_empire_horse and noble_horse_imperial that the line rides). The three
+         clo_sm_md_num_barding_*_a metameshes in the same tpac are cloth-sim overlays and get no
+         item, the same rule as every other clo_ mesh in the Armory.
+
+         Stats are the spec ladder: light 25 (leather), med 35 (mail), heavy 45, elite 65, lord 80
+         (plate). Weights follow the ram ladder's shape. No reins_mesh: the art ships none and no
+         TAOM harness sets one. mane_cover_type="all" follows the Khamul and Sauron bardings; flip
+         a tier to "none" if its neck reads bald in game.
+
+         Worn by the cavalry line in troops_mordor.xml: L31 heavy_a, L36 heavy_b, L41 elite_a/_b,
+         L46 lord_a/_b. Light and med are unassigned shop stock.
+         ============================================================================================ -->
+    <Item
+        id="sm_md_num_barding_light_a"
+        name="{=aom_sm_md_num_barding_light_a_name}[Mordor] Black Numenorean Light Barding I"
+        mesh="sm_md_num_barding_light_a"
+        culture="Culture.mordor"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_light_b"
+        name="{=aom_sm_md_num_barding_light_b_name}[Mordor] Black Numenorean Light Barding II"
+        mesh="sm_md_num_barding_light_b"
+        culture="Culture.mordor"
+        weight="12"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="25"
+                mane_cover_type="all"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_med_a"
+        name="{=aom_sm_md_num_barding_med_a_name}[Mordor] Black Numenorean Barding I"
+        mesh="sm_md_num_barding_med_a"
+        culture="Culture.mordor"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="35"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_med_b"
+        name="{=aom_sm_md_num_barding_med_b_name}[Mordor] Black Numenorean Barding II"
+        mesh="sm_md_num_barding_med_b"
+        culture="Culture.mordor"
+        weight="18"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="35"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Chainmail" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_heavy_a"
+        name="{=aom_sm_md_num_barding_heavy_a_name}[Mordor] Black Numenorean Heavy Barding I"
+        mesh="sm_md_num_barding_heavy_a"
+        culture="Culture.mordor"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="45"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_heavy_b"
+        name="{=aom_sm_md_num_barding_heavy_b_name}[Mordor] Black Numenorean Heavy Barding II"
+        mesh="sm_md_num_barding_heavy_b"
+        culture="Culture.mordor"
+        weight="25"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="45"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_elite_a"
+        name="{=aom_sm_md_num_barding_elite_a_name}[Mordor] Black Numenorean Elite Barding I"
+        mesh="sm_md_num_barding_elite_a"
+        culture="Culture.mordor"
+        weight="30"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="65"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_elite_b"
+        name="{=aom_sm_md_num_barding_elite_b_name}[Mordor] Black Numenorean Elite Barding II"
+        mesh="sm_md_num_barding_elite_b"
+        culture="Culture.mordor"
+        weight="30"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="65"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_lord_a"
+        name="{=aom_sm_md_num_barding_lord_a_name}[Mordor] Black Numenorean Lord Barding I"
+        mesh="sm_md_num_barding_lord_a"
+        culture="Culture.mordor"
+        weight="35"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="80"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="sm_md_num_barding_lord_b"
+        name="{=aom_sm_md_num_barding_lord_b_name}[Mordor] Black Numenorean Lord Barding II"
+        mesh="sm_md_num_barding_lord_b"
+        culture="Culture.mordor"
+        weight="35"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="80"
+                mane_cover_type="all"
+                family_type="1"
+                material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
     <!-- Mount item for the Giant Spider (taom_spider_creature goblin rider).
          is_merchandise="false" + no culture → never sold, never shown in party icon path.
          Mountable via horse-slot pattern (same as taom_war_elephant): goblin rider has
@@ -394,7 +593,36 @@
     <Item
         id="spider_mount_a"
         name="{=spider_mount_a}Giant Spider"
-        mesh="sk_spider_forest_c"
+        mesh="sk_spider_forest_a1"
+        subtype="horse"
+        item_category="war_horse"
+        weight="250"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <!-- KEYforce's whole sk_spider_forest_a1 (sk_spiders_a_geo.tpac, 2026-09-29) replaces the L/R split
+                 sk_spider_forest_c + _c_2 halves, so there is no AdditionalMeshes half any more. -->
+            <Horse
+                monster="Monster.spider"
+                maneuver="85"
+                speed="65"
+                charge_damage="15"
+                body_length="100"
+                is_mountable="true" />
+        </ItemComponent>
+    </Item>
+    <!-- The Giant Spider's other tiers (#616) and the mountain spiders, all KEYforce's whole meshes in
+         sk_spiders_a_geo.tpac (2026-09-29). Same Monster and speed/maneuver/charge; SIZE is the tier:
+         body_length 110 / 125 => SetInitialAgentScale 1.10 / 1.25 at build (Mission.cs:4056, the mumakil
+         precedent). Forest: the Great Spider (id spider_mount_brown, kept for saves) is forest_a1 at 1.10x
+         now that the brown skin is gone, the Pale Spider is forest_a2 at 1.25x. Mountain: the goblin tree's
+         riders (Goblin-town, Misty Mountain Orcs, Blue Craig), mountain_a1 at 1.0x and mountain_a2 at 1.25x.
+         No <Materials> block on purpose: the engine applies it only to sub-meshes tagged horse_body on the
+         base mesh, and the spider meshes carry no such tag. -->
+    <Item
+        id="spider_mount_brown"
+        name="{=spider_mount_brown}Great Spider"
+        mesh="sk_spider_forest_a1"
         subtype="horse"
         item_category="war_horse"
         weight="250"
@@ -403,26 +631,77 @@
         <ItemComponent>
             <Horse
                 monster="Monster.spider"
-                maneuver="80"
-                speed="40"
-                charge_damage="20"
-                body_length="100"
-                is_mountable="true">
-                <!-- Right body half of the L/R mesh-split (warg-pattern AdditionalMeshes on HorseComponent);
-                     base sk_spider_forest_c + this sk_spider_forest_c_2 draw as one creature. -->
-                <AdditionalMeshes>
-                    <Mesh
-                        name="sk_spider_forest_c_2"
-                        affected_by_cover="true" />
-                </AdditionalMeshes>
-            </Horse>
+                maneuver="85"
+                speed="65"
+                charge_damage="15"
+                body_length="110"
+                is_mountable="true" />
         </ItemComponent>
     </Item>
-    <!-- War elephant mount (TAOM Elephant feature; monster -> Monster.taom_war_elephant) -->
+    <Item
+        id="spider_mount_pale"
+        name="{=spider_mount_pale}Pale Spider"
+        mesh="sk_spider_forest_a2"
+        subtype="horse"
+        item_category="war_horse"
+        weight="250"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="85"
+                speed="65"
+                charge_damage="15"
+                body_length="125"
+                is_mountable="true" />
+        </ItemComponent>
+    </Item>
+    <Item
+        id="spider_mount_mountain_a1"
+        name="{=spider_mount_mountain_a1}Mountain Spider"
+        mesh="sk_spider_mountain_a1"
+        subtype="horse"
+        item_category="war_horse"
+        weight="250"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="85"
+                speed="65"
+                charge_damage="15"
+                body_length="100"
+                is_mountable="true" />
+        </ItemComponent>
+    </Item>
+    <Item
+        id="spider_mount_mountain_a2"
+        name="{=spider_mount_mountain_a2}Great Mountain Spider"
+        mesh="sk_spider_mountain_a2"
+        subtype="horse"
+        item_category="war_horse"
+        weight="250"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.spider"
+                maneuver="85"
+                speed="65"
+                charge_damage="15"
+                body_length="125"
+                is_mountable="true" />
+        </ItemComponent>
+    </Item>
+    <!-- War elephant mount (TAOM Elephant feature; monster -> Monster.taom_war_elephant). Body is KEYforce's
+         sk_elephant_basemesh_a (SK_Elephant_Basemesh_A_geo.tpac, 2026-09-29), replacing ADOD's elephant_mesh;
+         the elephant_skeleton it rides still ships in adod_elephant_geo.tpac, so that package must stay. -->
     <Item
         id="taom_war_elephant"
         name="{=taom_war_elephant}War Elephant"
-        mesh="elephant_mesh"
+        mesh="sk_elephant_basemesh_a"
         subtype="horse"
         item_category="war_horse"
         weight="999"
@@ -433,11 +712,10 @@
             <Horse
                 monster="Monster.taom_war_elephant"
                 maneuver="10"
-                speed="10"
+                speed="30"
                 charge_damage="125"
-                body_length="100"
+                body_length="130"
                 is_mountable="true"
-				family_type="10"
                 extra_health="0" />
         </ItemComponent>
         <Flags Civilian="true" />
@@ -462,11 +740,10 @@
             <Horse
                 monster="Monster.taom_mumakil"
                 maneuver="5"
-                speed="5"
+                speed="20"
                 charge_damage="200"
                 body_length="300"
                 is_mountable="true"
-                family_type="10"
                 extra_health="0">
                 <AdditionalMeshes>
                     <Mesh
@@ -503,10 +780,9 @@
             <Horse
                 monster="Monster.chariot"
                 maneuver="25"
-                speed="55"
-                charge_damage="90"
+                speed="70"
+                charge_damage="80"
                 body_length="100"
-                family_type="4"
                 is_mountable="true">
                 <!-- cart (chariot_ride) + reins (chariot_harness_e_rein) are BAKED INTO the base mesh
                      chariot_horse_brown (2026-06-13): a HorseHarness equipped on the mount suppresses the
@@ -567,10 +843,109 @@
         <Flags Civilian="true" />
     </Item>
 
+	<!-- War elephant harnesses: KEYforce's SK_Elephant_Armor_Variations_geo.tpac (2026-09-29). Three plain armours
+	     with no howdah (sk_elephant_armor_a keeps its id for saves, now on the medium mesh) and three howdahs on one
+	     deck placement; TAOM's ElephantConfig.HowdahHarnessStringIds gives the three howdahs the platform and its
+	     crew. family_type 10 is the war elephant's. HowdahHarnessItemTests (TAOM repo) pins these rows. -->
 	<Item
 	   id="sk_elephant_armor_a"
 	   name="{=aom_sk_elephant_armor_a}[Harad] Elephant Armor I"
-	   mesh="sk_elephant_armor_a"
+	   mesh="sk_hd_elep_armor_med_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="60"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+	<Item
+	   id="sk_elephant_armor_heavy"
+	   name="{=aom_sk_elephant_armor_heavy}[Harad] Elephant Armor II"
+	   mesh="sk_hd_elep_armor_heavy_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="70"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+	<Item
+	   id="sk_elephant_armor_elite"
+	   name="{=aom_sk_elephant_armor_elite}[Harad] Elephant Armor III"
+	   mesh="sk_hd_elep_armor_elite_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="80"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+	<Item
+	   id="sk_elephant_armor_howdah_med"
+	   name="{=aom_sk_elephant_armor_howdah_med}[Harad] Light Elephant Howdah"
+	   mesh="sk_hd_elep_armor_howdah_med_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="60"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+	<Item
+	   id="sk_elephant_armor_howdah_heavy"
+	   name="{=aom_sk_elephant_armor_howdah_heavy}[Harad] Heavy Elephant Howdah"
+	   mesh="sk_hd_elep_armor_howdah_heavy_a"
+	   culture="Culture.aserai"
+	   is_merchandise="false"
+	   weight="50"
+	   appearance="0.65"
+	   Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+                body_armor="70"
+                mane_cover_type="all"
+                family_type="10"
+                material_type="Plate" />
+		</ItemComponent>
+		<Flags
+            Civilian="true" />
+	</Item>
+	<Item
+	   id="sk_elephant_armor_howdah_elite"
+	   name="{=aom_sk_elephant_armor_howdah_elite}[Harad] Elephant Howdah"
+	   mesh="sk_hd_elep_armor_howdah_elite_a"
 	   culture="Culture.aserai"
 	   is_merchandise="false"
 	   weight="50"
@@ -674,9 +1049,9 @@
         <ItemComponent>
             <Horse
                 monster="Monster.taom_war_ram"
-                maneuver="75"
-                speed="42"
-                charge_damage="18"
+                maneuver="80"
+                speed="55"
+                charge_damage="40"
                 body_length="100"
                 is_mountable="true"
                 extra_health="20" />
@@ -699,8 +1074,8 @@
             <Horse
                 monster="Monster.taom_war_ram"
                 maneuver="75"
-                speed="42"
-                charge_damage="18"
+                speed="53"
+                charge_damage="40"
                 body_length="100"
                 is_mountable="true"
                 extra_health="20" />
@@ -738,7 +1113,7 @@
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_light_b"
@@ -757,7 +1132,7 @@
                 modifier_group="leather"
                 material_type="Leather" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_med_a"
@@ -775,7 +1150,7 @@
                 family_type="1"
                 material_type="Chainmail" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_med_b"
@@ -793,7 +1168,7 @@
                 family_type="1"
                 material_type="Chainmail" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_heavy_a"
@@ -811,7 +1186,7 @@
                 family_type="1"
                 material_type="Chainmail" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_heavy_b"
@@ -829,7 +1204,7 @@
                 family_type="1"
                 material_type="Plate" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_elite_a"
@@ -847,7 +1222,7 @@
                 family_type="1"
                 material_type="Plate" />
         </ItemComponent>
-        <Flags Civilian="true" />
+        <Flags Civilian="true" UseTeamColor="true" />
     </Item>
     <Item
         id="taom_ram_barding_elite_b"
@@ -864,6 +1239,256 @@
                 mane_cover_type="all"
                 family_type="1"
                 material_type="Plate" />
+        </ItemComponent>
+        <Flags Civilian="true" UseTeamColor="true" />
+    </Item>
+
+    <!-- ============================================================================================
+         Great elk (#636): the mount of Mirkwood's top cavalry troop (Thranduil and the
+         lords ride the Animalia moose since 2026-09-23, #646). Like the war ram above, both
+         meshes are skinned to the vanilla horse skeleton, so the mount names Monster.taom_elk
+         (base_monster="horse", Monsters/LOTR/lotr_monster_elk.xml) and moves on the horse's clips.
+         Its antler charge is the ram's head-butt clip, fired by TAOM's Main/Features/Elk.
+
+         elk_001 is the bare animal and elk_saddle_001 is the rider's seat, so the saddle is a
+         required HorseHarness, not optional dressing. Every TAOM set that mounts the elk pairs it
+         with taom_elk_saddle_a (ElkMountWiringTests). Both meshes ship in
+         Assets/creature/elk/elk_001_geo.tpac.
+
+         The elk's size lives on its Monster (taom_body_length="110" in lotr_monster_elk.xml; Mike, 2026-09-23:
+         200 that morning, 120, then 110), which TAOM copies into this item at game init. body_length="100" below
+         is only the placeholder the engine's Items.xsd requires (TAOM docs/features/monster-size.md). It scales the mount only: the rider is not resized
+         (observed in game on the 3x mumakil, TAOM docs/features/mumakil.md).
+
+         difficulty="0" so any player who buys one can ride it: CheckSkillForMounting compares Riding against
+         MountDifficulty (the war ram's reasoning). It was set when the elk_rider career started a player on
+         this elk; that start is the Animalia elk since 2026-09-23 (#646).
+
+         The saddle's body_armor 45 is below what the replaced mounts wore (noble_horse_southern +
+         saddle_of_aeneas 76, charger + chain_horse_harness 55), paired with more hit points: the elk
+         spawns at 270 (Monster 250 + extra_health 20) against 230 for noble_horse_southern and 220
+         for the charger. Tune both here. The engine's own mount-victim blow math reads this item's
+         weight (450); TAOM's knockdown math reads the Monster's (500).
+         ============================================================================================ -->
+    <Item
+        id="taom_elk_a"
+        name="{=taom_elk_a}Great Elk"
+        mesh="elk_001"
+        culture="Culture.mirkwood"
+        subtype="horse"
+        item_category="war_horse"
+        value="1400"
+        weight="450"
+        difficulty="0"
+        is_merchandise="true"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_elk"
+                maneuver="74"
+                speed="62"
+                charge_damage="50"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_elk_saddle_a"
+        name="{=taom_elk_saddle_a}[Mirkwood] Elk Saddle"
+        mesh="elk_saddle_001"
+        culture="Culture.mirkwood"
+        weight="20"
+        is_merchandise="true"
+        appearance="0.65"
+        Type="HorseHarness">
+        <ItemComponent>
+            <Armor
+                body_armor="45"
+                mane_cover_type="none"
+                family_type="1"
+                modifier_group="leather"
+                material_type="Leather" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <!-- #646 Animalia elk and moose: horse-skeleton reskins of the Fab packs, with their own clips. Their size
+         lives on their Monsters (taom_body_length in lotr_monster_animalia.xml: the elk 100, the moose 150), which
+         TAOM copies into these items at game init; their body_length="100" is only the placeholder Items.xsd
+         requires. is_merchandise="false" keeps them out of vanilla loot, workshop output and tournament prizes, not
+         out of TAOM's markets: the elk is guaranteed stock in Mirkwood towns (culture_marketplace_config.xml
+         routing, min_stock 1), the Mirkwood culture pool can also draw either animal into a Mirkwood market, and a
+         caravan can buy one there (vanilla caravans do not read the flag either). -->
+    <Item
+        id="taom_animalia_elk_a"
+        name="{=taom_animalia_elk_a}Mirkwood Elk"
+        mesh="animalia_elk_08"
+        culture="Culture.mirkwood"
+        subtype="horse"
+        item_category="war_horse"
+        value="1400"
+        weight="450"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_animalia_elk"
+                maneuver="74"
+                speed="62"
+                charge_damage="50"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_animalia_moose_a"
+        name="{=taom_animalia_moose_a}Mirkwood Moose"
+        mesh="animalia_moose_big"
+        culture="Culture.mirkwood"
+        subtype="horse"
+        item_category="war_horse"
+        value="1800"
+        weight="550"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_animalia_moose"
+                maneuver="60"
+                speed="56"
+                charge_damage="65"
+                body_length="100"
+                is_mountable="true"
+                extra_health="40" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <!-- #794 WildMesh3D mounts (docs/features/wildmesh-mounts.md): horse-skeleton reskins with their own clips.
+         Size lives on their Monsters (lotr_monster_wildmesh.xml); body_length="100" is only the placeholder
+         Items.xsd requires. The dwarf mounts take the war ram's stats, the deer and moose the Animalia elk's and
+         moose's. Not merchandise while only the Custom Battle test riders ride them. -->
+    <Item
+        id="taom_wildmesh_boar_a"
+        name="{=taom_wildmesh_boar_a}War Boar"
+        mesh="wildmesh_boar"
+        culture="Culture.erebor"
+        subtype="horse"
+        item_category="war_horse"
+        value="950"
+        weight="300"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_wildmesh_boar"
+                maneuver="80"
+                speed="55"
+                charge_damage="40"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_wildmesh_warthog_a"
+        name="{=taom_wildmesh_warthog_a}Bristleback Boar"
+        mesh="wildmesh_warthog"
+        culture="Culture.erebor"
+        subtype="horse"
+        item_category="war_horse"
+        value="950"
+        weight="300"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_wildmesh_warthog"
+                maneuver="80"
+                speed="55"
+                charge_damage="40"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_wildmesh_mountaingoat_a"
+        name="{=taom_wildmesh_mountaingoat_a}Iron Hills Goat"
+        mesh="wildmesh_mountaingoat"
+        culture="Culture.erebor"
+        subtype="horse"
+        item_category="war_horse"
+        value="950"
+        weight="300"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_wildmesh_mountaingoat"
+                maneuver="80"
+                speed="55"
+                charge_damage="40"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_wildmesh_deer_a"
+        name="{=taom_wildmesh_deer_a}Mirkwood Stag"
+        mesh="wildmesh_deer"
+        culture="Culture.mirkwood"
+        subtype="horse"
+        item_category="war_horse"
+        value="1400"
+        weight="450"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_wildmesh_deer"
+                maneuver="74"
+                speed="62"
+                charge_damage="50"
+                body_length="100"
+                is_mountable="true"
+                extra_health="20" />
+        </ItemComponent>
+        <Flags Civilian="true" />
+    </Item>
+    <Item
+        id="taom_wildmesh_moose_a"
+        name="{=taom_wildmesh_moose_a}Greenwood Moose"
+        mesh="wildmesh_moose"
+        culture="Culture.mirkwood"
+        subtype="horse"
+        item_category="war_horse"
+        value="1800"
+        weight="550"
+        difficulty="0"
+        is_merchandise="false"
+        Type="Horse">
+        <ItemComponent>
+            <Horse
+                monster="Monster.taom_wildmesh_moose"
+                maneuver="60"
+                speed="56"
+                charge_damage="65"
+                body_length="100"
+                is_mountable="true"
+                extra_health="40" />
         </ItemComponent>
         <Flags Civilian="true" />
     </Item>
@@ -888,8 +1513,8 @@
 			<Horse
 				monster="Monster.warg"
 				maneuver="70"
-				speed="48"
-				charge_damage="6"
+				speed="55"
+				charge_damage="15"
 				body_length="110"
 				is_mountable="true" >
 				<AdditionalMeshes>
@@ -961,9 +1586,9 @@
 		<ItemComponent>
 			<Horse
 				monster="Monster.warg"
-				maneuver="70"
-				speed="48"
-				charge_damage="6"
+				maneuver="73"
+				speed="57"
+				charge_damage="16"
 				body_length="110"
 				is_mountable="true" >
 				<AdditionalMeshes>
@@ -1002,9 +1627,9 @@
 		<ItemComponent>
 			<Horse
 				monster="Monster.warg"
-				maneuver="70"
-				speed="48"
-				charge_damage="8"
+				maneuver="75"
+				speed="60"
+				charge_damage="18"
 				body_length="115"
 				extra_health="100"
 				is_mountable="true" >
@@ -1063,9 +1688,9 @@
 		<ItemComponent>
 			<Horse
 				monster="Monster.fell_warg"
-				maneuver="72"
-				speed="50"
-				charge_damage="9"
+				maneuver="80"
+				speed="65"
+				charge_damage="20"
 				body_length="110"
 				is_mountable="true" >
 				<AdditionalMeshes>

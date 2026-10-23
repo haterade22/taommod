@@ -4,7 +4,7 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: wm_gondor_sword_a01, sm_gd_shield_a1, wm_gondor_light_spear, gondor_noble_jerkin_a, sk_gd_ano_boots_a, gondor_noble_coat_b, ithilien_cloak, gondor_steel_bow_starter, gondor_noble_coat_a, wm_gondor_lossarnach_1h_axe_black_ash_a, wm_gondor_bow, wm_gondor_spear_a
+  theirs from the floored stats. Donors: wm_gondor_sword_a01, sm_gd_shield_a1, wm_gondor_light_spear, gondor_noble_jerkin_a, sk_gd_ano_boots_a, gondor_noble_coat_b, ithilien_cloak, gondor_steel_bow_starter, gondor_noble_coat_a, wm_gondor_lossarnach_1h_axe_black_ash_a, wm_gondor_light_spear_cardolan, sk_ar_art_chainmail_half_a, sk_ar_art_boots_a, sk_ar_art_cape_a, wm_gondor_bow, wm_gondor_spear_a
 -->
 <Items>
     <CraftedItem id="starter_wm_gondor_sword_a01" name="{=starter_wm_gondor_sword_a01}[Gondor] Sword Medium A (Starter)" crafting_template="OneHandedSword" is_merchandise="false" culture="Culture.gondor" value="150">
@@ -74,6 +74,31 @@
             <Piece id="wm_lossarnach_1h_axe_black_ash_pommel" Type="Pommel" scale_factor="100" />
         </Pieces>
     </CraftedItem>
+    <CraftedItem id="starter_wm_gondor_light_spear_cardolan" name="{=starter_wm_gondor_light_spear_cardolan}[Gondor] Light Spear - Cardolan (Starter)" crafting_template="TwoHandedPolearm" culture="Culture.gondor" is_merchandise="false" modifier_group="polearm" value="150">
+        <Pieces>
+            <Piece id="starter_wm_gondor_light_spear_blade" Type="Blade" scale_factor="110" />
+            <Piece id="wm_gondor_spear_flag_cardolan" Type="Guard" scale_factor="110" />
+            <Piece id="wm_gondor_light_spear_shaft" Type="Handle" scale_factor="110" />
+        </Pieces>
+    </CraftedItem>
+    <Item id="starter_sk_ar_art_chainmail_half_a" name="{=starter_sk_ar_art_chainmail_half_a}[Arnor] Half Chainmail (Starter)" subtype="body_armor" mesh="sk_ar_art_chainmail_half_a" culture="Culture.gondor" is_merchandise="false" weight="8.0" difficulty="0" appearance="1.5" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+    <Item id="starter_sk_ar_art_boots_a" name="{=starter_sk_ar_art_boots_a}[Arnor] Leather Boots (Starter)" mesh="sk_ar_art_boots_a" culture="Culture.gondor" is_merchandise="false" weight="1.6" difficulty="0" appearance="3" Type="LegArmor">
+        <ItemComponent>
+            <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
+        </ItemComponent>
+        <Flags />
+    </Item>
+    <Item id="starter_sk_ar_art_cape_a" name="{=starter_sk_ar_art_cape_a}[Arnor] Cape (Starter)" mesh="sk_ar_art_cape_a" culture="Culture.gondor" is_merchandise="false" weight="0.5" appearance="6" Type="Cape" difficulty="0">
+        <ItemComponent>
+            <Armor body_armor="5" arm_armor="1" modifier_group="cloth_unarmoured" material_type="Cloth" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
     <Item id="starter_wm_gondor_bow" name="{=starter_wm_gondor_bow}[Gondor] Gondor Bow I (Starter)" body_name="bo_cap_wm_ithilien_bow" mesh="wm_ithilien_bow" culture="Culture.gondor" is_merchandise="false" weight="0.1" difficulty="0" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
         <ItemComponent>
             <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="85" speed_rating="88" missile_speed="88" weapon_length="182" accuracy="90" thrust_damage="45" thrust_damage_type="Pierce" item_usage="long_bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.0, 0.0, 0.0">

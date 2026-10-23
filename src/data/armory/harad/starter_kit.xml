@@ -4,7 +4,7 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: aserai_sword_3_t3, desert_round_shield, eastern_javelin_3_t4, haradrim02a_toso, haradrim_boots, haradrim02_toso, haradrim02_pauldrons, haradrim_torso, aserai_sword_5_t4, eastern_spear_4_t4, harad03_torso, haradrim02_boots, harad03_cape, wm_harad_bow_a01, wm_harad_sword_a01, wm_harad_spear_a01
+  theirs from the floored stats. Donors: aserai_sword_3_t3, desert_round_shield, eastern_javelin_3_t4, sk_hr_st_chest_inf_chest_light_a, sk_hr_st_bracer_light_a, sk_hr_st_pauld_inf_med_a, sk_hr_st_chest_inf_chest_light_b, aserai_sword_5_t4, eastern_spear_4_t4, wm_harad_bow_a01, wm_harad_sword_a01, wm_harad_spear_a01
 -->
 <Items>
     <CraftedItem id="starter_aserai_sword_3_t3" name="{=starter_aserai_sword_3_t3}Slightly Ridged Flyssa (Starter)" crafting_template="OneHandedSword" culture="Culture.aserai" modifier_group="sword" is_merchandise="false" value="150">
@@ -31,33 +31,27 @@
             <Piece id="spear_pommel_12" Type="Pommel" scale_factor="100" />
         </Pieces>
     </CraftedItem>
-    <Item id="starter_haradrim02a_toso" name="{=starter_haradrim02a_toso}[Harad] Scalemail Armour - Green (Starter)" mesh="haradrim02a_toso" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="6.8" difficulty="0" appearance="1.5" Type="BodyArmor">
+    <Item id="starter_sk_hr_st_chest_inf_chest_light_a" name="{=starter_sk_hr_st_chest_inf_chest_light_a}[Harwan] Infantry Light Chest A (Starter)" mesh="sk_hr_st_chest_inf_chest_light_a" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="5.5" difficulty="0" appearance="2" Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor body_armor="9" arm_armor="3" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
-    <Item id="starter_haradrim_boots" name="{=starter_haradrim_boots}[Harad] Boots (Starter)" mesh="haradrim_boots" culture="Culture.aserai" is_merchandise="false" weight="2.1" difficulty="0" appearance="3" Type="LegArmor">
+    <Item id="starter_sk_hr_st_bracer_light_a" name="{=starter_sk_hr_st_bracer_light_a}[Harwan] Light Bracer A (Starter)" subtype="hand_armor" mesh="sk_hr_st_bracer_light_a" culture="Culture.aserai" is_merchandise="false" weight="1.0" difficulty="0" appearance="3" Type="HandArmor">
         <ItemComponent>
-            <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item id="starter_haradrim02_toso" name="{=starter_haradrim02_toso}[Harad] Scalemail Armour - Maroon (Starter)" mesh="haradrim02_toso" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="6.8" difficulty="0" appearance="1.5" Type="BodyArmor">
-        <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="chain" material_type="Chainmail" />
+            <Armor arm_armor="6" covers_hands="false" modifier_group="cloth" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
-    <Item id="starter_haradrim02_pauldrons" name="{=starter_haradrim02_pauldrons}[Harad] Pauldrons - Tier 3 (Starter)" mesh="haradrim02_pauldrons" culture="Culture.aserai" is_merchandise="false" weight="3.0" appearance="6" Type="Cape" difficulty="0">
+    <Item id="starter_sk_hr_st_pauld_inf_med_a" name="{=starter_sk_hr_st_pauld_inf_med_a}[Harwan] Infantry Med Pauldron A (Starter)" subtype="head_armor" mesh="sk_hr_st_pauld_inf_med_a" culture="Culture.aserai" is_merchandise="false" weight="5.0" difficulty="0" appearance="3" Type="Cape">
         <ItemComponent>
-            <Armor body_armor="6" arm_armor="2" modifier_group="cloth_unarmoured" material_type="Cloth" />
+            <Armor body_armor="6" arm_armor="2" modifier_group="cloth" material_type="Chainmail" />
         </ItemComponent>
-        <Flags />
+        <Flags UseTeamColor="true" />
     </Item>
-    <Item id="starter_haradrim_torso" name="{=starter_haradrim_torso}[Harad] Mail Armour (Starter)" mesh="haradrim_torso" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="6.8" difficulty="0" appearance="1.5" Type="BodyArmor">
+    <Item id="starter_sk_hr_st_chest_inf_chest_light_b" name="{=starter_sk_hr_st_chest_inf_chest_light_b}[Harwan] Infantry Light Chest B (Starter)" mesh="sk_hr_st_chest_inf_chest_light_b" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="5.5" difficulty="0" appearance="2" Type="BodyArmor">
         <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
+            <Armor body_armor="9" arm_armor="3" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -77,24 +71,6 @@
             <Piece id="spear_pommel_11" Type="Pommel" scale_factor="100" />
         </Pieces>
     </CraftedItem>
-    <Item id="starter_harad03_torso" name="{=starter_harad03_torso}[Harad] Armour - Orange (Starter)" mesh="harad03_torso" subtype="body_armor" culture="Culture.aserai" is_merchandise="false" weight="6.8" difficulty="0" appearance="1.5" Type="BodyArmor">
-        <ItemComponent>
-            <Armor body_armor="9" arm_armor="4" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Leather" />
-        </ItemComponent>
-        <Flags UseTeamColor="true" />
-    </Item>
-    <Item id="starter_haradrim02_boots" name="{=starter_haradrim02_boots}[Harad] Boots II (Starter)" mesh="haradrim02_boots" culture="Culture.aserai" is_merchandise="false" weight="2.1" difficulty="0" appearance="3" Type="LegArmor">
-        <ItemComponent>
-            <Armor leg_armor="9" covers_legs="true" modifier_group="leather" material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-    <Item id="starter_harad03_cape" name="{=starter_harad03_cape}[Harad] Pauldrons - Tier 4 (Starter)" mesh="harad03_cape" culture="Culture.aserai" is_merchandise="false" weight="3.0" appearance="6" Type="Cape" difficulty="0">
-        <ItemComponent>
-            <Armor body_armor="6" arm_armor="2" modifier_group="cloth" material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
     <Item id="starter_wm_harad_bow_a01" name="{=starter_wm_harad_bow_a01}[Harad] Composite Bow I (Starter)" body_name="bo_cap_wm_harad_bow_a01" mesh="wm_harad_bow_a01" culture="Culture.aserai" is_merchandise="false" weight="0.1" difficulty="0" appearance="0.1" Type="Bow" item_holsters="bow_back:bow_back_2:bow_hip:bow_hip_2">
         <ItemComponent>
             <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="87" speed_rating="91" missile_speed="92" weapon_length="117" accuracy="95" thrust_damage="45" thrust_damage_type="Pierce" item_usage="long_bow" physics_material="wood_weapon" center_of_mass="0.15,0,0" modifier_group="bow" position="0.0, 0.0, 0.0">

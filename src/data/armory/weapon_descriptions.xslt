@@ -291,6 +291,11 @@
 			<AvailablePiece id="sm_md_num_sword_1h_handle_b" />
 			<AvailablePiece id="sm_md_num_sword_1h_pommel_a" />
 			<AvailablePiece id="sm_md_num_sword_1h_pommel_b" />
+			<!--[Harad] regular weapons-->
+			<AvailablePiece id="sk_hr_st_sword_blade_a" />
+			<AvailablePiece id="sk_hr_st_sword_guard_a" />
+			<AvailablePiece id="sk_hr_st_sword_handle_a" />
+			<AvailablePiece id="sk_hr_st_sword_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_gondor_sword_a01_blade"/>
@@ -482,18 +487,13 @@
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
 			<AvailablePiece id="wm_gondor_light_spear_blade"/>
 			<AvailablePiece id="wm_gondor_light_spear_shaft"/>
+			<AvailablePiece id="wm_gondor_spear_flag_pg"/>
+			<AvailablePiece id="wm_gondor_spear_flag_swan"/>
+			<AvailablePiece id="wm_gondor_spear_flag_gondor"/>
+			<AvailablePiece id="wm_gondor_spear_flag_cardolan"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_a"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_b"/>
 			<AvailablePiece id="wm_swan_knight_lance_handle_a"/>
-			<AvailablePiece id="wm_swan_knight_spear_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_blade"/>
 			<AvailablePiece id="wm_pelagir_spear_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_cloth"/>
@@ -590,13 +590,24 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
 			<AvailablePiece id="sm_md_num_lance_blade_a" />
 			<AvailablePiece id="sm_md_num_lance_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
+			<!--[Harad] regular weapons-->
+			<AvailablePiece id="sm_hr_st_spear_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_b" />
+			<AvailablePiece id="sm_hr_st_spear_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_gondor_light_spear_blade"/>
@@ -628,6 +639,10 @@
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
 			<AvailablePiece id="wm_gondor_light_spear_blade"/>
 			<AvailablePiece id="wm_gondor_light_spear_shaft"/>
+			<AvailablePiece id="wm_gondor_spear_flag_pg"/>
+			<AvailablePiece id="wm_gondor_spear_flag_swan"/>
+			<AvailablePiece id="wm_gondor_spear_flag_gondor"/>
+			<AvailablePiece id="wm_gondor_spear_flag_cardolan"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_a"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_b"/>
 			<AvailablePiece id="wm_swan_knight_lance_handle_a"/>
@@ -650,15 +665,6 @@
 			<AvailablePiece id="dunland_caerdh_spear_handle_i"/>
 			<AvailablePiece id="wm_elven_spear_blade"/>
 			<AvailablePiece id="wm_elven_spear_shaft"/>
-			<AvailablePiece id="wm_swan_knight_spear_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_blade"/>
 			<AvailablePiece id="wm_pelagir_spear_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_cloth"/>
@@ -739,11 +745,22 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
 			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
+			<!--[Harad] regular weapons-->
+			<AvailablePiece id="sm_hr_st_spear_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_b" />
+			<AvailablePiece id="sm_hr_st_spear_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-1H-POLEARM:START -->
 			<AvailablePiece id="wm_dale_ws_spear_a01_blade"/>
@@ -816,18 +833,13 @@
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
 			<AvailablePiece id="wm_gondor_light_spear_blade"/>
 			<AvailablePiece id="wm_gondor_light_spear_shaft"/>
+			<AvailablePiece id="wm_gondor_spear_flag_pg"/>
+			<AvailablePiece id="wm_gondor_spear_flag_swan"/>
+			<AvailablePiece id="wm_gondor_spear_flag_gondor"/>
+			<AvailablePiece id="wm_gondor_spear_flag_cardolan"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_a"/>
 			<AvailablePiece id="wm_swan_knight_lance_blade_b"/>
 			<AvailablePiece id="wm_swan_knight_lance_handle_a"/>
-			<AvailablePiece id="wm_swan_knight_spear_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_blade"/>
 			<AvailablePiece id="wm_pelagir_spear_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_cloth"/>
@@ -910,13 +922,25 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>			
 			<AvailablePiece id="sm_md_num_lance_blade_a" />
 			<AvailablePiece id="sm_md_num_lance_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
+			<!-- TAOM-HARAD-COUCH:START (#805: KEYforce's db981663 left the Harad spears out of Couchable) -->
+			<AvailablePiece id="sm_hr_st_spear_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_b" />
+			<AvailablePiece id="sm_hr_st_spear_pommel_a" />
+			<!-- TAOM-HARAD-COUCH:END -->
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_gondor_light_spear_blade"/>
@@ -976,15 +1000,10 @@
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
 			<AvailablePiece id="wm_gondor_light_spear_blade"/>
 			<AvailablePiece id="wm_gondor_light_spear_shaft"/>
-			<AvailablePiece id="wm_swan_knight_spear_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_handle"/>
+			<AvailablePiece id="wm_gondor_spear_flag_pg"/>
+			<AvailablePiece id="wm_gondor_spear_flag_swan"/>
+			<AvailablePiece id="wm_gondor_spear_flag_gondor"/>
+			<AvailablePiece id="wm_gondor_spear_flag_cardolan"/>
 			<AvailablePiece id="wm_pelagir_spear_blade"/>
 			<AvailablePiece id="wm_pelagir_spear_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_cloth"/>
@@ -1074,15 +1093,10 @@
 			<AvailablePiece id="wm_gondor_spear_b_shaft"/>
 			<AvailablePiece id="wm_gondor_light_spear_blade"/>
 			<AvailablePiece id="wm_gondor_light_spear_shaft"/>
-			<AvailablePiece id="wm_swan_knight_spear_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_banner"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_gondor_handle"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_blade"/>
-			<AvailablePiece id="wm_swan_knight_spear_pg_handle"/>
+			<AvailablePiece id="wm_gondor_spear_flag_pg"/>
+			<AvailablePiece id="wm_gondor_spear_flag_swan"/>
+			<AvailablePiece id="wm_gondor_spear_flag_gondor"/>
+			<AvailablePiece id="wm_gondor_spear_flag_cardolan"/>
 			<AvailablePiece id="wm_pelagir_spear_blade"/>
 			<AvailablePiece id="wm_pelagir_spear_handle"/>
 			<AvailablePiece id="wm_pelagir_spear_cloth"/>
@@ -1171,13 +1185,24 @@
 			<AvailablePiece id="sm_rh_drag_sword_blade_b"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_a"/>
 			<AvailablePiece id="sm_rh_loke_sword_blade_b"/>
-			<AvailablePiece id="wm_swan_knight_spear_banner_b"/>
 			<AvailablePiece id="sm_md_num_lance_blade_a" />
 			<AvailablePiece id="sm_md_num_lance_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_blade_b" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_a" />
 			<AvailablePiece id="sm_ro_rohan_spear_handle_b" />
+			<!--[Harad] regular weapons-->
+			<AvailablePiece id="sm_hr_st_spear_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_blade_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_light_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_med_b" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_a" />
+			<AvailablePiece id="sm_hr_st_spear_handle_heavy_b" />
+			<AvailablePiece id="sm_hr_st_spear_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_gondor_light_spear_blade"/>
@@ -1507,6 +1532,13 @@
 			<AvailablePiece id="sm_dg_khml_mace_blade_1h_c"/>
 			<AvailablePiece id="sm_dg_khml_axe_handle_c"/>
 			<AvailablePiece id="sm_dg_khml_axe_handle_d"/>
+			<!--[Harad] regular javelins / maces-->
+			<AvailablePiece id="sm_hr_st_mace_1h_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_mace_1h_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_mace_1h_blade_med_b" />
+			<AvailablePiece id="sm_hr_st_mace_1h_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_mace_1h_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_mace_1h_pommel_med_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_dol_goldur_1h_mace_a01_blade"/>
@@ -1533,6 +1565,8 @@
 			<AvailablePiece id="sm_dwarf_erebor_axe_pommel_2h_b2"/>
 			<AvailablePiece id="wm_cave_troll_2h_mace_head"/>
 			<AvailablePiece id="wm_cave_troll_2h_mace_handle"/>
+			<AvailablePiece id="wm_hill_troll_2h_hammer_head"/>
+			<AvailablePiece id="wm_hill_troll_2h_hammer_handle"/>
 			<AvailablePiece id="sm_dwarf_iron_hammer_blade_a"/>
 			<AvailablePiece id="sm_dwarf_iron_hammer_blade_b"/>
 			<AvailablePiece id="sm_dwarf_iron_hammer_blade_c"/>
@@ -1594,6 +1628,13 @@
 			<AvailablePiece id="wm_gundabad_javelin_a01_handle"/>
 			<AvailablePiece id="wm_gundabad_javelin_a02_blade"/>
 			<AvailablePiece id="wm_gundabad_javelin_a02_handle"/>
+			<!--[Harad] regular javelins / maces-->
+			<AvailablePiece id="sm_hr_st_jav_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_jav_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_jav_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_guard_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_wm_gundabad_javelin_a01_blade"/>
@@ -1605,16 +1646,23 @@
 	</xsl:template>
 
 
-	<!-- TAOM-STARTER-KIT:START -->
 	<xsl:template match="WeaponDescription[@id='OneHandedPolearm_JavelinAlternative']/AvailablePieces">
 		<AvailablePieces>
+			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
+			<!-- TAOM-STARTER-KIT:END -->
+			<!--[Harad] regular javelins / maces-->
+			<AvailablePiece id="sm_hr_st_jav_blade_light_a" />
+			<AvailablePiece id="sm_hr_st_jav_blade_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_handle_light_a" />
+			<AvailablePiece id="sm_hr_st_jav_handle_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_guard_med_a" />
+			<AvailablePiece id="sm_hr_st_jav_pommel_a" />
 			<xsl:apply-templates select="@*|node()"/>
 		</AvailablePieces>
 	</xsl:template>
-	<!-- TAOM-STARTER-KIT:END -->
 	<!-- TAOM-STARTER-KIT:START -->
 	<xsl:template match="WeaponDescription[@id='TwoHandedPolearm_Thrown']/AvailablePieces">
 		<AvailablePieces>

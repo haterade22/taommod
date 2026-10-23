@@ -281,10 +281,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.22" />
+                damage_factor="1.80" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.01" />
+                damage_factor="3.25" />
         </BladeData>
         <Flags>
             <Flag
@@ -483,10 +483,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.22" />
+                damage_factor="1.86" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.64" />
+                damage_factor="3.04" />
         </BladeData>
         <Flags>
             <Flag
@@ -515,10 +515,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.12" />
+                damage_factor="2.94" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.74" />
+                damage_factor="3.52" />
         </BladeData>
         <Flags>
             <Flag
@@ -685,10 +685,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.78" />
+                damage_factor="1.02" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.67" />
+                damage_factor="1.53" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -777,10 +777,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.96" />
+                damage_factor="1.46" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.85" />
+                damage_factor="2.13" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -871,7 +871,7 @@
             body_name="bo_wm_mordor_set1_axe_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.12" />
+                damage_factor="2.79" />
         </BladeData>
         <Flags>
             <Flag
@@ -929,7 +929,7 @@
             body_name="bo_wm_mordor_set1_axe_a02_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.12" />
+                damage_factor="2.17" />
         </BladeData>
         <Flags>
             <Flag
@@ -982,10 +982,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="0.0" />
+                damage_factor="0.00" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.12" />
+                damage_factor="2.56" />
         </BladeData>
         <Flags>
             <Flag
@@ -1039,10 +1039,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.12" />
+                damage_factor="2.24" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.49" />
+                damage_factor="1.79" />
         </BladeData>
         <Flags>
             <Flag
@@ -1092,10 +1092,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.05" />
+                damage_factor="1.79" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.05" />
+                damage_factor="1.79" />
         </BladeData>
         <Flags>
             <Flag
@@ -1207,7 +1207,7 @@
             body_name="bo_wm_mordor_set1_mace_a01_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="3.56" />
+                damage_factor="4.00" />
         </BladeData>
         <Flags>
             <Flag
@@ -1265,7 +1265,7 @@
             body_name="bo_wm_mordor_set1_mace_a02_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="3.56" />
+                damage_factor="4.53" />
         </BladeData>
         <Flags>
             <Flag
@@ -1309,6 +1309,7 @@
         id="wm_cave_troll_1h_mace_a01_head"
         name="{=aom_wm_cave_troll_1h_mace_a01_head_name}Mordor Cave Troll 1H Mace Head A"
         tier="3"
+        is_hidden="true"
         piece_type="Blade"
         mesh="wm_cave_troll_1h_mace_a01_head"
         length="102.28"
@@ -1358,6 +1359,7 @@
         id="wm_cave_troll_1h_mace_a02_head"
         name="{=aom_wm_cave_troll_1h_mace_a02_head_name}Mordor Cave Troll 1H Mace Head B"
         tier="3"
+        is_hidden="true"
         piece_type="Blade"
         mesh="wm_cave_troll_1h_mace_a02_head"
         length="62.38"
@@ -1407,6 +1409,7 @@
         id="wm_cave_troll_1h_mace_a03_head"
         name="{=aom_wm_cave_troll_1h_mace_a03_head_name}Mordor Cave Troll 1H Mace Head C"
         tier="3"
+        is_hidden="true"
         piece_type="Blade"
         mesh="wm_cave_troll_1h_mace_a03_head"
         length="88.29"
@@ -1456,6 +1459,7 @@
         id="wm_cave_troll_2h_mace_head"
         name="{=aom_wm_cave_troll_2h_mace_head_name}Mordor Cave Troll 2H Mace Head A"
         tier="3"
+        is_hidden="true"
         piece_type="Blade"
         mesh="wm_cave_troll_2h_mace_head"
         length="109.18"
@@ -1507,9 +1511,65 @@
     </CraftingPiece>
 
     <CraftingPiece
+        id="wm_hill_troll_2h_hammer_head"
+        name="{=aom_wm_hill_troll_2h_hammer_head_name}Mordor Hill Troll War Hammer Head A"
+        tier="3"
+        is_hidden="true"
+        piece_type="Blade"
+        mesh="wm_hill_troll_2h_hammer_head"
+        length="69.63"
+        distance_to_next_piece="0"
+        distance_to_previous_piece="0"
+        weight="0.875">
+        <BuildData
+            piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            blade_length="69.63"
+            physics_material="metal_weapon"
+            body_name="bo_wm_hill_troll_2h_hammer_head">
+            <Swing
+                damage_type="Blunt"
+                damage_factor="5.34" />
+        </BladeData>
+        <Flags>
+            <Flag
+                name="BonusAgainstShield" />
+            <Flag
+                name="CanKnockDown" />
+            <Flag
+                name="CanDismount" />
+            <Flag
+                name="CanHook" />
+            <Flag
+                name="CanPenetrateShield" />
+            <Flag
+                name="CanCrushThrough" />
+            <Flag
+                name="CanBePickedUpFromCorpse"
+                type="ItemFlags" />
+            <Flag
+                name="Civilian"
+                type="ItemFlags" />
+            <Flag
+                name="MultiplePenetration"
+                type="WeaponFlags" />
+            <Flag
+                name="AffectsArea"
+                type="WeaponFlags" />
+        </Flags>
+        <Materials>
+            <Material
+                id="Iron3"
+                count="10" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
         id="wm_cave_troll_spear_a01_blade"
         name="{=aom_wm_cave_troll_spear_a01_blade_name}Mordor Cave Troll Spear Blade A01"
         tier="3"
+        is_hidden="true"
         piece_type="Blade"
         mesh="wm_cave_troll_spear_a01_blade"
         length="147.76"
@@ -1554,6 +1614,7 @@
         id="wm_cave_troll_1h_mace_a01_handle"
         name="{=aom_wm_cave_troll_1h_mace_a01_handle_name}Mordor Cave Troll Mace Handle A"
         tier="3"
+        is_hidden="true"
         piece_type="Handle"
         mesh="wm_cave_troll_1h_mace_a01_handle"
         length="192.25"
@@ -1573,6 +1634,7 @@
         id="wm_cave_troll_1h_mace_a02_handle"
         name="{=aom_wm_cave_troll_1h_mace_a02_handle_name}Mordor Cave Troll Mace Handle B"
         tier="3"
+        is_hidden="true"
         piece_type="Handle"
         mesh="wm_cave_troll_1h_mace_a02_handle"
         length="194.29"
@@ -1592,6 +1654,7 @@
         id="wm_cave_troll_1h_mace_a03_handle"
         name="{=aom_wm_cave_troll_1h_mace_a03_handle_name}Mordor Cave Troll Mace Handle C"
         tier="3"
+        is_hidden="true"
         piece_type="Handle"
         mesh="wm_cave_troll_1h_mace_a03_handle"
         length="176.34"
@@ -1611,6 +1674,7 @@
         id="wm_cave_troll_2h_mace_handle"
         name="{=aom_wm_cave_troll_2h_mace_handle_name}Mordor Cave Troll Mace 2H Handle A"
         tier="3"
+        is_hidden="true"
         piece_type="Handle"
         mesh="wm_cave_troll_2h_mace_handle"
         length="258.58"
@@ -1627,9 +1691,30 @@
     </CraftingPiece>
 
     <CraftingPiece
+        id="wm_hill_troll_2h_hammer_handle"
+        name="{=aom_wm_hill_troll_2h_hammer_handle_name}Mordor Hill Troll War Hammer Handle A"
+        tier="3"
+        is_hidden="true"
+        piece_type="Handle"
+        mesh="wm_hill_troll_2h_hammer_handle"
+        length="350.96"
+        weight="0.105">
+        <BuildData
+            piece_offset="95"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="9" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
         id="wm_cave_troll_spear_a01_handle"
         name="{=aom_wm_cave_troll_spear_a01_handle_name}Mordor Cave Troll Spear 1H Handle A"
         tier="3"
+        is_hidden="true"
         piece_type="Handle"
         mesh="wm_cave_troll_spear_a01_handle"
         length="524.09"
@@ -1662,10 +1747,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.41" />
+                damage_factor="0.87" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.11" />
+                damage_factor="2.53" />
         </BladeData>
         <BuildData
             piece_offset="-17"
@@ -1757,10 +1842,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.87" />
+                damage_factor="0.62" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.45" />
+                damage_factor="1.49" />
         </BladeData>
         <BuildData
             piece_offset="-17"
@@ -1966,10 +2051,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.11" />
+                damage_factor="2.41" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.17" />
+                damage_factor="0.69" />
         </BladeData>
         <Flags>
             <Flag
@@ -2021,10 +2106,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.22" />
+                damage_factor="3.03" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.17" />
+                damage_factor="0.84" />
         </BladeData>
         <Flags>
             <Flag
@@ -2077,7 +2162,7 @@
             holster_mesh="">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.11" />
+                damage_factor="1.21" />
         </BladeData>
         <BuildData
             piece_offset="-18"
@@ -2160,7 +2245,7 @@
             body_name="bo_wm_isengard_2h_axe_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.11" />
+                damage_factor="2.03" />
         </BladeData>
         <Flags>
             <Flag
@@ -2232,7 +2317,7 @@
             body_name="bo_wm_isengard_2h_axe_b01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.11" />
+                damage_factor="1.33" />
         </BladeData>
         <Flags>
             <Flag
@@ -2304,7 +2389,7 @@
             body_name="bo_wm_isengard_2h_axe_c01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.11" />
+                damage_factor="2.89" />
         </BladeData>
         <Flags>
             <Flag
@@ -2373,10 +2458,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.61" />
+                damage_factor="1.34" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.15" />
+                damage_factor="1.54" />
         </BladeData>
         <Flags>
             <Flag
@@ -2466,10 +2551,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.62" />
+                damage_factor="1.55" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.62" />
+                damage_factor="1.55" />
         </BladeData>
         <Flags>
             <Flag
@@ -2555,13 +2640,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_a"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="2.86" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="2.86" />
         </BladeData>
         <Flags>
             <Flag
@@ -2648,13 +2733,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_b"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.28" />
+                damage_factor="2.15" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="2.51" />
         </BladeData>
         <Flags>
             <Flag
@@ -2741,13 +2826,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_c"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.28" />
+                damage_factor="2.17" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="2.53" />
         </BladeData>
         <Flags>
             <Flag
@@ -2832,7 +2917,7 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_d"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="3.28" />
@@ -2864,13 +2949,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_d"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.28" />
+                damage_factor="1.62" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="1.88" />
         </BladeData>
         <Flags>
             <Flag
@@ -2955,13 +3040,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_e"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.37" />
+                damage_factor="4.02" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="3.52" />
         </BladeData>
         <Flags>
             <Flag
@@ -2989,13 +3074,13 @@
             stack_amount="3"
             physics_material="metal_weapon"
             body_name="bo_numenorean_sword_blade_e"
-            holster_mesh="">
+            holster_mesh="numenorean_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.37" />
+                damage_factor="4.05" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.83" />
+                damage_factor="3.55" />
         </BladeData>
         <Flags>
             <Flag
@@ -3053,10 +3138,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.0" />
+                damage_factor="1.93" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.2" />
+                damage_factor="2.69" />
         </BladeData>
         <Flags>
             <Flag
@@ -3091,10 +3176,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.7" />
+                damage_factor="1.44" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.8" />
+                damage_factor="2.03" />
         </BladeData>
         <Flags>
             <Flag
@@ -3163,10 +3248,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="4.17" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.15" />
+                damage_factor="4.52" />
         </BladeData>
         <Flags>
             <Flag
@@ -3253,10 +3338,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.83" />
+                damage_factor="4.69" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.15" />
+                damage_factor="5.08" />
         </BladeData>
         <Flags>
             <Flag
@@ -3523,10 +3608,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.26" />
+                damage_factor="1.72" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.18" />
+                damage_factor="2.21" />
         </BladeData>
         <Flags>
             <Flag
@@ -3614,10 +3699,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.26" />
+                damage_factor="1.77" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.09" />
+                damage_factor="2.23" />
         </BladeData>
         <Flags>
             <Flag
@@ -3704,10 +3789,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.21" />
+                damage_factor="2.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.41" />
+                damage_factor="3.20" />
         </BladeData>
         <Flags>
             <Flag
@@ -3794,10 +3879,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.21" />
+                damage_factor="2.24" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.81" />
+                damage_factor="2.56" />
         </BladeData>
         <Flags>
             <Flag
@@ -3884,10 +3969,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.61" />
+                damage_factor="2.53" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.37" />
+                damage_factor="3.06" />
         </BladeData>
         <Flags>
             <Flag
@@ -3974,10 +4059,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.61" />
+                damage_factor="3.00" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.48" />
+                damage_factor="3.72" />
         </BladeData>
         <Flags>
             <Flag
@@ -4063,7 +4148,7 @@
         <BladeData
             stack_amount="3"
             physics_material="wood_weapon"
-            body_name="bo_wm_gondor_spear_blade">
+            body_name="bo_wm_gondor_spear_b_blade">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="2.29" />
@@ -4091,7 +4176,7 @@
         name="{=aom_wm_gondor_spear_b_shaft_name}Gondor Spear Handle C"
         tier="4"
         piece_type="Handle"
-        mesh="wm_gondor_spear_a_shaft"
+        mesh="wm_gondor_spear_b_shaft"
         length="195.40"
         weight="1.6">
         <BuildData
@@ -4115,7 +4200,7 @@
         <BladeData
             stack_amount="3"
             physics_material="wood_weapon"
-            body_name="bo_wm_gondor_spear_blade">
+            body_name="bo_wm_gondor_spear_a_blade">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="2.46" />
@@ -4160,14 +4245,14 @@
         name="{=aom_wm_gondor_light_spear_blade_name}Gondor Spear Head (Light)"
         tier="1"
         piece_type="Blade"
-        mesh="wm_gondor_spear_blade"
-        length="47"
+        mesh="wm_swan_knight_spear_blade"
+        length="58"
         weight="0.72"
         excluded_item_usage_features="swing">
         <BladeData
             stack_amount="3"
             physics_material="wood_weapon"
-            body_name="bo_wm_gondor_spear_blade">
+            body_name="bo_wm_swan_knight_spear_blade">
             <Thrust
                 damage_type="Pierce"
                 damage_factor="2.00" />
@@ -4195,15 +4280,95 @@
         name="{=aom_wm_gondor_light_spear_shaft_name}Gondor Spear Handle (Light)"
         tier="1"
         piece_type="Handle"
-        mesh="wm_gondor_spear_shaft"
-        length="190"
+        mesh="wm_swan_knight_spear_handle"
+        length="195"
         weight="1.6">
         <BuildData
-            piece_offset="22.9" />
+            piece_offset="30" />
         <Materials>
             <Material
                 id="Wood"
                 count="1" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_spear_flag_pg"
+        name="{=aom_wm_gondor_spear_flag_pg_name}Spear Banner - Pinnath Gelin"
+        tier="3"
+        piece_type="Guard"
+        mesh="wm_gondor_flag_a01"
+        length="33.41"
+        weight="0.15">
+        <BuildData
+            next_piece_offset="5.0"
+            previous_piece_offset="28.2" />
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_spear_flag_swan"
+        name="{=aom_wm_gondor_spear_flag_swan_name}Spear Banner - Swan Knight"
+        tier="3"
+        piece_type="Guard"
+        mesh="wm_gondor_flag_a02"
+        length="33.41"
+        weight="0.15">
+        <BuildData
+            next_piece_offset="5.0"
+            previous_piece_offset="28.2" />
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_spear_flag_gondor"
+        name="{=aom_wm_gondor_spear_flag_gondor_name}Spear Banner - Gondor"
+        tier="3"
+        piece_type="Guard"
+        mesh="wm_gondor_flag_a03"
+        length="33.41"
+        weight="0.15">
+        <BuildData
+            next_piece_offset="5.0"
+            previous_piece_offset="28.2" />
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
+        </Materials>
+    </CraftingPiece>
+
+    <CraftingPiece
+        id="wm_gondor_spear_flag_cardolan"
+        name="{=aom_wm_gondor_spear_flag_cardolan_name}Spear Banner - Cardolan"
+        tier="3"
+        piece_type="Guard"
+        mesh="wm_gondor_flag_a04"
+        length="33.41"
+        weight="0.15">
+        <BuildData
+            next_piece_offset="5.0"
+            previous_piece_offset="28.2" />
+        <StatContributions
+            armor_bonus="5" />
+        <Materials>
+            <Material
+                id="Iron5"
+                count="2" />
         </Materials>
     </CraftingPiece>
 
@@ -4285,26 +4450,6 @@
         </Materials>
     </CraftingPiece>
 
-	<CraftingPiece
-	   id="wm_swan_knight_spear_banner_b"
-	   name="{=aom_wm_swan_knight_spear_banner_b_name}Gondor Swan Knight Lance Banner A"
-	   tier="3"
-	   piece_type="Guard"
-	   mesh="wm_swan_knight_lance_flag"
-	   length="33.41"
-	   weight="0.15">
-		<BuildData
-            next_piece_offset="0"
-            previous_piece_offset="0" />
-		<StatContributions
-            armor_bonus="5" />
-		<Materials>
-			<Material
-                id="Iron5"
-                count="2" />
-		</Materials>
-	</CraftingPiece>
-
     <CraftingPiece
         id="wm_swan_knight_lance_handle_a"
         name="{=wm_swan_knight_lance_handle_a}[Gondor] Swan Knight Lance Handle I"
@@ -4325,193 +4470,12 @@
         </Materials>
     </CraftingPiece>
 
-    <CraftingPiece
-        id="wm_swan_knight_spear_blade"
-        name="{=aom_wm_swan_knight_spear_blade_name}Gondor Swan Knight Spear Blade A"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_swan_knight_spear_blade"
-        length="58.55"
-        weight="0.92"
-        excluded_item_usage_features="swing">
-        <BladeData
-            stack_amount="3"
-            physics_material="wood_weapon"
-            body_name="bo_wm_swan_knight_spear_blade">
-            <Thrust
-                damage_type="Pierce"
-                damage_factor="2.19" />
-        </BladeData>
-        <Flags>
-            <Flag
-                name="CanKnockDown" />
-            <Flag
-                name="CanDismount" />
-            <Flag
-                name="CanHook" />
-            <Flag
-                name="NotStackable"
-                type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_handle"
-        name="{=aom_wm_swan_knight_spear_handle_name}Gondor Swan Knight Handle A"
-        tier="4"
-        piece_type="Handle"
-        mesh="wm_swan_knight_spear_handle"
-        length="193.86"
-        weight="1.5">
-        <BuildData
-            piece_offset="60" />
-        <Materials>
-            <Material
-                id="Wood"
-                count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_banner"
-        name="{=aom_wm_swan_knight_spear_banner_name}Gondor Swan Knight Banner A"
-        tier="3"
-        piece_type="Guard"
-        mesh="wm_swan_knight_spear_flag"
-        length="33.41"
-        weight="0.15">
-        <BuildData
-            next_piece_offset="5.0"
-            previous_piece_offset="28.2" />
-        <StatContributions
-            armor_bonus="5" />
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_gondor_banner"
-        name="{=aom_wm_swan_knight_spear_gondor_banner_name}Gondor Knight Banner A"
-        tier="3"
-        piece_type="Guard"
-        mesh="wm_swan_knight_spear_gondor_flag"
-        length="33.41"
-        weight="0.15">
-        <BuildData
-            next_piece_offset="5.0"
-            previous_piece_offset="28.2" />
-        <StatContributions
-            armor_bonus="5" />
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_pg_banner"
-        name="{=aom_wm_swan_knight_spear_pg_banner_name}Gondor PG Knight Banner A"
-        tier="3"
-        piece_type="Guard"
-        mesh="wm_swan_knight_spear_pg_flag"
-        length="33.41"
-        weight="0.15">
-        <BuildData
-            next_piece_offset="5.0"
-            previous_piece_offset="28.2" />
-        <StatContributions
-            armor_bonus="5" />
-        <Materials>
-            <Material
-                id="Iron5"
-                count="2" />
-        </Materials>
-    </CraftingPiece>
+    <!-- The three banner pieces below sit on wm_gondor_flag_a01..a03 by index since the
+         2026-09-11 art drop re-exported the swan-knight flags onto one gondor_flags atlas
+         (old meshes wm_swan_knight_spear_flag/_gondor_flag/_pg_flag are gone). Which flag
+         carries which heraldry is the artist's call (TAOM #599); a04 is unused. -->
 
     <!-- Swan Knight spear-variant pieces (full Gondor + PG variants pair with the existing matching banners) -->
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_gondor_blade"
-        name="{=aom_wm_swan_knight_spear_gondor_blade_name}Gondor Swan Knight Spear Blade B"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_swan_knight_spear_gondor_blade"
-        length="58.55"
-        weight="0.92"
-        excluded_item_usage_features="swing">
-        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_swan_knight_spear_blade">
-            <Thrust damage_type="Pierce" damage_factor="2.19" />
-        </BladeData>
-        <Flags>
-            <Flag name="CanKnockDown" />
-            <Flag name="CanDismount" />
-            <Flag name="CanHook" />
-            <Flag name="NotStackable" type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material id="Iron5" count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_gondor_handle"
-        name="{=aom_wm_swan_knight_spear_gondor_handle_name}Gondor Swan Knight Spear Handle B"
-        tier="4"
-        piece_type="Handle"
-        mesh="wm_swan_knight_spear_gondor_handle"
-        length="193.86"
-        weight="1.5">
-        <BuildData piece_offset="60" />
-        <Materials>
-            <Material id="Wood" count="1" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_pg_blade"
-        name="{=aom_wm_swan_knight_spear_pg_blade_name}Gondor PG Swan Knight Spear Blade B"
-        tier="3"
-        piece_type="Blade"
-        mesh="wm_swan_knight_spear_pg_blade"
-        length="58.55"
-        weight="0.92"
-        excluded_item_usage_features="swing">
-        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_swan_knight_spear_blade">
-            <Thrust damage_type="Pierce" damage_factor="2.19" />
-        </BladeData>
-        <Flags>
-            <Flag name="CanKnockDown" />
-            <Flag name="CanDismount" />
-            <Flag name="CanHook" />
-            <Flag name="NotStackable" type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material id="Iron5" count="2" />
-        </Materials>
-    </CraftingPiece>
-
-    <CraftingPiece
-        id="wm_swan_knight_spear_pg_handle"
-        name="{=aom_wm_swan_knight_spear_pg_handle_name}Gondor PG Swan Knight Spear Handle B"
-        tier="4"
-        piece_type="Handle"
-        mesh="wm_swan_knight_spear_pg_handle"
-        length="193.86"
-        weight="1.5">
-        <BuildData piece_offset="60" />
-        <Materials>
-            <Material id="Wood" count="1" />
-        </Materials>
-    </CraftingPiece>
 
     <CraftingPiece
         id="wm_pelagir_spear_blade"
@@ -4649,7 +4613,7 @@
             previous_piece_offset="0"
             next_piece_offset="0" />
         <BladeData stack_amount="3" blade_length="28.47" blade_width="23.45" physics_material="metal_weapon" body_name="bo_wm_lossarnach_1h_axe__blade">
-            <Swing damage_type="Cut" damage_factor="3.61" />
+            <Swing damage_type="Cut" damage_factor="2.11" />
         </BladeData>
 		<Flags>
 			<Flag
@@ -4703,7 +4667,7 @@
             previous_piece_offset="0"
             next_piece_offset="0" />
         <BladeData stack_amount="3" blade_length="41.59" blade_width="31.16" physics_material="metal_weapon" body_name="bo_wm_lossarnach_2h_axe_blade">
-            <Swing damage_type="Cut" damage_factor="4.20" />
+            <Swing damage_type="Cut" damage_factor="4.03" />
         </BladeData>
 		<Flags>
 			<Flag
@@ -4765,7 +4729,7 @@
             body_name="bo_dunland_caerdh_axe_blade_1h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.13" />
+                damage_factor="2.42" />
         </BladeData>
         <Flags>
             <Flag
@@ -4840,7 +4804,7 @@
             body_name="bo_dunland_caerdh_axe_blade_1h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.91" />
+                damage_factor="3.05" />
         </BladeData>
         <Flags>
             <Flag
@@ -4916,7 +4880,7 @@
             body_name="bo_dunland_caerdh_axe_blade_2h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.79" />
+                damage_factor="2.29" />
         </BladeData>
         <Flags>
             <Flag
@@ -5005,7 +4969,7 @@
             body_name="bo_dunland_caerdh_axe_blade_2h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.79" />
+                damage_factor="2.05" />
         </BladeData>
         <Flags>
             <Flag
@@ -5585,10 +5549,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.06" />
+                damage_factor="2.31" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.92" />
+                damage_factor="2.95" />
         </BladeData>
         <Flags>
             <Flag
@@ -5683,10 +5647,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.8" />
+                damage_factor="1.97" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.84" />
+                damage_factor="2.70" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -5861,10 +5825,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.93" />
+                damage_factor="1.48" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.37" />
+                damage_factor="1.64" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -5924,10 +5888,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.93" />
+                damage_factor="1.43" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.37" />
+                damage_factor="1.59" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -5994,7 +5958,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_1h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.28" />
+                damage_factor="2.65" />
         </BladeData>
         <Flags>
             <Flag
@@ -6036,7 +6000,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_1h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.43" />
+                damage_factor="2.70" />
         </BladeData>
         <Flags>
             <Flag
@@ -6078,7 +6042,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="3.06" />
         </BladeData>
         <Flags>
             <Flag
@@ -6120,7 +6084,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.58" />
+                damage_factor="4.23" />
         </BladeData>
         <Flags>
             <Flag
@@ -6162,7 +6126,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="3.53" />
         </BladeData>
         <Flags>
             <Flag
@@ -6204,7 +6168,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.96" />
+                damage_factor="6.80" />
         </BladeData>
         <Flags>
             <Flag
@@ -6246,7 +6210,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_c">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="3.90" />
         </BladeData>
         <Flags>
             <Flag
@@ -6288,7 +6252,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_c">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.96" />
+                damage_factor="3.92" />
         </BladeData>
         <Flags>
             <Flag
@@ -6330,7 +6294,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_d">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="4.29" />
         </BladeData>
         <Flags>
             <Flag
@@ -6372,7 +6336,7 @@
             body_name="bo_sm_dwarf_erebor_axe_blade_2h_d">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="4.78" />
         </BladeData>
         <Flags>
             <Flag
@@ -6414,7 +6378,7 @@
             body_name="bo_sm_dwarf_erebor_hammer_blade_2h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.66" />
+                damage_factor="2.18" />
         </BladeData>
         <Flags>
             <Flag
@@ -6458,7 +6422,7 @@
             body_name="bo_sm_dwarf_erebor_hammer_blade_2h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.66" />
+                damage_factor="4.41" />
         </BladeData>
         <Flags>
             <Flag
@@ -8012,10 +7976,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.67" />
+                damage_factor="1.93" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="2.58" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8107,10 +8071,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.67" />
+                damage_factor="1.91" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="2.55" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8202,10 +8166,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.67" />
+                damage_factor="3.89" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="5.19" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8297,10 +8261,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="6.12" />
+                damage_factor="3.21" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="2.57" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8392,10 +8356,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="6.12" />
+                damage_factor="5.14" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="4.12" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8487,10 +8451,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="6.12" />
+                damage_factor="7.17" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.9" />
+                damage_factor="5.74" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8605,10 +8569,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.9" />
+                damage_factor="3.19" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.22" />
+                damage_factor="0.79" />
         </BladeData>
         <Flags>
             <Flag
@@ -8666,10 +8630,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.9" />
+                damage_factor="3.14" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.22" />
+                damage_factor="0.78" />
         </BladeData>
         <Flags>
             <Flag
@@ -8765,10 +8729,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.29" />
+                damage_factor="3.95" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.67" />
+                damage_factor="3.37" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -8860,10 +8824,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.67" />
+                damage_factor="3.03" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.67" />
+                damage_factor="3.03" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -9023,7 +8987,7 @@
             body_name="bo_sm_dwarf_iron_axe_blade_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="2.03" />
         </BladeData>
         <Flags>
             <Flag
@@ -9067,7 +9031,7 @@
             body_name="bo_sm_dwarf_iron_axe_blade_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.66" />
+                damage_factor="3.02" />
         </BladeData>
         <Flags>
             <Flag
@@ -9111,7 +9075,7 @@
             body_name="bo_sm_dwarf_iron_hammer_blade_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.66" />
+                damage_factor="2.78" />
         </BladeData>
         <Flags>
             <Flag
@@ -9155,7 +9119,7 @@
             body_name="bo_sm_dwarf_iron_hammer_blade_b">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.73" />
+                damage_factor="3.15" />
         </BladeData>
         <Flags>
             <Flag
@@ -9199,7 +9163,7 @@
             body_name="bo_sm_dwarf_iron_hammer_blade_c">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.73" />
+                damage_factor="3.48" />
         </BladeData>
         <Flags>
             <Flag
@@ -9243,7 +9207,7 @@
             body_name="bo_sm_dwarf_iron_hammer_blade_d">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.88" />
+                damage_factor="3.80" />
         </BladeData>
         <Flags>
             <Flag
@@ -9331,7 +9295,7 @@
             body_name="bo_sm_dwarf_iron_mattock_blade_a">
             <Swing
                 damage_type="Pierce"
-                damage_factor="3.49" />
+                damage_factor="2.80" />
         </BladeData>
         <Flags>
             <Flag
@@ -9423,7 +9387,7 @@
             body_name="bo_sm_dwarf_iron_mattock_blade_c">
             <Swing
                 damage_type="Pierce"
-                damage_factor="2.73" />
+                damage_factor="2.87" />
         </BladeData>
         <Flags>
             <Flag
@@ -9469,7 +9433,7 @@
             body_name="bo_sm_dwarf_iron_mattock_blade_d">
             <Swing
                 damage_type="Pierce"
-                damage_factor="2.73" />
+                damage_factor="2.82" />
         </BladeData>
         <Flags>
             <Flag
@@ -9510,10 +9474,10 @@
             holster_mesh="sm_dwarf_iron_sword_scabbard_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.42" />
+                damage_factor="2.83" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.42" />
+                damage_factor="2.83" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -9852,10 +9816,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.97" />
+                damage_factor="1.29" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.01" />
+                damage_factor="2.18" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -9946,10 +9910,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.18" />
+                damage_factor="2.03" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.37" />
+                damage_factor="2.60" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -10040,10 +10004,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.18" />
+                damage_factor="2.01" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.37" />
+                damage_factor="2.59" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -10134,10 +10098,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.24" />
+                damage_factor="2.39" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.24" />
+                damage_factor="0.91" />
         </BladeData>
         <Flags>
             <Flag
@@ -10240,10 +10204,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.37" />
+                damage_factor="3.10" />
             <Swing
                 damage_type="Cut"
-                damage_factor="1.24" />
+                damage_factor="1.14" />
         </BladeData>
         <Flags>
             <Flag
@@ -10298,7 +10262,7 @@
             body_name="bo_wm_rohan_ws_axe_1h_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="5.37" />
+                damage_factor="3.34" />
         </BladeData>
         <Flags>
             <Flag
@@ -10356,7 +10320,7 @@
             body_name="bo_wm_rohan_ws_axe_2h_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="5.72" />
+                damage_factor="5.24" />
         </BladeData>
         <Flags>
             <Flag
@@ -10414,7 +10378,7 @@
             body_name="bo_wm_rohan_ws_axe_2h_b01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="5.37" />
+                damage_factor="4.91" />
         </BladeData>
         <Flags>
             <Flag
@@ -10667,10 +10631,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.05" />
+                damage_factor="1.03" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.94" />
+                damage_factor="2.88" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -10762,10 +10726,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.05" />
+                damage_factor="0.98" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.78" />
+                damage_factor="3.54" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -10857,10 +10821,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.05" />
+                damage_factor="1.18" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.68" />
+                damage_factor="4.13" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -10952,10 +10916,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.05" />
+                damage_factor="0.97" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.68" />
+                damage_factor="3.41" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -11052,7 +11016,7 @@
             body_name="bo_wm_gundabad_axe_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.89" />
+                damage_factor="2.46" />
         </BladeData>
         <Flags>
             <Flag
@@ -11110,7 +11074,7 @@
             body_name="bo_wm_gundabad_axe_a02_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="4.3" />
+                damage_factor="2.73" />
         </BladeData>
         <Flags>
             <Flag
@@ -11168,7 +11132,7 @@
             body_name="bo_wm_gundabad_axe_a03_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="6.1" />
+                damage_factor="3.53" />
         </BladeData>
         <Flags>
             <Flag
@@ -11221,10 +11185,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.2" />
+                damage_factor="3.63" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.15" />
+                damage_factor="2.73" />
         </BladeData>
         <Flags>
             <Flag
@@ -11274,10 +11238,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.36" />
+                damage_factor="1.05" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.79" />
+                damage_factor="1.81" />
         </BladeData>
         <Flags>
             <Flag
@@ -11329,10 +11293,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.3" />
+                damage_factor="2.49" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.2" />
+                damage_factor="2.44" />
         </BladeData>
         <Flags>
             <Flag
@@ -11387,7 +11351,7 @@
             body_name="bo_wm_gundabad_mace_a01_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="5.79" />
+                damage_factor="2.53" />
         </BladeData>
         <Flags>
             <Flag
@@ -11451,7 +11415,7 @@
             body_name="bo_wm_gundabad_mace_a02_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="5.79" />
+                damage_factor="3.03" />
         </BladeData>
         <Flags>
             <Flag
@@ -11514,7 +11478,7 @@
             body_name="bo_wm_gundabad_mace_b01_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.01" />
+                damage_factor="2.39" />
         </BladeData>
         <Flags>
             <Flag
@@ -11726,10 +11690,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.12" />
+                damage_factor="1.77" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.36" />
+                damage_factor="1.97" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -11821,10 +11785,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.73" />
+                damage_factor="1.53" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.83" />
+                damage_factor="2.51" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -11916,10 +11880,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="1.57" />
+                damage_factor="1.44" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.75" />
+                damage_factor="2.52" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -12016,7 +11980,7 @@
             body_name="bo_wm_dol_goldur_2h_axe_a01_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.75" />
+                damage_factor="1.14" />
         </BladeData>
         <Flags>
             <Flag
@@ -12078,7 +12042,7 @@
             body_name="bo_wm_dol_goldur_2h_axe_a02_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.07" />
+                damage_factor="2.91" />
         </BladeData>
         <Flags>
             <Flag
@@ -12142,7 +12106,7 @@
             body_name="bo_wm_dol_goldur_2h_axe_a03_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="2.91" />
+                damage_factor="1.20" />
         </BladeData>
         <Flags>
             <Flag
@@ -12187,7 +12151,7 @@
             body_name="bo_wm_dol_goldur_2h_axe_a04_blade">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.07" />
+                damage_factor="0.88" />
         </BladeData>
         <Flags>
             <Flag
@@ -12231,7 +12195,7 @@
             body_name="bo_wm_dol_goldur_2h_mace_a01_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.75" />
+                damage_factor="2.39" />
         </BladeData>
         <Flags>
             <Flag
@@ -12349,7 +12313,7 @@
             body_name="bo_wm_dol_goldur_2h_mace_a03_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.75" />
+                damage_factor="1.49" />
         </BladeData>
         <Flags>
             <Flag
@@ -12389,7 +12353,7 @@
             body_name="bo_wm_dol_goldur_2h_mace_a04_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="2.75" />
+                damage_factor="1.47" />
         </BladeData>
         <Flags>
             <Flag
@@ -12434,7 +12398,7 @@
             body_name="bo_wm_dol_goldur_1h_mace_a01_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="3.54" />
+                damage_factor="3.01" />
         </BladeData>
         <Flags>
             <Flag
@@ -12492,7 +12456,7 @@
             body_name="bo_wm_dol_goldur_1h_mace_a02_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="3.54" />
+                damage_factor="2.96" />
         </BladeData>
         <Flags>
             <Flag
@@ -12550,7 +12514,7 @@
             body_name="bo_wm_dol_goldur_1h_mace_a03_blade">
             <Swing
                 damage_type="Blunt"
-                damage_factor="3.54" />
+                damage_factor="3.47" />
         </BladeData>
         <Flags>
             <Flag
@@ -12603,10 +12567,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="0.79" />
+                damage_factor="0.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.33" />
+                damage_factor="1.13" />
         </BladeData>
         <Flags>
             <Flag
@@ -12660,10 +12624,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="2.36" />
+                damage_factor="0.65" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.01" />
+                damage_factor="1.10" />
         </BladeData>
         <Flags>
             <Flag
@@ -12717,10 +12681,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="0.79" />
+                damage_factor="0.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.33" />
+                damage_factor="1.13" />
         </BladeData>
         <Flags>
             <Flag
@@ -12755,10 +12719,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="0.79" />
+                damage_factor="0.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.33" />
+                damage_factor="1.10" />
         </BladeData>
         <Flags>
             <Flag
@@ -13544,10 +13508,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.02" />
+                damage_factor="2.64" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.42" />
+                damage_factor="2.12" />
         </BladeData>
         <BuildData
             piece_offset="0"
@@ -13939,10 +13903,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.26" />
+                damage_factor="2.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.18" />
+                damage_factor="3.20" />
         </BladeData>
         <Flags>
             <Flag
@@ -13974,10 +13938,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.21" />
+                damage_factor="3.68" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.41" />
+                damage_factor="4.73" />
         </BladeData>
         <Flags>
             <Flag
@@ -14158,10 +14122,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.37" />
+                damage_factor="4.27" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.03" />
+                damage_factor="4.92" />
         </BladeData>
         <Flags>
             <Flag
@@ -14260,7 +14224,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="4.24" />
         </BladeData>
         <Flags>
             <Flag
@@ -14298,7 +14262,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="4.83" />
         </BladeData>
         <Flags>
             <Flag
@@ -14373,7 +14337,7 @@
             body_name="bo_sm_rh_loke_mace_blade_1h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="3.38" />
         </BladeData>
         <Flags>
             <Flag
@@ -14411,7 +14375,7 @@
             body_name="bo_sm_rh_loke_mace_blade_1h_b">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="5.23" />
         </BladeData>
         <Flags>
             <Flag
@@ -14712,7 +14676,7 @@
             body_name="bo_sm_rh_loke_mace_blade_2h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="4.95" />
         </BladeData>
         <Flags>
             <Flag
@@ -14753,7 +14717,7 @@
             body_name="bo_sm_rh_loke_mace_blade_2h_b">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="5.17" />
         </BladeData>
         <Flags>
             <Flag
@@ -14833,10 +14797,10 @@
             body_name="bo_sm_rh_loke_spear_blade_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.08" />
+                damage_factor="2.65" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.86" />
+                damage_factor="2.46" />
         </BladeData>
         <Materials>
             <Material
@@ -14942,10 +14906,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.21" />
+                damage_factor="4.11" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.41" />
+                damage_factor="5.28" />
         </BladeData>
         <Flags>
             <Flag
@@ -15126,10 +15090,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.37" />
+                damage_factor="4.27" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.03" />
+                damage_factor="4.92" />
         </BladeData>
         <Flags>
             <Flag
@@ -15228,7 +15192,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="3.04" />
         </BladeData>
         <Flags>
             <Flag
@@ -15266,7 +15230,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="4.20" />
         </BladeData>
         <Flags>
             <Flag
@@ -15341,7 +15305,7 @@
             body_name="bo_sm_rh_loke_mace_blade_1h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="3.90" />
         </BladeData>
         <Flags>
             <Flag
@@ -15379,7 +15343,7 @@
             body_name="bo_sm_rh_loke_mace_blade_1h_b">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="5.79" />
         </BladeData>
         <Flags>
             <Flag
@@ -15456,7 +15420,7 @@
             body_name="bo_sm_rh_loke_axe_blade_2h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="5.17" />
         </BladeData>
         <Flags>
             <Flag
@@ -15721,7 +15685,7 @@
             body_name="bo_sm_rh_loke_mace_blade_2h_b">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="5.70" />
         </BladeData>
         <Flags>
             <Flag
@@ -15801,10 +15765,10 @@
             body_name="bo_sm_rh_loke_spear_blade_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.08" />
+                damage_factor="2.99" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.86" />
+                damage_factor="2.78" />
         </BladeData>
         <Materials>
             <Material
@@ -15875,10 +15839,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.26" />
+                damage_factor="2.74" />
             <Swing
                 damage_type="Cut"
-                damage_factor="4.18" />
+                damage_factor="3.51" />
         </BladeData>
         <Flags>
             <Flag
@@ -15910,10 +15874,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.21" />
+                damage_factor="3.50" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.41" />
+                damage_factor="4.49" />
         </BladeData>
         <Flags>
             <Flag
@@ -16094,10 +16058,10 @@
             holster_mesh="">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.37" />
+                damage_factor="4.27" />
             <Swing
                 damage_type="Cut"
-                damage_factor="5.03" />
+                damage_factor="4.92" />
         </BladeData>
         <Flags>
             <Flag
@@ -16196,7 +16160,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_a">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="3.04" />
         </BladeData>
         <Flags>
             <Flag
@@ -16234,7 +16198,7 @@
             body_name="bo_sm_rh_loke_axe_blade_1h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="4.20" />
         </BladeData>
         <Flags>
             <Flag
@@ -16309,7 +16273,7 @@
             body_name="bo_sm_rh_loke_mace_blade_1h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="3.71" />
         </BladeData>
         <Flags>
             <Flag
@@ -16471,7 +16435,7 @@
             body_name="bo_sm_rh_loke_axe_blade_2h_b">
             <Swing
                 damage_type="Cut"
-                damage_factor="3.85" />
+                damage_factor="3.64" />
         </BladeData>
         <Flags>
             <Flag
@@ -16648,7 +16612,7 @@
             body_name="bo_sm_rh_loke_mace_blade_2h_a">
             <Swing
                 damage_type="Blunt"
-                damage_factor="4.39" />
+                damage_factor="3.62" />
         </BladeData>
         <Flags>
             <Flag
@@ -16769,10 +16733,10 @@
             body_name="bo_sm_rh_loke_spear_blade_a">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="3.08" />
+                damage_factor="1.91" />
             <Swing
                 damage_type="Cut"
-                damage_factor="2.86" />
+                damage_factor="1.77" />
         </BladeData>
         <Materials>
             <Material
@@ -16804,10 +16768,10 @@
             body_name="bo_sm_rh_loke_spear_blade_b">
             <Thrust
                 damage_type="Pierce"
-                damage_factor="4.00" />
+                damage_factor="2.46" />
             <Swing
                 damage_type="Cut"
-                damage_factor="3.72" />
+                damage_factor="2.29" />
         </BladeData>
         <Materials>
             <Material
@@ -16963,8 +16927,8 @@
     <!-- ===== DALE (Culture.sturgia) crafting pieces - stats proposed for review ===== -->
     <CraftingPiece id="wm_dale_ws_sword_a01_blade" name="{=aom_wm_dale_ws_sword_a01_blade_name}Dale Sword Blade I" tier="4" piece_type="Blade" mesh="wm_dale_ws_sword_a01_blade" length="89.16" weight="1.15">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="2.9" />
-            <Swing damage_type="Cut" damage_factor="2.8" />
+            <Thrust damage_type="Pierce" damage_factor="3.70" />
+            <Swing damage_type="Cut" damage_factor="3.58" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /></Flags>
@@ -16985,8 +16949,8 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_sword_a02_blade" name="{=aom_wm_dale_ws_sword_a02_blade_name}Dale Sword Blade II" tier="3" piece_type="Blade" mesh="wm_dale_ws_sword_a02_blade" length="83.92" weight="1.0">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a02_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="2.6" />
-            <Swing damage_type="Cut" damage_factor="2.8" />
+            <Thrust damage_type="Pierce" damage_factor="2.89" />
+            <Swing damage_type="Cut" damage_factor="3.11" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /></Flags>
@@ -17007,8 +16971,8 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_sword_a03_blade" name="{=aom_wm_dale_ws_sword_a03_blade_name}Dale Sword Blade III" tier="3" piece_type="Blade" mesh="wm_dale_ws_sword_a03_blade" length="62.09" weight="0.85">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a03_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="2.3" />
-            <Swing damage_type="Cut" damage_factor="3.0" />
+            <Thrust damage_type="Pierce" damage_factor="1.64" />
+            <Swing damage_type="Cut" damage_factor="2.14" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /></Flags>
@@ -17029,7 +16993,7 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_1h_axe_a01_blade" name="{=aom_wm_dale_ws_1h_axe_a01_blade_name}Dale Axe Head I" tier="2" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a01_blade" length="18.07" weight="0.9">
         <BladeData stack_amount="3" blade_length="18.07" blade_width="17.53" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a01_blade">
-            <Swing damage_type="Cut" damage_factor="3.0" />
+            <Swing damage_type="Cut" damage_factor="3.15" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="18" />
         <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17037,7 +17001,7 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_1h_axe_a02_blade" name="{=aom_wm_dale_ws_1h_axe_a02_blade_name}Dale Axe Head II" tier="3" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a02_blade" length="21.42" weight="1.0">
         <BladeData stack_amount="3" blade_length="21.42" blade_width="16.66" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a02_blade">
-            <Swing damage_type="Cut" damage_factor="3.1" />
+            <Swing damage_type="Cut" damage_factor="3.54" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /></Flags>
@@ -17045,7 +17009,7 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_1h_axe_a03_blade" name="{=aom_wm_dale_ws_1h_axe_a03_blade_name}Dale Axe Head III" tier="3" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a03_blade" length="18.26" weight="1.2">
         <BladeData stack_amount="3" blade_length="18.26" blade_width="31.09" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a03_blade">
-            <Swing damage_type="Cut" damage_factor="3.4" />
+            <Swing damage_type="Cut" damage_factor="4.14" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="19" />
         <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="CanKnockDown" /></Flags>
@@ -17061,7 +17025,7 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_2h_axe_a01_blade" name="{=aom_wm_dale_ws_2h_axe_a01_blade_name}Dale Great Axe Head" tier="4" piece_type="Blade" mesh="wm_dale_ws_2h_axe_a01_blade" length="25" weight="2.4">
         <BladeData stack_amount="3" blade_length="25" blade_width="42.57" physics_material="metal_weapon" body_name="bo_wm_dale_ws_2h_axe_a01_blade">
-            <Swing damage_type="Cut" damage_factor="3.7" />
+            <Swing damage_type="Cut" damage_factor="2.48" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="24" />
         <Flags><Flag name="BonusAgainstShield" /><Flag name="CanDismount" /><Flag name="CanKnockDown" /></Flags>
@@ -17073,7 +17037,7 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_spear_a01_blade" name="{=aom_wm_dale_ws_spear_a01_blade_name}Dale Spear Head I" tier="3" piece_type="Blade" mesh="wm_dale_ws_spear_a01_blade" length="48.81" weight="0.8" excluded_item_usage_features="swing">
         <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_dale_ws_spear_a01_blade">
-            <Thrust damage_type="Pierce" damage_factor="2.6" />
+            <Thrust damage_type="Pierce" damage_factor="2.31" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="3" />
         <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="NotStackable" type="ItemFlags" /></Flags>
@@ -17115,8 +17079,8 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_polearm_head_a03" name="{=aom_wm_dale_ws_polearm_head_a03_name}Dale Poleaxe Head" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a03" length="43.03" weight="1.1">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a03">
-            <Thrust damage_type="Pierce" damage_factor="2.0" />
-            <Swing damage_type="Cut" damage_factor="2.6" />
+            <Thrust damage_type="Pierce" damage_factor="1.80" />
+            <Swing damage_type="Cut" damage_factor="2.34" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="BonusAgainstShield" /></Flags>
@@ -17132,8 +17096,8 @@
     </CraftingPiece>
     <CraftingPiece id="wm_dale_ws_polearm_head_a05" name="{=aom_wm_dale_ws_polearm_head_a05_name}Dale Winged Spear Head I" tier="3" piece_type="Blade" mesh="wm_dale_ws_polearm_head_a05" length="68.14" weight="1.4">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_polearm_head_a05">
-            <Thrust damage_type="Pierce" damage_factor="2.6" />
-            <Swing damage_type="Cut" damage_factor="2.2" />
+            <Thrust damage_type="Pierce" damage_factor="2.35" />
+            <Swing damage_type="Cut" damage_factor="1.99" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /></Flags>
@@ -17156,8 +17120,8 @@
     <!-- Black Numenorean weapons: 1H sword, 2H sword, lance (sm_md_num_*) -->
     <CraftingPiece id="sm_md_num_sword_1h_blade_a" name="{=aom_sm_md_num_sword_1h_blade_a_name}Black Numenorean Sword Blade I" tier="4" piece_type="Blade" mesh="sm_md_num_sword_1h_blade_a" length="80.0" weight="0.82">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_1h_blade_a">
-            <Thrust damage_type="Pierce" damage_factor="3.2" />
-            <Swing damage_type="Cut" damage_factor="3.6" />
+            <Thrust damage_type="Pierce" damage_factor="3.76" />
+            <Swing damage_type="Cut" damage_factor="4.23" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17166,8 +17130,8 @@
 
     <CraftingPiece id="sm_md_num_sword_1h_blade_b" name="{=aom_sm_md_num_sword_1h_blade_b_name}Black Numenorean Sword Blade II" tier="4" piece_type="Blade" mesh="sm_md_num_sword_1h_blade_b" length="80.0" weight="0.82">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_1h_blade_b">
-            <Thrust damage_type="Pierce" damage_factor="3.2" />
-            <Swing damage_type="Cut" damage_factor="3.6" />
+            <Thrust damage_type="Pierce" damage_factor="3.76" />
+            <Swing damage_type="Cut" damage_factor="4.23" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17176,8 +17140,8 @@
 
     <CraftingPiece id="sm_md_num_sword_1h_blade_c" name="{=aom_sm_md_num_sword_1h_blade_c_name}Black Numenorean Sword Blade III" tier="4" piece_type="Blade" mesh="sm_md_num_sword_1h_blade_c" length="80.0" weight="0.82">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_1h_blade_c">
-            <Thrust damage_type="Pierce" damage_factor="3.3" />
-            <Swing damage_type="Cut" damage_factor="3.7" />
+            <Thrust damage_type="Pierce" damage_factor="4.77" />
+            <Swing damage_type="Cut" damage_factor="5.36" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17218,8 +17182,8 @@
 
     <CraftingPiece id="sm_md_num_sword_2h_blade_a" name="{=aom_sm_md_num_sword_2h_blade_a_name}Black Numenorean Greatsword Blade I" tier="4" piece_type="Blade" mesh="sm_md_num_sword_2h_blade_a" length="100.0" weight="1.35">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_2h_blade_a">
-            <Thrust damage_type="Pierce" damage_factor="3.3" />
-            <Swing damage_type="Cut" damage_factor="3.7" />
+            <Thrust damage_type="Pierce" damage_factor="2.41" />
+            <Swing damage_type="Cut" damage_factor="2.70" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17228,8 +17192,8 @@
 
     <CraftingPiece id="sm_md_num_sword_2h_blade_b" name="{=aom_sm_md_num_sword_2h_blade_b_name}Black Numenorean Greatsword Blade II" tier="4" piece_type="Blade" mesh="sm_md_num_sword_2h_blade_b" length="100.0" weight="1.35">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_2h_blade_b">
-            <Thrust damage_type="Pierce" damage_factor="3.3" />
-            <Swing damage_type="Cut" damage_factor="3.7" />
+            <Thrust damage_type="Pierce" damage_factor="2.69" />
+            <Swing damage_type="Cut" damage_factor="3.02" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17238,8 +17202,8 @@
 
     <CraftingPiece id="sm_md_num_sword_2h_blade_c" name="{=aom_sm_md_num_sword_2h_blade_c_name}Black Numenorean Greatsword Blade III" tier="4" piece_type="Blade" mesh="sm_md_num_sword_2h_blade_c" length="100.0" weight="1.35">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_sword_2h_blade_c">
-            <Thrust damage_type="Pierce" damage_factor="3.4" />
-            <Swing damage_type="Cut" damage_factor="3.74" />
+            <Thrust damage_type="Pierce" damage_factor="3.03" />
+            <Swing damage_type="Cut" damage_factor="3.34" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="Civilian" type="ItemFlags" /></Flags>
@@ -17291,7 +17255,7 @@
 
     <CraftingPiece id="sm_md_num_lance_blade_a" name="{=aom_sm_md_num_lance_blade_a_name}Black Numenorean Lance Head" tier="4" piece_type="Blade" mesh="sm_md_num_lance_blade_a" length="25.0" weight="0.9" excluded_item_usage_features="swing">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_sm_md_num_lance_blade_a">
-            <Thrust damage_type="Pierce" damage_factor="3.4" />
+            <Thrust damage_type="Pierce" damage_factor="3.27" />
         </BladeData>
         <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
         <Flags><Flag name="CanKnockDown" /><Flag name="CanDismount" /><Flag name="CanHook" /><Flag name="NotStackable" type="ItemFlags" /></Flags>
@@ -17389,11 +17353,521 @@
             <Material id="Wood" count="5" />
         </Materials>
     </CraftingPiece>
+    <!--[Harad] Regular Spear (shared Harwan + Shaghana) - light/med/heavy, pommel on heavy only-->
+    <CraftingPiece
+        id="sm_hr_st_spear_blade_light_a"
+        name="{=aom_sm_hr_st_spear_blade_light_a_name}Harwan Spear Head (Light) I"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_hr_st_spear_blade_light_a"
+        length="30"
+        weight="0.45"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_spear_blade_light_a">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.30" />
+        </BladeData>
+        <BuildData
+            piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="4" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_blade_light_b"
+        name="{=aom_sm_hr_st_spear_blade_light_b_name}Harwan Spear Head (Light) II"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_hr_st_spear_blade_light_b"
+        length="30"
+        weight="0.45"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_spear_blade_light_b">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.30" />
+        </BladeData>
+        <BuildData
+            piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="4" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_blade_med_a"
+        name="{=aom_sm_hr_st_spear_blade_med_a_name}Harwan Spear Head (Medium)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_hr_st_spear_blade_med_a"
+        length="40"
+        weight="0.6"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_spear_blade_med_a">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.43" />
+        </BladeData>
+        <BuildData
+            piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron4" count="4" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_blade_heavy_a"
+        name="{=aom_sm_hr_st_spear_blade_heavy_a_name}Harwan Spear Head (Heavy)"
+        tier="5"
+        piece_type="Blade"
+        mesh="sm_hr_st_spear_blade_heavy_a"
+        length="40"
+        weight="0.6"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_spear_blade_heavy_a">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.64" />
+        </BladeData>
+        <BuildData
+            piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="4" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_light_a"
+        name="{=aom_sm_hr_st_spear_handle_light_a_name}Harwan Spear Shaft (Light) I"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_light_a"
+        length="180"
+        weight="1.3">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_light_b"
+        name="{=aom_sm_hr_st_spear_handle_light_b_name}Harwan Spear Shaft (Light) II"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_light_b"
+        length="180"
+        weight="1.3">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_med_a"
+        name="{=aom_sm_hr_st_spear_handle_med_a_name}Harwan Spear Shaft (Medium) I"
+        tier="4"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_med_a"
+        length="190"
+        weight="1.4">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_med_b"
+        name="{=aom_sm_hr_st_spear_handle_med_b_name}Harwan Spear Shaft (Medium) II"
+        tier="4"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_med_b"
+        length="190"
+        weight="1.4">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_heavy_a"
+        name="{=aom_sm_hr_st_spear_handle_heavy_a_name}Harwan Spear Shaft (Heavy) I"
+        tier="5"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_heavy_a"
+        length="200"
+        weight="1.35">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_handle_heavy_b"
+        name="{=aom_sm_hr_st_spear_handle_heavy_b_name}Harwan Spear Shaft (Heavy) II"
+        tier="5"
+        piece_type="Handle"
+        mesh="sm_hr_st_spear_handle_heavy_b"
+        length="200"
+        weight="1.35">
+        <BuildData
+            piece_offset="35" />
+        <Materials>
+            <Material id="Wood" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_spear_pommel_a"
+        name="{=aom_sm_hr_st_spear_pommel_a_name}Harwan Spear Butt"
+        tier="5"
+        piece_type="Pommel"
+        mesh="sm_hr_st_spear_pommel_a"
+        length="20"
+        weight="0.15">
+        <BuildData
+            piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Harad] Regular Sword (cavalry T4-T5)-->
+    <CraftingPiece
+        id="sk_hr_st_sword_blade_a"
+        name="{=aom_sk_hr_st_sword_blade_a_name}Harwan Sword Blade"
+        tier="4"
+        piece_type="Blade"
+        mesh="sk_hr_st_sword_blade_a"
+        length="90"
+        weight="1.2">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <BladeData
+            stack_amount="3"
+            physics_material="metal_weapon"
+            body_name="bo_sk_hr_st_sword_blade_a"
+            holster_mesh="">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.34" />
+            <Swing
+                damage_type="Cut"
+                damage_factor="4.08" />
+        </BladeData>
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron4" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sk_hr_st_sword_guard_a"
+        name="{=aom_sk_hr_st_sword_guard_a_name}Harwan Sword Guard"
+        tier="4"
+        piece_type="Guard"
+        mesh="sk_hr_st_sword_guard_a"
+        length="2"
+        weight="0.15">
+        <BuildData
+            piece_offset="0"
+            next_piece_offset="0"
+            previous_piece_offset="0" />
+        <StatContributions
+            armor_bonus="4" />
+        <Materials>
+            <Material id="Iron4" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sk_hr_st_sword_handle_a"
+        name="{=aom_sk_hr_st_sword_handle_a_name}Harwan Sword Grip"
+        tier="4"
+        piece_type="Handle"
+        mesh="sk_hr_st_sword_handle_a"
+        length="15"
+        weight="0.15">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <Materials>
+            <Material id="Wood" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sk_hr_st_sword_pommel_a"
+        name="{=aom_sk_hr_st_sword_pommel_a_name}Harwan Sword Pommel"
+        tier="4"
+        piece_type="Pommel"
+        mesh="sk_hr_st_sword_pommel_a"
+        length="2"
+        weight="0.1">
+        <BuildData
+            piece_offset="0"
+            previous_piece_offset="0"
+            next_piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Harad] Regular Javelin (Shaghana infantry) - light (no guard) / medium (guard + pommel)-->
+    <CraftingPiece
+        id="sm_hr_st_jav_blade_light_a"
+        name="{=aom_sm_hr_st_jav_blade_light_a_name}Harad Javelin Head (Light)"
+        tier="3"
+        piece_type="Blade"
+        mesh="sm_hr_st_jav_blade_light_a"
+        length="20"
+        weight="0.35"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="4"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_jav_blade_light_a"
+            holster_mesh="throwing_spear_quiver_1_1"
+            holster_body_name="bo_throwing_spear_quiver_1_1"
+            holster_mesh_length="68.9">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.64" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron3" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_jav_blade_med_a"
+        name="{=aom_sm_hr_st_jav_blade_med_a_name}Harad Javelin Head (Medium)"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_hr_st_jav_blade_med_a"
+        length="20"
+        weight="0.42"
+        excluded_item_usage_features="swing">
+        <BladeData
+            stack_amount="5"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_jav_blade_med_a"
+            holster_mesh="throwing_spear_quiver_1_1"
+            holster_body_name="bo_throwing_spear_quiver_1_1"
+            holster_mesh_length="68.9">
+            <Thrust
+                damage_type="Pierce"
+                damage_factor="2.70" />
+        </BladeData>
+        <Materials>
+            <Material id="Iron4" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_jav_handle_light_a"
+        name="{=aom_sm_hr_st_jav_handle_light_a_name}Harad Javelin Shaft (Light)"
+        tier="3"
+        piece_type="Handle"
+        mesh="sm_hr_st_jav_handle_light_a"
+        length="70"
+        weight="0.5"
+        excluded_item_usage_features="long">
+        <BuildData
+            piece_offset="15" />
+        <Materials>
+            <Material id="Wood" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_jav_handle_med_a"
+        name="{=aom_sm_hr_st_jav_handle_med_a_name}Harad Javelin Shaft (Medium)"
+        tier="4"
+        piece_type="Handle"
+        mesh="sm_hr_st_jav_handle_med_a"
+        length="80"
+        weight="0.55"
+        excluded_item_usage_features="long">
+        <BuildData
+            piece_offset="15" />
+        <Materials>
+            <Material id="Wood" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_jav_guard_med_a"
+        name="{=aom_sm_hr_st_jav_guard_med_a_name}Harad Javelin Collar"
+        tier="4"
+        piece_type="Guard"
+        mesh="sm_hr_st_jav_guard_med_a"
+        length="1"
+        weight="0.05">
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_jav_pommel_a"
+        name="{=aom_sm_hr_st_jav_pommel_a_name}Harad Javelin Butt"
+        tier="3"
+        piece_type="Pommel"
+        mesh="sm_hr_st_jav_pommel_a"
+        length="2"
+        weight="0.05">
+        <Materials>
+            <Material id="Iron3" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <!--[Harad] Regular One-Handed Mace (Harwan + Shaghana infantry) - light (no pommel) / medium A+B (pommel)-->
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_blade_light_a"
+        name="{=aom_sm_hr_st_mace_1h_blade_light_a_name}Harad Mace Head (Light)"
+        tier="2"
+        piece_type="Blade"
+        mesh="sm_hr_st_mace_1h_blade_light_a"
+        length="15"
+        weight="0.7"
+        excluded_item_usage_features="thrust">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_mace_1h_blade_light_a">
+            <Swing
+                damage_type="Blunt"
+                damage_factor="2.11" />
+        </BladeData>
+        <BuildData
+            previous_piece_offset="0" />
+        <Materials>
+            <Material id="Iron2" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_blade_med_a"
+        name="{=aom_sm_hr_st_mace_1h_blade_med_a_name}Harad Mace Head (Medium) I"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_hr_st_mace_1h_blade_med_a"
+        length="15"
+        weight="0.9"
+        excluded_item_usage_features="thrust">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_mace_1h_blade_med_a">
+            <Swing
+                damage_type="Blunt"
+                damage_factor="2.80" />
+        </BladeData>
+        <BuildData
+            previous_piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_blade_med_b"
+        name="{=aom_sm_hr_st_mace_1h_blade_med_b_name}Harad Mace Head (Medium) II"
+        tier="4"
+        piece_type="Blade"
+        mesh="sm_hr_st_mace_1h_blade_med_b"
+        length="15"
+        weight="0.9"
+        excluded_item_usage_features="thrust">
+        <BladeData
+            stack_amount="3"
+            physics_material="wood_weapon"
+            body_name="bo_sm_hr_st_mace_1h_blade_med_b">
+            <Swing
+                damage_type="Blunt"
+                damage_factor="2.80" />
+        </BladeData>
+        <BuildData
+            previous_piece_offset="0" />
+        <Materials>
+            <Material id="Iron4" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_handle_light_a"
+        name="{=aom_sm_hr_st_mace_1h_handle_light_a_name}Harad Mace Handle (Light)"
+        tier="2"
+        piece_type="Handle"
+        mesh="sm_hr_st_mace_1h_handle_light_a"
+        length="80"
+        weight="0.4">
+        <BuildData
+            piece_offset="15" />
+        <Materials>
+            <Material id="Wood" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_handle_med_a"
+        name="{=aom_sm_hr_st_mace_1h_handle_med_a_name}Harad Mace Handle (Medium)"
+        tier="4"
+        piece_type="Handle"
+        mesh="sm_hr_st_mace_1h_handle_med_a"
+        length="90"
+        weight="0.5">
+        <BuildData
+            piece_offset="17.5" />
+        <Materials>
+            <Material id="Wood" count="2" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece
+        id="sm_hr_st_mace_1h_pommel_med_a"
+        name="{=aom_sm_hr_st_mace_1h_pommel_med_a_name}Harad Mace Pommel"
+        tier="4"
+        piece_type="Pommel"
+        mesh="sm_hr_st_mace_1h_pommel_med_a"
+        length="1.5"
+        weight="0.1">
+        <Materials>
+            <Material id="Iron4" count="1" />
+        </Materials>
+    </CraftingPiece>
     <!-- TAOM-STARTER-KIT:START -->
     <CraftingPiece id="starter_wm_gondor_sword_a01_blade" name="{=starter_wm_gondor_sword_a01_blade}Gondor Sword Blade Medium A (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_sword_a01_blade" length="76.08" weight="0.68" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_gondor_sword_a01" holster_mesh="">
             <Thrust damage_type="Pierce" damage_factor="1.7" />
-            <Swing damage_type="Cut" damage_factor="2.5" />
+            <Swing damage_type="Cut" damage_factor="2.21" />
         </BladeData>
         <Flags>
             <Flag name="Civilian" type="ItemFlags" />
@@ -17402,8 +17876,8 @@
             <Material id="Iron6" count="5" />
         </Materials>
     </CraftingPiece>
-    <CraftingPiece id="starter_wm_gondor_light_spear_blade" name="{=starter_wm_gondor_light_spear_blade}Gondor Spear Head (Light) (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_spear_blade" length="47" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
-        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_blade">
+    <CraftingPiece id="starter_wm_gondor_light_spear_blade" name="{=starter_wm_gondor_light_spear_blade}Gondor Spear Head (Light) (Starter)" tier="1" piece_type="Blade" mesh="wm_swan_knight_spear_blade" length="58" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_swan_knight_spear_blade">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
         </BladeData>
         <Flags>
@@ -17419,10 +17893,14 @@
     <CraftingPiece id="starter_wm_lossarnach_1h_axe_black_ash_blade" name="{=starter_wm_lossarnach_1h_axe_black_ash_blade}Gondor Lossarnach 1H Black Ash Axe Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_lossarnach_1h_axe_black_ash_blade" length="14" distance_to_next_piece="0" distance_to_previous_piece="0" weight="0.734" is_hidden="true">
         <BuildData piece_offset="-14" previous_piece_offset="0" next_piece_offset="0" />
         <BladeData stack_amount="3" blade_length="28.47" blade_width="23.45" physics_material="metal_weapon" body_name="bo_wm_lossarnach_1h_axe__blade">
-            <Swing damage_type="Cut" damage_factor="2.3" />
+            <Swing damage_type="Cut" damage_factor="2.11" />
         </BladeData>
         <Flags>
             <Flag name="BonusAgainstShield" />
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanPenetrateShield" />
+            <Flag name="CanCrushThrough" />
             <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
             <Flag name="Civilian" type="ItemFlags" />
         </Flags>
@@ -17432,8 +17910,8 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_mordor_set1_sword_a01_blade" name="{=starter_wm_mordor_set1_sword_a01_blade}Mordor Orc Sword Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_sword_a01_blade" length="74.1" weight="0.70" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.7" />
-            <Swing damage_type="Cut" damage_factor="2.5" />
+            <Thrust damage_type="Pierce" damage_factor="1.02" />
+            <Swing damage_type="Cut" damage_factor="1.53" />
         </BladeData>
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
         <Flags>
@@ -17445,7 +17923,7 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_mordor_set1_polearm_a01_blade" name="{=starter_wm_mordor_set1_polearm_a01_blade}Mordor Orc Polearm Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_polearm_a01_blade" length="30.64" weight="1.04" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_polearm_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="0.0" />
+            <Thrust damage_type="Pierce" damage_factor="0.00" />
             <Swing damage_type="Cut" damage_factor="1.4" />
         </BladeData>
         <Flags>
@@ -17507,7 +17985,7 @@
     <CraftingPiece id="starter_sm_dwarf_erebor_axe_blade_1h_a" name="{=starter_sm_dwarf_erebor_axe_blade_1h_a}Erebor 1H Axe Blade A (Starter)" tier="1" piece_type="Blade" mesh="sm_dwarf_erebor_axe_blade_1h_a" length="20.17" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.0" is_hidden="true">
         <BuildData piece_offset="0" />
         <BladeData stack_amount="3" blade_length="20.17" blade_width="17.98" physics_material="metal_weapon" body_name="bo_sm_dwarf_erebor_axe_blade_1h_a">
-            <Swing damage_type="Cut" damage_factor="2.28" />
+            <Swing damage_type="Cut" damage_factor="2.3" />
         </BladeData>
         <Flags>
             <Flag name="BonusAgainstShield" />
@@ -17536,7 +18014,7 @@
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rivendell_spear_a01_blade" holster_mesh="">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
-            <Swing damage_type="Cut" damage_factor="1.22" />
+            <Swing damage_type="Cut" damage_factor="0.79" />
         </BladeData>
         <Flags>
             <Flag name="BonusAgainstShield" />
@@ -17580,7 +18058,7 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_isengard_1h_sword_a01_blade" name="{=starter_wm_isengard_1h_sword_a01_blade}Isengard Sword Blade A (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_1h_sword_a01_blade" length="101.6" weight="0.80" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_isengard_1h_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.41" />
+            <Thrust damage_type="Pierce" damage_factor="0.87" />
             <Swing damage_type="Cut" damage_factor="2.5" />
         </BladeData>
         <BuildData piece_offset="-17" previous_piece_offset="0" next_piece_offset="0" />
@@ -17594,7 +18072,7 @@
     <CraftingPiece id="starter_wm_isengard_1h_spear_a01_blade" name="{=starter_wm_isengard_1h_spear_a01_blade}Isengard Spear Blade A01 (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_1h_spear_a01_blade" length="93" weight="0.87" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_isengard_1h_spear_a01_blade" holster_mesh="">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
-            <Swing damage_type="Cut" damage_factor="1.17" />
+            <Swing damage_type="Cut" damage_factor="0.69" />
         </BladeData>
         <Flags>
             <Flag name="CanKnockDown" />
@@ -17608,7 +18086,7 @@
     <CraftingPiece id="starter_wm_isengard_2h_axe_a01_blade" name="{=starter_wm_isengard_2h_axe_a01_blade}Isengard 2H Axe A01 Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_isengard_2h_axe_a01_blade" length="41.6" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.3" is_hidden="true">
         <BuildData piece_offset="-15" />
         <BladeData stack_amount="3" blade_length="41.6" blade_width="20.8" physics_material="metal_weapon" body_name="bo_wm_isengard_2h_axe_a01_blade">
-            <Swing damage_type="Cut" damage_factor="2.3" />
+            <Swing damage_type="Cut" damage_factor="2.03" />
         </BladeData>
         <Flags>
             <Flag name="BonusAgainstShield" />
@@ -17625,7 +18103,7 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_gundabad_sword_a01_blade" name="{=starter_wm_gundabad_sword_a01_blade}Gundabad Orc Sword Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_gundabad_sword_a01_blade" length="57.5" weight="0.90" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_gundabad_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.05" />
+            <Thrust damage_type="Pierce" damage_factor="1.03" />
             <Swing damage_type="Cut" damage_factor="2.5" />
         </BladeData>
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
@@ -17674,7 +18152,7 @@
     <CraftingPiece id="starter_wm_dol_goldur_1h_sword_a01_blade" name="{=starter_wm_dol_goldur_1h_sword_a01_blade}Dol Guldur Orc Sword Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_dol_goldur_1h_sword_a01_blade" length="83.44" weight="0.90" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_1h_sword_a01_blade" holster_mesh="">
             <Thrust damage_type="Pierce" damage_factor="1.7" />
-            <Swing damage_type="Cut" damage_factor="2.36" />
+            <Swing damage_type="Cut" damage_factor="1.97" />
         </BladeData>
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
         <Flags>
@@ -17686,8 +18164,8 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_dol_goldur_2h_halberd_a01_blade" name="{=starter_wm_dol_goldur_2h_halberd_a01_blade}Dol Guldur Orc Spear Blade I (Starter)" tier="1" piece_type="Blade" mesh="wm_dol_goldur_halberd_a01_blade" length="77.81" weight="0.87" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_halberd_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="0.79" />
-            <Swing damage_type="Cut" damage_factor="1.4" />
+            <Thrust damage_type="Pierce" damage_factor="0.50" />
+            <Swing damage_type="Cut" damage_factor="1.13" />
         </BladeData>
         <Flags>
             <Flag name="CanKnockDown" />
@@ -17777,8 +18255,8 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_mordor_set1_sword_a02_blade" name="{=starter_wm_mordor_set1_sword_a02_blade}Mordor Orc Sword Blade B (Starter)" tier="1" piece_type="Blade" mesh="wm_mordor_set1_sword_a02_blade" length="57.4" weight="0.70" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_mordor_set1_sword_a02_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.7" />
-            <Swing damage_type="Cut" damage_factor="2.5" />
+            <Thrust damage_type="Pierce" damage_factor="1.46" />
+            <Swing damage_type="Cut" damage_factor="2.13" />
         </BladeData>
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
         <Flags>
@@ -17789,7 +18267,7 @@
         </Materials>
     </CraftingPiece>
     <CraftingPiece id="starter_wm_gondor_spear_a_blade" name="{=starter_wm_gondor_spear_a_blade}Gondor Spear Head D (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_spear_a_blade" length="50" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
-        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_blade">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_a_blade">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
         </BladeData>
         <Flags>
@@ -17819,7 +18297,7 @@
     <CraftingPiece id="starter_wm_dol_goldur_2h_axe_a01_blade" name="{=starter_wm_dol_goldur_2h_axe_a01_blade}Dol Guldur Orc Axe 2H Blade I (Starter)" tier="1" piece_type="Blade" length="38.11" mesh="wm_dol_goldur_2h_axe_a01_blade" distance_to_next_piece="0" distance_to_previous_piece="0" weight="1.15" is_hidden="true">
         <BuildData piece_offset="0" />
         <BladeData stack_amount="3" blade_length="38.11" blade_width="24.56" physics_material="metal_weapon" body_name="bo_wm_dol_goldur_2h_axe_a01_blade">
-            <Swing damage_type="Cut" damage_factor="2.3" />
+            <Swing damage_type="Cut" damage_factor="1.14" />
         </BladeData>
         <Flags>
             <Flag name="BonusAgainstShield" />
@@ -17834,8 +18312,8 @@
     </CraftingPiece>
     <CraftingPiece id="starter_wm_rohan_ws_sword_a01_blade" name="{=starter_wm_rohan_ws_sword_a01_blade}Rohan Sword A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_sword_a01_blade" length="70.86" weight="0.67" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.7" />
-            <Swing damage_type="Cut" damage_factor="2.5" />
+            <Thrust damage_type="Pierce" damage_factor="1.29" />
+            <Swing damage_type="Cut" damage_factor="2.18" />
         </BladeData>
         <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
         <Flags>
@@ -17848,7 +18326,7 @@
     <CraftingPiece id="starter_wm_rohan_ws_spear_a01_blade" name="{=starter_wm_rohan_ws_spear_a01_blade}Rohan Spear WS A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_spear_a01_blade" length="52.41" weight="1.47" is_hidden="true">
         <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_spear_a01_blade" holster_mesh="">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
-            <Swing damage_type="Cut" damage_factor="1.24" />
+            <Swing damage_type="Cut" damage_factor="0.91" />
         </BladeData>
         <Flags>
             <Flag name="CanKnockDown" />

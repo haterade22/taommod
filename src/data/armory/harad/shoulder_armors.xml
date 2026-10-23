@@ -4,177 +4,325 @@
 
     <!-- Harad -->
 
-    <Item
-        id="haradrim02_pauldrons"
-        name="{=aom_haradrim02_pauldrons_name}[Harad] Pauldrons - Tier 3"
-        mesh="haradrim02_pauldrons"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="3.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="11"
-                arm_armor="11"
-                modifier_group="cloth"
-                material_type="Cloth" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad03_cape"
-        name="{=aom_harad03_cape_name}[Harad] Pauldrons - Tier 4"
-        mesh="harad03_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="3.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="17"
-                arm_armor="14"
-                modifier_group="cloth"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad04_cape"
-        name="{=aom_harad04_cape_name}[Harad] Pauldrons - Tier 5"
-        mesh="harad04_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="3.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="26"
-                arm_armor="21"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad05_v1_cape"
-        name="{=aom_harad05_v1_cape_name}[Harad] Cavalry Pauldrons - Red"
-        mesh="harad05_v1_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="18"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad05_v2_cape"
-        name="{=aom_harad05_v2_cape_name}[Harad] Cavalry Pauldrons - Green"
-        mesh="harad05_v2_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="18"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad05_v3_cape"
-        name="{=aom_harad05_v3_cape_name}[Harad] Cavalry Pauldrons - Blue"
-        mesh="harad05_v3_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="15"
-                arm_armor="12"
-                modifier_group="cloth"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad05_v4_cape"
-        name="{=aom_harad05_v4_cape_name}[Harad] Cavalry Pauldrons - Black"
-        mesh="harad05_v4_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="11"
-                arm_armor="9"
-                modifier_group="cloth"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad06_v1_cape"
-        name="{=aom_harad06_v1_cape_name}[Harad] Serpent Gaurd Pauldrons"
-        mesh="harad06_v1_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="17"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
-    <Item
-        id="harad07_cape"
-        name="{=aom_harad07_cape_name}[Harad] Bone Pauldrons"
-        mesh="harad07_cape"
-        culture="Culture.aserai"
-        is_merchandise="true"
-        weight="4.0"
-        appearance="6"
-        Type="Cape">
-        <ItemComponent>
-            <Armor
-                body_armor="22"
-                arm_armor="17"
-                modifier_group="chain"
-                material_type="Leather" />
-        </ItemComponent>
-        <Flags />
-    </Item>
-
     <!-- #endregion -->
+
+
+    <Item id="sk_hr_st_pauld_arc_elite_a" name="{=aom_sk_hr_st_pauld_arc_elite_a_name}[Harwan] Archer Elite Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_arc_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_elite_b" name="{=aom_sk_hr_st_pauld_arc_elite_b_name}[Harwan] Archer Elite Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_arc_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_heavy_a" name="{=aom_sk_hr_st_pauld_arc_heavy_a_name}[Harwan] Archer Heavy Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_arc_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_heavy_b" name="{=aom_sk_hr_st_pauld_arc_heavy_b_name}[Harwan] Archer Heavy Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_arc_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_light_a" name="{=aom_sk_hr_st_pauld_arc_light_a_name}[Harwan] Archer Light Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_arc_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_med_a" name="{=aom_sk_hr_st_pauld_arc_med_a_name}[Harwan] Archer Med Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_arc_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_arc_med_b" name="{=aom_sk_hr_st_pauld_arc_med_b_name}[Harwan] Archer Med Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_arc_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_elite_a" name="{=aom_sk_hr_st_pauld_cav_elite_a_name}[Harwan] Cavalry Elite Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_cav_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_elite_b" name="{=aom_sk_hr_st_pauld_cav_elite_b_name}[Harwan] Cavalry Elite Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_cav_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_heavy_a" name="{=aom_sk_hr_st_pauld_cav_heavy_a_name}[Harwan] Cavalry Heavy Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_cav_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_heavy_b" name="{=aom_sk_hr_st_pauld_cav_heavy_b_name}[Harwan] Cavalry Heavy Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_cav_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_light_a" name="{=aom_sk_hr_st_pauld_cav_light_a_name}[Harwan] Cavalry Light Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_cav_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_med_a" name="{=aom_sk_hr_st_pauld_cav_med_a_name}[Harwan] Cavalry Med Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_cav_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_cav_med_b" name="{=aom_sk_hr_st_pauld_cav_med_b_name}[Harwan] Cavalry Med Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_cav_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_elite_a" name="{=aom_sk_hr_st_pauld_inf_elite_a_name}[Harwan] Infantry Elite Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_inf_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_elite_b" name="{=aom_sk_hr_st_pauld_inf_elite_b_name}[Harwan] Infantry Elite Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_inf_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_heavy_a" name="{=aom_sk_hr_st_pauld_inf_heavy_a_name}[Harwan] Infantry Heavy Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_inf_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_heavy_b" name="{=aom_sk_hr_st_pauld_inf_heavy_b_name}[Harwan] Infantry Heavy Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_inf_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_heavy_c" name="{=aom_sk_hr_st_pauld_inf_heavy_c_name}[Harwan] Infantry Heavy Pauldron C" subtype="head_armor" mesh="sk_hr_st_pauld_inf_heavy_c" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_light_a" name="{=aom_sk_hr_st_pauld_inf_light_a_name}[Harwan] Infantry Light Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_inf_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_med_a" name="{=aom_sk_hr_st_pauld_inf_med_a_name}[Harwan] Infantry Med Pauldron A" subtype="head_armor" mesh="sk_hr_st_pauld_inf_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_hr_st_pauld_inf_med_b" name="{=aom_sk_hr_st_pauld_inf_med_b_name}[Harwan] Infantry Med Pauldron B" subtype="head_armor" mesh="sk_hr_st_pauld_inf_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_elite_a" name="{=aom_sk_sg_st_pauld_arc_elite_a_name}[Shaghana] Archer Elite Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_arc_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_elite_b" name="{=aom_sk_sg_st_pauld_arc_elite_b_name}[Shaghana] Archer Elite Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_arc_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_heavy_a" name="{=aom_sk_sg_st_pauld_arc_heavy_a_name}[Shaghana] Archer Heavy Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_arc_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_heavy_b" name="{=aom_sk_sg_st_pauld_arc_heavy_b_name}[Shaghana] Archer Heavy Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_arc_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_light_a" name="{=aom_sk_sg_st_pauld_arc_light_a_name}[Shaghana] Archer Light Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_arc_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_med_a" name="{=aom_sk_sg_st_pauld_arc_med_a_name}[Shaghana] Archer Med Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_arc_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_arc_med_b" name="{=aom_sk_sg_st_pauld_arc_med_b_name}[Shaghana] Archer Med Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_arc_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_elite_a" name="{=aom_sk_sg_st_pauld_cav_elite_a_name}[Shaghana] Cavalry Elite Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_cav_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_elite_b" name="{=aom_sk_sg_st_pauld_cav_elite_b_name}[Shaghana] Cavalry Elite Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_cav_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_heavy_a" name="{=aom_sk_sg_st_pauld_cav_heavy_a_name}[Shaghana] Cavalry Heavy Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_cav_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_heavy_b" name="{=aom_sk_sg_st_pauld_cav_heavy_b_name}[Shaghana] Cavalry Heavy Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_cav_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_light_a" name="{=aom_sk_sg_st_pauld_cav_light_a_name}[Shaghana] Cavalry Light Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_cav_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_med_a" name="{=aom_sk_sg_st_pauld_cav_med_a_name}[Shaghana] Cavalry Med Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_cav_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_cav_med_b" name="{=aom_sk_sg_st_pauld_cav_med_b_name}[Shaghana] Cavalry Med Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_cav_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_elite_a" name="{=aom_sk_sg_st_pauld_inf_elite_a_name}[Shaghana] Infantry Elite Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_inf_elite_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_elite_b" name="{=aom_sk_sg_st_pauld_inf_elite_b_name}[Shaghana] Infantry Elite Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_inf_elite_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="34" arm_armor="28" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_heavy_a" name="{=aom_sk_sg_st_pauld_inf_heavy_a_name}[Shaghana] Infantry Heavy Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_inf_heavy_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_heavy_b" name="{=aom_sk_sg_st_pauld_inf_heavy_b_name}[Shaghana] Infantry Heavy Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_inf_heavy_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_heavy_c" name="{=aom_sk_sg_st_pauld_inf_heavy_c_name}[Shaghana] Infantry Heavy Pauldron C" subtype="head_armor" mesh="sk_sg_st_pauld_inf_heavy_c" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="29" arm_armor="25" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_light_a" name="{=aom_sk_sg_st_pauld_inf_light_a_name}[Shaghana] Infantry Light Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_inf_light_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="7" arm_armor="4" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_med_a" name="{=aom_sk_sg_st_pauld_inf_med_a_name}[Shaghana] Infantry Med Pauldron A" subtype="head_armor" mesh="sk_sg_st_pauld_inf_med_a" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+    <Item id="sk_sg_st_pauld_inf_med_b" name="{=aom_sk_sg_st_pauld_inf_med_b_name}[Shaghana] Infantry Med Pauldron B" subtype="head_armor" mesh="sk_sg_st_pauld_inf_med_b" culture="Culture.aserai" is_merchandise="true" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="14" arm_armor="10" modifier_group="cloth" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+
+
+
+
+
+
+
+
+
+
 
 </Items>

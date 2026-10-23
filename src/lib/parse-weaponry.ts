@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { parser, getDataDir, stripLocKey, stripPrefix } from './xml-shared';
+import { parser, getDataDir, stripLocKey, stripPrefix, GENERATED_EQUIPMENT_FILES } from './xml-shared';
 import type { WeaponItem } from './xml-shared';
 import {
   computeCraftedWeaponDamage,
@@ -196,12 +196,13 @@ function parseCraftedWeapons(
     });
   }
 
-  // Item weapons (bows, crossbows, etc.) with direct stats
+  // Item weapons (bows, crossbows, shields, etc.) with direct stats
   const xmlItems = parsed?.Items?.Item || [];
   for (const item of xmlItems) {
     const weapon = item.ItemComponent?.Weapon;
     if (!weapon) continue;
     const wClass = weapon['@_weapon_class'] || '';
+    const isShield = item['@_Type'] === 'Shield';
     const thrustDmg = parseInt(weapon['@_thrust_damage']) || 0;
     const swingDmg = parseInt(weapon['@_swing_damage']) || 0;
 
@@ -210,7 +211,7 @@ function parseCraftedWeapons(
       name: stripLocKey(item['@_name'] || ''),
       culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
       weaponClass: wClass,
-      type: isBowClass(wClass) ? 'Bow' : 'Weapon',
+      type: isShield ? 'Shield' : isBowClass(wClass) ? 'Bow' : 'Weapon',
       craftingTemplate: '',
       weight: parseFloat(item['@_weight']) || 0,
       difficulty: parseInt(item['@_difficulty']) || 0,
@@ -223,8 +224,8 @@ function parseCraftedWeapons(
       speed: parseInt(weapon['@_speed_rating']) || 0,
       missileSpeed: parseInt(weapon['@_missile_speed']) || 0,
       accuracy: parseInt(weapon['@_accuracy']) || 0,
-      bodyArmor: 0,
-      hitPoints: 0,
+      bodyArmor: parseInt(weapon['@_body_armor']) || 0,
+      hitPoints: parseInt(weapon['@_hit_points']) || 0,
       isMerchandise: item['@_is_merchandise'] === 'true',
       estimatedSwingDamage: swingDmg,
       estimatedThrustDamage: thrustDmg,
@@ -244,42 +245,16 @@ export function parseWeaponry(): WeaponItem[] {
   const descPieces = parseWeaponDescriptionsXslt(armoryDir);
   const items: WeaponItem[] = [];
 
-  // Parse LOTRAOM weapons
-  items.push(...parseCraftedWeapons(path.join(armoryDir, 'LOTRAOM_weapons.xml'), allPieces, false, descPieces));
-
-  // Parse shields file
-  const shieldsPath = path.join(armoryDir, 'LOTRAOM_shields.xml');
-  if (fs.existsSync(shieldsPath)) {
-    const xml = fs.readFileSync(shieldsPath, 'utf-8');
-    const parsed = parser.parse(xml);
-    const xmlItems = parsed?.Items?.Item || [];
-    for (const item of xmlItems) {
-      const weapon = item.ItemComponent?.Weapon;
-      items.push({
-        id: item['@_id'] || '',
-        name: stripLocKey(item['@_name'] || ''),
-        culture: stripPrefix(item['@_culture'] || '', 'Culture.'),
-        weaponClass: weapon?.['@_weapon_class'] || 'Shield',
-        type: 'Shield',
-        craftingTemplate: '',
-        weight: parseFloat(item['@_weight']) || 0,
-        difficulty: parseInt(item['@_difficulty']) || 0,
-        appearance: parseFloat(item['@_appearance']) || 0,
-        swingDamage: 0,
-        swingDamageType: '',
-        thrustDamage: 0,
-        thrustDamageType: '',
-        weaponLength: parseInt(weapon?.['@_weapon_length']) || 0,
-        speed: parseInt(weapon?.['@_speed_rating']) || 0,
-        missileSpeed: 0,
-        accuracy: 0,
-        bodyArmor: parseInt(weapon?.['@_body_armor']) || 0,
-        hitPoints: parseInt(weapon?.['@_hit_points']) || 0,
-        isMerchandise: item['@_is_merchandise'] === 'true',
-        estimatedSwingDamage: 0,
-        estimatedThrustDamage: 0,
-        isVanilla: false,
-      });
+  // Weapons and shields can live in either the main files or per-culture folders.
+  for (const filename of ['LOTRAOM_weapons.xml', 'LOTRAOM_shields.xml']) {
+    items.push(...parseCraftedWeapons(path.join(armoryDir, filename), allPieces, false, descPieces));
+  }
+  for (const entry of fs.readdirSync(armoryDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const cultureDir = path.join(armoryDir, entry.name);
+    for (const filename of fs.readdirSync(cultureDir)) {
+      if (!filename.endsWith('.xml') || GENERATED_EQUIPMENT_FILES.has(filename)) continue;
+      items.push(...parseCraftedWeapons(path.join(cultureDir, filename), allPieces, false, descPieces));
     }
   }
 

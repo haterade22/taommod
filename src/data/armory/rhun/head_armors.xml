@@ -1134,7 +1134,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1203,7 +1203,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1272,7 +1272,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -1384,10 +1384,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="33"
+                head_armor="43"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type1" />
         </ItemComponent>
@@ -1407,10 +1407,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="33"
+                head_armor="43"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type1" />
         </ItemComponent>
@@ -1453,7 +1453,7 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="43"
+                head_armor="51"
                 has_gender_variations="false"
                 hair_cover_type="all"
                 modifier_group="plate"
@@ -1618,10 +1618,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="33"
+                head_armor="51"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Plate"
                 beard_cover_type="type1" />
         </ItemComponent>
@@ -3150,7 +3150,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3288,7 +3288,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3474,7 +3474,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3497,7 +3497,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3540,10 +3540,10 @@
         Type="HeadArmor">
         <ItemComponent>
             <Armor
-                head_armor="33"
+                head_armor="43"
                 has_gender_variations="false"
                 hair_cover_type="all"
-                modifier_group="chain"
+                modifier_group="plate"
                 material_type="Chainmail"
                 beard_cover_type="none" />
         </ItemComponent>
@@ -3685,7 +3685,7 @@
                 hair_cover_type="all"
                 modifier_group="chain"
                 material_type="Chainmail"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3708,7 +3708,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3731,7 +3731,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -3754,7 +3754,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -4087,7 +4087,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_med_a"
-        name="{=aom_sk_dg_khml_helmet_inf_med_a_name}[Rhûn] Khamul Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_med_a_name}[Rhûn] Khamul Infantry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_med_a"
         culture="Culture.khuzait"
@@ -4110,7 +4110,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_med_b"
-        name="{=aom_sk_dg_khml_helmet_inf_med_b_name}[Rhûn] Khamul Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_med_b_name}[Rhûn] Khamul Infantry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_med_b"
         culture="Culture.khuzait"
@@ -4133,7 +4133,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_med_c"
-        name="{=aom_sk_dg_khml_helmet_inf_med_c_name}[Rhûn] Khamul Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_med_c_name}[Rhûn] Khamul Infantry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_med_c"
         culture="Culture.khuzait"
@@ -4156,7 +4156,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_heavy_a"
-        name="{=aom_sk_dg_khml_helmet_inf_heavy_a_name}[Rhûn] Khamul Heavy Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_heavy_a_name}[Rhûn] Khamul Heavy Infantry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_heavy_a"
         culture="Culture.khuzait"
@@ -4179,7 +4179,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_heavy_b"
-        name="{=aom_sk_dg_khml_helmet_inf_heavy_b_name}[Rhûn] Khamul Heavy Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_heavy_b_name}[Rhûn] Khamul Heavy Infantry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_heavy_b"
         culture="Culture.khuzait"
@@ -4202,7 +4202,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_heavy_c"
-        name="{=aom_sk_dg_khml_helmet_inf_heavy_c_name}[Rhûn] Khamul Heavy Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_heavy_c_name}[Rhûn] Khamul Heavy Infantry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_heavy_c"
         culture="Culture.khuzait"
@@ -4225,7 +4225,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_a"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_a_name}[Rhûn] Khamul Elite Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_a_name}[Rhûn] Khamul Elite Infantry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_a"
         culture="Culture.khuzait"
@@ -4248,7 +4248,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_b"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_b_name}[Rhûn] Khamul Elite Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_b_name}[Rhûn] Khamul Elite Infantry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_b"
         culture="Culture.khuzait"
@@ -4271,7 +4271,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_c"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_c_name}[Rhûn] Khamul Elite Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_c_name}[Rhûn] Khamul Elite Infantry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_c"
         culture="Culture.khuzait"
@@ -4294,7 +4294,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_d"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_d_name}[Rhûn] Khamul Elite Infantry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_d_name}[Rhûn] Khamul Elite Infantry Helmet with Horns I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_d"
         culture="Culture.khuzait"
@@ -4317,7 +4317,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_e"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_e_name}[Rhûn] Khamul Elite Infantry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_e_name}[Rhûn] Khamul Elite Infantry Helmet with Horns II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_e"
         culture="Culture.khuzait"
@@ -4340,7 +4340,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_f"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_f_name}[Rhûn] Khamul Elite Infantry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_f_name}[Rhûn] Khamul Elite Infantry Helmet with Horns III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_f"
         culture="Culture.khuzait"
@@ -4363,7 +4363,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_g"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_g_name}[Rhûn] Khamul Elite Infantry Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_g_name}[Rhûn] Khamul Elite Infantry Helmet with Plume I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_g"
         culture="Culture.khuzait"
@@ -4386,7 +4386,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_h"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_h_name}[Rhûn] Khamul Elite Infantry Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_h_name}[Rhûn] Khamul Elite Infantry Helmet with Plume II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_h"
         culture="Culture.khuzait"
@@ -4409,7 +4409,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_elite_i"
-        name="{=aom_sk_dg_khml_helmet_inf_elite_i_name}[Rhûn] Khamul Elite Infantry Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_inf_elite_i_name}[Rhûn] Khamul Elite Infantry Helmet with Plume III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_elite_i"
         culture="Culture.khuzait"
@@ -4432,7 +4432,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_a"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_a_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_a_name}[Rhûn] Khamul Lord Infantry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_a"
         culture="Culture.khuzait"
@@ -4455,7 +4455,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_b"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_b_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_b_name}[Rhûn] Khamul Lord Infantry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_b"
         culture="Culture.khuzait"
@@ -4478,7 +4478,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_c"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_c_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_c_name}[Rhûn] Khamul Lord Infantry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_c"
         culture="Culture.khuzait"
@@ -4501,7 +4501,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_d"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_d_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_d_name}[Rhûn] Khamul Lord Infantry Helmet IV"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_d"
         culture="Culture.khuzait"
@@ -4524,7 +4524,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_e"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_e_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_e_name}[Rhûn] Khamul Lord Infantry Helmet V"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_e"
         culture="Culture.khuzait"
@@ -4547,7 +4547,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_inf_lord_f"
-        name="{=aom_sk_dg_khml_helmet_inf_lord_f_name}[Rhûn] Khamul Lord Infantry Helmet"
+        name="{=aom_sk_dg_khml_helmet_inf_lord_f_name}[Rhûn] Khamul Lord Infantry Helmet VI"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_inf_lord_f"
         culture="Culture.khuzait"
@@ -4595,7 +4595,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_med_a"
-        name="{=aom_sk_dg_khml_helmet_arch_med_a_name}[Rhûn] Khamul Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_med_a_name}[Rhûn] Khamul Archer Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_med_a"
         culture="Culture.khuzait"
@@ -4618,7 +4618,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_med_b"
-        name="{=aom_sk_dg_khml_helmet_arch_med_b_name}[Rhûn] Khamul Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_med_b_name}[Rhûn] Khamul Archer Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_med_b"
         culture="Culture.khuzait"
@@ -4641,7 +4641,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_med_c"
-        name="{=aom_sk_dg_khml_helmet_arch_med_c_name}[Rhûn] Khamul Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_med_c_name}[Rhûn] Khamul Archer Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_med_c"
         culture="Culture.khuzait"
@@ -4664,7 +4664,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_heavy_a"
-        name="{=aom_sk_dg_khml_helmet_arch_heavy_a_name}[Rhûn] Khamul Heavy Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_heavy_a_name}[Rhûn] Khamul Heavy Archer Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_heavy_a"
         culture="Culture.khuzait"
@@ -4687,7 +4687,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_heavy_b"
-        name="{=aom_sk_dg_khml_helmet_arch_heavy_b_name}[Rhûn] Khamul Heavy Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_heavy_b_name}[Rhûn] Khamul Heavy Archer Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_heavy_b"
         culture="Culture.khuzait"
@@ -4710,7 +4710,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_heavy_c"
-        name="{=aom_sk_dg_khml_helmet_arch_heavy_c_name}[Rhûn] Khamul Heavy Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_heavy_c_name}[Rhûn] Khamul Heavy Archer Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_heavy_c"
         culture="Culture.khuzait"
@@ -4733,7 +4733,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_a"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_a_name}[Rhûn] Khamul Elite Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_a_name}[Rhûn] Khamul Elite Archer Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_a"
         culture="Culture.khuzait"
@@ -4756,7 +4756,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_b"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_b_name}[Rhûn] Khamul Elite Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_b_name}[Rhûn] Khamul Elite Archer Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_b"
         culture="Culture.khuzait"
@@ -4779,7 +4779,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_c"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_c_name}[Rhûn] Khamul Elite Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_c_name}[Rhûn] Khamul Elite Archer Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_c"
         culture="Culture.khuzait"
@@ -4802,7 +4802,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_d"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_d_name}[Rhûn] Khamul Elite Archer Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_d_name}[Rhûn] Khamul Elite Archer Helmet with Horns I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_d"
         culture="Culture.khuzait"
@@ -4825,7 +4825,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_e"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_e_name}[Rhûn] Khamul Elite Archer Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_e_name}[Rhûn] Khamul Elite Archer Helmet with Horns II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_e"
         culture="Culture.khuzait"
@@ -4848,7 +4848,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_f"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_f_name}[Rhûn] Khamul Elite Archer Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_f_name}[Rhûn] Khamul Elite Archer Helmet with Horns III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_f"
         culture="Culture.khuzait"
@@ -4871,7 +4871,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_g"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_g_name}[Rhûn] Khamul Elite Archer Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_g_name}[Rhûn] Khamul Elite Archer Helmet with Plume I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_g"
         culture="Culture.khuzait"
@@ -4894,7 +4894,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_h"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_h_name}[Rhûn] Khamul Elite Archer Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_h_name}[Rhûn] Khamul Elite Archer Helmet with Plume II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_h"
         culture="Culture.khuzait"
@@ -4917,7 +4917,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_elite_i"
-        name="{=aom_sk_dg_khml_helmet_arch_elite_i_name}[Rhûn] Khamul Elite Archer Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_arch_elite_i_name}[Rhûn] Khamul Elite Archer Helmet with Plume III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_elite_i"
         culture="Culture.khuzait"
@@ -4940,7 +4940,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_a"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_a_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_a_name}[Rhûn] Khamul Lord Archer Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_a"
         culture="Culture.khuzait"
@@ -4963,7 +4963,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_b"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_b_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_b_name}[Rhûn] Khamul Lord Archer Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_b"
         culture="Culture.khuzait"
@@ -4986,7 +4986,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_c"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_c_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_c_name}[Rhûn] Khamul Lord Archer Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_c"
         culture="Culture.khuzait"
@@ -5009,7 +5009,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_d"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_d_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_d_name}[Rhûn] Khamul Lord Archer Helmet IV"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_d"
         culture="Culture.khuzait"
@@ -5032,7 +5032,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_e"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_e_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_e_name}[Rhûn] Khamul Lord Archer Helmet V"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_e"
         culture="Culture.khuzait"
@@ -5055,7 +5055,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_arch_lord_f"
-        name="{=aom_sk_dg_khml_helmet_arch_lord_f_name}[Rhûn] Khamul Lord Archer Helmet"
+        name="{=aom_sk_dg_khml_helmet_arch_lord_f_name}[Rhûn] Khamul Lord Archer Helmet VI"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_arch_lord_f"
         culture="Culture.khuzait"
@@ -5103,7 +5103,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_med_a"
-        name="{=aom_sk_dg_khml_helmet_cav_med_a_name}[Rhûn] Khamul Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_med_a_name}[Rhûn] Khamul Cavalry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_med_a"
         culture="Culture.khuzait"
@@ -5126,7 +5126,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_med_b"
-        name="{=aom_sk_dg_khml_helmet_cav_med_b_name}[Rhûn] Khamul Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_med_b_name}[Rhûn] Khamul Cavalry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_med_b"
         culture="Culture.khuzait"
@@ -5149,7 +5149,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_med_c"
-        name="{=aom_sk_dg_khml_helmet_cav_med_c_name}[Rhûn] Khamul Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_med_c_name}[Rhûn] Khamul Cavalry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_med_c"
         culture="Culture.khuzait"
@@ -5172,7 +5172,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_heavy_a"
-        name="{=aom_sk_dg_khml_helmet_cav_heavy_a_name}[Rhûn] Khamul Heavy Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_heavy_a_name}[Rhûn] Khamul Heavy Cavalry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_heavy_a"
         culture="Culture.khuzait"
@@ -5195,7 +5195,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_heavy_b"
-        name="{=aom_sk_dg_khml_helmet_cav_heavy_b_name}[Rhûn] Khamul Heavy Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_heavy_b_name}[Rhûn] Khamul Heavy Cavalry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_heavy_b"
         culture="Culture.khuzait"
@@ -5218,7 +5218,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_heavy_c"
-        name="{=aom_sk_dg_khml_helmet_cav_heavy_c_name}[Rhûn] Khamul Heavy Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_heavy_c_name}[Rhûn] Khamul Heavy Cavalry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_heavy_c"
         culture="Culture.khuzait"
@@ -5241,7 +5241,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_a"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_a_name}[Rhûn] Khamul Elite Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_a_name}[Rhûn] Khamul Elite Cavalry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_a"
         culture="Culture.khuzait"
@@ -5257,14 +5257,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_b"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_b_name}[Rhûn] Khamul Elite Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_b_name}[Rhûn] Khamul Elite Cavalry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_b"
         culture="Culture.khuzait"
@@ -5280,14 +5280,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_c"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_c_name}[Rhûn] Khamul Elite Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_c_name}[Rhûn] Khamul Elite Cavalry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_c"
         culture="Culture.khuzait"
@@ -5303,14 +5303,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_d"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_d_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_d_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_d"
         culture="Culture.khuzait"
@@ -5326,14 +5326,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_e"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_e_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_e_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_e"
         culture="Culture.khuzait"
@@ -5349,14 +5349,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_elite_f"
-        name="{=aom_sk_dg_khml_helmet_cav_elite_f_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cav_elite_f_name}[Rhûn] Khamul Elite Cavalry Helmet with Horns III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_elite_f"
         culture="Culture.khuzait"
@@ -5372,14 +5372,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_a"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_a_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_a_name}[Rhûn] Khamul Lord Cavalry Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_a"
         culture="Culture.khuzait"
@@ -5395,14 +5395,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_b"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_b_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_b_name}[Rhûn] Khamul Lord Cavalry Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_b"
         culture="Culture.khuzait"
@@ -5418,14 +5418,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_c"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_c_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_c_name}[Rhûn] Khamul Lord Cavalry Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_c"
         culture="Culture.khuzait"
@@ -5441,14 +5441,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_d"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_d_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_d_name}[Rhûn] Khamul Lord Cavalry Helmet IV"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_d"
         culture="Culture.khuzait"
@@ -5464,14 +5464,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_e"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_e_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_e_name}[Rhûn] Khamul Lord Cavalry Helmet V"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_e"
         culture="Culture.khuzait"
@@ -5487,14 +5487,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cav_lord_f"
-        name="{=aom_sk_dg_khml_helmet_cav_lord_f_name}[Rhûn] Khamul Lord Cavalry Helmet"
+        name="{=aom_sk_dg_khml_helmet_cav_lord_f_name}[Rhûn] Khamul Lord Cavalry Helmet VI"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cav_lord_f"
         culture="Culture.khuzait"
@@ -5510,7 +5510,7 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
@@ -5542,7 +5542,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_med_a"
-        name="{=aom_sk_dg_khml_helmet_east_med_a_name}[Rhûn] Khamul Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_med_a_name}[Rhûn] Khamul Leather Cap I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_med_a"
         culture="Culture.khuzait"
@@ -5565,7 +5565,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_med_b"
-        name="{=aom_sk_dg_khml_helmet_east_med_b_name}[Rhûn] Khamul Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_med_b_name}[Rhûn] Khamul Leather Cap II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_med_b"
         culture="Culture.khuzait"
@@ -5588,7 +5588,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_med_c"
-        name="{=aom_sk_dg_khml_helmet_east_med_c_name}[Rhûn] Khamul Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_med_c_name}[Rhûn] Khamul Leather Cap III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_med_c"
         culture="Culture.khuzait"
@@ -5611,7 +5611,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_heavy_a"
-        name="{=aom_sk_dg_khml_helmet_east_heavy_a_name}[Rhûn] Khamul Heavy Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_heavy_a_name}[Rhûn] Khamul Heavy Leather Cap I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_heavy_a"
         culture="Culture.khuzait"
@@ -5634,7 +5634,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_heavy_b"
-        name="{=aom_sk_dg_khml_helmet_east_heavy_b_name}[Rhûn] Khamul Heavy Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_heavy_b_name}[Rhûn] Khamul Heavy Leather Cap II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_heavy_b"
         culture="Culture.khuzait"
@@ -5657,7 +5657,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_heavy_c"
-        name="{=aom_sk_dg_khml_helmet_east_heavy_c_name}[Rhûn] Khamul Heavy Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_heavy_c_name}[Rhûn] Khamul Heavy Leather Cap III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_heavy_c"
         culture="Culture.khuzait"
@@ -5680,7 +5680,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_elite_a"
-        name="{=aom_sk_dg_khml_helmet_east_elite_a_name}[Rhûn] Khamul Elite Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_elite_a_name}[Rhûn] Khamul Elite Leather Cap I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_elite_a"
         culture="Culture.khuzait"
@@ -5703,7 +5703,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_elite_b"
-        name="{=aom_sk_dg_khml_helmet_east_elite_b_name}[Rhûn] Khamul Elite Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_elite_b_name}[Rhûn] Khamul Elite Leather Cap II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_elite_b"
         culture="Culture.khuzait"
@@ -5726,7 +5726,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_east_elite_c"
-        name="{=aom_sk_dg_khml_helmet_east_elite_c_name}[Rhûn] Khamul Elite Leather Cap"
+        name="{=aom_sk_dg_khml_helmet_east_elite_c_name}[Rhûn] Khamul Elite Leather Cap III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_east_elite_c"
         culture="Culture.khuzait"
@@ -5751,7 +5751,7 @@
     <!-- Hood/Ranger - 6 items -->
     <Item
         id="sk_dg_khml_hood_med_a"
-        name="{=aom_sk_dg_khml_hood_med_a_name}[Rhûn] Khamul Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_med_a_name}[Rhûn] Khamul Ranger Hood I"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_med_a"
         culture="Culture.khuzait"
@@ -5774,7 +5774,7 @@
     </Item>
     <Item
         id="sk_dg_khml_hood_med_b"
-        name="{=aom_sk_dg_khml_hood_med_b_name}[Rhûn] Khamul Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_med_b_name}[Rhûn] Khamul Ranger Hood II"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_med_b"
         culture="Culture.khuzait"
@@ -5797,7 +5797,7 @@
     </Item>
     <Item
         id="sk_dg_khml_hood_heavy_a"
-        name="{=aom_sk_dg_khml_hood_heavy_a_name}[Rhûn] Khamul Heavy Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_heavy_a_name}[Rhûn] Khamul Heavy Ranger Hood I"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_heavy_a"
         culture="Culture.khuzait"
@@ -5820,7 +5820,7 @@
     </Item>
     <Item
         id="sk_dg_khml_hood_heavy_b"
-        name="{=aom_sk_dg_khml_hood_heavy_b_name}[Rhûn] Khamul Heavy Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_heavy_b_name}[Rhûn] Khamul Heavy Ranger Hood II"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_heavy_b"
         culture="Culture.khuzait"
@@ -5843,7 +5843,7 @@
     </Item>
     <Item
         id="sk_dg_khml_hood_heavy_c"
-        name="{=aom_sk_dg_khml_hood_heavy_c_name}[Rhûn] Khamul Heavy Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_heavy_c_name}[Rhûn] Khamul Heavy Ranger Hood III"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_heavy_c"
         culture="Culture.khuzait"
@@ -5866,7 +5866,7 @@
     </Item>
     <Item
         id="sk_dg_khml_hood_heavy_d"
-        name="{=aom_sk_dg_khml_hood_heavy_d_name}[Rhûn] Khamul Heavy Ranger Hood"
+        name="{=aom_sk_dg_khml_hood_heavy_d_name}[Rhûn] Khamul Heavy Ranger Hood IV"
         subtype="head_armor"
         mesh="sk_dg_khml_hood_heavy_d"
         culture="Culture.khuzait"
@@ -5907,14 +5907,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_heavy_a"
-        name="{=aom_sk_dg_khml_helmet_cult_heavy_a_name}[Rhûn] Khamul Heavy Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_heavy_a_name}[Rhûn] Khamul Heavy Cultist Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_heavy_a"
         culture="Culture.khuzait"
@@ -5930,14 +5930,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_heavy_b"
-        name="{=aom_sk_dg_khml_helmet_cult_heavy_b_name}[Rhûn] Khamul Heavy Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_heavy_b_name}[Rhûn] Khamul Heavy Cultist Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_heavy_b"
         culture="Culture.khuzait"
@@ -5953,14 +5953,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_heavy_c"
-        name="{=aom_sk_dg_khml_helmet_cult_heavy_c_name}[Rhûn] Khamul Heavy Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_heavy_c_name}[Rhûn] Khamul Heavy Cultist Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_heavy_c"
         culture="Culture.khuzait"
@@ -5976,14 +5976,14 @@
                 hair_cover_type="all"
                 modifier_group="plate"
                 material_type="Plate"
-                beard_cover_type="all" />
+                beard_cover_type="type1" />
         </ItemComponent>
         <Flags
             UseTeamColor="true" />
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_a"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_a_name}[Rhûn] Khamul Elite Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_a_name}[Rhûn] Khamul Elite Cultist Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_a"
         culture="Culture.khuzait"
@@ -6006,7 +6006,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_b"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_b_name}[Rhûn] Khamul Elite Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_b_name}[Rhûn] Khamul Elite Cultist Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_b"
         culture="Culture.khuzait"
@@ -6029,7 +6029,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_c"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_c_name}[Rhûn] Khamul Elite Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_c_name}[Rhûn] Khamul Elite Cultist Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_c"
         culture="Culture.khuzait"
@@ -6052,7 +6052,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_d"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_d_name}[Rhûn] Khamul Elite Cultist Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_d_name}[Rhûn] Khamul Elite Cultist Helmet with Horns I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_d"
         culture="Culture.khuzait"
@@ -6075,7 +6075,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_e"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_e_name}[Rhûn] Khamul Elite Cultist Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_e_name}[Rhûn] Khamul Elite Cultist Helmet with Horns II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_e"
         culture="Culture.khuzait"
@@ -6098,7 +6098,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_f"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_f_name}[Rhûn] Khamul Elite Cultist Helmet with Horns"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_f_name}[Rhûn] Khamul Elite Cultist Helmet with Horns III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_f"
         culture="Culture.khuzait"
@@ -6121,7 +6121,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_g"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_g_name}[Rhûn] Khamul Elite Cultist Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_g_name}[Rhûn] Khamul Elite Cultist Helmet with Plume I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_g"
         culture="Culture.khuzait"
@@ -6144,7 +6144,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_h"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_h_name}[Rhûn] Khamul Elite Cultist Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_h_name}[Rhûn] Khamul Elite Cultist Helmet with Plume II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_h"
         culture="Culture.khuzait"
@@ -6167,7 +6167,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_elite_i"
-        name="{=aom_sk_dg_khml_helmet_cult_elite_i_name}[Rhûn] Khamul Elite Cultist Helmet with Plume"
+        name="{=aom_sk_dg_khml_helmet_cult_elite_i_name}[Rhûn] Khamul Elite Cultist Helmet with Plume III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_elite_i"
         culture="Culture.khuzait"
@@ -6190,7 +6190,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_lord_a"
-        name="{=aom_sk_dg_khml_helmet_cult_lord_a_name}[Rhûn] Khamul Lord Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_lord_a_name}[Rhûn] Khamul Lord Cultist Helmet I"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_lord_a"
         culture="Culture.khuzait"
@@ -6213,7 +6213,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_lord_b"
-        name="{=aom_sk_dg_khml_helmet_cult_lord_b_name}[Rhûn] Khamul Lord Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_lord_b_name}[Rhûn] Khamul Lord Cultist Helmet II"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_lord_b"
         culture="Culture.khuzait"
@@ -6236,7 +6236,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_lord_c"
-        name="{=aom_sk_dg_khml_helmet_cult_lord_c_name}[Rhûn] Khamul Lord Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_lord_c_name}[Rhûn] Khamul Lord Cultist Helmet III"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_lord_c"
         culture="Culture.khuzait"
@@ -6259,7 +6259,7 @@
     </Item>
     <Item
         id="sk_dg_khml_helmet_cult_lord_d"
-        name="{=aom_sk_dg_khml_helmet_cult_lord_d_name}[Rhûn] Khamul Lord Cultist Helmet"
+        name="{=aom_sk_dg_khml_helmet_cult_lord_d_name}[Rhûn] Khamul Lord Cultist Helmet IV"
         subtype="head_armor"
         mesh="sk_dg_khml_helmet_cult_lord_d"
         culture="Culture.khuzait"
@@ -6417,7 +6417,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -6536,7 +6536,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
@@ -6553,7 +6553,7 @@
         appearance="6"
         Type="HeadArmor">
         <ItemComponent>
-            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="all" />
+            <Armor head_armor="51" has_gender_variations="false" hair_cover_type="all" modifier_group="plate" material_type="Plate" beard_cover_type="type1" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
