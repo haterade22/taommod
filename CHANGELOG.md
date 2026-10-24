@@ -9,6 +9,10 @@ Every update to taommod.com, newest first. Each update has a version number:
 "Mod data" sections list what changed in the troop, lord, armour and weapon data synced from the TAOM mod files.
 Roadmap items edited from Discord through The Great Eye bot are summed up in the update they landed in.
 
+## [3.4.1] — 25 Oct 2026 — Credits link fix
+
+- Credits: KEYforce's ArtStation link now goes to his profile instead of the ArtStation homepage.
+
 ## [3.4.0] — 25 Oct 2026 — Changelog page and smoother scrolling on large screens
 
 - **Changelog page** at taommod.com/changelog: every website update since launch, each with a version number.
