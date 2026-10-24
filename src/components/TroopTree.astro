@@ -246,7 +246,7 @@ const GROUP_COLORS: Record<string, string> = {
   <div class="tree-scroll">
     <svg class="tree-lines" id={`tree-svg-${treeInstance}`}></svg>
     <div class="tree-grid" style={`
-      grid-template-columns: 70px repeat(${totalCols}, minmax(130px, 1fr));
+      grid-template-columns: 80px repeat(${totalCols}, minmax(170px, 1fr));
       grid-template-rows: repeat(${totalRows}, auto);
     `}>
       {/* Header row — merged column headers */}
@@ -317,7 +317,7 @@ const GROUP_COLORS: Record<string, string> = {
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
   }
 
@@ -359,8 +359,8 @@ const GROUP_COLORS: Record<string, string> = {
   }
 
   .branch-header {
-    padding: 0.5rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--accent);
     text-align: center;
@@ -383,11 +383,11 @@ const GROUP_COLORS: Record<string, string> = {
   .tier-num {
     font-weight: 700;
     color: var(--accent);
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .tier-level {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
@@ -395,8 +395,8 @@ const GROUP_COLORS: Record<string, string> = {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 0.2rem;
-    min-height: 52px;
+    padding: 0.45rem 0.3rem;
+    min-height: 62px;
     border-bottom: 1px solid var(--border-color);
     overflow: hidden;
   }
@@ -405,7 +405,7 @@ const GROUP_COLORS: Record<string, string> = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.25rem 0.4rem;
+    padding: 0.35rem 0.6rem;
     background: var(--node-color-dim);
     border: 1px solid var(--node-color);
     border-left: 3px solid var(--node-color);
@@ -425,7 +425,7 @@ const GROUP_COLORS: Record<string, string> = {
   }
 
   .node-name {
-    font-size: 0.68rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
@@ -434,8 +434,9 @@ const GROUP_COLORS: Record<string, string> = {
   }
 
   .node-level {
-    font-size: 0.6rem;
-    color: var(--text-muted);
+    font-size: 0.8rem;
+    /* Brighter than --text-muted, which was hard to read on the coloured node backgrounds. */
+    color: rgba(236, 228, 214, 0.72);
   }
 
   .tree-node.highlighted {

@@ -1,8 +1,9 @@
 ---
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Topbar from '../components/Topbar.astro';
+import galleryDates from '../data/gallery-dates.json';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 type GalleryItem = {
@@ -208,7 +209,10 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     const extension = path.extname(filename).toLowerCase();
     const kind: GalleryItem['kind'] = imageExtensions.has(extension) ? 'image' : 'video';
     const { width, height } = kind === 'image' ? readImageDimensions(filePath) : readVideoDimensions(filePath);
-    const modifiedAt = statSync(filePath).mtimeMs;
+    // Newest first by the date in src/data/gallery-dates.json. File dates can't be used: on the build server every
+    // file has the checkout time. A file without a date (just added) counts as newest.
+    const addedDate = (galleryDates.added as Record<string, string | null>)[filename];
+    const modifiedAt = addedDate ? Date.parse(addedDate) : Number.MAX_SAFE_INTEGER;
     const orientation: GalleryItem['orientation'] =
       width === height ? 'square' : width > height ? 'landscape' : 'portrait';
     const title = titleFromFilename(filename);

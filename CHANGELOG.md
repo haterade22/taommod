@@ -1,50 +1,33 @@
 # Changelog
 
-Every update to taommod.com, newest first. Each update has a version number:
+Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
+or mod data, patches (2.5.1) are small fixes.
 
-- **Major** (3.0.0): a redesign or a big change to how the whole site works.
-- **Minor** (3.1.0): new pages, features or a mod data sync.
-- **Patch** (2.5.1): small fixes and text updates.
+## [3.5.0] — 25 Oct 2026 — Wider faction pages, gallery order, link previews
 
-"Mod data" sections list what changed in the troop, lord, armour and weapon data synced from the TAOM mod files.
-Roadmap items edited from Discord through The Great Eye bot are summed up in the update they landed in.
-
-## [3.4.1] — 25 Oct 2026 — Credits link fix
-
-- Credits: KEYforce's ArtStation link now goes to his profile instead of the ArtStation homepage.
+- Faction pages use the full screen width; the troop tree has larger, easier-to-read text.
+- The gallery now shows the newest pictures first.
+- Shared links show the TAOM logo banner.
+- Two gallery videos are about half the size, same quality.
+- Credits: KEYforce's ArtStation link fixed.
 
 ## [3.4.0] — 25 Oct 2026 — Changelog page and smoother scrolling on large screens
 
-- **Changelog page** at taommod.com/changelog: every website update since launch, each with a version number.
-  It is built from this file, so the two always match. Linked from the footer next to the Terms, and from the
-  Terms & Conditions page.
-- **Smoother scrolling on large, fast screens** (e.g. 1440p at 200+ Hz): the faint colour glow behind each page now
-  covers only the top screen instead of being stretched over the whole page, which Firefox kept redrawing while
-  scrolling. The worst stutters on long pages are about half as long (e.g. faction pages 28 ms → 9 ms per frame).
-  The pages look the same.
+- New changelog page, linked in the footer.
+- Smoother scrolling on large screens.
 
 ## [3.3.0] — 25 Oct 2026 — Whole-site speed pass
 
-- **Smooth scrolling in Firefox on every page.** Tall content boxes now use a solid background instead of layered
-  colour fades, and an invisible inner shadow was removed. These made Firefox stutter on Features, Races and Balance
-  Overview (26 slow frames → 1).
-- Large soft shadows made smaller across the whole site (they look the same and are much cheaper to draw).
-- Faction pages: no blur behind the faction emblem and no colour filter on the hero picture (same look, drawn with
-  a dark overlay). The faction picker no longer blurs pictures while switching factions.
-- **Pictures 18.3 MB → 4.2 MB.** 54 JPG/PNG pictures got WebP copies that pages use now; the faction picker's
-  background went from 4 MB to 130 KB. Link previews still use the original JPG.
-- **Armoury page 4.6 MB → 1.7 MB and Lords page 3.3 MB → 1.1 MB.** Table rows carry far less repeated code; both
-  open about 30% faster in Firefox. Look, filters and counts are unchanged.
-- Rohan's faction page now has a banner picture (it pointed at a file that never existed).
+- Smoother scrolling on every page.
+- Pictures load much faster (18 MB → 4 MB).
+- Armoury and Lords pages are 60–70% smaller.
+- Rohan faction banner added.
 
 ## [3.2.0] — 23 Oct 2026 — 2.0.35 equipment, Harad turntables, new home logo
 
-- Home page shows the TAOM plaque logo instead of the text title, and the glow behind it fades out smoothly (no more
-  hard yellow line).
-- **Firefox speed:** paged tables (Armoury, Weaponry, Troops, Lords, faction rosters) open up to 2.4× faster; the
-  faint background picture on every page now scrolls with the page instead of staying fixed; smaller shadows on
-  faction and kingdom pages.
-- Harad armour turntable videos added to the Armoury.
+- New logo on the home page.
+- Faster tables and smoother faction and kingdom pages.
+- Harad armour turntables.
 
 ### Mod data — 2.0.35 Equipment Sync
 
@@ -57,53 +40,29 @@ Roadmap items edited from Discord through The Great Eye bot are summed up in the
 
 ## [3.1.0] — 19 Oct 2026 — Credits, site fixes and ban appeals
 
-- **Credits page** now reads from one data file with a group per team and Discord roles, ready for The Great Eye bot
-  to keep it in sync. Nobody is ever removed: people who leave are listed under "Former members".
-- Themed 404 page for broken links.
-- The gold top bar is on every page (Kingdoms, Clans and Troubleshooting still had the old menu), with Kingdoms and
-  Troubleshooting added to the menu.
-- Pages that show the same content under two addresses get their own tab titles and point search engines at one
-  address.
-- Expired Patreon pictures in news posts are hidden or replaced instead of showing broken images.
-- Smaller cookie notice on phones; fixed logo size.
-- Data pages 7–13% smaller.
-- Footer: one "Discord Bot Terms & Privacy" link, plus a **Ban Appeals** link to the appeals server. The Discord bot
-  page explains appeals.
-- Roadmap updated 16 times from Discord through The Great Eye bot (3D Art, Coding and Map Design items).
+- Credits page ready to sync with the Discord bot.
+- New 404 page and the gold top bar on every page.
+- Ban Appeals link in the footer.
+- Roadmap updates from Discord.
 
 ## [3.0.0] — 18 Oct 2026 — Optimisation and redesign
 
-- **Site size 1.15 GB → 221 MB** (it was over GitHub Pages' 1 GB limit, which had frozen updates since 5 Oct):
-  gallery pictures served as WebP thumbnails and full-size copies, 10 oversized backgrounds and the logo converted to
-  WebP (about 25 MB → 1.4 MB). Deploys can no longer get stuck behind an old run.
-- **New gold top bar** on every page: full width, flush to the top, with the ring inscription along a gold line;
-  compact menu on mid-size screens and a menu button on small ones.
-- **Data tables show one screen of rows per page** with page buttons, instead of scroll boxes (Armoury, Lords, Troops,
-  Weaponry, faction rosters). Column widths stay the same from page to page. Sorting and search react about 10×
-  faster in Firefox.
-- **Firefox:** smoother scrolling on data pages (2–2.5×), and table headers actually stay pinned; links that jump to a
-  section no longer hide it under the top bar.
-- Home page: the background video is now pre-blurred and 0.6 MB (was 16 MB and blurred live every frame), loads only
-  on larger screens without reduced motion or data saver, and the page fits one screen.
-- No more blur effects behind the top bar, cookie notice, phone menu and home overlay (smoother scrolling).
-- **Roadmap redesign:** a timeline per discipline (Done → In progress → Up next), 3D, 2D, Map and Coding first,
-  optional date per item. Content moved to a data file so it can be edited from Discord.
-  - 3D Art: Gondor and Harad done, Lorien in progress, Mirkwood and Dol Amroth barding up next.
-  - Scene Design: Moria and Edoras done; Mordor, Gondor, Rohan (Helm's Deep) and Dwarf in progress.
-- **Discord bot Terms of Service and Privacy Policy** page (taommod.com/discord-bot, 17 Oct 2026 versions), linked from
-  the footer and the other policy pages.
-- Search and sharing: proper page addresses, link previews on Discord and social media, sitemap.xml and robots.txt.
-- Accessibility: one main content area per page (54 pages had two), a page title on the home page, and news pictures
-  no longer read out file names to screen readers.
-- Kingdom pages no longer show 12 broken emblem pictures.
-- Roadmap updated 3 times from Discord through The Great Eye bot.
+- Site size cut from 1.15 GB to 221 MB.
+- New gold top bar.
+- Tables split into pages.
+- Lighter home video.
+- New roadmap timeline.
+- Discord bot Terms & Privacy page.
+- Better link previews and accessibility.
 
 ## [2.7.0] — 19–21 Sep 2026 — Armour turntable videos
 
-- **Armour turntable videos:** rows marked "View" on the Armoury open a rotating video of that armour piece.
-- Credits: shawmuscle added to 3D Artists.
+- Armour turntable videos on the Armoury.
+- shawmuscle added to the credits.
 
 ## [2.6.0] — 14 Sep 2026 — Mod data sync
+
+- Mod data sync: weapon and armour rebalance.
 
 ### Mod data — Mod Data Sync
 
@@ -149,10 +108,11 @@ Roadmap items edited from Discord through The Great Eye bot are summed up in the
 
 ## [2.5.1] — 9 Sep 2026 — Load order update
 
-- Download and Troubleshooting pages: updated mod load order and install steps.
-- Small text fixes on the policy and roadmap pages.
+- Updated install steps and load order.
 
 ## [2.5.0] — 2 Sep 2026 — Blue Craig and Lindon
+
+- Blue Craig and Lindon get their own troop rosters.
 
 ### Mod data — Full Mod Data Sync
 
@@ -214,8 +174,9 @@ Roadmap items edited from Discord through The Great Eye bot are summed up in the
 
 ## [2.4.0] — 22–25 Jun 2026 — Goblin-town, Misty Mountain Orcs, Dale; roadmap leads
 
-- Roadmap grouped by discipline, each with its lead and contributors.
-- Lord tables show combat, non-combat and total skill sums, with clearer column headers.
+- Goblin-town, Misty Mountain Orcs and Dale rosters.
+- Roadmap leads per discipline.
+- Lord skill totals.
 
 ### Mod data — Goblin-town, Misty Mountain Orcs, Dale
 
@@ -250,7 +211,8 @@ _Recorded retroactively on 2026-09-14; this sync (`f338c8c`) shipped without a c
 
 ## [2.3.0] — 25–26 May 2026 — Âbanissa and Shaghâna; sticky headers
 
-- All data tables keep their column labels pinned at the top while you scroll (Excel-style).
+- Âbanissa and Shaghâna kingdoms.
+- Column labels stay pinned while scrolling.
 
 ### Mod data — Âbanissa, Shaghâna, Roster Rebuilds
 
@@ -287,11 +249,12 @@ _Recorded retroactively on 2026-09-14; this sync (`dc8b431`) shipped without a c
 
 ## [2.2.0] — 29 Mar 2026 — Legal pages, gallery, expanded roadmap
 
-- Cookie notice, Cookie Policy, Privacy Policy and Terms & Conditions pages, linked from the footer.
-- Gallery page and an expanded roadmap.
-- Troop trees: branches that end early are placed first, keeping troops in level order.
+- Cookie notice and policy pages.
+- Gallery page and a bigger roadmap.
 
 ## [2.1.0] — 19 Mar 2026 — Full mod data sync
+
+- Full mod data sync: skill rebalance for every faction.
 
 ### Mod data — Full Mod Data Sync
 
@@ -352,50 +315,35 @@ Every faction's troop roster received a comprehensive skill rebalance focused on
 
 ## [2.0.0] — 13–15 Mar 2026 — Website overhaul
 
-- **New design** across the site, with more 2D art.
-- **News** page mirrored from the TAOM Patreon posts.
-- Most Mod Info pages rewritten.
-- Layouts reworked for phones and tablets.
+- New design.
+- Patreon news page.
+- Phone and tablet layouts.
 
 ## [1.4.0] — 12 Mar 2026 — Smooth navigation
 
-- Smooth transitions between pages.
-- Self-hosted Cinzel font for menus and headings.
-- Weaponry tables can be sorted and collapsed, and remember filters in the address.
-- Behind the scenes: code checks, tests and automatic quality gates before each deploy.
+- Smooth page transitions.
+- Sortable Weaponry tables.
 
 ## [1.3.0] — 11 Mar 2026 — Balance overview
 
-- **Balance Overview** page with faction power rankings and tier lists (including infantry sub-types).
-- Armoury, Weaponry and Troops split into collapsible sections per culture; balancing pages start collapsed.
-- Weapon balance data: cultural modifiers on 198 blade pieces and a points-based rebalance of 217.
-- Goblins renamed to Dol Guldur Orcs. Khand and Rhûn kingdom banners added.
-- Troubleshooting: warning about the Naval DLC.
+- Balance Overview with faction power rankings.
+- Collapsible tables.
 
 ## [1.2.0] — 10 Mar 2026 — Lords database and balancing pages
 
-- **Lords database**, grouped by culture and clan, with collapsible sections.
-- **Database** landing page with overview cards.
-- **Troubleshooting** page: load order, FAQ and fixes for common errors.
-- Balancing pages for **troops**, **armour** and **weapons**, with the full TaleWorlds damage calculation.
-- Estimated damage column on the Weaponry page.
-- Home page Sauron background video.
-- Features page expanded to 45+ gameplay systems, with MCM toggle badges.
-- Troop data rebalanced; 48 generic militia troops removed from the site.
+- Lords database.
+- Troubleshooting page.
+- Balancing pages.
+- Home video.
 
 ## [1.1.0] — 9 Mar 2026 — Factions, kingdoms and mod info
 
-- **Faction pages** with troop rosters and an interactive troop upgrade tree.
-- **Kingdom** and **clan** detail pages with their lords, skills and traits.
-- **Mod Information** menu: races and creatures (with WIP / Planned tags), recruitment and a features page.
-- Clickable map of Middle-earth on the Factions and Kingdoms pages.
-- Kingdom banners and lore names and colours for each culture.
-- Pictures optimised: 28 MB → 5 MB.
+- Faction pages with troop trees.
+- Kingdom and clan pages.
+- Mod Info section.
+- Map of Middle-earth.
 
 ## [1.0.0] — 8 Mar 2026 — Launch
 
-- taommod.com goes live: home page with download links, install instructions, ModDB "Best Upcoming Mod 2025" award,
-  YouTube and Discord links.
-- **Troops**, **Armoury** and **Weaponry** databases with Lord of the Rings culture names, culture-coloured rows and
-  colour-coded skills.
-- Factions, Kingdoms, Clans and Credits pages.
+- taommod.com launches with Troops, Armoury and Weaponry databases, plus Factions, Kingdoms, Clans and Credits
+  pages.

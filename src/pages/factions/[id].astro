@@ -1147,13 +1147,20 @@ const troopHeaderCols = [
   }
 
   .faction-shell {
-    width: min(100%, 84rem);
-    max-width: 84rem;
+    /* Uses the screen width up to about 2,200 px (was 84rem, about 1,180 px: half of a 1440p screen stayed empty and
+       the troop tree had to scroll sideways). */
+    width: min(100%, 160rem);
+    max-width: 160rem;
     margin: 0 auto;
     padding: 2.25rem 0 3.375rem;
     display: grid;
     gap: 1.35rem;
     min-width: 0;
+  }
+
+  /* Wide pages, readable text: paragraphs stop at a comfortable line length. */
+  .faction-shell p {
+    max-width: 80ch;
   }
 
   .eyebrow,
