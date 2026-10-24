@@ -11,7 +11,7 @@ interface Props {
   hideFooter?: boolean;
   bodyClass?: string;
   mainClass?: string;
-  /** Link-preview image (site-relative path). Defaults to the home hero image. */
+  /** Link-preview image (site-relative path). Defaults to the TAOM logo banner (1024×576). */
   image?: string;
   noindex?: boolean;
   /** Site path of the main version of this page, when the same content is reachable under another address. */
@@ -24,7 +24,7 @@ const {
   hideNav = false,
   bodyClass,
   mainClass,
-  image = '/images/hero-bg.jpg',
+  image = '/images/og-banner.jpg',
   noindex = false,
   canonicalPath,
 } = Astro.props;
@@ -51,7 +51,17 @@ const imageUrl = new URL(image, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
+    {
+      image === '/images/og-banner.jpg' && (
+        <>
+          <meta property="og:image:width" content="1024" />
+          <meta property="og:image:height" content="576" />
+          <meta property="og:image:alt" content="Tales from the Age of Men" />
+        </>
+      )
+    }
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={imageUrl} />
     <meta name="theme-color" content="#0d0908" />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
