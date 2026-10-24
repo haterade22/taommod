@@ -1,0 +1,356 @@
+---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import Topbar from '../components/Topbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { changelogIntro, parseChangelog } from '../lib/changelog';
+
+// The page is built from CHANGELOG.md at the repository root, so the file and the page never differ.
+const markdown = readFileSync(join(process.cwd(), 'CHANGELOG.md'), 'utf8');
+const entries = parseChangelog(markdown);
+const intro = changelogIntro(markdown);
+const latest = entries[0];
+---
+
+<BaseLayout
+  title="Changelog"
+  description="Every update to the TAOM website, from launch to today, with version numbers and what changed."
+  hideNav={true}
+  hideFooter={true}
+  bodyClass="taom-policy-body"
+  mainClass="taom-policy-main"
+>
+  <div class="policy-page">
+    <Topbar />
+
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Changelog</p>
+          <h1>Every update to the TAOM website.</h1>
+          <div class="intro-copy" set:html={intro} />
+        </div>
+
+        <aside class="hero-summary-card">
+          <p class="card-kicker">At a Glance</p>
+          <div class="summary-list">
+            <div class="summary-item">
+              <span class="summary-label">Current version</span>
+              <strong>{latest?.version}</strong>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Last update</span>
+              <strong>{latest?.date} — {latest?.title}</strong>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Updates since launch</span>
+              <strong>{entries.length}</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="release-list" aria-label="Website updates">
+        {
+          entries.map((entry) => (
+            <article class="policy-card release-card" id={`v${entry.version}`}>
+              <header class="release-head">
+                <span class="release-version">{entry.version}</span>
+                <div>
+                  <p class="card-kicker">{entry.date}</p>
+                  <h2>{entry.title}</h2>
+                </div>
+              </header>
+              <div class="release-body" set:html={entry.html} />
+              {entry.modData && (
+                <details class="release-mod">
+                  <summary>Mod data details — {entry.modData.title}</summary>
+                  <div class="release-body" set:html={entry.modData.html} />
+                </details>
+              )}
+            </article>
+          ))
+        }
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(body.taom-policy-body) {
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(7, 5, 5, 0.64), rgba(7, 5, 5, 0.96)),
+      radial-gradient(circle at 16% 18%, rgba(128, 72, 34, 0.18), transparent 25%),
+      radial-gradient(circle at 84% 14%, rgba(98, 44, 26, 0.16), transparent 24%),
+      linear-gradient(180deg, #17100e 0%, #0d0908 48%, #080606 100%);
+    color: #ece4db;
+  }
+
+  :global(body.taom-policy-body::before) {
+    content: '';
+    /* Scrolls with the page (a fixed full-screen layer made Firefox scrolling stutter). */
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
+      url('/images/hero-bg.webp') center top / cover no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  :global(.taom-policy-main) {
+    display: block;
+  }
+
+  .policy-page {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .page-shell {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
+    gap: 1.5rem;
+  }
+
+  .hero-copy,
+  .hero-summary-card,
+  .policy-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(151, 110, 51, 0.44);
+    background: rgba(14, 11, 10, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34);
+  }
+
+  .hero-copy {
+    background:
+      linear-gradient(180deg, rgba(12, 9, 8, 0.42), rgba(8, 7, 7, 0.7)),
+      url('/images/community/block-background.webp') center / cover no-repeat;
+    padding: 3rem;
+  }
+
+  .hero-copy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/community/block-overlay.webp') center / 100% 100% no-repeat;
+    pointer-events: none;
+  }
+
+  .hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/community/block-border.webp') center / 100% 100% no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-copy > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-summary-card,
+  .policy-card {
+    padding: 2rem;
+  }
+
+  .eyebrow,
+  .card-kicker,
+  .summary-label,
+  .release-version,
+  .release-mod summary {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(214, 176, 106, 0.84);
+  }
+
+  .hero-copy h1,
+  .policy-card h2 {
+    margin: 0;
+    color: #f5eee5;
+  }
+
+  .hero-copy h1 {
+    max-width: 13ch;
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+    line-height: 0.95;
+  }
+
+  .intro-copy,
+  .summary-item strong,
+  .release-body {
+    color: rgba(231, 222, 214, 0.82);
+  }
+
+  .intro-copy {
+    max-width: 44rem;
+    margin: 1.15rem 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .intro-copy :global(p),
+  .intro-copy :global(ul) {
+    margin: 0.6rem 0 0;
+  }
+
+  .summary-list {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .summary-item {
+    display: grid;
+    gap: 0.32rem;
+    padding: 1rem 1.05rem;
+    border: 1px solid rgba(151, 110, 51, 0.32);
+    background: rgba(15, 11, 10, 0.91);
+  }
+
+  .summary-label {
+    color: rgba(214, 176, 106, 0.82);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .release-list {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .release-head {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .release-head .card-kicker {
+    margin-bottom: 0.35rem;
+  }
+
+  .release-version {
+    flex: 0 0 auto;
+    min-width: 5.2rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(205, 153, 52, 0.55);
+    background: rgba(57, 41, 32, 0.6);
+    color: #f8e6bd;
+    font-size: 1.05rem;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  .policy-card h2 {
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.1;
+  }
+
+  .release-body {
+    margin-top: 1rem;
+    line-height: 1.65;
+  }
+
+  .release-body :global(ul) {
+    margin: 0.4rem 0 0;
+    padding-left: 1.3rem;
+  }
+
+  .release-body :global(li) {
+    margin: 0.3rem 0;
+  }
+
+  .release-body :global(p) {
+    margin: 0.7rem 0 0;
+  }
+
+  .release-body :global(h4),
+  .release-body :global(h5) {
+    margin: 1.2rem 0 0.2rem;
+    color: #f0dfb7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .release-body :global(strong) {
+    color: #f5eee5;
+  }
+
+  .release-body :global(code) {
+    padding: 0.05rem 0.3rem;
+    background: rgba(255, 255, 255, 0.07);
+    color: #f2e2c0;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.86em;
+    overflow-wrap: anywhere;
+  }
+
+  .release-mod {
+    margin-top: 1.2rem;
+    border-top: 1px solid rgba(151, 110, 51, 0.3);
+    padding-top: 0.9rem;
+  }
+
+  .release-mod summary {
+    cursor: pointer;
+    color: #e3c182;
+    font-size: 0.86rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1080px) {
+    .hero-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .policy-page {
+      padding: 1rem;
+    }
+
+    .page-shell {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-copy,
+    .hero-summary-card,
+    .policy-card {
+      padding: 1.5rem;
+    }
+
+    .hero-copy h1 {
+      max-width: none;
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .release-head {
+      align-items: flex-start;
+    }
+  }
+</style>
