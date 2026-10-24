@@ -1,4 +1,5 @@
 ---
+import LordsRows from '../components/LordsRows.astro';
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseAllLords, getCultureDisplayName, isHiddenCulture, parseKingdomsFromXslt } from '../lib/parse-xml';
@@ -75,10 +76,16 @@ for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
   }
 }
 
-function getCultureRowStyle(culture: string): string {
-  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
-  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
-}
+// Row colours: one rule per culture instead of an inline style on every row.
+const cultureCss = [
+  '.lord-section tbody tr{--culture-accent:#7A664A;--culture-rgb:122, 102, 74}',
+  ...cultures.map((culture) => {
+    const tone = cultureColorMap.get(culture);
+    return tone
+      ? `.lord-section tr[data-culture="${culture}"]{--culture-accent:${tone.hex};--culture-rgb:${tone.rgb}}`
+      : '';
+  }),
+].join('');
 
 const cultureCounts = new Map<string, number>();
 for (const lord of allLords) {
@@ -99,12 +106,6 @@ const cultureTabs = [
 const aliveSingles = allLords.filter((lord) => lord.alive && !lord.spouse && (lord.age || 0) >= 18).length;
 const clanCount = new Set(allLords.map((lord) => lord.clan).filter(Boolean)).size;
 
-function traitClass(value: number): string {
-  if (value > 0) return 'trait-positive';
-  if (value < 0) return 'trait-negative';
-  return '';
-}
-
 const COMBAT_SKILLS = ['OneHanded', 'TwoHanded', 'Polearm', 'Bow', 'Crossbow', 'Throwing', 'Riding', 'Athletics'];
 const NONCOMBAT_SKILLS = [
   'Crafting',
@@ -123,13 +124,45 @@ function sumSkills(skills: Record<string, number>, keys: string[]): number {
   return keys.reduce((total, key) => total + (skills[key] || 0), 0);
 }
 
-function totalColor(total: number): string {
-  if (total <= 1500) return '#922b21';
-  if (total <= 2200) return '#b9770e';
-  if (total <= 2900) return '#1e7a45';
-  if (total <= 3600) return '#1f5d8c';
-  return '#5e3a8c';
+// Colour band of the Total cell (classes tier-1 to tier-5 in the global style block below).
+function totalTier(total: number): number {
+  if (total <= 1500) return 1;
+  if (total <= 2200) return 2;
+  if (total <= 2900) return 3;
+  if (total <= 3600) return 4;
+  return 5;
 }
+
+const SKILL_COLUMNS = [...COMBAT_SKILLS, ...NONCOMBAT_SKILLS];
+const TRAIT_COLUMNS = ['Honor', 'Generosity', 'Mercy', 'Valor', 'Calculating'];
+
+const lordRows = allLords.map((lord) => {
+  const combat = sumSkills(lord.skills, COMBAT_SKILLS);
+  const nonCombat = sumSkills(lord.skills, NONCOMBAT_SKILLS);
+  return {
+    id: lord.id,
+    name: lord.name,
+    alive: lord.alive,
+    culture: lord.culture,
+    kingdom: lord.kingdom || '',
+    kingdomDisplay: lord.kingdom ? formatMetaLabel(lord.kingdom) : '',
+    isFemale: lord.isFemale,
+    age: lord.age || 0,
+    group: lord.defaultGroup || '',
+    skills: SKILL_COLUMNS.map((skill) => lord.skills[skill] || 0),
+    combat,
+    nonCombat,
+    total: combat + nonCombat,
+    totalTier: totalTier(combat + nonCombat),
+    traits: TRAIT_COLUMNS.map((trait) => lord.traits[trait]),
+    clan: lord.clan ? formatMetaLabel(lord.clan) : '',
+    spouse: lord.spouse ? lookupName(lord.spouse) : '',
+    father: lord.father ? lookupName(lord.father) : '',
+    mother: lord.mother ? lookupName(lord.mother) : '',
+    children: lord.children.map((child) => lookupName(child)).join(', '),
+    biography: lord.biography || '',
+  };
+});
 
 const headerCols = [
   { col: 'name', label: 'Name', cls: '' },
@@ -298,6 +331,7 @@ const headerCols = [
               <span class="section-count" id="table-count">({allLords.length})</span>
             </div>
 
+            <style is:inline set:html={cultureCss}></style>
             <div class="data-table-wrapper">
               <table class="data-table lord-section">
                 <thead>
@@ -312,80 +346,7 @@ const headerCols = [
                   </tr>
                 </thead>
                 <tbody id="lords-table-body">
-                  {
-                    allLords.map((lord) => {
-                      const spouseName = lord.spouse ? lookupName(lord.spouse) : '';
-                      const fatherName = lord.father ? lookupName(lord.father) : '';
-                      const motherName = lord.mother ? lookupName(lord.mother) : '';
-                      const childNames = lord.children.map((child) => lookupName(child)).join(', ');
-                      const clanDisplay = lord.clan ? formatMetaLabel(lord.clan) : '';
-                      const kingdomDisplay = lord.kingdom ? formatMetaLabel(lord.kingdom) : '';
-                      const combat = sumSkills(lord.skills, COMBAT_SKILLS);
-                      const nonCombat = sumSkills(lord.skills, NONCOMBAT_SKILLS);
-                      const total = combat + nonCombat;
-
-                      return (
-                        <tr
-                          data-name={lord.name.toLowerCase()}
-                          data-id={lord.id.toLowerCase()}
-                          data-culture={lord.culture}
-                          data-kingdom={lord.kingdom}
-                          data-gender={lord.isFemale ? 'female' : 'male'}
-                          data-married={lord.spouse ? 'married' : 'single'}
-                          data-bio={lord.biography}
-                          style={getCultureRowStyle(lord.culture)}
-                        >
-                          <td class="lord-name-cell">
-                            <span class="lord-name">{lord.name}</span>
-                            {!lord.alive && <span class="dead-badge">Dead</span>}
-                          </td>
-                          <td>{kingdomDisplay}</td>
-                          <td>{lord.isFemale ? 'Female' : 'Male'}</td>
-                          <td class="col-num">{lord.age || ''}</td>
-                          <td class="section-start">{lord.defaultGroup}</td>
-                          <td class="col-num section-start">{lord.skills.OneHanded || ''}</td>
-                          <td class="col-num">{lord.skills.TwoHanded || ''}</td>
-                          <td class="col-num">{lord.skills.Polearm || ''}</td>
-                          <td class="col-num">{lord.skills.Bow || ''}</td>
-                          <td class="col-num">{lord.skills.Crossbow || ''}</td>
-                          <td class="col-num">{lord.skills.Throwing || ''}</td>
-                          <td class="col-num">{lord.skills.Riding || ''}</td>
-                          <td class="col-num">{lord.skills.Athletics || ''}</td>
-                          <td class="col-num">{lord.skills.Crafting || ''}</td>
-                          <td class="col-num">{lord.skills.Scouting || ''}</td>
-                          <td class="col-num">{lord.skills.Tactics || ''}</td>
-                          <td class="col-num">{lord.skills.Roguery || ''}</td>
-                          <td class="col-num">{lord.skills.Charm || ''}</td>
-                          <td class="col-num">{lord.skills.Leadership || ''}</td>
-                          <td class="col-num">{lord.skills.Trade || ''}</td>
-                          <td class="col-num">{lord.skills.Steward || ''}</td>
-                          <td class="col-num">{lord.skills.Medicine || ''}</td>
-                          <td class="col-num">{lord.skills.Engineering || ''}</td>
-                          <td class="col-num section-start">{combat}</td>
-                          <td class="col-num">{nonCombat}</td>
-                          <td class="col-num lord-total" style={`background:${totalColor(total)}`}>
-                            {total}
-                          </td>
-                          <td class={`col-num section-start ${traitClass(lord.traits.Honor || 0)}`}>
-                            {lord.traits.Honor ?? ''}
-                          </td>
-                          <td class={`col-num ${traitClass(lord.traits.Generosity || 0)}`}>
-                            {lord.traits.Generosity ?? ''}
-                          </td>
-                          <td class={`col-num ${traitClass(lord.traits.Mercy || 0)}`}>{lord.traits.Mercy ?? ''}</td>
-                          <td class={`col-num ${traitClass(lord.traits.Valor || 0)}`}>{lord.traits.Valor ?? ''}</td>
-                          <td class={`col-num ${traitClass(lord.traits.Calculating || 0)}`}>
-                            {lord.traits.Calculating ?? ''}
-                          </td>
-                          <td class="col-clan section-start">{clanDisplay}</td>
-                          <td class="col-family">{spouseName}</td>
-                          <td class="col-family">{fatherName}</td>
-                          <td class="col-family">{motherName}</td>
-                          <td class="col-family">{childNames}</td>
-                        </tr>
-                      );
-                    })
-                  }
+                  <LordsRows lords={lordRows} />
                 </tbody>
               </table>
             </div>
@@ -451,32 +412,45 @@ const headerCols = [
       window.history.replaceState({}, '', url);
     }
 
+    // Rows carry few attributes (smaller page); read the rest from the cells once.
+    // Columns: 0 name, 1 kingdom, 2 gender, ... 32 spouse.
+    const rowInfo = rows.map((row) => ({
+      row,
+      name: (row.querySelector('.lord-name')?.textContent || '').toLowerCase(),
+      id: (row.dataset.id || '').toLowerCase(),
+      bio: (row.dataset.bio || '').toLowerCase(),
+      culture: row.dataset.culture || '',
+      kingdom: row.dataset.kingdom || '',
+      gender: (row.cells[2]?.textContent || '').trim().toLowerCase(),
+      married: row.cells[32]?.textContent?.trim() ? 'married' : 'single',
+    }));
+
     function attachBioHandlers() {
-      rows.forEach((row) => {
-        if (row.dataset.bioBound === 'true') return;
-        row.dataset.bioBound = 'true';
+      // One listener for the whole table instead of one per row.
+      if (tableBody.dataset.bioBound === 'true') return;
+      tableBody.dataset.bioBound = 'true';
+      tableBody.addEventListener('click', (event) => {
+        const row = (event.target as Element | null)?.closest('tr');
+        if (!row || row.classList.contains('bio-row') || !tableBody.contains(row)) return;
+        const bio = row.dataset.bio;
+        const existing = row.nextElementSibling;
+        if (existing?.classList.contains('bio-row')) {
+          existing.remove();
+          return;
+        }
 
-        row.addEventListener('click', () => {
-          const bio = row.dataset.bio;
-          const existing = row.nextElementSibling;
-          if (existing?.classList.contains('bio-row')) {
-            existing.remove();
-            return;
-          }
+        clearBiographyRows();
 
-          clearBiographyRows();
-
-          if (bio) {
-            const bioRow = document.createElement('tr');
-            bioRow.className = 'bio-row';
-            const td = document.createElement('td');
-            td.colSpan = row.cells.length;
-            td.className = 'bio-cell';
-            td.textContent = bio;
-            bioRow.appendChild(td);
-            row.after(bioRow);
-          }
-        });
+        if (bio) {
+          const bioRow = document.createElement('tr');
+          bioRow.className = 'bio-row';
+          const td = document.createElement('td');
+          td.colSpan = row.cells.length;
+          td.className = 'bio-cell';
+          td.textContent = bio;
+          bioRow.appendChild(td);
+          row.after(bioRow);
+        }
       });
     }
 
@@ -491,23 +465,14 @@ const headerCols = [
       const married = marriedFilter.value;
       let visibleCount = 0;
 
-      for (const row of rows) {
-        const name = row.dataset.name || '';
-        const id = row.dataset.id || '';
-        const bio = (row.dataset.bio || '').toLowerCase();
-        const rowCulture = row.dataset.culture || '';
-        const rowKingdom = row.dataset.kingdom || '';
-        const rowGender = row.dataset.gender || '';
-        const rowMarried = row.dataset.married || '';
-
-        const matchesCulture = activeCulture === 'all' || rowCulture === activeCulture;
-        const matchesSearch = !search || name.includes(search) || id.includes(search) || bio.includes(search);
-        const matchesKingdom = !kingdom || rowKingdom === kingdom;
-        const matchesGender = !gender || rowGender === gender;
-        const matchesMarried = !married || rowMarried === married;
-
-        const show = matchesCulture && matchesSearch && matchesKingdom && matchesGender && matchesMarried;
-        row.style.display = show ? '' : 'none';
+      for (const info of rowInfo) {
+        const show =
+          (activeCulture === 'all' || info.culture === activeCulture) &&
+          (!search || info.name.includes(search) || info.id.includes(search) || info.bio.includes(search)) &&
+          (!kingdom || info.kingdom === kingdom) &&
+          (!gender || info.gender === gender) &&
+          (!married || info.married === married);
+        info.row.style.display = show ? '' : 'none';
         if (show) visibleCount += 1;
       }
 
@@ -950,90 +915,6 @@ const headerCols = [
     text-transform: uppercase;
   }
 
-  .lord-section td {
-    padding: 0.72rem 0.8rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #ffffff;
-    font-size: 0.92rem;
-    white-space: nowrap;
-    background:
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
-      rgba(7, 6, 6, 0.72);
-  }
-
-  .lord-section tbody tr {
-    cursor: pointer;
-    transition: transform 140ms ease;
-  }
-
-  .lord-section tbody tr:hover td {
-    background:
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
-      rgba(11, 9, 8, 0.8);
-  }
-
-  .lord-section th.section-start,
-  .lord-section td.section-start {
-    border-left: 1px solid rgba(179, 135, 62, 0.3);
-  }
-
-  .lord-section td.col-num,
-  .lord-section td.col-family,
-  .lord-section td.col-clan,
-  .lord-section td .lord-name,
-  .lord-section td .dead-badge {
-    color: #ffffff !important;
-  }
-
-  .lord-name-cell {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-width: 15rem;
-  }
-
-  .lord-name {
-    font-weight: 600;
-    color: #ffffff;
-  }
-
-  .dead-badge {
-    font-size: 0.62rem;
-    padding: 0.14rem 0.4rem;
-    border: 1px solid rgba(180, 84, 84, 0.38);
-    background: rgba(115, 30, 30, 0.22);
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .col-clan {
-    min-width: 11rem;
-    text-transform: capitalize;
-  }
-
-  .col-family {
-    max-width: 14rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .col-num {
-    text-align: center;
-  }
-
-  .lord-section td.lord-total {
-    color: #ffffff !important;
-    font-weight: 700;
-  }
-
-  .trait-positive,
-  .trait-negative {
-    color: #ffffff !important;
-  }
-
   .bio-row td {
     padding: 0 !important;
     background: rgba(14, 11, 10, 0.95);
@@ -1114,8 +995,112 @@ const headerCols = [
     }
 
     .lord-section th,
-    .lord-section td {
+    .lord-section :global(td) {
       padding-inline: 0.7rem;
     }
+  }
+</style>
+
+<!-- Row styles are global: the rows come from LordsRows.astro, which has no scoping class. Columns are styled by
+     position: 4 and 6-31 numbers, 5/6/24/27/32 start a section, 32 clan, 33-36 family. The prefix matches the strength
+     these rules had as scoped styles. Biography rows (added by the script) are left out, as before. -->
+<style is:global>
+  .data-table-wrapper .lord-section.data-table tbody tr:not(.bio-row) td {
+    padding: 0.72rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .data-table-wrapper .lord-section.data-table tbody tr:not(.bio-row) {
+    cursor: pointer;
+    transition: transform 140ms ease;
+  }
+
+  .data-table-wrapper .lord-section.data-table tbody tr:not(.bio-row):hover td {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .data-table-wrapper .lord-section.data-table th.section-start,
+  .data-table-wrapper
+    .lord-section.data-table
+    tbody
+    tr:not(.bio-row)
+    td:is(:nth-child(5), :nth-child(6), :nth-child(24), :nth-child(27), :nth-child(32)) {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .data-table-wrapper
+    .lord-section.data-table
+    tbody
+    tr:not(.bio-row)
+    td:is(:nth-child(4), :nth-child(n + 6):nth-child(-n + 31)) {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .data-table-wrapper .lord-section.data-table .col-num {
+    text-align: center;
+  }
+
+  .data-table-wrapper .lord-section.data-table td .lord-name,
+  .data-table-wrapper .lord-section.data-table td .dead-badge {
+    color: #ffffff !important;
+  }
+
+  .data-table-wrapper .lord-section.data-table .lord-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 15rem;
+  }
+
+  .data-table-wrapper .lord-section.data-table .lord-name {
+    font-weight: 600;
+  }
+
+  .data-table-wrapper .lord-section.data-table .dead-badge {
+    font-size: 0.62rem;
+    padding: 0.14rem 0.4rem;
+    border: 1px solid rgba(180, 84, 84, 0.38);
+    background: rgba(115, 30, 30, 0.22);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .data-table-wrapper .lord-section.data-table tbody tr:not(.bio-row) td:nth-child(32) {
+    min-width: 11rem;
+    text-transform: capitalize;
+  }
+
+  .data-table-wrapper .lord-section.data-table tbody tr:not(.bio-row) td:nth-child(n + 33) {
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Total cell colour bands (were inline styles, so they beat the hover colour). */
+  .data-table-wrapper .lord-section.data-table td.tier-1 {
+    background: #922b21 !important;
+  }
+  .data-table-wrapper .lord-section.data-table td.tier-2 {
+    background: #b9770e !important;
+  }
+  .data-table-wrapper .lord-section.data-table td.tier-3 {
+    background: #1e7a45 !important;
+  }
+  .data-table-wrapper .lord-section.data-table td.tier-4 {
+    background: #1f5d8c !important;
+  }
+  .data-table-wrapper .lord-section.data-table td.tier-5 {
+    background: #5e3a8c !important;
   }
 </style>
