@@ -59,17 +59,17 @@ const cards: DatabaseCard[] = [
 
               <a class="database-card" href={card.href} aria-label={`Open ${card.title} database`}>
                 <div class="card-canvas">
-                  <img class="card-layer card-layer-base" src="/images/database/background.png" alt="" />
+                  <img class="card-layer card-layer-base" src="/images/database/background.webp" alt="" />
                   {card.image && <img class:list={['card-figure', card.imageClass]} src={card.image} alt="" />}
                   <img
                     class="card-layer card-layer-watermark"
-                    src="/images/database/background-watermark.png"
+                    src="/images/database/background-watermark.webp"
                     alt=""
                     loading="eager"
                     decoding="sync"
                     fetchpriority="high"
                   />
-                  <img class="card-layer card-layer-overlay" src="/images/database/border.png" alt="" />
+                  <img class="card-layer card-layer-overlay" src="/images/database/border.webp" alt="" />
                 </div>
               </a>
             </article>
@@ -99,7 +99,7 @@ const cards: DatabaseCard[] = [
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.18;
     pointer-events: none;
     z-index: -2;
@@ -128,7 +128,7 @@ const cards: DatabaseCard[] = [
     background:
       linear-gradient(90deg, rgba(16, 12, 10, 0.97), rgba(9, 13, 10, 0.96) 45%, rgba(16, 11, 8, 0.97)),
       linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.42);
   }
 
   .brand {
@@ -313,7 +313,7 @@ const cards: DatabaseCard[] = [
   .database-column:hover .database-heading,
   .database-column:focus-within .database-heading {
     color: #d39a3a;
-    text-shadow: 0 0 12px rgba(211, 154, 58, 0.18);
+    text-shadow: 0 0 3px rgba(211, 154, 58, 0.18);
   }
 
   .database-tab:hover .database-heading::after,

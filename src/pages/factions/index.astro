@@ -62,28 +62,28 @@ const EVIL_KINGDOMS = new Set([
 ]);
 
 const CREST_IMAGES: Record<string, string> = {
-  empire_w: '/images/factions/gondor.png',
-  empire_s: '/images/factions/mordor.png',
-  erebor: '/images/factions/erebor.png',
-  rivendell: '/images/factions/imladris.png',
-  mirkwood: '/images/factions/mirkwood.png',
-  lothlorien: '/images/factions/lothlorien.png',
-  dolguldur: '/images/factions/dolguldur.png',
-  umbar: '/images/factions/umbar.png',
-  aserai: '/images/factions/harad.png',
-  battania: '/images/factions/khand.png',
-  khuzait: '/images/factions/rhun.png',
-  isengard: '/images/factions/isengard.png',
-  gundabad: '/images/factions/gundabad.png',
-  vlandia: '/images/factions/rohan.png',
-  sturgia: '/images/factions/dale.png',
-  empire: '/images/factions/dunland.png',
-  abanissa: '/images/factions/abanissa.png',
-  shaghana: '/images/factions/harad.png',
-  goblin: '/images/factions/gundabad.png',
-  mistymountainorcs: '/images/factions/gundabad.png',
-  bluecraig: '/images/factions/gundabad.png',
-  lindon: '/images/factions/imladris.png',
+  empire_w: '/images/factions/gondor.webp',
+  empire_s: '/images/factions/mordor.webp',
+  erebor: '/images/factions/erebor.webp',
+  rivendell: '/images/factions/imladris.webp',
+  mirkwood: '/images/factions/mirkwood.webp',
+  lothlorien: '/images/factions/lothlorien.webp',
+  dolguldur: '/images/factions/dolguldur.webp',
+  umbar: '/images/factions/umbar.webp',
+  aserai: '/images/factions/harad.webp',
+  battania: '/images/factions/khand.webp',
+  khuzait: '/images/factions/rhun.webp',
+  isengard: '/images/factions/isengard.webp',
+  gundabad: '/images/factions/gundabad.webp',
+  vlandia: '/images/factions/rohan.webp',
+  sturgia: '/images/factions/dale.webp',
+  empire: '/images/factions/dunland.webp',
+  abanissa: '/images/factions/abanissa.webp',
+  shaghana: '/images/factions/harad.webp',
+  goblin: '/images/factions/gundabad.webp',
+  mistymountainorcs: '/images/factions/gundabad.webp',
+  bluecraig: '/images/factions/gundabad.webp',
+  lindon: '/images/factions/imladris.webp',
 };
 
 const KINGDOM_SUMMARIES: Record<string, string> = {
@@ -157,14 +157,14 @@ function excerpt(text: string, maxLength = 220) {
 }
 
 function getKingdomBackground(kingdomId: string, theme: 'good' | 'evil') {
-  const customBackgroundPath = `/images/factions/${kingdomId}-background.png`;
-  const publicAssetPath = join(process.cwd(), 'public', 'images', 'factions', `${kingdomId}-background.png`);
+  const customBackgroundPath = `/images/factions/${kingdomId}-background.webp`;
+  const publicAssetPath = join(process.cwd(), 'public', 'images', 'factions', `${kingdomId}-background.webp`);
 
   if (existsSync(publicAssetPath)) {
     return customBackgroundPath;
   }
 
-  return theme === 'evil' ? '/images/factions/mordor-background.png' : '/images/factions/gondor-background.webp';
+  return theme === 'evil' ? '/images/factions/mordor-background.webp' : '/images/factions/gondor-background.webp';
 }
 
 const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
@@ -180,7 +180,7 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
       crest: CREST_IMAGES[kingdom.id] || '',
       monogram: getMonogram(kingdom.shortName || kingdom.name),
       background: getKingdomBackground(kingdom.id, theme),
-      foreground: theme === 'evil' ? '/images/factions/evil.png' : '/images/factions/good.webp',
+      foreground: theme === 'evil' ? '/images/factions/evil.webp' : '/images/factions/good.webp',
       href: `/factions/${kingdom.id}`,
     };
   })
@@ -229,10 +229,10 @@ const initialKingdom = kingdoms[0];
           <img class="stage-layer layer-1" src="/images/factions/map-background.webp" alt="" />
           <img class="stage-layer layer-2" id="layer-background" src={initialKingdom.background} alt="" />
           <img class="stage-layer layer-3" id="layer-foreground" src={initialKingdom.foreground} alt="" />
-          <img class="stage-layer layer-4" src="/images/factions/background-border.png" alt="" />
-          <img class="stage-layer layer-5" src="/images/factions/title-text.png" alt="" />
+          <img class="stage-layer layer-4" src="/images/factions/background-border.webp" alt="" />
+          <img class="stage-layer layer-5" src="/images/factions/title-text.webp" alt="" />
           <img class="stage-layer layer-6" src="/images/factions/card-background.webp" alt="" />
-          <img class="stage-layer layer-7" src="/images/factions/card-border.png" alt="" />
+          <img class="stage-layer layer-7" src="/images/factions/card-border.webp" alt="" />
         </div>
 
         <section class="info-panel" aria-labelledby="region-title">
@@ -277,11 +277,11 @@ const initialKingdom = kingdoms[0];
           type="button"
           aria-label="Previous factions"
         >
-          <img src="/images/ui/button.png" alt="" />
+          <img src="/images/ui/button.webp" alt="" />
         </button>
         <div class="carousel-track" id="faction-carousel" role="list" aria-label="Selectable factions"></div>
         <button class="carousel-arrow carousel-arrow-next" id="carousel-next" type="button" aria-label="Next factions">
-          <img src="/images/ui/button.png" alt="" />
+          <img src="/images/ui/button.webp" alt="" />
         </button>
       </section>
     </main>
@@ -534,7 +534,7 @@ const initialKingdom = kingdoms[0];
     background:
       linear-gradient(90deg, rgba(16, 12, 10, 0.97), rgba(9, 13, 10, 0.96) 45%, rgba(16, 11, 8, 0.97)),
       linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.42);
   }
 
   .brand {
@@ -677,8 +677,7 @@ const initialKingdom = kingdoms[0];
   .crest-fallback {
     transition:
       opacity 700ms ease,
-      transform 700ms ease,
-      filter 700ms ease;
+      transform 700ms ease;
   }
 
   .hero-stage.is-switching .layer-2,
@@ -687,13 +686,11 @@ const initialKingdom = kingdoms[0];
   .hero-stage.is-switching .layer-7 {
     opacity: 0.14;
     transform: scale(1.015);
-    filter: blur(4px);
   }
 
   .hero-stage.is-switching .panel-inner {
     opacity: 0;
     transform: translateY(18px);
-    filter: blur(6px);
   }
 
   .hero-stage.is-switching .crest-image,
@@ -825,7 +822,7 @@ const initialKingdom = kingdoms[0];
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #f7f2ec;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
   }
 
   .panel-copy {
@@ -835,7 +832,7 @@ const initialKingdom = kingdoms[0];
     line-height: 1.34;
     color: rgba(233, 226, 219, 0.76);
     text-wrap: balance;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.34);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.34);
   }
 
   .panel-link {

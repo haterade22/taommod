@@ -222,10 +222,8 @@ const timelineLanes = [...roadmapDisciplines]
     overflow: hidden;
     border: 1px solid rgba(171, 129, 73, 0.3);
     border-radius: 1.2rem;
-    background:
-      linear-gradient(180deg, rgba(20, 15, 14, 0.94), rgba(12, 10, 10, 0.97)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+    background: rgba(16, 13, 12, 0.955);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
   }
 
   .hero-panel::before,
@@ -252,11 +250,11 @@ const timelineLanes = [...roadmapDisciplines]
     padding: clamp(2.1rem, 4vw, 2.9rem);
     background:
       linear-gradient(180deg, rgba(12, 9, 8, 0.32), rgba(8, 7, 7, 0.62)),
-      url('/images/roadmap/block-background.png') center / cover no-repeat;
+      url('/images/roadmap/block-background.webp') center / cover no-repeat;
   }
 
   .hero-panel::before {
-    background: url('/images/roadmap/block-overlay.png') center / 100% 100% no-repeat;
+    background: url('/images/roadmap/block-overlay.webp') center / 100% 100% no-repeat;
   }
 
   .hero-panel::after {
@@ -264,7 +262,7 @@ const timelineLanes = [...roadmapDisciplines]
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: url('/images/roadmap/block-border.png') center / 100% 100% no-repeat;
+    background: url('/images/roadmap/block-border.webp') center / 100% 100% no-repeat;
     pointer-events: none;
   }
 
@@ -589,7 +587,7 @@ const timelineLanes = [...roadmapDisciplines]
     background:
       linear-gradient(90deg, var(--lane-glow), transparent 18%),
       linear-gradient(180deg, rgba(17, 13, 12, 0.92), rgba(10, 8, 8, 0.95));
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
   }
 
   .lane-head {

@@ -7,7 +7,7 @@ const kingdoms = parseKingdomsFromXslt();
 
 // Map kingdom IDs to background images
 const KINGDOM_IMAGES: Record<string, string> = {
-  empire: '/images/faction-dunland.jpg',
+  empire: '/images/faction-dunland.webp',
   khuzait: '/images/faction-rhun.webp',
 };
 
@@ -72,7 +72,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
   <section class="page-banner">
-    <img src="/images/banner-kingdoms.jpg" alt="Kingdoms of Middle-earth" class="banner-img" />
+    <img src="/images/banner-kingdoms.webp" alt="Kingdoms of Middle-earth" class="banner-img" />
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <h1>Kingdoms of Middle-earth</h1>
@@ -127,8 +127,8 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
 
     <section class="full-map">
       <h2>Map of Middle-earth</h2>
-      <a href="/images/banner-kingdoms.jpg" target="_blank" class="map-link">
-        <img src="/images/banner-kingdoms.jpg" alt="Map of Middle-earth" class="map-img" />
+      <a href="/images/banner-kingdoms.webp" target="_blank" class="map-link">
+        <img src="/images/banner-kingdoms.webp" alt="Map of Middle-earth" class="map-img" />
         <span class="map-hint">Click to view full size</span>
       </a>
     </section>
@@ -201,7 +201,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
 
   .kingdom-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   }
 
   .kingdom-card.has-bg {

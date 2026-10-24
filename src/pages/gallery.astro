@@ -317,7 +317,7 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.16;
     pointer-events: none;
     z-index: -2;
@@ -346,7 +346,7 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     background:
       linear-gradient(90deg, rgba(16, 12, 10, 0.97), rgba(9, 13, 10, 0.96) 45%, rgba(16, 11, 8, 0.97)),
       linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.42);
   }
 
   .brand {
@@ -504,10 +504,8 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
     row-gap: 0.85rem;
     overflow: hidden;
     border: 1px solid rgba(151, 110, 51, 0.44);
-    background:
-      linear-gradient(180deg, rgba(17, 13, 12, 0.9), rgba(10, 8, 8, 0.94)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    background: rgba(14, 11, 10, 0.92);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34);
   }
 
   .gallery-media {
