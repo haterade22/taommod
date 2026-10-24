@@ -9,6 +9,12 @@ Every update to taommod.com, newest first. Each update has a version number:
 "Mod data" sections list what changed in the troop, lord, armour and weapon data synced from the TAOM mod files.
 Roadmap items edited from Discord through The Great Eye bot are summed up in the update they landed in.
 
+## [3.4.0] — 25 Oct 2026 — Changelog page
+
+- **Changelog page** at taommod.com/changelog: every website update since launch, each with a version number.
+  It is built from this file, so the two always match. Linked from the footer next to the Terms, and from the
+  Terms & Conditions page.
+
 ## [3.3.0] — 25 Oct 2026 — Whole-site speed pass
 
 - **Smooth scrolling in Firefox on every page.** Tall content boxes now use a solid background instead of layered
