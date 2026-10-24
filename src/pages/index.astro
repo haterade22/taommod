@@ -1,6 +1,7 @@
 ---
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { srcsetFor } from '../lib/responsive-image';
 ---
 
 <BaseLayout
@@ -39,6 +40,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <img
           class="home-hero-logo"
           src="/images/logo.webp"
+          srcset={srcsetFor('/images/logo.webp')}
+          sizes="min(44rem, 90vw)"
           alt="Tales from the Age of Men"
           width="900"
           height="320"

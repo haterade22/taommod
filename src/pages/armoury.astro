@@ -510,7 +510,7 @@ const rowItems = itemsWithTurntables.map((item) => ({
     for (const info of rowInfo) {
       info.row
         .querySelector('.turntable-chip')
-        ?.setAttribute('aria-label', `Open turntable video for ${info.displayName}`);
+        ?.setAttribute('aria-label', `View turntable video for ${info.displayName}`);
     }
 
     turntableClose?.addEventListener('click', closeTurntable);

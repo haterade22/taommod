@@ -1,5 +1,6 @@
 ---
 import Topbar from '../../components/Topbar.astro';
+import { srcsetFor } from '../../lib/responsive-image';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -17,6 +18,10 @@ type ShowcaseKingdom = {
   background: string;
   foreground: string;
   href: string;
+  /** srcset strings for the smaller copies ('' when there are none). */
+  backgroundSrcset?: string;
+  foregroundSrcset?: string;
+  crestSrcset?: string;
 };
 
 const KINGDOM_ORDER = [
@@ -184,6 +189,13 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
       href: `/factions/${kingdom.id}`,
     };
   })
+  .map((kingdom) => ({
+    ...kingdom,
+    // Smaller copies for phones (see src/lib/responsive-image.ts); the script below swaps them with the pictures.
+    backgroundSrcset: srcsetFor(kingdom.background) ?? '',
+    foregroundSrcset: srcsetFor(kingdom.foreground) ?? '',
+    crestSrcset: srcsetFor(kingdom.crest) ?? '',
+  }))
   .sort((a, b) => {
     const ai = KINGDOM_ORDER.indexOf(a.id);
     const bi = KINGDOM_ORDER.indexOf(b.id);
@@ -191,6 +203,11 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
   });
 
 const initialKingdom = kingdoms[0];
+
+// The showcase is as wide as the page (at most about 1,155 px); crests are shown at up to about 64 px.
+const STAGE_SIZES = '(max-width: 1240px) 94vw, 1160px';
+const CREST_SIZES = '64px';
+const stageLayer = (src: string) => ({ src, srcset: srcsetFor(src), sizes: STAGE_SIZES });
 ---
 
 <BaseLayout
@@ -226,13 +243,13 @@ const initialKingdom = kingdoms[0];
         aria-label="Faction showcase"
       >
         <div class="layer-stack" aria-hidden="true">
-          <img class="stage-layer layer-1" src="/images/factions/map-background.webp" alt="" />
-          <img class="stage-layer layer-2" id="layer-background" src={initialKingdom.background} alt="" />
-          <img class="stage-layer layer-3" id="layer-foreground" src={initialKingdom.foreground} alt="" />
-          <img class="stage-layer layer-4" src="/images/factions/background-border.webp" alt="" />
-          <img class="stage-layer layer-5" src="/images/factions/title-text.webp" alt="" />
-          <img class="stage-layer layer-6" src="/images/factions/card-background.webp" alt="" />
-          <img class="stage-layer layer-7" src="/images/factions/card-border.webp" alt="" />
+          <img class="stage-layer layer-1" {...stageLayer('/images/factions/map-background.webp')} alt="" />
+          <img class="stage-layer layer-2" id="layer-background" {...stageLayer(initialKingdom.background)} alt="" />
+          <img class="stage-layer layer-3" id="layer-foreground" {...stageLayer(initialKingdom.foreground)} alt="" />
+          <img class="stage-layer layer-4" {...stageLayer('/images/factions/background-border.webp')} alt="" />
+          <img class="stage-layer layer-5" {...stageLayer('/images/factions/title-text.webp')} alt="" />
+          <img class="stage-layer layer-6" {...stageLayer('/images/factions/card-background.webp')} alt="" />
+          <img class="stage-layer layer-7" {...stageLayer('/images/factions/card-border.webp')} alt="" />
         </div>
 
         <section class="info-panel" aria-labelledby="region-title">
@@ -243,14 +260,25 @@ const initialKingdom = kingdoms[0];
               <span class="crest-line"></span>
               {
                 initialKingdom.crest ? (
-                  <img class="crest-image" id="faction-crest" src={initialKingdom.crest} alt="" />
+                  <img
+                    class="crest-image"
+                    id="faction-crest"
+                    src={initialKingdom.crest}
+                    srcset={initialKingdom.crestSrcset || undefined}
+                    sizes={CREST_SIZES}
+                    alt=""
+                  />
                 ) : (
                   <span class="crest-fallback" id="faction-crest-fallback">
                     {initialKingdom.monogram}
                   </span>
                 )
               }
-              {!initialKingdom.crest && <img class="crest-image is-hidden" id="faction-crest" src="" alt="" />}
+              {
+                !initialKingdom.crest && (
+                  <img class="crest-image is-hidden" id="faction-crest" sizes={CREST_SIZES} alt="" />
+                )
+              }
               {
                 initialKingdom.crest && (
                   <span class="crest-fallback is-hidden" id="faction-crest-fallback">
@@ -339,15 +367,20 @@ const initialKingdom = kingdoms[0];
         title.textContent = faction.name;
         copy.textContent = faction.description;
         link.href = faction.href;
+        // srcset first, so the browser picks the right size for the new picture straight away.
+        backgroundLayer.srcset = faction.backgroundSrcset;
         backgroundLayer.src = faction.background;
+        foregroundLayer.srcset = faction.foregroundSrcset;
         foregroundLayer.src = faction.foreground;
 
         if (faction.crest) {
+          crestImage.srcset = faction.crestSrcset;
           crestImage.src = faction.crest;
           crestImage.alt = `${faction.name} crest`;
           crestImage.classList.remove('is-hidden');
           crestFallback.classList.add('is-hidden');
         } else {
+          crestImage.removeAttribute('srcset');
           crestImage.removeAttribute('src');
           crestImage.alt = '';
           crestImage.classList.add('is-hidden');
@@ -386,10 +419,15 @@ const initialKingdom = kingdoms[0];
           if (index === selectedFaction) {
             button.classList.add('is-selected');
           }
-          button.setAttribute('role', 'listitem');
           button.textContent = faction.shortName;
+          button.setAttribute('aria-pressed', index === selectedFaction ? 'true' : 'false');
           button.addEventListener('click', () => applyFaction(index), { signal });
-          carousel.appendChild(button);
+          // A button can't have role=listitem, so it sits inside a list item.
+          const item = document.createElement('div');
+          item.setAttribute('role', 'listitem');
+          item.className = 'faction-chip-item';
+          item.appendChild(button);
+          carousel.appendChild(item);
         });
       }
 
@@ -922,6 +960,12 @@ const initialKingdom = kingdoms[0];
     flex-wrap: nowrap;
     gap: 2.2rem;
     min-width: 0;
+  }
+
+  /* List item around each faction button (the carousel is a list); it lays out like the button did. */
+  :global(.faction-chip-item) {
+    display: flex;
+    flex: 0 0 auto;
   }
 
   :global(.faction-chip) {

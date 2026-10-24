@@ -3,6 +3,12 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.6.0] — 25 Oct 2026 — Faster on phones
+
+- Phones and small screens get right-sized pictures: the Factions page loads about 70% less.
+- Easier to read: larger footer and kingdom text, better contrast.
+- Accessibility fixes for screen readers.
+
 ## [3.5.0] — 25 Oct 2026 — Wider faction pages, gallery order, link previews
 
 - Faction pages use the full screen width; the troop tree has larger, easier-to-read text.
