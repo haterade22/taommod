@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { srcsetFor } from '../lib/responsive-image';
 import { parseKingdomsFromXslt, getCultureDisplayName } from '../lib/parse-xml';
 import { existingPublicAsset } from '../lib/public-assets';
 
@@ -72,7 +73,13 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
 
 <BaseLayout title="Kingdoms" description="All kingdoms in TAOM - rulers, cultures, and descriptions">
   <section class="page-banner">
-    <img src="/images/banner-kingdoms.webp" alt="Kingdoms of Middle-earth" class="banner-img" />
+    <img
+      src="/images/banner-kingdoms.webp"
+      srcset={srcsetFor('/images/banner-kingdoms.webp')}
+      sizes="100vw"
+      alt="Kingdoms of Middle-earth"
+      class="banner-img"
+    />
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <h1>Kingdoms of Middle-earth</h1>
@@ -94,7 +101,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
                 {emblemImage && <img src={emblemImage} alt={`${k.name} emblem`} class="kingdom-emblem" />}
                 <div class="kingdom-overlay" />
                 <div class="kingdom-content">
-                  <h3>{k.name}</h3>
+                  <h2>{k.name}</h2>
                   <div class="kingdom-meta">
                     {colors && <span class="color-swatch" style={`background: ${colors[0]};`} title={`Primary`} />}
                     {colors && <span class="color-swatch" style={`background: ${colors[1]};`} title={`Secondary`} />}
@@ -128,7 +135,13 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     <section class="full-map">
       <h2>Map of Middle-earth</h2>
       <a href="/images/banner-kingdoms.webp" target="_blank" class="map-link">
-        <img src="/images/banner-kingdoms.webp" alt="Map of Middle-earth" class="map-img" />
+        <img
+          src="/images/banner-kingdoms.webp"
+          srcset={srcsetFor('/images/banner-kingdoms.webp')}
+          sizes="100vw"
+          alt="Map of Middle-earth"
+          class="map-img"
+        />
         <span class="map-hint">Click to view full size</span>
       </a>
     </section>
@@ -252,7 +265,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
     overflow: hidden;
   }
 
-  .kingdom-content h3 {
+  .kingdom-content h2 {
     color: var(--accent);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
@@ -276,12 +289,12 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
 
   .kingdom-title {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .kingdom-content p {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 0.4rem;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
   }
@@ -291,7 +304,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
   }
 
   .kingdom-desc {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
     color: rgba(255, 255, 255, 0.7) !important;
     margin-top: 0.5rem !important;
   }

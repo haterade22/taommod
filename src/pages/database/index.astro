@@ -1,6 +1,7 @@
 ---
 import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { srcsetFor } from '../../lib/responsive-image';
 
 type DatabaseCard = { href: string; title: string; image?: string; imageClass?: string; active?: boolean };
 
@@ -59,17 +60,39 @@ const cards: DatabaseCard[] = [
 
               <a class="database-card" href={card.href} aria-label={`Open ${card.title} database`}>
                 <div class="card-canvas">
-                  <img class="card-layer card-layer-base" src="/images/database/background.webp" alt="" />
-                  {card.image && <img class:list={['card-figure', card.imageClass]} src={card.image} alt="" />}
+                  <img
+                    class="card-layer card-layer-base"
+                    src="/images/database/background.webp"
+                    srcset={srcsetFor('/images/database/background.webp')}
+                    sizes="(max-width: 760px) 9.5rem, 280px"
+                    alt=""
+                  />
+                  {card.image && (
+                    <img
+                      class:list={['card-figure', card.imageClass]}
+                      src={card.image}
+                      srcset={srcsetFor(card.image)}
+                      sizes="(max-width: 760px) 9.5rem, 280px"
+                      alt=""
+                    />
+                  )}
                   <img
                     class="card-layer card-layer-watermark"
                     src="/images/database/background-watermark.webp"
+                    srcset={srcsetFor('/images/database/background-watermark.webp')}
+                    sizes="(max-width: 760px) 9.5rem, 280px"
                     alt=""
                     loading="eager"
                     decoding="sync"
                     fetchpriority="high"
                   />
-                  <img class="card-layer card-layer-overlay" src="/images/database/border.webp" alt="" />
+                  <img
+                    class="card-layer card-layer-overlay"
+                    src="/images/database/border.webp"
+                    srcset={srcsetFor('/images/database/border.webp')}
+                    sizes="(max-width: 760px) 9.5rem, 280px"
+                    alt=""
+                  />
                 </div>
               </a>
             </article>

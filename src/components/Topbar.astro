@@ -23,7 +23,15 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 
 <header class="topbar" data-topbar>
   <a class="brand" href="/" aria-label="Tales from the Age of Men home">
-    <img class="brand-logo" src="/images/logo-navbar.webp" alt="Tales from the Age of Men" width="479" height="345" />
+    <img
+      class="brand-logo"
+      src="/images/logo-navbar.webp"
+      srcset="/images/logo-navbar-160w.webp 160w, /images/logo-navbar-240w.webp 240w, /images/logo-navbar.webp 479w"
+      sizes="82px"
+      alt="Tales from the Age of Men"
+      width="479"
+      height="345"
+    />
   </a>
 
   <nav class="main-nav" aria-label="Main navigation">

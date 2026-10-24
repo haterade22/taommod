@@ -1,6 +1,7 @@
 ---
 import Topbar from '../../components/Topbar.astro';
 import TroopTree from '../../components/TroopTree.astro';
+import { srcsetFor } from '../../lib/responsive-image';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   parseAllClans,
@@ -463,7 +464,13 @@ const troopHeaderCols = [
 
           <aside class="realm-seal" aria-label={`${displayName} realm dossier`}>
             <div class="seal-mark" aria-hidden="true">
-              {crestImage ? <img src={crestImage} alt="" /> : <span>{getMonogram(displayName)}</span>}
+              {
+                crestImage ? (
+                  <img src={crestImage} srcset={srcsetFor(crestImage)} sizes="128px" alt="" />
+                ) : (
+                  <span>{getMonogram(displayName)}</span>
+                )
+              }
             </div>
 
             <dl class="seal-meta">
