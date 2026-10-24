@@ -1,0 +1,70 @@
+---
+// The lords table's ~1600 rows, written as compact HTML. This component has no <style>, so Astro adds no scoping
+// class to every cell. Column looks (numbers, dividers, clan, family) come from the cell's position, set in
+// lords.astro's global style block. Each row carries only what the page script needs: data-culture (filter + row
+// colour), data-kingdom (filter), data-id and data-bio (search + biography). Name, gender and marriage the script
+// reads from the cells.
+
+export interface LordRow {
+  id: string;
+  name: string;
+  alive: boolean;
+  culture: string;
+  kingdom: string;
+  kingdomDisplay: string;
+  isFemale: boolean;
+  age: number;
+  group: string;
+  skills: number[]; // 18 skills in column order
+  combat: number;
+  nonCombat: number;
+  total: number;
+  totalTier: number; // 1-5, colour of the Total cell
+  traits: (number | undefined)[]; // Honor, Generosity, Mercy, Valor, Calculating
+  clan: string;
+  spouse: string;
+  father: string;
+  mother: string;
+  children: string;
+  biography: string;
+}
+
+interface Props {
+  lords: LordRow[];
+}
+
+const { lords } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const td = (value: unknown) => `<td>${value === undefined || value === null ? '' : esc(value)}</td>`;
+
+const html = lords
+  .map(
+    (lord) =>
+      `<tr data-culture="${esc(lord.culture)}" data-kingdom="${esc(lord.kingdom)}" data-id="${esc(lord.id)}"` +
+      (lord.biography ? ` data-bio="${esc(lord.biography)}"` : '') +
+      '>' +
+      `<td class="lord-name-cell"><span class="lord-name">${esc(lord.name)}</span>` +
+      (lord.alive ? '' : '<span class="dead-badge">Dead</span>') +
+      '</td>' +
+      td(lord.kingdomDisplay) +
+      td(lord.isFemale ? 'Female' : 'Male') +
+      td(lord.age || '') +
+      td(lord.group) +
+      lord.skills.map((value) => td(value || '')).join('') +
+      td(lord.combat) +
+      td(lord.nonCombat) +
+      `<td class="lord-total tier-${lord.totalTier}">${lord.total}</td>` +
+      lord.traits.map((value) => td(value ?? '')).join('') +
+      td(lord.clan) +
+      td(lord.spouse) +
+      td(lord.father) +
+      td(lord.mother) +
+      td(lord.children) +
+      '</tr>',
+  )
+  .join('');
+---
+
+<Fragment set:html={html} />

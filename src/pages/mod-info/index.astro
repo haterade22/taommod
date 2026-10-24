@@ -214,7 +214,7 @@ const balanceSections = sections.filter((section) => section.group === 'balance'
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.3), rgba(8, 6, 6, 0.82)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.16;
     pointer-events: none;
     z-index: -2;
@@ -289,12 +289,8 @@ const balanceSections = sections.filter((section) => section.group === 'balance'
   .summary-card,
   .section-block {
     border: 1px solid rgba(120, 89, 38, 0.55);
-    background:
-      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
-      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
-    box-shadow:
-      0 18px 40px rgba(0, 0, 0, 0.28),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    background: rgba(12, 10, 9, 0.935);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
   }
 
   .summary-card {
@@ -363,9 +359,7 @@ const balanceSections = sections.filter((section) => section.group === 'balance'
     gap: 0.95rem;
     padding: 1.2rem;
     border: 1px solid var(--card-border);
-    background:
-      linear-gradient(180deg, rgba(13, 10, 9, 0.94), rgba(8, 7, 7, 0.92)),
-      linear-gradient(140deg, var(--card-bg), transparent 60%);
+    background: rgba(11, 9, 8, 0.93);
     color: inherit;
     text-decoration: none;
     transition:
@@ -378,7 +372,7 @@ const balanceSections = sections.filter((section) => section.group === 'balance'
   .info-card:hover {
     transform: translateY(-2px);
     border-color: rgba(232, 188, 104, 0.5);
-    box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
     text-decoration: none;
   }
 

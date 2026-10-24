@@ -1,4 +1,5 @@
 ---
+import ArmouryRows from '../components/ArmouryRows.astro';
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseArmory, getCultureDisplayName, parseKingdomsFromXslt } from '../lib/parse-xml';
@@ -108,23 +109,32 @@ for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
   }
 }
 
-function getCultureRowStyle(culture: string): string {
-  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
-  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
-}
+// Row colours: one rule per culture instead of an inline style on every row.
+const cultureCss = [
+  '.armour-section tbody tr{--culture-accent:#7A664A;--culture-rgb:122, 102, 74}',
+  ...cultures.map((culture) => {
+    const tone = cultureColorMap.get(culture);
+    return tone
+      ? `.armour-section tr[data-culture="${culture}"]{--culture-accent:${tone.hex};--culture-rgb:${tone.rgb}}`
+      : '';
+  }),
+].join('');
 
-function statClass(value: number, isFirst = false): string {
-  const base = isFirst ? 'col-num section-start' : 'col-num';
-  return value === 0 ? `${base} stat-zero` : base;
-}
-
-function formatTradeLabel(isMerchandise: boolean): string {
-  return isMerchandise ? 'Market' : 'Locked';
-}
-
-function formatModifierGroup(value: string): string {
-  return value || '-';
-}
+// Turntable videos share one base address; rows only carry the part after it.
+const videoUrls = itemsWithTurntables.map((item) => item.turntableVideo).filter(Boolean);
+const videoBase = videoUrls.length
+  ? videoUrls
+      .reduce((prefix, url) => {
+        let i = 0;
+        while (i < prefix.length && prefix[i] === url[i]) i++;
+        return prefix.slice(0, i);
+      }, videoUrls[0])
+      .replace(/[^/]*$/, '')
+  : '';
+const rowItems = itemsWithTurntables.map((item) => ({
+  ...item,
+  video: item.turntableVideo ? item.turntableVideo.slice(videoBase.length) : '',
+}));
 ---
 
 <BaseLayout
@@ -266,6 +276,7 @@ function formatModifierGroup(value: string): string {
               )
             }
 
+            <style is:inline set:html={cultureCss}></style>
             <div class="data-table-wrapper">
               <table class="data-table armour-section">
                 <thead>
@@ -284,58 +295,8 @@ function formatModifierGroup(value: string): string {
                     <th data-col="id">Id</th>
                   </tr>
                 </thead>
-                <tbody id="armour-table-body">
-                  {
-                    itemsWithTurntables.map((item) => (
-                      <tr
-                        class:list={{ 'has-turntable': Boolean(item.turntableVideo) }}
-                        title={item.turntableVideo ? 'Click to open armour turntable' : undefined}
-                        data-name={item.name.toLowerCase()}
-                        data-id={item.id.toLowerCase()}
-                        data-mesh={item.mesh.toLowerCase()}
-                        data-culture={item.culture}
-                        data-slot={item.slot}
-                        data-material={item.materialType}
-                        data-trade={item.isMerchandise ? 'market' : 'locked'}
-                        data-modifier={item.modifierGroup.toLowerCase()}
-                        data-video={item.turntableVideo}
-                        data-display-name={item.name}
-                        data-display-id={item.id}
-                        data-display-mesh={item.mesh}
-                        style={getCultureRowStyle(item.culture)}
-                      >
-                        <td class="item-name-cell">
-                          <span class="item-name">{item.name}</span>
-                          {item.turntableVideo && (
-                            <button
-                              type="button"
-                              class="turntable-chip"
-                              aria-label={`Open turntable video for ${item.name}`}
-                            >
-                              View
-                            </button>
-                          )}
-                        </td>
-                        <td>{getCultureDisplayName(item.culture)}</td>
-                        <td>{item.slot}</td>
-                        <td class={statClass(item.headArmor, true)}>{item.headArmor}</td>
-                        <td class={statClass(item.bodyArmor)}>{item.bodyArmor}</td>
-                        <td class={statClass(item.armArmor)}>{item.armArmor}</td>
-                        <td class={statClass(item.legArmor)}>{item.legArmor}</td>
-                        <td class="col-num section-start">{item.weight}</td>
-                        <td>
-                          <span class="material-chip">{item.materialType || '-'}</span>
-                        </td>
-                        <td class="col-modifier">{formatModifierGroup(item.modifierGroup)}</td>
-                        <td>
-                          <span class:list={['trade-badge', { 'is-market': item.isMerchandise }]}>
-                            {formatTradeLabel(item.isMerchandise)}
-                          </span>
-                        </td>
-                        <td class="col-id">{item.id}</td>
-                      </tr>
-                    ))
-                  }
+                <tbody id="armour-table-body" data-video-base={videoBase}>
+                  <ArmouryRows items={rowItems} />
                 </tbody>
               </table>
             </div>
@@ -388,6 +349,30 @@ function formatModifierGroup(value: string): string {
     const tabButtons = Array.from(document.querySelectorAll('.slot-tab')) as HTMLButtonElement[];
     const tableBody = document.getElementById('armour-table-body') as HTMLTableSectionElement;
     const rows = Array.from(tableBody.querySelectorAll('tr')) as HTMLTableRowElement[];
+    // Rows carry few attributes (smaller page); read the rest from the cells once.
+    // Columns: 0 name, 1 culture, 2 slot, 3-6 armour, 7 weight, 8 material, 9 modifier, 10 trade, 11 id.
+    const videoBase = tableBody.dataset.videoBase || '';
+    const cellText = (row: HTMLTableRowElement, i: number) => row.cells[i]?.textContent?.trim() || '';
+    const rowInfo = rows.map((row) => {
+      const displayName = row.querySelector('.item-name')?.textContent || '';
+      const displayId = cellText(row, 11);
+      const displayMesh = row.dataset.mesh || displayId;
+      const material = cellText(row, 8);
+      const modifier = cellText(row, 9);
+      return {
+        row,
+        displayName,
+        displayId,
+        displayMesh,
+        search: [displayName, displayId, displayMesh, modifier === '-' ? '' : modifier].join('\n').toLowerCase(),
+        culture: row.dataset.culture || '',
+        slot: cellText(row, 2),
+        material: material === '-' ? '' : material,
+        trade: row.querySelector('.trade-badge.is-market') ? 'market' : 'locked',
+        // An empty data-video means the file is named after the item id.
+        video: row.dataset.video === undefined ? '' : videoBase + (row.dataset.video || `${displayId}.mp4`),
+      };
+    });
     if (
       !searchInput ||
       !cultureFilter ||
@@ -442,29 +427,14 @@ function formatModifierGroup(value: string): string {
       const trade = tradeFilter.value;
       let visibleCount = 0;
 
-      for (const row of rows) {
-        const name = row.dataset.name || '';
-        const id = row.dataset.id || '';
-        const mesh = row.dataset.mesh || '';
-        const rowCulture = row.dataset.culture || '';
-        const rowSlot = row.dataset.slot || '';
-        const rowMaterial = row.dataset.material || '';
-        const rowTrade = row.dataset.trade || '';
-        const rowModifier = row.dataset.modifier || '';
-
-        const matchesSlot = activeSlot === 'all' || rowSlot === activeSlot;
-        const matchesSearch =
-          !search ||
-          name.includes(search) ||
-          id.includes(search) ||
-          mesh.includes(search) ||
-          rowModifier.includes(search);
-        const matchesCulture = !culture || rowCulture === culture;
-        const matchesMaterial = !material || rowMaterial === material;
-        const matchesTrade = !trade || rowTrade === trade;
-
-        const show = matchesSlot && matchesSearch && matchesCulture && matchesMaterial && matchesTrade;
-        row.style.display = show ? '' : 'none';
+      for (const info of rowInfo) {
+        const show =
+          (activeSlot === 'all' || info.slot === activeSlot) &&
+          (!search || info.search.includes(search)) &&
+          (!culture || info.culture === culture) &&
+          (!material || info.material === material) &&
+          (!trade || info.trade === trade);
+        info.row.style.display = show ? '' : 'none';
         if (show) visibleCount += 1;
       }
 
@@ -499,14 +469,16 @@ function formatModifierGroup(value: string): string {
       }
     }
 
+    const infoByRow = new Map(rowInfo.map((info) => [info.row, info]));
+
     function openTurntable(row: HTMLTableRowElement) {
       if (!turntableModal || !turntableVideo || !turntableTitle || !turntableSubtitle) return;
-      const video = row.dataset.video;
-      if (!video) return;
+      const info = infoByRow.get(row);
+      if (!info?.video) return;
 
-      turntableTitle.textContent = row.dataset.displayName || 'Armour Preview';
-      turntableSubtitle.textContent = [row.dataset.displayId, row.dataset.displayMesh].filter(Boolean).join(' / ');
-      turntableVideo.src = video;
+      turntableTitle.textContent = info.displayName || 'Armour Preview';
+      turntableSubtitle.textContent = [info.displayId, info.displayMesh].filter(Boolean).join(' / ');
+      turntableVideo.src = info.video;
       turntableVideo.load();
 
       if (typeof turntableModal.showModal === 'function') {
@@ -520,16 +492,26 @@ function formatModifierGroup(value: string): string {
       });
     }
 
-    rows.forEach((row) => {
-      if (!row.dataset.video) return;
-      row.tabIndex = 0;
-      row.addEventListener('click', () => openTurntable(row));
-      row.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        event.preventDefault();
-        openTurntable(row);
-      });
+    // One listener for the whole table instead of two per row.
+    const turntableRow = (event: Event) =>
+      (event.target as Element | null)?.closest<HTMLTableRowElement>('tr.has-turntable') ?? null;
+    tableBody.addEventListener('click', (event) => {
+      const row = turntableRow(event);
+      if (row) openTurntable(row);
     });
+    tableBody.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      const row = turntableRow(event);
+      if (!row) return;
+      event.preventDefault();
+      openTurntable(row);
+    });
+    // Screen readers: name each View button after its item.
+    for (const info of rowInfo) {
+      info.row
+        .querySelector('.turntable-chip')
+        ?.setAttribute('aria-label', `Open turntable video for ${info.displayName}`);
+    }
 
     turntableClose?.addEventListener('click', closeTurntable);
     turntableModal?.addEventListener('click', (event) => {
@@ -571,7 +553,7 @@ function formatModifierGroup(value: string): string {
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.14;
     pointer-events: none;
     z-index: -2;
@@ -671,12 +653,8 @@ function formatModifierGroup(value: string): string {
   .roster-panel,
   .slot-header {
     border: 1px solid rgba(120, 89, 38, 0.55);
-    background:
-      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
-      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
-    box-shadow:
-      0 18px 40px rgba(0, 0, 0, 0.28),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    background: rgba(12, 10, 9, 0.935);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
   }
 
   .summary-card {
@@ -710,12 +688,8 @@ function formatModifierGroup(value: string): string {
   .balance-callout {
     padding: 1.35rem 1.4rem;
     border: 1px solid rgba(129, 90, 43, 0.5);
-    background:
-      linear-gradient(180deg, rgba(28, 24, 22, 0.96), rgba(12, 9, 8, 0.96)),
-      radial-gradient(circle at top right, rgba(197, 151, 72, 0.14), transparent 44%);
-    box-shadow:
-      0 16px 34px rgba(0, 0, 0, 0.24),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    background: rgba(20, 17, 15, 0.96);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
     display: grid;
     gap: 0.85rem;
   }
@@ -747,7 +721,7 @@ function formatModifierGroup(value: string): string {
     min-height: 2.9rem;
     padding: 0.7rem 1.2rem;
     border: 1px solid rgba(190, 141, 57, 0.5);
-    background: linear-gradient(180deg, rgba(67, 49, 27, 0.9), rgba(23, 18, 12, 0.95));
+    background: rgba(45, 34, 20, 0.925);
     color: #f7e7c7;
     font-family: 'Cinzel', 'Times New Roman', serif;
     letter-spacing: 0.08em;
@@ -763,7 +737,7 @@ function formatModifierGroup(value: string): string {
   .balance-callout a:hover {
     color: #fff4df;
     border-color: rgba(235, 186, 83, 0.72);
-    background: linear-gradient(180deg, rgba(93, 65, 31, 0.92), rgba(32, 23, 15, 0.97));
+    background: rgba(63, 44, 23, 0.945);
     transform: translateY(-1px);
     text-decoration: none;
   }
@@ -968,9 +942,7 @@ function formatModifierGroup(value: string): string {
   }
 
   .armour-section th {
-    background:
-      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
-      linear-gradient(90deg, rgba(209, 154, 51, 0.08), transparent 30%);
+    background: rgba(15, 12, 10, 0.98);
     color: #ffffff;
     padding: 0.72rem 0.7rem;
     border-bottom: 1px solid rgba(164, 124, 62, 0.45);
@@ -979,135 +951,6 @@ function formatModifierGroup(value: string): string {
     font-size: 0.82rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-  }
-
-  .armour-section td {
-    padding: 0.58rem 0.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #ffffff;
-    font-size: 0.84rem;
-    white-space: nowrap;
-    background:
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
-      rgba(7, 6, 6, 0.72);
-  }
-
-  .armour-section tbody tr:hover td {
-    background:
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
-      rgba(11, 9, 8, 0.8);
-  }
-
-  .armour-section tbody tr.has-turntable,
-  .armour-section tbody tr.has-turntable td,
-  .armour-section tbody tr.has-turntable td * {
-    cursor: pointer;
-  }
-
-  .armour-section tbody tr.has-turntable:focus {
-    outline: 2px solid rgba(220, 166, 69, 0.72);
-    outline-offset: -2px;
-  }
-
-  .armour-section th.section-start,
-  .armour-section td.section-start {
-    border-left: 1px solid rgba(179, 135, 62, 0.3);
-  }
-
-  .armour-section td.col-num,
-  .armour-section td .item-name,
-  .armour-section td .material-chip,
-  .armour-section td .trade-badge {
-    color: #ffffff !important;
-  }
-
-  .item-name-cell {
-    min-width: 15rem;
-  }
-
-  .item-name-cell {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-  }
-
-  .item-name {
-    font-weight: 600;
-  }
-
-  .turntable-chip {
-    flex: 0 0 auto;
-    min-height: 1.65rem;
-    padding: 0.12rem 0.48rem;
-    border: 1px solid rgba(226, 177, 88, 0.42);
-    background: rgba(201, 151, 72, 0.14);
-    color: #ffe1a6;
-    font: inherit;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition:
-      border-color 160ms ease,
-      background 160ms ease,
-      color 160ms ease;
-  }
-
-  .turntable-chip:hover,
-  .turntable-chip:focus {
-    border-color: rgba(247, 202, 112, 0.72);
-    background: rgba(224, 169, 72, 0.22);
-    color: #fff5dd;
-    outline: none;
-  }
-
-  .col-num {
-    text-align: center;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .stat-zero {
-    color: rgba(236, 226, 215, 0.42) !important;
-  }
-
-  .material-chip,
-  .trade-badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 1.8rem;
-    padding: 0.18rem 0.55rem;
-    border: 1px solid rgba(218, 192, 149, 0.18);
-    background: rgba(255, 255, 255, 0.05);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .material-chip {
-    color: rgba(246, 238, 222, 0.9);
-  }
-
-  .trade-badge {
-    color: rgba(227, 214, 189, 0.82);
-  }
-
-  .trade-badge.is-market {
-    border-color: rgba(201, 151, 72, 0.4);
-    background: rgba(201, 151, 72, 0.12);
-    color: #f8e6bd;
-  }
-
-  .col-modifier {
-    max-width: 14rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .col-id {
-    min-width: 13rem;
-    color: rgba(242, 232, 216, 0.72) !important;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.76rem;
   }
 
   .empty-state {
@@ -1130,7 +973,7 @@ function formatModifierGroup(value: string): string {
     border: 1px solid rgba(187, 133, 54, 0.58);
     background: rgba(8, 7, 7, 0.98);
     color: #f3eadf;
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.62);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.62);
   }
 
   .turntable-modal::backdrop {
@@ -1148,9 +991,7 @@ function formatModifierGroup(value: string): string {
     height: 100%;
     gap: 1rem;
     padding: 1rem;
-    background:
-      linear-gradient(180deg, rgba(24, 17, 12, 0.96), rgba(8, 7, 7, 0.98)),
-      radial-gradient(circle at top left, rgba(209, 154, 51, 0.16), transparent 34%);
+    background: rgba(16, 12, 10, 0.97);
   }
 
   .turntable-head {
@@ -1277,7 +1118,7 @@ function formatModifierGroup(value: string): string {
     }
 
     .armour-section th,
-    .armour-section td {
+    .armour-section :global(td) {
       padding-inline: 0.7rem;
     }
 
@@ -1292,5 +1133,145 @@ function formatModifierGroup(value: string): string {
     .turntable-head h2 {
       font-size: 1.2rem;
     }
+  }
+</style>
+
+<!-- Row styles are global: the rows come from ArmouryRows.astro, which has no scoping class. -->
+<style is:global>
+  /* Prefix matches the strength these rules had as scoped styles, so they beat the site-wide table rules. */
+  .data-table-wrapper .armour-section.data-table td {
+    padding: 0.58rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.84rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.12), rgba(var(--culture-rgb), 0.04) 42%, rgba(12, 10, 9, 0.12)),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .data-table-wrapper .armour-section.data-table tbody tr:hover td {
+    background:
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.2), rgba(var(--culture-rgb), 0.08) 44%, rgba(18, 14, 11, 0.18)),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .data-table-wrapper .armour-section.data-table tbody tr.has-turntable,
+  .data-table-wrapper .armour-section.data-table tbody tr.has-turntable td,
+  .data-table-wrapper .armour-section.data-table tbody tr.has-turntable td * {
+    cursor: pointer;
+  }
+
+  .data-table-wrapper .armour-section.data-table tbody tr.has-turntable:focus {
+    outline: 2px solid rgba(220, 166, 69, 0.72);
+    outline-offset: -2px;
+  }
+
+  .data-table-wrapper .armour-section.data-table th.section-start,
+  .data-table-wrapper .armour-section.data-table td:nth-child(4),
+  .data-table-wrapper .armour-section.data-table td:nth-child(8) {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .data-table-wrapper .armour-section.data-table td:nth-child(n + 4):nth-child(-n + 8),
+  .data-table-wrapper .armour-section.data-table td .item-name,
+  .data-table-wrapper .armour-section.data-table td .material-chip,
+  .data-table-wrapper .armour-section.data-table td .trade-badge {
+    color: #ffffff !important;
+  }
+
+  .data-table-wrapper .armour-section.data-table .item-name-cell {
+    min-width: 15rem;
+  }
+
+  .data-table-wrapper .armour-section.data-table .item-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .data-table-wrapper .armour-section.data-table .item-name {
+    font-weight: 600;
+  }
+
+  .data-table-wrapper .armour-section.data-table .turntable-chip {
+    flex: 0 0 auto;
+    min-height: 1.65rem;
+    padding: 0.12rem 0.48rem;
+    border: 1px solid rgba(226, 177, 88, 0.42);
+    background: rgba(201, 151, 72, 0.14);
+    color: #ffe1a6;
+    font: inherit;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      border-color 160ms ease,
+      background 160ms ease,
+      color 160ms ease;
+  }
+
+  .data-table-wrapper .armour-section.data-table .turntable-chip:hover,
+  .data-table-wrapper .armour-section.data-table .turntable-chip:focus {
+    border-color: rgba(247, 202, 112, 0.72);
+    background: rgba(224, 169, 72, 0.22);
+    color: #fff5dd;
+    outline: none;
+  }
+
+  /* Columns 4-8 (Head, Body, Arm, Leg, Weight) are numbers. */
+  .data-table-wrapper .armour-section.data-table td:nth-child(n + 4):nth-child(-n + 8) {
+    font-weight: 700;
+  }
+
+  .data-table-wrapper .armour-section.data-table .col-num,
+  .data-table-wrapper .armour-section.data-table td:nth-child(n + 4):nth-child(-n + 8) {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .data-table-wrapper .armour-section.data-table .stat-zero {
+    color: rgba(236, 226, 215, 0.42) !important;
+  }
+
+  .data-table-wrapper .armour-section.data-table .material-chip,
+  .data-table-wrapper .armour-section.data-table .trade-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid rgba(218, 192, 149, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .data-table-wrapper .armour-section.data-table .material-chip {
+    color: rgba(246, 238, 222, 0.9);
+  }
+
+  .data-table-wrapper .armour-section.data-table .trade-badge {
+    color: rgba(227, 214, 189, 0.82);
+  }
+
+  .data-table-wrapper .armour-section.data-table .trade-badge.is-market {
+    border-color: rgba(201, 151, 72, 0.4);
+    background: rgba(201, 151, 72, 0.12);
+    color: #f8e6bd;
+  }
+
+  .data-table-wrapper .armour-section.data-table .col-modifier {
+    max-width: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .data-table-wrapper .armour-section.data-table .col-id {
+    min-width: 13rem;
+    color: rgba(242, 232, 216, 0.72) !important;
+    font-family: Consolas, Monaco, monospace;
+    /* Same size as the other cells (the live page always showed it at the cell size). */
   }
 </style>

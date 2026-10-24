@@ -273,7 +273,7 @@ const tacticalNotes = [
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.36), rgba(8, 6, 6, 0.84)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.13;
     pointer-events: none;
     z-index: -2;
@@ -371,12 +371,8 @@ const tacticalNotes = [
   .section-block,
   .composition-card {
     border: 1px solid rgba(120, 89, 38, 0.55);
-    background:
-      linear-gradient(180deg, rgba(16, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
-      linear-gradient(120deg, rgba(160, 111, 51, 0.07), transparent 52%);
-    box-shadow:
-      0 18px 40px rgba(0, 0, 0, 0.28),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    background: rgba(12, 10, 9, 0.935);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
   }
 
   .summary-card {
@@ -501,33 +497,25 @@ const tacticalNotes = [
   .tier-ledger-card.is-regular,
   .tier-card.is-regular {
     border-color: rgba(76, 175, 80, 0.28);
-    background:
-      linear-gradient(180deg, rgba(12, 18, 12, 0.92), rgba(8, 9, 8, 0.92)),
-      linear-gradient(140deg, rgba(76, 175, 80, 0.12), transparent 68%);
+    background: rgba(10, 14, 10, 0.92);
   }
 
   .tier-ledger-card.is-noble,
   .tier-card.is-noble {
     border-color: rgba(171, 71, 188, 0.28);
-    background:
-      linear-gradient(180deg, rgba(18, 12, 20, 0.92), rgba(8, 7, 9, 0.92)),
-      linear-gradient(140deg, rgba(171, 71, 188, 0.12), transparent 68%);
+    background: rgba(13, 10, 15, 0.92);
   }
 
   .tier-ledger-card.is-regional,
   .tier-card.is-regional {
     border-color: rgba(66, 165, 245, 0.28);
-    background:
-      linear-gradient(180deg, rgba(11, 15, 21, 0.92), rgba(7, 8, 10, 0.92)),
-      linear-gradient(140deg, rgba(66, 165, 245, 0.12), transparent 68%);
+    background: rgba(9, 12, 16, 0.92);
   }
 
   .tier-ledger-card.is-unique,
   .tier-card.is-unique {
     border-color: rgba(255, 167, 38, 0.28);
-    background:
-      linear-gradient(180deg, rgba(21, 15, 10, 0.92), rgba(10, 8, 7, 0.92)),
-      linear-gradient(140deg, rgba(255, 167, 38, 0.12), transparent 68%);
+    background: rgba(16, 12, 9, 0.92);
   }
 
   .tier-ledger-topline,

@@ -56,43 +56,43 @@ const CULTURE_NAME_OVERRIDES: Record<string, string> = {
 };
 
 const CREST_IMAGES: Record<string, string> = {
-  empire_w: '/images/factions/gondor.png',
-  empire_s: '/images/factions/mordor.png',
-  erebor: '/images/factions/erebor.png',
-  rivendell: '/images/factions/imladris.png',
-  mirkwood: '/images/factions/mirkwood.png',
-  lothlorien: '/images/factions/lothlorien.png',
-  dolguldur: '/images/factions/dolguldur.png',
-  umbar: '/images/factions/umbar.png',
-  aserai: '/images/factions/harad.png',
-  battania: '/images/factions/khand.png',
-  khuzait: '/images/factions/rhun.png',
-  isengard: '/images/factions/isengard.png',
-  gundabad: '/images/factions/gundabad.png',
-  vlandia: '/images/factions/rohan.png',
-  sturgia: '/images/factions/dale.png',
-  empire: '/images/factions/dunland.png',
-  abanissa: '/images/factions/abanissa.png',
-  shaghana: '/images/factions/harad.png',
-  goblin: '/images/factions/gundabad.png',
-  mistymountainorcs: '/images/factions/gundabad.png',
-  bluecraig: '/images/factions/gundabad.png',
-  lindon: '/images/factions/imladris.png',
+  empire_w: '/images/factions/gondor.webp',
+  empire_s: '/images/factions/mordor.webp',
+  erebor: '/images/factions/erebor.webp',
+  rivendell: '/images/factions/imladris.webp',
+  mirkwood: '/images/factions/mirkwood.webp',
+  lothlorien: '/images/factions/lothlorien.webp',
+  dolguldur: '/images/factions/dolguldur.webp',
+  umbar: '/images/factions/umbar.webp',
+  aserai: '/images/factions/harad.webp',
+  battania: '/images/factions/khand.webp',
+  khuzait: '/images/factions/rhun.webp',
+  isengard: '/images/factions/isengard.webp',
+  gundabad: '/images/factions/gundabad.webp',
+  vlandia: '/images/factions/rohan.webp',
+  sturgia: '/images/factions/dale.webp',
+  empire: '/images/factions/dunland.webp',
+  abanissa: '/images/factions/abanissa.webp',
+  shaghana: '/images/factions/harad.webp',
+  goblin: '/images/factions/gundabad.webp',
+  mistymountainorcs: '/images/factions/gundabad.webp',
+  bluecraig: '/images/factions/gundabad.webp',
+  lindon: '/images/factions/imladris.webp',
 };
 
 const HERO_IMAGES: Record<string, string> = {
-  mordor: '/images/faction-mordor.jpg',
+  mordor: '/images/faction-mordor.webp',
   dolguldur: '/images/faction-dolguldur.webp',
-  erebor: '/images/faction-erebor.jpg',
+  erebor: '/images/faction-erebor.webp',
   khuzait: '/images/faction-rhun.webp',
   gundabad: '/images/faction-gundabad.webp',
-  isengard: '/images/faction-isengard.jpg',
-  empire: '/images/faction-dunland.jpg',
+  isengard: '/images/faction-isengard.webp',
+  empire: '/images/faction-dunland.webp',
   rivendell: '/images/faction-rivendell.webp',
   mirkwood: '/images/faction-mirkwood.webp',
   aserai: '/images/faction-harad.webp',
-  vlandia: '/images/faction-rohan.png',
-  gondor: '/images/gondor_web_ready.jpg',
+  vlandia: '/images/faction-rohan.webp',
+  gondor: '/images/gondor_web_ready.webp',
   goblin: '/images/faction-gundabad.webp',
   mistymountainorcs: '/images/faction-gundabad.webp',
 };
@@ -385,7 +385,7 @@ const primaryColor = normalizeColor(kingdom.color) || '#C49A47';
 const secondaryColor = normalizeColor(kingdom.color2) || '#221712';
 const primaryRgb = hexToRgb(primaryColor);
 const secondaryRgb = hexToRgb(secondaryColor);
-const heroImage = HERO_IMAGES[troopCulture] || HERO_IMAGES[kingdom.id] || '/images/hero-bg.jpg';
+const heroImage = HERO_IMAGES[troopCulture] || HERO_IMAGES[kingdom.id] || '/images/hero-bg.webp';
 const crestImage = CREST_IMAGES[kingdom.id] || '';
 const totalLordCount = clansWithLords.reduce((sum, clan) => sum + clan.lords.length, 0);
 const troopLevelRange = allTroops.length
@@ -1124,7 +1124,7 @@ const troopHeaderCols = [
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(14, 10, 9, 0.42), rgba(8, 6, 6, 0.86)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.14;
     pointer-events: none;
     z-index: -2;
@@ -1175,9 +1175,7 @@ const troopHeaderCols = [
   .clan-button,
   .clan-panel {
     border: 1px solid rgba(140, 108, 55, 0.46);
-    background:
-      linear-gradient(180deg, rgba(15, 12, 10, 0.95), rgba(8, 7, 7, 0.92)),
-      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.06), transparent 52%);
+    background: rgba(12, 10, 9, 0.935);
     /* Small shadow: large blurred shadows on many cards made Firefox scrolling stutter. */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     min-width: 0;
@@ -1198,14 +1196,15 @@ const troopHeaderCols = [
   .hero-backdrop {
     background-position: center;
     background-size: cover;
-    filter: saturate(0.84) brightness(0.5);
-    transform: scale(1.04);
   }
 
+  /* The last layer (50% black) darkens the picture the way filter: brightness(0.5) did; a CSS filter on this large
+     picture was slow in Firefox. */
   .hero-overlay {
     background:
       linear-gradient(120deg, rgba(7, 6, 6, 0.78) 0%, rgba(7, 6, 6, 0.42) 44%, rgba(7, 6, 6, 0.82) 100%),
-      linear-gradient(180deg, rgba(196, 154, 71, 0.12), transparent 30%);
+      linear-gradient(180deg, rgba(196, 154, 71, 0.12), transparent 30%),
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   }
 
   .hero-grid {
@@ -1342,9 +1341,7 @@ const troopHeaderCols = [
   .hero-next-link:hover {
     transform: translateY(-1px);
     border-color: rgba(233, 189, 100, 0.62);
-    background:
-      linear-gradient(180deg, rgba(28, 20, 16, 0.92), rgba(12, 9, 8, 0.96)),
-      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.22), transparent 58%);
+    background: rgba(20, 15, 12, 0.94);
     color: #fff3dc;
     text-decoration: none;
   }
@@ -1369,10 +1366,9 @@ const troopHeaderCols = [
     gap: 1rem;
     padding: 1.35rem;
     border: 1px solid rgba(196, 154, 71, 0.26);
-    background:
-      linear-gradient(180deg, rgba(14, 11, 10, 0.82), rgba(8, 7, 7, 0.84)),
-      radial-gradient(circle at top, rgba(var(--realm-primary-rgb), 0.14), transparent 55%);
-    backdrop-filter: blur(6px);
+    background: rgba(11, 9, 9, 0.89);
+    /* No backdrop blur: it made Firefox redraw the picture behind this box on every scroll frame. A slightly
+       darker background keeps the text readable. */
   }
 
   .seal-mark {
@@ -1644,9 +1640,7 @@ const troopHeaderCols = [
     padding: 1rem;
     border: 1px solid rgba(140, 108, 55, 0.42);
     border-left: 3px solid var(--branch-color);
-    background:
-      linear-gradient(180deg, rgba(17, 13, 11, 0.94), rgba(9, 8, 8, 0.9)),
-      linear-gradient(120deg, rgba(255, 255, 255, 0.02), transparent);
+    background: rgba(13, 11, 10, 0.92);
   }
 
   .branch-header {
@@ -1781,9 +1775,7 @@ const troopHeaderCols = [
   }
 
   .faction-troop-section th {
-    background:
-      linear-gradient(180deg, rgba(17, 13, 11, 0.98), rgba(12, 10, 9, 0.98)),
-      linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.08), transparent 30%);
+    background: rgba(15, 12, 10, 0.98);
     color: #fff;
     padding: 0.9rem 0.8rem;
     border-bottom: 1px solid rgba(164, 124, 62, 0.45);
@@ -1950,9 +1942,7 @@ const troopHeaderCols = [
     gap: 1rem;
     padding: 1rem;
     border: 1px solid rgba(156, 124, 70, 0.3);
-    background:
-      linear-gradient(180deg, rgba(16, 13, 11, 0.94), rgba(8, 7, 7, 0.92)),
-      linear-gradient(120deg, rgba(var(--realm-primary-rgb), 0.08), transparent 55%);
+    background: rgba(12, 10, 9, 0.93);
   }
 
   .lord-card-header {

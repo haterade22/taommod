@@ -1,0 +1,67 @@
+---
+// The armoury table's ~3000 rows, written as compact HTML. This component has no <style>, so Astro adds no scoping
+// class to every cell, and each row carries only what the page script needs:
+//   data-culture (filter + row colour), data-video (turntable file name, empty when it is "<id>.mp4"; the base
+//   address is on <tbody>),
+//   data-mesh (only when it differs from the id).
+// Everything else (name, id, slot, material, modifier, trade) the script reads from the cells themselves.
+// Row styles live in armoury.astro under `.armour-section` in a global style block.
+import { getCultureDisplayName } from '../lib/parse-xml';
+
+export interface ArmouryRowItem {
+  id: string;
+  name: string;
+  mesh: string;
+  culture: string;
+  slot: string;
+  materialType: string;
+  modifierGroup: string;
+  isMerchandise: boolean;
+  headArmor: number;
+  bodyArmor: number;
+  armArmor: number;
+  legArmor: number;
+  weight: number;
+  video: string;
+}
+
+interface Props {
+  items: ArmouryRowItem[];
+}
+
+const { items } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Number columns (4-8) and their dividers are styled by position in armoury.astro, so cells need no class.
+const stat = (value: number) => (value === 0 ? '<td class="stat-zero">0</td>' : `<td>${value}</td>`);
+
+const html = items
+  .map((item) => {
+    const attrs = [
+      item.video ? ' class="has-turntable" tabindex="0"' : '',
+      ` data-culture="${esc(item.culture)}"`,
+      item.video ? ` data-video="${item.video === `${item.id}.mp4` ? '' : esc(item.video)}"` : '',
+      item.mesh && item.mesh !== item.id ? ` data-mesh="${esc(item.mesh)}"` : '',
+    ].join('');
+    return (
+      `<tr${attrs}>` +
+      `<td class="item-name-cell"><span class="item-name">${esc(item.name)}</span>` +
+      (item.video ? '<button type="button" class="turntable-chip">View</button>' : '') +
+      `</td><td>${esc(getCultureDisplayName(item.culture))}</td><td>${esc(item.slot)}</td>` +
+      stat(item.headArmor) +
+      stat(item.bodyArmor) +
+      stat(item.armArmor) +
+      stat(item.legArmor) +
+      `<td>${item.weight}</td>` +
+      `<td><span class="material-chip">${esc(item.materialType || '-')}</span></td>` +
+      `<td class="col-modifier">${esc(item.modifierGroup || '-')}</td>` +
+      `<td><span class="trade-badge${item.isMerchandise ? ' is-market' : ''}">${item.isMerchandise ? 'Market' : 'Locked'}</span></td>` +
+      `<td class="col-id">${esc(item.id)}</td></tr>`
+    );
+  })
+  .join('');
+---
+
+<Fragment set:html={html} />

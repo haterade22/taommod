@@ -195,7 +195,7 @@ a:hover {
   min-width: 200px;
   list-style: none;
   z-index: 100;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .site-nav .nav-links li.has-dropdown:hover .dropdown {
@@ -692,10 +692,8 @@ a:hover {
   margin: 0 auto;
   padding: 1.25rem 1.5rem;
   border: 1px solid rgba(151, 110, 51, 0.4);
-  background:
-    linear-gradient(180deg, rgba(18, 15, 13, 0.92), rgba(10, 8, 8, 0.94)),
-    linear-gradient(135deg, rgba(201, 164, 74, 0.06), transparent 48%);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+  background: rgba(14, 12, 11, 0.93);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
   text-align: center;
 }
 
@@ -814,7 +812,7 @@ tr[data-off-page] {
 
 .table-pager-button.is-current {
   border-color: rgba(205, 153, 52, 0.86);
-  background: linear-gradient(180deg, rgba(70, 50, 39, 0.92), rgba(43, 31, 25, 0.96));
+  background: rgba(57, 41, 32, 0.94);
   color: #fff5e3;
   cursor: default;
 }

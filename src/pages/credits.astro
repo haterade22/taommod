@@ -119,7 +119,7 @@ const creditGroups = credits.groups.map((group) => {
     height: 100vh;
     background:
       linear-gradient(180deg, rgba(15, 10, 9, 0.28), rgba(8, 6, 6, 0.82)),
-      url('/images/hero-bg.jpg') center top / cover no-repeat;
+      url('/images/hero-bg.webp') center top / cover no-repeat;
     opacity: 0.2;
     pointer-events: none;
     z-index: -2;
@@ -148,7 +148,7 @@ const creditGroups = credits.groups.map((group) => {
     background:
       linear-gradient(90deg, rgba(16, 12, 10, 0.97), rgba(9, 13, 10, 0.96) 45%, rgba(16, 11, 8, 0.97)),
       linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.42);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.42);
   }
 
   .brand {
@@ -251,10 +251,8 @@ const creditGroups = credits.groups.map((group) => {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(151, 110, 51, 0.44);
-    background:
-      linear-gradient(180deg, rgba(17, 13, 12, 0.88), rgba(10, 8, 8, 0.92)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    background: rgba(14, 11, 10, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34);
   }
 
   .hero-panel::before,
@@ -276,19 +274,19 @@ const creditGroups = credits.groups.map((group) => {
   .hero-panel {
     background:
       linear-gradient(180deg, rgba(12, 9, 8, 0.34), rgba(8, 7, 7, 0.6)),
-      url('/images/credits/block-background.png') center / cover no-repeat;
+      url('/images/credits/block-background.webp') center / cover no-repeat;
     padding: 3rem;
   }
 
   .hero-panel::before {
-    background: url('/images/credits/block-overlay.png') center / 100% 100% no-repeat;
+    background: url('/images/credits/block-overlay.webp') center / 100% 100% no-repeat;
   }
 
   .hero-panel::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('/images/credits/block-border.png') center / 100% 100% no-repeat;
+    background: url('/images/credits/block-border.webp') center / 100% 100% no-repeat;
     pointer-events: none;
     z-index: 2;
   }
