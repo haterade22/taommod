@@ -306,6 +306,11 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
       radial-gradient(circle at top right, rgba(80, 28, 16, 0.18), transparent 28%),
       radial-gradient(circle at left center, rgba(69, 30, 19, 0.2), transparent 34%),
       linear-gradient(180deg, #120a09 0%, #0b0908 40%, #0a0707 100%);
+    /* Gradients cover the top screen only, then the page continues in their last colour: stretched over
+       the whole page they made Firefox redraw them while scrolling on large screens. */
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-color: #0a0707;
     color: #e9e2db;
   }
 

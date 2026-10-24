@@ -203,6 +203,11 @@ const balanceSections = sections.filter((section) => section.group === 'balance'
       radial-gradient(circle at 16% 12%, rgba(138, 84, 46, 0.15), transparent 24%),
       radial-gradient(circle at 84% 14%, rgba(80, 104, 124, 0.14), transparent 24%),
       linear-gradient(180deg, #16100e 0%, #0c0908 48%, #080606 100%);
+    /* Gradients cover the top screen only, then the page continues in their last colour: stretched over
+       the whole page they made Firefox redraw them while scrolling on large screens. */
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-color: #080606;
     color: #ece4db;
   }
 

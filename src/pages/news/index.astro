@@ -257,6 +257,11 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
       radial-gradient(circle at top, rgba(112, 75, 30, 0.18), transparent 26%),
       radial-gradient(circle at 86% 16%, rgba(87, 87, 87, 0.12), transparent 22%),
       linear-gradient(180deg, #090909 0%, #050505 100%);
+    /* Gradients cover the top screen only, then the page continues in their last colour: stretched over
+       the whole page they made Firefox redraw them while scrolling on large screens. */
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-color: #050505;
     color: #f4f2ee;
   }
 
