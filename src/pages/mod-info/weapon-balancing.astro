@@ -968,6 +968,11 @@ const aboveBaselineCultures = cultures.filter((culture) => {
       radial-gradient(circle at 18% 14%, rgba(151, 94, 46, 0.16), transparent 24%),
       radial-gradient(circle at 84% 20%, rgba(82, 104, 128, 0.15), transparent 24%),
       linear-gradient(180deg, #17110f 0%, #0d0908 48%, #080606 100%);
+    /* Gradients cover the top screen only, then the page continues in their last colour: stretched over
+       the whole page they made Firefox redraw them while scrolling on large screens. */
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    background-color: #080606;
     color: #ece4db;
   }
 
