@@ -3,6 +3,10 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.10.1] — 26 Oct 2026 — Coming soon wording
+
+- The Coming soon section no longer says when its features will be released.
+
 ## [3.10.0] — 26 Oct 2026 — Coming soon on the Features page
 
 - The supporter view now shows only what is in the latest supporter release (TAOM v2.0.35): 48 features.
