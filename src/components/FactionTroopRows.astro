@@ -1,0 +1,66 @@
+---
+// A faction page's troop table rows, written as compact HTML. This component has no <style>, so Astro adds no
+// scoping class to every cell; the row styles live in factions/[id].astro's global block. Rows keep data-group (class
+// filter); the page script builds the search text from the name and id cells plus data-group.
+interface FactionTroopRow {
+  id: string;
+  name: string;
+  level: number;
+  defaultGroup: string;
+  groupLabel: string;
+  athletics: number;
+  riding: number;
+  oneHanded: number;
+  twoHanded: number;
+  polearm: number;
+  bow: number;
+  crossbow: number;
+  throwing: number;
+  item0: string;
+  item1: string;
+  head: string;
+  body: string;
+}
+
+interface Props {
+  troops: FactionTroopRow[];
+}
+
+const { troops } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const skill = (value: number, first = false) =>
+  `<td class="col-num${first ? ' section-start' : ''}${value === 0 ? ' skill-zero' : ''}">${value}</td>`;
+const id = (value: string, first = false) => `<td class="col-id${first ? ' section-start' : ''}">${esc(value)}</td>`;
+
+const html = troops
+  .map(
+    (t) =>
+      `<tr data-group="${esc(t.defaultGroup)}">` +
+      `<td class="troop-name-cell"><span class="troop-name">${esc(t.name)}</span></td>` +
+      `<td class="col-num">${t.level}</td><td>${esc(t.groupLabel)}</td>` +
+      skill(t.athletics, true) +
+      skill(t.riding) +
+      skill(t.oneHanded) +
+      skill(t.twoHanded) +
+      skill(t.polearm) +
+      skill(t.bow) +
+      skill(t.crossbow) +
+      skill(t.throwing) +
+      id(t.item0, true) +
+      id(t.item1) +
+      id(t.head) +
+      id(t.body) +
+      id(t.id, true) +
+      '</tr>',
+  )
+  .join('');
+---
+
+<Fragment set:html={html} />

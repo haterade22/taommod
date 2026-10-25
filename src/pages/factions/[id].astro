@@ -1,5 +1,7 @@
 ---
 import Topbar from '../../components/Topbar.astro';
+import FactionTroopRows from '../../components/FactionTroopRows.astro';
+import LordCards from '../../components/LordCards.astro';
 import TroopTree from '../../components/TroopTree.astro';
 import { srcsetFor } from '../../lib/responsive-image';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -209,10 +211,6 @@ function getMonogram(label: string): string {
   return `${words[0][0]}${words[1][0]}`.toUpperCase();
 }
 
-function skillCell(value: number, extra = ''): string {
-  return ['col-num', extra, value === 0 ? 'skill-zero' : ''].filter(Boolean).join(' ');
-}
-
 function normalizeTroopRegionName(name: string): string {
   return name
     .toLowerCase()
@@ -264,6 +262,19 @@ function getLordSkillMetrics(lord: Lord) {
     }));
 
   return [...ordered, ...extras];
+}
+
+/** Lord card data for LordCards.astro (same text and values as the old markup). */
+function toLordCard(lord: Lord & { isLeader: boolean }) {
+  return {
+    name: lord.name,
+    isLeader: lord.isLeader,
+    alive: lord.alive,
+    role: `${lord.defaultGroup || 'Noble'}${lord.age ? ` | Age ${lord.age}` : ''}`,
+    skills: getLordSkillMetrics(lord).map((entry) => ({ label: entry.label, value: entry.value })),
+    traits: getTraitEntries(lord),
+    biography: lord.biography || '',
+  };
 }
 
 function getTraitEntries(lord: Lord) {
@@ -722,33 +733,12 @@ const troopHeaderCols = [
                 </tr>
               </thead>
               <tbody id="troop-table-body">
-                {
-                  allTroops.map((troop) => (
-                    <tr
-                      data-search={`${troop.name} ${troop.id} ${troop.defaultGroup}`.toLowerCase()}
-                      data-group={troop.defaultGroup}
-                    >
-                      <td class="troop-name-cell">
-                        <span class="troop-name">{troop.name}</span>
-                      </td>
-                      <td class="col-num">{troop.level}</td>
-                      <td>{GROUP_LABELS[troop.defaultGroup] || troop.defaultGroup}</td>
-                      <td class={skillCell(troop.athletics, 'section-start')}>{troop.athletics}</td>
-                      <td class={skillCell(troop.riding)}>{troop.riding}</td>
-                      <td class={skillCell(troop.oneHanded)}>{troop.oneHanded}</td>
-                      <td class={skillCell(troop.twoHanded)}>{troop.twoHanded}</td>
-                      <td class={skillCell(troop.polearm)}>{troop.polearm}</td>
-                      <td class={skillCell(troop.bow)}>{troop.bow}</td>
-                      <td class={skillCell(troop.crossbow)}>{troop.crossbow}</td>
-                      <td class={skillCell(troop.throwing)}>{troop.throwing}</td>
-                      <td class="col-id section-start">{troop.item0}</td>
-                      <td class="col-id">{troop.item1}</td>
-                      <td class="col-id">{troop.head}</td>
-                      <td class="col-id">{troop.body}</td>
-                      <td class="col-id section-start">{troop.id}</td>
-                    </tr>
-                  ))
-                }
+                <FactionTroopRows
+                  troops={allTroops.map((troop) => ({
+                    ...troop,
+                    groupLabel: GROUP_LABELS[troop.defaultGroup] || troop.defaultGroup,
+                  }))}
+                />
               </tbody>
             </table>
           </div>
@@ -823,62 +813,7 @@ const troopHeaderCols = [
                     {clan.lords.length > 0 ? (
                       <>
                         <div class="lord-grid">
-                          {clan.lords.map((lord) => (
-                            <article class="lord-card">
-                              <header class="lord-card-header">
-                                <div>
-                                  <div class="lord-card-name-row">
-                                    <h3>{lord.name}</h3>
-                                    {lord.isLeader && <span class="leader-badge">Leader</span>}
-                                    {!lord.alive && <span class="dead-badge">Dead</span>}
-                                  </div>
-                                  <p class="lord-card-role">
-                                    {lord.defaultGroup || 'Noble'}
-                                    {lord.age ? ` | Age ${lord.age}` : ''}
-                                  </p>
-                                </div>
-                              </header>
-
-                              <div class="lord-skill-grid">
-                                {getLordSkillMetrics(lord).map((entry) => (
-                                  <div class="skill-meter">
-                                    <div class="skill-meter-top">
-                                      <span>{entry.label}</span>
-                                      <strong>{entry.value}</strong>
-                                    </div>
-                                    <div class="skill-meter-track">
-                                      <div
-                                        class="skill-meter-fill"
-                                        style={`width: ${Math.min((entry.value / 350) * 100, 100)}%`}
-                                      />
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-
-                              {getTraitEntries(lord).length > 0 && (
-                                <div class="trait-list">
-                                  {getTraitEntries(lord).map(([trait, value]) => (
-                                    <span
-                                      class:list={[
-                                        'trait-pill',
-                                        { 'is-positive': value > 0, 'is-negative': value < 0 },
-                                      ]}
-                                    >
-                                      {trait} {value > 0 ? `+${value}` : value}
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
-
-                              {lord.biography && (
-                                <details class="lord-biography">
-                                  <summary>Biography</summary>
-                                  <p>{lord.biography}</p>
-                                </details>
-                              )}
-                            </article>
-                          ))}
+                          <LordCards lords={clan.lords.map(toLordCard)} />
                         </div>
 
                         <p class="bio-hint">
@@ -911,6 +846,13 @@ const troopHeaderCols = [
       const troopTableCount = document.getElementById('troop-table-count');
       const troopEmptyState = document.getElementById('troop-empty-state');
       const troopRows = Array.from(document.querySelectorAll('#troop-table-body tr'));
+      // Search text: name (column 1), id (column 16) and group, read from the rows once.
+      const troopSearchText = new Map(
+        troopRows.map((row) => [
+          row,
+          `${row.cells[0]?.textContent || ''} ${row.cells[15]?.textContent || ''} ${row.dataset.group || ''}`.toLowerCase(),
+        ]),
+      );
       const troopTabs = Array.from(document.querySelectorAll('[data-troop-group]'));
       const troopRegionButtons = Array.from(document.querySelectorAll('[data-troop-region]'));
       const troopRegionPanels = Array.from(document.querySelectorAll('[data-troop-region-panel]'));
@@ -975,7 +917,7 @@ const troopHeaderCols = [
         let visibleCount = 0;
 
         troopRows.forEach((row) => {
-          const searchText = row.dataset.search || '';
+          const searchText = troopSearchText.get(row) || '';
           const rowGroup = row.dataset.group || '';
           const matchesTab = activeTroopGroup === 'all' || rowGroup === activeTroopGroup;
           const matchesClass = !classValue || rowGroup === classValue;
@@ -1804,67 +1746,8 @@ const troopHeaderCols = [
     text-transform: uppercase;
   }
 
-  .faction-troop-section td {
-    padding: 0.72rem 0.8rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #fff !important;
-    font-size: 0.92rem;
-    white-space: nowrap;
-    background:
-      linear-gradient(
-        90deg,
-        rgba(var(--realm-primary-rgb), 0.12),
-        rgba(var(--realm-secondary-rgb), 0.08) 45%,
-        rgba(12, 10, 9, 0.14)
-      ),
-      rgba(7, 6, 6, 0.72);
-  }
-
-  .faction-troop-section td *,
-  .faction-troop-section td a,
-  .faction-troop-section td span,
-  .faction-troop-section td.col-num,
-  .faction-troop-section td.col-id,
-  .faction-troop-section .troop-name {
-    color: #fff !important;
-  }
-
-  .faction-troop-section tbody tr:hover td {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(var(--realm-primary-rgb), 0.2),
-        rgba(var(--realm-secondary-rgb), 0.12) 48%,
-        rgba(18, 14, 11, 0.18)
-      ),
-      rgba(11, 9, 8, 0.8);
-  }
-
-  .faction-troop-section th.section-start,
-  .faction-troop-section td.section-start {
+  .faction-troop-section th.section-start {
     border-left: 1px solid rgba(179, 135, 62, 0.3);
-  }
-
-  .troop-name-cell {
-    min-width: 15rem;
-  }
-
-  .troop-name {
-    font-weight: 600;
-  }
-
-  .col-num {
-    text-align: center;
-  }
-
-  .col-id {
-    min-width: 10.5rem;
-    color: rgba(231, 220, 205, 0.74) !important;
-    font-size: 0.82rem;
-  }
-
-  .skill-zero {
-    color: rgba(231, 220, 205, 0.32) !important;
   }
 
   .clan-layout {
@@ -1956,152 +1839,6 @@ const troopHeaderCols = [
     gap: 1rem;
   }
 
-  .lord-card {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    border: 1px solid rgba(156, 124, 70, 0.3);
-    background: rgba(12, 10, 9, 0.93);
-  }
-
-  .lord-card-header {
-    display: grid;
-    gap: 0.45rem;
-    align-items: start;
-  }
-
-  .lord-card-name-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    align-items: center;
-  }
-
-  .lord-card-name-row h3 {
-    margin: 0;
-    color: #f6efe4;
-    font-size: 1.05rem;
-  }
-
-  .lord-card-role {
-    margin: 0.35rem 0 0;
-    color: rgba(214, 199, 175, 0.78);
-    font-size: 0.84rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .lord-skill-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.8rem 1rem;
-  }
-
-  .skill-meter {
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  .skill-meter-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .skill-meter-top span {
-    color: rgba(214, 199, 175, 0.74);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .skill-meter-top strong {
-    color: #fff;
-    font-size: 0.9rem;
-  }
-
-  .skill-meter-track {
-    height: 0.45rem;
-    background: rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-  }
-
-  .skill-meter-fill {
-    height: 100%;
-    background: linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.95), rgba(242, 221, 172, 0.92));
-  }
-
-  .trait-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  .trait-pill {
-    display: inline-flex;
-    align-items: center;
-    min-height: 1.75rem;
-    padding: 0.2rem 0.55rem;
-    border: 1px solid rgba(156, 124, 70, 0.26);
-    background: rgba(12, 10, 9, 0.55);
-    color: #f2eadf;
-    font-size: 0.78rem;
-  }
-
-  .trait-pill.is-positive {
-    border-color: rgba(114, 173, 117, 0.3);
-    color: #cfe7bf;
-  }
-
-  .trait-pill.is-negative {
-    border-color: rgba(189, 95, 95, 0.3);
-    color: #efc0c0;
-  }
-
-  .lord-biography {
-    border-top: 1px solid rgba(156, 124, 70, 0.2);
-    padding-top: 0.85rem;
-  }
-
-  .lord-biography summary {
-    cursor: pointer;
-    color: #f0dfb7;
-    font-family: 'Cinzel', 'Times New Roman', serif;
-    font-size: 0.84rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .lord-biography p {
-    margin: 0.8rem 0 0;
-    color: rgba(233, 223, 209, 0.86);
-    line-height: 1.65;
-  }
-
-  .leader-badge,
-  .dead-badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 1.5rem;
-    padding: 0.14rem 0.45rem;
-    margin-left: 0.45rem;
-    border: 1px solid rgba(216, 182, 115, 0.3);
-    background: rgba(196, 154, 71, 0.12);
-    color: #f9e6bc;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .dead-badge {
-    border-color: rgba(185, 92, 92, 0.34);
-    background: rgba(128, 38, 38, 0.18);
-    color: #f4d2d2;
-  }
-
   @media (max-width: 1180px) {
     .summary-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2117,7 +1854,7 @@ const troopHeaderCols = [
       min-width: 0;
     }
 
-    .lord-skill-grid {
+    .clan-archive :global(.lord-skill-grid) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
@@ -2147,7 +1884,7 @@ const troopHeaderCols = [
     .dossier-grid,
     .control-grid,
     .clan-summary,
-    .lord-skill-grid {
+    .clan-archive :global(.lord-skill-grid) {
       grid-template-columns: 1fr;
     }
 
@@ -2166,5 +1903,211 @@ const troopHeaderCols = [
       flex-wrap: nowrap;
       overflow: auto hidden;
     }
+  }
+</style>
+
+<!-- Rows and lord cards come from FactionTroopRows.astro and LordCards.astro, which have no scoping class, so their
+     styles are global. Same rules as before; where a rule used to lose to another (Id and zero-skill cell colours, Id
+     font size, centred numbers), only the part that took effect is kept, so the page looks exactly the same. -->
+<style is:global>
+  .data-table-wrapper .faction-troop-section.data-table td {
+    padding: 0.72rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #fff !important;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(var(--realm-primary-rgb), 0.12),
+        rgba(var(--realm-secondary-rgb), 0.08) 45%,
+        rgba(12, 10, 9, 0.14)
+      ),
+      rgba(7, 6, 6, 0.72);
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table td * {
+    color: #fff !important;
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table tbody tr:hover td {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(var(--realm-primary-rgb), 0.2),
+        rgba(var(--realm-secondary-rgb), 0.12) 48%,
+        rgba(18, 14, 11, 0.18)
+      ),
+      rgba(11, 9, 8, 0.8);
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table td.section-start {
+    border-left: 1px solid rgba(179, 135, 62, 0.3);
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table .troop-name-cell {
+    min-width: 15rem;
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table .troop-name {
+    font-weight: 600;
+  }
+
+  .data-table-wrapper .faction-troop-section.data-table td.col-id {
+    min-width: 10.5rem;
+  }
+
+  .clan-archive .lord-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(156, 124, 70, 0.3);
+    background: rgba(12, 10, 9, 0.93);
+  }
+
+  .clan-archive .lord-card h3 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+  }
+
+  .clan-archive .lord-card p {
+    max-width: 80ch;
+  }
+
+  .clan-archive .lord-card-header {
+    display: grid;
+    gap: 0.45rem;
+    align-items: start;
+  }
+
+  .clan-archive .lord-card-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .clan-archive .lord-card-name-row h3 {
+    margin: 0;
+    color: #f6efe4;
+    font-size: 1.05rem;
+  }
+
+  .clan-archive .lord-card-role {
+    margin: 0.35rem 0 0;
+    color: rgba(214, 199, 175, 0.78);
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .clan-archive .lord-skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem 1rem;
+  }
+
+  .clan-archive .skill-meter {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .clan-archive .skill-meter-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .clan-archive .skill-meter-top span {
+    color: rgba(214, 199, 175, 0.74);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .clan-archive .skill-meter-top strong {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .clan-archive .skill-meter-track {
+    height: 0.45rem;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .clan-archive .skill-meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(var(--realm-primary-rgb), 0.95), rgba(242, 221, 172, 0.92));
+  }
+
+  .clan-archive .trait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .clan-archive .trait-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(156, 124, 70, 0.26);
+    background: rgba(12, 10, 9, 0.55);
+    color: #f2eadf;
+    font-size: 0.78rem;
+  }
+
+  .clan-archive .trait-pill.is-positive {
+    border-color: rgba(114, 173, 117, 0.3);
+    color: #cfe7bf;
+  }
+
+  .clan-archive .trait-pill.is-negative {
+    border-color: rgba(189, 95, 95, 0.3);
+    color: #efc0c0;
+  }
+
+  .clan-archive .lord-biography {
+    border-top: 1px solid rgba(156, 124, 70, 0.2);
+    padding-top: 0.85rem;
+  }
+
+  .clan-archive .lord-biography summary {
+    cursor: pointer;
+    color: #f0dfb7;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.84rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .clan-archive .lord-biography p {
+    margin: 0.8rem 0 0;
+    color: rgba(233, 223, 209, 0.86);
+    line-height: 1.65;
+  }
+
+  .clan-archive .leader-badge,
+  .clan-archive .dead-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.5rem;
+    padding: 0.14rem 0.45rem;
+    margin-left: 0.45rem;
+    border: 1px solid rgba(216, 182, 115, 0.3);
+    background: rgba(196, 154, 71, 0.12);
+    color: #f9e6bc;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .clan-archive .dead-badge {
+    border-color: rgba(185, 92, 92, 0.34);
+    background: rgba(128, 38, 38, 0.18);
+    color: #f4d2d2;
   }
 </style>

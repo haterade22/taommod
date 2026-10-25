@@ -1,0 +1,62 @@
+---
+// Lord cards for a faction page's clan archive, written as compact HTML. This component has no <style>, so Astro adds
+// no scoping class to every element; the card styles live in factions/[id].astro's global block (under .clan-archive).
+interface LordCard {
+  name: string;
+  isLeader: boolean;
+  alive: boolean;
+  role: string;
+  skills: { label: string; value: number }[];
+  traits: [string, number][];
+  biography: string;
+}
+
+interface Props {
+  lords: LordCard[];
+}
+
+const { lords } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+// Bar length: skill out of 350, at most full. Three decimals are far below a pixel.
+const barWidth = (value: number) => `${Math.round(Math.min((value / 350) * 100, 100) * 1000) / 1000}%`;
+
+const html = lords
+  .map((lord) => {
+    const badges =
+      (lord.isLeader ? '<span class="leader-badge">Leader</span>' : '') +
+      (lord.alive ? '' : '<span class="dead-badge">Dead</span>');
+    const skills = lord.skills
+      .map(
+        (s) =>
+          `<div class="skill-meter"><div class="skill-meter-top"><span>${esc(s.label)}</span><strong>${s.value}</strong></div>` +
+          `<div class="skill-meter-track"><div class="skill-meter-fill" style="width:${barWidth(s.value)}"></div></div></div>`,
+      )
+      .join('');
+    const traits = lord.traits.length
+      ? `<div class="trait-list">${lord.traits
+          .map(
+            ([trait, value]) =>
+              `<span class="trait-pill${value > 0 ? ' is-positive' : value < 0 ? ' is-negative' : ''}">${esc(trait)} ${value > 0 ? `+${value}` : value}</span>`,
+          )
+          .join('')}</div>`
+      : '';
+    const bio = lord.biography
+      ? `<details class="lord-biography"><summary>Biography</summary><p>${esc(lord.biography)}</p></details>`
+      : '';
+    return (
+      `<article class="lord-card"><header class="lord-card-header"><div><div class="lord-card-name-row">` +
+      `<h3>${esc(lord.name)}</h3>${badges}</div><p class="lord-card-role">${esc(lord.role)}</p></div></header>` +
+      `<div class="lord-skill-grid">${skills}</div>${traits}${bio}</article>`
+    );
+  })
+  .join('');
+---
+
+<Fragment set:html={html} />

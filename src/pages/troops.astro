@@ -24,12 +24,6 @@ function hexToRgb(hex: string): string {
   return `${red}, ${green}, ${blue}`;
 }
 
-function sc(skill: string, val: number, isFirst = false): string {
-  const base = isFirst ? 'col-num section-start' : 'col-num';
-  if (val === 0) return `${base} skill-zero`;
-  return `${base} skill-${skill}`;
-}
-
 allTroops.sort((a, b) => a.level - b.level);
 
 const cultures = [...new Set(allTroops.map((t) => t.culture).filter(Boolean))].sort();
