@@ -35,10 +35,6 @@ function encodePathSegment(value: string) {
   return encodeURIComponent(value).replace(/[!'()*]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`);
 }
 
-function assetHref(filename: string) {
-  return `/images/gallery/${encodePathSegment(filename)}`;
-}
-
 /** URL of a generated web copy; must match the names written by scripts/sync-gallery-assets.mjs. */
 function webAssetHref(filename: string, suffix: string) {
   const extension = path.extname(filename);
@@ -259,7 +255,7 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
 
       <section class="gallery-grid" aria-label="TAOM gallery">
         {
-          galleryItems.map((item) => (
+          galleryItems.map((item, index) => (
             <article class:list={['gallery-card', `gallery-card-${item.orientation}`, `gallery-card-${item.kind}`]}>
               <figure>
                 <div class="gallery-media">
@@ -268,7 +264,8 @@ const galleryItems: GalleryItem[] = readdirSync(galleryDirectory, { withFileType
                       <img
                         src={item.thumbHref}
                         alt={item.alt}
-                        loading="lazy"
+                        loading={index < 3 ? 'eager' : 'lazy'}
+                        fetchpriority={index === 0 ? 'high' : undefined}
                         decoding="async"
                         width={item.width}
                         height={item.height}

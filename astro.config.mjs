@@ -35,5 +35,8 @@ export default defineConfig({
   // Scoped styles mark elements with a class instead of a data-astro-cid-* attribute: same CSS specificity, but
   // the big data pages (thousands of table cells) come out 7-13% smaller.
   scopedStyleStrategy: 'class',
+  // Start loading a page when its link is hovered or focused, so the click feels instant. Astro skips this for
+  // visitors with data saver on or a slow connection.
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   integrations: [sitemap()],
 });

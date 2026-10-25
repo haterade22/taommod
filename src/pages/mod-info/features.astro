@@ -1,721 +1,50 @@
 ---
+// The Features page. Its cards live in src/data/features.json (hand-written from the mod's code and the team's
+// Discord posts); the special resource tables are read from the mod's own files (src/lib/parse-special-resources.ts).
 import Topbar from '../../components/Topbar.astro';
+import features from '../../data/features.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseSpecialResources } from '../../lib/parse-special-resources';
 
-interface Feature {
+interface Setting {
+  name: string;
+  default: string;
+}
+
+interface Card {
   title: string;
-  desc: string;
-  details: string[];
-  status?: 'live' | 'wip';
-  mcm?: { name: string; default: 'on' | 'off'; group: string }[];
+  summary: string;
+  points?: string[];
+  settings?: Setting[];
+  new?: string;
+  link?: { href: string; label: string };
 }
 
-interface FeatureCategory {
-  category: string;
-  features: Feature[];
+interface Section {
+  id: string;
+  title: string;
+  intro: string;
+  cards: Card[];
 }
 
-const categories: FeatureCategory[] = [
-  {
-    category: 'Strategic AI & Diplomacy',
-    features: [
-      {
-        title: 'AI Strategic Intelligence',
-        desc: 'A full strategic AI engine that evaluates military, economic, diplomatic, and cultural factors to drive faction decision-making. Each faction leader has a unique personality that shapes their strategy.',
-        details: [
-          'Four-pillar assessment: Military (35%), Economic (25%), Diplomatic (25%), Cultural (15%)',
-          '16 unique faction strategies — Mordor plays differently than Gondor, Rohan, or Erebor',
-          'Named leader personalities: Saruman, Sauron, Aragorn, Denethor, Theoden each with Risk Tolerance, Aggression, and Strategic Patience',
-          'Adaptive learning: AI records battle outcomes and adjusts future decisions based on history',
-          'Strategic phases with phase-specific modifiers — AI adapts as the war evolves',
-          'Settlement priority system: Strategic, Economic, Defensive, Offensive targets',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable AI Strategic Intelligence', default: 'on', group: 'Diplomacy' }],
-      },
-      {
-        title: 'Lore-Accurate Diplomacy',
-        desc: 'The War of the Ring unfolds through scripted diplomatic events. Isengard strikes first, then all of Middle-earth is drawn into the conflict — Good vs Evil, as Tolkien intended.',
-        details: [
-          'Scripted war events: Isengard war, Mordor war, Rivendell joins, Rhun-Erebor-Dale, Dol Guldur-Mirkwood-Lothlorien, Umbar-Harad-Gondor',
-          'Isengard attack timing randomized between configurable earliest/latest dates',
-          "Narrative text popups as Isengard's attack approaches — building tension",
-          'Good factions form alliances, evil factions unite — all Good vs all Evil',
-          'Disallowed kingdom decisions prevent premature peace with enemies',
-        ],
-        status: 'live',
-        mcm: [{ name: 'AoM Diplomacy', default: 'on', group: 'Diplomacy' }],
-      },
-      {
-        title: 'Strategic Diplomacy Engine',
-        desc: 'War declaration scoring uses five weighted modifiers to decide when and why factions go to war — considering military strength, timing, momentum, leader personality, and cultural rivalries.',
-        details: [
-          'Strength modifier: compares military ratio against 1.5x safety threshold',
-          'Timing modifier: early game (<400 days) cautious, late game (>1200 days) aggressive',
-          'Momentum modifier: War of the Ring momentum influences war declarations',
-          'Per-leader aggression personalities shape decision-making',
-          'Culture-specific rivalries: Mordor aggressive toward Gondor/Rohan, Lothlorien very passive',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Strategic Diplomacy', default: 'off', group: 'Diplomacy' }],
-      },
-      {
-        title: 'War Momentum System',
-        desc: 'Victory is earned through meaningful military campaigns, not just conquest grinding. A momentum tracker measures Good vs Evil dominance across the campaign map.',
-        details: [
-          'Four event types build momentum: battle victories, siege conquests, village raids, and army mustering',
-          'Momentum decays over 21 days — factions must sustain pressure to win',
-          'Player involvement multiplies momentum by 1.5x — your actions matter',
-          'Victory requires player participation in 5+ major events',
-          'Soft-cap display formula (-100 to +100) prevents runaway snowballing',
-          'Full UI with momentum indicator, breakdown view, and event history',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Momentum', default: 'on', group: 'Diplomacy' }],
-      },
-      {
-        title: 'Alignment System',
-        desc: 'Good and Evil shape diplomacy and relations across Middle-earth. Factions of the same alignment form bonds while opposing sides are locked in enmity.',
-        details: [
-          'Good-Evil faction pairs forced to -50 to -10 relations',
-          'Same-alignment factions form friendships (15% chance, +5 to +20 relation)',
-          'Alignment drives war declarations, alliances, and faction behavior',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Execution System',
-        desc: "Executing an orc warlord won't upset the Free Peoples, but betraying your allies will. Execution consequences are driven by alignment.",
-        details: [
-          'Execution penalties adjusted by alignment — killing evil heroes may carry no penalty for good factions',
-          'Executing same-alignment heroes carries heavy relation penalties',
-          'AI factions factor alignment into their execution decisions',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Culture Desertion',
-        desc: "Troops of opposing alignment will desert from your party. Evil orcs won't march alongside Gondorian knights — and vice versa.",
-        details: [
-          'Troops with opposite cultural alignment (good vs evil) desert from parties',
-          'AI Only mode available — exempt your party while AI still follows the rules',
-          'Disable entirely to allow mixed-alignment armies',
-        ],
-        status: 'live',
-        mcm: [
-          { name: 'Enable Culture Desertion', default: 'on', group: 'Battle Settings' },
-          { name: 'Culture Desertion AI Only', default: 'off', group: 'Battle Settings' },
-        ],
-      },
-    ],
-  },
-  {
-    category: 'Battle & Combat Systems',
-    features: [
-      {
-        title: 'Enhanced Auto-Resolve',
-        desc: "A completely overhauled battle resolution system with six subsystems, replacing vanilla's simplistic strength comparison with deep tactical calculations.",
-        details: [
-          'Troop count: logarithmic weighted ratio (0.4-1.8x range)',
-          'Troop quality: tier-based multipliers (T1=0.5x up to T6=2.0x)',
-          'Culture bonuses: per-culture matchup system with attack/defense modifiers',
-          'Terrain effects: cavalry/archer/infantry bonuses per terrain type',
-          'Commander skills: Tactics (+0.001/point, max +0.3) and Leadership bonuses',
-          'Special units: rock-paper-scissors counters (infantry>cavalry>archers>infantry)',
-          'Final damage clamped to 0.4-2.5x range to prevent extreme outcomes',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Auto Resolve', default: 'off', group: 'Battle Settings' }],
-      },
-      {
-        title: 'Culture Formation AI',
-        desc: 'Each faction fights with a distinct tactical personality on the battlefield. 16 unique culture strategies with adaptive behavior based on battle phase and power ratios.',
-        details: [
-          'Rohan: cavalry charges (1.7x flank, 1.6x charge weight) — when overwhelming: 2.2x charge',
-          'Gondor: disciplined defensive shield walls and infantry formations',
-          'Mordor/Dol Guldur: relentless aggression with overwhelming numbers',
-          'Mirkwood/Lothlorien: ranged harassment with heavy archer emphasis',
-          'Erebor: slow-moving heavy dwarf infantry with axe/hammer specialization',
-          'Tactical context system: adapts behavior for Overwhelming/Winning/Losing/Desperate phases',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable TAOM Culture AI', default: 'off', group: 'Battle Settings' }],
-      },
-      {
-        title: 'Enhanced Siege AI',
-        desc: 'Sieges are dynamic events with race-specific behaviors, kill tracking, and phase-based mechanics. Trolls batter gates, Uruk-hai resist ladder pushback, and defenders gain realistic advantages.',
-        details: [
-          'Dynamic siege event processing with phase tracking',
-          'Race-specific behaviors: Bloodlust kills, defender advantage, ladder push resistance',
-          'Custom assault wall weights and defensive position calculations',
-          'Murder hole mechanics and siege machine improvements',
-          'Morale effects tied to siege progress and race',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable TAOM Siege AI', default: 'off', group: 'Battle Settings' }],
-      },
-      {
-        title: 'Advanced Tactics',
-        desc: 'Physics-based momentum damage makes cavalry charges devastating. Couched lance impacts, shield usage, and weapon composition analysis add depth to every engagement.',
-        details: [
-          'Physics-based momentum damage using 0.5*m*v^2 formula',
-          'Couched lance and thrust magnitude with configurable velocity multiplier',
-          'Cavalry charge service with max speed cap calculations',
-          'Shield usage and weapon analysis services',
-          'Formation weapon composition analysis for tactical decisions',
-          'Battle stats display showing real-time combat information',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Advanced Tactics', default: 'off', group: 'Battle Settings' }],
-      },
-      {
-        title: 'Culture Combat Matchups',
-        desc: "30+ lore-driven tactical matchups. Isengard's Uruks counter Rohan cavalry; Elves devastate Mordor's hordes; Dwarves are unbreakable in siege defense.",
-        details: [
-          'Dunland vs Rohan: +15% attack (hatred of the Rohirrim)',
-          'Isengard vs Rohan: +15% attack, +8% defense (bred to counter cavalry)',
-          'Elves vs Mordor: +20% attack, +15% defense (ancient enmity)',
-          'Dwarves vs Mordor: +15% attack, +20% defense (siege expertise)',
-          'Per-settlement custom battle modifiers for key locations',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Casualty & Mercy System',
-        desc: 'Death rates vary by alignment. Evil factions execute the wounded; good factions provide medical care — creating fundamentally different army recovery rates.',
-        details: [
-          'Global death rate: 60-70% (vs vanilla 20-40%) — combat is brutal',
-          'Evil cultures (Mordor, Dol Guldur): only 40% survival rate',
-          'Good cultures (Gondor, Elves): 70-80% survival',
-          'Battle type modifiers: Siege, Hideout, Raid, SallyOut, FieldBattle',
-          'Configurable hero death rate (default: heroes never die)',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Disable Friendly Fire Notifications', default: 'on', group: 'Battle Settings' }],
-      },
-      {
-        title: '81 Battle Terrain Scenes',
-        desc: 'Battles on terrain matching the campaign map. Fight across plains, deserts, swamps, mountains, and forests — each with distinct tactical advantages.',
-        details: [
-          '81 battle terrain scenes mapped to specific map regions',
-          'Terrain types: Plains (40), Steppe (27), Desert (8), Swamp (6)',
-          'Forest density modifiers affect visibility and archery',
-          'Mountain, river, canyon, and lake features shape battlefield flow',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-  {
-    category: 'Race & Creature Systems',
-    features: [
-      {
-        title: '12 Playable Races',
-        desc: 'Play as Dwarves, Orcs, Uruk-hai, and more with correct proportions, animations, voices, and camera heights. Not just cosmetic — races affect gameplay.',
-        details: [
-          'Full race system: Human, Dwarf, Elf, Orc, Uruk, Uruk-Hai, Berserker, Cave Troll, Half-Troll, Goblin, Hill Troll, Pale Uruk',
-          '58 body property templates defining racial characteristics',
-          'Race-specific body proportions, action sets, and skeleton scaling',
-          'Custom age model: characters become old at 100, max age 300 (configurable)',
-          'Cross-race offspring system',
-          'Race data persists across save/load cycles',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Race Bonus System',
-        desc: '52+ bonus types that vary by race, covering damage, health, movement speed, influence, crafting, trade, and more. Every race has meaningful gameplay advantages and weaknesses.',
-        details: [
-          '52+ bonus categories: Damage, Health Regen, Influence, Knockback Resistance, Militia Production, Morale, Movement Speed, Party Size, and more',
-          'Additive or multiplicative stacking (MCM toggle)',
-          'Compiled condition rules for performance-optimized evaluation',
-          'Covers combat, economy, settlement management, and social interactions',
-        ],
-        status: 'live',
-        mcm: [
-          { name: 'Enable Race Bonuses', default: 'off', group: 'Battle Settings' },
-          { name: 'Use Additive Race Bonuses', default: 'on', group: 'Battle Settings' },
-        ],
-      },
-      {
-        title: 'Race-Based Perk Multipliers',
-        desc: 'Character perks scale differently per race. Dwarves excel at smithing, Elves dominate archery, Trolls are unstoppable two-handed fighters.',
-        details: [
-          '12 races with unique multipliers across 156+ perks',
-          'Dwarves: +30% smithing, +20% crafting perks',
-          'Elves: +30-40% archery bonuses',
-          'Trolls: +80-100% two-handed bashing, -30% tactics',
-          'Covers all 16 skill trees: One-Handed through Steward',
-          'Fully configurable via JSON — moddable by sub-modders',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Race Perk Multipliers', default: 'off', group: 'Perks' }],
-      },
-      {
-        title: 'Warg Riders & Creature Units',
-        desc: 'Warg riders serve as savage cavalry for orc factions. Cave trolls and half-trolls tower over the battlefield with full behavior tree AI.',
-        details: [
-          'Full warg AI behavior tree: rage mode, attack tasks, positioning',
-          'Warg rider hand management for correct mount animations',
-          'Cave Trolls: 4.0x unit weight — massive party impact',
-          'Warg units at 2.0x weight — heavier than standard cavalry',
-          'Creature units have unique racial perk multipliers',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Troop Weight System',
-        desc: 'Heavy creatures slow your army and consume more supplies, forcing strategic decisions about army composition.',
-        details: [
-          'Cave Trolls: 4.0x weight (massive supply drain)',
-          'Elven units: 2.0x weight (elite soldiers require more resources)',
-          'Warg Riders: 2.0x weight (creature mounts are expensive)',
-          'Weights loaded from XML per troop — fully configurable',
-          'Patches party member counts and roster displays to reflect weighted values',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Troop Weight', default: 'off', group: 'Battle Settings' }],
-      },
-    ],
-  },
-  {
-    category: 'Faction & Culture Systems',
-    features: [
-      {
-        title: '51 Culture Feats',
-        desc: 'Every faction has unique passive bonuses that define their playstyle. Gondor has cheap garrisons, Erebor dominates workshops, Mordor fields massive armies, and Lothlorien heals faster.',
-        details: [
-          'Gondor: +25% army influence, -15% infantry wages, -20% garrison wages',
-          'Rohan: no extra mounted wages, +25% animal production',
-          'Erebor: +30% workshop income, -25% siege cost, +20% mounted wages (penalty)',
-          'Mordor: -20% wages, -20% recruitment cost, +30% party size',
-          'Isengard: +30% construction speed, -20% siege cost, +20% relationship penalty',
-          'Lothlorien: -50% forest speed penalty, +20% ranged damage, -25% battle influence',
-          'Umbar: +30% raiding income, -20% coastal wages',
-          'Harad: no desert speed penalty, +20% caravan income',
-        ],
-        status: 'live',
-      },
-      {
-        title: '16 Unique Factions',
-        desc: 'Every faction plays fundamentally differently thanks to culture-specific combat profiles, economic bonuses, and military strengths drawn from Tolkien lore.',
-        details: [
-          'Erebor: +15% infantry attack, +30% defense, +35% rout resistance',
-          'Rohan: +15% cavalry attack, +12% charge bonus — open field dominance',
-          'Lothlorien: highest archer bonus (+35%), elite all-around',
-          'Isengard: +22% infantry attack, +25% rout resistance — shock troops',
-          'Rhun: +25% horse archer attack, +20% open field bonus',
-          'Dunland: +20% infantry attack, +20% morale — berserker tactics',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Special Resources',
-        desc: 'Culture-specific resources like mithril for dwarves add a strategic layer to recruitment. Some elite troops require special resources to recruit and maintain.',
-        details: [
-          'Culture-specific resources tied to factions',
-          'Troop resource costs: some elite units require special resources to recruit/upgrade',
-          'Daily upkeep costs consume resources over time',
-          'Resources earned from battles, raids, and sieges',
-          'Troops desert if resources run out — maintain your supply lines',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Four-Tier Recruitment',
-        desc: 'Armies built from Regular, Noble, Regional, and Unique troop tiers. Regional units tied to homelands, Unique troops locked to key settlements.',
-        details: [
-          'Regular troops (40-50%): available everywhere in faction territory',
-          'Noble troops (10-20%): globally recruitable but rare',
-          'Regional troops (30-40%): tied to specific cities, castles, or villages',
-          'Unique troops: locked to 1-2 key settlements — control them or lose access',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Settlement-Based Recruitment',
-        desc: 'Travel to specific regions to recruit their troops — Pelargir fields marines, Lossarnach musters axemen, the Wold breeds riders.',
-        details: [
-          '69+ settlement-specific and clan-specific party templates',
-          'Pelargir: heavy marine/naval focus',
-          'Lossarnach: pure infantry emphasis (axemen, wrathbearers)',
-          'Rohan settlements: cavalry-dominant armies',
-          'Regional recruitment cost bonuses: Dunland infantry 25% cheaper, Erebor infantry 15% cheaper',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Culture-Specific Caravans',
-        desc: 'Trade caravans customized per faction with culture-appropriate equipment and leaders.',
-        details: [
-          '7 caravan leader templates with culture-specific gear',
-          'Faction-appropriate weapons: Eastern spears for Rhun, noble swords for Harad',
-          'Caravan guards drawn from local troop pools',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-  {
-    category: 'Economy & Settlement Management',
-    features: [
-      {
-        title: 'Settlement Food Management',
-        desc: 'AI settlements no longer starve to death. A smart food management system tracks production history and adjusts prosperity to prevent economic collapse.',
-        details: [
-          'Tracks food production history over configurable window (default 45 days)',
-          'Calculates target prosperity based on food moving average',
-          'Reduces prosperity by configurable rate when settlements would starve',
-          'Custom models for settlement food, loyalty, and prosperity',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Enable Food Management', default: 'on', group: 'Food Management' }],
-      },
-      {
-        title: 'Reinforcement Messenger System',
-        desc: 'Request culture-specific reinforcements via messenger instead of traveling to recruit. Pay gold to have troops delivered to your party on a timer.',
-        details: [
-          'Request reinforcements through conversation-based recruitment',
-          'Configurable costs per tier (T1-T6+ multipliers)',
-          'Queue-based delivery with configurable delay time',
-          'Culture-restricted option — only recruit from your own faction',
-          'Tier-limited quantities per request',
-        ],
-        status: 'live',
-        mcm: [
-          { name: 'Enable Reinforcements', default: 'on', group: 'Reinforcements' },
-          { name: 'Instant Delivery', default: 'off', group: 'Reinforcements' },
-          { name: 'Culture Restricted', default: 'on', group: 'Reinforcements' },
-        ],
-      },
-      {
-        title: 'Messenger System',
-        desc: 'Send messengers to NPCs instead of riding across Middle-earth. Initiate diplomacy, trade, or conversation from anywhere on the map.',
-        details: [
-          'Send messengers from the encyclopedia (default 50 gold, 3 travel days)',
-          'Configurable cost and travel time',
-          'Random accident chance during travel',
-        ],
-        status: 'live',
-        mcm: [
-          { name: 'Enable Messengers', default: 'on', group: 'Messengers' },
-          { name: 'Messenger Accidents', default: 'on', group: 'Messengers' },
-        ],
-      },
-      {
-        title: 'Enhanced Tournaments',
-        desc: 'Tournament rewards and betting overhauled to be more rewarding and exciting.',
-        details: [
-          'Configurable XP multipliers for tournament combat, arena, and end-of-tournament',
-          'Max bet raised to 1,000 gold (vs vanilla 150)',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Crafting Enhancements',
-        desc: 'Smithing improvements let you craft without the grind.',
-        details: ['Option to disable stamina consumption during crafting', 'Fully configurable via MCM settings'],
-        status: 'live',
-        mcm: [{ name: 'Disable Stamina', default: 'off', group: 'Crafting' }],
-      },
-      {
-        title: 'Enhanced Loot System',
-        desc: 'Loot calculations improved with skill-based modifiers and expanded options.',
-        details: ['Loot quality scales with character skills', 'Option to loot from prisoners, not just dead troops'],
-        status: 'live',
-        mcm: [
-          { name: 'Enable Better Loot Calc', default: 'off', group: 'Loot' },
-          { name: 'Enable Loot from Prisoners', default: 'off', group: 'Loot' },
-        ],
-      },
-    ],
-  },
-  {
-    category: 'Party & Army Mechanics',
-    features: [
-      {
-        title: 'Custom Party Models',
-        desc: '10+ GameModel overrides completely rework party mechanics — speed, wages, morale, healing, size, army management, prisoner recruitment, and troop upgrades.',
-        details: [
-          'Custom party speed calculations with 1.9x global movement multiplier',
-          'Culture-specific wage calculations',
-          'Custom morale model with alignment and race effects',
-          'Custom healing rates with culture bonuses',
-          'Custom party size model',
-          'Custom army management, prisoner recruitment, and troop upgrade costs',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Startup Configuration',
-        desc: 'Every faction starts with appropriate gold, influence, and equipment — ensuring balanced early game across all 22 kingdoms.',
-        details: [
-          'Major power centers (Rivendell, Lothlorien, Gundabad, Isengard) start with 2,000 influence',
-          'Mid-tier factions like Rhun start with 1,000',
-          'Lords receive starting gold appropriate to their faction',
-          'Starting equipment configured per culture',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Regional Bandit Factions',
-        desc: 'Each region spawns culturally distinct bandits with unique equipment and fighting styles. Bandit density scaled for the massive Middle-earth map.',
-        details: [
-          '77 bandit NPC templates across 7 regional variants',
-          'Max 200 bandit parties, 100 hideouts per faction, 30 initial hideouts',
-          'Custom bandit leaving-hideout behavior',
-          'Each variant has unique equipment loadouts with regional weapons',
-        ],
-        status: 'live',
-        mcm: [{ name: 'Use Custom Bandit Settings', default: 'off', group: 'Bandit Settings' }],
-      },
-    ],
-  },
-  {
-    category: 'Audio & Immersion',
-    features: [
-      {
-        title: 'Custom Voice Acting',
-        desc: "Races don't just look different — they sound different. 750+ custom audio files bring Uruk-hai battle cries, Dwarf war chants, and creature roars to life.",
-        details: [
-          '302 custom sound entries across 5 audio categories',
-          'Isengard/Uruk-hai: 207 sounds — deaths, grunts, yells, victory cries',
-          'Dwarf: 118 unique voice lines for combat and ambient dialogue',
-          'Monster/creature sounds: 242 audio files for trolls, wargs, and beasts',
-          'Rohan: 176 sounds including culture-specific horn calls',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Custom Music',
-        desc: 'The vanilla Bannerlord soundtrack is replaced with a Middle-earth score.',
-        details: [
-          'Custom main menu theme replaces vanilla title screen music',
-          '6+ original soundtrack tracks',
-          'Custom music manager integrated into the engine',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Custom Map Visibility',
-        desc: 'Fog of war and map visibility overhauled for the massive Middle-earth map.',
-        details: [
-          'Custom map visibility model replacing vanilla calculations',
-          'Scaled for the much larger Middle-earth campaign map',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-  {
-    category: 'Content & World',
-    features: [
-      {
-        title: 'Custom Middle-earth Map',
-        desc: '658 settlements placed across a sprawling Middle-earth, from the Shire to Mordor.',
-        details: [
-          '658 named settlements (towns, castles, villages) across all 16 faction territories',
-          '81 battle scene definitions mapped to terrain types',
-          'Distance cache for optimized pathfinding across the massive map',
-        ],
-        status: 'live',
-      },
-      {
-        title: '901 Custom Troop Types',
-        desc: 'Every faction fields a unique military with culture-specific troops, equipment, and upgrade paths.',
-        details: [
-          '901 unique troop types across 18 troop-fielding cultures',
-          '338 party templates defining militia, garrison, bandit, and army compositions',
-          '1,260 troop composition entries controlling unit ratios per party',
-          '198 equipment rosters with culture-appropriate armor and weapons',
-        ],
-        status: 'live',
-      },
-      {
-        title: '1,500+ Custom Lords & Heroes',
-        desc: 'Every lord and hero replaced with a Tolkien-inspired character.',
-        details: [
-          '1,580 lords and heroes with custom appearances, skills, and trait distributions',
-          '465 heroes with lore-accurate biographies, out of 1,001 hero entries',
-          '149 wanderer companions (10 archetypes per kingdom)',
-          '232 clans with custom names and banner keys',
-        ],
-        status: 'live',
-      },
-      {
-        title: '453 Custom Banner Icons',
-        desc: 'Hundreds of custom banner designs drawn from Tolkien heraldry that persist across save/load cycles.',
-        details: [
-          '453 custom banner icons across 3+ icon packs',
-          'Auto-applies 73+ custom clan/kingdom banners every session',
-          'Detects player-edited banners and respects those changes',
-          'Lore-accurate designs: White Tree of Gondor, Eye of Sauron, and more',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Custom Items & Equipment',
-        desc: 'Uruk-hai crossbows, faction-specific armor sets, and lore-accurate weapons replace vanilla gear.',
-        details: [
-          '20+ custom Uruk-hai items: crossbows, helms, armor, shoulder guards',
-          '198 equipment rosters for battle, civilian, and noble loadouts',
-          'Named hero equipment sets (Boromir, Faramir, and more)',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-  {
-    category: 'Character & Progression',
-    features: [
-      {
-        title: 'Culture Education Paths',
-        desc: 'Character backstory and development are culture-specific with 6 branching paths during character creation.',
-        details: [
-          '61 education character templates across 6 cultures',
-          'Cultures: Mordor, Gondor, Erebor, Rivendell, Mirkwood, Dol Guldur',
-          '1,976 equipment roster configurations for development stages',
-          "Culture-appropriate armor sets reflect your character's origin",
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Custom Marriage Model',
-        desc: 'Marriage eligibility reworked for Middle-earth — race and culture compatibility matter.',
-        details: [
-          'Custom marriage eligibility rules per race and culture',
-          'GameModel override for marriage calculations',
-        ],
-        status: 'live',
-      },
-      {
-        title: '14 Language Localization',
-        desc: 'Full localization across 14 languages covering all custom content.',
-        details: [
-          '14 languages: English, German, French, Spanish, Italian, Polish, Russian, Turkish, Japanese, Korean, and more',
-          '29 localization XML files covering all custom content',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-  {
-    category: 'MCM Configuration',
-    features: [
-      {
-        title: 'Diplomacy Settings',
-        desc: 'Control the War of the Ring and faction AI behavior.',
-        details: [
-          'AoM Diplomacy — ON: Restricted diplomacy leading to the War of the Ring (Good vs Evil)',
-          'Momentum — ON: War momentum mechanic during the War of the Ring (requires AoM Diplomacy)',
-          'AI Strategic Intelligence — ON: Enhanced AI faction targeting with strategic analysis',
-          'Strategic Diplomacy — OFF: Enhanced AI war declaration logic (disabled for stability)',
-          'Isengard attack timing: earliest/latest date sliders (default: 21-84 days)',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Battle Settings',
-        desc: '13 toggleable battle systems for fine-tuned combat.',
-        details: [
-          'Friendly Fire Notifications — ON: Removes friendly fire warnings',
-          'Culture Desertion — ON: Opposing-alignment troops desert from parties',
-          'Culture Desertion AI Only — OFF: Exclude player from desertion',
-          'TAOM Culture AI — OFF: Culture-specific formation tactics per faction',
-          'TAOM Siege AI — OFF: Race-specific siege behaviors and mechanics',
-          'Advanced Tactics — OFF: Physics-based momentum damage (0.5*m*v^2)',
-          'Race Bonuses — OFF: 52+ race-based stat bonuses across all systems',
-          'Additive Race Bonuses — ON: Add bonuses instead of multiplying',
-          'Troop Weight — OFF: Weighted party size by troop type',
-          'Advanced Combat — OFF: Bone collision detection system',
-          'Auto Resolve — OFF: Culture-aware auto-resolve with terrain matchups',
-          'Velocity Damage Multiplier: 0.1-1.0 (default 0.3)',
-          'Max Speed Contribution: 5-20 m/s (default 10.0)',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Messenger & Reinforcement Settings',
-        desc: 'Configure the messenger and reinforcement delivery systems.',
-        details: [
-          'Enable Messengers — ON: Send messengers instead of traveling to NPCs',
-          'Messenger Cost: 10-500 gold (default 50)',
-          'Travel Days: 1-10 (default 3)',
-          'Messenger Accidents — ON: Chance of ambush during travel',
-          'Enable Reinforcements — ON: Request culture-specific troop deliveries',
-          'Instant Delivery — OFF: Skip the delivery timer',
-          'Culture Restricted — ON: Only recruit from your own faction',
-          'Tier cost multipliers: T3 (1.5x), T4 (2.0x), T5 (2.5x), T6+ (3.0x)',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Economy & Progression Settings',
-        desc: 'Customize food management, loot, crafting, tournaments, aging, and campaign speed.',
-        details: [
-          'Food Management — ON: Prevents AI settlement starvation',
-          'Food Surplus Target: 0-100 (default 10)',
-          'Better Loot Calc — OFF: Skill-based loot quality improvements',
-          'Loot from Prisoners — OFF: Check prisoners for loot, not just dead',
-          'Disable Crafting Stamina — OFF: Unlimited smithing sessions',
-          'Tournament XP Multiplier: 0.1-10x (default 3.0 = 100% XP)',
-          'Arena XP Multiplier: 0.1-10x (default 16.0 = 100% XP)',
-          'Max Tournament Bet: 150-50,000 gold (default 1,000)',
-          'Become Old Age: 50-200 (default 100)',
-          'Maximum Age: 150-500 (default 300)',
-          'Global Movement Speed: 1.0-5.0x (default 1.9x)',
-          'Race Perk Multipliers — OFF: Race-specific perk effectiveness',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Bandit & World Settings',
-        desc: 'Customize bandit spawning for the massive Middle-earth map.',
-        details: [
-          'Custom Bandit Settings — OFF: Override default LOTR bandit values',
-          'Bandit Density Multiplier: 0.1-3.0x (default 1.0)',
-          'Maximum Bandit Parties: 100-20,000 (LOTR default 200)',
-          'Max Hideouts Per Faction: 10-1,000 (LOTR default 100)',
-          'Initial Hideouts Per Faction: 10-500 (LOTR default 30)',
-          'Parties to Infest Hideout: 1-10 (LOTR default 2)',
-          'Max Parties Per Hideout: 1-10 (default 4)',
-          'Dwarven Eye Height: -1.0 to 0 (visual adjustment)',
-        ],
-        status: 'live',
-      },
-      {
-        title: 'Debug & Testing',
-        desc: 'Development and testing tools for troubleshooting.',
-        details: [
-          'Debug Mode — OFF: Enables debug console and detailed logging',
-          'Custom Player Switcher — OFF: Select an existing character at game start',
-        ],
-        status: 'live',
-      },
-    ],
-  },
-];
+const sections = features.sections as Section[];
+const featureCount = sections.reduce((sum, section) => sum + section.cards.length, 0);
+const { resources, troopsByResource, emissaryTowns } = parseSpecialResources();
 
-const totalFeatures = categories.reduce((sum, category) => sum + category.features.length, 0);
-const totalCategories = categories.length;
-const liveFeatures = categories.reduce(
-  (sum, category) => sum + category.features.filter((feature) => feature.status === 'live').length,
-  0,
-);
-const configurableFeatures = categories.reduce(
-  (sum, category) => sum + category.features.filter((feature) => feature.mcm && feature.mcm.length > 0).length,
-  0,
-);
-const totalMcmToggles = categories.reduce(
-  (sum, category) =>
-    sum + category.features.reduce((featureSum, feature) => featureSum + (feature.mcm ? feature.mcm.length : 0), 0),
-  0,
-);
+const settingClass = (value: string) =>
+  value === 'On' ? 'setting-on' : value === 'Off' ? 'setting-off' : 'setting-value';
+const fmt = (value?: number) => (value === undefined ? '' : String(value));
+const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
 ---
 
 <BaseLayout
   title="Features"
-  description="Gameplay systems and custom features powering TAOM"
+  description="Every gameplay system in TAOM: the War of the Ring, careers, enlistment, special resources, creatures, battle and more."
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-features-body"
@@ -728,124 +57,85 @@ const totalMcmToggles = categories.reduce(
 
     <main class="features-shell">
       <section class="page-intro">
-        <p class="eyebrow">Systems Layer of Middle-earth</p>
+        <p class="eyebrow">What TAOM Adds</p>
         <h1>Features</h1>
         <p class="intro-copy">
-          This archive collects the gameplay systems that shape TAOM's campaign, battles, AI, and world simulation. Use
-          it as the technical dossier for what makes factions, warfare, and progression behave differently from vanilla
-          Bannerlord.
+          The systems that make TAOM's campaign, battles and world play differently from the base game. Most of them can
+          be switched off or tuned in the game's Mod Options; the default for each is shown on its card.
         </p>
         <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Features</nav>
+        <p class="page-version">Based on TAOM {features.modVersion} · updated {updated}</p>
       </section>
 
       <section class="features-summary" aria-label="Features page summary">
         <article class="summary-card">
-          <span class="summary-label">System Families</span>
-          <strong>{totalCategories}</strong>
+          <span class="summary-label">Feature Areas</span>
+          <strong>{sections.length}</strong>
         </article>
         <article class="summary-card">
-          <span class="summary-label">Total Features</span>
-          <strong>{totalFeatures}</strong>
+          <span class="summary-label">Features</span>
+          <strong>{featureCount}</strong>
         </article>
         <article class="summary-card">
-          <span class="summary-label">Live Systems</span>
-          <strong>{liveFeatures}</strong>
+          <span class="summary-label">Careers</span>
+          <strong>{features.careerCount}</strong>
         </article>
         <article class="summary-card">
-          <span class="summary-label">MCM Controls</span>
-          <strong>{totalMcmToggles}</strong>
+          <span class="summary-label">Mod Options</span>
+          <strong>{features.modOptionsCount}</strong>
         </article>
       </section>
 
-      <section class="overview-grid">
-        <article class="systems-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-kicker">Feature Map</p>
-              <h2>TAOM Is Built In Layers</h2>
-            </div>
-            <p class="panel-copy">
-              The mod is not one single overhaul switch. It is a stack of AI, battle, faction, economy, race, and world
-              systems that interact with each other.
-            </p>
-          </div>
-
-          <div class="systems-grid">
-            {
-              categories.slice(0, 6).map((category) => (
-                <article class="systems-card">
-                  <h3>{category.category}</h3>
-                  <p>{category.features.length} feature records</p>
-                </article>
-              ))
-            }
-          </div>
-        </article>
-
-        <article class="mcm-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-kicker">Configuration</p>
-              <h2>MCM Defaults</h2>
-            </div>
-            <p class="panel-copy">
-              Many systems ship with configurable defaults, so the mod can support both a curated intended experience
-              and more experimental setups.
-            </p>
-          </div>
-
-          <div class="mcm-legend">
-            <div class="legend-row">
-              <span class="mcm-toggle mcm-on">ON</span>
-              <p>Enabled by default and part of the recommended baseline experience.</p>
-            </div>
-            <div class="legend-row">
-              <span class="mcm-toggle mcm-off">OFF</span>
-              <p>Available through MCM, but disabled by default for balance, preference, or stability reasons.</p>
-            </div>
-            <div class="legend-row">
-              <span class="legend-stat">{configurableFeatures}</span>
-              <p>Features expose at least one in-game configuration switch.</p>
-            </div>
-          </div>
-        </article>
+      <section class="features-toolbar" aria-label="Find a feature">
+        <nav class="section-links" aria-label="Feature areas">
+          {sections.map((section) => <a href={`#${section.id}`}>{section.title}</a>)}
+        </nav>
+        <label class="feature-search">
+          <span class="visually-hidden">Search features</span>
+          <input type="search" placeholder="Search features…" autocomplete="off" data-feature-search />
+        </label>
+        <p class="search-empty" hidden data-search-empty>No feature matches that search.</p>
       </section>
 
       <div class="category-stack">
         {
-          categories.map((cat) => (
-            <section class="section-block">
+          sections.map((section) => (
+            <section class="section-block" id={section.id} data-feature-section>
               <div class="section-heading">
-                <div>
-                  <p class="section-kicker">Feature Family</p>
-                  <h2>{cat.category}</h2>
-                </div>
-                <p class="section-copy">{cat.features.length} systems in this category.</p>
+                <h2>{section.title}</h2>
+                <p class="section-copy">{section.intro}</p>
               </div>
 
               <div class="features-grid">
-                {cat.features.map((f) => (
-                  <article class="feature-card">
+                {section.cards.map((card) => (
+                  <article class="feature-card" data-feature-card>
                     <div class="feature-header">
-                      <h3>{f.title}</h3>
-                      {f.status === 'live' && <span class="status-badge live">Live</span>}
-                      {f.status === 'wip' && <span class="status-badge wip">In Development</span>}
+                      <h3>{card.title}</h3>
+                      {card.new && <span class="status-badge">New in {card.new}</span>}
                     </div>
 
-                    <p class="feature-desc">{f.desc}</p>
+                    <p class="feature-desc">{card.summary}</p>
 
-                    <ul class="feature-details">
-                      {f.details.map((d) => (
-                        <li>{d}</li>
-                      ))}
-                    </ul>
+                    {card.points && card.points.length > 0 && (
+                      <ul class="feature-details">
+                        {card.points.map((point) => (
+                          <li>{point}</li>
+                        ))}
+                      </ul>
+                    )}
 
-                    {f.mcm && f.mcm.length > 0 && (
-                      <div class="mcm-toggles">
-                        <span class="mcm-label">MCM</span>
-                        {f.mcm.map((m) => (
-                          <span class:list={['mcm-toggle', m.default === 'on' ? 'mcm-on' : 'mcm-off']}>
-                            {m.name}: {m.default === 'on' ? 'ON' : 'OFF'}
+                    {card.link && (
+                      <a class="feature-link" href={card.link.href}>
+                        {card.link.label} →
+                      </a>
+                    )}
+
+                    {card.settings && card.settings.length > 0 && (
+                      <div class="setting-chips">
+                        <span class="setting-label">Mod Options</span>
+                        {card.settings.map((setting) => (
+                          <span class:list={['setting-chip', settingClass(setting.default)]}>
+                            {setting.name}: {setting.default}
                           </span>
                         ))}
                       </div>
@@ -853,13 +143,139 @@ const totalMcmToggles = categories.reduce(
                   </article>
                 ))}
               </div>
+
+              {section.id === 'armies' && resources.length > 0 && (
+                <div class="resource-tables" data-feature-card>
+                  <h3 id="special-resources">Special resources</h3>
+                  <p class="table-note">
+                    What each realm earns, straight from the mod's files. "Daily" is per town held; the others are per
+                    event.
+                  </p>
+                  <div class="data-table-wrapper resource-wrapper">
+                    <table class="resource-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Resource</th>
+                          <th scope="col">Realms</th>
+                          <th scope="col">Daily</th>
+                          <th scope="col">Battle won</th>
+                          <th scope="col">Raid</th>
+                          <th scope="col">Siege won</th>
+                          <th scope="col">Prisoner</th>
+                          <th scope="col">Tournament</th>
+                          <th scope="col">Hideout</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {resources.map((r) => (
+                          <tr>
+                            <th scope="row">{r.name}</th>
+                            <td class="realms">{r.realms.join(', ')}</td>
+                            <td>{r.dailyPerTown}</td>
+                            <td>{r.battle}</td>
+                            <td>{r.raid}</td>
+                            <td>{r.siege}</td>
+                            <td>{r.prisoner}</td>
+                            <td>{r.tournament}</td>
+                            <td>{r.hideout}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h3 id="elite-troops">Elite troops and their price</h3>
+                  <p class="table-note">
+                    <strong>Buy</strong> is the price at the emissary in {emissaryTowns.map((t) => t.name).join(', ')}.
+                    <strong>Upgrade</strong> is the price to upgrade into the troop on the party screen,
+                    <strong>Recruit</strong> a one-time charge when it joins another way (as a volunteer or from your
+                    prisoners), and <strong>Upkeep</strong> what each soldier costs per day. A blank means none.
+                  </p>
+                  {troopsByResource.map((group) => (
+                    <details class="troop-group">
+                      <summary>
+                        {group.resource.name}
+                        <span class="troop-count">
+                          {group.resource.realms.join(', ')} · {group.troops.length} troops
+                        </span>
+                      </summary>
+                      <div class="data-table-wrapper resource-wrapper">
+                        <table class="resource-table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Troop</th>
+                              <th scope="col">Realm</th>
+                              <th scope="col">Buy</th>
+                              <th scope="col">Upgrade</th>
+                              <th scope="col">Recruit</th>
+                              <th scope="col">Upkeep</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {group.troops.map((t) => (
+                              <tr>
+                                <th scope="row">{t.name}</th>
+                                <td class="realms">{t.realm ?? ''}</td>
+                                <td>{fmt(t.buy)}</td>
+                                <td>{fmt(t.upgrade)}</td>
+                                <td>{fmt(t.recruit)}</td>
+                                <td>{fmt(t.upkeep)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              )}
             </section>
           ))
         }
       </div>
+
+      <p class="page-sources">
+        Written from TAOM's source code, its in-game settings and the team's feature posts on Discord. Something wrong
+        or missing? Tell us on <a href="/community">Discord</a>.
+      </p>
     </main>
   </div>
 </BaseLayout>
+
+<script>
+  // Search: hides cards (and whole sections) that do not contain every word typed.
+  function initFeatureSearch() {
+    const input = document.querySelector<HTMLInputElement>('[data-feature-search]');
+    if (!input || input.dataset.ready) return;
+    input.dataset.ready = 'true';
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-feature-section]'));
+    const empty = document.querySelector<HTMLElement>('[data-search-empty]');
+    const cards = sections.map((section) =>
+      Array.from(section.querySelectorAll<HTMLElement>('[data-feature-card]')).map((card) => ({
+        card,
+        text: (card.textContent || '').toLowerCase(),
+      })),
+    );
+
+    input.addEventListener('input', () => {
+      const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+      let shown = 0;
+      sections.forEach((section, i) => {
+        let sectionShown = 0;
+        for (const { card, text } of cards[i]) {
+          const match = words.every((word) => text.includes(word));
+          card.hidden = !match;
+          if (match) sectionShown++;
+        }
+        section.hidden = sectionShown === 0;
+        shown += sectionShown;
+      });
+      if (empty) empty.hidden = shown > 0;
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFeatureSearch);
+</script>
 
 <style>
   :global(body.taom-features-body) {
@@ -911,6 +327,8 @@ const totalMcmToggles = categories.reduce(
     margin: 0 auto;
     padding: 2.25rem 0.75rem 3.5rem;
     display: grid;
+    /* minmax(0, 1fr): a wide table inside must scroll in its own box, not stretch the page. */
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
@@ -922,16 +340,11 @@ const totalMcmToggles = categories.reduce(
 
   .eyebrow,
   .summary-label,
-  .panel-kicker,
-  .section-kicker,
-  .mcm-label,
-  .legend-stat {
+  .setting-label {
     font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
-  .eyebrow,
-  .panel-kicker,
-  .section-kicker {
+  .eyebrow {
     color: #c19748;
     font-size: 0.86rem;
     letter-spacing: 0.34em;
@@ -956,17 +369,23 @@ const totalMcmToggles = categories.reduce(
     line-height: 1.5;
   }
 
-  .page-breadcrumb {
+  .page-breadcrumb,
+  .page-version {
+    margin: 0;
     color: rgba(214, 199, 176, 0.68);
     font-size: 0.88rem;
   }
 
-  .page-breadcrumb a {
+  .page-breadcrumb a,
+  .page-sources a,
+  .feature-link {
     color: #d7b26c;
     text-decoration: none;
   }
 
-  .page-breadcrumb a:hover {
+  .page-breadcrumb a:hover,
+  .page-sources a:hover,
+  .feature-link:hover {
     text-decoration: underline;
   }
 
@@ -977,8 +396,7 @@ const totalMcmToggles = categories.reduce(
   }
 
   .summary-card,
-  .systems-panel,
-  .mcm-panel,
+  .features-toolbar,
   .section-block {
     border: 1px solid rgba(120, 89, 38, 0.55);
     background: rgba(12, 10, 9, 0.935);
@@ -1006,19 +424,90 @@ const totalMcmToggles = categories.reduce(
     line-height: 1;
   }
 
-  .overview-grid {
+  /* Jump links and search */
+  .features-toolbar {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+    gap: 0.9rem 1.2rem;
+    align-items: center;
+    padding: 1rem 1.2rem;
+  }
+
+  .section-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .section-links a {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(209, 154, 51, 0.3);
+    color: #e2c27f;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition:
+      border-color 160ms ease,
+      background 160ms ease;
+  }
+
+  .section-links a:hover {
+    border-color: rgba(209, 154, 51, 0.7);
+    background: rgba(209, 154, 51, 0.08);
+  }
+
+  .feature-search input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(209, 154, 51, 0.4);
+    background: rgba(0, 0, 0, 0.35);
+    color: #f4ede3;
+    font: inherit;
+    font-size: 0.95rem;
+  }
+
+  .feature-search input:focus {
+    outline: 2px solid rgba(209, 154, 51, 0.6);
+    outline-offset: 1px;
+  }
+
+  .search-empty {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: rgba(224, 213, 198, 0.8);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .category-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
-  .systems-panel,
-  .mcm-panel,
   .section-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
     padding: 1.35rem;
+    /* Room for the fixed top bar when a jump link scrolls here. */
+    scroll-margin-top: 8rem;
   }
 
-  .panel-heading,
+  .section-block[hidden],
+  .feature-card[hidden],
+  .resource-tables[hidden] {
+    display: none;
+  }
+
   .section-heading {
     display: flex;
     justify-content: space-between;
@@ -1026,100 +515,32 @@ const totalMcmToggles = categories.reduce(
     align-items: end;
   }
 
-  .panel-heading h2,
   .section-heading h2,
-  .systems-card h3,
-  .feature-card h3 {
+  .feature-card h3,
+  .resource-tables h3 {
     margin: 0;
     color: #f4ede3;
     font-family: 'Cinzel', 'Times New Roman', serif;
   }
 
-  .panel-heading h2,
   .section-heading h2 {
     font-size: 2rem;
     line-height: 1.04;
   }
 
-  .panel-copy,
   .section-copy,
-  .systems-card p,
-  .legend-row p,
   .feature-desc,
-  .feature-details li {
+  .feature-details li,
+  .table-note,
+  .page-sources {
     color: rgba(224, 213, 198, 0.8);
     line-height: 1.58;
   }
 
-  .panel-copy,
   .section-copy {
     margin: 0;
-    max-width: 32rem;
+    max-width: 34rem;
     text-align: right;
-  }
-
-  .systems-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.85rem;
-    margin-top: 1rem;
-  }
-
-  .systems-card {
-    display: grid;
-    gap: 0.45rem;
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-  }
-
-  .systems-card h3 {
-    font-size: 1.05rem;
-    line-height: 1.12;
-  }
-
-  .systems-card p {
-    margin: 0;
-    font-size: 0.88rem;
-  }
-
-  .mcm-legend {
-    display: grid;
-    gap: 0.9rem;
-    margin-top: 1rem;
-  }
-
-  .legend-row {
-    display: grid;
-    gap: 0.4rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .legend-row:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .legend-row p {
-    margin: 0;
-  }
-
-  .legend-stat {
-    color: #f4e5c3;
-    font-size: 1rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .category-stack {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .section-block {
-    display: grid;
-    gap: 1rem;
   }
 
   .features-grid {
@@ -1148,28 +569,20 @@ const totalMcmToggles = categories.reduce(
   }
 
   .status-badge {
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
     text-transform: uppercase;
     padding: 0.16rem 0.52rem;
     border-radius: 3px;
     letter-spacing: 0.5px;
     white-space: nowrap;
-  }
-
-  .status-badge.live {
-    background: rgba(76, 175, 80, 0.2);
-    color: #4caf50;
-  }
-
-  .status-badge.wip {
-    background: rgba(255, 167, 38, 0.2);
-    color: #ffa726;
+    background: rgba(209, 154, 51, 0.16);
+    color: #e7bd62;
   }
 
   .feature-desc {
     margin: 0 0 0.8rem;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
 
   .feature-details {
@@ -1179,7 +592,7 @@ const totalMcmToggles = categories.reduce(
   }
 
   .feature-details li {
-    font-size: 0.84rem;
+    font-size: 0.88rem;
     padding: 0.2rem 0 0.2rem 1.2rem;
     position: relative;
   }
@@ -1191,7 +604,13 @@ const totalMcmToggles = categories.reduce(
     left: 0.2rem;
   }
 
-  .mcm-toggles {
+  .feature-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .setting-chips {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -1201,33 +620,156 @@ const totalMcmToggles = categories.reduce(
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .mcm-label {
-    font-size: 0.66rem;
+  .setting-label {
+    font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.42);
+    color: rgba(255, 255, 255, 0.55);
     margin-right: 0.25rem;
   }
 
-  .mcm-toggle {
+  .setting-chip {
     display: inline-flex;
     align-items: center;
     min-height: 1.8rem;
     padding: 0.1rem 0.45rem;
     border-radius: 3px;
-    white-space: nowrap;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 600;
   }
 
-  .mcm-on {
+  .setting-on {
     background: rgba(76, 175, 80, 0.15);
-    color: #66bb6a;
+    color: #7cc97f;
   }
 
-  .mcm-off {
+  .setting-off {
     background: rgba(255, 167, 38, 0.12);
     color: #ffb74d;
+  }
+
+  .setting-value {
+    background: rgba(120, 160, 210, 0.14);
+    color: #a9c7ea;
+  }
+
+  /* Special resource tables */
+  .resource-tables {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .resource-tables h3 {
+    font-size: 1.25rem;
+    scroll-margin-top: 8rem;
+  }
+
+  .resource-tables h3:not(:first-child) {
+    margin-top: 0.8rem;
+  }
+
+  .table-note {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .table-note strong {
+    color: #f0e3c8;
+  }
+
+  .resource-wrapper {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
+    font-size: 0.86rem;
+  }
+
+  .resource-table th,
+  .resource-table td {
+    padding: 0.45rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .resource-table thead th {
+    position: sticky;
+    top: 0;
+    background: #17120e;
+    color: #e2c27f;
+    font-weight: 600;
+  }
+
+  .resource-table th[scope='row'],
+  .resource-table thead th:first-child,
+  .resource-table .realms,
+  .resource-table thead th:nth-child(2) {
+    text-align: left;
+  }
+
+  .resource-table th[scope='row'] {
+    color: #f4ede3;
+    font-weight: 600;
+  }
+
+  .resource-table td {
+    color: rgba(224, 213, 198, 0.85);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .resource-table .realms {
+    white-space: normal;
+    min-width: 9rem;
+  }
+
+  .resource-table tbody tr:hover {
+    background: rgba(209, 154, 51, 0.06);
+  }
+
+  .troop-group {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .troop-group summary {
+    cursor: pointer;
+    padding: 0.7rem 0.9rem;
+    color: #f4ede3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1rem;
+  }
+
+  .troop-group summary:hover {
+    background: rgba(209, 154, 51, 0.06);
+  }
+
+  .troop-count {
+    margin-left: 0.6rem;
+    color: rgba(214, 199, 176, 0.7);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.85rem;
+  }
+
+  .troop-group .resource-wrapper {
+    border-width: 1px 0 0;
+    border-radius: 0;
+  }
+
+  .page-sources {
+    margin: 0;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   @media (max-width: 1180px) {
@@ -1235,10 +777,8 @@ const totalMcmToggles = categories.reduce(
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .overview-grid,
-    .systems-grid,
     .features-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -1247,16 +787,18 @@ const totalMcmToggles = categories.reduce(
       padding-top: 1.8rem;
     }
 
-    .panel-heading,
     .section-heading {
       flex-direction: column;
       align-items: start;
     }
 
-    .panel-copy,
     .section-copy {
       max-width: none;
       text-align: left;
+    }
+
+    .features-toolbar {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -1269,8 +811,9 @@ const totalMcmToggles = categories.reduce(
       padding-inline: 0.4rem;
     }
 
-    .features-summary {
-      grid-template-columns: 1fr;
+    .section-block {
+      padding: 1rem;
+      scroll-margin-top: 6.5rem;
     }
   }
 </style>

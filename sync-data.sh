@@ -74,6 +74,14 @@ cp "$TAOM_DIR"/taom_spcultures.xml "$DATA_DIR/"
 cp "$TAOM_DIR"/taom_spkingdoms.xml "$DATA_DIR/" 2>/dev/null || true
 echo "  Copied custom definitions"
 
+# Special resources and the elite emissary (the tables on /mod-info/features)
+mkdir -p "$DATA_DIR/special-resources"
+for f in special_resources/special_resources_config.xml special_resources/troop_resource_costs.xml \
+  elite_emissary/elite_emissary_config.xml; do
+  cp "$TAOM_DIR/$f" "$DATA_DIR/special-resources/" 2>/dev/null || echo "  Warning: $f not found"
+done
+echo "  Copied special resource files"
+
 # --- LOTRLOME_Armory: armor, weapons, shields, horses, crafting pieces ---
 # Per-culture armor folders (arnor, dol_guldur, dunland, erebor, gondor, gundabad, harad,
 # iron_hills, isengard, mercenary, mirkwood, mordor, rhun, rivendell, rohan, thenn, troll, etc.)

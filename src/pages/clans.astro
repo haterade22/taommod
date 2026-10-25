@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseAllClans } from '../lib/parse-xml';
+import { srcsetFor } from '../lib/responsive-image';
 
 const clans = parseAllClans();
 
@@ -76,7 +77,15 @@ for (const [kingdom, entries] of sortedKingdoms) {
         <section class="clan-section">
           <h2>{kingdom}</h2>
           {KINGDOM_IMAGES[kingdom] && (
-            <img src={KINGDOM_IMAGES[kingdom]} alt={`${kingdom} clans`} class="clan-banner" />
+            <img
+              src={KINGDOM_IMAGES[kingdom]}
+              srcset={srcsetFor(KINGDOM_IMAGES[kingdom])}
+              sizes="(max-width: 890px) calc(100vw - 48px), 844px"
+              loading="lazy"
+              decoding="async"
+              alt={`${kingdom} clans`}
+              class="clan-banner"
+            />
           )}
           <ul>
             {entries.map((c) => (

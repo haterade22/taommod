@@ -2,7 +2,7 @@
 import CookieNotice from '../components/CookieNotice.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import Topbar from '../components/Topbar.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -14,6 +14,8 @@ interface Props {
   /** Link-preview image (site-relative path). Defaults to the TAOM logo banner (1024×576). */
   image?: string;
   noindex?: boolean;
+  /** Picture the page shows first from CSS (e.g. its hero background): loaded early so it appears sooner. */
+  preloadImage?: string;
   /** Site path of the main version of this page, when the same content is reachable under another address. */
   canonicalPath?: string;
 }
@@ -26,6 +28,7 @@ const {
   mainClass,
   image = '/images/og-banner.jpg',
   noindex = false,
+  preloadImage,
   canonicalPath,
 } = Astro.props;
 // Pages that hide this nav render the Topbar and their own <main>; a second <main> around it is invalid.
@@ -66,7 +69,8 @@ const imageUrl = new URL(image, Astro.site);
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <ViewTransitions />
+    {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
+    <ClientRouter />
     <!-- Without JavaScript there is no pager, so show every table row (global.css shows only the first rows until
          the pager has run). -->
     <noscript

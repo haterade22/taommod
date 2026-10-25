@@ -1,0 +1,76 @@
+---
+// The weaponry table's rows, written as compact HTML. This component has no <style>, so Astro adds no scoping class to
+// every cell; the row styles live in weaponry.astro's global block. Each row carries only what the page script needs:
+// data-culture (filter + row colour), data-category, data-class and data-stock (filters, raw values). The script builds
+// the search text from the name, culture, class and id cells.
+import { getCultureDisplayName } from '../lib/parse-xml';
+
+export interface WeaponRow {
+  id: string;
+  name: string;
+  culture: string;
+  type: string;
+  typeLabel: string;
+  weaponClass: string;
+  weaponClassLabel: string;
+  swingDamage: number;
+  swingDamageType: string;
+  estimatedSwingDamage: number;
+  thrustDamage: number;
+  thrustDamageType: string;
+  estimatedThrustDamage: number;
+  accuracy: number;
+  missileSpeed: number;
+  speed: number;
+  difficulty: number;
+  weaponLength: number;
+  weight: number;
+  bodyArmor: number;
+  hitPoints: number;
+  isMerchandise: boolean;
+}
+
+interface Props {
+  items: WeaponRow[];
+}
+
+const { items } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+/** A number cell; 0 shows empty and dimmed, like before. */
+const num = (value: number, extra = '') =>
+  `<td class="col-num${extra ? ` ${extra}` : ''}${value === 0 ? ' is-empty' : ''}">${value || ''}</td>`;
+
+const html = items
+  .map(
+    (w) =>
+      `<tr data-culture="${esc(w.culture)}" data-category="${esc(w.type)}" data-class="${esc(w.weaponClass)}" data-stock="${w.isMerchandise ? 'market' : 'locked'}">` +
+      `<td class="weapon-name-cell"><span class="weapon-name">${esc(w.name)}</span></td>` +
+      `<td>${esc(getCultureDisplayName(w.culture))}</td><td>${esc(w.typeLabel)}</td><td>${esc(w.weaponClassLabel)}</td>` +
+      num(w.swingDamage, 'section-start') +
+      `<td>${esc(w.swingDamageType)}</td>` +
+      num(w.estimatedSwingDamage, 'est-cell') +
+      num(w.thrustDamage) +
+      `<td>${esc(w.thrustDamageType)}</td>` +
+      num(w.estimatedThrustDamage, 'est-cell') +
+      num(w.accuracy, 'section-start') +
+      num(w.missileSpeed) +
+      num(w.speed) +
+      num(w.difficulty) +
+      num(w.weaponLength) +
+      num(w.weight) +
+      num(w.bodyArmor, 'section-start') +
+      num(w.hitPoints) +
+      `<td class="section-start"><span class="trade-badge${w.isMerchandise ? ' is-market' : ''}">${w.isMerchandise ? 'Market' : 'Locked'}</span></td>` +
+      `<td class="col-id">${esc(w.id)}</td></tr>`,
+  )
+  .join('');
+---
+
+<Fragment set:html={html} />

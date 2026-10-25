@@ -1,0 +1,15 @@
+---
+// Lord cards for a faction page's clan archive (the clan shown first). This component has no <style>, so Astro adds no
+// scoping class to every element. Markup comes from src/lib/lord-cards.ts, which the page script also uses to draw
+// the other clans' cards when they are opened, so both look exactly the same.
+import { renderLordCards, type LordCard } from '../lib/lord-cards';
+
+interface Props {
+  lords: LordCard[];
+}
+
+const { lords } = Astro.props;
+const html = renderLordCards(lords);
+---
+
+<Fragment set:html={html} />
