@@ -24,6 +24,8 @@ interface CardText {
 
 interface Card extends CardText {
   only?: Build;
+  /** In the development code but in no release yet: shown only in the Coming soon section. */
+  coming?: boolean;
   public?: Partial<CardText>;
 }
 
@@ -43,7 +45,11 @@ const sections = features.sections as Section[];
 
 /** One card as it reads in one build, or null when the build does not have it. */
 const cardIn = (card: Card, build: Build): CardText | null =>
-  card.only && card.only !== build ? null : build === 'public' && card.public ? { ...card, ...card.public } : card;
+  card.coming || (card.only && card.only !== build)
+    ? null
+    : build === 'public' && card.public
+      ? { ...card, ...card.public }
+      : card;
 
 /** The versions of a card to render: one when both builds read the same, else one per build. */
 const versionsOf = (card: Card): { build?: Build; text: CardText }[] =>
@@ -56,6 +62,9 @@ const versionsOf = (card: Card): { build?: Build; text: CardText }[] =>
 const featureCount = (build: Build) =>
   sections.reduce((sum, section) => sum + section.cards.filter((card) => cardIn(card, build)).length, 0);
 const supporterExtra = featureCount('supporter') - featureCount('public');
+const comingCards = sections.flatMap((section) =>
+  section.cards.filter((card) => card.coming).map((card) => ({ area: section.title, card })),
+);
 const tables = Object.fromEntries(BUILDS.map((build) => [build, parseSpecialResources(build)])) as Record<
   Build,
   ReturnType<typeof parseSpecialResources>
@@ -163,6 +172,13 @@ const date = (iso: string) =>
       <section class="features-toolbar" aria-label="Find a feature">
         <nav class="section-links" aria-label="Feature areas">
           {sections.map((section) => <a href={`#${section.id}`}>{section.title}</a>)}
+          {
+            comingCards.length > 0 && (
+              <a class="coming-link" href="#coming-soon">
+                Coming soon
+              </a>
+            )
+          }
         </nav>
         <label class="feature-search">
           <span class="visually-hidden">Search features</span>
@@ -181,44 +197,48 @@ const date = (iso: string) =>
               </div>
 
               <div class="features-grid">
-                {section.cards.flatMap((card) =>
-                  versionsOf(card).map(({ build, text }) => (
-                    <article class="feature-card" data-feature-card data-build-only={build}>
-                      <div class="feature-header">
-                        <h3>{text.title}</h3>
-                        {card.only === 'supporter' && <span class="status-badge supporter-badge">Supporter build</span>}
-                        {text.new && <span class="status-badge">New in {text.new}</span>}
-                      </div>
-
-                      <p class="feature-desc">{text.summary}</p>
-
-                      {text.points && text.points.length > 0 && (
-                        <ul class="feature-details">
-                          {text.points.map((point) => (
-                            <li>{point}</li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {text.link && (
-                        <a class="feature-link" href={text.link.href}>
-                          {text.link.label} →
-                        </a>
-                      )}
-
-                      {text.settings && text.settings.length > 0 && (
-                        <div class="setting-chips">
-                          <span class="setting-label">Mod Options</span>
-                          {text.settings.map((setting) => (
-                            <span class:list={['setting-chip', settingClass(setting.default)]}>
-                              {setting.name}: {setting.default}
-                            </span>
-                          ))}
+                {section.cards
+                  .filter((card) => !card.coming)
+                  .flatMap((card) =>
+                    versionsOf(card).map(({ build, text }) => (
+                      <article class="feature-card" data-feature-card data-build-only={build}>
+                        <div class="feature-header">
+                          <h3>{text.title}</h3>
+                          {card.only === 'supporter' && (
+                            <span class="status-badge supporter-badge">Supporter build</span>
+                          )}
+                          {text.new && <span class="status-badge">New in {text.new}</span>}
                         </div>
-                      )}
-                    </article>
-                  )),
-                )}
+
+                        <p class="feature-desc">{text.summary}</p>
+
+                        {text.points && text.points.length > 0 && (
+                          <ul class="feature-details">
+                            {text.points.map((point) => (
+                              <li>{point}</li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {text.link && (
+                          <a class="feature-link" href={text.link.href}>
+                            {text.link.label} →
+                          </a>
+                        )}
+
+                        {text.settings && text.settings.length > 0 && (
+                          <div class="setting-chips">
+                            <span class="setting-label">Mod Options</span>
+                            {text.settings.map((setting) => (
+                              <span class:list={['setting-chip', settingClass(setting.default)]}>
+                                {setting.name}: {setting.default}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </article>
+                    )),
+                  )}
               </div>
 
               {section.id === 'armies' &&
@@ -312,6 +332,42 @@ const date = (iso: string) =>
           ))
         }
       </div>
+
+      {
+        comingCards.length > 0 && (
+          <section class="section-block coming-block" id="coming-soon" data-feature-section>
+            <div class="section-heading">
+              <div>
+                <p class="coming-kicker">In development</p>
+                <h2>Coming soon</h2>
+              </div>
+              <p class="section-copy">
+                Already in the team's code but not in any release yet, so neither build has these. They are expected in
+                the next supporter release, then later in the public build. Details can still change.
+              </p>
+            </div>
+            <div class="features-grid">
+              {comingCards.map(({ area, card }) => (
+                <article class="feature-card coming-card" data-feature-card>
+                  <div class="feature-header">
+                    <h3>{card.title}</h3>
+                    <span class="status-badge coming-badge">Coming soon</span>
+                  </div>
+                  <p class="coming-area">{area}</p>
+                  <p class="feature-desc">{card.summary}</p>
+                  {card.points && card.points.length > 0 && (
+                    <ul class="feature-details">
+                      {card.points.map((point) => (
+                        <li>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        )
+      }
 
       <p class="page-sources">
         Written from TAOM's source code, its in-game settings and the team's feature posts on Discord. Something wrong
@@ -671,6 +727,43 @@ const date = (iso: string) =>
     .build-option {
       padding-inline: 0.6rem;
     }
+  }
+  /* Coming soon: dashed frame and its own colour so it never reads as a released feature. */
+  .coming-block {
+    border-style: dashed;
+    border-color: rgba(190, 140, 220, 0.55);
+    background: rgba(16, 11, 18, 0.935);
+  }
+
+  .coming-kicker {
+    margin: 0 0 0.3rem;
+    color: #c9a3e3;
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .coming-card {
+    border-style: dashed;
+    border-color: rgba(190, 140, 220, 0.3);
+  }
+
+  .coming-badge {
+    background: rgba(190, 140, 220, 0.16);
+    color: #d3b0ec;
+  }
+
+  .coming-area {
+    margin: -0.35rem 0 0.6rem;
+    color: rgba(214, 199, 176, 0.62);
+    font-size: 0.82rem;
+  }
+
+  .section-links .coming-link {
+    border-style: dashed;
+    border-color: rgba(190, 140, 220, 0.55);
+    color: #d3b0ec;
   }
   .category-stack {
     display: grid;
