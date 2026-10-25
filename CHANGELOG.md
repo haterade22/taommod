@@ -7,6 +7,7 @@ or mod data, patches (2.5.1) are small fixes.
 
 - Troops and Weaponry pages about 35–40% smaller, faction pages up to 75% smaller, so they open faster. They look and work the same.
 - The gallery shows its first pictures sooner; Clans page banners are lighter on phones.
+- Pages start loading when you hover over a link, so clicks feel instant.
 
 ## [3.6.0] — 25 Oct 2026 — Faster on phones
 
