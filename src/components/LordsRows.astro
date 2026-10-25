@@ -2,7 +2,7 @@
 // The lords table's ~1600 rows, written as compact HTML. This component has no <style>, so Astro adds no scoping
 // class to every cell. Column looks (numbers, dividers, clan, family) come from the cell's position, set in
 // lords.astro's global style block. Each row carries only what the page script needs: data-culture (filter + row
-// colour), data-kingdom (filter), data-id and data-bio (search + biography). Name, gender and marriage the script
+// colour), data-kingdom (filter), data-id (search; biographies are loaded separately from /lords-bios.json). Name, gender and marriage the script
 // reads from the cells.
 
 export interface LordRow {
@@ -43,7 +43,6 @@ const html = lords
   .map(
     (lord) =>
       `<tr data-culture="${esc(lord.culture)}" data-kingdom="${esc(lord.kingdom)}" data-id="${esc(lord.id)}"` +
-      (lord.biography ? ` data-bio="${esc(lord.biography)}"` : '') +
       '>' +
       `<td class="lord-name-cell"><span class="lord-name">${esc(lord.name)}</span>` +
       (lord.alive ? '' : '<span class="dead-badge">Dead</span>') +

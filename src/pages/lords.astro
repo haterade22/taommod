@@ -2,9 +2,10 @@
 import LordsRows from '../components/LordsRows.astro';
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { parseAllLords, getCultureDisplayName, isHiddenCulture, parseKingdomsFromXslt } from '../lib/parse-xml';
+import { formatMetaLabel, sortTableLords, visibleLords } from '../lib/lords-table';
+import { getCultureDisplayName, parseKingdomsFromXslt } from '../lib/parse-xml';
 
-const allLords = parseAllLords().filter((l) => !isHiddenCulture(l.culture));
+const allLords = visibleLords();
 const kingdomsData = parseKingdomsFromXslt();
 
 function normalizeColor(value: string): string | null {
@@ -24,14 +25,6 @@ function hexToRgb(hex: string): string {
   return `${red}, ${green}, ${blue}`;
 }
 
-function formatMetaLabel(value: string): string {
-  return value
-    .replace(/^clan_/, '')
-    .replace(/^kingdom_/, '')
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
 const lordNameMap = new Map<string, string>();
 for (const lord of allLords) lordNameMap.set(lord.id, lord.name);
 
@@ -39,17 +32,8 @@ function lookupName(id: string): string {
   return lordNameMap.get(id) || formatMetaLabel(id);
 }
 
-allLords.sort((a, b) => {
-  const cultureA = getCultureDisplayName(a.culture);
-  const cultureB = getCultureDisplayName(b.culture);
-  if (cultureA !== cultureB) return cultureA.localeCompare(cultureB);
-
-  const clanA = formatMetaLabel(a.clan || '');
-  const clanB = formatMetaLabel(b.clan || '');
-  if (clanA !== clanB) return clanA.localeCompare(clanB);
-
-  return a.name.localeCompare(b.name);
-});
+// Same order as /lords-bios.json (src/lib/lords-table.ts), which the page script matches rows against.
+sortTableLords(allLords);
 
 const cultures = [...new Set(allLords.map((l) => l.culture).filter(Boolean))].sort();
 const kingdomOptions = [...new Set(allLords.map((l) => l.kingdom).filter(Boolean))].sort((a, b) =>
@@ -418,21 +402,53 @@ const headerCols = [
       row,
       name: (row.querySelector('.lord-name')?.textContent || '').toLowerCase(),
       id: (row.dataset.id || '').toLowerCase(),
-      bio: (row.dataset.bio || '').toLowerCase(),
+      bio: '',
+      biography: '',
       culture: row.dataset.culture || '',
       kingdom: row.dataset.kingdom || '',
       gender: (row.cells[2]?.textContent || '').trim().toLowerCase(),
       married: row.cells[32]?.textContent?.trim() ? 'married' : 'single',
     }));
 
+    // Biographies are not in the page (they were half of its download); they come from /lords-bios.json, in the
+    // table's row order with each row's id for a check. Loaded when the browser is idle, or at once on the first search
+    // or row click. Until then, search matches names and ids, and runs again when the biographies arrive.
+    const w = window as Window & { __taomLordBios?: Promise<{ ids: string[]; bios: string[] } | null> };
+    let biosApplied = false;
+    function loadBiographies() {
+      w.__taomLordBios ??= fetch('/lords-bios.json')
+        .then((response) => (response.ok ? response.json() : null))
+        .catch(() => null);
+      return w.__taomLordBios.then((data) => {
+        if (!data || biosApplied) return;
+        biosApplied = true;
+        const sameOrder =
+          data.ids.length === rowInfo.length && rowInfo.every((info, i) => data.ids[i].toLowerCase() === info.id);
+        // Fallback if the rows ever stop lining up: match by id (first biography for that id).
+        const byId = new Map<string, string>();
+        if (!sameOrder)
+          data.ids.forEach((id, i) => !byId.has(id.toLowerCase()) && byId.set(id.toLowerCase(), data.bios[i]));
+        rowInfo.forEach((info, i) => {
+          info.biography = (sameOrder ? data.bios[i] : byId.get(info.id)) || '';
+          info.bio = info.biography.toLowerCase();
+        });
+        if (searchInput.value) filterRows();
+      });
+    }
+    const infoByRow = new Map(rowInfo.map((info) => [info.row, info]));
+    if ('requestIdleCallback' in window) window.requestIdleCallback(() => loadBiographies(), { timeout: 2000 });
+    else setTimeout(loadBiographies, 1200);
+    searchInput.addEventListener('focus', () => loadBiographies(), { once: true });
+
     function attachBioHandlers() {
       // One listener for the whole table instead of one per row.
       if (tableBody.dataset.bioBound === 'true') return;
       tableBody.dataset.bioBound = 'true';
-      tableBody.addEventListener('click', (event) => {
+      tableBody.addEventListener('click', async (event) => {
         const row = (event.target as Element | null)?.closest('tr');
         if (!row || row.classList.contains('bio-row') || !tableBody.contains(row)) return;
-        const bio = row.dataset.bio;
+        await loadBiographies();
+        const bio = infoByRow.get(row as HTMLTableRowElement)?.biography;
         const existing = row.nextElementSibling;
         if (existing?.classList.contains('bio-row')) {
           existing.remove();
