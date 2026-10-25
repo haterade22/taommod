@@ -3,6 +3,12 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.8.0] — 25 Oct 2026 — New Features page, shorter top bar
+
+- The Features page is rewritten for TAOM v2.0.35: 59 features in 10 areas, from the War of the Ring and careers to enlistment, creatures and co-op, each with its Mod Options defaults. It has a search box and jump links.
+- New tables of every realm's special resource and the elite troops it buys, taken straight from the mod's files.
+- Features is now in the top bar. Community, Troubleshooting and Credits moved to the footer (Community also keeps its button beside the menu); the Download page links to Troubleshooting.
+
 ## [3.7.0] — 25 Oct 2026 — Lighter data pages
 
 - Troops and Weaponry pages about 35–40% smaller, faction pages up to 75% smaller, so they open faster. They look and work the same.

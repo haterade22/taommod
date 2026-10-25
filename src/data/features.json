@@ -1,0 +1,679 @@
+{
+  "updatedAt": "2026-10-25",
+  "modVersion": "v2.0.35",
+  "modOptionsCount": "400+",
+  "careerCount": 76,
+  "languageCount": 13,
+  "sections": [
+    {
+      "id": "war-of-the-ring",
+      "title": "The War of the Ring",
+      "intro": "A scripted war between the Free Peoples and the Shadow that grows across the campaign, with its own score, events and hunters.",
+      "cards": [
+        {
+          "title": "The War Begins",
+          "summary": "Middle-earth starts at peace and slides into the War of the Ring on a set timetable. No kingdom starts other wars before it.",
+          "points": [
+            "Day 30: Isengard and Dunland attack Rohan",
+            "Day 44: every hostile kingdom goes to war, and the two sides can no longer make peace",
+            "Both start days can be changed in Mod Options"
+          ],
+          "settings": [
+            { "name": "Enable War of the Ring", "default": "On" },
+            { "name": "Phase 1 Start Day", "default": "30" },
+            { "name": "Phase 2 Start Day", "default": "44" }
+          ]
+        },
+        {
+          "title": "War Momentum",
+          "summary": "Battles, sieges, raids, armies and overall strength move a Good-versus-Evil score, shown as a slider on the campaign map. Click it for the full breakdown.",
+          "points": [
+            "Events you take part in count 1.5 times as much",
+            "The war is endless by default: momentum is tracked, but nobody wins",
+            "Turn on Victory and a side wins at a 500-point lead, after you have fought in at least 5 momentum events"
+          ],
+          "settings": [
+            { "name": "Enable Momentum Tracking", "default": "On" },
+            { "name": "Enable Victory (End the War)", "default": "Off" }
+          ]
+        },
+        {
+          "title": "The Eye of Sauron",
+          "new": "v2.0.34",
+          "summary": "Great deeds against the enemy draw a hunter after you. A Free player is hunted by one of the Nine with a host of Mordor (or of Dol Guldur). A player of the Shadow is hunted by Glorfindel with a host of the Eldar.",
+          "points": [
+            "Deeds score points: a field victory, raid or forced levy 1, a sally or battle outside a siege 2, a siege assault 3",
+            "At 10 points a hunt begins; points halve every 30 days",
+            "The hunter's host is filled to 1.3 times your strength (up to 250 men) and moves faster than you once it is close",
+            "A hunt lasts up to 20 days, then there is a 60-day rest before the next"
+          ],
+          "settings": [{ "name": "Enable the Hunt", "default": "On" }]
+        },
+        {
+          "title": "The War Chronicle",
+          "new": "v2.0.34",
+          "summary": "Lore events of the War of the Ring happen at set points. The great sieges (Helm's Deep, Osgiliath, Minas Tirith and others) open as timed windows, and their outcome gives both sides small, temporary effects.",
+          "points": [
+            "A popup on the campaign map announces each event and siege",
+            "During a siege window, armies are more eager to attack or defend that place"
+          ],
+          "settings": [
+            { "name": "Enable Chronicle", "default": "On" },
+            { "name": "Show Announcements", "default": "On" }
+          ]
+        },
+        {
+          "title": "Rally",
+          "new": "v2.0.34",
+          "summary": "A kingdom that has lost a large share of its towns and castles gets a small, temporary boost so the war does not end in a one-sided collapse.",
+          "points": [
+            "Its towns, castles and villages fill recruit slots faster and promote waiting recruits sooner",
+            "Its captured lords escape faster",
+            "War Effect Strength scales every catch-up effect (0 turns them off)"
+          ],
+          "settings": [{ "name": "Enable Rally", "default": "On" }]
+        },
+        {
+          "title": "Fire and Tribute",
+          "summary": "Once the war is in full swing, raiding hosts ride out of their homelands to burn the villages of the other side.",
+          "points": [
+            "Shadow: the hosts of Gundabad, Rhûn, Harad and Dunland, and the Blacklocks of Erebor",
+            "Free Peoples: the outlaw bands of Gondor and Mirkwood",
+            "Neutral: the Corsair Host of Umbar rides against either side",
+            "If your clan owns villages, a host sends an envoy asking for gold; the price grows with each envoy you seize"
+          ],
+          "settings": [
+            { "name": "Enable Fire and Tribute", "default": "On" },
+            { "name": "Tribute Envoys", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "strategy",
+      "title": "Strategy, AI and Alignment",
+      "intro": "AI kingdoms that follow a plan, and a world split between the Free Peoples and the Shadow.",
+      "cards": [
+        {
+          "title": "AI Strategic Intelligence",
+          "summary": "In the base game an army re-scores every target every 3 hours and abandons its march the moment another town scores slightly higher. TAOM gives armies a plan.",
+          "points": [
+            "Commitment: once an army picks a siege target, another target must score 4 times better before it turns away",
+            "Priority lists: each major realm pushes toward its lore objectives in order, such as Mordor to East Osgiliath, West Osgiliath, Minas Tirith, then Pelargir, or Isengard to Helm's Deep, then Edoras",
+            "Aggression: evil realms besiege at even strength instead of waiting for a 2-to-1 advantage",
+            "Reach: far-off priority targets stay on the table on TAOM's large map",
+            "War theaters: kingdoms favour enemies on their own front (Gondor prefers Mordor and Isengard over far northern targets)",
+            "Home defence counts more, and Free armies hold a captured fort for about a day instead of leaving at once"
+          ],
+          "settings": [
+            { "name": "Enable AI Strategic Intelligence", "default": "On" },
+            { "name": "Commitment Multiplier", "default": "4.0" },
+            { "name": "Enable War Theaters", "default": "On" }
+          ]
+        },
+        {
+          "title": "Free Peoples and the Shadow",
+          "summary": "Every realm and culture is Free, Evil or Neutral, and that line shapes who fights, marries and serves together.",
+          "points": [
+            "No recruiting volunteers in a settlement held by the other side",
+            "No marriages across the line; Neutral cultures (Khand, Umbar, Shaghâna, Âbanissa) marry anyone",
+            "Wanderers will not serve a player from the other side",
+            "Troops of the other side desert a party or garrison, half of each type per day",
+            "Recruiting prisoners of your own side costs no morale",
+            "Free and Evil tournaments do not seat each other's fighters"
+          ],
+          "settings": [
+            { "name": "Enable Recruitment Alignment Block", "default": "On" },
+            { "name": "Enable Marriage Alignment Block", "default": "On" },
+            { "name": "Enable Alignment Desertion", "default": "On" }
+          ]
+        },
+        {
+          "title": "Fair Fief Grants",
+          "summary": "Captured towns and castles go to the clans that fought for them, not automatically to the king's own clan.",
+          "points": [
+            "The clan that carried the assault gets 2.5 times the claim; clans that were absent get half",
+            "Landless clans are favoured, and each fief a clan already holds weakens its next claim",
+            "Clans of the settlement's culture are favoured, so an orc clan rarely ends up holding an elven city",
+            "A king holding more than a third of the realm's fiefs can no longer overrule the council"
+          ],
+          "settings": [{ "name": "Enable Fief Grant Rebalance", "default": "On" }]
+        },
+        {
+          "title": "Lords Hold Their Hosts",
+          "summary": "AI lords keep the large armies they spawn with instead of being trimmed back to the base game's 50 to 150 men within a day.",
+          "points": [
+            "Optional multipliers for lord parties and garrisons (neutral by default)",
+            "Optional food and wage relief for very large AI parties"
+          ],
+          "settings": [{ "name": "Enable AI Party Scaling", "default": "On" }]
+        },
+        {
+          "title": "Sieges and Marches",
+          "summary": "Smaller campaign rules that make sieges and movement feel like war.",
+          "points": [
+            "Lords stop fleeing a siege when they are at least half as strong as the whole siege camp",
+            "An enemy castle or town with 30 or more troops harasses lords marching close to its walls, slowing them",
+            "You can call parties into your army while you lead a siege",
+            "When a watched realm's settlement is besieged, you get 3 days to ride to its defence"
+          ],
+          "settings": [
+            { "name": "Lords stop fleeing sieges", "default": "On" },
+            { "name": "Enable Watchful Holds", "default": "On" },
+            { "name": "Enable Siege Defense Events", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "your-path",
+      "title": "Your Path",
+      "intro": "Who you are in Middle-earth: a career, a soldier in someone else's host, or a lord who already rules.",
+      "cards": [
+        {
+          "title": "Careers",
+          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 76 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
+          "points": [
+            "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
+            "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
+            "A three-tier choice tree; tiers open with your level",
+            "Lore rank titles, such as Ithilien Scout, Ranger of Ithilien, then Captain of the White Company",
+            "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion"
+          ]
+        },
+        {
+          "title": "Career Quests",
+          "summary": "A career tier can come with a quest. Finishing it opens that tier of your choice tree early and gives a reward. Questing is a shortcut, never a blocker: levelling still opens every tier.",
+          "points": [
+            "Objectives: win battles or tournaments, capture settlements, defeat lords, visit places, reach skill, renown or gold goals",
+            "Rewards: an early tier, renown, influence or an item",
+            "Quests are offered as a prompt; turn one down and it will not ask again",
+            "More careers are getting quests over time"
+          ]
+        },
+        {
+          "title": "Enlistment",
+          "summary": "Swear an oath to a lord and serve in his column as a common soldier. Your own party marches with you, out of sight, and is handed back when your service ends.",
+          "points": [
+            "A term of 365 days; wages of 5, 8, 14 and 22 a day by rank, paid from the lord's own purse",
+            "Climb from Recruit to Soldier, Veteran and Sergeant",
+            "Choose infantry, archer, cavalry or support; each battle is scored 0 to 100 on how well you fought that role",
+            "13 field duties, 11 camp duties and 3 camp incidents, offered by what the column is doing",
+            "Draw your own realm's service kit from the quartermaster at each rank",
+            "Leave with honour after your term; desert early and you lose your back pay"
+          ],
+          "settings": [{ "name": "Enable Enlistment", "default": "On" }]
+        },
+        {
+          "title": "Battlefield Promotions",
+          "summary": "Soldiers who do the killing in a hard fight can be raised into named companions, keeping the gear they fought in and skills that fit their level.",
+          "points": [
+            "Only battles where you were not heavily outnumbering the enemy count",
+            "Each kill banks merit for that troop type; at 32 merit a promotion is offered",
+            "Name them, or keep the name they carried into battle",
+            "Only humans, dwarves and elves can be promoted; your companion limit is respected",
+            "Paused while you are enlisted"
+          ],
+          "settings": [
+            { "name": "Enable Battlefield Promotions", "default": "On" },
+            { "name": "Merit To Promote", "default": "32" }
+          ]
+        },
+        {
+          "title": "Play as an Existing Lord",
+          "new": "v2.0.32",
+          "summary": "At character creation, pick a lord of your culture and play the campaign as him: his face, gear, skills, clan, fiefs and kingdom, and his throne if he has one.",
+          "points": [
+            "Lists the ruling house, the clan leaders and the wanderers of your culture",
+            "Click a lord to preview him; click again to get your own character back",
+            "A wanderer joins your own named clan instead, under the banner you designed",
+            "The backstory questions are skipped; your career choice carries over",
+            "Sauron and the Nazgûl can be unlocked, but a player-controlled dark lord can be captured"
+          ],
+          "settings": [
+            { "name": "Enable Player Switcher", "default": "On" },
+            { "name": "Allow Sauron and the Nazgul", "default": "Off" }
+          ]
+        },
+        {
+          "title": "Themed Character Creation",
+          "summary": "Kysaro's faction screen with painted portraits, a map and a hero picker, plus reskinned face, backstory, banner, naming and options screens.",
+          "points": ["Each screen can be switched back to the base game's look in Mod Options"],
+          "settings": [{ "name": "Themed Faction & Hero Picker", "default": "On" }]
+        }
+      ]
+    },
+    {
+      "id": "armies",
+      "title": "Armies and Recruitment",
+      "intro": "Elite troops cost more than gold, and armies grow out of the land they hold.",
+      "cards": [
+        {
+          "title": "Troop Weight",
+          "summary": "In the base game every soldier takes one party slot. In TAOM powerful units take more, so you cannot field an army of nothing but legends. Evil realms lean on numbers, good realms on quality.",
+          "points": [
+            "Elites take 2 slots, the highest elites (level 41 and up) 3",
+            "Warg riders 2, cave trolls 4, mûmakil 10",
+            "Your party count shows the weighted total everywhere you see it",
+            "AI lords obey the same limit and shed their weakest troops when they upgrade",
+            "Weight limits how many elites you field, not how well they fight"
+          ],
+          "settings": [{ "name": "Enable Troop Weight", "default": "On" }]
+        },
+        {
+          "title": "Special Resources",
+          "summary": "Every realm has a second war currency next to gold and influence, needed to field and keep its elite troops. Realms in the same group share one balance.",
+          "points": [
+            "Earned from battles, raids, sieges, prisoners, tournaments, hideouts and a little every day per town; each realm earns in its own way",
+            "Spent to buy elites, to upgrade into them, and as daily upkeep",
+            "At 0, a tenth of each upkeep troop type deserts per day (with a warning a day ahead)",
+            "Your balance and a breakdown are on the map bar",
+            "The full tables are below"
+          ]
+        },
+        {
+          "title": "The Elite Emissary",
+          "summary": "At each realm's capital, an emissary sells that realm's elite troops for its special resource. Conquer the capital and the offer changes to the new owner's troops.",
+          "points": ["The towns and prices are in the tables below"],
+          "settings": [{ "name": "Enable Elite Emissary", "default": "On" }]
+        },
+        {
+          "title": "Castle Recruitment",
+          "summary": "Castles get three notables with volunteers, so you can recruit at any castle you can enter. AI lords recruit there too.",
+          "settings": [
+            { "name": "Enable Castle Recruitment", "default": "On" },
+            { "name": "Notables Per Castle", "default": "3" }
+          ]
+        },
+        {
+          "title": "Culture Conversion",
+          "summary": "A conquered town or castle, with its villages, takes on the new owner's culture: its troops, militia and identity.",
+          "points": [
+            "Converts one day after capture by default",
+            "Notables are replaced by ones of the new culture (a Mordor-held Gondor town gets orc notables)",
+            "The garrison is re-manned with the new culture's troops of the same tier and role",
+            "Your own hand-picked garrisons can be left alone"
+          ],
+          "settings": [{ "name": "Enable Culture Conversion", "default": "On" }]
+        },
+        {
+          "title": "Supply Lines",
+          "summary": "Order supply convoys from a town, castle or friendly lord: goods from real market stock and troops from volunteers, delivered to you on the map.",
+          "points": ["A small markup and a delivery fee by distance", "Hire a mercenary escort for dangerous roads"],
+          "settings": [{ "name": "Enable Supply Lines", "default": "On" }]
+        },
+        {
+          "title": "Armour Acquisition",
+          "summary": "Light and medium armour is easy to find. Heavy, elite and lord armour is sold only where a town's armoury (its Barracks) is high enough.",
+          "points": [
+            "Lord kit can be forged there or earned piece by piece",
+            "Beating an enemy lord can rarely drop his household's harness",
+            "Now and then a master armourer visits a town for a week and raises its armoury"
+          ],
+          "settings": [{ "name": "Enable Armour Acquisition", "default": "On" }]
+        },
+        {
+          "title": "Quartermaster Orders",
+          "summary": "Name a companion Quartermaster and give standing orders: buy food in markets, slaughter livestock when stores run low, and raise spirits with pay or drink.",
+          "points": ["The food order never spends the gold needed for your next 3 days of wages"],
+          "settings": [{ "name": "Enable Provender-master", "default": "On" }]
+        },
+        {
+          "title": "Camps and Refuges",
+          "summary": "Pitch field or fortified camps on the campaign map for morale and foraging, or set ambushes and lookouts. Raise a camp into a refuge: a lasting base with a garrison and stores.",
+          "points": [
+            "Up to 3 refuges, depending on clan tier; upgrade one into a stronghold",
+            "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack"
+          ],
+          "settings": [
+            { "name": "Enable Field Camps", "default": "On" },
+            { "name": "Enable Refuges", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "battle",
+      "title": "Battle",
+      "intro": "Each race and culture fights its own way, and big creatures hit like big creatures.",
+      "cards": [
+        {
+          "title": "Combat Mechanics",
+          "summary": "A pack of combat rules that make weight, skill and size matter.",
+          "points": [
+            "A much more skilled fighter can crush through a block with a strong swing",
+            "Troll, mûmak, elephant and giant spider attacks can only be blocked with a shield",
+            "Orc and Uruk swings can break through shield blocks, so turtling against a horde is no longer safe",
+            "Troll and mûmak swings cleave through several soldiers; big creatures shrug off small hits",
+            "Charges knock down by weight: a mûmak bowls over infantry, a horse cannot floor a troll, dwarves stand their ground",
+            "Cavalry charge damage by culture: elves 1.6×, Rohan 1.5×, Rhûn 1.4×, Gondor 1.3×, Dale and the orc realms 1.2×",
+            "A shield bash or kick can knock a man down"
+          ],
+          "settings": [{ "name": "Enable Combat Mechanics", "default": "On" }]
+        },
+        {
+          "title": "Race Abilities",
+          "new": "v2.0.32",
+          "summary": "AI soldiers use a battle ability of their race (or, for men, their culture) when the moment comes, and nearby kin join in.",
+          "points": [
+            "Berserkers go berserk when hurt; Uruk-hai fall into bloodlust on a kill; dwarves stand fast",
+            "War cries in each race's own voice",
+            "Coloured outlines show an active ability: red for fury, steel blue for a guard, violet for dread"
+          ],
+          "settings": [{ "name": "Enable Race Abilities", "default": "On" }]
+        },
+        {
+          "title": "Culture Battle Styles",
+          "summary": "Each culture holds under fear and fights in melee its own way.",
+          "points": [
+            "Dwarves, Elves, Isengard, Gundabad and Dol Guldur never rout",
+            "Orcs attack on sight and rarely cover; Dwarves and Gondor raise shields and hold; Elves shoot straighter; Rohan commits to a charge from further out",
+            "Outnumbered against horse, Dwarves, Isengard and Dale find ground cavalry cannot ride over",
+            "Optional culture doctrines for whole battles (off by default): Dwarves hold a shield wall on high ground, Elves ring their archers with infantry, Rohan leads with cavalry"
+          ],
+          "settings": [
+            { "name": "Culture Morale", "default": "On" },
+            { "name": "Culture Aggression", "default": "On" },
+            { "name": "Enable Culture Doctrine", "default": "Off" }
+          ]
+        },
+        {
+          "title": "Sauron and the Nine",
+          "summary": "The dark lords fight like no one else on the field.",
+          "points": [
+            "Aura of Dread: enemy troops near a Nazgûl or Sauron lose morale and break sooner (the aura alone never routs anyone)",
+            "Signature strikes: Sauron's overhead Slam floors the target and knocks down everyone around it; the Nine have a Scream",
+            "Sauron and the Nazgûl cannot be captured: beaten, they flee and return with a new army within days"
+          ],
+          "settings": [
+            { "name": "Enable Aura of Dread", "default": "On" },
+            { "name": "Signature Strikes", "default": "On" }
+          ]
+        },
+        {
+          "title": "Fell Foes",
+          "summary": "Small changes that make the end of a battle less tidy.",
+          "points": [
+            "A cornered enemy who has just been hit turns and fights instead of running",
+            "Idle enemy archers in range may pick you as their target",
+            "When only a few enemy stragglers are left, they leave the field so the battle ends and they can be taken prisoner"
+          ]
+        },
+        {
+          "title": "Sieges",
+          "new": "v2.0.34",
+          "summary": "Choose who fights before a wall battle, and creatures that make sense in a siege.",
+          "points": [
+            "Before an assault or a defence, pick your troops on the Manage Troops screen; trolls start unticked",
+            "Trolls stay off ladders and towers: attacking trolls break the gate, defending trolls hold the ground behind it",
+            "Your horse goes to your inventory for a siege and comes back afterwards",
+            "A Postern Gate building cuts the troops lost breaking into or out of a siege"
+          ],
+          "settings": [
+            { "name": "Choose Troops Before Wall Battles", "default": "On" },
+            { "name": "Enable Siege Dismount", "default": "On" }
+          ]
+        },
+        {
+          "title": "Mixed Formations",
+          "summary": "Formations with both melee and ranged troops arrange themselves: infantry in front and archers behind by default.",
+          "points": [
+            "Press L to cycle a formation through four layouts: infantry front, ranged front, ranged on the wings, or checkerboard"
+          ],
+          "settings": [{ "name": "Enable Mixed Formations", "default": "On" }]
+        },
+        {
+          "title": "Fairer Auto-Resolve",
+          "summary": "Auto-resolved battles know about TAOM's tier 7 to 10 troops, and each culture has its own survival rate.",
+          "points": [
+            "Wounded survive more often in Gondor (+30%) and Lothlórien (+50%) armies, and less often in Mordor's (-20%)"
+          ],
+          "settings": [
+            { "name": "Enable Custom Troop Power", "default": "On" },
+            { "name": "Enable Cultural Survival Bonuses", "default": "On" }
+          ]
+        },
+        {
+          "title": "Smoother Big Battles",
+          "summary": "Fallen soldiers fade after a minute and a battle keeps at most 25 bodies; dead mounts are removed after 5 seconds. This keeps big battles, cavalry battles above all, running smoothly.",
+          "points": ["On the first start, the game offers to lower your ragdoll and corpse settings if they are high"],
+          "settings": [
+            { "name": "Clean Up Battle Corpses", "default": "On" },
+            { "name": "Despawn Dead Mounts", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creatures",
+      "title": "Creatures",
+      "intro": "TAOM's beasts are not ridden horses: each runs its own small AI that decides, many times a second, what to do next.",
+      "cards": [
+        {
+          "title": "Wargs",
+          "summary": "Warg mounts of Gundabad, Dol Guldur and Isengard attack nearby enemies on their own with their bite, without any rider input.",
+          "points": [
+            "Hurt badly enough, a warg flies into a rage and takes over from its rider to go after whatever wounded it"
+          ]
+        },
+        {
+          "title": "Giant Spiders",
+          "summary": "The Dol Guldur spider picks its strike by where its target stands: a pounce straight ahead, or a leg swipe to the left or right. Its bites are deadly and can crit.",
+          "points": ["Spider Riders can climb to brown and pale spiders on the party screen"]
+        },
+        {
+          "title": "War Elephants and Mûmakil",
+          "summary": "Harad's elephant tramples what is in front of it and swings its tusks at enemies to the side. Riders fight from a howdah on its back, and the mûmak carries a war tower.",
+          "points": [
+            "A mûmak takes 10 party slots and costs War Drums to buy and to feed",
+            "Both are bought from the emissary at Korb Taskral"
+          ]
+        },
+        {
+          "title": "Trolls",
+          "summary": "Cave and hill trolls tower over the field, shrug off small hits and cleave through lines.",
+          "points": [
+            "They cost their realm's special resource to recruit from prisoners and to keep",
+            "In sieges they break gates instead of climbing ladders"
+          ]
+        },
+        {
+          "title": "Wild Creatures",
+          "new": "v2.0.32",
+          "summary": "Spider broods spawn around Mirkwood and Dol Guldur, and wild troll bands of two to four roam near every kingdom's lands. Trolls are never taken prisoner or recruited.",
+          "settings": [
+            { "name": "Spawn Spider Broods", "default": "On" },
+            { "name": "Spawn Troll Bands", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lords",
+      "title": "Lords and Relations",
+      "intro": "Friendships are earned in the field and kept with the person, not the clan.",
+      "cards": [
+        {
+          "title": "Personal Relations",
+          "summary": "Your relation with a lord stays with that lord instead of passing to his clan leader. A friendship with Faramir is not a friendship with Denethor.",
+          "points": ["Paying influence to disband another lord's army costs you relation with its leader"]
+        },
+        {
+          "title": "Bonds of Battle",
+          "summary": "Relation is earned on campaign: fighting beside a lord, clearing bandits near a settlement, handing a lord troops, and overpaying in a barter."
+        },
+        {
+          "title": "Tokens of Esteem",
+          "summary": "Say \"I have a gift for you\" to a companion or a lord and give goods from your inventory, or a purse of gold to a companion, to win relation.",
+          "points": [
+            "The same hero takes no other gift for a while",
+            "Lords of the Free realms refuse gifts from a player of the Shadow"
+          ]
+        },
+        {
+          "title": "Good Deeds and Long Memory",
+          "summary": "Releasing a captured lord, handing a hero prisoner to a settlement and winning a tournament earn relation. Raiding a village or forcing it to give goods costs relation with its owner and notables.",
+          "points": [
+            "Rewards and costs depend on whose side each person is on",
+            "Handing a Mordor captive to Minas Tirith is worth double; raiding the enemy's villages is expected and costs little"
+          ]
+        },
+        {
+          "title": "Captured Lords",
+          "summary": "A lord held in your party or dungeon can be questioned about his realm's lands, for a bribe or by force, and stripped of his gear. Or ask him to swear to your kingdom instead of being ransomed.",
+          "settings": [
+            { "name": "Enable Hard Questions", "default": "On" },
+            { "name": "Enable Sworn Anew", "default": "On" }
+          ]
+        },
+        {
+          "title": "Messengers",
+          "summary": "Send a paid messenger to any hero from the encyclopedia. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
+          "points": ["The price grows with distance, and is higher for strangers, enemies and besieged places"],
+          "settings": [{ "name": "Enable Messengers", "default": "On" }]
+        },
+        {
+          "title": "Smaller Courtesies",
+          "summary": "A few more ways to deal with lords.",
+          "points": [
+            "Gift troops to a friendly lord through a donate screen",
+            "Ask a lord who knows you where his clan's lands are, and see them on your map",
+            "Mercenary clans stay with a kingdom for a minimum number of days",
+            "On the clan screen, unhappy companions are tinted red before they leave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fiefs",
+      "title": "Fiefs and Economy",
+      "intro": "Running a realm without riding back to every town.",
+      "cards": [
+        {
+          "title": "Fief Management",
+          "summary": "Manage every fief you own from anywhere: press F6 or use the Fiefs button on the map bar to queue buildings.",
+          "points": [
+            "The town window shows the fief's profit with a daily breakdown and its patrol",
+            "One-click buttons to put gold into a town's reserve or take it back out"
+          ],
+          "settings": [{ "name": "Enable Fief Management", "default": "On" }]
+        },
+        {
+          "title": "Rule Your Lands",
+          "summary": "More things to do with the fiefs you hold.",
+          "points": [
+            "Namegiving: the ruler can rename towns, castles and villages for influence",
+            "Watch-Silver: pay a governor's watch to raise a fief's loyalty",
+            "Castle patrols: a castle with a Guard House fields a patrol, as towns do",
+            "From the Ashes: rebuild a looted village of your realm, or lend your men's labour to a building project"
+          ]
+        },
+        {
+          "title": "Markets and Caravans",
+          "summary": "Town markets refill their gold toward a higher target (25,000 instead of 10,000), so drained markets recover. Caravans travel further, trade across the endless war and carry fuller loads.",
+          "points": ["Garrison food is corrected so elite garrisons do not starve their towns"],
+          "settings": [
+            { "name": "Enable Settlement Economy Tuning", "default": "On" },
+            { "name": "Enable Caravan Trade Overhaul", "default": "On" }
+          ]
+        },
+        {
+          "title": "Tournaments",
+          "new": "v2.0.34",
+          "summary": "No betting limit by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
+          "points": ["For a small fee, the arena master names the nearest towns holding a tournament now"],
+          "settings": [
+            { "name": "Keep Enemy Sides Out", "default": "On" },
+            { "name": "Tidings of the Lists", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "map-and-interface",
+      "title": "Map and Interface",
+      "intro": "A campaign map that reads like an atlas, and fewer clicks everywhere else.",
+      "cards": [
+        {
+          "title": "Realm Borders",
+          "new": "v2.0.32",
+          "summary": "Each kingdom's border is drawn on the campaign map, following rivers, coasts and mountains, and redrawn when a fief changes hands.",
+          "points": [
+            "A watercolour wash in each realm's colour, with realm names when zoomed out",
+            "Your own realm's frontier is a gold cord",
+            "Zoom all the way out and a parchment map of Middle-earth fades in",
+            "A notice when you ride into another kingdom; press M to hide or show the borders"
+          ],
+          "settings": [{ "name": "Show Realm Borders", "default": "On" }]
+        },
+        {
+          "title": "Hidden Hosts",
+          "summary": "Other parties' troop counts blur with distance (\"1??\", then \"12?\", then exact) and sharpen with Scouting. Under trees, your own sight is shorter.",
+          "settings": [
+            { "name": "Hide Exact Troop Counts", "default": "On" },
+            { "name": "Shorter Sight Under Trees", "default": "On" }
+          ]
+        },
+        {
+          "title": "Campaign Map",
+          "summary": "Small changes that make the large map easier to read.",
+          "points": [
+            "Settlement names fade with distance and are tinted by your relation: green for yours, red for enemies, blue for allies",
+            "Party figures are half the base game's size, so settlements stand out",
+            "Faster time controls: fast-forward 4×, extra fast-forward 8×, and 16× while holding Ctrl"
+          ]
+        },
+        {
+          "title": "Inventory and Character",
+          "summary": "Faster inventory work and clearer character screens.",
+          "points": [
+            "Sell All opens a menu: sell damaged items, low-value items and more",
+            "A search box, and better items tinted green (upgrade) or yellow (sidegrade)",
+            "Save up to 10 equipment presets per hero",
+            "The character screen marks the level where each skill starts learning at its slowest",
+            "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
+            "The encyclopedia shows every character from the start"
+          ]
+        },
+        {
+          "title": "The Look of Middle-earth",
+          "summary": "Kysaro's Middle-earth main menu with a Sauron video, painted loading screens and themed skill icons.",
+          "points": ["A main-menu option pre-compiles shaders so the first battles stutter less"],
+          "settings": [
+            { "name": "Themed Main Menu", "default": "On" },
+            { "name": "Themed Loading Screens", "default": "On" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "title": "The World",
+      "intro": "Middle-earth itself, and playing it with friends.",
+      "cards": [
+        {
+          "title": "Bandits That Grow With You",
+          "summary": "Hideouts, bandit parties and hideout fights grow as your campaign advances, up to about 2.5 times the base game by the endgame. TAOM has 8 bandit factions.",
+          "points": ["A hideout boss stands with 4 bodyguards in the final fight"],
+          "settings": [{ "name": "Enable Bandit Scaling", "default": "On" }]
+        },
+        {
+          "title": "Races",
+          "summary": "Dwarves, elves, orcs, Uruk-hai, goblins, trolls and more, each with their own size, animations, voices and combat traits.",
+          "points": ["The camera sits at a dwarf's eye height when you play one"],
+          "link": { "href": "/mod-info/races", "label": "See the races" }
+        },
+        {
+          "title": "Co-op",
+          "summary": "TAOM works with the Bannerlord Coop and Bannerlord Together mods (one or the other, never both). The TAOM team does not provide co-op support.",
+          "points": [
+            "Every player needs the same TAOM version, mod list and Mod Options settings",
+            "StoryMode must be on and War Sails off; Coop goes last in the load order",
+            "Host-a-game only: a dedicated server does not work",
+            "In co-op the host controls time, and TAOM's diplomacy rules stand down"
+          ]
+        }
+      ]
+    }
+  ]
+}

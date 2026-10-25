@@ -1,23 +1,29 @@
 ---
+// Community has its own "Join the Community" button beside the menu; Troubleshooting (also linked from the Download
+// page) and Credits are in the footer.
 const topNavLinks = [
   { href: '/', label: 'Home' },
   { href: '/factions', label: 'Factions' },
   { href: '/kingdoms', label: 'Kingdoms' },
   { href: '/database', label: 'Database' },
+  { href: '/mod-info/features', label: 'Features' },
   { href: '/mod-info', label: 'Mod Info' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/news', label: 'News' },
-  { href: '/community', label: 'Community' },
   { href: '/download', label: 'Download' },
-  { href: '/troubleshooting', label: 'Troubleshooting' },
-  { href: '/credits', label: 'Credits' },
 ];
 
-const currentPath = Astro.url.pathname;
-// Highlight a menu item on its own page and on pages below it (e.g. /factions/gondor under Factions).
-const isActive = (href: string) =>
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+// Highlight a menu item on its own page and on pages below it (e.g. /factions/gondor under Factions). When two
+// items match (/mod-info/features is under Mod Info too), only the more specific one is highlighted.
+const matches = (href: string) =>
   href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(`${href}/`);
+const activeHref = topNavLinks
+  .map((link) => link.href)
+  .filter(matches)
+  .sort((a, b) => b.length - a.length)[0];
+const isActive = (href: string) => href === activeHref;
 const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
 ---
 
@@ -317,7 +323,7 @@ const menuId = `topbar-menu-${Math.random().toString(36).slice(2, 10)}`;
     display: none !important;
   }
 
-  /* 12 menu items: tighten them on medium-wide screens so the menu stays on one line. */
+  /* 10 menu items: tighten them on medium-wide screens so the menu stays on one line. */
   @media (max-width: 1600px) {
     .main-nav {
       gap: 0.6rem 0.5rem;
