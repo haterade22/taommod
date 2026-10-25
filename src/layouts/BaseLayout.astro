@@ -2,7 +2,7 @@
 import CookieNotice from '../components/CookieNotice.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import Topbar from '../components/Topbar.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -66,7 +66,7 @@ const imageUrl = new URL(image, Astro.site);
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <ViewTransitions />
+    <ClientRouter />
     <!-- Without JavaScript there is no pager, so show every table row (global.css shows only the first rows until
          the pager has run). -->
     <noscript

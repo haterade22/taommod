@@ -35,10 +35,6 @@ function encodePathSegment(value: string) {
   return encodeURIComponent(value).replace(/[!'()*]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`);
 }
 
-function assetHref(filename: string) {
-  return `/images/gallery/${encodePathSegment(filename)}`;
-}
-
 /** URL of a generated web copy; must match the names written by scripts/sync-gallery-assets.mjs. */
 function webAssetHref(filename: string, suffix: string) {
   const extension = path.extname(filename);

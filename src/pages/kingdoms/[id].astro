@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { parseKingdomsFromXslt, parseAllClans, parseAllLords, getCultureDisplayName } from '../../lib/parse-xml';
-import type { Kingdom, Clan, Lord } from '../../lib/parse-xml';
+import type { Kingdom, Lord } from '../../lib/parse-xml';
 import { existingPublicAsset } from '../../lib/public-assets';
 
 export function getStaticPaths() {

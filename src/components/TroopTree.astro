@@ -215,14 +215,6 @@ const sortedTiers = [...new Set(positions.map(p => p.tier))].sort((a, b) => a - 
 const tierToRow = new Map(sortedTiers.map((t, i) => [t, i + 2])); // row 1 = header
 const totalRows = sortedTiers.length + 1;
 
-// Edges for SVG lines
-const edges: { parentId: string; childId: string }[] = [];
-for (const t of troops) {
-  for (const cid of t.upgradeTo) {
-    if (troopById.has(cid)) edges.push({ parentId: t.id, childId: cid });
-  }
-}
-
 // Color map
 const GROUP_COLORS: Record<string, string> = {
   Infantry: '#E08080',
@@ -295,7 +287,6 @@ const GROUP_COLORS: Record<string, string> = {
     </div>
   </div>
 
-  <script type="application/json" class="tree-edges">{JSON.stringify(edges)}</script>
 </div>
 
 <style>

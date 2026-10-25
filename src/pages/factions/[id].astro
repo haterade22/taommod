@@ -838,7 +838,7 @@ const troopHeaderCols = [
                   </section>
                 ))}
               </div>
-              <script type="application/json" id="lord-card-data" set:html={lordCardData(clansWithLords)} />
+              <script type="application/json" id="lord-card-data" is:inline set:html={lordCardData(clansWithLords)} />
             </div>
           ) : (
             <p class="pending-state">No clan records were found for this faction in the current XML set.</p>
