@@ -5,7 +5,7 @@ or mod data, patches (2.5.1) are small fixes.
 
 ## [3.7.0] — 25 Oct 2026 — Lighter data pages
 
-- Troops and Weaponry pages about 35–40% smaller, faction pages about 30% smaller, so they open faster. They look and work the same.
+- Troops and Weaponry pages about 35–40% smaller, faction pages up to 75% smaller, so they open faster. They look and work the same.
 
 ## [3.6.0] — 25 Oct 2026 — Faster on phones
 

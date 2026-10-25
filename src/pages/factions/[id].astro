@@ -2,6 +2,7 @@
 import Topbar from '../../components/Topbar.astro';
 import FactionTroopRows from '../../components/FactionTroopRows.astro';
 import LordCards from '../../components/LordCards.astro';
+import { packLords } from '../../lib/lord-cards';
 import TroopTree from '../../components/TroopTree.astro';
 import { srcsetFor } from '../../lib/responsive-image';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -275,6 +276,13 @@ function toLordCard(lord: Lord & { isLeader: boolean }) {
     traits: getTraitEntries(lord),
     biography: lord.biography || '',
   };
+}
+
+/** Lord cards of every clan except the first, packed for the page (drawn when that clan is opened). */
+function lordCardData(clans: { id: string; lords: (Lord & { isLeader: boolean })[] }[]) {
+  const packed = packLords(Object.fromEntries(clans.slice(1).map((clan) => [clan.id, clan.lords.map(toLordCard)])));
+  // "<" escaped so the data can never close its <script> tag early.
+  return JSON.stringify(packed).replace(/</g, '\\u003c');
 }
 
 function getTraitEntries(lord: Lord) {
@@ -812,9 +820,13 @@ const troopHeaderCols = [
 
                     {clan.lords.length > 0 ? (
                       <>
-                        <div class="lord-grid">
-                          <LordCards lords={clan.lords.map(toLordCard)} />
-                        </div>
+                        {index === 0 ? (
+                          <div class="lord-grid">
+                            <LordCards lords={clan.lords.map(toLordCard)} />
+                          </div>
+                        ) : (
+                          <div class="lord-grid" data-lord-grid={clan.id} />
+                        )}
 
                         <p class="bio-hint">
                           Each card shows only members of the selected clan, with their strongest skills surfaced first.
@@ -826,6 +838,7 @@ const troopHeaderCols = [
                   </section>
                 ))}
               </div>
+              <script type="application/json" id="lord-card-data" set:html={lordCardData(clansWithLords)} />
             </div>
           ) : (
             <p class="pending-state">No clan records were found for this faction in the current XML set.</p>
@@ -1046,8 +1059,28 @@ const troopHeaderCols = [
 
   <script>
     import { initPager, initSorting } from '../../scripts/data-table';
+    import { renderLordCards, unpackLords, type PackedLords } from '../../lib/lord-cards';
+
+    // Only the first clan's lord cards are in the page; the others are drawn from #lord-card-data when opened (same
+    // markup, from src/lib/lord-cards.ts). The click runs before the browser paints, so the panel never shows empty.
+    function initLordCards() {
+      const dataEl = document.getElementById('lord-card-data');
+      if (!dataEl) return;
+      const data = JSON.parse(dataEl.textContent || '{}') as PackedLords;
+      const fill = (clanId: string | undefined) => {
+        if (!clanId) return;
+        const grid = document.querySelector<HTMLElement>(`[data-lord-grid="${CSS.escape(clanId)}"]`);
+        if (!grid || grid.childElementCount > 0) return;
+        grid.innerHTML = renderLordCards(unpackLords(data, clanId));
+      };
+      fill(document.querySelector<HTMLElement>('.clan-panel.is-selected')?.dataset.clanPanel);
+      document.querySelectorAll<HTMLElement>('[data-clan-button]').forEach((button) => {
+        button.addEventListener('click', () => fill(button.dataset.clanButton));
+      });
+    }
 
     document.addEventListener('astro:page-load', () => {
+      initLordCards();
       initSorting('table.faction-troop-section');
       initPager('table.faction-troop-section').refresh();
     });
