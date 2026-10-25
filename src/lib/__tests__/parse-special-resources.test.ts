@@ -24,4 +24,15 @@ describe('parseSpecialResources', () => {
   it('names the emissary towns', () => {
     expect(data.emissaryTowns.map((t) => t.name)).toContain('Minas Tirith');
   });
+
+  it('reads the public build from its own folder', () => {
+    const pub = parseSpecialResources('public');
+    expect(pub.resources.length).toBeGreaterThanOrEqual(11);
+    expect(pub.troopsByResource.flatMap((g) => g.troops).length).toBeGreaterThan(50);
+    // The mumak is sold by the emissary only in the supporter build.
+    const mumak = (d: typeof pub) =>
+      d.troopsByResource.flatMap((g) => g.troops).find((t) => t.id === 'harad_mumakil_rider');
+    expect(mumak(pub)?.buy).toBeUndefined();
+    expect(mumak(data)?.buy).toBeGreaterThan(0);
+  });
 });

@@ -83,15 +83,18 @@ function realmOf(id: string, troop?: { name: string; culture: string }): string 
 const num = (value: unknown) => (value === undefined || value === '' ? undefined : Number(value));
 const titleCase = (id: string) => id.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
-function read(file: string): string | null {
-  const full = path.join(getDataDir(), 'special-resources', file);
+/** Which build's files to read: the supporter build (1.5) is in special-resources/, the public build (1.4.8) in its public/ folder. */
+export type Build = 'public' | 'supporter';
+
+function read(build: Build, file: string): string | null {
+  const full = path.join(getDataDir(), 'special-resources', ...(build === 'public' ? ['public'] : []), file);
   return fs.existsSync(full) ? fs.readFileSync(full, 'utf-8') : null;
 }
 
-export function parseSpecialResources(): SpecialResourceData {
-  const resourceXml = read('special_resources_config.xml');
-  const costXml = read('troop_resource_costs.xml');
-  const emissaryXml = read('elite_emissary_config.xml');
+export function parseSpecialResources(build: Build = 'supporter'): SpecialResourceData {
+  const resourceXml = read(build, 'special_resources_config.xml');
+  const costXml = read(build, 'troop_resource_costs.xml');
+  const emissaryXml = read(build, 'elite_emissary_config.xml');
   if (!resourceXml || !costXml) return { resources: [], troopsByResource: [], emissaryTowns: [] };
 
   const resources: SpecialResource[] = (xml.parse(resourceXml).SpecialResources?.Resource ?? []).map(
