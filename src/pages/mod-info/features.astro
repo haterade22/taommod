@@ -246,8 +246,8 @@ const date = (iso: string) =>
                   <div class="resource-tables" data-feature-card data-build-only={build}>
                     <h3>Special resources</h3>
                     <p class="table-note">
-                      What each realm earns in the {builds[build].label.toLowerCase()} build, straight from the mod's
-                      files. "Daily" is per town held; the others are per event.
+                      What each realm earns in the {builds[build].label.toLowerCase()} build. "Daily" is per town held;
+                      the others are per event.
                     </p>
                     <div class="data-table-wrapper resource-wrapper">
                       <table class="resource-table">
@@ -367,11 +367,6 @@ const date = (iso: string) =>
           </section>
         )
       }
-
-      <p class="page-sources">
-        Written from the mod's in-game settings and the team's feature posts on Discord. Something wrong or missing?
-        Tell us on <a href="/community">Discord</a>.
-      </p>
     </main>
   </div>
 </BaseLayout>
@@ -534,14 +529,12 @@ const date = (iso: string) =>
   }
 
   .page-breadcrumb a,
-  .page-sources a,
   .feature-link {
     color: #d7b26c;
     text-decoration: none;
   }
 
   .page-breadcrumb a:hover,
-  .page-sources a:hover,
   .feature-link:hover {
     text-decoration: underline;
   }
@@ -809,11 +802,6 @@ const date = (iso: string) =>
   .feature-desc,
   .feature-details li,
   .table-note,
-  .page-sources {
-    color: rgba(224, 213, 198, 0.8);
-    line-height: 1.58;
-  }
-
   .section-copy {
     margin: 0;
     max-width: 34rem;
@@ -1041,12 +1029,6 @@ const date = (iso: string) =>
   .troop-group .resource-wrapper {
     border-width: 1px 0 0;
     border-radius: 0;
-  }
-
-  .page-sources {
-    margin: 0;
-    font-size: 0.9rem;
-    text-align: center;
   }
 
   @media (max-width: 1180px) {
