@@ -5,9 +5,10 @@ or mod data, patches (2.5.1) are small fixes.
 
 ## [3.9.0] — 26 Oct 2026 — Features for each build
 
-- The Features page has a switch at the top between the public build (Bannerlord 1.4.8, 36 features) and the supporter build (Bannerlord 1.5, 59 features). It shows the public build first and remembers your choice.
+- The Features page has a switch at the top between the public build (Bannerlord 1.4.8, 36 features) and the supporter build (Bannerlord 1.5, 48 features). It shows the public build first and remembers your choice.
 - Features that are only in the supporter build are marked, and cards that differ between the builds show each build's version.
 - The special resource tables show each build's own prices.
+- A separate, clearly marked Coming soon section lists 15 features already in development but in no release yet.
 
 ## [3.8.0] — 25 Oct 2026 — New Features page, shorter top bar
 

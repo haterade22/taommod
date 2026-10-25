@@ -14,8 +14,8 @@
       "game": "Bannerlord 1.5",
       "modVersion": "v2.0.35",
       "released": "2026-10-19",
-      "careerCount": 76,
-      "modOptionsCount": "400+"
+      "careerCount": 70,
+      "modOptionsCount": "300+"
     }
   },
   "sections": [
@@ -143,7 +143,8 @@
               "default": "On"
             }
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Fire and Tribute"]
         }
       ]
     },
@@ -161,7 +162,7 @@
             "Aggression: evil realms besiege at even strength instead of waiting for a 2-to-1 advantage",
             "Reach: far-off priority targets stay on the table on TAOM's large map",
             "War theaters: kingdoms favour enemies on their own front (Gondor prefers Mordor and Isengard over far northern targets)",
-            "Home defence counts more, and Free armies hold a captured fort for about a day instead of leaving at once"
+            "Home defence counts more than in the base game"
           ],
           "settings": [
             {
@@ -176,17 +177,7 @@
               "name": "Enable War Theaters",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "Commitment: once an army picks a siege target, another target must score 4 times better before it turns away",
-              "Priority lists: each major realm pushes toward its lore objectives in order, such as Mordor to East Osgiliath, West Osgiliath, Minas Tirith, then Pelargir, or Isengard to Helm's Deep, then Edoras",
-              "Aggression: evil realms besiege at even strength instead of waiting for a 2-to-1 advantage",
-              "Reach: far-off priority targets stay on the table on TAOM's large map",
-              "War theaters: kingdoms favour enemies on their own front (Gondor prefers Mordor and Isengard over far northern targets)",
-              "Home defence counts more than in the base game"
-            ]
-          }
+          ]
         },
         {
           "title": "Free Peoples and the Shadow",
@@ -254,39 +245,32 @@
           ]
         },
         {
-          "title": "Sieges and Marches",
-          "summary": "Smaller campaign rules that make sieges and movement feel like war.",
-          "points": [
-            "Lords stop fleeing a siege when they are at least half as strong as the whole siege camp",
-            "An enemy castle or town with 30 or more troops harasses lords marching close to its walls, slowing them",
-            "You can call parties into your army while you lead a siege",
-            "When a watched realm's settlement is besieged, you get 3 days to ride to its defence"
-          ],
+          "title": "Siege Defence Events",
+          "summary": "When a watched realm's settlement is besieged, you get 3 days to ride to its defence.",
+          "points": [],
           "settings": [
-            {
-              "name": "Lords stop fleeing sieges",
-              "default": "On"
-            },
-            {
-              "name": "Enable Watchful Holds",
-              "default": "On"
-            },
             {
               "name": "Enable Siege Defense Events",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "Sieges and Marches",
+          "summary": "Campaign rules that make sieges and movement feel like war.",
+          "points": [
+            "Lords stop fleeing a siege when they are at least half as strong as the whole siege camp",
+            "An enemy castle or town with 30 or more troops harasses lords marching close to its walls, slowing them",
+            "You can call parties into your army while you lead a siege",
+            "Free armies hold a captured fort for about a day instead of leaving at once"
           ],
-          "public": {
-            "title": "Siege Defence Events",
-            "summary": "When a watched realm's settlement is besieged, you get 3 days to ride to its defence.",
-            "points": [],
-            "settings": [
-              {
-                "name": "Enable Siege Defense Events",
-                "default": "On"
-              }
-            ]
-          }
+          "coming": true,
+          "watch": [
+            "Lords stop fleeing sieges",
+            "Enable Watchful Holds",
+            "Call armies during your siege",
+            "Good armies hold captured forts"
+          ]
         }
       ]
     },
@@ -297,7 +281,7 @@
       "cards": [
         {
           "title": "Careers",
-          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 76 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
+          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 70 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
           "points": [
             "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
             "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
@@ -514,7 +498,8 @@
               "default": "On"
             }
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Provender-master"]
         },
         {
           "title": "Camps and Refuges",
@@ -550,8 +535,7 @@
             "Orc and Uruk swings can break through shield blocks, so turtling against a horde is no longer safe",
             "Troll and mûmak swings cleave through several soldiers; big creatures shrug off small hits",
             "Charges knock down by weight: a mûmak bowls over infantry, a horse cannot floor a troll, dwarves stand their ground",
-            "Cavalry charge damage by culture: elves 1.6×, Rohan 1.5×, Rhûn 1.4×, Gondor 1.3×, Dale and the orc realms 1.2×",
-            "A shield bash or kick can knock a man down"
+            "Cavalry charge damage by culture: elves 1.6×, Rohan 1.5×, Rhûn 1.4×, Gondor 1.3×, Dale and the orc realms 1.2×"
           ],
           "settings": [
             {
@@ -592,7 +576,6 @@
           "points": [
             "Dwarves, Elves, Isengard, Gundabad and Dol Guldur never rout",
             "Orcs attack on sight and rarely cover; Dwarves and Gondor raise shields and hold; Elves shoot straighter; Rohan commits to a charge from further out",
-            "Outnumbered against horse, Dwarves, Isengard and Dale find ground cavalry cannot ride over",
             "Optional culture doctrines for whole battles (off by default): Dwarves hold a shield wall on high ground, Elves ring their archers with infantry, Rohan leads with cavalry"
           ],
           "settings": [
@@ -610,6 +593,16 @@
             }
           ],
           "only": "supporter"
+        },
+        {
+          "title": "Hammerhand and Horse Stand",
+          "summary": "Two more battle changes.",
+          "points": [
+            "A shield bash or kick can knock a man down",
+            "Outnumbered against horse, Dwarves, Isengard and Dale find ground cavalry cannot ride over"
+          ],
+          "coming": true,
+          "watch": ["Hammerhand (Shield Bash Knockdown)", "Horse Stand"]
         },
         {
           "title": "Sauron and the Nine",
@@ -650,7 +643,8 @@
             "Idle enemy archers in range may pick you as their target",
             "When only a few enemy stragglers are left, they leave the field so the battle ends and they can be taken prisoner"
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Cornered Routers Fight"]
         },
         {
           "title": "Sieges",
@@ -659,8 +653,7 @@
           "points": [
             "Before an assault or a defence, pick your troops on the Manage Troops screen; trolls start unticked",
             "Trolls stay off ladders and towers: attacking trolls break the gate, defending trolls hold the ground behind it",
-            "Your horse goes to your inventory for a siege and comes back afterwards",
-            "A Postern Gate building cuts the troops lost breaking into or out of a siege"
+            "Your horse goes to your inventory for a siege and comes back afterwards"
           ],
           "settings": [
             {
@@ -812,12 +805,14 @@
           "title": "Personal Relations",
           "summary": "Your relation with a lord stays with that lord instead of passing to his clan leader. A friendship with Faramir is not a friendship with Denethor.",
           "points": ["Paying influence to disband another lord's army costs you relation with its leader"],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Personal Relations"]
         },
         {
           "title": "Bonds of Battle",
           "summary": "Relation is earned on campaign: fighting beside a lord, clearing bandits near a settlement, handing a lord troops, and overpaying in a barter.",
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Bonds of Battle"]
         },
         {
           "title": "Tokens of Esteem",
@@ -826,7 +821,8 @@
             "The same hero takes no other gift for a while",
             "Lords of the Free realms refuse gifts from a player of the Shadow"
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Tokens of Esteem"]
         },
         {
           "title": "Good Deeds and Long Memory",
@@ -835,7 +831,8 @@
             "Rewards and costs depend on whose side each person is on",
             "Handing a Mordor captive to Minas Tirith is worth double; raiding the enemy's villages is expected and costs little"
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Good Deeds", "Enable Long Memory"]
         },
         {
           "title": "Captured Lords",
@@ -850,33 +847,44 @@
               "default": "On"
             }
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Enable Hard Questions", "Enable Sworn Anew"]
         },
         {
           "title": "Messengers",
-          "summary": "Send a paid messenger to any hero from the encyclopedia. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
-          "points": ["The price grows with distance, and is higher for strangers, enemies and besieged places"],
+          "summary": "Send a paid messenger (50 gold) from the encyclopedia to any hero you have already met. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
+          "points": [],
           "settings": [
             {
               "name": "Enable Messengers",
               "default": "On"
             }
-          ],
-          "public": {
-            "summary": "Send a paid messenger (50 gold) from the encyclopedia to any hero you have already met. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
-            "points": []
-          }
+          ]
         },
         {
-          "title": "Smaller Courtesies",
-          "summary": "A few more ways to deal with lords.",
+          "title": "Messengers to Anyone",
+          "summary": "Messengers can reach any hero, met or not. The price grows with distance, and is higher for strangers, enemies and besieged places.",
+          "coming": true,
+          "watch": ["Base Gold Cost"]
+        },
+        {
+          "title": "Smaller Touches",
+          "summary": "A few more ways to deal with lords, companions and the lists.",
           "points": [
             "Gift troops to a friendly lord through a donate screen",
             "Ask a lord who knows you where his clan's lands are, and see them on your map",
             "Mercenary clans stay with a kingdom for a minimum number of days",
-            "On the clan screen, unhappy companions are tinted red before they leave"
+            "On the clan screen, unhappy companions are tinted red before they leave",
+            "For a small fee, the arena master names the nearest towns holding a tournament now"
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": [
+            "Enable Troop Gifts",
+            "Enable Domain Reveal",
+            "Minimum Mercenary Contract (Days)",
+            "Tint Unhappy Companions",
+            "Tidings of the Lists"
+          ]
         }
       ]
     },
@@ -888,10 +896,7 @@
         {
           "title": "Fief Management",
           "summary": "Manage every fief you own from anywhere: press F6 or use the Fiefs button on the map bar to queue buildings.",
-          "points": [
-            "The town window shows the fief's profit with a daily breakdown and its patrol",
-            "One-click buttons to put gold into a town's reserve or take it back out"
-          ],
+          "points": [],
           "settings": [
             {
               "name": "Enable Fief Management",
@@ -910,9 +915,19 @@
             "Namegiving: the ruler can rename towns, castles and villages for influence",
             "Watch-Silver: pay a governor's watch to raise a fief's loyalty",
             "Castle patrols: a castle with a Guard House fields a patrol, as towns do",
-            "From the Ashes: rebuild a looted village of your realm, or lend your men's labour to a building project"
+            "From the Ashes: rebuild a looted village of your realm, or lend your men's labour to a building project",
+            "Reeve's Ledger: the town window shows the fief's profit with a daily breakdown and its patrol, with one-click reserve buttons",
+            "Postern Gate: a building that cuts the troops lost breaking into or out of a siege"
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": [
+            "Namegiving",
+            "Watch-Silver",
+            "Castle Patrols",
+            "From the Ashes",
+            "Reeve's Ledger",
+            "Postern Gate Cuts Siege Losses"
+          ]
         },
         {
           "title": "Markets and Caravans",
@@ -933,14 +948,10 @@
           "title": "Tournaments",
           "new": "v2.0.34",
           "summary": "No betting limit by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
-          "points": ["For a small fee, the arena master names the nearest towns holding a tournament now"],
+          "points": [],
           "settings": [
             {
               "name": "Keep Enemy Sides Out",
-              "default": "On"
-            },
-            {
-              "name": "Tidings of the Lists",
               "default": "On"
             }
           ],
@@ -984,7 +995,8 @@
               "default": "On"
             }
           ],
-          "only": "supporter"
+          "coming": true,
+          "watch": ["Hide Exact Troop Counts", "Shorter Sight Under Trees"]
         },
         {
           "title": "Campaign Map",
@@ -1000,21 +1012,21 @@
           "summary": "Faster inventory work and clearer character screens.",
           "points": [
             "Sell All opens a menu: sell damaged items, low-value items and more",
-            "A search box, and better items tinted green (upgrade) or yellow (sidegrade)",
+            "A search box in the inventory",
             "Save up to 10 equipment presets per hero",
-            "The character screen marks the level where each skill starts learning at its slowest",
             "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
             "The encyclopedia shows every character from the start"
+          ]
+        },
+        {
+          "title": "Better Items and Skill Limits",
+          "summary": "Small additions to the inventory and character screens.",
+          "points": [
+            "Items that beat the selected character's gear are tinted green (upgrade) or yellow (sidegrade), with a \"show only better items\" filter",
+            "The character screen marks the level where each skill starts learning at its slowest"
           ],
-          "public": {
-            "points": [
-              "Sell All opens a menu: sell damaged items, low-value items and more",
-              "A search box in the inventory",
-              "Save up to 10 equipment presets per hero",
-              "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
-              "The encyclopedia shows every character from the start"
-            ]
-          }
+          "coming": true,
+          "watch": ["Highlight better items", "Loremaster's Line"]
         },
         {
           "title": "The Look of Middle-earth",
