@@ -5,7 +5,7 @@ or mod data, patches (2.5.1) are small fixes.
 
 ## [3.10.1] — 26 Oct 2026 — Coming soon wording
 
-- The Coming soon section no longer says when its features will be released.
+- The Coming soon section no longer says when its features will be released, and the page no longer mentions the team's code.
 
 ## [3.10.0] — 26 Oct 2026 — Coming soon on the Features page
 
