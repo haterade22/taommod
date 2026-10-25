@@ -1,5 +1,6 @@
 ---
 import Topbar from '../components/Topbar.astro';
+import TroopsRows from '../components/TroopsRows.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { parseTroops, getCultureDisplayName, isHiddenCulture, parseKingdomsFromXslt } from '../lib/parse-xml';
 
@@ -54,10 +55,16 @@ for (const [culture, hex] of Object.entries(fallbackCultureColors)) {
   }
 }
 
-function getCultureRowStyle(culture: string): string {
-  const tone = cultureColorMap.get(culture) ?? { hex: '#7A664A', rgb: '122, 102, 74' };
-  return `--culture-accent:${tone.hex}; --culture-rgb:${tone.rgb};`;
-}
+// Row colours: one rule per culture instead of an inline style on every row.
+const cultureCss = [
+  '.troops-page .data-table tbody tr{--culture-accent:#7A664A;--culture-rgb:122, 102, 74}',
+  ...cultures.map((culture) => {
+    const tone = cultureColorMap.get(culture);
+    return tone
+      ? `.troops-page .data-table tr[data-culture="${culture}"]{--culture-accent:${tone.hex};--culture-rgb:${tone.rgb}}`
+      : '';
+  }),
+].join('');
 
 const cultureCounts = new Map<string, number>();
 for (const troop of allTroops) {
@@ -212,6 +219,7 @@ const headerCols = [
               <span class="section-count" id="table-count">({allTroops.length})</span>
             </div>
 
+            <style is:inline set:html={cultureCss}></style>
             <div class="data-table-wrapper">
               <table class="data-table troop-section" data-section="active">
                 <thead>
@@ -226,41 +234,7 @@ const headerCols = [
                   </tr>
                 </thead>
                 <tbody id="troops-table-body">
-                  {
-                    allTroops.map((t) => (
-                      <tr
-                        data-name={t.name.toLowerCase()}
-                        data-id={t.id.toLowerCase()}
-                        data-culture={t.culture}
-                        data-group={t.defaultGroup}
-                        data-occupation={t.occupation}
-                        style={getCultureRowStyle(t.culture)}
-                      >
-                        <td>{t.name}</td>
-                        <td class="col-num">{t.level}</td>
-                        <td>{t.defaultGroup}</td>
-                        <td class={sc('athletics', t.athletics, true)}>{t.athletics}</td>
-                        <td class={sc('riding', t.riding)}>{t.riding}</td>
-                        <td class={sc('onehanded', t.oneHanded)}>{t.oneHanded}</td>
-                        <td class={sc('twohanded', t.twoHanded)}>{t.twoHanded}</td>
-                        <td class={sc('polearm', t.polearm)}>{t.polearm}</td>
-                        <td class={sc('bow', t.bow)}>{t.bow}</td>
-                        <td class={sc('crossbow', t.crossbow)}>{t.crossbow}</td>
-                        <td class={sc('throwing', t.throwing)}>{t.throwing}</td>
-                        <td class="col-id section-start">{t.item0}</td>
-                        <td class="col-id">{t.item1}</td>
-                        <td class="col-id">{t.item2}</td>
-                        <td class="col-id">{t.item3}</td>
-                        <td class="col-id">{t.head}</td>
-                        <td class="col-id">{t.body}</td>
-                        <td class="col-id">{t.leg}</td>
-                        <td class="col-id">{t.glove}</td>
-                        <td class="section-start">{t.race}</td>
-                        <td>{getCultureDisplayName(t.culture)}</td>
-                        <td class="col-id">{t.id}</td>
-                      </tr>
-                    ))
-                  }
+                  <TroopsRows troops={allTroops} />
                 </tbody>
               </table>
             </div>
@@ -285,6 +259,15 @@ const headerCols = [
     const emptyState = document.getElementById('empty-state') as HTMLElement;
     const tabButtons = Array.from(document.querySelectorAll('.realm-tab')) as HTMLButtonElement[];
     const allRows = Array.from(document.querySelectorAll('#troops-table-body tr')) as HTMLTableRowElement[];
+    // Rows carry few attributes (smaller page); name (column 1) and id (column 22) come from the cells, read once.
+    const rowInfo = allRows.map((row) => ({
+      row,
+      name: (row.cells[0]?.textContent || '').toLowerCase(),
+      id: (row.cells[21]?.textContent || '').toLowerCase(),
+      culture: row.dataset.culture || '',
+      group: row.dataset.group || '',
+      occupation: row.dataset.occupation || '',
+    }));
     if (!searchInput || !groupFilter || !occupationFilter || !resultCount || !tableCount || !emptyState) return;
 
     const params = new URLSearchParams(window.location.search);
@@ -320,25 +303,14 @@ const headerCols = [
       const occupation = occupationFilter.value;
       let visibleCount = 0;
 
-      for (const row of allRows) {
-        const name = row.dataset.name || '';
-        const id = row.dataset.id || '';
-        const rowCulture = row.dataset.culture || '';
-        const rowGroup = row.dataset.group || '';
-        const rowOccupation = row.dataset.occupation || '';
-
-        const matchesCulture = activeCulture === 'all' || rowCulture === activeCulture;
-        const matchesSearch = !search || name.includes(search) || id.includes(search);
-        const matchesGroup = !group || rowGroup === group;
-        const matchesOccupation = !occupation || rowOccupation === occupation;
-
-        const show = matchesCulture && matchesSearch && matchesGroup && matchesOccupation;
-        row.style.display = show ? '' : 'none';
-
-        const table = row.closest('table')!;
-        if (show && table) {
-          visibleCount += 1;
-        }
+      for (const info of rowInfo) {
+        const show =
+          (activeCulture === 'all' || info.culture === activeCulture) &&
+          (!search || info.name.includes(search) || info.id.includes(search)) &&
+          (!group || info.group === group) &&
+          (!occupation || info.occupation === occupation);
+        info.row.style.display = show ? '' : 'none';
+        if (show) visibleCount += 1;
       }
 
       tabButtons.forEach((button) => {
@@ -883,97 +855,6 @@ const headerCols = [
     background: rgba(24, 21, 18, 0.98);
   }
 
-  .troops-page .data-table td {
-    padding: 0.38rem 0.56rem;
-  }
-
-  .troops-page .data-table tbody td:nth-child(1),
-  .troops-page .data-table tbody td:nth-child(2),
-  .troops-page .data-table tbody td:nth-child(3),
-  .troops-page .data-table tbody td:nth-child(4),
-  .troops-page .data-table tbody td:nth-child(5),
-  .troops-page .data-table tbody td:nth-child(6),
-  .troops-page .data-table tbody td:nth-child(7),
-  .troops-page .data-table tbody td:nth-child(8),
-  .troops-page .data-table tbody td:nth-child(9),
-  .troops-page .data-table tbody td:nth-child(10),
-  .troops-page .data-table tbody td:nth-child(11) {
-    font-size: 0.7rem;
-    line-height: 1.24;
-  }
-
-  .troops-page .data-table th[data-col='name'],
-  .troops-page .data-table td:first-child {
-    min-width: 11.75rem;
-  }
-
-  .troops-page .data-table th[data-col='defaultGroup'],
-  .troops-page .data-table td:nth-child(3) {
-    min-width: 6.3rem;
-  }
-
-  .troops-page .data-table th[data-col='athletics'],
-  .troops-page .data-table th[data-col='riding'],
-  .troops-page .data-table th[data-col='polearm'],
-  .troops-page .data-table th[data-col='bow'] {
-    min-width: 4.7rem;
-  }
-
-  .troops-page .data-table th[data-col='oneHanded'],
-  .troops-page .data-table th[data-col='twoHanded'],
-  .troops-page .data-table th[data-col='crossbow'],
-  .troops-page .data-table th[data-col='throwing'] {
-    min-width: 5.3rem;
-  }
-
-  .troops-page .data-table th[data-col='item0'],
-  .troops-page .data-table th[data-col='item1'],
-  .troops-page .data-table th[data-col='item2'],
-  .troops-page .data-table th[data-col='item3'],
-  .troops-page .data-table th[data-col='head'],
-  .troops-page .data-table th[data-col='body'],
-  .troops-page .data-table th[data-col='leg'],
-  .troops-page .data-table th[data-col='glove'],
-  .troops-page .data-table th[data-col='race'],
-  .troops-page .data-table th[data-col='culture'],
-  .troops-page .data-table th[data-col='id'] {
-    min-width: 4.85rem;
-  }
-
-  .troops-page .data-table tbody tr[data-culture] td {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.24), rgba(15, 14, 13, 0.96) 72%);
-    color: rgba(247, 242, 236, 0.95);
-  }
-
-  .troops-page .data-table tbody tr[data-culture]:hover td {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
-      linear-gradient(90deg, rgba(var(--culture-rgb), 0.34), rgba(18, 16, 14, 0.98) 74%);
-  }
-
-  .troops-page .data-table td.col-num {
-    color: rgba(247, 242, 236, 0.92) !important;
-    text-shadow: none;
-  }
-
-  .troops-page .data-table td.skill-zero {
-    color: rgba(235, 226, 216, 0.42) !important;
-  }
-
-  .troops-page .data-table .col-id {
-    color: rgba(239, 230, 218, 0.72);
-  }
-
-  .troops-page .data-table td.section-start {
-    border-left: 2px solid rgba(var(--culture-rgb), 0.42);
-  }
-
-  .troops-page .data-table th.section-start {
-    border-left: 2px solid rgba(181, 135, 51, 0.58);
-  }
-
   @media (max-width: 1180px) {
     .troops-summary {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1075,5 +956,99 @@ const headerCols = [
     .data-table-wrapper {
       padding: 0.3rem;
     }
+  }
+</style>
+
+<!-- Row styles are global: the rows come from TroopsRows.astro, which has no scoping class. -->
+<style is:global>
+  .troops-page .data-table td {
+    padding: 0.38rem 0.56rem;
+  }
+
+  .troops-page .data-table tbody td:nth-child(1),
+  .troops-page .data-table tbody td:nth-child(2),
+  .troops-page .data-table tbody td:nth-child(3),
+  .troops-page .data-table tbody td:nth-child(4),
+  .troops-page .data-table tbody td:nth-child(5),
+  .troops-page .data-table tbody td:nth-child(6),
+  .troops-page .data-table tbody td:nth-child(7),
+  .troops-page .data-table tbody td:nth-child(8),
+  .troops-page .data-table tbody td:nth-child(9),
+  .troops-page .data-table tbody td:nth-child(10),
+  .troops-page .data-table tbody td:nth-child(11) {
+    font-size: 0.7rem;
+    line-height: 1.24;
+  }
+
+  .troops-page .data-table th[data-col='name'],
+  .troops-page .data-table td:first-child {
+    min-width: 11.75rem;
+  }
+
+  .troops-page .data-table th[data-col='defaultGroup'],
+  .troops-page .data-table td:nth-child(3) {
+    min-width: 6.3rem;
+  }
+
+  .troops-page .data-table th[data-col='athletics'],
+  .troops-page .data-table th[data-col='riding'],
+  .troops-page .data-table th[data-col='polearm'],
+  .troops-page .data-table th[data-col='bow'] {
+    min-width: 4.7rem;
+  }
+
+  .troops-page .data-table th[data-col='oneHanded'],
+  .troops-page .data-table th[data-col='twoHanded'],
+  .troops-page .data-table th[data-col='crossbow'],
+  .troops-page .data-table th[data-col='throwing'] {
+    min-width: 5.3rem;
+  }
+
+  .troops-page .data-table th[data-col='item0'],
+  .troops-page .data-table th[data-col='item1'],
+  .troops-page .data-table th[data-col='item2'],
+  .troops-page .data-table th[data-col='item3'],
+  .troops-page .data-table th[data-col='head'],
+  .troops-page .data-table th[data-col='body'],
+  .troops-page .data-table th[data-col='leg'],
+  .troops-page .data-table th[data-col='glove'],
+  .troops-page .data-table th[data-col='race'],
+  .troops-page .data-table th[data-col='culture'],
+  .troops-page .data-table th[data-col='id'] {
+    min-width: 4.85rem;
+  }
+
+  .troops-page .data-table tbody tr[data-culture] td {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.24), rgba(15, 14, 13, 0.96) 72%);
+    color: rgba(247, 242, 236, 0.95);
+  }
+
+  .troops-page .data-table tbody tr[data-culture]:hover td {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+      linear-gradient(90deg, rgba(var(--culture-rgb), 0.34), rgba(18, 16, 14, 0.98) 74%);
+  }
+
+  .troops-page .data-table td.col-num {
+    color: rgba(247, 242, 236, 0.92) !important;
+    text-shadow: none;
+  }
+
+  .troops-page .data-table td.skill-zero {
+    color: rgba(235, 226, 216, 0.42) !important;
+  }
+
+  .troops-page .data-table .col-id {
+    color: rgba(239, 230, 218, 0.72);
+  }
+
+  .troops-page .data-table td.section-start {
+    border-left: 2px solid rgba(var(--culture-rgb), 0.42);
+  }
+
+  .troops-page .data-table th.section-start {
+    border-left: 2px solid rgba(181, 135, 51, 0.58);
   }
 </style>

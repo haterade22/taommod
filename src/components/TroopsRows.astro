@@ -1,0 +1,80 @@
+---
+// The troops table's rows, written as compact HTML. This component has no <style>, so Astro adds no scoping class to
+// every cell; the row styles live in troops.astro's global block. Cells keep their meaning-carrying classes
+// (col-num, skill-*, skill-zero, col-id, section-start), which the site-wide table styles use. Each row carries only
+// what the page script needs: data-culture (filter + row colour), data-group and data-occupation (filters). The script
+// reads name and id from the cells.
+import { getCultureDisplayName } from '../lib/parse-xml';
+
+export interface TroopRow {
+  id: string;
+  name: string;
+  level: number;
+  culture: string;
+  defaultGroup: string;
+  occupation: string;
+  athletics: number;
+  riding: number;
+  oneHanded: number;
+  twoHanded: number;
+  polearm: number;
+  bow: number;
+  crossbow: number;
+  throwing: number;
+  item0: string;
+  item1: string;
+  item2: string;
+  item3: string;
+  head: string;
+  body: string;
+  leg: string;
+  glove: string;
+  race: string;
+}
+
+interface Props {
+  troops: TroopRow[];
+}
+
+const { troops } = Astro.props;
+
+const esc = (value: unknown) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const skill = (name: string, value: number, first = false) =>
+  `<td class="col-num${first ? ' section-start' : ''} ${value === 0 ? 'skill-zero' : `skill-${name}`}">${value}</td>`;
+const id = (value: string, first = false) => `<td class="col-id${first ? ' section-start' : ''}">${esc(value)}</td>`;
+
+const html = troops
+  .map(
+    (t) =>
+      `<tr data-culture="${esc(t.culture)}" data-group="${esc(t.defaultGroup)}" data-occupation="${esc(t.occupation)}">` +
+      `<td>${esc(t.name)}</td><td class="col-num">${t.level}</td><td>${esc(t.defaultGroup)}</td>` +
+      skill('athletics', t.athletics, true) +
+      skill('riding', t.riding) +
+      skill('onehanded', t.oneHanded) +
+      skill('twohanded', t.twoHanded) +
+      skill('polearm', t.polearm) +
+      skill('bow', t.bow) +
+      skill('crossbow', t.crossbow) +
+      skill('throwing', t.throwing) +
+      id(t.item0, true) +
+      id(t.item1) +
+      id(t.item2) +
+      id(t.item3) +
+      id(t.head) +
+      id(t.body) +
+      id(t.leg) +
+      id(t.glove) +
+      `<td class="section-start">${esc(t.race)}</td><td>${esc(getCultureDisplayName(t.culture))}</td>` +
+      id(t.id) +
+      '</tr>',
+  )
+  .join('');
+---
+
+<Fragment set:html={html} />
