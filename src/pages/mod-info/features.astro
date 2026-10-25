@@ -1,23 +1,30 @@
 ---
 // The Features page. Its cards live in src/data/features.json (hand-written from the mod's code and the team's
 // Discord posts); the special resource tables are read from the mod's own files (src/lib/parse-special-resources.ts).
+// A switch at the top shows either the public build (Bannerlord 1.4.8) or the supporter/tester build (1.5): a card
+// with "only": "supporter" is hidden in the public view, and a card's "public" fields replace its own there.
 import Topbar from '../../components/Topbar.astro';
 import features from '../../data/features.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { parseSpecialResources } from '../../lib/parse-special-resources';
+import { parseSpecialResources, type Build } from '../../lib/parse-special-resources';
 
 interface Setting {
   name: string;
   default: string;
 }
 
-interface Card {
+interface CardText {
   title: string;
   summary: string;
   points?: string[];
   settings?: Setting[];
   new?: string;
   link?: { href: string; label: string };
+}
+
+interface Card extends CardText {
+  only?: Build;
+  public?: Partial<CardText>;
 }
 
 interface Section {
@@ -27,30 +34,71 @@ interface Section {
   cards: Card[];
 }
 
+const BUILDS: Build[] = ['public', 'supporter'];
+const builds = features.builds as Record<
+  Build,
+  { label: string; game: string; modVersion: string; released: string; careerCount: number; modOptionsCount: string }
+>;
 const sections = features.sections as Section[];
-const featureCount = sections.reduce((sum, section) => sum + section.cards.length, 0);
-const { resources, troopsByResource, emissaryTowns } = parseSpecialResources();
+
+/** One card as it reads in one build, or null when the build does not have it. */
+const cardIn = (card: Card, build: Build): CardText | null =>
+  card.only && card.only !== build ? null : build === 'public' && card.public ? { ...card, ...card.public } : card;
+
+/** The versions of a card to render: one when both builds read the same, else one per build. */
+const versionsOf = (card: Card): { build?: Build; text: CardText }[] =>
+  card.only
+    ? [{ build: card.only, text: card }]
+    : card.public
+      ? BUILDS.map((build) => ({ build, text: cardIn(card, build)! }))
+      : [{ text: card }];
+
+const featureCount = (build: Build) =>
+  sections.reduce((sum, section) => sum + section.cards.filter((card) => cardIn(card, build)).length, 0);
+const supporterExtra = featureCount('supporter') - featureCount('public');
+const tables = Object.fromEntries(BUILDS.map((build) => [build, parseSpecialResources(build)])) as Record<
+  Build,
+  ReturnType<typeof parseSpecialResources>
+>;
 
 const settingClass = (value: string) =>
   value === 'On' ? 'setting-on' : value === 'Off' ? 'setting-off' : 'setting-value';
 const fmt = (value?: number) => (value === undefined ? '' : String(value));
-const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('en-GB', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+const date = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 ---
 
 <BaseLayout
   title="Features"
-  description="Every gameplay system in TAOM: the War of the Ring, careers, enlistment, special resources, creatures, battle and more."
+  description="Every gameplay system in TAOM, for the public build (Bannerlord 1.4.8) and the supporter build (Bannerlord 1.5): the War of the Ring, careers, enlistment, special resources, creatures, battle and more."
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-features-body"
   mainClass="taom-features-main"
 >
-  <div class="features-page">
+  <div class="features-page" data-build="public" data-features-page>
+    <script is:inline>
+      // Pick the build before the page draws, so it never flashes the other one: ?build= in the address first,
+      // then the visitor's last choice.
+      (() => {
+        const page = document.currentScript.parentElement;
+        let build = new URLSearchParams(location.search).get('build');
+        if (build !== 'public' && build !== 'supporter') {
+          try {
+            build = localStorage.getItem('taom-features-build');
+          } catch {
+            build = null;
+          }
+        }
+        if (build === 'public' || build === 'supporter') page.dataset.build = build;
+      })();
+    </script>
+
     <div class="topbar-wrap">
       <Topbar />
     </div>
@@ -64,27 +112,53 @@ const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('
           be switched off or tuned in the game's Mod Options; the default for each is shown on its card.
         </p>
         <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Features</nav>
-        <p class="page-version">Based on TAOM {features.modVersion} · updated {updated}</p>
       </section>
 
-      <section class="features-summary" aria-label="Features page summary">
-        <article class="summary-card">
-          <span class="summary-label">Feature Areas</span>
-          <strong>{sections.length}</strong>
-        </article>
-        <article class="summary-card">
-          <span class="summary-label">Features</span>
-          <strong>{featureCount}</strong>
-        </article>
-        <article class="summary-card">
-          <span class="summary-label">Careers</span>
-          <strong>{features.careerCount}</strong>
-        </article>
-        <article class="summary-card">
-          <span class="summary-label">Mod Options</span>
-          <strong>{features.modOptionsCount}</strong>
-        </article>
+      <section class="build-panel" aria-label="Choose a build">
+        <button class="build-switch" type="button" role="switch" aria-checked="false" data-build-switch>
+          <span class="visually-hidden">Show the supporter build instead of the public build</span>
+          {
+            BUILDS.map((build) => (
+              <span class="build-option" data-option={build} aria-hidden="true">
+                <span class="build-name">{builds[build].label} build</span>
+                <span class="build-game">{builds[build].game}</span>
+              </span>
+            ))
+          }
+        </button>
+        <p class="build-note" data-build-only="public">
+          The build everyone can download: TAOM {builds.public.modVersion}, released {date(builds.public.released)}. The
+          supporter build has {supporterExtra} more features; switch above to see them.
+        </p>
+        <p class="build-note" data-build-only="supporter">
+          The build for supporters and testers: TAOM {builds.supporter.modVersion}, released {
+            date(builds.supporter.released)
+          }. Cards marked <span class="status-badge supporter-badge">Supporter build</span> are not in the public build yet.
+        </p>
       </section>
+
+      {
+        BUILDS.map((build) => (
+          <section class="features-summary" aria-label="Features page summary" data-build-only={build}>
+            <article class="summary-card">
+              <span class="summary-label">Feature Areas</span>
+              <strong>{sections.length}</strong>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">Features</span>
+              <strong>{featureCount(build)}</strong>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">Careers</span>
+              <strong>{builds[build].careerCount}</strong>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">Mod Options</span>
+              <strong>{builds[build].modOptionsCount}</strong>
+            </article>
+          </section>
+        ))
+      }
 
       <section class="features-toolbar" aria-label="Find a feature">
         <nav class="section-links" aria-label="Feature areas">
@@ -107,128 +181,133 @@ const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('
               </div>
 
               <div class="features-grid">
-                {section.cards.map((card) => (
-                  <article class="feature-card" data-feature-card>
-                    <div class="feature-header">
-                      <h3>{card.title}</h3>
-                      {card.new && <span class="status-badge">New in {card.new}</span>}
-                    </div>
-
-                    <p class="feature-desc">{card.summary}</p>
-
-                    {card.points && card.points.length > 0 && (
-                      <ul class="feature-details">
-                        {card.points.map((point) => (
-                          <li>{point}</li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {card.link && (
-                      <a class="feature-link" href={card.link.href}>
-                        {card.link.label} →
-                      </a>
-                    )}
-
-                    {card.settings && card.settings.length > 0 && (
-                      <div class="setting-chips">
-                        <span class="setting-label">Mod Options</span>
-                        {card.settings.map((setting) => (
-                          <span class:list={['setting-chip', settingClass(setting.default)]}>
-                            {setting.name}: {setting.default}
-                          </span>
-                        ))}
+                {section.cards.flatMap((card) =>
+                  versionsOf(card).map(({ build, text }) => (
+                    <article class="feature-card" data-feature-card data-build-only={build}>
+                      <div class="feature-header">
+                        <h3>{text.title}</h3>
+                        {card.only === 'supporter' && <span class="status-badge supporter-badge">Supporter build</span>}
+                        {text.new && <span class="status-badge">New in {text.new}</span>}
                       </div>
-                    )}
-                  </article>
-                ))}
+
+                      <p class="feature-desc">{text.summary}</p>
+
+                      {text.points && text.points.length > 0 && (
+                        <ul class="feature-details">
+                          {text.points.map((point) => (
+                            <li>{point}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {text.link && (
+                        <a class="feature-link" href={text.link.href}>
+                          {text.link.label} →
+                        </a>
+                      )}
+
+                      {text.settings && text.settings.length > 0 && (
+                        <div class="setting-chips">
+                          <span class="setting-label">Mod Options</span>
+                          {text.settings.map((setting) => (
+                            <span class:list={['setting-chip', settingClass(setting.default)]}>
+                              {setting.name}: {setting.default}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </article>
+                  )),
+                )}
               </div>
 
-              {section.id === 'armies' && resources.length > 0 && (
-                <div class="resource-tables" data-feature-card>
-                  <h3 id="special-resources">Special resources</h3>
-                  <p class="table-note">
-                    What each realm earns, straight from the mod's files. "Daily" is per town held; the others are per
-                    event.
-                  </p>
-                  <div class="data-table-wrapper resource-wrapper">
-                    <table class="resource-table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Resource</th>
-                          <th scope="col">Realms</th>
-                          <th scope="col">Daily</th>
-                          <th scope="col">Battle won</th>
-                          <th scope="col">Raid</th>
-                          <th scope="col">Siege won</th>
-                          <th scope="col">Prisoner</th>
-                          <th scope="col">Tournament</th>
-                          <th scope="col">Hideout</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {resources.map((r) => (
+              {section.id === 'armies' &&
+                BUILDS.filter((build) => tables[build].resources.length > 0).map((build) => (
+                  <div class="resource-tables" data-feature-card data-build-only={build}>
+                    <h3>Special resources</h3>
+                    <p class="table-note">
+                      What each realm earns in the {builds[build].label.toLowerCase()} build, straight from the mod's
+                      files. "Daily" is per town held; the others are per event.
+                    </p>
+                    <div class="data-table-wrapper resource-wrapper">
+                      <table class="resource-table">
+                        <thead>
                           <tr>
-                            <th scope="row">{r.name}</th>
-                            <td class="realms">{r.realms.join(', ')}</td>
-                            <td>{r.dailyPerTown}</td>
-                            <td>{r.battle}</td>
-                            <td>{r.raid}</td>
-                            <td>{r.siege}</td>
-                            <td>{r.prisoner}</td>
-                            <td>{r.tournament}</td>
-                            <td>{r.hideout}</td>
+                            <th scope="col">Resource</th>
+                            <th scope="col">Realms</th>
+                            <th scope="col">Daily</th>
+                            <th scope="col">Battle won</th>
+                            <th scope="col">Raid</th>
+                            <th scope="col">Siege won</th>
+                            <th scope="col">Prisoner</th>
+                            <th scope="col">Tournament</th>
+                            <th scope="col">Hideout</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <h3 id="elite-troops">Elite troops and their price</h3>
-                  <p class="table-note">
-                    <strong>Buy</strong> is the price at the emissary in {emissaryTowns.map((t) => t.name).join(', ')}.
-                    <strong>Upgrade</strong> is the price to upgrade into the troop on the party screen,
-                    <strong>Recruit</strong> a one-time charge when it joins another way (as a volunteer or from your
-                    prisoners), and <strong>Upkeep</strong> what each soldier costs per day. A blank means none.
-                  </p>
-                  {troopsByResource.map((group) => (
-                    <details class="troop-group">
-                      <summary>
-                        {group.resource.name}
-                        <span class="troop-count">
-                          {group.resource.realms.join(', ')} · {group.troops.length} troops
-                        </span>
-                      </summary>
-                      <div class="data-table-wrapper resource-wrapper">
-                        <table class="resource-table">
-                          <thead>
+                        </thead>
+                        <tbody>
+                          {tables[build].resources.map((r) => (
                             <tr>
-                              <th scope="col">Troop</th>
-                              <th scope="col">Realm</th>
-                              <th scope="col">Buy</th>
-                              <th scope="col">Upgrade</th>
-                              <th scope="col">Recruit</th>
-                              <th scope="col">Upkeep</th>
+                              <th scope="row">{r.name}</th>
+                              <td class="realms">{r.realms.join(', ')}</td>
+                              <td>{r.dailyPerTown}</td>
+                              <td>{r.battle}</td>
+                              <td>{r.raid}</td>
+                              <td>{r.siege}</td>
+                              <td>{r.prisoner}</td>
+                              <td>{r.tournament}</td>
+                              <td>{r.hideout}</td>
                             </tr>
-                          </thead>
-                          <tbody>
-                            {group.troops.map((t) => (
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <h3>Elite troops and their price</h3>
+                    <p class="table-note">
+                      <strong>Buy</strong> is the price at the emissary in{' '}
+                      {tables[build].emissaryTowns.map((t) => t.name).join(', ')}. <strong>Upgrade</strong> is the price
+                      to upgrade into the troop on the party screen, <strong>Recruit</strong> a one-time charge when it
+                      joins another way (as a volunteer or from your prisoners), and <strong>Upkeep</strong> what each
+                      soldier costs per day. A blank means none.
+                    </p>
+                    {tables[build].troopsByResource.map((group) => (
+                      <details class="troop-group">
+                        <summary>
+                          {group.resource.name}
+                          <span class="troop-count">
+                            {group.resource.realms.join(', ')} · {group.troops.length} troops
+                          </span>
+                        </summary>
+                        <div class="data-table-wrapper resource-wrapper">
+                          <table class="resource-table">
+                            <thead>
                               <tr>
-                                <th scope="row">{t.name}</th>
-                                <td class="realms">{t.realm ?? ''}</td>
-                                <td>{fmt(t.buy)}</td>
-                                <td>{fmt(t.upgrade)}</td>
-                                <td>{fmt(t.recruit)}</td>
-                                <td>{fmt(t.upkeep)}</td>
+                                <th scope="col">Troop</th>
+                                <th scope="col">Realm</th>
+                                <th scope="col">Buy</th>
+                                <th scope="col">Upgrade</th>
+                                <th scope="col">Recruit</th>
+                                <th scope="col">Upkeep</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              )}
+                            </thead>
+                            <tbody>
+                              {group.troops.map((t) => (
+                                <tr>
+                                  <th scope="row">{t.name}</th>
+                                  <td class="realms">{t.realm ?? ''}</td>
+                                  <td>{fmt(t.buy)}</td>
+                                  <td>{fmt(t.upgrade)}</td>
+                                  <td>{fmt(t.recruit)}</td>
+                                  <td>{fmt(t.upkeep)}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                ))}
             </section>
           ))
         }
@@ -243,38 +322,62 @@ const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('
 </BaseLayout>
 
 <script>
-  // Search: hides cards (and whole sections) that do not contain every word typed.
-  function initFeatureSearch() {
+  // The build switch, and the search: it hides cards (and whole sections) that do not contain every word typed, and
+  // cards of the other build.
+  function initFeatures() {
+    const page = document.querySelector<HTMLElement>('[data-features-page]');
     const input = document.querySelector<HTMLInputElement>('[data-feature-search]');
-    if (!input || input.dataset.ready) return;
-    input.dataset.ready = 'true';
+    const toggle = document.querySelector<HTMLButtonElement>('[data-build-switch]');
+    if (!page || !input || !toggle || page.dataset.ready) return;
+    page.dataset.ready = 'true';
     const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-feature-section]'));
     const empty = document.querySelector<HTMLElement>('[data-search-empty]');
     const cards = sections.map((section) =>
       Array.from(section.querySelectorAll<HTMLElement>('[data-feature-card]')).map((card) => ({
         card,
+        build: card.dataset.buildOnly,
         text: (card.textContent || '').toLowerCase(),
       })),
     );
 
-    input.addEventListener('input', () => {
-      const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    function filter() {
+      const words = input!.value.toLowerCase().split(/\s+/).filter(Boolean);
+      const build = page!.dataset.build;
       let shown = 0;
       sections.forEach((section, i) => {
         let sectionShown = 0;
-        for (const { card, text } of cards[i]) {
+        for (const { card, build: only, text } of cards[i]) {
           const match = words.every((word) => text.includes(word));
           card.hidden = !match;
-          if (match) sectionShown++;
+          if (match && (!only || only === build)) sectionShown++;
         }
         section.hidden = sectionShown === 0;
         shown += sectionShown;
       });
       if (empty) empty.hidden = shown > 0;
-    });
+    }
+
+    function show(build: string) {
+      page!.dataset.build = build;
+      toggle!.setAttribute('aria-checked', String(build === 'supporter'));
+      try {
+        localStorage.setItem('taom-features-build', build);
+      } catch {
+        // Storage blocked: the choice just is not remembered.
+      }
+      const url = new URL(location.href);
+      url.searchParams.set('build', build);
+      history.replaceState(history.state, '', url);
+      filter();
+    }
+
+    toggle.setAttribute('aria-checked', String(page.dataset.build === 'supporter'));
+    toggle.addEventListener('click', () => show(page.dataset.build === 'supporter' ? 'public' : 'supporter'));
+    input.addEventListener('input', filter);
+    filter();
   }
 
-  document.addEventListener('astro:page-load', initFeatureSearch);
+  document.addEventListener('astro:page-load', initFeatures);
 </script>
 
 <style>
@@ -369,8 +472,7 @@ const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('
     line-height: 1.5;
   }
 
-  .page-breadcrumb,
-  .page-version {
+  .page-breadcrumb {
     margin: 0;
     color: rgba(214, 199, 176, 0.68);
     font-size: 0.88rem;
@@ -487,6 +589,89 @@ const updated = new Date(`${features.updatedAt}T12:00:00Z`).toLocaleDateString('
     white-space: nowrap;
   }
 
+  /* Build switch: one button, the active build lit. Cards and tables of the other build are hidden. */
+  .features-page[data-build='public'] [data-build-only='supporter'],
+  .features-page[data-build='supporter'] [data-build-only='public'] {
+    display: none !important;
+  }
+
+  .build-panel {
+    display: grid;
+    gap: 0.7rem;
+    justify-items: start;
+  }
+
+  .build-switch {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.3rem;
+    border: 1px solid rgba(209, 154, 51, 0.55);
+    border-radius: 999px;
+    background: rgba(12, 10, 9, 0.935);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .build-switch:focus-visible {
+    outline: 2px solid #e7bd62;
+    outline-offset: 3px;
+  }
+
+  .build-option {
+    display: grid;
+    gap: 0.1rem;
+    padding: 0.55rem 1.4rem;
+    border-radius: 999px;
+    color: rgba(224, 213, 198, 0.62);
+    text-align: center;
+    transition:
+      background 160ms ease,
+      color 160ms ease;
+  }
+
+  .build-name {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .build-game {
+    font-size: 0.8rem;
+  }
+
+  .build-switch:hover .build-option {
+    color: rgba(240, 230, 215, 0.85);
+  }
+
+  .features-page[data-build='public'] .build-option[data-option='public'],
+  .features-page[data-build='supporter'] .build-option[data-option='supporter'] {
+    background: linear-gradient(180deg, #d9a640, #b07d24);
+    color: #160f08;
+  }
+
+  .build-note {
+    margin: 0;
+    max-width: 52rem;
+    color: rgba(224, 213, 198, 0.82);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .supporter-badge {
+    background: rgba(120, 160, 210, 0.16);
+    color: #a9c7ea;
+  }
+
+  @media (max-width: 480px) {
+    .build-switch {
+      width: 100%;
+    }
+
+    .build-option {
+      padding-inline: 0.6rem;
+    }
+  }
   .category-stack {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
