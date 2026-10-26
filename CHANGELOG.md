@@ -3,6 +3,11 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.10.2] — 26 Oct 2026 — Troop Weight numbers
+
+- Features page: the Troop Weight card shows the current party-slot costs for each build (hill trolls, spider riders, war elephant and mûmak), and the War Elephants card shows the right slot counts.
+- Features page: card text is left-aligned again (the last update had pushed it to the right).
+
 ## [3.10.1] — 26 Oct 2026 — Coming soon wording
 
 - The Coming soon section no longer says when its features will be released, and the page no longer has notes about where its information comes from.
