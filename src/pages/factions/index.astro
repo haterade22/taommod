@@ -1,5 +1,6 @@
 ---
 import Topbar from '../../components/Topbar.astro';
+import { sizeAttrs } from '../../lib/image-size';
 import { srcsetFor } from '../../lib/responsive-image';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { existsSync } from 'node:fs';
@@ -186,7 +187,7 @@ const kingdoms: ShowcaseKingdom[] = parseKingdomsFromXslt()
       monogram: getMonogram(kingdom.shortName || kingdom.name),
       background: getKingdomBackground(kingdom.id, theme),
       foreground: theme === 'evil' ? '/images/factions/evil.webp' : '/images/factions/good.webp',
-      href: `/factions/${kingdom.id}`,
+      href: `/factions/${kingdom.id}/`,
     };
   })
   .map((kingdom) => ({
@@ -207,7 +208,8 @@ const initialKingdom = kingdoms[0];
 // The showcase is as wide as the page (at most about 1,155 px); crests are shown at up to about 64 px.
 const STAGE_SIZES = '(max-width: 1240px) 94vw, 1160px';
 const CREST_SIZES = '64px';
-const stageLayer = (src: string) => ({ src, srcset: srcsetFor(src), sizes: STAGE_SIZES });
+// width/height (the file's own size) let the browser keep each picture's space while it loads.
+const stageLayer = (src: string) => ({ src, srcset: srcsetFor(src), sizes: STAGE_SIZES, ...sizeAttrs(src) });
 ---
 
 <BaseLayout
@@ -264,6 +266,7 @@ const stageLayer = (src: string) => ({ src, srcset: srcsetFor(src), sizes: STAGE
                     class="crest-image"
                     id="faction-crest"
                     src={initialKingdom.crest}
+                    {...sizeAttrs(initialKingdom.crest)}
                     srcset={initialKingdom.crestSrcset || undefined}
                     sizes={CREST_SIZES}
                     alt=""
@@ -305,11 +308,11 @@ const stageLayer = (src: string) => ({ src, srcset: srcsetFor(src), sizes: STAGE
           type="button"
           aria-label="Previous factions"
         >
-          <img src="/images/ui/button.webp" alt="" />
+          <img src="/images/ui/button.webp" {...sizeAttrs('/images/ui/button.webp')} alt="" />
         </button>
         <div class="carousel-track" id="faction-carousel" role="list" aria-label="Selectable factions"></div>
         <button class="carousel-arrow carousel-arrow-next" id="carousel-next" type="button" aria-label="Next factions">
-          <img src="/images/ui/button.webp" alt="" />
+          <img src="/images/ui/button.webp" {...sizeAttrs('/images/ui/button.webp')} alt="" />
         </button>
       </section>
     </main>

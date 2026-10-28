@@ -1,4 +1,5 @@
 ---
+import { sizeAttrs } from '../../lib/image-size';
 import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import newsFeed from '../../data/patreon-posts.json';
@@ -15,6 +16,8 @@ const shortFormatter = new Intl.DateTimeFormat('en-US', {
 });
 
 const fallbackImage = '/images/logo.webp';
+// Our own pictures get width/height; Patreon's are sized by their card.
+const localSize = (src: string) => (src.startsWith('/') ? sizeAttrs(src) : {});
 // Patreon image links expire; show the logo instead of a broken image.
 const swapToFallback = `this.onerror=null;this.src='${fallbackImage}'`;
 
@@ -102,9 +105,10 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                   data-year={featuredPost.year}
                   data-search={featuredPost.searchText}
                 >
-                  <a class="featured-media" href={`/news/${featuredPost.slug}`}>
+                  <a class="featured-media" href={`/news/${featuredPost.slug}/`}>
                     <img
                       src={featuredPost.coverImage}
+                      {...localSize(featuredPost.coverImage)}
                       alt={featuredPost.title}
                       loading="eager"
                       onerror={swapToFallback}
@@ -118,14 +122,14 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                     </div>
 
                     <h2>
-                      <a href={`/news/${featuredPost.slug}`}>{featuredPost.title}</a>
+                      <a href={`/news/${featuredPost.slug}/`}>{featuredPost.title}</a>
                     </h2>
 
                     <p class="featured-summary">{featuredPost.summary}</p>
 
                     <div class="featured-footer">
                       <div class="post-links">
-                        <a class="primary-link" href={`/news/${featuredPost.slug}`}>
+                        <a class="primary-link" href={`/news/${featuredPost.slug}/`}>
                           Show more
                         </a>
                         {featuredPost.patreonUrl && (
@@ -137,7 +141,7 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
 
                       <a
                         class="share-link"
-                        href={featuredPost.patreonUrl || `/news/${featuredPost.slug}`}
+                        href={featuredPost.patreonUrl || `/news/${featuredPost.slug}/`}
                         target={featuredPost.patreonUrl ? '_blank' : undefined}
                         rel={featuredPost.patreonUrl ? 'noreferrer' : undefined}
                       >
@@ -156,8 +160,14 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                     data-year={post.year}
                     data-search={post.searchText}
                   >
-                    <a class="post-thumb" href={`/news/${post.slug}`}>
-                      <img src={post.coverImage} alt={post.title} loading="lazy" onerror={swapToFallback} />
+                    <a class="post-thumb" href={`/news/${post.slug}/`}>
+                      <img
+                        src={post.coverImage}
+                        {...localSize(post.coverImage)}
+                        alt={post.title}
+                        loading="lazy"
+                        onerror={swapToFallback}
+                      />
                     </a>
 
                     <div class="post-copy">
@@ -167,13 +177,13 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                       </div>
 
                       <h3>
-                        <a href={`/news/${post.slug}`}>{post.title}</a>
+                        <a href={`/news/${post.slug}/`}>{post.title}</a>
                       </h3>
 
                       <p>{post.summary}</p>
 
                       <div class="post-links">
-                        <a class="primary-link" href={`/news/${post.slug}`}>
+                        <a class="primary-link" href={`/news/${post.slug}/`}>
                           Read post
                         </a>
                         {post.patreonUrl && (
@@ -194,7 +204,7 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
               </section>
             </div>
 
-            <aside class="feed-sidebar">
+            <div class="feed-sidebar">
               <section class="sidebar-card community-card">
                 <p class="sidebar-label">Community</p>
                 <h2>Join the fellowship</h2>
@@ -216,12 +226,18 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                   {popularPosts.map((post) => (
                     <a
                       class="popular-item"
-                      href={`/news/${post.slug}`}
+                      href={`/news/${post.slug}/`}
                       data-popular-item
                       data-year={post.year}
                       data-search={post.searchText}
                     >
-                      <img src={post.coverImage} alt={post.title} loading="lazy" onerror={swapToFallback} />
+                      <img
+                        src={post.coverImage}
+                        {...localSize(post.coverImage)}
+                        alt={post.title}
+                        loading="lazy"
+                        onerror={swapToFallback}
+                      />
                       <span>
                         <strong>{post.title}</strong>
                         <small>{post.publishedLabel}</small>
@@ -236,7 +252,7 @@ const syncLabel = newsFeed.syncedAt ? formatter.format(new Date(newsFeed.syncedA
                 <h2>{syncLabel}</h2>
                 <p>{posts.length} public posts currently mirrored from Patreon to the website feed.</p>
               </section>
-            </aside>
+            </div>
           </section>
         ) : (
           <section class="empty-state empty-state-static">

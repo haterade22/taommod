@@ -235,7 +235,7 @@ const GROUP_COLORS: Record<string, string> = {
     ))}
   </div>
 
-  <div class="tree-scroll">
+  <div class="tree-scroll" tabindex="0" role="region" aria-label="Troop upgrade tree">
     <svg class="tree-lines" id={`tree-svg-${treeInstance}`}></svg>
     <div class="tree-grid" style={`
       grid-template-columns: 80px repeat(${totalCols}, minmax(170px, 1fr));

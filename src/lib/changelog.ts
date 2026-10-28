@@ -30,8 +30,14 @@ export function renderInline(text: string): string {
     .replace(/\u0000(\d+)\u0000/g, (_, i: string) => codes[Number(i)]);
 }
 
-/** Block Markdown: headings (### and lower), nested "- " lists (2-space indents), paragraphs. */
-export function renderBlocks(markdown: string): string {
+/**
+ * Block Markdown: headings (### and lower), nested "- " lists (2-space indents), paragraphs. With `topLevel`, the
+ * block's highest heading becomes that level and the rest follow, so headings never skip a level under the page's own
+ * (a "####" right under an entry's h2 becomes an h3).
+ */
+export function renderBlocks(markdown: string, topLevel?: number): string {
+  const headingLevels = [...markdown.matchAll(/^(#{3,6})\s/gm)].map((m) => m[1].length);
+  const shift = topLevel && headingLevels.length ? topLevel - Math.min(...headingLevels) : 0;
   const out: string[] = [];
   const openLists: number[] = []; // indent of each open <ul>
   let paragraph: string[] = [];
@@ -63,7 +69,7 @@ export function renderBlocks(markdown: string): string {
     if (heading) {
       flushParagraph();
       closeAllLists();
-      const level = Math.min(heading[1].length, 6);
+      const level = Math.max(2, Math.min(heading[1].length + shift, 6));
       out.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
       continue;
     }
@@ -116,8 +122,9 @@ export function parseChangelog(markdown: string): ChangelogEntry[] {
       version: match[1],
       date: match[2],
       title: match[3],
-      html: renderBlocks(site),
-      modData: modMatch ? { title: modMatch[1], html: renderBlocks(mod) } : undefined,
+      // The entry's title is an h2 on the page, so its headings start at h3.
+      html: renderBlocks(site, 3),
+      modData: modMatch ? { title: modMatch[1], html: renderBlocks(mod, 3) } : undefined,
     };
   });
 }

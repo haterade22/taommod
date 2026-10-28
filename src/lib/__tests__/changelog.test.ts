@@ -22,6 +22,8 @@ describe('renderBlocks', () => {
 
   it('renders headings', () => {
     expect(renderBlocks('#### Troops\n- a')).toBe('<h4>Troops</h4><ul><li>a</li></ul>');
+    // With a top level, the highest heading moves up to it and the rest follow.
+    expect(renderBlocks('#### Troops\n##### Detail', 3)).toBe('<h3>Troops</h3><h4>Detail</h4>');
   });
 });
 

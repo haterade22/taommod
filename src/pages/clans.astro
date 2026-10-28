@@ -5,7 +5,7 @@ import { srcsetFor } from '../lib/responsive-image';
 
 const clans = parseAllClans();
 
-type ClanEntry = { name: string; region?: string };
+type ClanEntry = { name: string; region?: string; id?: string };
 
 // Override Gondor clans with exact order from game UI
 const GONDOR_CLANS: ClanEntry[] = [
@@ -35,10 +35,10 @@ const UMBAR_CLANS: ClanEntry[] = [
   { name: 'House of Khatûg' },
 ];
 
-// Kingdom banner images
-const KINGDOM_IMAGES: Record<string, string> = {
-  Gondor: '/images/gondor_web_ready.webp',
-  Umbar: '/images/clans-umbar.webp',
+// Kingdom banner images, with their sizes (so the page does not jump while they load)
+const KINGDOM_IMAGES: Record<string, { src: string; width: number; height: number }> = {
+  Gondor: { src: '/images/gondor_web_ready.webp', width: 1920, height: 512 },
+  Umbar: { src: '/images/clans-umbar.webp', width: 1734, height: 302 },
 };
 
 // Kingdoms with manual overrides (skip auto-sort)
@@ -49,12 +49,23 @@ const clansByKingdom = new Map<string, ClanEntry[]>();
 for (const clan of clans) {
   const kingdom = clan.kingdom || 'Unknown';
   if (!clansByKingdom.has(kingdom)) clansByKingdom.set(kingdom, []);
-  clansByKingdom.get(kingdom)!.push({ name: clan.name });
+  clansByKingdom.get(kingdom)!.push({ name: clan.name, id: clan.id });
 }
 
-// Override with exact lists
-clansByKingdom.set('Gondor', GONDOR_CLANS);
-clansByKingdom.set('Umbar', UMBAR_CLANS);
+// Override with exact lists; each name links to its clan page (matched by name within that kingdom).
+const withIds = (kingdom: string, list: ClanEntry[]) =>
+  list.map((entry) => ({
+    ...entry,
+    id: clans.find((c) => c.kingdom === kingdom && c.name === entry.name)?.id,
+  }));
+clansByKingdom.set('Gondor', withIds('Gondor', GONDOR_CLANS));
+clansByKingdom.set('Umbar', withIds('Umbar', UMBAR_CLANS));
+
+// Minor factions and raider bands belong to no kingdom; list them on their own so their pages are linked.
+const minorClans: ClanEntry[] = clans
+  .filter((c) => !c.kingdom)
+  .map((c) => ({ name: c.name, id: c.id }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 // Sort kingdoms alphabetically, sort clans within each kingdom by name (except overridden ones)
 const sortedKingdoms = Array.from(clansByKingdom.entries())
@@ -78,8 +89,10 @@ for (const [kingdom, entries] of sortedKingdoms) {
           <h2>{kingdom}</h2>
           {KINGDOM_IMAGES[kingdom] && (
             <img
-              src={KINGDOM_IMAGES[kingdom]}
-              srcset={srcsetFor(KINGDOM_IMAGES[kingdom])}
+              src={KINGDOM_IMAGES[kingdom].src}
+              srcset={srcsetFor(KINGDOM_IMAGES[kingdom].src)}
+              width={KINGDOM_IMAGES[kingdom].width}
+              height={KINGDOM_IMAGES[kingdom].height}
               sizes="(max-width: 890px) calc(100vw - 48px), 844px"
               loading="lazy"
               decoding="async"
@@ -90,13 +103,28 @@ for (const [kingdom, entries] of sortedKingdoms) {
           <ul>
             {entries.map((c) => (
               <li>
-                {c.name}
+                {c.id ? <a href={`/clans/${c.id}/`}>{c.name}</a> : c.name}
                 {c.region && <span class="clan-region"> ({c.region})</span>}
               </li>
             ))}
           </ul>
         </section>
       ))
+    }
+
+    {
+      minorClans.length > 0 && (
+        <section class="clan-section">
+          <h2>Minor factions and raiders</h2>
+          <ul>
+            {minorClans.map((c) => (
+              <li>
+                <a href={`/clans/${c.id}/`}>{c.name}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
     }
 
     {
@@ -141,6 +169,17 @@ for (const [kingdom, entries] of sortedKingdoms) {
     color: var(--text-primary);
     font-size: 0.95rem;
     padding: 0.2rem 0;
+  }
+
+  .clan-section li a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .clan-section li a:hover,
+  .clan-section li a:focus-visible {
+    color: var(--accent);
+    text-decoration: underline;
   }
 
   .clan-region {
