@@ -8,16 +8,19 @@ import {
   getCultureDisplayName,
 } from '../../lib/parse-xml';
 import type { Clan, Lord } from '../../lib/parse-xml';
+import { breadcrumbs } from '../../lib/structured-data';
 
 export function getStaticPaths() {
   const clans = parseAllClans();
+  const nameCount = new Map<string, number>();
+  for (const c of clans) nameCount.set(c.name, (nameCount.get(c.name) ?? 0) + 1);
   return clans.map((c) => ({
     params: { id: c.id },
-    props: { clan: c },
+    props: { clan: c, nameClashes: (nameCount.get(c.name) ?? 0) > 1 },
   }));
 }
 
-const { clan } = Astro.props as { clan: Clan };
+const { clan, nameClashes } = Astro.props as { clan: Clan; nameClashes: boolean };
 const allLords = parseAllLords();
 const heroClanMap = parseHeroClanMap();
 const kingdoms = parseKingdomsFromXslt();
@@ -68,18 +71,33 @@ const CULTURE_OVERRIDES: Record<string, string> = {
 };
 
 const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : clan.kingdom;
+
+// Search title and description. Two Rhûn clans share their name with another clan, so a clashing name gets its tier.
+const pageTitle = nameClashes ? `${clan.name} (Tier ${clan.tier} Clan)` : `${clan.name} (Clan)`;
+const leader = lords.find((l) => l.isLeader);
+const lordCount = `${lords.length} ${lords.length === 1 ? 'lord' : 'lords'}`;
+const pageDescription = (
+  kingdom
+    ? `${clan.name}, a clan of ${kingdomName} in TAOM${leader ? `, led by ${leader.name}` : ''}. Clan tier ${clan.tier}, ${lordCount}, with each lord's skills and traits.`
+    : `${clan.name}, a minor faction of Middle-earth in TAOM. ${lords.length ? `${lordCount}, with each lord's skills and traits.` : ''}`
+).replace(/\s+/g, ' ');
+const crumbs: [string, string][] = [
+  ['Kingdoms', '/kingdoms/'],
+  ...(kingdom ? [[kingdomName, `/kingdoms/${kingdom.id}/`] as [string, string]] : []),
+  [clan.name, `/clans/${clan.id}/`],
+];
 ---
 
-<BaseLayout title={`${clan.name} (Clan)`} description={`${clan.name} — a clan of ${kingdomName}`}>
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={[breadcrumbs(crumbs)]}>
   <div class="page-content">
     <nav class="breadcrumb">
-      <a href="/kingdoms">Kingdoms</a>
+      <a href="/kingdoms/">Kingdoms</a>
       {
         kingdom && (
           <>
             <>
               <span>/</span>
-              <a href={`/kingdoms/${kingdom.id}`}>{kingdomName}</a>
+              <a href={`/kingdoms/${kingdom.id}/`}>{kingdomName}</a>
             </>
           </>
         )
@@ -128,7 +146,7 @@ const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : cl
 
               {Object.keys(lord.skills).length > 0 && (
                 <div class="lord-section">
-                  <h4>Skills</h4>
+                  <h3>Skills</h3>
                   <div class="skills-grid">
                     {Object.entries(lord.skills)
                       .filter(([_, v]) => v > 0)
@@ -148,7 +166,7 @@ const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : cl
 
               {Object.keys(lord.traits).length > 0 && (
                 <div class="lord-section">
-                  <h4>Traits</h4>
+                  <h3>Traits</h3>
                   <div class="traits-list">
                     {Object.entries(lord.traits)
                       .filter(([_, v]) => v !== 0)
@@ -178,9 +196,10 @@ const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : cl
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
-    color: var(--text-muted);
+    /* Light enough to read on the dark page (the muted grey failed the contrast check). */
+    color: #b3a894;
   }
 
   .breadcrumb a {
@@ -278,7 +297,7 @@ const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : cl
     margin-top: 0.75rem;
   }
 
-  .lord-section h4 {
+  .lord-section h3 {
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -344,18 +363,19 @@ const kingdomName = kingdom ? CULTURE_OVERRIDES[kingdom.id] || kingdom.name : cl
   }
 
   .trait-badge.negative {
-    color: #e74c3c;
+    /* A lighter red than the theme's, readable at this small size on the dark card. */
+    color: #ff8a7e;
     background: rgba(231, 76, 60, 0.1);
   }
 
   .no-data {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 0.85rem;
     font-style: italic;
   }
 
   .muted {
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   @media (max-width: 600px) {

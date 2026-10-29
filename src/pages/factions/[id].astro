@@ -16,6 +16,8 @@ import {
 } from '../../lib/parse-xml';
 import type { Clan, Kingdom, Lord, Troop } from '../../lib/parse-xml';
 import { FACTION_TROOPS } from '../../data/faction-troops';
+import { breadcrumbs } from '../../lib/structured-data';
+import { sizeAttrs } from '../../lib/image-size';
 
 type RouteConfig = {
   routeId: string;
@@ -400,7 +402,7 @@ const currentFactionIndex = canonicalFactionOrder.indexOf(kingdom.id);
 const nextFaction =
   currentFactionIndex === -1 ? null : kingdoms[(currentFactionIndex + 1) % canonicalFactionOrder.length] || null;
 const nextFactionName = nextFaction ? getDisplayName(nextFaction) : '';
-const nextFactionHref = nextFaction ? `/factions/${nextFaction.id}` : '';
+const nextFactionHref = nextFaction ? `/factions/${nextFaction.id}/` : '';
 const primaryColor = normalizeColor(kingdom.color) || '#C49A47';
 const secondaryColor = normalizeColor(kingdom.color2) || '#221712';
 const primaryRgb = hexToRgb(primaryColor);
@@ -437,6 +439,12 @@ const troopHeaderCols = [
   title={displayName}
   description={`${displayName} faction archive in TAOM - troop tree, military roster, clans, and lords`}
   canonicalPath={routeId !== kingdomId ? `/factions/${kingdomId}/` : undefined}
+  structuredData={[
+    breadcrumbs([
+      ['Factions', '/factions/'],
+      [displayName, `/factions/${kingdomId}/`],
+    ]),
+  ]}
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-faction-detail-body"
@@ -464,7 +472,7 @@ const troopHeaderCols = [
               }
             </p>
 
-            <nav class="page-breadcrumb"><a href="/factions">Faction</a> / {displayName}</nav>
+            <nav class="page-breadcrumb"><a href="/factions/">Faction</a> / {displayName}</nav>
 
             <div class="hero-links">
               <a href="#troop-tree">Troop Tree</a>
@@ -481,11 +489,17 @@ const troopHeaderCols = [
             </div>
           </div>
 
-          <aside class="realm-seal" aria-label={`${displayName} realm dossier`}>
+          <div class="realm-seal" role="group" aria-label={`${displayName} realm dossier`}>
             <div class="seal-mark" aria-hidden="true">
               {
                 crestImage ? (
-                  <img src={crestImage} srcset={srcsetFor(crestImage)} sizes="128px" alt="" />
+                  <img
+                    src={crestImage}
+                    {...sizeAttrs(crestImage)}
+                    srcset={srcsetFor(crestImage)}
+                    sizes="128px"
+                    alt=""
+                  />
                 ) : (
                   <span>{getMonogram(displayName)}</span>
                 )
@@ -502,7 +516,7 @@ const troopHeaderCols = [
                 <dd>{leaderName || 'Unknown'}</dd>
               </div>
             </dl>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -727,7 +741,7 @@ const troopHeaderCols = [
             <span class="table-count" id="troop-table-count">({allTroops.length})</span>
           </div>
 
-          <div class="data-table-wrapper">
+          <div class="data-table-wrapper" tabindex="0" role="region" aria-label="Faction troops table">
             <table class="data-table faction-troop-section">
               <thead>
                 <tr>

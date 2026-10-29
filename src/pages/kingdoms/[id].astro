@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { parseKingdomsFromXslt, parseAllClans, parseAllLords, getCultureDisplayName } from '../../lib/parse-xml';
 import type { Kingdom, Lord } from '../../lib/parse-xml';
 import { existingPublicAsset } from '../../lib/public-assets';
+import { breadcrumbs } from '../../lib/structured-data';
 
 export function getStaticPaths() {
   const kingdoms = parseKingdomsFromXslt();
@@ -103,7 +104,16 @@ const emblem = existingPublicAsset(EMBLEM_IMAGES[kingdom.id]);
 const colors = KINGDOM_COLORS[kingdom.id];
 ---
 
-<BaseLayout title={`${kingdom.name} (Kingdom)`} description={kingdom.description}>
+<BaseLayout
+  title={`${kingdom.name} (Kingdom)`}
+  description={kingdom.description}
+  structuredData={[
+    breadcrumbs([
+      ['Kingdoms', '/kingdoms/'],
+      [kingdom.name, `/kingdoms/${kingdom.id}/`],
+    ]),
+  ]}
+>
   <section class="kingdom-header" style={colors ? `--kc1: ${colors[0]}; --kc2: ${colors[1]}` : ''}>
     {emblem && <img src={emblem} alt={`${kingdom.name} emblem`} class="header-emblem" />}
     <div class="header-content">
@@ -134,7 +144,7 @@ const colors = KINGDOM_COLORS[kingdom.id];
           clans.map((clan) => {
             const lords = clanLords.get(clan.id) || [];
             return (
-              <a href={`/clans/${clan.id}`} class="clan-card-link">
+              <a href={`/clans/${clan.id}/`} class="clan-card-link">
                 <div class="clan-card">
                   <div class="clan-header">
                     <h3>{clan.name}</h3>
@@ -172,7 +182,7 @@ const colors = KINGDOM_COLORS[kingdom.id];
       </div>
     </section>
 
-    <a href="/kingdoms" class="back-link">&larr; Back to Kingdoms</a>
+    <a href="/kingdoms/" class="back-link">&larr; Back to Kingdoms</a>
   </div>
 </BaseLayout>
 
@@ -357,13 +367,14 @@ const colors = KINGDOM_COLORS[kingdom.id];
   }
 
   .no-lord {
-    color: var(--text-muted);
+    /* Secondary grey rather than the muted one, which failed the readability check. */
+    color: var(--text-secondary);
     font-size: 0.85rem;
     font-style: italic;
   }
 
   .muted {
-    color: var(--text-muted);
+    color: var(--text-secondary);
   }
 
   .back-link {

@@ -157,7 +157,7 @@ const rowItems = itemsWithTurntables.map((item) => ({
             Survey every armour piece in TAOM through one searchable archive. Filter by realm, slot, material, and
             market availability, then compare protection values, weight, and modifier groups side by side.
           </p>
-          <nav class="page-breadcrumb"><a href="/database">Database</a> / Armoury</nav>
+          <nav class="page-breadcrumb"><a href="/database/">Database</a> / Armoury</nav>
         </section>
 
         <section class="armour-summary" aria-label="Armour database summary">
@@ -191,7 +191,7 @@ const rowItems = itemsWithTurntables.map((item) => ({
               <strong>{heaviestItem?.name || 'the heaviest armour'}</strong> at{' '}
               <strong>{heaviestItem?.weight || 0}</strong> weight.
             </p>
-            <a href="/mod-info/armour-balancing">Open Armour Balancing</a>
+            <a href="/mod-info/armour-balancing/">Open Armour Balancing</a>
           </div>
 
           <div class="controls-card">
@@ -277,7 +277,7 @@ const rowItems = itemsWithTurntables.map((item) => ({
             }
 
             <style is:inline set:html={cultureCss}></style>
-            <div class="data-table-wrapper">
+            <div class="data-table-wrapper" tabindex="0" role="region" aria-label="Armour table">
               <table class="data-table armour-section">
                 <thead>
                   <tr>

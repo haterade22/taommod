@@ -1,29 +1,30 @@
 ---
 import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sizeAttrs } from '../../lib/image-size';
 import { srcsetFor } from '../../lib/responsive-image';
 
 type DatabaseCard = { href: string; title: string; image?: string; imageClass?: string; active?: boolean };
 
 const cards: DatabaseCard[] = [
   {
-    href: '/troops',
+    href: '/troops/',
     title: 'Troops',
     image: '/images/database/troops.webp',
     imageClass: 'card-figure-troops',
   },
   {
-    href: '/lords',
+    href: '/lords/',
     title: 'Lords',
     image: '/images/database/lords.webp',
     imageClass: 'card-figure-lords',
   },
   {
-    href: '/armoury',
+    href: '/armoury/',
     title: 'Armours',
   },
   {
-    href: '/weaponry',
+    href: '/weaponry/',
     title: 'Weapons',
   },
 ];
@@ -63,6 +64,7 @@ const cards: DatabaseCard[] = [
                   <img
                     class="card-layer card-layer-base"
                     src="/images/database/background.webp"
+                    {...sizeAttrs('/images/database/background.webp')}
                     srcset={srcsetFor('/images/database/background.webp')}
                     sizes="(max-width: 760px) 9.5rem, 280px"
                     alt=""
@@ -71,6 +73,7 @@ const cards: DatabaseCard[] = [
                     <img
                       class:list={['card-figure', card.imageClass]}
                       src={card.image}
+                      {...sizeAttrs(card.image)}
                       srcset={srcsetFor(card.image)}
                       sizes="(max-width: 760px) 9.5rem, 280px"
                       alt=""
@@ -79,6 +82,7 @@ const cards: DatabaseCard[] = [
                   <img
                     class="card-layer card-layer-watermark"
                     src="/images/database/background-watermark.webp"
+                    {...sizeAttrs('/images/database/background-watermark.webp')}
                     srcset={srcsetFor('/images/database/background-watermark.webp')}
                     sizes="(max-width: 760px) 9.5rem, 280px"
                     alt=""
@@ -89,6 +93,7 @@ const cards: DatabaseCard[] = [
                   <img
                     class="card-layer card-layer-overlay"
                     src="/images/database/border.webp"
+                    {...sizeAttrs('/images/database/border.webp')}
                     srcset={srcsetFor('/images/database/border.webp')}
                     sizes="(max-width: 760px) 9.5rem, 280px"
                     alt=""

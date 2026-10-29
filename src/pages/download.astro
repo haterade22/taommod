@@ -74,7 +74,16 @@ const loadOrder = [
             placement, and launch setup.
           </p>
           <div class="video-frame">
-            <video controls preload="metadata" playsinline class="install-video">
+            <!-- preload="none": the video is 49 MB, so nothing loads until play is pressed; the poster stands in. -->
+            <video
+              controls
+              preload="none"
+              playsinline
+              class="install-video"
+              poster="/images/installinstructions-poster.webp"
+              width="1280"
+              height="720"
+            >
               <source src="/images/installinstructions.mp4" type="video/mp4" />
               Your browser does not support the install instructions video.
             </video>
@@ -172,7 +181,7 @@ const loadOrder = [
               <p>The first load can take a while. If the horse is not moving yet, let the game continue loading.</p>
             </div>
           </div>
-          <a class="more-help-link" href="/troubleshooting">More fixes on the Troubleshooting page →</a>
+          <a class="more-help-link" href="/troubleshooting/">More fixes on the Troubleshooting page →</a>
         </article>
 
         <article class="content-card">

@@ -3,6 +3,22 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.11.0] — 29 Oct 2026 — Site check-up fixes
+
+- Menu and page links go straight to their page instead of through a redirect, so clicks are a little faster.
+- Easier to read: lighter text for the trail at the top of clan pages, negative trait badges, "no lord" notes, and the version numbers on Troubleshooting.
+- Tables and troop trees can be scrolled with the keyboard, and screen readers announce each one by name.
+- The Download page no longer loads its install video until you press play; a still picture shows until then.
+- Search engines now see who makes the site, the trail to each faction, kingdom and clan page, and the date of each news post.
+- Search descriptions are short enough to show in full; clan pages describe the clan's kingdom, leader and lords, and two Rhûn clans that shared a name now have different titles.
+- The Clans page links every clan, including a new "Minor factions and raiders" group.
+- Headings follow in order on clan pages, news posts and the changelog, pictures keep their space while loading, and side panels are placed correctly for screen readers.
+
+## [3.10.2] — 26 Oct 2026 — Troop Weight numbers
+
+- Features page: the Troop Weight card shows the current party-slot costs for each build (hill trolls, spider riders, war elephant and mûmak), and the War Elephants card shows the right slot counts.
+- Features page: card text is left-aligned again (the last update had pushed it to the right).
+
 ## [3.10.1] — 26 Oct 2026 — Coming soon wording
 
 - The Coming soon section no longer says when its features will be released, and the page no longer has notes about where its information comes from.

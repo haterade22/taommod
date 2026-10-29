@@ -1,4 +1,5 @@
 ---
+import { sizeAttrs } from '../lib/image-size';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -65,6 +66,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>If you see the following error on launch:</p>
       <img
         src="/images/troubleshooting-texture-error.webp"
+        {...sizeAttrs('/images/troubleshooting-texture-error.webp')}
         alt="GPU_device::create_texture_array failed error"
         class="error-screenshot"
       />
@@ -84,7 +86,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="tip-section">
       <h2>DLL File Error — "Cannot load"</h2>
       <p>If you see an error like this:</p>
-      <img src="/images/troubleshooting-dll-error.webp" alt="Cannot load DLL file error" class="error-screenshot" />
+      <img
+        src="/images/troubleshooting-dll-error.webp"
+        {...sizeAttrs('/images/troubleshooting-dll-error.webp')}
+        alt="Cannot load DLL file error"
+        class="error-screenshot"
+      />
       <p>This means Windows has blocked the mod's DLL files. You need to unblock them.</p>
       <h3>Fix (PowerShell — Recommended)</h3>
       <p>Open PowerShell <strong>as Administrator</strong> and run:</p>
@@ -152,7 +159,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>If your game crashes, follow these steps so we can help diagnose the issue:</p>
       <ol class="steps-list">
         <li>When the crash report appears, <strong>save the report as HTML</strong></li>
-        <li>Go to our <a href="/community">Discord server</a></li>
+        <li>Go to our <a href="/community/">Discord server</a></li>
         <li>Open a <strong>support ticket</strong></li>
         <li>
           Include your <strong>load order</strong>, what you were doing when it crashed (context), and attach the crash
@@ -177,7 +184,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Subpages will be added here as cards -->
     </div>
 
-    <p class="still-stuck">Still stuck? Join our <a href="/community">Discord community</a> for help.</p>
+    <p class="still-stuck">Still stuck? Join our <a href="/community/">Discord community</a> for help.</p>
   </div>
 </BaseLayout>
 
@@ -258,14 +265,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 500;
   }
 
+  /* 0.65 rather than 0.4: the fainter grey failed the readability check at this small size. */
   .mod-version {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.65);
     font-size: 0.8rem;
     font-family: monospace;
   }
 
   .mod-note {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.65);
     font-size: 0.8rem;
     font-style: italic;
   }
@@ -320,6 +328,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .error-screenshot {
     display: block;
+    /* Natural size plus the border, as before the tag carried width/height (those only reserve the space). */
+    width: auto;
+    height: auto;
     max-width: 450px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
@@ -349,11 +360,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 2rem;
   }
 
+  /* Underlined, so the link stands out by more than its colour. */
   .still-stuck a {
     color: var(--accent);
-  }
-
-  .still-stuck a:hover {
     text-decoration: underline;
   }
 </style>

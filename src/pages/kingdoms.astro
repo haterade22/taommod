@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { sizeAttrs } from '../lib/image-size';
 import { srcsetFor } from '../lib/responsive-image';
 import { parseKingdomsFromXslt, getCultureDisplayName } from '../lib/parse-xml';
 import { existingPublicAsset } from '../lib/public-assets';
@@ -75,6 +76,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
   <section class="page-banner">
     <img
       src="/images/banner-kingdoms.webp"
+      {...sizeAttrs('/images/banner-kingdoms.webp')}
       srcset={srcsetFor('/images/banner-kingdoms.webp')}
       sizes="100vw"
       alt="Kingdoms of Middle-earth"
@@ -93,7 +95,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
           const emblemImage = existingPublicAsset(EMBLEM_IMAGES[k.id]);
           const colors = KINGDOM_COLORS[k.id];
           return (
-            <a href={`/kingdoms/${k.id}`} class="kingdom-card-link">
+            <a href={`/kingdoms/${k.id}/`} class="kingdom-card-link">
               <div
                 class:list={['kingdom-card', { 'has-bg': !!bgImage && !emblemImage, 'has-emblem': !!emblemImage }]}
                 style={bgImage && !emblemImage ? `--bg-image: url('${bgImage}')` : ''}
@@ -137,6 +139,7 @@ const KINGDOM_COLORS: Record<string, [string, string]> = {
       <a href="/images/banner-kingdoms.webp" target="_blank" class="map-link">
         <img
           src="/images/banner-kingdoms.webp"
+          {...sizeAttrs('/images/banner-kingdoms.webp')}
           srcset={srcsetFor('/images/banner-kingdoms.webp')}
           sizes="100vw"
           alt="Map of Middle-earth"

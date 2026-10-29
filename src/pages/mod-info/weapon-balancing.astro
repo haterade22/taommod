@@ -535,7 +535,7 @@ const aboveBaselineCultures = cultures.filter((culture) => {
           This archive tracks how TAOM weapon quality is tuned across cultures, from Bannerlord's underlying damage
           simulation to the craftsmanship modifiers that separate Noldorin masterwork from crude orc-forged iron.
         </p>
-        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Weapon Balancing</nav>
+        <nav class="page-breadcrumb"><a href="/mod-info/">Mod Info</a> / Weapon Balancing</nav>
       </section>
 
       <section class="weapon-summary" aria-label="Weapon balancing summary">
@@ -721,7 +721,7 @@ const aboveBaselineCultures = cultures.filter((culture) => {
       <section id="comparison" class="info-section collapsible-section" data-collapsed="true">
     <h2 class="section-toggle"><span class="collapse-arrow">&#9654;</span> Quick Comparison</h2>
     <div class="collapsible-content" style="display:none">
-      <div class="table-wrapper">
+      <div class="table-wrapper" tabindex="0" role="region" aria-label="Quick Comparison table">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -888,7 +888,7 @@ const aboveBaselineCultures = cultures.filter((culture) => {
         Cross-culture average estimated damage per weapon class after cultural modifiers. These represent the global
         baseline for each weapon type.
       </p>
-      <div class="table-wrapper">
+      <div class="table-wrapper" tabindex="0" role="region" aria-label="Weapon Class Averages table">
         <table class="baseline-table">
           <thead>
             <tr>
@@ -924,7 +924,7 @@ const aboveBaselineCultures = cultures.filter((culture) => {
         Expected damage hierarchy based on weapon physics. Two-handed weapons should deal roughly 1.5-2x the damage of
         their one-handed counterparts due to higher blade weight and longer swing arcs.
       </p>
-      <div class="table-wrapper">
+      <div class="table-wrapper" tabindex="0" role="region" aria-label="Damage Distribution table">
         <table class="baseline-table">
           <thead>
             <tr><th>Tier</th><th>Weapon Types</th><th>Expected Range</th><th>Current Avg</th><th>Status</th></tr>

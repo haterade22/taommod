@@ -390,8 +390,9 @@
           "title": "Troop Weight",
           "summary": "In the base game every soldier takes one party slot. In TAOM powerful units take more, so you cannot field an army of nothing but legends. Evil realms lean on numbers, good realms on quality.",
           "points": [
-            "Elites take 2 slots, the highest elites (level 41 and up) 3",
-            "Warg riders 2, cave trolls 4, mûmakil 10",
+            "133 troops take more than one slot: elites take 2, or 3 from level 41",
+            "Warg riders 2, hill trolls and spider riders 4, a war elephant 12 (the beast and its two archers), a mûmak 20",
+            "Most 3-slot troops are elves, dwarves, Black Númenóreans and Khamûl's guard; Rohan, Dale, Dunland and Rhûn have none",
             "Your party count shows the weighted total everywhere you see it",
             "AI lords obey the same limit and shed their weakest troops when they upgrade",
             "Weight limits how many elites you field, not how well they fight"
@@ -401,7 +402,17 @@
               "name": "Enable Troop Weight",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": [
+              "105 troops take more than one slot: elites take 2, or 3 from level 41",
+              "Warg riders 2, the Dol Guldur giant spider 4, a war elephant 10",
+              "Most 3-slot troops are elves, dwarves, Black Númenóreans and Khamûl's guard; Rohan, Dale, Dunland and Rhûn have none",
+              "Your party count shows the weighted total everywhere you see it",
+              "AI lords obey the same limit and shed their weakest troops when they upgrade",
+              "Weight limits how many elites you field, not how well they fight"
+            ]
+          }
         },
         {
           "title": "Special Resources",
@@ -759,12 +770,12 @@
           "title": "War Elephants and Mûmakil",
           "summary": "Harad's elephant tramples what is in front of it and swings its tusks at enemies to the side. Riders fight from a howdah on its back, and the mûmak carries a war tower.",
           "points": [
-            "A mûmak takes 10 party slots and costs War Drums to buy and to feed",
+            "An elephant takes 12 party slots and a mûmak 20; both cost War Drums to buy and to feed",
             "Both are bought from the emissary at Korb Taskral"
           ],
           "public": {
             "points": [
-              "A mûmak takes 10 party slots and costs War Drums to recruit and to feed",
+              "An elephant takes 10 party slots; the mûmak costs War Drums to recruit and to feed",
               "The elephant is bought from the emissary at Korb Taskral; the mûmak joins as a volunteer"
             ]
           }
@@ -1067,7 +1078,7 @@
           "summary": "Dwarves, elves, orcs, Uruk-hai, goblins, trolls and more, each with their own size, animations, voices and combat traits.",
           "points": ["The camera sits at a dwarf's eye height when you play one"],
           "link": {
-            "href": "/mod-info/races",
+            "href": "/mod-info/races/",
             "label": "See the races"
           }
         },

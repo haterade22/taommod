@@ -120,7 +120,7 @@ const date = (iso: string) =>
           The systems that make TAOM's campaign, battles and world play differently from the base game. Most of them can
           be switched off or tuned in the game's Mod Options; the default for each is shown on its card.
         </p>
-        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Features</nav>
+        <nav class="page-breadcrumb"><a href="/mod-info/">Mod Info</a> / Features</nav>
       </section>
 
       <section class="build-panel" aria-label="Choose a build">
@@ -249,7 +249,12 @@ const date = (iso: string) =>
                       What each realm earns in the {builds[build].label.toLowerCase()} build. "Daily" is per town held;
                       the others are per event.
                     </p>
-                    <div class="data-table-wrapper resource-wrapper">
+                    <div
+                      class="data-table-wrapper resource-wrapper"
+                      tabindex="0"
+                      role="region"
+                      aria-label="Special resources table"
+                    >
                       <table class="resource-table">
                         <thead>
                           <tr>
@@ -298,7 +303,12 @@ const date = (iso: string) =>
                             {group.resource.realms.join(', ')} · {group.troops.length} troops
                           </span>
                         </summary>
-                        <div class="data-table-wrapper resource-wrapper">
+                        <div
+                          class="data-table-wrapper resource-wrapper"
+                          tabindex="0"
+                          role="region"
+                          aria-label={`${group.resource.name} elite troops`}
+                        >
                           <table class="resource-table">
                             <thead>
                               <tr>
@@ -801,7 +811,11 @@ const date = (iso: string) =>
   .section-copy,
   .feature-desc,
   .feature-details li,
-  .table-note,
+  .table-note {
+    color: rgba(224, 213, 198, 0.8);
+    line-height: 1.58;
+  }
+
   .section-copy {
     margin: 0;
     max-width: 34rem;

@@ -1,4 +1,4 @@
-﻿---
+---
 import Topbar from '../../components/Topbar.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -929,19 +929,19 @@ const readingSteps = [
 
 const detailedPages = [
   {
-    href: '/mod-info/troop-balancing',
+    href: '/mod-info/troop-balancing/',
     title: 'Troop Balancing',
     desc: 'Cultural skill modifiers, progression baselines, and why each roster leans toward cavalry, infantry, or missile play.',
     color: 'rgba(180, 120, 200, 0.35)',
   },
   {
-    href: '/mod-info/armour-balancing',
+    href: '/mod-info/armour-balancing/',
     title: 'Armour Balancing',
     desc: 'Protection curves, tier baselines, and weight tuning across all currently defined armour cultures.',
     color: 'rgba(200, 160, 100, 0.35)',
   },
   {
-    href: '/mod-info/weapon-balancing',
+    href: '/mod-info/weapon-balancing/',
     title: 'Weapon Balancing',
     desc: 'Damage tuning built on TaleWorlds physics, culture modifiers, and per-weapon identity across the arsenal.',
     color: 'rgba(220, 130, 130, 0.35)',
@@ -970,7 +970,7 @@ const detailedPages = [
           This archive compares how TAOM factions are tuned across troop skill, armor, and weapon quality. Use it as the
           top-level briefing before diving into the dedicated balancing pages for the full formulas and supporting data.
         </p>
-        <nav class="page-breadcrumb"><a href="/mod-info">Mod Info</a> / Balance Overview</nav>
+        <nav class="page-breadcrumb"><a href="/mod-info/">Mod Info</a> / Balance Overview</nav>
       </section>
 
       <section class="balance-summary" aria-label="Balance overview summary">
@@ -1065,7 +1065,7 @@ const detailedPages = [
               <span class="table-count">{cultures.length} cultures</span>
             </div>
 
-            <div class="table-wrapper">
+            <div class="table-wrapper" tabindex="0" role="region" aria-label="Power Comparison table">
               <table class="power-table">
                 <thead>
                   <tr>
@@ -1109,7 +1109,7 @@ const detailedPages = [
             </div>
           </article>
 
-          <aside class="elven-note">
+          <div class="elven-note">
             <div class="table-card-head">
               <p class="table-kicker">Elven Exception</p>
               <span class="table-count">{elvenCultures.length} cultures</span>
@@ -1119,7 +1119,7 @@ const detailedPages = [
               Elven factions sit on a different power scale. Their troops, armour, and weapons are intentionally
               stronger, then balanced by rarity, cost, and slower replenishment rather than by numerical parity.
             </p>
-            <div class="table-wrapper">
+            <div class="table-wrapper" tabindex="0" role="region" aria-label="Elite By Design table">
               <table class="power-table elven-table">
                 <thead>
                   <tr>
@@ -1159,7 +1159,7 @@ const detailedPages = [
                 </tbody>
               </table>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 

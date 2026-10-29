@@ -32,7 +32,7 @@ const latest = entries[0];
           <div class="intro-copy" set:html={intro} />
         </div>
 
-        <aside class="hero-summary-card">
+        <div class="hero-summary-card">
           <p class="card-kicker">At a Glance</p>
           <div class="summary-list">
             <div class="summary-item">
@@ -48,7 +48,7 @@ const latest = entries[0];
               <strong>{entries.length}</strong>
             </div>
           </div>
-        </aside>
+        </div>
       </section>
 
       <section class="release-list" aria-label="Website updates">
@@ -293,6 +293,7 @@ const latest = entries[0];
     margin: 0.7rem 0 0;
   }
 
+  .release-body :global(h3),
   .release-body :global(h4),
   .release-body :global(h5) {
     margin: 1.2rem 0 0.2rem;

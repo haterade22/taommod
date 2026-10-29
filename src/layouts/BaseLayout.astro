@@ -3,6 +3,8 @@ import CookieNotice from '../components/CookieNotice.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import Topbar from '../components/Topbar.astro';
 import { ClientRouter } from 'astro:transitions';
+import { metaDescription } from '../lib/meta-description';
+import { jsonLdScript, type JsonLd } from '../lib/structured-data';
 
 interface Props {
   title: string;
@@ -18,10 +20,15 @@ interface Props {
   preloadImage?: string;
   /** Site path of the main version of this page, when the same content is reachable under another address. */
   canonicalPath?: string;
+  /** Extra structured data for search engines (breadcrumbs, a news article); the site itself is always included. */
+  structuredData?: JsonLd[];
 }
 
-const { title, description = 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II' } =
-  Astro.props;
+const { title } = Astro.props;
+// Search results show about 155 characters; longer descriptions are trimmed at a sentence or word.
+const description = metaDescription(
+  Astro.props.description ?? 'TAOM - Tales From the Age of Men - A total conversion mod for Bannerlord II',
+);
 const {
   hideNav = false,
   bodyClass,
@@ -30,6 +37,7 @@ const {
   noindex = false,
   preloadImage,
   canonicalPath,
+  structuredData = [],
 } = Astro.props;
 // Pages that hide this nav render the Topbar and their own <main>; a second <main> around it is invalid.
 const MainTag = hideNav ? 'div' : 'main';
@@ -66,6 +74,7 @@ const imageUrl = new URL(image, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="theme-color" content="#0d0908" />
+    <script type="application/ld+json" is:inline set:html={jsonLdScript(structuredData)} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />

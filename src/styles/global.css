@@ -833,3 +833,9 @@ tr[data-off-page] {
   letter-spacing: 0.08em;
   color: rgba(214, 176, 106, 0.8);
 }
+
+/* Scroll boxes (tables, troop trees) can be reached with the keyboard; show where the focus is. */
+[role='region'][tabindex='0']:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
