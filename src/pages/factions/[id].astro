@@ -17,7 +17,7 @@ import {
 import type { Clan, Kingdom, Lord, Troop } from '../../lib/parse-xml';
 import { FACTION_TROOPS } from '../../data/faction-troops';
 import { breadcrumbs } from '../../lib/structured-data';
-import { sizeAttrs } from '../../lib/image-size';
+import { imageSize, sizeAttrs } from '../../lib/image-size';
 
 type RouteConfig = {
   routeId: string;
@@ -409,6 +409,12 @@ const primaryRgb = hexToRgb(primaryColor);
 const secondaryRgb = hexToRgb(secondaryColor);
 const heroImage = HERO_IMAGES[troopCulture] || HERO_IMAGES[kingdom.id] || '/images/hero-bg.webp';
 const crestImage = CREST_IMAGES[kingdom.id] || '';
+// Link-preview picture: a 1200x630 copy of the hero art in public/images/og/ (made by scripts/make-og-images.mjs).
+const ogImageName = `/images/og/${heroImage
+  .split('/')
+  .pop()
+  ?.replace(/\.\w+$/, '')}.jpg`;
+const ogImage = imageSize(ogImageName) ? ogImageName : undefined;
 const totalLordCount = clansWithLords.reduce((sum, clan) => sum + clan.lords.length, 0);
 const troopLevelRange = allTroops.length
   ? `${Math.min(...allTroops.map((troop) => troop.level))}-${Math.max(...allTroops.map((troop) => troop.level))}`
@@ -438,6 +444,7 @@ const troopHeaderCols = [
 <BaseLayout
   title={displayName}
   description={`${displayName} faction archive in TAOM - troop tree, military roster, clans, and lords`}
+  image={ogImage}
   canonicalPath={routeId !== kingdomId ? `/factions/${kingdomId}/` : undefined}
   structuredData={[
     breadcrumbs([

@@ -3,6 +3,14 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.12.0] — 2 Nov 2026 — Phone fixes, home-screen icon, faction link previews
+
+- The Troops, Lords and Weaponry pages no longer scroll sideways on phones; their tables scroll inside their own box.
+- Table text on the Troops and Armoury pages is larger on phones, so it is easier to read.
+- Saving the site to a phone's home screen now shows the TAOM monogram.
+- Faction pages show their own art when shared on Discord or social media.
+- The gold ring writing under the top bar and the home page logo download faster.
+
 ## [3.11.0] — 29 Oct 2026 — Site check-up fixes
 
 - Menu and page links go straight to their page instead of through a redirect, so clicks are a little faster.

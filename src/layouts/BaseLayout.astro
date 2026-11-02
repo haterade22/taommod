@@ -3,6 +3,7 @@ import CookieNotice from '../components/CookieNotice.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import Topbar from '../components/Topbar.astro';
 import { ClientRouter } from 'astro:transitions';
+import { imageSize as readImageSize } from '../lib/image-size';
 import { metaDescription } from '../lib/meta-description';
 import { jsonLdScript, type JsonLd } from '../lib/structured-data';
 
@@ -45,6 +46,8 @@ const MainTag = hideNav ? 'div' : 'main';
 const pageTitle = `${title} | TAOM`;
 const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image, Astro.site);
+// Link previews (Discord, social sites) lay out the picture before loading it when they know its size.
+const imageSize = image.startsWith('/') ? readImageSize(image) : null;
 ---
 
 <!doctype html>
@@ -63,20 +66,23 @@ const imageUrl = new URL(image, Astro.site);
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
     {
-      image === '/images/og-banner.jpg' && (
+      imageSize && (
         <>
-          <meta property="og:image:width" content="1024" />
-          <meta property="og:image:height" content="576" />
-          <meta property="og:image:alt" content="Tales from the Age of Men" />
+          <meta property="og:image:width" content={String(imageSize.width)} />
+          <meta property="og:image:height" content={String(imageSize.height)} />
         </>
       )
     }
+    <meta property="og:image:alt" content={image === '/images/og-banner.jpg' ? 'Tales from the Age of Men' : title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="theme-color" content="#0d0908" />
     <script type="application/ld+json" is:inline set:html={jsonLdScript(structuredData)} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Icon and name when the site is saved to a phone's home screen. -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preload" href="/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin />
     {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
     <ClientRouter />
