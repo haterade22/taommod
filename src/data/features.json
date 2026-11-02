@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25",
+  "updatedAt": "2026-11-02",
   "builds": {
     "public": {
       "label": "Public",
@@ -12,10 +12,10 @@
     "supporter": {
       "label": "Supporter",
       "game": "Bannerlord 1.5",
-      "modVersion": "v2.0.35",
-      "released": "2026-10-19",
-      "careerCount": 70,
-      "modOptionsCount": "300+"
+      "modVersion": "v2.0.36",
+      "released": "2026-10-27",
+      "careerCount": 76,
+      "modOptionsCount": "400+"
     }
   },
   "sections": [
@@ -71,7 +71,6 @@
         },
         {
           "title": "The Eye of Sauron",
-          "new": "v2.0.34",
           "summary": "Great deeds against the enemy draw a hunter after you. A Free player is hunted by one of the Nine with a host of Mordor (or of Dol Guldur). A player of the Shadow is hunted by Glorfindel with a host of the Eldar.",
           "points": [
             "Deeds score points: a field victory, raid or forced levy 1, a sally or battle outside a siege 2, a siege assault 3",
@@ -89,7 +88,6 @@
         },
         {
           "title": "The War Chronicle",
-          "new": "v2.0.34",
           "summary": "Lore events of the War of the Ring happen at set points. The great sieges (Helm's Deep, Osgiliath, Minas Tirith and others) open as timed windows, and their outcome gives both sides small, temporary effects.",
           "points": [
             "A popup on the campaign map announces each event and siege",
@@ -109,7 +107,6 @@
         },
         {
           "title": "Rally",
-          "new": "v2.0.34",
           "summary": "A kingdom that has lost a large share of its towns and castles gets a small, temporary boost so the war does not end in a one-sided collapse.",
           "points": [
             "Its towns, castles and villages fill recruit slots faster and promote waiting recruits sooner",
@@ -143,8 +140,8 @@
               "default": "On"
             }
           ],
-          "coming": true,
-          "watch": ["Enable Fire and Tribute"]
+          "only": "supporter",
+          "new": "v2.0.36"
         }
       ]
     },
@@ -221,14 +218,23 @@
             "The clan that carried the assault gets 2.5 times the claim; clans that were absent get half",
             "Landless clans are favoured, and each fief a clan already holds weakens its next claim",
             "Clans of the settlement's culture are favoured, so an orc clan rarely ends up holding an elven city",
-            "A king holding more than a third of the realm's fiefs can no longer overrule the council"
+            "A king holding more than a third of the realm's fiefs can no longer overrule the council",
+            "The vote shows how many towns and castles each clan already holds"
           ],
           "settings": [
             {
               "name": "Enable Fief Grant Rebalance",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": [
+              "The clan that carried the assault gets 2.5 times the claim; clans that were absent get half",
+              "Landless clans are favoured, and each fief a clan already holds weakens its next claim",
+              "Clans of the settlement's culture are favoured, so an orc clan rarely ends up holding an elven city",
+              "A king holding more than a third of the realm's fiefs can no longer overrule the council"
+            ]
+          }
         },
         {
           "title": "Lords Hold Their Hosts",
@@ -243,6 +249,31 @@
               "default": "On"
             }
           ]
+        },
+        {
+          "title": "Seasoned Hosts",
+          "new": "v2.0.36",
+          "summary": "AI lords and their troops learn faster, so the realms keep pace with you.",
+          "points": [
+            "AI lord parties get 25% more training experience",
+            "AI lords’ skills climb 1.25 times faster (never your own clan’s)",
+            "Learning never stops: past a skill’s learning limit every hero, you included, keeps learning very slowly"
+          ],
+          "settings": [
+            {
+              "name": "AI Lord Party Training Bonus",
+              "default": "0.25"
+            },
+            {
+              "name": "AI Lord Skill XP Multiplier",
+              "default": "1.25"
+            },
+            {
+              "name": "Learning Never Stops",
+              "default": "On"
+            }
+          ],
+          "only": "supporter"
         },
         {
           "title": "Siege Defence Events",
@@ -260,16 +291,34 @@
           "summary": "Campaign rules that make sieges and movement feel like war.",
           "points": [
             "Lords stop fleeing a siege when they are at least half as strong as the whole siege camp",
-            "An enemy castle or town with 30 or more troops harasses lords marching close to its walls, slowing them",
+            "An enemy castle or town with 30 or more troops harasses lords marching close to its walls: they are slowed, and your own party also loses a few men, some food and morale",
             "You can call parties into your army while you lead a siege",
-            "Free armies hold a captured fort for about a day instead of leaving at once"
+            "AI rulers pay half the influence to call parties into an army, so their hosts hold together longer",
+            "Free armies hold a captured fort for about 22 hours instead of the base game’s 10"
           ],
-          "coming": true,
-          "watch": [
-            "Lords stop fleeing sieges",
-            "Enable Watchful Holds",
-            "Call armies during your siege",
-            "Good armies hold captured forts"
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Lords stop fleeing sieges",
+              "default": "On"
+            },
+            {
+              "name": "Enable Watchful Holds",
+              "default": "On"
+            },
+            {
+              "name": "Call armies during your siege",
+              "default": "On"
+            },
+            {
+              "name": "Rulers call hosts for less influence",
+              "default": "On"
+            },
+            {
+              "name": "Good armies hold captured forts",
+              "default": "On"
+            }
           ]
         }
       ]
@@ -281,16 +330,24 @@
       "cards": [
         {
           "title": "Careers",
-          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 70 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
+          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 76 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
           "points": [
             "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
             "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
             "A three-tier choice tree; tiers open with your level",
             "Lore rank titles, such as Ithilien Scout, Ranger of Ithilien, then Captain of the White Company",
-            "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion"
+            "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion",
+            "Every playable culture, Arthedain, Cardolan and Rhudaur included, starts a career with its own kit"
           ],
           "public": {
-            "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 67 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief."
+            "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 67 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
+            "points": [
+              "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
+              "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
+              "A three-tier choice tree; tiers open with your level",
+              "Lore rank titles, such as Ithilien Scout, Ranger of Ithilien, then Captain of the White Company",
+              "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion"
+            ]
           }
         },
         {
@@ -307,19 +364,32 @@
           "title": "Enlistment",
           "summary": "Swear an oath to a lord and serve in his column as a common soldier. Your own party marches with you, out of sight, and is handed back when your service ends.",
           "points": [
-            "A term of 365 days; wages of 5, 8, 14 and 22 a day by rank, paid from the lord's own purse",
-            "Climb from Recruit to Soldier, Veteran and Sergeant",
+            "A term of 365 days; wages from 5 to 40 a day by rank, paid from the lord’s own purse",
+            "Seven ranks, from Private up to Sergeant Major; the top three open from day 120, 200 and 300 of service",
             "Choose infantry, archer, cavalry or support; each battle is scored 0 to 100 on how well you fought that role",
             "13 field duties, 11 camp duties and 3 camp incidents, offered by what the column is doing",
-            "Draw your own realm's service kit from the quartermaster at each rank",
-            "Leave with honour after your term; desert early and you lose your back pay"
+            "Draw your own realm’s service kit from the quartermaster at each rank",
+            "After a won battle, take up to three items from the foes you cut down yourself",
+            "When your term ends, sign on again for a bonus of 30 days’ wages, or leave with honour",
+            "Lords remember the men who served them: come back to the same clan and you start one rank below where you left",
+            "Desert early and you lose your back pay, 15 relation with your commander and some Honor"
           ],
           "settings": [
             {
               "name": "Enable Enlistment",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": [
+              "A term of 365 days; wages of 5, 8, 14 and 22 a day by rank, paid from the lord's own purse",
+              "Climb from Recruit to Soldier, Veteran and Sergeant",
+              "Choose infantry, archer, cavalry or support; each battle is scored 0 to 100 on how well you fought that role",
+              "13 field duties, 11 camp duties and 3 camp incidents, offered by what the column is doing",
+              "Draw your own realm's service kit from the quartermaster at each rank",
+              "Leave with honour after your term; desert early and you lose your back pay"
+            ]
+          }
         },
         {
           "title": "Battlefield Promotions",
@@ -344,7 +414,6 @@
         },
         {
           "title": "Play as an Existing Lord",
-          "new": "v2.0.32",
           "summary": "At character creation, pick a lord of your culture and play the campaign as him: his face, gear, skills, clan, fiefs and kingdom, and his throne if he has one.",
           "points": [
             "Lists the ruling house, the clan leaders and the wanderers of your culture",
@@ -363,9 +432,7 @@
               "default": "Off"
             }
           ],
-          "public": {
-            "new": ""
-          }
+          "public": {}
         },
         {
           "title": "Themed Character Creation",
@@ -502,22 +569,31 @@
         {
           "title": "Quartermaster Orders",
           "summary": "Name a companion Quartermaster and give standing orders: buy food in markets, slaughter livestock when stores run low, and raise spirits with pay or drink.",
-          "points": ["The food order never spends the gold needed for your next 3 days of wages"],
+          "points": [
+            "Buy food at markets, and slaughter livestock when the stores fall below 3 days of food",
+            "Pay the men or stand them drink to lift morale",
+            "Send goods to be sold at one of the 3 nearest towns that will buy; the Quartermaster takes a cut of 30%, falling to 10% with Trade skill",
+            "The food order never spends the gold needed for your next 3 days of wages"
+          ],
           "settings": [
             {
               "name": "Enable Provender-master",
               "default": "On"
             }
           ],
-          "coming": true,
-          "watch": ["Enable Provender-master"]
+          "only": "supporter",
+          "new": "v2.0.36"
         },
         {
           "title": "Camps and Refuges",
           "summary": "Pitch field or fortified camps on the campaign map for morale and foraging, or set ambushes and lookouts. Raise a camp into a refuge: a lasting base with a garrison and stores.",
           "points": [
             "Up to 3 refuges, depending on clan tier; upgrade one into a stronghold",
-            "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack"
+            "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack",
+            "Set the men to work from a camp: hunting, felling timber or fishing",
+            "Wounded troops and heroes heal faster while you rest in camp",
+            "Send a scout from camp to sweep the land or look over a nearby town or castle",
+            "Review the host: see your army drawn up on the field and drill it, with no one hurt"
           ],
           "settings": [
             {
@@ -528,7 +604,13 @@
               "name": "Enable Refuges",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": [
+              "Up to 3 refuges, depending on clan tier; upgrade one into a stronghold",
+              "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack"
+            ]
+          }
         }
       ]
     },
@@ -566,7 +648,6 @@
         },
         {
           "title": "Race Abilities",
-          "new": "v2.0.32",
           "summary": "AI soldiers use a battle ability of their race (or, for men, their culture) when the moment comes, and nearby kin join in.",
           "points": [
             "Berserkers go berserk when hurt; Uruk-hai fall into bloodlust on a kill; dwarves stand fast",
@@ -609,11 +690,21 @@
           "title": "Hammerhand and Horse Stand",
           "summary": "Two more battle changes.",
           "points": [
-            "A shield bash or kick can knock a man down",
-            "Outnumbered against horse, Dwarves, Isengard and Dale find ground cavalry cannot ride over"
+            "Hammerhand: a shield bash or a kick can knock a man down; the chance grows with the attacker’s Athletics lead, and trolls never fall",
+            "Horse Stand: outnumbered against an army of mostly horse, AI Dwarves, Isengard and Dale make their stand at a choke point, a forest or a slope, and riders on ordinary horses dismount to join the shield wall (needs Enable Culture Doctrine, which is off by default)"
           ],
-          "coming": true,
-          "watch": ["Hammerhand (Shield Bash Knockdown)", "Horse Stand"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Hammerhand (Shield Bash Knockdown)",
+              "default": "On"
+            },
+            {
+              "name": "Horse Stand",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Sauron and the Nine",
@@ -650,16 +741,29 @@
           "title": "Fell Foes",
           "summary": "Small changes that make the end of a battle less tidy.",
           "points": [
-            "A cornered enemy who has just been hit turns and fights instead of running",
-            "Idle enemy archers in range may pick you as their target",
-            "When only a few enemy stragglers are left, they leave the field so the battle ends and they can be taken prisoner"
+            "A routing enemy who has just been hit, with 3 or fewer of your men beside him, turns and fights instead of running",
+            "Idle enemy archers in range may pick you as their target, at most 8 at a time",
+            "In a large field battle, when only 3 or fewer enemies are left, they leave the field after 30 seconds so the battle ends and they can be taken prisoner"
           ],
-          "coming": true,
-          "watch": ["Cornered Routers Fight"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Cornered Routers Fight",
+              "default": "On"
+            },
+            {
+              "name": "Idle Archers Target You",
+              "default": "On"
+            },
+            {
+              "name": "Last Stragglers Leave The Field",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Sieges",
-          "new": "v2.0.34",
           "summary": "Choose who fights before a wall battle, and creatures that make sense in a siege.",
           "points": [
             "Before an assault or a defence, pick your troops on the Manage Troops screen; trolls start unticked",
@@ -677,7 +781,6 @@
             }
           ],
           "public": {
-            "new": "",
             "title": "Siege Dismount",
             "summary": "Your horse goes to your inventory for a siege and comes back afterwards.",
             "points": [],
@@ -791,7 +894,6 @@
         },
         {
           "title": "Wild Creatures",
-          "new": "v2.0.32",
           "summary": "Spider broods spawn around Mirkwood and Dol Guldur, and wild troll bands of two to four roam near every kingdom's lands. Trolls are never taken prisoner or recruited.",
           "settings": [
             {
@@ -815,35 +917,80 @@
         {
           "title": "Personal Relations",
           "summary": "Your relation with a lord stays with that lord instead of passing to his clan leader. A friendship with Faramir is not a friendship with Denethor.",
-          "points": ["Paying influence to disband another lord's army costs you relation with its leader"],
-          "coming": true,
-          "watch": ["Enable Personal Relations"]
+          "points": [
+            "Paying influence to disband another lord’s army costs you 28 to 32 relation with its leader (4 in the base game)",
+            "Single player only"
+          ],
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Enable Personal Relations",
+              "default": "On"
+            },
+            {
+              "name": "Disbanding An Army Costs Relation",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Bonds of Battle",
           "summary": "Relation is earned on campaign: fighting beside a lord, clearing bandits near a settlement, handing a lord troops, and overpaying in a barter.",
-          "coming": true,
-          "watch": ["Enable Bonds of Battle"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "points": [
+            "+1 relation with each lord who fought on your side in a battle",
+            "After you beat bandits in the field, a notable in each nearby settlement gains 1 relation for every 10 bandits (up to 10)",
+            "Handing a lord troops wins relation, up to 10 a day",
+            "Overpaying in a barter can buy up to 15 relation (3 in the base game)",
+            "Optional: enemy lords you fought think less of you (off by default)"
+          ],
+          "settings": [
+            {
+              "name": "Enable Bonds of Battle",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Tokens of Esteem",
           "summary": "Say \"I have a gift for you\" to a companion or a lord and give goods from your inventory, or a purse of gold to a companion, to win relation.",
           "points": [
-            "The same hero takes no other gift for a while",
+            "Companions also take purses of 500, 2,000 or 5,000 gold",
+            "The same hero takes no other gift for 7 days",
             "Lords of the Free realms refuse gifts from a player of the Shadow"
           ],
-          "coming": true,
-          "watch": ["Enable Tokens of Esteem"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Enable Tokens of Esteem",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Good Deeds and Long Memory",
           "summary": "Releasing a captured lord, handing a hero prisoner to a settlement and winning a tournament earn relation. Raiding a village or forcing it to give goods costs relation with its owner and notables.",
           "points": [
-            "Rewards and costs depend on whose side each person is on",
-            "Handing a Mordor captive to Minas Tirith is worth double; raiding the enemy's villages is expected and costs little"
+            "Releasing a captured lord: +5 relation with him and +2 with his spouse and his clan leader",
+            "Winning a tournament: +1 with the town’s owner and with each of its notables",
+            "A raid you lead can cost up to 50 relation with the village’s owner and each notable, by the damage it did",
+            "Rewards and costs depend on whose side each person is on: handing a Mordor captive to Minas Tirith is worth double, and raiding the enemy’s villages is expected and costs little"
           ],
-          "coming": true,
-          "watch": ["Enable Good Deeds", "Enable Long Memory"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Enable Good Deeds",
+              "default": "On"
+            },
+            {
+              "name": "Enable Long Memory",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Captured Lords",
@@ -856,45 +1003,65 @@
             {
               "name": "Enable Sworn Anew",
               "default": "On"
+            },
+            {
+              "name": "Show Prisoner Banners",
+              "default": "On"
             }
           ],
-          "coming": true,
-          "watch": ["Enable Hard Questions", "Enable Sworn Anew"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "points": ["On the party screen, a captured lord shows his clan and kingdom banners"]
         },
         {
           "title": "Messengers",
-          "summary": "Send a paid messenger (50 gold) from the encyclopedia to any hero you have already met. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
+          "summary": "Send a paid messenger from the encyclopedia to any hero, met or not. The price starts at 50 gold and grows with distance, and is higher for strangers, enemies and besieged places. It travels for a few days, can be ambushed, and starts a conversation when it arrives.",
           "points": [],
           "settings": [
             {
               "name": "Enable Messengers",
               "default": "On"
             }
-          ]
-        },
-        {
-          "title": "Messengers to Anyone",
-          "summary": "Messengers can reach any hero, met or not. The price grows with distance, and is higher for strangers, enemies and besieged places.",
-          "coming": true,
-          "watch": ["Base Gold Cost"]
+          ],
+          "public": {
+            "summary": "Send a paid messenger (50 gold) from the encyclopedia to any hero you have already met. It travels for a few days, can be ambushed, and starts a conversation when it arrives."
+          }
         },
         {
           "title": "Smaller Touches",
           "summary": "A few more ways to deal with lords, companions and the lists.",
           "points": [
             "Gift troops to a friendly lord through a donate screen",
-            "Ask a lord who knows you where his clan's lands are, and see them on your map",
-            "Mercenary clans stay with a kingdom for a minimum number of days",
-            "On the clan screen, unhappy companions are tinted red before they leave",
+            "Ask a lord who knows you where his clan’s lands are, and see them on your map",
+            "Mercenary clans stay with a kingdom for at least 30 days",
+            "On the clan screen, unhappy companions are tinted red before they leave, and each child’s age is shown",
+            "Named companions set their own hire price (Gimli asks 50,000 gold, Aragorn 75,000) and have more to talk about",
+            "In a new campaign every lord gets a face of his own",
             "For a small fee, the arena master names the nearest towns holding a tournament now"
           ],
-          "coming": true,
-          "watch": [
-            "Enable Troop Gifts",
-            "Enable Domain Reveal",
-            "Minimum Mercenary Contract (Days)",
-            "Tint Unhappy Companions",
-            "Tidings of the Lists"
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Enable Troop Gifts",
+              "default": "On"
+            },
+            {
+              "name": "Enable Domain Reveal",
+              "default": "On"
+            },
+            {
+              "name": "Minimum Mercenary Contract (Days)",
+              "default": "30"
+            },
+            {
+              "name": "Tint Unhappy Companions",
+              "default": "On"
+            },
+            {
+              "name": "Tidings of the Lists",
+              "default": "On"
+            }
           ]
         }
       ]
@@ -924,21 +1091,46 @@
           "summary": "More things to do with the fiefs you hold.",
           "points": [
             "Namegiving: the ruler can rename towns, castles and villages for influence",
-            "Watch-Silver: pay a governor's watch to raise a fief's loyalty",
-            "Castle patrols: a castle with a Guard House fields a patrol, as towns do",
-            "From the Ashes: rebuild a looted village of your realm, or lend your men's labour to a building project",
-            "Reeve's Ledger: the town window shows the fief's profit with a daily breakdown and its patrol, with one-click reserve buttons",
-            "Postern Gate: a building that cuts the troops lost breaking into or out of a siege"
+            "Watch-Silver: pay a governor’s watch to raise a fief’s loyalty",
+            "Castle patrols: a castle with a Guard House fields a patrol, as towns do, and gains security while it is out; the AI builds Guard Houses early",
+            "From the Ashes: rebuild a looted village of your realm, or lend your men’s labour to a building project",
+            "Reeve’s Ledger: the town window shows the fief’s profit with a daily breakdown and its patrol, with one-click reserve buttons",
+            "Postern Gate: a building that cuts the troops lost breaking into or out of a siege by 50, 67 or 75% by level"
           ],
-          "coming": true,
-          "watch": [
-            "Namegiving",
-            "Watch-Silver",
-            "Castle Patrols",
-            "From the Ashes",
-            "Reeve's Ledger",
-            "Postern Gate Cuts Siege Losses"
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Namegiving",
+              "default": "On"
+            },
+            {
+              "name": "Watch-Silver",
+              "default": "On"
+            },
+            {
+              "name": "Castle Patrols",
+              "default": "On"
+            },
+            {
+              "name": "From the Ashes",
+              "default": "On"
+            },
+            {
+              "name": "Reeve's Ledger",
+              "default": "On"
+            },
+            {
+              "name": "Postern Gate Cuts Siege Losses",
+              "default": "On"
+            }
           ]
+        },
+        {
+          "title": "Warden's Tally",
+          "summary": "The dungeon menu of a town or castle shows how many prisoners it holds against its room, how many are lords, and each lord’s daily chance to escape.",
+          "coming": true,
+          "watch": ["Show Warden's Tally"]
         },
         {
           "title": "Markets and Caravans",
@@ -956,8 +1148,37 @@
           ]
         },
         {
+          "title": "Smithing",
+          "new": "v2.0.36",
+          "summary": "Fewer smithy exploits and fewer clicks.",
+          "points": [
+            "Smelting a weapon returns at most 1 of each iron grade, so looted weapons are no longer a mine of iron",
+            "Make Tools on the Refine tab: one Iron and one Hardwood make one Tools",
+            "Hold Shift to smelt or refine five at once, or Ctrl for the whole stack",
+            "Weapons you locked in the inventory no longer appear in the smelting list"
+          ],
+          "settings": [
+            {
+              "name": "Cap Smelting Yield",
+              "default": "On"
+            },
+            {
+              "name": "Enable Make Tools",
+              "default": "On"
+            },
+            {
+              "name": "Bulk Smelting and Refining",
+              "default": "On"
+            },
+            {
+              "name": "Hide Locked Items from Smelting",
+              "default": "On"
+            }
+          ],
+          "only": "supporter"
+        },
+        {
           "title": "Tournaments",
-          "new": "v2.0.34",
           "summary": "No betting limit by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
           "points": [],
           "settings": [
@@ -977,7 +1198,6 @@
       "cards": [
         {
           "title": "Realm Borders",
-          "new": "v2.0.32",
           "summary": "Each kingdom's border is drawn on the campaign map, following rivers, coasts and mountains, and redrawn when a fief changes hands.",
           "points": [
             "A watercolour wash in each realm's colour, with realm names when zoomed out",
@@ -1006,8 +1226,12 @@
               "default": "On"
             }
           ],
-          "coming": true,
-          "watch": ["Hide Exact Troop Counts", "Shorter Sight Under Trees"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "points": [
+            "A host’s orders stay hidden until you can read its exact count",
+            "In forest your sight shrinks by 30% (half that with the Keen Sight perk)"
+          ]
         },
         {
           "title": "Campaign Map",
@@ -1015,7 +1239,23 @@
           "points": [
             "Settlement names fade with distance and are tinted by your relation: green for yours, red for enemies, blue for allies",
             "Party figures are half the base game's size, so settlements stand out",
-            "Faster time controls: fast-forward 4×, extra fast-forward 8×, and 16× while holding Ctrl"
+            "Faster time controls: fast-forward 4×, extra fast-forward 8×, and 16× while holding Ctrl",
+            "The map bar shows how full your cargo is, turning red once you carry more than your party can",
+            "Villager and lord trades pop up over towns, as caravan trades do (\"Sold Grain x12\")"
+          ],
+          "public": {
+            "points": [
+              "Settlement names fade with distance and are tinted by your relation: green for yours, red for enemies, blue for allies",
+              "Party figures are half the base game's size, so settlements stand out",
+              "Faster time controls: fast-forward 4×, extra fast-forward 8×, and 16× while holding Ctrl"
+            ],
+            "settings": []
+          },
+          "settings": [
+            {
+              "name": "Harvest Road notices",
+              "default": "On"
+            }
           ]
         },
         {
@@ -1026,8 +1266,20 @@
             "A search box in the inventory",
             "Save up to 10 equipment presets per hero",
             "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
-            "The encyclopedia shows every character from the start"
-          ]
+            "The encyclopedia shows every character from the start",
+            "Filter the encyclopedia’s heroes by race and by life stage",
+            "A Family Tree button on the clan screen and on a hero’s encyclopedia page",
+            "The clan, kingdom, character, inventory, party and quest screens open at once instead of sliding in"
+          ],
+          "public": {
+            "points": [
+              "Sell All opens a menu: sell damaged items, low-value items and more",
+              "A search box in the inventory",
+              "Save up to 10 equipment presets per hero",
+              "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
+              "The encyclopedia shows every character from the start"
+            ]
+          }
         },
         {
           "title": "Better Items and Skill Limits",
@@ -1036,8 +1288,18 @@
             "Items that beat the selected character's gear are tinted green (upgrade) or yellow (sidegrade), with a \"show only better items\" filter",
             "The character screen marks the level where each skill starts learning at its slowest"
           ],
-          "coming": true,
-          "watch": ["Highlight better items", "Loremaster's Line"]
+          "only": "supporter",
+          "new": "v2.0.36",
+          "settings": [
+            {
+              "name": "Highlight better items",
+              "default": "On"
+            },
+            {
+              "name": "Loremaster's Line",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "The Look of Middle-earth",
@@ -1065,13 +1327,51 @@
         {
           "title": "Bandits That Grow With You",
           "summary": "Hideouts, bandit parties and hideout fights grow as your campaign advances, up to about 2.5 times the base game by the endgame. TAOM has 8 bandit factions.",
-          "points": ["A hideout boss stands with 4 bodyguards in the final fight"],
+          "points": [
+            "A hideout boss stands with 4 bodyguards in the final fight",
+            "Eight bandit clans may greet you in their own words when you attack them"
+          ],
           "settings": [
             {
               "name": "Enable Bandit Scaling",
               "default": "On"
+            },
+            {
+              "name": "Enable Bandit Clan Greetings",
+              "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": ["A hideout boss stands with 4 bodyguards in the final fight"],
+            "settings": [
+              {
+                "name": "Enable Bandit Scaling",
+                "default": "On"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Taverns and Notables",
+          "new": "v2.0.36",
+          "summary": "More to do when you walk into a town.",
+          "points": [
+            "Stand a round for your party (morale) or for the whole tavern (renown)",
+            "Pay the tavern keeper to mark the nearest towns and castles on your map",
+            "Give a notable men: troops raise the militia, prisoners a village’s hearth or a town’s prosperity",
+            "Pay a notable to introduce you to the other notables there"
+          ],
+          "settings": [
+            {
+              "name": "Enable Inn Rounds",
+              "default": "On"
+            },
+            {
+              "name": "Enable Notable Services",
+              "default": "On"
+            }
+          ],
+          "only": "supporter"
         },
         {
           "title": "Races",
@@ -1081,6 +1381,13 @@
             "href": "/mod-info/races/",
             "label": "See the races"
           }
+        },
+        {
+          "title": "Cardolan and Rhudaur",
+          "new": "v2.0.36",
+          "summary": "The other two kingdoms of divided Arnor join Arthedain in the campaign, as Neutral realms with their own cultures, troop trees, lords and colours.",
+          "points": ["New campaigns only"],
+          "only": "supporter"
         },
         {
           "title": "Co-op",
