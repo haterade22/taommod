@@ -3,13 +3,22 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
-## [3.12.0] — 2 Nov 2026 — Phone fixes, home-screen icon, faction link previews
+## [3.13.0] — 2 Nov 2026 — Phone fixes, home-screen icon, faction link previews
 
 - The Troops, Lords and Weaponry pages no longer scroll sideways on phones; their tables scroll inside their own box.
 - Table text on the Troops and Armoury pages is larger on phones, so it is easier to read.
 - Saving the site to a phone's home screen now shows the TAOM monogram.
 - Faction pages show their own art when shared on Discord or social media.
 - The gold ring writing under the top bar and the home page logo download faster.
+
+## [3.12.0] — 2 Nov 2026 — Features page updated for TAOM v2.0.36
+
+- The supporter view now shows TAOM v2.0.36 (released 27 Oct 2026): 76 careers, 400+ Mod Options, 66 features.
+- 14 Coming soon features are now in the supporter release, among them Fire and Tribute, Personal Relations, Bonds of Battle, Hidden Hosts and Rule Your Lands. Messengers to Anyone joined the Messengers card.
+- 4 new cards: Seasoned Hosts, Smithing, Taverns and Notables, and Cardolan and Rhudaur.
+- Enlistment, Camps and Refuges, Campaign Map, Inventory and Character, Fair Fief Grants, Careers and Bandits list what the new release adds; the public view keeps its own text.
+- Coming soon now has one card: Warden's Tally.
+- "New in" badges from older releases were removed.
 
 ## [3.11.0] — 29 Oct 2026 — Site check-up fixes
 
