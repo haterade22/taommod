@@ -805,6 +805,8 @@ const headerCols = [
 
   .realm-browser {
     display: grid;
+    /* minmax(0, 1fr): the wide table scrolls inside its own box instead of stretching the page on phones. */
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 

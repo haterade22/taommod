@@ -29,10 +29,6 @@ describe('parseSpecialResources', () => {
     const pub = parseSpecialResources('public');
     expect(pub.resources.length).toBeGreaterThanOrEqual(11);
     expect(pub.troopsByResource.flatMap((g) => g.troops).length).toBeGreaterThan(50);
-    // The mumak is sold by the emissary only in the supporter build.
-    const mumak = (d: typeof pub) =>
-      d.troopsByResource.flatMap((g) => g.troops).find((t) => t.id === 'harad_mumakil_rider');
-    expect(mumak(pub)?.buy).toBeUndefined();
-    expect(mumak(data)?.buy).toBeGreaterThan(0);
+    expect(pub.emissaryTowns.length).toBeGreaterThan(0);
   });
 });

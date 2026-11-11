@@ -1,8 +1,9 @@
 ---
 // The Features page. Its cards live in src/data/features.json (hand-written from the mod's code and the team's
 // Discord posts); the special resource tables are read from the mod's own files (src/lib/parse-special-resources.ts).
-// A switch at the top shows either the public build (Bannerlord 1.4.8) or the supporter/tester build (1.5): a card
-// with "only": "supporter" is hidden in the public view, and a card's "public" fields replace its own there.
+// A switch at the top shows either the public build or the supporter/tester build (both Bannerlord 1.5.7 since
+// 10 Nov 2026): a card with "only": "supporter" is hidden in the public view, and a card's "public" fields replace its
+// own there.
 import Topbar from '../../components/Topbar.astro';
 import features from '../../data/features.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -84,7 +85,7 @@ const date = (iso: string) =>
 
 <BaseLayout
   title="Features"
-  description="Every gameplay system in TAOM, for the public build (Bannerlord 1.4.8) and the supporter build (Bannerlord 1.5): the War of the Ring, careers, enlistment, special resources, creatures, battle and more."
+  description="Every gameplay system in TAOM for Bannerlord 1.5.7, in the public and the supporter build: the War of the Ring, careers, enlistment, special resources, creatures, battle and more."
   hideNav={true}
   hideFooter={true}
   bodyClass="taom-features-body"
@@ -136,13 +137,29 @@ const date = (iso: string) =>
           }
         </button>
         <p class="build-note" data-build-only="public">
-          The build everyone can download: TAOM {builds.public.modVersion}, released {date(builds.public.released)}. The
-          supporter build has {supporterExtra} more features; switch above to see them.
+          The build everyone can download: TAOM {builds.public.modVersion}, released {date(builds.public.released)}.{
+            ' '
+          }
+          {
+            supporterExtra > 0
+              ? `The supporter build has ${supporterExtra} more features; switch above to see them.`
+              : 'The supporter build has the same features at the moment.'
+          }
         </p>
         <p class="build-note" data-build-only="supporter">
           The build for supporters and testers: TAOM {builds.supporter.modVersion}, released {
             date(builds.supporter.released)
-          }. Cards marked <span class="status-badge supporter-badge">Supporter build</span> are not in the public build yet.
+          }.{' '}
+          {
+            supporterExtra > 0 ? (
+              <>
+                Cards marked <span class="status-badge supporter-badge">Supporter build</span> are not in the public
+                build yet.
+              </>
+            ) : (
+              'The public build has the same features at the moment.'
+            )
+          }
         </p>
       </section>
 

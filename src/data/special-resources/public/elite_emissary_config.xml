@@ -4,8 +4,8 @@
      CultureOffers: keyed by the settlement's CURRENT OWNER culture (so conquest flips the offerings).
      Prices live in special_resources/troop_resource_costs.xml (merchant_cost); a troop listed here
      without a merchant_cost row is dropped + warned at load. Cultures that map to NO special resource
-     (goblin, mistymountainorcs) or have no L36+ elites (dale/sturgia, dunland/empire, umbar, khand/
-     battania, lothlorien) are intentionally omitted — the option won't appear there.
+     (lindon), that carry no offers yet (goblin, mistymountainorcs, bluecraig: War Spoils since #1081) or have no L36+ elites (dale/sturgia, dunland/empire, umbar, khand/
+     battania) are intentionally omitted — the option won't appear there.
      See docs/features/elite-emissary.md. -->
 <EliteEmissary enabled="true">
   <KeySettlements>
@@ -17,6 +17,7 @@
     <Settlement id="town_G1" />        <!-- Mount Gundabad -->
     <Settlement id="town_M1" />        <!-- Felegoth (Mirkwood) -->
     <Settlement id="town_R1" />        <!-- Rivendell -->
+    <Settlement id="town_L1" />        <!-- Caras Galadhon (Lothlorien) -->
     <Settlement id="town_V1" />        <!-- Edoras (Rohan) -->
     <Settlement id="town_RU1" />       <!-- Mistrand (Rhun) -->
     <Settlement id="town_A1" />        <!-- Korb Taskral (Harad) -->
@@ -107,6 +108,15 @@
       <Troop id="imladris_blademaster" />
     </Culture>
 
+    <Culture id="lothlorien">
+      <Troop id="lorien_gl_highblade" />
+      <Troop id="lorien_gl_mallorn_defender" />
+      <Troop id="lorien_gl_bowmaster" />
+      <Troop id="lorien_mw_high_ranger" />
+      <Troop id="lorien_mw_dawnrider" />
+      <Troop id="lorien_mw_waystalker" />
+    </Culture>
+
     <Culture id="vlandia">
       <Troop id="rohan_edoras_golden_hall_supreme_rider" />
       <Troop id="rohan_edoras_golden_hall_kings_own_rider" />
@@ -125,7 +135,9 @@
     </Culture>
 
     <Culture id="aserai">
+      <!-- The only way a player gets either rider: neither is a volunteer (Mike, 2026-10-15). -->
       <Troop id="harad_elephant_rider" />
+      <Troop id="harad_mumakil_rider" />
     </Culture>
   </CultureOffers>
 </EliteEmissary>

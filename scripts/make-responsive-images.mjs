@@ -63,7 +63,7 @@ const groups = [
       'database/border',
     ],
   },
-  { widths: [480, 640], files: ['logo'] },
+  { widths: [480, 640, 768], files: ['logo'] },
   // Clans page banners (page width on phones, at most 844 px on larger screens).
   { widths: [480, 768], files: ['gondor_web_ready', 'clans-umbar'] },
   { widths: [160, 240], files: ['logo-navbar'] },
