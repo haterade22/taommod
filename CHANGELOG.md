@@ -3,6 +3,10 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.14.1] — 11 Nov 2026 — Discord bot privacy policy: verified role
+
+- The Privacy Policy of The Great Eye now says what is stored so the verified role can be given back when a member rejoins, and that it is deleted 2 years after the member was last seen.
+
 ## [3.14.0] — 11 Nov 2026 — Features page updated for TAOM v2.0.38 on Bannerlord 1.5.7
 
 - Both builds are now on Bannerlord 1.5.7: the public and the supporter build both show TAOM v2.0.38 (released 10 Nov 2026), 91 careers, 400+ Mod Options and the same 74 features. The switch between the two builds stays.

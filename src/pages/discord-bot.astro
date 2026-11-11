@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Terms of Service (#terms) and Privacy Policy (#privacy) of The Great Eye, the TAOM Discord bot.
 // These two URLs are the ones given to Discord; keep the section ids stable.
 const termsUpdated = 'Oct 17, 2026';
-const privacyUpdated = 'Oct 17, 2026';
+const privacyUpdated = 'Nov 11, 2026';
 const privacyEmail = 'thegreateyeprivacy@gmail.com';
 // Permanent invite to the TAOM appeals server (banned members join it to get an Appeal button from the bot).
 const appealServer = 'https://discord.gg/3a8vcVK4VW';
@@ -57,6 +57,11 @@ const collectedData = [
     kept: 'How often each answer was used. Your message is not stored',
     where: 'Bot database (counts only)',
   },
+  {
+    feature: 'Verified role',
+    kept: 'So the verified role can be given back if you leave and rejoin: your Discord ID, the role ID and the last time you were seen with the role, checked daily while you are a member',
+    where: 'Bot database',
+  },
 ];
 
 const retention = [
@@ -75,6 +80,11 @@ const retention = [
     keptFor: "Until staff delete them. They live on Discord, not in the bot's database",
   },
   { data: 'Long-slowmode post times', keptFor: 'Until slowmode is turned off in that channel' },
+  {
+    data: 'Verified-role records',
+    keptFor:
+      '2 years after you were last seen with the role, then deleted automatically. If staff remove the role, the record is deleted too',
+  },
   { data: 'Deleted-image copies', keptFor: 'At most 30 minutes, in memory' },
 ];
 ---
