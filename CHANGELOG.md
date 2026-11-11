@@ -3,6 +3,10 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.14.1] — 11 Nov 2026 — Discord bot privacy policy: verified role
+
+- The Privacy Policy of The Great Eye now says what is stored so the verified role can be given back when a member rejoins, and that it is deleted 2 years after the member was last seen.
+
 ## [3.12.0] — 2 Nov 2026 — Features page updated for TAOM v2.0.36
 
 - The supporter view now shows TAOM v2.0.36 (released 27 Oct 2026): 76 careers, 400+ Mod Options, 66 features.
