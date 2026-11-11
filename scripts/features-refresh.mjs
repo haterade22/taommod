@@ -1,21 +1,27 @@
 // Checks the Features page (src/data/features.json) against the latest TAOM builds on GitHub and writes a report of
 // what changed. Used by the "refresh the features" routine; see CLAUDE.md (Features page).
 //
-//   node scripts/features-refresh.mjs          download both builds, update the special resource tables, write the report
-//   node scripts/features-refresh.mjs --save   afterwards: record what was checked in src/data/features-sources.json,
-//                                              so the next report lists only what is new since this refresh
+//   node scripts/features-refresh.mjs                  download both builds, update the special resource tables, write the report
+//   node scripts/features-refresh.mjs --public=v2.0.40 the public build moved to that release (when the owner says so)
+//   node scripts/features-refresh.mjs --save           afterwards: record what was checked in src/data/features-sources.json,
+//                                                      so the next report lists only what is new since this refresh
 //
-// Builds: the supporter build is the newest release on the bannerlord-1.5.x line (top of its CHANGELOG.md, made for
-// Bannerlord 1.5); the public build is the head of the bannerlord-1.4.5 branch (Bannerlord 1.4.8). The downloaded mod files and the report go to
-// <temp>/taom-features-refresh/ (printed at the end).
+// Builds (since 10 Nov 2026 both are made for Bannerlord 1.5.7 and both come from release tags on bannerlord-1.5.x, the
+// mod's only release line):
+// - supporter: the newest release (top "## vX.Y.Z (date)" heading of that branch's CHANGELOG.md, and its tag);
+// - public: the release named in features.json's builds.public.modVersion. GitHub does not record which release the
+//   public download carries (the team's release channels are folders on their own PC), so it stays where it is until
+//   --public=vX.Y.Z moves it.
+// The old bannerlord-1.4.5 branch (Bannerlord 1.4.8) is the legacy line and is no longer shown.
+// The downloaded mod files and the report go to <temp>/taom-features-refresh/ (printed at the end).
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
 const REPO = 'haterade22/TAOM';
-const PUBLIC_BRANCH = 'bannerlord-1.4.5';
 const SUPPORTER_BRANCH = 'bannerlord-1.5.x';
 const SUPPORTER_GAME = /^v?1\.5/;
+const publicArg = (process.argv.find((a) => a.startsWith('--public=')) || '').slice('--public='.length);
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, '$1')), '..');
 const dataDir = path.join(root, 'src', 'data');
 const featuresFile = path.join(dataDir, 'features.json');
@@ -37,21 +43,22 @@ const raw = async (ref, file) => {
 };
 
 // --- Which commit is each build? ---
-async function resolveBuilds() {
-  const head = await api(`commits/${PUBLIC_BRANCH}`);
-  const pub = { ref: head.sha, label: `${PUBLIC_BRANCH} branch`, date: head.commit.committer.date };
-
-  // The 1.5 line's CHANGELOG.md gets one "## vX.Y.Z (date)" section per release, newest first; that release's tag is
+async function resolveBuilds(publicVersion) {
+  // The 1.5 line's CHANGELOG.md gets one "## vX.Y.Z (date)" section per release, newest first; the top one's tag is
   // the supporter build. (Reading it costs no GitHub API call: unauthenticated use allows only 60 an hour.)
   const changelog = await raw(SUPPORTER_BRANCH, 'CHANGELOG.md');
-  const latest = changelog.match(/^## (v\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)/m);
-  if (!latest) throw new Error(`No release heading in ${SUPPORTER_BRANCH}/CHANGELOG.md`);
-  const tag = (await api('tags?per_page=100')).find((t) => t.name === latest[1]);
-  if (!tag) throw new Error(`Release ${latest[1]} has no tag yet`);
-  const sub = await raw(tag.commit.sha, 'Main/_Module/SubModule.xml');
-  if (!SUPPORTER_GAME.test(gameOf(sub))) throw new Error(`${latest[1]} is not a Bannerlord 1.5 build (${gameOf(sub)})`);
-  const sup = { ref: tag.commit.sha, label: `tag ${latest[1]}`, date: `${latest[2]}T00:00:00Z` };
-  return { public: pub, supporter: sup };
+  const releases = [...changelog.matchAll(/^## (v\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)/gm)];
+  if (!releases.length) throw new Error(`No release heading in ${SUPPORTER_BRANCH}/CHANGELOG.md`);
+  const tags = await api('tags?per_page=100');
+  const build = async (version) => {
+    const heading = releases.find((m) => m[1] === version);
+    const tag = tags.find((t) => t.name === version);
+    if (!heading || !tag) throw new Error(`Release ${version} is not a tagged release on ${SUPPORTER_BRANCH}`);
+    const sub = await raw(tag.commit.sha, 'Main/_Module/SubModule.xml');
+    if (!SUPPORTER_GAME.test(gameOf(sub))) throw new Error(`${version} is not a Bannerlord 1.5 build (${gameOf(sub)})`);
+    return { ref: tag.commit.sha, label: `tag ${version}`, date: `${heading[2]}T00:00:00Z` };
+  };
+  return { public: await build(publicVersion), supporter: await build(releases[0][1]) };
 }
 
 const gameOf = (subModule) => (subModule.match(/id="Native"[^>]*version="v?([\d.]+)/) || [])[1] || '';
@@ -161,7 +168,7 @@ async function main() {
   fs.rmSync(workDir, { recursive: true, force: true });
   fs.mkdirSync(workDir, { recursive: true });
 
-  const refs = await resolveBuilds();
+  const refs = await resolveBuilds(publicArg || features.builds.public.modVersion);
   const builds = {
     public: await loadBuild('public', refs.public),
     supporter: await loadBuild('supporter', refs.supporter),
@@ -197,7 +204,8 @@ async function main() {
   for (const id of ['public', 'supporter']) {
     const b = builds[id];
     const page = features.builds[id];
-    const before = previous?.builds?.[id];
+    // The 11 Nov 2026 snapshot held one build ("build"); it is the baseline for both.
+    const before = previous?.builds?.[id] ?? previous?.build;
     r.push(`## ${page.label} build`, '');
     r.push(
       `- Source: ${b.label}, commit ${b.ref.slice(0, 8)} (${b.date.slice(0, 10)}), TAOM ${b.modVersion}, Bannerlord ${b.game}`,

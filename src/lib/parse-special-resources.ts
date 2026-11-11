@@ -83,7 +83,7 @@ function realmOf(id: string, troop?: { name: string; culture: string }): string 
 const num = (value: unknown) => (value === undefined || value === '' ? undefined : Number(value));
 const titleCase = (id: string) => id.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
-/** Which build's files to read: the supporter build (1.5) is in special-resources/, the public build (1.4.8) in its public/ folder. */
+/** Which build's files to read: the supporter build is in special-resources/, the public build in its public/ folder. */
 export type Build = 'public' | 'supporter';
 
 function read(build: Build, file: string): string | null {

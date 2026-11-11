@@ -12,6 +12,10 @@
   <Troop id="mordor_uruk_heavy_archer" resource_id="war_spoils" upgrade_cost="2" daily_upkeep="0.1" />
   <!-- Cavalry (Nurn Warg Riders top-tier) -->
   <Troop id="mordor_warg_beastmaster" resource_id="war_spoils" upgrade_cost="1" daily_upkeep="0.05" />
+  <!-- Dire wolf riders (#1081): level 26 and up, the lowest band. recruit_cost charges the notable route, gated, and a prisoner recruit, ungated (#563). -->
+  <Troop id="goblin_wolf_lord" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
+  <Troop id="gundabad_dire_wolf_rider" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
+  <Troop id="gundabad_wolf_lord" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
   <!-- Command line -->
   <Troop id="mordor_uruk_captain" resource_id="war_spoils" upgrade_cost="4" daily_upkeep="0.2" merchant_cost="14" />
   <Troop id="mordor_uruk_baraddurguard" resource_id="war_spoils" upgrade_cost="5" daily_upkeep="0.3" merchant_cost="12" />
@@ -19,10 +23,25 @@
        recruit_cost is a ONE-TIME charge at volunteer recruitment (these are not upgrade targets,
        so upgrade_cost would never fire). The charged resource is the PLAYER's resolved resource —
        resource_id here is documentation only. Harad/aserai players pay War Drums; Dol Guldur
-       players pay War Spoils. -->
+       players pay War Spoils.
+       The two Harad riders are no volunteers since 2026-10-15 (Mike): the Elite Emissary sells
+       them for merchant_cost, and recruit_cost now charges only a captured rider recruited from
+       prisoners. The Mumakil price is its recruit_cost times the elephant's 70/50 ratio. -->
   <Troop id="harad_elephant_rider" resource_id="war_drums" recruit_cost="50" daily_upkeep="10" merchant_cost="70" />
-  <Troop id="harad_mumakil_rider" resource_id="war_drums" recruit_cost="2000" daily_upkeep="500" />
+  <Troop id="harad_mumakil_rider" resource_id="war_drums" recruit_cost="2000" daily_upkeep="500" merchant_cost="2800" />
   <Troop id="taom_spider_creature" resource_id="war_spoils" recruit_cost="5" daily_upkeep="1" merchant_cost="18" />
+  <!-- Trolls (Mike, 2026-09-25): a high cost, a lowish upkeep, both in the PLAYER's own resource. Neither is a
+       volunteer or a mercenary, so in practice the recruit cost is charged when the player recruits a captured
+       troll, a path Patch51 does not gate (the balance floors at 0, #563); the upkeep charges every troll in the
+       player's party. -->
+  <Troop id="cave_troll" resource_id="war_spoils" recruit_cost="50" daily_upkeep="5" />
+  <Troop id="hill_troll" resource_id="war_spoils" recruit_cost="50" daily_upkeep="4" />
+  <!-- Spider Rider upgrade rungs (#616): a bigger spider is the same package to feed, so upkeep
+       stays at the creature rate; the climb itself costs War Spoils on the party screen
+       (upgrade_cost, player only via Patch26). Neither rung is pooled or sold, so no recruit or
+       merchant cost. -->
+  <Troop id="taom_spider_rider_brown" resource_id="war_spoils" upgrade_cost="2" daily_upkeep="1" />
+  <Troop id="taom_spider_rider_pale" resource_id="war_spoils" upgrade_cost="3" daily_upkeep="1" />
 
   <!-- Ironpass war-ram cavalry, level 31 and above (Erebor -> Gems). The three rungs below 31
        (herder 16, rider 21, goat charger 26) stay free: the branch has to be enterable.
@@ -81,6 +100,11 @@
   <Troop id="gondor_lg_haven_guard" resource_id="caster" upgrade_cost="4" daily_upkeep="0.2" />
   <Troop id="gondor_met_sun_knight" resource_id="caster" upgrade_cost="4" daily_upkeep="0.2" />
   <Troop id="gondor_pel_anchor_guard" resource_id="caster" upgrade_cost="4" daily_upkeep="0.2" />
+  <!-- Arthedain troops cost no special resource (Mike, 2026-10-21): no rows, pinned by
+       NoArthedainTroop_CarriesASpecialResourceCost. -->
+  <!-- Ered Luin troops cost no special resource either. Erebor's only costed tree troops are the
+       Ironpass war rams above, which Ered Luin does not field, and Erebor's other Gems rows are
+       emissary offers at level 41 and up, past Ered Luin's level 36 King's Guard. -->
 
   <!-- ============================================================================
        Elite Emissary merchant offers (merchant_cost = one-time price the faction
@@ -89,7 +113,7 @@
        so an elite that is also a volunteer is never double-charged across the two
        economies. Cost band by tier: L36≈10-14, L41≈18, L46≈28, L51≈45, creatures≈premium.
        Surfaced by elite_emissary/elite_emissary_config.xml. See docs/features/elite-emissary.md.
-       (mordor_uruk_captain/baraddurguard, harad_elephant_rider, taom_spider_creature and
+       (mordor_uruk_captain/baraddurguard, harad_elephant_rider, harad_mumakil_rider, taom_spider_creature and
        the eight gondor_* offers carry their merchant_cost on the rows above so their
        upgrade/recruit costs survive.)
        ============================================================================ -->
@@ -136,6 +160,14 @@
   <Troop id="rivendell_royal_knight" resource_id="elven_wine" merchant_cost="28" />
   <Troop id="rider_of_himring" resource_id="elven_wine" merchant_cost="28" />
   <Troop id="imladris_blademaster" resource_id="elven_wine" merchant_cost="18" />
+  <!-- Lothlorien (Elven Wine): the Galadhrim terminal troops (level 46) and the Marchwarden terminal troops (level 41),
+       priced on the same level scale as the Rivendell and Mirkwood offers. -->
+  <Troop id="lorien_gl_highblade" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_gl_mallorn_defender" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_gl_bowmaster" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_mw_high_ranger" resource_id="elven_wine" merchant_cost="18" />
+  <Troop id="lorien_mw_dawnrider" resource_id="elven_wine" merchant_cost="18" />
+  <Troop id="lorien_mw_waystalker" resource_id="elven_wine" merchant_cost="18" />
 
   <!-- Rohan (Marks) -->
   <Troop id="rohan_edoras_golden_hall_supreme_rider" resource_id="marks" merchant_cost="18" />

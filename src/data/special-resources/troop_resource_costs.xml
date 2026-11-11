@@ -12,6 +12,10 @@
   <Troop id="mordor_uruk_heavy_archer" resource_id="war_spoils" upgrade_cost="2" daily_upkeep="0.1" />
   <!-- Cavalry (Nurn Warg Riders top-tier) -->
   <Troop id="mordor_warg_beastmaster" resource_id="war_spoils" upgrade_cost="1" daily_upkeep="0.05" />
+  <!-- Dire wolf riders (#1081): level 26 and up, the lowest band. recruit_cost charges the notable route, gated, and a prisoner recruit, ungated (#563). -->
+  <Troop id="goblin_wolf_lord" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
+  <Troop id="gundabad_dire_wolf_rider" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
+  <Troop id="gundabad_wolf_lord" resource_id="war_spoils" upgrade_cost="1" recruit_cost="1" daily_upkeep="0.05" />
   <!-- Command line -->
   <Troop id="mordor_uruk_captain" resource_id="war_spoils" upgrade_cost="4" daily_upkeep="0.2" merchant_cost="14" />
   <Troop id="mordor_uruk_baraddurguard" resource_id="war_spoils" upgrade_cost="5" daily_upkeep="0.3" merchant_cost="12" />
@@ -98,6 +102,9 @@
   <Troop id="gondor_pel_anchor_guard" resource_id="caster" upgrade_cost="4" daily_upkeep="0.2" />
   <!-- Arthedain troops cost no special resource (Mike, 2026-10-21): no rows, pinned by
        NoArthedainTroop_CarriesASpecialResourceCost. -->
+  <!-- Ered Luin troops cost no special resource either. Erebor's only costed tree troops are the
+       Ironpass war rams above, which Ered Luin does not field, and Erebor's other Gems rows are
+       emissary offers at level 41 and up, past Ered Luin's level 36 King's Guard. -->
 
   <!-- ============================================================================
        Elite Emissary merchant offers (merchant_cost = one-time price the faction
@@ -153,6 +160,14 @@
   <Troop id="rivendell_royal_knight" resource_id="elven_wine" merchant_cost="28" />
   <Troop id="rider_of_himring" resource_id="elven_wine" merchant_cost="28" />
   <Troop id="imladris_blademaster" resource_id="elven_wine" merchant_cost="18" />
+  <!-- Lothlorien (Elven Wine): the Galadhrim terminal troops (level 46) and the Marchwarden terminal troops (level 41),
+       priced on the same level scale as the Rivendell and Mirkwood offers. -->
+  <Troop id="lorien_gl_highblade" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_gl_mallorn_defender" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_gl_bowmaster" resource_id="elven_wine" merchant_cost="28" />
+  <Troop id="lorien_mw_high_ranger" resource_id="elven_wine" merchant_cost="18" />
+  <Troop id="lorien_mw_dawnrider" resource_id="elven_wine" merchant_cost="18" />
+  <Troop id="lorien_mw_waystalker" resource_id="elven_wine" merchant_cost="18" />
 
   <!-- Rohan (Marks) -->
   <Troop id="rohan_edoras_golden_hall_supreme_rider" resource_id="marks" merchant_cost="18" />
