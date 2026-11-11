@@ -839,3 +839,14 @@ tr[data-off-page] {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Phones: the Troops and Armoury tables shrink their text to fit more columns; keep it at 12px or more so it stays
+   readable (the tables scroll sideways anyway). Wider screens keep the compact sizes. */
+@media (max-width: 760px) {
+  .troops-page .data-table td,
+  .troops-page .data-table th,
+  .data-table-wrapper .armour-section.data-table td,
+  .data-table-wrapper .armour-section.data-table th {
+    font-size: 12px !important;
+  }
+}
