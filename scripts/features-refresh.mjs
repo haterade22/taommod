@@ -1,21 +1,27 @@
-// Checks the Features page (src/data/features.json) against the current TAOM release on GitHub and writes a report of
+// Checks the Features page (src/data/features.json) against the latest TAOM builds on GitHub and writes a report of
 // what changed. Used by the "refresh the features" routine; see CLAUDE.md (Features page).
 //
-//   node scripts/features-refresh.mjs          download the current release, update the special resource tables, write the report
-//   node scripts/features-refresh.mjs --save   afterwards: record what was checked in src/data/features-sources.json,
-//                                              so the next report lists only what is new since this refresh
+//   node scripts/features-refresh.mjs                  download both builds, update the special resource tables, write the report
+//   node scripts/features-refresh.mjs --public=v2.0.40 the public build moved to that release (when the owner says so)
+//   node scripts/features-refresh.mjs --save           afterwards: record what was checked in src/data/features-sources.json,
+//                                                      so the next report lists only what is new since this refresh
 //
-// Since 11 Nov 2026 there is one build for everyone: the newest release on the bannerlord-1.5.x line (top of its
-// CHANGELOG.md, made for Bannerlord 1.5.7). The bannerlord-1.4.5 branch (Bannerlord 1.4.8) is the legacy line and is
-// not shown on the page. The head of bannerlord-1.5.x is the development code (Coming soon). The downloaded mod files
-// and the report go to <temp>/taom-features-refresh/ (printed at the end).
+// Builds (since 10 Nov 2026 both are made for Bannerlord 1.5.7 and both come from release tags on bannerlord-1.5.x, the
+// mod's only release line):
+// - supporter: the newest release (top "## vX.Y.Z (date)" heading of that branch's CHANGELOG.md, and its tag);
+// - public: the release named in features.json's builds.public.modVersion. GitHub does not record which release the
+//   public download carries (the team's release channels are folders on their own PC), so it stays where it is until
+//   --public=vX.Y.Z moves it.
+// The old bannerlord-1.4.5 branch (Bannerlord 1.4.8) is the legacy line and is no longer shown.
+// The downloaded mod files and the report go to <temp>/taom-features-refresh/ (printed at the end).
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
 const REPO = 'haterade22/TAOM';
-const BRANCH = 'bannerlord-1.5.x';
-const GAME = /^v?1\.5/;
+const SUPPORTER_BRANCH = 'bannerlord-1.5.x';
+const SUPPORTER_GAME = /^v?1\.5/;
+const publicArg = (process.argv.find((a) => a.startsWith('--public=')) || '').slice('--public='.length);
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, '$1')), '..');
 const dataDir = path.join(root, 'src', 'data');
 const featuresFile = path.join(dataDir, 'features.json');
@@ -36,22 +42,27 @@ const raw = async (ref, file) => {
   return response.text();
 };
 
-const gameOf = (subModule) => (subModule.match(/id="Native"[^>]*version="v?([\d.*]+)/) || [])[1] || '';
-const versionOf = (subModule) => (subModule.match(/<Version value="([^"]+)"/) || [])[1] || '';
-
-// --- Which commit is the current release? ---
-// The 1.5 line's CHANGELOG.md gets one "## vX.Y.Z (date)" section per release, newest first; that release's tag is the
-// build. (Reading it costs no GitHub API call: unauthenticated use allows only 60 an hour.)
-async function resolveRelease() {
-  const changelog = await raw(BRANCH, 'CHANGELOG.md');
-  const latest = changelog.match(/^## (v\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)/m);
-  if (!latest) throw new Error(`No release heading in ${BRANCH}/CHANGELOG.md`);
-  const tag = (await api('tags?per_page=100')).find((t) => t.name === latest[1]);
-  if (!tag) throw new Error(`Release ${latest[1]} has no tag yet`);
-  const sub = await raw(tag.commit.sha, 'Main/_Module/SubModule.xml');
-  if (!GAME.test(gameOf(sub))) throw new Error(`${latest[1]} is not a Bannerlord 1.5 build (${gameOf(sub)})`);
-  return { ref: tag.commit.sha, label: `tag ${latest[1]}`, date: `${latest[2]}T00:00:00Z` };
+// --- Which commit is each build? ---
+async function resolveBuilds(publicVersion) {
+  // The 1.5 line's CHANGELOG.md gets one "## vX.Y.Z (date)" section per release, newest first; the top one's tag is
+  // the supporter build. (Reading it costs no GitHub API call: unauthenticated use allows only 60 an hour.)
+  const changelog = await raw(SUPPORTER_BRANCH, 'CHANGELOG.md');
+  const releases = [...changelog.matchAll(/^## (v\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)/gm)];
+  if (!releases.length) throw new Error(`No release heading in ${SUPPORTER_BRANCH}/CHANGELOG.md`);
+  const tags = await api('tags?per_page=100');
+  const build = async (version) => {
+    const heading = releases.find((m) => m[1] === version);
+    const tag = tags.find((t) => t.name === version);
+    if (!heading || !tag) throw new Error(`Release ${version} is not a tagged release on ${SUPPORTER_BRANCH}`);
+    const sub = await raw(tag.commit.sha, 'Main/_Module/SubModule.xml');
+    if (!SUPPORTER_GAME.test(gameOf(sub))) throw new Error(`${version} is not a Bannerlord 1.5 build (${gameOf(sub)})`);
+    return { ref: tag.commit.sha, label: `tag ${version}`, date: `${heading[2]}T00:00:00Z` };
+  };
+  return { public: await build(publicVersion), supporter: await build(releases[0][1]) };
 }
+
+const gameOf = (subModule) => (subModule.match(/id="Native"[^>]*version="v?([\d.]+)/) || [])[1] || '';
+const versionOf = (subModule) => (subModule.match(/<Version value="([^"]+)"/) || [])[1] || '';
 
 // --- Settings (TaomSettings.cs: every Mod Options entry with its group, description and default) ---
 function parseSettings(source) {
@@ -93,9 +104,9 @@ function normaliseDefault(value) {
 
 const DIAGNOSTIC = /diagnos|debug|census|test mode|probe/i;
 
-// --- Download the release ---
-async function loadBuild(build) {
-  const dir = path.join(workDir, 'release');
+// --- Download one build ---
+async function loadBuild(id, build) {
+  const dir = path.join(workDir, id);
   fs.mkdirSync(dir, { recursive: true });
   const get = async (file) => {
     const text = await raw(build.ref, file);
@@ -113,7 +124,7 @@ async function loadBuild(build) {
     .sort();
 
   // The special resource tables on the page read these.
-  const tableDir = path.join(dataDir, 'special-resources');
+  const tableDir = path.join(dataDir, 'special-resources', ...(id === 'public' ? ['public'] : []));
   fs.mkdirSync(tableDir, { recursive: true });
   for (const file of [
     'special_resources/special_resources_config.xml',
@@ -136,141 +147,179 @@ async function loadBuild(build) {
   };
 }
 
-// --- The page's released cards (Coming soon cards are checked separately) ---
-const releasedCards = (features) =>
-  features.sections.flatMap((section) => section.cards.filter((card) => !card.coming));
+// --- The page's cards as each build sees them (same rules as features.astro) ---
+function cardsIn(features, build) {
+  return features.sections.flatMap((section) =>
+    section.cards
+      .filter((card) => !card.coming && (!card.only || card.only === build))
+      .map((card) => ({
+        section: section.id,
+        ...(build === 'public' && card.public ? { ...card, ...card.public } : card),
+        raw: card,
+      })),
+  );
+}
 
 const roundedCount = (n) => `${Math.floor(n / 100) * 100}+`;
 
 async function main() {
   const features = JSON.parse(fs.readFileSync(featuresFile, 'utf8'));
   const previous = fs.existsSync(sourcesFile) ? JSON.parse(fs.readFileSync(sourcesFile, 'utf8')) : null;
-  // Before 11 Nov 2026 the file held two builds; the supporter one is the baseline for the single build.
-  const before = previous?.build ?? previous?.builds?.supporter;
   fs.rmSync(workDir, { recursive: true, force: true });
   fs.mkdirSync(workDir, { recursive: true });
 
-  const b = await loadBuild(await resolveRelease());
+  const refs = await resolveBuilds(publicArg || features.builds.public.modVersion);
+  const builds = {
+    public: await loadBuild('public', refs.public),
+    supporter: await loadBuild('supporter', refs.supporter),
+  };
   // The newest development code (not released yet): what the Coming soon section can draw on.
-  const devSource = await raw(BRANCH, 'Main/Features/TaomSettings.cs');
+  const devSource = await raw(SUPPORTER_BRANCH, 'Main/Features/TaomSettings.cs');
   fs.mkdirSync(path.join(workDir, 'development'), { recursive: true });
   fs.writeFileSync(path.join(workDir, 'development', 'TaomSettings.cs'), devSource);
   const devSettings = parseSettings(devSource);
 
   if (save) {
-    const snapshot = {
-      ref: b.ref,
-      label: b.label,
-      date: b.date,
-      modVersion: b.modVersion,
-      game: b.game,
-      groups: b.groups,
-      folders: b.folders,
-    };
+    const snapshot = Object.fromEntries(
+      Object.entries(builds).map(([id, b]) => [
+        id,
+        { ref: b.ref, label: b.label, date: b.date, modVersion: b.modVersion, groups: b.groups, folders: b.folders },
+      ]),
+    );
     fs.writeFileSync(
       sourcesFile,
-      JSON.stringify({ checkedAt: new Date().toISOString().slice(0, 10), build: snapshot }, null, 2) + '\n',
+      JSON.stringify({ checkedAt: new Date().toISOString().slice(0, 10), builds: snapshot }, null, 2) + '\n',
     );
     console.log(`Saved what was checked to ${path.relative(root, sourcesFile)}.`);
     return;
   }
 
-  const page = features.build;
   const r = [];
   r.push('# Features refresh report', '');
   r.push(
-    `Mod files are in ${workDir} (release/: TaomSettings.cs, SubModule.xml, taom_careers.xml; development/: TaomSettings.cs).`,
+    `Mod files for both builds are in ${workDir} (public/, supporter/: TaomSettings.cs, SubModule.xml, taom_careers.xml).`,
     '',
   );
 
-  r.push('## Current release', '');
-  r.push(
-    `- Source: ${b.label}, commit ${b.ref.slice(0, 8)} (${b.date.slice(0, 10)}), TAOM ${b.modVersion}, Bannerlord ${b.game}`,
-  );
-  r.push(
-    `- Page says: TAOM ${page.modVersion}, ${page.game}, released ${page.released}, ${page.careerCount} careers, ${page.modOptionsCount} Mod Options`,
-  );
-  r.push(
-    `- Now: ${b.careerCount} careers, ${b.settingCount} Mod Options (excluding diagnostics) -> "${roundedCount(b.settingCount)}"`,
-  );
-  if (b.modVersion !== page.modVersion)
-    r.push(`- **New version: ${page.modVersion} -> ${b.modVersion}.** Update modVersion and released.`);
-  const game = b.game.replace(/\.\*$/, '');
-  if (!page.game.endsWith(game)) r.push(`- **Game version changed: page says ${page.game}, release needs ${game}.**`);
-  r.push('');
+  for (const id of ['public', 'supporter']) {
+    const b = builds[id];
+    const page = features.builds[id];
+    // The 11 Nov 2026 snapshot held one build ("build"); it is the baseline for both.
+    const before = previous?.builds?.[id] ?? previous?.build;
+    r.push(`## ${page.label} build`, '');
+    r.push(
+      `- Source: ${b.label}, commit ${b.ref.slice(0, 8)} (${b.date.slice(0, 10)}), TAOM ${b.modVersion}, Bannerlord ${b.game}`,
+    );
+    r.push(
+      `- Page says: TAOM ${page.modVersion}, released ${page.released}, ${page.careerCount} careers, ${page.modOptionsCount} Mod Options`,
+    );
+    r.push(
+      `- Now: ${b.careerCount} careers, ${b.settingCount} Mod Options (excluding diagnostics) -> "${roundedCount(b.settingCount)}"`,
+    );
+    if (b.modVersion !== page.modVersion)
+      r.push(`- **New version: ${page.modVersion} -> ${b.modVersion}.** Update modVersion and released.`);
+    r.push('');
 
-  // Commits since the last refresh (feature and balance subjects are the useful ones).
-  if (before?.ref && before.ref !== b.ref) {
-    try {
-      const cmp = await api(`compare/${before.ref}...${b.ref}`);
-      const subjects = cmp.commits
-        .map((c) => c.commit.message.split('\n')[0])
-        .filter((s) => /^(feat|balance)/i.test(s));
-      r.push(`### Feature commits since the last refresh (${cmp.total_commits} commits in all)`, '');
-      r.push(...(subjects.length ? subjects.map((s) => `- ${s}`) : ['- none']), '');
-    } catch (e) {
-      r.push(`(Could not list commits since the last refresh: ${e.message})`, '');
+    // Commits since the last refresh (feature and balance subjects are the useful ones).
+    if (before?.ref && before.ref !== b.ref) {
+      try {
+        const cmp = await api(`compare/${before.ref}...${b.ref}`);
+        const subjects = cmp.commits
+          .map((c) => c.commit.message.split('\n')[0])
+          .filter((s) => /^(feat|balance)/i.test(s));
+        r.push(`### Feature commits since the last refresh (${cmp.total_commits} commits in all)`, '');
+        r.push(...(subjects.length ? subjects.map((s) => `- ${s}`) : ['- none']), '');
+      } catch (e) {
+        r.push(`(Could not list commits since the last refresh: ${e.message})`, '');
+      }
     }
+
+    // New Mod Options groups and feature folders since the last refresh: likely new features.
+    if (before) {
+      const newGroups = b.groups.filter((g) => !before.groups.includes(g) && !DIAGNOSTIC.test(g));
+      const goneGroups = before.groups.filter((g) => !b.groups.includes(g));
+      const newFolders = b.folders.filter((f) => !before.folders.includes(f));
+      const goneFolders = before.folders.filter((f) => !b.folders.includes(f));
+      r.push('### New since the last refresh', '');
+      r.push(`- New Mod Options groups: ${newGroups.join(', ') || 'none'}`);
+      for (const g of newGroups) {
+        for (const s of b.settings.filter((x) => x.group === g))
+          r.push(`  - ${s.name} = ${s.default || '?'}: ${s.hint}`);
+      }
+      r.push(`- Removed Mod Options groups: ${goneGroups.join(', ') || 'none'}`);
+      r.push(`- New feature folders (Main/Features): ${newFolders.join(', ') || 'none'}`);
+      r.push(`- Removed feature folders: ${goneFolders.join(', ') || 'none'}`, '');
+    } else {
+      r.push('(No earlier refresh recorded: run with --save at the end so the next report can list what is new.)', '');
+    }
+
+    // Every setting the page names, checked against this build.
+    const byName = new Map(b.settings.map((s) => [s.name, s]));
+    const problems = [];
+    for (const card of cardsIn(features, id)) {
+      for (const s of card.settings || []) {
+        const found = byName.get(s.name);
+        if (!found)
+          problems.push(
+            `- "${card.title}": setting "${s.name}" is not in this build (renamed, removed, or card should not show here)`,
+          );
+        else if (found.default && found.default !== s.default)
+          problems.push(`- "${card.title}": "${s.name}" default is ${found.default}, page says ${s.default}`);
+      }
+    }
+    r.push('### Settings on the page', '');
+    r.push(...(problems.length ? problems : ['- all match']), '');
   }
 
-  // New Mod Options groups and feature folders since the last refresh: likely new features.
-  if (before) {
-    const newGroups = b.groups.filter((g) => !before.groups.includes(g) && !DIAGNOSTIC.test(g));
-    const goneGroups = before.groups.filter((g) => !b.groups.includes(g));
-    const newFolders = b.folders.filter((f) => !before.folders.includes(f));
-    const goneFolders = before.folders.filter((f) => !b.folders.includes(f));
-    r.push(`### New since the last refresh (${before.modVersion})`, '');
-    r.push(`- New Mod Options groups: ${newGroups.join(', ') || 'none'}`);
-    for (const g of newGroups) {
-      for (const s of b.settings.filter((x) => x.group === g)) r.push(`  - ${s.name} = ${s.default || '?'}: ${s.hint}`);
-    }
-    r.push(`- Removed Mod Options groups: ${goneGroups.join(', ') || 'none'}`);
-    r.push(`- New feature folders (Main/Features): ${newFolders.join(', ') || 'none'}`);
-    r.push(`- Removed feature folders: ${goneFolders.join(', ') || 'none'}`, '');
-  } else {
-    r.push('(No earlier refresh recorded: run with --save at the end so the next report can list what is new.)', '');
-  }
+  // Supporter-only cards whose settings all exist in the public build may have reached it.
+  const pubNames = new Set(builds.public.settings.map((s) => s.name));
+  const reached = features.sections
+    .flatMap((s) => s.cards)
+    .filter((c) => c.only === 'supporter' && c.settings?.length && c.settings.every((s) => pubNames.has(s.name)));
+  r.push('## Supporter-only cards that may now be in the public build', '');
+  r.push(...(reached.length ? reached.map((c) => `- ${c.title}`) : ['- none']), '');
 
-  // Every setting the page names, checked against the release.
-  const byName = new Map(b.settings.map((s) => [s.name, s]));
-  const problems = [];
-  for (const card of releasedCards(features)) {
+  // Descriptions that differ between builds for settings the page shows: a hint that a card needs a public version.
+  const supByName = new Map(builds.supporter.settings.map((s) => [s.name, s]));
+  const diffs = [];
+  for (const card of features.sections.flatMap((s) => s.cards).filter((c) => !c.only && !c.public)) {
     for (const s of card.settings || []) {
-      const found = byName.get(s.name);
-      if (!found) problems.push(`- "${card.title}": setting "${s.name}" is not in the release (renamed or removed)`);
-      else if (found.default && found.default !== s.default)
-        problems.push(`- "${card.title}": "${s.name}" default is ${found.default}, page says ${s.default}`);
+      const a = builds.public.settings.find((x) => x.name === s.name);
+      const b = supByName.get(s.name);
+      if (a && b && a.hint !== b.hint)
+        diffs.push(`- "${card.title}" / ${s.name}\n  - public: ${a.hint}\n  - supporter: ${b.hint}`);
     }
   }
-  r.push('### Settings on the page', '');
-  r.push(...(problems.length ? problems : ['- all match']), '');
+  r.push('## Cards shown the same in both builds whose setting descriptions differ', '');
+  r.push(...(diffs.length ? diffs : ['- none']), '');
 
-  // Coming soon: has a card's feature reached the release?
-  const relNames = new Set(b.settings.map((s) => s.name));
+  // Coming soon: has a card's feature reached a release?
+  const supNames = new Set(builds.supporter.settings.map((s) => s.name));
   const devNames = new Set(devSettings.map((s) => s.name));
   const comingCards = features.sections.flatMap((s) => s.cards).filter((card) => card.coming);
   r.push('## Coming soon cards', '');
-  if (!comingCards.length) r.push('- none');
   for (const card of comingCards) {
     const watch = card.watch || [];
-    const inRel = watch.filter((n) => relNames.has(n));
-    const gone = watch.filter((n) => !devNames.has(n) && !relNames.has(n));
+    const inSup = watch.filter((n) => supNames.has(n));
+    const inPub = watch.filter((n) => pubNames.has(n));
+    const gone = watch.filter((n) => !devNames.has(n) && !supNames.has(n));
     let state = 'still only in development';
-    if (inRel.length) state = `**now in the release** (${inRel.join(', ')}): move out of Coming soon`;
+    if (inPub.length) state = `**now in the PUBLIC build** (${inPub.join(', ')})`;
+    else if (inSup.length) state = `**now in the supporter release** (${inSup.join(', ')}): move out of Coming soon`;
     if (gone.length) state += `; no longer in the code at all: ${gone.join(', ')} (dropped or renamed?)`;
     if (!watch.length) state = 'no watch list: check by hand';
     r.push(`- ${card.title}: ${state}`);
   }
   r.push('');
 
-  // In the development code but not in the release, and not watched by any Coming soon card yet.
+  // In the development code but not in the supporter release, and not watched by any Coming soon card yet.
   const watched = new Set(comingCards.flatMap((card) => card.watch || []));
   // A setting counts as covered when a Coming soon card watches any setting of its Mod Options group; parked
   // features and per-realm colour fields are left out.
   const watchedGroups = new Set(devSettings.filter((s) => watched.has(s.name)).map((s) => s.group));
   const newDev = devSettings.filter(
     (s) =>
-      !relNames.has(s.name) &&
+      !supNames.has(s.name) &&
       !watchedGroups.has(s.group) &&
       !DIAGNOSTIC.test(s.group) &&
       !DIAGNOSTIC.test(s.name) &&
@@ -284,7 +333,7 @@ async function main() {
 
   const reportFile = path.join(workDir, 'report.md');
   fs.writeFileSync(reportFile, r.join('\n'));
-  console.log('Special resource tables updated.');
+  console.log(`Special resource tables updated for both builds.`);
   console.log(`Report: ${reportFile}`);
 }
 

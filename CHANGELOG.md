@@ -3,9 +3,10 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
-## [3.14.0] — 11 Nov 2026 — Features page: one build for everyone
+## [3.14.0] — 11 Nov 2026 — Features page updated for TAOM v2.0.38 on Bannerlord 1.5.7
 
-- Every player now has the same build, so the Features page shows one build: TAOM v2.0.38 for Bannerlord 1.5.7 (released 10 Nov 2026), 91 careers, 400+ Mod Options, 74 features. The switch between the public and supporter builds is gone, and every card is shown to everyone.
+- Both builds are now on Bannerlord 1.5.7: the public and the supporter build both show TAOM v2.0.38 (released 10 Nov 2026), 91 careers, 400+ Mod Options and the same 74 features. The switch between the two builds stays.
+- Features that were only in the supporter build are now in both, and the Bannerlord 1.4.8 tables are gone.
 - New Game Modes section with The Long Defeat and Fords of War.
 - 5 more new cards: Marshal's Word, The Seat of Seeing, Dwarf Attacks, New Troops and Battle HUD. Warden's Tally moved out of Coming soon.
 - Existing cards updated: Kingdom Allegiance (Free Peoples and the Shadow), staged sieges (Sieges), Arachnophobia Mode (Giant Spiders), paying elite troops in gold only (Special Resources), the new 15,000 bet limit (Tournaments), the Feral Orcs (Bandits), and Sauron and the Nazgûl now on by default (Play as an Existing Lord).
