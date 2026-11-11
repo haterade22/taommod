@@ -1,22 +1,11 @@
 {
   "updatedAt": "2026-11-02",
-  "builds": {
-    "public": {
-      "label": "Public",
-      "game": "Bannerlord 1.4.8",
-      "modVersion": "v2.0.28",
-      "released": "2026-10-01",
-      "careerCount": 67,
-      "modOptionsCount": "200+"
-    },
-    "supporter": {
-      "label": "Supporter",
-      "game": "Bannerlord 1.5",
-      "modVersion": "v2.0.36",
-      "released": "2026-10-27",
-      "careerCount": 76,
-      "modOptionsCount": "400+"
-    }
+  "build": {
+    "game": "Bannerlord 1.5.7",
+    "modVersion": "v2.0.38",
+    "released": "2026-11-10",
+    "careerCount": 91,
+    "modOptionsCount": "400+"
   },
   "sections": [
     {
@@ -45,10 +34,7 @@
               "name": "Phase 2 Start Day",
               "default": "44"
             }
-          ],
-          "public": {
-            "summary": "Middle-earth starts at peace and slides into the War of the Ring on a set timetable."
-          }
+          ]
         },
         {
           "title": "War Momentum",
@@ -83,8 +69,7 @@
               "name": "Enable the Hunt",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "The War Chronicle",
@@ -102,8 +87,7 @@
               "name": "Show Announcements",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Rally",
@@ -118,8 +102,7 @@
               "name": "Enable Rally",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Fire and Tribute",
@@ -139,9 +122,17 @@
               "name": "Tribute Envoys",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "War Pledge",
+          "summary": "When one side falls far behind in the War of the Ring, it calls on a Neutral realm that leans its way, and that realm goes to war with every realm of the other side for good.",
+          "points": [
+            "Khand, Rhudaur, Umbar, Shaghâna and Âbanissa lean to the Shadow; Cardolan and Dorwinion to the Free Peoples",
+            "One realm joins at a time, 30 days apart, and never a realm a player rules"
           ],
-          "only": "supporter",
-          "new": "v2.0.36"
+          "coming": true,
+          "watch": ["Enable War Pledge"]
         }
       ]
     },
@@ -185,7 +176,9 @@
             "Wanderers will not serve a player from the other side",
             "Troops of the other side desert a party or garrison, half of each type per day",
             "Recruiting prisoners of your own side costs no morale",
-            "Free and Evil tournaments do not seat each other's fighters"
+            "Free and Evil tournaments do not seat each other's fighters",
+            "AI lords of the Free Peoples never join, defect to or hire out to a realm of the Shadow, and the reverse; Neutral clans may deal with either side",
+            "A new campaign starts with no friendships between Free and Evil lords: each one becomes enmity of the same strength"
           ],
           "settings": [
             {
@@ -199,17 +192,12 @@
             {
               "name": "Enable Alignment Desertion",
               "default": "On"
+            },
+            {
+              "name": "Enable Kingdom Allegiance",
+              "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "No recruiting volunteers in a settlement held by the other side",
-              "No marriages across the line; Neutral cultures (Umbar, Shaghâna, Âbanissa and Dunland) marry anyone",
-              "Wanderers will not serve a player from the other side",
-              "Troops of the other side desert a party or garrison, half of each type per day",
-              "Recruiting prisoners of your own side costs no morale"
-            ]
-          }
+          ]
         },
         {
           "title": "Fair Fief Grants",
@@ -226,15 +214,7 @@
               "name": "Enable Fief Grant Rebalance",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "The clan that carried the assault gets 2.5 times the claim; clans that were absent get half",
-              "Landless clans are favoured, and each fief a clan already holds weakens its next claim",
-              "Clans of the settlement's culture are favoured, so an orc clan rarely ends up holding an elven city",
-              "A king holding more than a third of the realm's fiefs can no longer overrule the council"
-            ]
-          }
+          ]
         },
         {
           "title": "Lords Hold Their Hosts",
@@ -252,7 +232,6 @@
         },
         {
           "title": "Seasoned Hosts",
-          "new": "v2.0.36",
           "summary": "AI lords and their troops learn faster, so the realms keep pace with you.",
           "points": [
             "AI lord parties get 25% more training experience",
@@ -272,8 +251,7 @@
               "name": "Learning Never Stops",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Siege Defence Events",
@@ -296,8 +274,6 @@
             "AI rulers pay half the influence to call parties into an army, so their hosts hold together longer",
             "Free armies hold a captured fort for about 22 hours instead of the base game’s 10"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Lords stop fleeing sieges",
@@ -338,17 +314,7 @@
             "Lore rank titles, such as Ithilien Scout, Ranger of Ithilien, then Captain of the White Company",
             "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion",
             "Every playable culture, Arthedain, Cardolan and Rhudaur included, starts a career with its own kit"
-          ],
-          "public": {
-            "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 67 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
-            "points": [
-              "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
-              "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
-              "A three-tier choice tree; tiers open with your level",
-              "Lore rank titles, such as Ithilien Scout, Ranger of Ithilien, then Captain of the White Company",
-              "Chosen at character creation, where it also sets your starting gear; switch later by talking to a companion"
-            ]
-          }
+          ]
         },
         {
           "title": "Career Quests",
@@ -379,17 +345,7 @@
               "name": "Enable Enlistment",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "A term of 365 days; wages of 5, 8, 14 and 22 a day by rank, paid from the lord's own purse",
-              "Climb from Recruit to Soldier, Veteran and Sergeant",
-              "Choose infantry, archer, cavalry or support; each battle is scored 0 to 100 on how well you fought that role",
-              "13 field duties, 11 camp duties and 3 camp incidents, offered by what the column is doing",
-              "Draw your own realm's service kit from the quartermaster at each rank",
-              "Leave with honour after your term; desert early and you lose your back pay"
-            ]
-          }
+          ]
         },
         {
           "title": "Battlefield Promotions",
@@ -420,7 +376,7 @@
             "Click a lord to preview him; click again to get your own character back",
             "A wanderer joins your own named clan instead, under the banner you designed",
             "The backstory questions are skipped; your career choice carries over",
-            "Sauron and the Nazgûl can be unlocked, but a player-controlled dark lord can be captured"
+            "Sauron and the Nazgûl are on the list too; a player-controlled dark lord can be captured and ransomed like any other lord, so turn them off if you would rather keep them out"
           ],
           "settings": [
             {
@@ -429,10 +385,9 @@
             },
             {
               "name": "Allow Sauron and the Nazgul",
-              "default": "Off"
+              "default": "On"
             }
-          ],
-          "public": {}
+          ]
         },
         {
           "title": "Themed Character Creation",
@@ -443,8 +398,7 @@
               "name": "Themed Faction & Hero Picker",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         }
       ]
     },
@@ -469,17 +423,7 @@
               "name": "Enable Troop Weight",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "105 troops take more than one slot: elites take 2, or 3 from level 41",
-              "Warg riders 2, the Dol Guldur giant spider 4, a war elephant 10",
-              "Most 3-slot troops are elves, dwarves, Black Númenóreans and Khamûl's guard; Rohan, Dale, Dunland and Rhûn have none",
-              "Your party count shows the weighted total everywhere you see it",
-              "AI lords obey the same limit and shed their weakest troops when they upgrade",
-              "Weight limits how many elites you field, not how well they fight"
-            ]
-          }
+          ]
         },
         {
           "title": "Special Resources",
@@ -489,7 +433,18 @@
             "Spent to buy elites, to upgrade into them, and as daily upkeep",
             "At 0, a tenth of each upkeep troop type deserts per day (with a warning a day ahead)",
             "Your balance and a breakdown are on the map bar",
+            "Elite Troops Cost Gold Only (off by default): no resource is charged to upgrade, recruit or keep troops and nobody deserts; the Elite Emissary then sells for gold at 200 per resource point",
             "The full tables are below"
+          ],
+          "settings": [
+            {
+              "name": "Elite Troops Cost Gold Only",
+              "default": "Off"
+            },
+            {
+              "name": "Emissary Gold Per Resource",
+              "default": "200"
+            }
           ]
         },
         {
@@ -531,13 +486,7 @@
               "name": "Enable Culture Conversion",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "Converts one day after capture by default",
-              "Notables are replaced by ones of the new culture (a Mordor-held Gondor town gets orc notables)"
-            ]
-          }
+          ]
         },
         {
           "title": "Supply Lines",
@@ -563,8 +512,7 @@
               "name": "Enable Armour Acquisition",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Quartermaster Orders",
@@ -580,9 +528,18 @@
               "name": "Enable Provender-master",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "New Troops",
+          "summary": "New troop trees and elite troops for several realms.",
+          "points": [
+            "Lothlórien fields its own three troop trees instead of Rivendell’s: Regular Lórien, Marchwardens and Galadhrim, 28 troops in all, with its own villagers, tavern mercenary, armour and Elite Emissary",
+            "The Snow Orcs of Mount Gram: 13 Gundabad troops, recruited at Mount Gram and by the Grishûk clan",
+            "Dire wolf riders for Gundabad and the goblins of the Misty Mountains, on a wolf about a quarter larger than a warg",
+            "Arnor: Knight of Annúminas, Evendim Warden and Dúnedain Steel Bowman for Arthedain, and the Tharbad Bridge Guard for Cardolan"
           ],
-          "only": "supporter",
-          "new": "v2.0.36"
+          "new": "v2.0.37"
         },
         {
           "title": "Camps and Refuges",
@@ -604,13 +561,7 @@
               "name": "Enable Refuges",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "Up to 3 refuges, depending on clan tier; upgrade one into a stronghold",
-              "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack"
-            ]
-          }
+          ]
         }
       ]
     },
@@ -635,16 +586,82 @@
               "name": "Enable Combat Mechanics",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "Marshal's Word",
+          "summary": "Richer orders for your companies in a battle.",
+          "points": [
+            "Hold Left Shift while giving an order and the company carries it out after its current one",
+            "Several selected companies move as one body and keep their places; a drag turns and stretches the whole group, and nearer companies slow down so all arrive together",
+            "Your selected companies get a gold outline and the enemy company they mark or charge a red one; hold Left Ctrl on a charge order to mark a target without moving",
+            "The Square order forms a plain hollow square instead of a packed schiltron",
+            "Companies carrying javelins or other throwing weapons stop short on an Advance, throw, then go in to melee"
           ],
-          "public": {
-            "points": [
-              "A much more skilled fighter can crush through a block with a strong swing",
-              "Troll, mûmak, elephant and giant spider attacks can only be blocked with a shield",
-              "Orc and Uruk swings can break through shield blocks, so turtling against a horde is no longer safe",
-              "Troll and mûmak swings cleave through several soldiers; big creatures shrug off small hits",
-              "Charges knock down by weight: a mûmak bowls over infantry, a horse cannot floor a troll, dwarves stand their ground"
-            ]
-          }
+          "new": "v2.0.37",
+          "settings": [
+            {
+              "name": "Enable Marshal's Word",
+              "default": "On"
+            },
+            {
+              "name": "Keep the Array",
+              "default": "On"
+            },
+            {
+              "name": "Arrive Together",
+              "default": "On"
+            },
+            {
+              "name": "Outlines",
+              "default": "On"
+            },
+            {
+              "name": "Hollow Square",
+              "default": "On"
+            },
+            {
+              "name": "Throwers Throw First",
+              "default": "On"
+            }
+          ]
+        },
+        {
+          "title": "The Seat of Seeing",
+          "summary": "Press Q in a battle to lift your view off your hero and fly over the field, then press it again to glide back.",
+          "points": [
+            "Your hero stands fast while you are up, or fights on under the AI if you turn that on",
+            "With the order panel open in the Seat, a cursor shows and orders land where it points",
+            "After your hero falls, press Delete in the Seat to take over the soldier in the middle of the screen",
+            "Optional: begin every battle in the Seat, and lift the view a few metres over the ranks whenever the order panel is open"
+          ],
+          "new": "v2.0.37",
+          "settings": [
+            {
+              "name": "Enable the Seat of Seeing",
+              "default": "On"
+            },
+            {
+              "name": "Begin Battles in the Seat",
+              "default": "Off"
+            },
+            {
+              "name": "Show a cursor with the order panel",
+              "default": "On"
+            },
+            {
+              "name": "Your hero fights on in the Seat",
+              "default": "Off"
+            },
+            {
+              "name": "Take a soldier after your hero falls",
+              "default": "On"
+            },
+            {
+              "name": "Rise to give orders",
+              "default": "Off"
+            }
+          ]
         },
         {
           "title": "Race Abilities",
@@ -659,8 +676,27 @@
               "name": "Enable Race Abilities",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "Dwarf Attacks",
+          "summary": "AI dwarves on foot head-butt an enemy right in front of them and drop-kick one a few steps away, each on its own cooldown.",
+          "points": [
+            "The head butt staggers; the drop kick knocks the enemy down unless a shield blocks it",
+            "Armour does not reduce their damage, which can be scaled from 0 to full",
+            "Your own character never does either"
           ],
-          "only": "supporter"
+          "new": "v2.0.37",
+          "settings": [
+            {
+              "name": "Enable Dwarf Attacks",
+              "default": "On"
+            },
+            {
+              "name": "Dwarf Attack Damage (%)",
+              "default": "100"
+            }
+          ]
         },
         {
           "title": "Culture Battle Styles",
@@ -683,8 +719,7 @@
               "name": "Enable Culture Doctrine",
               "default": "Off"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Hammerhand and Horse Stand",
@@ -693,8 +728,6 @@
             "Hammerhand: a shield bash or a kick can knock a man down; the chance grows with the attacker’s Athletics lead, and trolls never fall",
             "Horse Stand: outnumbered against an army of mostly horse, AI Dwarves, Isengard and Dale make their stand at a choke point, a forest or a slope, and riders on ordinary horses dismount to join the shield wall (needs Enable Culture Doctrine, which is off by default)"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Hammerhand (Shield Bash Knockdown)",
@@ -723,19 +756,7 @@
               "name": "Signature Strikes",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": [
-              "Aura of Dread: enemy troops that stay close to a Nazgûl or Sauron lose morale until their formation breaks",
-              "Sauron and the Nazgûl cannot be captured: beaten, they flee and return with a new army within days"
-            ],
-            "settings": [
-              {
-                "name": "Enable Aura of Dread",
-                "default": "On"
-              }
-            ]
-          }
+          ]
         },
         {
           "title": "Fell Foes",
@@ -745,8 +766,6 @@
             "Idle enemy archers in range may pick you as their target, at most 8 at a time",
             "In a large field battle, when only 3 or fewer enemies are left, they leave the field after 30 seconds so the battle ends and they can be taken prisoner"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Cornered Routers Fight",
@@ -768,7 +787,8 @@
           "points": [
             "Before an assault or a defence, pick your troops on the Manage Troops screen; trolls start unticked",
             "Trolls stay off ladders and towers: attacking trolls break the gate, defending trolls hold the ground behind it",
-            "Your horse goes to your inventory for a siege and comes back afterwards"
+            "Your horse goes to your inventory for a siege and comes back afterwards",
+            "Staged sieges (off by default): in a castle assault on a scene with recorded capture points, the attackers take points A to D in order, each bringing fresh troops to both sides, and in the campaign the fight ends in the lord’s hall"
           ],
           "settings": [
             {
@@ -778,19 +798,12 @@
             {
               "name": "Enable Siege Dismount",
               "default": "On"
+            },
+            {
+              "name": "Staged Sieges (Capture Points)",
+              "default": "Off"
             }
-          ],
-          "public": {
-            "title": "Siege Dismount",
-            "summary": "Your horse goes to your inventory for a siege and comes back afterwards.",
-            "points": [],
-            "settings": [
-              {
-                "name": "Enable Siege Dismount",
-                "default": "On"
-              }
-            ]
-          }
+          ]
         },
         {
           "title": "Mixed Formations",
@@ -835,17 +848,7 @@
               "name": "Despawn Dead Mounts",
               "default": "On"
             }
-          ],
-          "public": {
-            "summary": "Dead mounts are removed 5 seconds after they fall, which keeps cavalry battles running smoothly.",
-            "points": [],
-            "settings": [
-              {
-                "name": "Despawn Dead Mounts",
-                "default": "On"
-              }
-            ]
-          }
+          ]
         }
       ]
     },
@@ -864,10 +867,16 @@
         {
           "title": "Giant Spiders",
           "summary": "The Dol Guldur spider picks its strike by where its target stands: a pounce straight ahead, or a leg swipe to the left or right. Its bites are deadly and can crit.",
-          "points": ["Spider Riders can climb to brown and pale spiders on the party screen"],
-          "public": {
-            "points": []
-          }
+          "points": [
+            "Spider Riders can climb to brown and pale spiders on the party screen",
+            "Arachnophobia Mode takes the giant spiders out of the game: spider riders ride wargs instead, and spider broods leave the map"
+          ],
+          "settings": [
+            {
+              "name": "Arachnophobia Mode",
+              "default": "Off"
+            }
+          ]
         },
         {
           "title": "War Elephants and Mûmakil",
@@ -875,13 +884,7 @@
           "points": [
             "An elephant takes 12 party slots and a mûmak 20; both cost War Drums to buy and to feed",
             "Both are bought from the emissary at Korb Taskral"
-          ],
-          "public": {
-            "points": [
-              "An elephant takes 10 party slots; the mûmak costs War Drums to recruit and to feed",
-              "The elephant is bought from the emissary at Korb Taskral; the mûmak joins as a volunteer"
-            ]
-          }
+          ]
         },
         {
           "title": "Trolls",
@@ -889,8 +892,7 @@
           "points": [
             "They cost their realm's special resource to recruit from prisoners and to keep",
             "In sieges they break gates instead of climbing ladders"
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Wild Creatures",
@@ -904,8 +906,38 @@
               "name": "Spawn Troll Bands",
               "default": "On"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-modes",
+      "title": "Game Modes",
+      "intro": "Battles of their own, started from the main menu, with no campaign needed.",
+      "cards": [
+        {
+          "title": "The Long Defeat",
+          "summary": "Hold Helm’s Deep against wave after wave of Isengard. Ten set waves, and after that the waves never end and keep getting stronger.",
+          "points": [
+            "Start as Sword and Board, Two Handed Infantry, Archer or Cavalry",
+            "Between waves, buy reinforcements and fortifications in the shop (B): field care, a stronger gate and gate repairs",
+            "Every third wave, pick one of three boons; from wave 5 the waves gain named powers",
+            "Enemy captains, lieutenants and generals lead every fourth wave, and the bigger ones call in more Uruk-hai",
+            "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)"
           ],
-          "only": "supporter"
+          "new": "v2.0.37"
+        },
+        {
+          "title": "Fords of War",
+          "summary": "A lane battle: pick a realm for each side and push down three lanes of towers to the enemy keep, commanding from a free camera.",
+          "points": [
+            "13 realms to choose from and three levels of AI",
+            "Towers in each lane fall in order; destroy the enemy keep to win, or hold more towers at minute 40",
+            "Buy troop packs with F1 to F8 and upgrade them along six tracks",
+            "A hero joins with a guard every five minutes, and neutral creature camps pay gold when cleared",
+            "Give each lane Push, Hold, Fall back or Seize, run the battle at up to 10 times speed, or press P to fight as one of your soldiers"
+          ],
+          "new": "v2.0.37"
         }
       ]
     },
@@ -921,8 +953,6 @@
             "Paying influence to disband another lord’s army costs you 28 to 32 relation with its leader (4 in the base game)",
             "Single player only"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Enable Personal Relations",
@@ -937,8 +967,6 @@
         {
           "title": "Bonds of Battle",
           "summary": "Relation is earned on campaign: fighting beside a lord, clearing bandits near a settlement, handing a lord troops, and overpaying in a barter.",
-          "only": "supporter",
-          "new": "v2.0.36",
           "points": [
             "+1 relation with each lord who fought on your side in a battle",
             "After you beat bandits in the field, a notable in each nearby settlement gains 1 relation for every 10 bandits (up to 10)",
@@ -961,8 +989,6 @@
             "The same hero takes no other gift for 7 days",
             "Lords of the Free realms refuse gifts from a player of the Shadow"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Enable Tokens of Esteem",
@@ -979,8 +1005,6 @@
             "A raid you lead can cost up to 50 relation with the village’s owner and each notable, by the damage it did",
             "Rewards and costs depend on whose side each person is on: handing a Mordor captive to Minas Tirith is worth double, and raiding the enemy’s villages is expected and costs little"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Enable Good Deeds",
@@ -1009,8 +1033,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "points": ["On the party screen, a captured lord shows his clan and kingdom banners"]
         },
         {
@@ -1022,10 +1044,7 @@
               "name": "Enable Messengers",
               "default": "On"
             }
-          ],
-          "public": {
-            "summary": "Send a paid messenger (50 gold) from the encyclopedia to any hero you have already met. It travels for a few days, can be ambushed, and starts a conversation when it arrives."
-          }
+          ]
         },
         {
           "title": "Smaller Touches",
@@ -1039,8 +1058,6 @@
             "In a new campaign every lord gets a face of his own",
             "For a small fee, the arena master names the nearest towns holding a tournament now"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Enable Troop Gifts",
@@ -1063,6 +1080,18 @@
               "default": "On"
             }
           ]
+        },
+        {
+          "title": "Realms and Titles",
+          "summary": "Feudal titles from barony to kingdom, with claims, usurpation, offices and the return of the king.",
+          "points": [
+            "Buy a claim on a title, then usurp it, form a vacant title your side holds, or restore a throne such as Gondor’s for Aragorn",
+            "Vassals pay their liege tribute each week, and offices such as the Steward of Gondor or a Marshal of the Mark pay influence",
+            "AI lords press claims of their own and hand lesser titles to their grown children",
+            "Lords are styled by their titles, such as Steward Denethor of Gondor"
+          ],
+          "coming": true,
+          "watch": ["AI Lords Press Claims", "Tribute (%)"]
         }
       ]
     },
@@ -1080,11 +1109,7 @@
               "name": "Enable Fief Management",
               "default": "On"
             }
-          ],
-          "public": {
-            "summary": "Manage every fief you own from anywhere: press F6 to queue buildings.",
-            "points": []
-          }
+          ]
         },
         {
           "title": "Rule Your Lands",
@@ -1097,8 +1122,6 @@
             "Reeve’s Ledger: the town window shows the fief’s profit with a daily breakdown and its patrol, with one-click reserve buttons",
             "Postern Gate: a building that cuts the troops lost breaking into or out of a siege by 50, 67 or 75% by level"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Namegiving",
@@ -1128,9 +1151,18 @@
         },
         {
           "title": "Warden's Tally",
-          "summary": "The dungeon menu of a town or castle shows how many prisoners it holds against its room, how many are lords, and each lord’s daily chance to escape.",
-          "coming": true,
-          "watch": ["Show Warden's Tally"]
+          "summary": "The dungeon menu of a town or castle shows how many prisoners it holds against its room, how many of them are lords, and each lord’s daily chance to escape with the reasons behind it.",
+          "points": [
+            "Holding a lord in your own clan’s dungeon halves his chance; the governor’s perks change it too",
+            "Shows the odds the game already uses and changes no rule"
+          ],
+          "new": "v2.0.37",
+          "settings": [
+            {
+              "name": "Show Warden's Tally",
+              "default": "On"
+            }
+          ]
         },
         {
           "title": "Markets and Caravans",
@@ -1149,7 +1181,6 @@
         },
         {
           "title": "Smithing",
-          "new": "v2.0.36",
           "summary": "Fewer smithy exploits and fewer clicks.",
           "points": [
             "Smelting a weapon returns at most 1 of each iron grade, so looted weapons are no longer a mine of iron",
@@ -1174,20 +1205,22 @@
               "name": "Hide Locked Items from Smelting",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Tournaments",
-          "summary": "No betting limit by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
+          "summary": "Bets of up to 15,000 a round by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
           "points": [],
           "settings": [
+            {
+              "name": "Max Bet Per Round",
+              "default": "15000"
+            },
             {
               "name": "Keep Enemy Sides Out",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         }
       ]
     },
@@ -1210,8 +1243,7 @@
               "name": "Show Realm Borders",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Hidden Hosts",
@@ -1226,8 +1258,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "points": [
             "A host’s orders stay hidden until you can read its exact count",
             "In forest your sight shrinks by 30% (half that with the Keen Sight perk)"
@@ -1243,14 +1273,6 @@
             "The map bar shows how full your cargo is, turning red once you carry more than your party can",
             "Villager and lord trades pop up over towns, as caravan trades do (\"Sold Grain x12\")"
           ],
-          "public": {
-            "points": [
-              "Settlement names fade with distance and are tinted by your relation: green for yours, red for enemies, blue for allies",
-              "Party figures are half the base game's size, so settlements stand out",
-              "Faster time controls: fast-forward 4×, extra fast-forward 8×, and 16× while holding Ctrl"
-            ],
-            "settings": []
-          },
           "settings": [
             {
               "name": "Harvest Road notices",
@@ -1270,16 +1292,16 @@
             "Filter the encyclopedia’s heroes by race and by life stage",
             "A Family Tree button on the clan screen and on a hero’s encyclopedia page",
             "The clan, kingdom, character, inventory, party and quest screens open at once instead of sliding in"
+          ]
+        },
+        {
+          "title": "Battle HUD",
+          "summary": "A round battle HUD replaces the base game’s health bars: rings for your health, your horse and your shield, with your career ability’s charge, icon and key in the middle.",
+          "points": [
+            "The horse and shield rings show only while you have one",
+            "Arrows, bolts and javelins are counted in a small capsule beside it"
           ],
-          "public": {
-            "points": [
-              "Sell All opens a menu: sell damaged items, low-value items and more",
-              "A search box in the inventory",
-              "Save up to 10 equipment presets per hero",
-              "Companion roles ([BOW], [INF] and so on) on the party and battle-order screens",
-              "The encyclopedia shows every character from the start"
-            ]
-          }
+          "new": "v2.0.38"
         },
         {
           "title": "Better Items and Skill Limits",
@@ -1288,8 +1310,6 @@
             "Items that beat the selected character's gear are tinted green (upgrade) or yellow (sidegrade), with a \"show only better items\" filter",
             "The character screen marks the level where each skill starts learning at its slowest"
           ],
-          "only": "supporter",
-          "new": "v2.0.36",
           "settings": [
             {
               "name": "Highlight better items",
@@ -1314,8 +1334,7 @@
               "name": "Themed Loading Screens",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         }
       ]
     },
@@ -1326,10 +1345,11 @@
       "cards": [
         {
           "title": "Bandits That Grow With You",
-          "summary": "Hideouts, bandit parties and hideout fights grow as your campaign advances, up to about 2.5 times the base game by the endgame. TAOM has 8 bandit factions.",
+          "summary": "Hideouts, bandit parties and hideout fights grow as your campaign advances, up to about 2.5 times the base game by the endgame. TAOM has 9 bandit factions.",
           "points": [
             "A hideout boss stands with 4 bodyguards in the final fight",
-            "Eight bandit clans may greet you in their own words when you attack them"
+            "Eight bandit clans may greet you in their own words when you attack them",
+            "The Feral Orcs, a new bandit faction, hold 23 dens"
           ],
           "settings": [
             {
@@ -1340,20 +1360,10 @@
               "name": "Enable Bandit Clan Greetings",
               "default": "On"
             }
-          ],
-          "public": {
-            "points": ["A hideout boss stands with 4 bodyguards in the final fight"],
-            "settings": [
-              {
-                "name": "Enable Bandit Scaling",
-                "default": "On"
-              }
-            ]
-          }
+          ]
         },
         {
           "title": "Taverns and Notables",
-          "new": "v2.0.36",
           "summary": "More to do when you walk into a town.",
           "points": [
             "Stand a round for your party (morale) or for the whole tavern (renown)",
@@ -1370,8 +1380,7 @@
               "name": "Enable Notable Services",
               "default": "On"
             }
-          ],
-          "only": "supporter"
+          ]
         },
         {
           "title": "Races",
@@ -1384,10 +1393,8 @@
         },
         {
           "title": "Cardolan and Rhudaur",
-          "new": "v2.0.36",
           "summary": "The other two kingdoms of divided Arnor join Arthedain in the campaign, as Neutral realms with their own cultures, troop trees, lords and colours.",
-          "points": ["New campaigns only"],
-          "only": "supporter"
+          "points": ["New campaigns only"]
         },
         {
           "title": "Co-op",
