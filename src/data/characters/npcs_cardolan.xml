@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+
+	<!-- ==================== GONDOR CIVILIAN NPCs ==================== -->
+	<!-- Dúnedain are humans - no race attribute -->
+
+	<!-- Tournament / Arena -->
+	<NPCCharacter id="tournament_master_cardolan" default_group="Infantry" is_hero="false" occupation="ArenaMaster" culture="Culture.cardolan" name="{=aom_card_arena}Arena Master">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Villager (upgrades to cardolan_levy) -->
+	<NPCCharacter id="villager_cardolan" default_group="Infantry" level="1" name="{=aom_card_villager}Villager" occupation="Villager" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
+		<upgrade_targets>
+			<upgrade_target id="NPCCharacter.cardolan_levy" />
+		</upgrade_targets>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Village Woman -->
+	<NPCCharacter id="village_woman_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_village_woman}Village Woman" occupation="Villager" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Caravan Staff -->
+	<NPCCharacter id="caravan_master_cardolan" default_group="Infantry" level="26" name="{=aom_card_caravan_master}Cardolan Caravan Master" occupation="CaravanGuard" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="120" />
+			<skill id="Polearm" value="80" />
+			<skill id="Trade" value="100" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_ano_chainmail_half_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armed_trader_cardolan" default_group="Infantry" level="16" name="{=aom_card_armed_trader}Cardolan Armed Trader" occupation="CaravanGuard" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="40" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="60" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="caravan_guard_cardolan" default_group="Infantry" level="21" name="{=aom_card_caravan_guard}Cardolan Caravan Guard" occupation="CaravanGuard" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="100" />
+			<skill id="Polearm" value="100" />
+			<skill id="Bow" value="40" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_ano_chainmail_half_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="veteran_caravan_guard_cardolan" default_group="Infantry" level="26" name="{=aom_card_vet_caravan_guard}Cardolan Veteran Caravan Guard" occupation="CaravanGuard" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="130" />
+			<skill id="Polearm" value="130" />
+			<skill id="Bow" value="50" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Item2" id="Item.wm_gondor_spear_b" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_ano_chainmail_half_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Guards -->
+	<NPCCharacter id="prison_guard_cardolan" default_group="Infantry" level="4" culture="Culture.cardolan" occupation="PrisonGuard" name="{=aom_card_prison_guard}Prison Guard">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="OneHanded" value="50" />
+			<skill id="TwoHanded" value="50" />
+			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
+		</skills>
+		<upgrade_targets></upgrade_targets>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="guard_cardolan" default_group="Infantry" level="16" name="{=aom_card_guard}Guard" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="80" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Item1" id="Item.sm_gd_shield_a1" />
+				<equipment slot="Head" id="Item.sk_gd_ano_inf_helmet_med_a" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Town Population -->
+	<NPCCharacter id="townsman_cardolan" default_group="Infantry" name="{=aom_card_townsman}Townsman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_townswoman}Townswoman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_infant_cardolan" default_group="Infantry" name="{=aom_card_townsman_infant}Townsman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_child_cardolan" default_group="Infantry" name="{=aom_card_townsman_child}Townsman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_teenager_cardolan" default_group="Infantry" name="{=aom_card_townsman_teen}Townsman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_infant_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_townswoman_infant}Townswoman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_child_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_townswoman_child}Townswoman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_teenager_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_townswoman_teen}Townswoman" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Village Children/Teenagers -->
+	<NPCCharacter id="village_woman_child_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_village_woman_child}Village Child" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_woman_teenager_cardolan" is_female="true" default_group="Infantry" name="{=aom_card_village_woman_teen}Village Teenager" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_child_cardolan" default_group="Infantry" name="{=aom_card_villager_child}Village Child" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_teenager_cardolan" default_group="Infantry" name="{=aom_card_villager_teen}Village Teenager" occupation="Townsfolk" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchants -->
+	<NPCCharacter id="merchant_cardolan" default_group="Infantry" is_hero="false" occupation="GoodsTrader" culture="Culture.cardolan" name="{=aom_card_merchant}Trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Crafters -->
+	<NPCCharacter id="blacksmith_cardolan" default_group="Infantry" is_hero="false" occupation="Blacksmith" culture="Culture.cardolan" name="{=aom_card_blacksmith}Blacksmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weaponsmith_cardolan" default_group="Infantry" is_hero="false" occupation="Weaponsmith" culture="Culture.cardolan" name="{=aom_card_weaponsmith}Weaponsmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a02" />
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armorer_cardolan" default_group="Infantry" is_hero="false" occupation="Armorer" culture="Culture.cardolan" name="{=aom_card_armorer}Armorer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="horseMerchant_cardolan" default_group="Infantry" is_hero="false" occupation="HorseTrader" culture="Culture.cardolan" name="{=aom_card_horse_merchant}Horse Merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Tavern -->
+	<NPCCharacter id="tavernkeeper_cardolan" default_group="Infantry" is_hero="false" name="{=aom_card_tavernkeeper}Tavern Keeper" occupation="Tavernkeeper" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="taverngamehost_cardolan" default_group="Infantry" is_hero="false" name="{=aom_card_gamehost}Game Host" occupation="TavernGameHost" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="tavern_wench_cardolan" is_female="true" default_group="Infantry" is_hero="false" name="{=aom_card_tavern_wench}Tavern Wench" occupation="TavernWench" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="musician_cardolan" default_group="Infantry" is_hero="false" name="{=aom_card_musician}Musician" occupation="Musician" culture="Culture.cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Services -->
+	<NPCCharacter id="shop_worker_cardolan" default_group="Infantry" is_hero="false" occupation="ShopWorker" culture="Culture.cardolan" name="{=aom_card_shop_worker}Shop Worker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="barber_cardolan" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_barber}Barber" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="ransom_broker_cardolan" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_ransom_broker}Ransom Broker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Gang -->
+	<NPCCharacter id="gangleader_bodyguard_cardolan" default_group="Infantry" level="16" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_gang_bodyguard}Gang Bodyguard" skill_template="SkillSet.infantry_heavyinfantry_level16_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.wm_gondor_sword_a01" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Beggars / Dancers -->
+	<NPCCharacter id="beggar_cardolan" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_beggar_cardolan" is_female="true" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_female_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_dancer_cardolan" is_female="true" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.cardolan" name="{=aom_card_dancer}Dancer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Merchants (10) -->
+	<NPCCharacter id="spc_notable_cardolan_0" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_0}Prudent Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_0b" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_0b}Cardolan vintner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_1" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_1}Ruthless Cardolan trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_1b" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_1b}Cold Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Generosity" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_2" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_notable_2}Caras Gorthad gem dealer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_2b" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_notable_2b}Wise Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_3" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_3}Self-made Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_3b" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_3b}Jovial Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Generosity" value="1" /><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_4" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_4}Shrewd Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_4b" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_4b}Devious Cardolan merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Preachers (3) -->
+	<NPCCharacter id="spc_notable_cardolan_5" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.cardolan" name="{=aom_card_notable_5}Zealous Cardolan loremaster" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_6" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_6}Stern lord of Cardolan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_7" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.cardolan" name="{=aom_card_notable_7}Cardolan keeper of traditions" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Mercy" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Artisans (2) -->
+	<NPCCharacter id="spc_notable_cardolan_8" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_8}Gruff Caras Gorthad artisan" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_9" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.cardolan" name="{=aom_card_notable_9}Gifted Cardolan craftsman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Gang Leaders (6) -->
+	<NPCCharacter id="spc_notable_cardolan_gl1" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_notable_gl1}Protective Cardolan ringleader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_10" is_female="true" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_10}Sardonic Cardolan outlaw" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_11" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_11}Intimidating Cardolan enforcer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_gl4" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_gl4}Ruthless Cardolan thug" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_12" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.cardolan" name="{=aom_card_notable_12}Cunning Cardolan smuggler" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Honor" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_jerkin_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_13" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_notable_13}Menacing Cardolan schemer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Rural Notables (2) -->
+	<NPCCharacter id="spc_notable_cardolan_21" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_notable_21}Stern Cardolan landowner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_cardolan_22" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_notable_22}Agreeable Cardolan elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Headmen (3) -->
+	<NPCCharacter id="spc_cardolan_headman_1" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.cardolan" name="{=aom_card_headman_1}Rebellious Cardolan headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_cardolan_headman_2" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_card_headman_2}Conservative Cardolan headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_cardolan_headman_3" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.cardolan" name="{=aom_card_headman_3}Devious Cardolan headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Honor" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.gondor_noble_coat_b" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Practice Dummies -->
+	<NPCCharacter id="gear_practice_dummy_cardolan" default_group="Infantry" level="15" is_hero="false" name="{=aom_card_practice_dummy}Practice Dummy" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.ithilien_jerkin_short" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_1_cardolan" default_group="Infantry" level="15" is_hero="false" name="{=aom_card_practice_1}Practice Fighter" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_1_t2" />
+				<equipment slot="Body" id="Item.ithilien_jerkin_long" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_boots_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_2_cardolan" default_group="Infantry" level="25" is_hero="false" name="{=aom_card_practice_2}Practice Fighter" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_3_t3" />
+				<equipment slot="Body" id="Item.sk_gd_cair_chainmail_half_b" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_3_cardolan" default_group="Infantry" level="35" is_hero="false" name="{=aom_card_practice_3}Practice Fighter" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_5_t4" />
+				<equipment slot="Body" id="Item.sk_gd_ano_chainmail_half_a" />
+				<equipment slot="Gloves" id="Item.sk_gd_ano_bracer_inf_med_a" />
+				<equipment slot="Leg" id="Item.sk_gd_ano_grvs_inf_med_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="gear_dummy_cardolan" default_group="Infantry" level="15" is_hero="false" name="{=aom_card_gear_dummy}Gear Dummy" occupation="Soldier" culture="Culture.cardolan">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.ithilien_jerkin_short" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.ithilien_jerkin_short" />
+				<equipment slot="Leg" id="Item.ithilien_boots" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_cardolan_lord_* rosters. -->
+	<NPCCharacter id="spc_cardolan_lord_1" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.cardolan" name="{=aom_cardolan_lord_1}Bold Cardolan lord" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_cardolan_lord_battle_male" />
+			<EquipmentSet id="taom_cardolan_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_cardolan_lord_2" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.cardolan" name="{=aom_cardolan_lord_2}Cautious Cardolan lord" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_gondor" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_cardolan_lord_battle_male" />
+			<EquipmentSet id="taom_cardolan_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+</NPCCharacters>

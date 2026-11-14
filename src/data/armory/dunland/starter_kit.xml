@@ -4,9 +4,17 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: empire_sword_1_t2, dunland_caerdh_spear_a
+  theirs from the floored stats. Donors: dunland_wulf_shield_light_a, empire_sword_1_t2, dunland_caerdh_spear_a
 -->
 <Items>
+    <Item id="starter_dunland_wulf_shield_light_a" name="{=starter_dunland_wulf_shield_light_a}[Dunland] Light Wulf Shield I (Starter)" body_name="bo_cap_dunland_wulf_shield_a" shield_body_name="bo_dunland_wulf_shield_a" recalculate_body="false" mesh="dunland_wulf_shield_light_a" culture="Culture.empire" using_tableau="false" is_merchandise="false" weight="2.5" appearance="0.7" Type="Shield" item_holsters="shield:shield_2:shield_3:shield_4" has_lower_holster_priority="true" holster_position_shift="-0.1,-0.1,0" difficulty="0">
+        <ItemComponent>
+            <Weapon weapon_class="LargeShield" body_armor="1" thrust_speed="89" thrust_damage_type="Blunt" speed_rating="89" physics_material="wood_shield" item_usage="shield" position="-0.10, 0.35, 0.08" rotation="0.0,20.0,43.00" weapon_length="90" center_of_mass="-0.0,0.2,0.05" hit_points="220" modifier_group="shield">
+                <WeaponFlags CanBlockRanged="true" HasHitPoints="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags WoodenParry="true" HeldInOffHand="true" ForceAttachOffHandSecondaryItemBone="true" />
+    </Item>
     <CraftedItem id="starter_empire_sword_1_t2" name="{=starter_empire_sword_1_t2}Footman's Spatha (Starter)" crafting_template="OneHandedSword" culture="Culture.empire" modifier_group="sword" is_merchandise="false" value="150">
         <Pieces>
             <Piece id="starter_empire_blade_4" Type="Blade" scale_factor="100" />

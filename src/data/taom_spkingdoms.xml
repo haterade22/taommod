@@ -80,10 +80,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -165,10 +161,6 @@
         <policies>
             <policy
                 id="policy_royal_privilege" />
-            <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
             <policy
                 id="policy_castle_charters" />
         </policies>
@@ -253,10 +245,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -340,17 +328,13 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
     <!--Isengard - Uruk-hai-->
     <Kingdom
         id="isengard"
-        owner="Hero.lord_I1_1"
+        owner="Hero.lord_I1_0"
         initial_home_settlement="Settlement.town_isengard"
         banner_key="11.149.166.1528.1528.764.764.1.0.0.23000.172.171.700.700.764.764.0.0.0"
         primary_banner_color="0xff000000"
@@ -430,10 +414,6 @@
         <policies>
             <policy
                 id="policy_royal_privilege" />
-            <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
             <policy
                 id="policy_castle_charters" />
         </policies>
@@ -522,10 +502,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -612,10 +588,6 @@
         <policies>
             <policy
                 id="policy_royal_privilege" />
-            <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
             <policy
                 id="policy_castle_charters" />
         </policies>
@@ -704,10 +676,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -732,8 +700,8 @@
     <relationships>
             <relationship
                 kingdom="Kingdom.empire_w"
-                value="-1"
-                isAtWar="true" />
+                value="0"
+                isAtWar="false" />
             <relationship
                 kingdom="Kingdom.aserai"
                 value="1"
@@ -799,10 +767,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -827,8 +791,8 @@
         <relationships>
             <relationship
                 kingdom="Kingdom.empire_w"
-                value="-1"
-                isAtWar="true" />
+                value="0"
+                isAtWar="false" />
             <relationship
                 kingdom="Kingdom.aserai"
                 value="1"
@@ -897,10 +861,6 @@
         <policies>
             <policy
                 id="policy_royal_privilege" />
-            <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
             <policy
                 id="policy_castle_charters" />
         </policies>
@@ -1000,10 +960,6 @@
         <policies>
             <policy
                 id="policy_royal_privilege" />
-            <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
             <policy
                 id="policy_castle_charters" />
         </policies>
@@ -1105,10 +1061,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -1209,10 +1161,6 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
@@ -1222,10 +1170,10 @@
         id="lindon"
         owner="Hero.lord_LN1_1"
         initial_home_settlement="Settlement.town_LN1"
-        banner_key="11.76.166.1528.1528.764.764.0.0.0.503.101.101.338.338.764.764.0.0.0.503.76.101.265.265.764.764.0.0.0.15009.202.12.435.435.764.764.1.0.0.15008.172.328.583.583.764.764.1.0.0"        primary_banner_color="0xFF50A090"
-        secondary_banner_color="0xFFC8E0D8"
-        color="0xFF50A090"
-        color2="0xFFC8E0D8"      
+        banner_key="11.2017.2017.1528.1528.764.764.1.0.0.15000.2018.2018.483.483.764.764.0.0.0"        primary_banner_color="0xFF7FAFC9"
+        secondary_banner_color="0xFFC9CED4"
+        color="0xFF7FAFC9"
+        color2="0xFFC9CED4"      
         culture="Culture.lindon"
         settlement_banner_mesh="encounter_flag_a"
         flag_mesh="info_screen_flags_b"
@@ -1308,12 +1256,472 @@
             <policy
                 id="policy_royal_privilege" />
             <policy
-                id="policy_lord_prerogative" />
-            <policy
-                id="policy_religious_privilege" />
-            <policy
                 id="policy_castle_charters" />
         </policies>
     </Kingdom>
   <!-- TAOM-NEWFACTIONS:lindon:END -->
+  <!-- TAOM-NEWFACTIONS:arthedain:BEGIN -->
+    <Kingdom
+        id="arthedain"
+        owner="Hero.lord_AN1_1"
+        initial_home_settlement="Settlement.town_AN2"
+        banner_key="11.190.190.1528.1528.764.764.1.0.0.11004.110.110.700.700.764.764.0.0.0"        primary_banner_color="0xFF4870B8"
+        secondary_banner_color="0xFFC8CCD8"
+        color="0xFF4870B8"
+        color2="0xFFC8CCD8"      
+        culture="Culture.arthedain"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_arthedain_name}Arthedain"
+        short_name="{=taom_arthedain_short_name}Arthedain"
+        title="{=taom_arthedain_title}North-Kingdom of Arthedain"
+        ruler_title="{=taom_arthedain_ruler_title}King"
+        text="{=taom_arthedain_desc}The last of the three realms into which Arnor was sundered, Arthedain did not fall. Arvedui's line still holds Fornost upon the North Downs, though its lords are few, its towns poor, and Angmar's shadow lies always on the northern hills.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.isengard"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.rivendell"
+                value="1"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lindon"
+                value="1"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire_w"
+                value="1"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:arthedain:END -->
+  <!-- TAOM-NEWFACTIONS:cardolan:BEGIN -->
+    <Kingdom
+        id="cardolan"
+        owner="Hero.lord_CA1_1"
+        initial_home_settlement="Settlement.town_CA2"
+        banner_key="11.2027.2027.1528.1528.764.764.1.0.0.31005.2004.2004.700.700.764.764.0.0.0"        primary_banner_color="0xFF28745C"
+        secondary_banner_color="0xFFFFFFFF"
+        color="0xFF28745C"
+        color2="0xFFFFFFFF"      
+        culture="Culture.cardolan"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_cardolan_name}Cardolan"
+        short_name="{=taom_cardolan_short_name}Cardolan"
+        title="{=taom_cardolan_title}Kingdom of Cardolan"
+        ruler_title="{=taom_cardolan_ruler_title}King"
+        text="{=taom_cardolan_desc}The southern of the three realms into which Arnor was sundered. Its kings lie in the barrows of Tyrn Gorthad and its riders keep the plains between the Baranduin and the Greyflood, but its towns are few and its lords contend with Arthedain and Rhudaur for the crown of Arnor.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.isengard"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.rivendell"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lindon"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire_w"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.arthedain"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.rhudaur"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:cardolan:END -->
+  <!-- TAOM-NEWFACTIONS:rhudaur:BEGIN -->
+    <Kingdom
+        id="rhudaur"
+        owner="Hero.lord_RH1_1"
+        initial_home_settlement="Settlement.town_RH1"
+        banner_key="11.99.99.1528.1528.764.764.1.0.0.11002.110.110.700.700.764.764.0.0.0"        primary_banner_color="0xFF603830"
+        secondary_banner_color="0xFFC8B8A8"
+        color="0xFF603830"
+        color2="0xFFC8B8A8"      
+        culture="Culture.rhudaur"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_rhudaur_name}Rhudaur"
+        short_name="{=taom_rhudaur_short_name}Rhudaur"
+        title="{=taom_rhudaur_title}Kingdom of Rhudaur"
+        ruler_title="{=taom_rhudaur_ruler_title}King"
+        text="{=taom_rhudaur_desc}The eastern of the three realms into which Arnor was sundered, a hill kingdom between the Hoarwell and the Loudwater. Its Dunedain lords hold Cameth Brin and the Angle and rule a hard people of hill-men, with trolls in the fells and orcs on every pass.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.isengard"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.rivendell"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lindon"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.empire_w"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.arthedain"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.cardolan"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:rhudaur:END -->
+  <!-- TAOM-NEWFACTIONS:eredluin:BEGIN -->
+    <Kingdom
+        id="eredluin"
+        owner="Hero.lord_EL1_1"
+        initial_home_settlement="Settlement.town_EL3"
+        banner_key="11.200.200.1528.1528.764.764.1.0.0.24000.110.110.700.700.764.764.0.0.0"        primary_banner_color="0xFF3E5A7A"
+        secondary_banner_color="0xFFB8C4CC"
+        color="0xFF3E5A7A"
+        color2="0xFFB8C4CC"      
+        culture="Culture.eredluin"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_eredluin_name}Ered Luin"
+        short_name="{=taom_eredluin_short_name}Ered Luin"
+        title="{=taom_eredluin_title}Kingdom of Ered Luin"
+        ruler_title="{=taom_eredluin_ruler_title}King"
+        text="{=taom_eredluin_desc}The dwarf kingdom of the Blue Mountains. Durin's Folk made Thorin's Halls there in their exile, and in this age the Broadbeams and the Firebeards hold Belegost and Nogrod again. Its lords are few and its halls are poorer than those of its kin in the east, but its smiths are the oldest in the West, and its axes keep the goblins of Blue Craig from the roads to Lindon.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.bluecraig"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.goblin"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.mistymountainorcs"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.erebor"
+                value="1"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lindon"
+                value="1"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:eredluin:END -->
+  <!-- TAOM-NEWFACTIONS:anduinvale:BEGIN -->
+    <Kingdom
+        id="anduinvale"
+        owner="Hero.lord_AV1_1"
+        initial_home_settlement="Settlement.town_AV1"
+        banner_key="11.2007.2007.1528.1528.764.764.1.0.0.20006.2024.2024.700.700.764.764.0.0.0"        primary_banner_color="0xFF654D37"
+        secondary_banner_color="0xFFFBC841"
+        color="0xFF654D37"
+        color2="0xFFFBC841"      
+        culture="Culture.anduinvale"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_anduinvale_name}Anduin Vale"
+        short_name="{=taom_anduinvale_short_name}Anduin Vale"
+        title="{=taom_anduinvale_title}Anduin Vale"
+        ruler_title="{=taom_anduinvale_ruler_title}Chieftain"
+        text="{=taom_anduinvale_desc}The Beornings and the Woodmen of the Vales hold the upper Anduin between the Misty Mountains and Mirkwood. They keep the High Pass and the Old Ford open for honest travellers and take a heavy toll of orcs and wolves. Their chieftains hold Beorn's Hall and the Carrock and want no part in the wars of kings.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.mirkwood"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lothlorien"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.sturgia"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.erebor"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.dolguldur"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.goblin"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.mistymountainorcs"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.angaladh"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:anduinvale:END -->
+  <!-- TAOM-NEWFACTIONS:angaladh:BEGIN -->
+    <Kingdom
+        id="angaladh"
+        owner="Hero.lord_AND1_1"
+        initial_home_settlement="Settlement.town_AND1"
+        banner_key="11.2021.2021.1528.1528.764.764.1.0.0.17000.2022.2022.700.700.764.764.0.0.0"        primary_banner_color="0xFF4F6F5A"
+        secondary_banner_color="0xFFF2F4F7"
+        color="0xFF4F6F5A"
+        color2="0xFFF2F4F7"      
+        culture="Culture.angaladh"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_angaladh_name}Angáladh"
+        short_name="{=taom_angaladh_short_name}Angáladh"
+        title="{=taom_angaladh_title}Kingdom of Angáladh"
+        ruler_title="{=taom_angaladh_ruler_title}King"
+        text="{=taom_angaladh_desc}The Woodmen of western Mirkwood cleared their steads under the eaves of the forest and named their realm for the iron-hard trees that ring Woodmen-town. They are bowmen and woodwards, few in number, at peace with the Elves to the north and ever watchful of Dol Guldur to the south.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.mirkwood"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lothlorien"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.sturgia"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.erebor"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.dolguldur"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.gundabad"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.goblin"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.mistymountainorcs"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.anduinvale"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:angaladh:END -->
+  <!-- TAOM-NEWFACTIONS:dorwinion:BEGIN -->
+    <Kingdom
+        id="dorwinion"
+        owner="Hero.lord_DO1_1"
+        initial_home_settlement="Settlement.town_DO2"
+        banner_key="11.2015.2015.1528.1528.764.764.1.0.0.30011.2024.2024.700.700.764.764.0.0.0"        primary_banner_color="0xFF570D0D"
+        secondary_banner_color="0xFFFBC841"
+        color="0xFF570D0D"
+        color2="0xFFFBC841"      
+        culture="Culture.dorwinion"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_dorwinion_name}Dorwinion"
+        short_name="{=taom_dorwinion_short_name}Dorwinion"
+        title="{=taom_dorwinion_title}Kingdom of Dorwinion"
+        ruler_title="{=taom_dorwinion_ruler_title}King"
+        text="{=taom_dorwinion_desc}The vintners of Dorwinion tend the warm slopes where the River Running meets the Sea of Rhûn. Their wine goes up the river to Dale, to the Elves of Mirkwood and to every hall that can pay for it, and their kings grow rich on it. They keep out of the wars of the West and buy peace from the East when they must.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.sturgia"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.erebor"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.khuzait"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.mirkwood"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.dolguldur"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.anduinvale"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.angaladh"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.southrhovanion"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:dorwinion:END -->
+  <!-- TAOM-NEWFACTIONS:southrhovanion:BEGIN -->
+    <Kingdom
+        id="southrhovanion"
+        owner="Hero.lord_SRH1_1"
+        initial_home_settlement="Settlement.town_SRH2"
+        banner_key="11.2013.2013.1528.1528.764.764.1.0.0.30006.2008.2008.700.700.764.764.0.0.0"        primary_banner_color="0xFF3F3831"
+        secondary_banner_color="0xFFC99B6E"
+        color="0xFF3F3831"
+        color2="0xFFC99B6E"      
+        culture="Culture.southrhovanion"
+        settlement_banner_mesh="encounter_flag_a"
+        flag_mesh="info_screen_flags_b"
+        name="{=taom_southrhovanion_name}South Rhovanion"
+        short_name="{=taom_southrhovanion_short_name}South Rhovanion"
+        title="{=taom_southrhovanion_title}Kingdom of South Rhovanion"
+        ruler_title="{=taom_southrhovanion_ruler_title}King"
+        text="{=taom_southrhovanion_desc}The Northmen of South Rhovanion ride the wide plains between the southern eaves of Mirkwood and the Sea of Rhûn. They are horse-lords, kin of the Éothéod who rode north long ago, and they have not forgotten the Wainriders who once burned their halls. Their kings hold Vidugard and owe no lord in the West or the East.">
+        <relationships>
+            <relationship
+                kingdom="Kingdom.mirkwood"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.dolguldur"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.sturgia"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.khuzait"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.anduinvale"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.angaladh"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.lothlorien"
+                value="0"
+                isAtWar="false" />
+            <relationship
+                kingdom="Kingdom.dorwinion"
+                value="0"
+                isAtWar="false" />
+        </relationships>
+        <policies>
+            <policy
+                id="policy_royal_privilege" />
+            <policy
+                id="policy_castle_charters" />
+        </policies>
+    </Kingdom>
+  <!-- TAOM-NEWFACTIONS:southrhovanion:END -->
 </Kingdoms>

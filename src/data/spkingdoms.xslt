@@ -28,12 +28,6 @@
 			title="{{=TAOM_dunland_title}}Clans of Dunland"
 			ruler_title="{{=TAOM_dunland_ruler}}Brenin"
 			text="{{=TAOM_dunland_desc}}Dunland, a rugged and untamed land of rolling hills and dense forests, is home to the fierce and independent Dunlendings. Often marginalized and at odds with their neighbors, the people of Dunland are hardened by centuries of struggle and survival. Their chieftains lead through strength and cunning, uniting clans under a shared banner of vengeance and freedom. Known for their ferocious warriors and skilled hunters, the Dunlendings favor axes, spears, and bows, fighting with a tenacity born from their deep connection to their ancestral lands. Though their ways may seem primitive to others, the Dunlendings are proud and resourceful, ready to reclaim their rightful place in Middle-earth.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.khuzait"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
       <policies>
         <policy
 					id="policy_feudal_inheritance" />
@@ -63,12 +57,12 @@
       <relationships>
         <relationship
 					kingdom="Kingdom.battania"
-					value="-1"
-					isAtWar="true" />
+					value="0"
+					isAtWar="false" />
       </relationships>
       <policies>
         <policy
-					id="policy_land_grants_for_veterans" />
+					id="policy_land_grands_for_veteran" />
       </policies>
     </Kingdom>
   </xsl:template>
@@ -92,12 +86,6 @@
 			title="{{=TAOM_mordor_title}}Dominion of Mordor"
 			ruler_title="{{=TAOM_mordor_ruler}}Dark Lord"
 			text="{{=TAOM_mordor_desc}}Mordor is a dark, desolate realm forged in shadow and ruled by the Dark Lord Sauron. Nestled behind the towering black mountains, this kingdom brims with orc armies, ruthless trolls, and fiery forges crafting weapons of war. From his fortress in Barad-dur, Sauron commands an unstoppable force, poised to spread his dominion across Middle-earth. Mordor's skies are clouded with ash, and its lands are barren, a fitting domain for Sauron's twisted ambition and dark magic.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.aserai"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
       <policies>
         <policy
 					id="policy_royal_privilege" />
@@ -124,12 +112,6 @@
 			title="{{=TAOM_dale_title}}Kingdom of Dale"
 			ruler_title="{{=TAOM_dale_ruler}}King"
 			text="{{=TAOM_dale_desc}}Where the waters of the Running River meet the shadow of the Lonely Mountain, stands Dale. The City of Men had been rebuilt from ruin in the aftermath of the Battle of the Five Armies. Once a place of music and merriment, of trade and golden market halls, Dale prospered under the protection of Erebor. Its merchants sailed swift boats down the Celduin, its streets rang with laughter, and its people knew peace. But peace was shattered when the dragon came. Smaug, the winged death from the North, descended upon Erebor in flame and fury, and Dale was the first to suffer. The city burned, her people fled, and for nearly two centuries, the proud, domed towers stood silent and broken, a monument to sorrow. Yet ruin is not the end of Dale's tale. With the death of the dragon, Bard the Bowman raised his banner once more and called his people home. From ash and stone rose Dale again, not as it once was, but greater. Under King Bard and his son Bain, the city thrives anew, her walls strong, her people proud, and her gaze ever vigilant. The Men of Dale are not mighty in number, nor ancient in magic, but they are steadfast and true.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.vlandia"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
     </Kingdom>
   </xsl:template>
 
@@ -152,12 +134,6 @@
 			title="{{=TAOM_harad_title}}Taskralan of Harwan"
 			ruler_title="{{=TAOM_harad_ruler}}Taskral"
 			text="{{=TAOM_harad_desc}}Harad, a vast and diverse region south of Gondor, encompasses arid deserts, lush jungles, and fertile oases. Its geography is as varied as its people, with sprawling dunes giving way to dense forests and rivers teeming with life. Harad's history is steeped in ancient lore, with grand cities and fortresses dotting the landscape, built by rulers whose legacies echo through the ages. The Great Desert of Haradwaith separates its northern frontier from the heartland, while its southern coasts are bustling with trade and piracy. United under the banners of Sauron, Harad's many tribes and kingdoms channel their deep-rooted traditions into their war efforts, transforming this vibrant land into a powerhouse of culture and conflict.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.empire_s"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
     </Kingdom>
   </xsl:template>
 
@@ -180,12 +156,6 @@
 			title="{{=TAOM_rohan_title}}Kingdom of Rohan"
 			ruler_title="{{=TAOM_rohan_ruler}}King"
 			text="{{=TAOM_rohan_desc}}Known as the Riddermark, Rohan is a vast and sweeping kingdom of open plains and rolling hills, where the mighty Rohirrim—skilled horsemen and fierce warriors—dwell. Founded by Eorl the Young after his legendary ride to Gondor's aid, Rohan has long stood as a steadfast ally of Gondor against the darkness of Mordor. From the golden halls of Meduseld in Edoras, its kings rule over a proud and resilient people who live by the bond of horse and rider. The Rohirrim are famed for their cavalry charges, their songs of valor, and their unwavering courage. Though the shadow of Saruman has threatened their borders, the sons and daughters of Rohan remain ever ready to answer the call to arms, defending their homeland and the free peoples of Middle-earth.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.sturgia"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
     </Kingdom>
   </xsl:template>
 
@@ -211,8 +181,8 @@
       <relationships>
         <relationship
 					kingdom="Kingdom.empire_w"
-					value="-1"
-					isAtWar="true" />
+					value="0"
+					isAtWar="false" />
       </relationships>
     </Kingdom>
   </xsl:template>
@@ -236,12 +206,6 @@
 			title="{{=TAOM_rhun_title}}Golden Realm of Rhûn"
 			ruler_title="{{=TAOM_rhun_ruler}}Loke-Kan"
 			text="{{=TAOM_rhun_desc}}Far beyond the Sea of Rhûn, past the withered steppes and the red dust of forgotten empires, lies the vast and veiled East. Here dwell the Easterlings, a proud and ancient people whose history predates even the rise of Gondor. Their lands stretch endlessly beneath wide skies, from the shores of the inland sea to the shadowed mountains that mark the edge of the known world. The Easterlings are no single nation, but a tapestry of tribes and kingdoms, united only in their reverence for strength and their long memory of grievance against the West. Some have served the Dark Lord willingly, drawn by promises of power and vengeance; others resist, clinging to old ways and older gods. Their warriors are feared for their discipline and their mastery of chariot and bow, and their golden armor gleams like fire beneath the eastern sun.">
-      <relationships>
-        <relationship
-					kingdom="Kingdom.empire"
-					value="-1"
-					isAtWar="true" />
-      </relationships>
     </Kingdom>
   </xsl:template>
 </xsl:stylesheet>

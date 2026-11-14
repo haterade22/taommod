@@ -18266,6 +18266,114 @@
             <Material id="Iron6" count="9" />
         </Materials>
     </CraftingPiece>
+    <CraftingPiece id="starter_axe_craft_20_head" name="{=starter_axe_craft_20_head}Narrow Sparth Blade (Starter)" tier="1" piece_type="Blade" mesh="axe_craft_20_head" distance_to_next_piece="3.63" distance_to_previous_piece="5.93" weight="0.625" is_hidden="true">
+        <BuildData piece_offset="-10.5" />
+        <BladeData stack_amount="3" blade_length="9.683" blade_width="18.004" physics_material="metal_weapon" body_name="bo_axe_longer_b">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanBePickedUpFromCorpse" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron2" count="4" />
+            <Material id="Iron3" count="1" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dale_ws_1h_axe_a03_blade" name="{=starter_wm_dale_ws_1h_axe_a03_blade}Dale Axe Head III (Starter)" tier="1" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a03_blade" length="18.26" weight="1.2" is_hidden="true">
+        <BladeData stack_amount="3" blade_length="18.26" blade_width="31.09" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a03_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="19" />
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanDismount" />
+            <Flag name="CanKnockDown" />
+        </Flags>
+        <Materials>
+            <Material id="Iron4" count="5" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dale_ws_spear_a01_blade" name="{=starter_wm_dale_ws_spear_a01_blade}Dale Spear Head I (Starter)" tier="1" piece_type="Blade" mesh="wm_dale_ws_spear_a01_blade" length="48.81" weight="0.8" excluded_item_usage_features="swing" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_dale_ws_spear_a01_blade">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="3" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="CanDismount" />
+            <Flag name="CanHook" />
+            <Flag name="NotStackable" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron4" count="3" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dale_ws_1h_axe_a01_blade" name="{=starter_wm_dale_ws_1h_axe_a01_blade}Dale Axe Head I (Starter)" tier="1" piece_type="Blade" mesh="wm_dale_ws_1h_axe_a01_blade" length="18.07" weight="0.9" is_hidden="true">
+        <BladeData stack_amount="3" blade_length="18.07" blade_width="17.53" physics_material="metal_weapon" body_name="bo_wm_dale_ws_1h_axe_a01_blade">
+            <Swing damage_type="Cut" damage_factor="2.3" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="18" />
+        <Flags>
+            <Flag name="BonusAgainstShield" />
+            <Flag name="CanDismount" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron3" count="4" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dale_ws_sword_a02_blade" name="{=starter_wm_dale_ws_sword_a02_blade}Dale Sword Blade II (Starter)" tier="1" piece_type="Blade" mesh="wm_dale_ws_sword_a02_blade" length="83.92" weight="1.0" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a02_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.7" />
+            <Swing damage_type="Cut" damage_factor="2.5" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+        </Flags>
+        <Materials>
+            <Material id="Iron5" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_dale_ws_sword_a03_blade" name="{=starter_wm_dale_ws_sword_a03_blade}Dale Sword Blade III (Starter)" tier="1" piece_type="Blade" mesh="wm_dale_ws_sword_a03_blade" length="62.09" weight="0.85" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_dale_ws_sword_a03_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.64" />
+            <Swing damage_type="Cut" damage_factor="2.14" />
+        </BladeData>
+        <BuildData piece_offset="0" next_piece_offset="0" previous_piece_offset="0" />
+        <Flags>
+            <Flag name="CanKnockDown" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="11" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rohan_ws_sword_a01_blade" name="{=starter_wm_rohan_ws_sword_a01_blade}Rohan Sword A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_sword_a01_blade" length="70.86" weight="0.67" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_sword_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.29" />
+            <Swing damage_type="Cut" damage_factor="2.18" />
+        </BladeData>
+        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
+        <Flags>
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
+    <CraftingPiece id="starter_wm_rohan_ws_spear_a01_blade" name="{=starter_wm_rohan_ws_spear_a01_blade}Rohan Spear WS A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_spear_a01_blade" length="52.41" weight="1.47" is_hidden="true">
+        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_spear_a01_blade" holster_mesh="">
+            <Thrust damage_type="Pierce" damage_factor="1.4" />
+            <Swing damage_type="Cut" damage_factor="0.91" />
+        </BladeData>
+        <Flags>
+            <Flag name="CanKnockDown" />
+            <Flag name="Civilian" type="ItemFlags" />
+        </Flags>
+        <Materials>
+            <Material id="Iron6" count="9" />
+        </Materials>
+    </CraftingPiece>
     <CraftingPiece id="starter_wm_gondor_spear_a_blade" name="{=starter_wm_gondor_spear_a_blade}Gondor Spear Head D (Starter)" tier="1" piece_type="Blade" mesh="wm_gondor_spear_a_blade" length="50" weight="0.72" excluded_item_usage_features="swing" is_hidden="true">
         <BladeData stack_amount="3" physics_material="wood_weapon" body_name="bo_wm_gondor_spear_a_blade">
             <Thrust damage_type="Pierce" damage_factor="1.4" />
@@ -18308,32 +18416,6 @@
         </Flags>
         <Materials>
             <Material id="Iron3" count="3" />
-        </Materials>
-    </CraftingPiece>
-    <CraftingPiece id="starter_wm_rohan_ws_sword_a01_blade" name="{=starter_wm_rohan_ws_sword_a01_blade}Rohan Sword A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_sword_a01_blade" length="70.86" weight="0.67" is_hidden="true">
-        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_sword_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.29" />
-            <Swing damage_type="Cut" damage_factor="2.18" />
-        </BladeData>
-        <BuildData piece_offset="0" previous_piece_offset="0" next_piece_offset="0" />
-        <Flags>
-            <Flag name="Civilian" type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material id="Iron6" count="9" />
-        </Materials>
-    </CraftingPiece>
-    <CraftingPiece id="starter_wm_rohan_ws_spear_a01_blade" name="{=starter_wm_rohan_ws_spear_a01_blade}Rohan Spear WS A Blade (Starter)" tier="1" piece_type="Blade" mesh="wm_rohan_ws_spear_a01_blade" length="52.41" weight="1.47" is_hidden="true">
-        <BladeData stack_amount="3" physics_material="metal_weapon" body_name="bo_wm_rohan_ws_spear_a01_blade" holster_mesh="">
-            <Thrust damage_type="Pierce" damage_factor="1.4" />
-            <Swing damage_type="Cut" damage_factor="0.91" />
-        </BladeData>
-        <Flags>
-            <Flag name="CanKnockDown" />
-            <Flag name="Civilian" type="ItemFlags" />
-        </Flags>
-        <Materials>
-            <Material id="Iron6" count="9" />
         </Materials>
     </CraftingPiece>
     <CraftingPiece id="starter_dunland_caerdh_spear_head_a" name="{=starter_dunland_caerdh_spear_head_a}Dunland Caerdh Spear Head A (Starter)" tier="1" piece_type="Blade" mesh="dunland_caerdh_spear_head_a" length="50.11" weight="0.21" excluded_item_usage_features="swing" is_hidden="true">

@@ -4,7 +4,7 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: sm_dg_khml_shield_med_a, khuzait_sword_1_t2, sm_rh_loke_shield_med_a, sm_rh_loke_spear_a, sk_rh_loke_chest_light_a, sk_rh_loke_boots_a, sk_rh_loke_tunic_a, sk_rh_loke_pauldron_lam_heavy_a, hunting_bow, eastern_leather_boots, composite_steppe_bow, steppe_arrows
+  theirs from the floored stats. Donors: sm_dg_khml_shield_med_a, khuzait_sword_1_t2, sm_rh_loke_shield_med_a, sm_rh_loke_spear_a, sk_rh_loke_chest_light_a, sk_rh_loke_boots_a, sk_rh_loke_tunic_a, sk_rh_loke_pauldron_lam_heavy_a, hunting_bow, eastern_leather_boots, composite_steppe_bow, steppe_arrows, ladder_rohan_bow_t2
 -->
 <Items>
     <Item id="starter_sm_dg_khml_shield_med_a" name="{=starter_sm_dg_khml_shield_med_a}[Rhûn] Khamul Medium Shield I (Starter)" body_name="bo_cap_sm_rh_loke_shield_a" shield_body_name="bo_sm_rh_loke_shield_a" recalculate_body="false" mesh="sm_dg_khml_shield_med_a" culture="Culture.khuzait" using_tableau="false" weight="3.5" appearance="1" Type="Shield" is_merchandise="false" item_holsters="shield_kite:shield_2:shield_3:shield_4" has_lower_holster_priority="true" holster_position_shift="0.0,0.1,0" difficulty="0">
@@ -90,5 +90,13 @@
             </Weapon>
         </ItemComponent>
         <Flags />
+    </Item>
+    <Item id="starter_ladder_rohan_bow_t2" name="{=starter_ladder_rohan_bow_t2}Steppe Recurve Bow II (Starter)" body_name="bo_shortbow_d" mesh="shortbow_d" holster_mesh="shortbow_d_holster" holster_mesh_with_weapon="shortbow_d_holster_weapon" culture="Culture.khuzait" weight="0.3" difficulty="0" appearance="0.4" Type="Bow" item_holsters="bow_hip:bow_hip_2" is_merchandise="false">
+        <ItemComponent>
+            <Weapon weapon_class="Bow" ammo_class="Arrow" ammo_limit="1" thrust_speed="87" speed_rating="89" missile_speed="61" weapon_length="108" accuracy="78" thrust_damage="36" thrust_damage_type="Pierce" item_usage="bow" physics_material="wood_weapon" center_of_mass="0.1,0,-0.15" modifier_group="bow">
+                <WeaponFlags RangedWeapon="true" HasString="true" StringHeldByHand="true" NotUsableWithOneHand="true" TwoHandIdleOnMount="true" AutoReload="true" UnloadWhenSheathed="true" CanBeUsedWhileCrouched="true" />
+            </Weapon>
+        </ItemComponent>
+        <Flags Stealth="true" ForceAttachOffHandPrimaryItemBone="true" />
     </Item>
 </Items>

@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+
+	<!-- ==================== EREBOR CIVILIAN NPCs ==================== -->
+	<!-- All dwarves use race="dwarf" -->
+
+	<!-- Tournament / Arena -->
+	<NPCCharacter id="tournament_master_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="ArenaMaster" culture="Culture.eredluin" name="{=aom_elu_arena}Arena Master">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Villager (upgrades to eredluin_delver) -->
+	<NPCCharacter id="villager_eredluin" race="dwarf" default_group="Infantry" level="1" name="{=aom_elu_villager}Villager" occupation="Villager" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="30" />
+			<skill id="Riding" value="0" />
+			<skill id="OneHanded" value="30" />
+			<skill id="TwoHanded" value="20" />
+			<skill id="Polearm" value="30" />
+			<skill id="Bow" value="0" />
+			<skill id="Crossbow" value="0" />
+			<skill id="Throwing" value="20" />
+		</skills>
+		<upgrade_targets>
+			<upgrade_target id="NPCCharacter.eredluin_delver" />
+		</upgrade_targets>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Caravan Staff -->
+	<NPCCharacter id="caravan_master_eredluin" race="dwarf" default_group="Infantry" level="26" name="{=aom_elu_caravan_master}Ered Luin Caravan Master" occupation="CaravanGuard" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="120" />
+			<skill id="Polearm" value="80" />
+			<skill id="Trade" value="100" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_a" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armed_trader_eredluin" race="dwarf" default_group="Infantry" level="16" name="{=aom_elu_armed_trader}Ered Luin Armed Trader" occupation="CaravanGuard" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="40" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="60" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="caravan_guard_eredluin" race="dwarf" default_group="Infantry" level="21" name="{=aom_elu_caravan_guard}Ered Luin Caravan Guard" occupation="CaravanGuard" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="100" />
+			<skill id="Polearm" value="100" />
+			<skill id="Bow" value="40" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_c" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_b" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="veteran_caravan_guard_eredluin" race="dwarf" default_group="Infantry" level="26" name="{=aom_elu_vet_caravan_guard}Ered Luin Veteran Caravan Guard" occupation="CaravanGuard" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="60" />
+			<skill id="OneHanded" value="130" />
+			<skill id="Polearm" value="130" />
+			<skill id="Bow" value="50" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_d" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_c" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Town Population -->
+	<NPCCharacter id="townsman_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_townsman}Townsman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_townswoman}Townswoman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="town_child_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_town_child}Town Child" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="town_teenager_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_town_teen}Town Teenager" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Village Population -->
+	<NPCCharacter id="village_woman_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_village_woman}Village Woman" occupation="Villager" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_f" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_f" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_child_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_village_child}Village Child" occupation="Villager" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_teenager_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_village_teen}Village Teenager" occupation="Villager" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Merchants -->
+	<NPCCharacter id="merchant_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="GoodsTrader" culture="Culture.eredluin" name="{=aom_elu_merchant}Trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Crafters -->
+	<NPCCharacter id="blacksmith_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="Blacksmith" culture="Culture.eredluin" name="{=aom_elu_blacksmith}Blacksmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weaponsmith_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="Weaponsmith" culture="Culture.eredluin" name="{=aom_elu_weaponsmith}Weaponsmith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="armorer_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="Armorer" culture="Culture.eredluin" name="{=aom_elu_armorer}Armorer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="horseMerchant_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="HorseTrader" culture="Culture.eredluin" name="{=aom_elu_horse_merchant}Horse Merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Tavern -->
+	<NPCCharacter id="tavernkeeper_eredluin" race="dwarf" default_group="Infantry" is_hero="false" name="{=aom_elu_tavernkeeper}Tavern Keeper" occupation="Tavernkeeper" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="taverngamehost_eredluin" race="dwarf" default_group="Infantry" is_hero="false" name="{=aom_elu_gamehost}Game Host" occupation="TavernGameHost" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="tavern_wench_eredluin" is_female="true" race="dwarf" default_group="Infantry" is_hero="false" name="{=aom_elu_tavern_wench}Tavern Wench" occupation="TavernWench" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_h" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_h" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="musician_eredluin" race="dwarf" default_group="Infantry" is_hero="false" name="{=aom_elu_musician}Musician" occupation="Musician" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Services -->
+	<NPCCharacter id="shop_worker_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="ShopWorker" culture="Culture.eredluin" name="{=aom_elu_shop_worker}Shop Worker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="barber_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.eredluin" name="{=aom_elu_barber}Barber" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="ransom_broker_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="RansomBroker" culture="Culture.eredluin" name="{=aom_elu_ransom_broker}Ransom Broker" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Guards -->
+	<NPCCharacter id="prison_guard_eredluin" race="dwarf" default_group="Infantry" level="4" culture="Culture.eredluin" occupation="PrisonGuard" name="{=aom_elu_prison_guard}Prison Guard">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="OneHanded" value="50" />
+			<skill id="TwoHanded" value="50" />
+			<skill id="Polearm" value="50" />
+			<skill id="Athletics" value="30" />
+			<skill id="Throwing" value="20" />
+		</skills>
+		<upgrade_targets></upgrade_targets>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="guard_eredluin" race="dwarf" default_group="Infantry" level="16" name="{=aom_elu_guard}Guard" occupation="Soldier" culture="Culture.eredluin">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills>
+			<skill id="Athletics" value="50" />
+			<skill id="OneHanded" value="80" />
+			<skill id="Polearm" value="80" />
+		</skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_d" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_d" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Gang -->
+	<NPCCharacter id="gangleader_bodyguard_eredluin" race="dwarf" default_group="Infantry" level="16" is_hero="false" occupation="Townsfolk" culture="Culture.eredluin" name="{=aom_elu_gang_bodyguard}Gang Bodyguard" skill_template="SkillSet.infantry_heavyinfantry_level16_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_a" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a" />
+				<equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_med_a" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Beggars / Dancers -->
+	<NPCCharacter id="beggar_eredluin" race="dwarf" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.eredluin" name="{=aom_elu_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_beggar_eredluin" is_female="true" race="dwarf" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.eredluin" name="{=aom_elu_female_beggar}Beggar" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_g" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_g" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="female_dancer_eredluin" is_female="true" race="dwarf" default_group="Infantry" is_hero="false" occupation="Townsfolk" culture="Culture.eredluin" name="{=aom_elu_dancer}Dancer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_i" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_i" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Merchants (10) -->
+	<NPCCharacter id="spc_notable_eredluin_0" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_0}Cautious dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_0b" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_0b}Dwarven vintner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_1" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_1}Ruthless dwarven trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_1b" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_1b}Cold dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Generosity" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_2" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_notable_2}Dwarven gem dealer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_2b" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_notable_2b}Cautious dwarven ore trader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_3" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_3}Self-made dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_3b" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_3b}Jocular dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Generosity" value="1" /><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_4" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_4}Shrewd dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_4b" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_4b}Devious dwarven merchant" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Merchant">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Preachers (3) -->
+	<NPCCharacter id="spc_notable_eredluin_5" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.eredluin" name="{=aom_elu_notable_5}Zealous dwarven loremaster" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_6" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_6}Stern dwarven elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Honor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_7" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.eredluin" name="{=aom_elu_notable_7}Dwarven keeper of traditions" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Preacher">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Mercy" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Artisans (2) -->
+	<NPCCharacter id="spc_notable_eredluin_8" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_8}Gruff dwarven smith" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_9" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.eredluin" name="{=aom_elu_notable_9}Outgoing dwarven craftsman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Artisan">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Gang Leaders (6) -->
+	<NPCCharacter id="spc_notable_eredluin_gl1" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_notable_gl1}Protective dwarven ringleader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_10" is_female="true" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_10}Ironic dwarven gang leader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_11" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_11}Intimidating dwarven enforcer" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Generosity" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_d" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_gl4" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_gl4}Bestial dwarven thug" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Honor" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_12" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="ironic" culture="Culture.eredluin" name="{=aom_elu_notable_12}Cunning dwarven smuggler" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Honor" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_13" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_notable_13}Menacing dwarven gang leader" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="GangLeader">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Generosity" value="-1" /><Trait id="Mercy" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Rural Notables (2) -->
+	<NPCCharacter id="spc_notable_eredluin_21" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_notable_21}Gruff dwarven landowner" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_notable_eredluin_22" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_notable_22}Agreeable dwarven elder" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="RuralNotable">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Honor" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Notables: Headmen (3) -->
+	<NPCCharacter id="spc_eredluin_headman_1" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.eredluin" name="{=aom_elu_headman_1}Rebellious dwarven headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_eredluin_headman_2" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_elu_headman_2}Conservative dwarven headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Generosity" value="1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_c" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_eredluin_headman_3" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="softspoken" culture="Culture.eredluin" name="{=aom_elu_headman_3}Devious dwarven headman" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Headman">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Calculating" value="1" /><Trait id="Honor" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_noble_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Practice Dummies -->
+	<NPCCharacter id="gear_practice_dummy_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_practice_dummy}Practice Dummy" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_chain_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_1_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_practice_1}Practice Fighter" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_1_t2" />
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_2_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_practice_2}Practice Fighter" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_3_t3" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="weapon_practice_stage_3_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_practice_3}Practice Fighter" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster>
+				<equipment slot="Item0" id="Item.empire_sword_5_t4" />
+				<equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_med_b" />
+				<equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_heavy_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="gear_dummy_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_gear_dummy}Gear Dummy" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Child/Infant/Teenager variants for culture definition -->
+	<NPCCharacter id="townsman_infant_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_townsman_infant}Townsman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_child_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_townsman_child}Townsman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townsman_teenager_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_townsman_teen}Townsman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_infant_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_townswoman_infant}Townswoman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_e" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_child_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_townswoman_child}Townswoman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_f" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_f" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="townswoman_teenager_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_townswoman_teen}Townswoman" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_g" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_g" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_woman_child_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_village_woman_child}Village Child" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_i" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_i" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="village_woman_teenager_eredluin" is_female="true" race="dwarf" default_group="Infantry" name="{=aom_elu_village_woman_teen}Village Teenager" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_h" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_dress_normal_h" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_child_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_villager_child}Village Child" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<NPCCharacter id="villager_teenager_eredluin" race="dwarf" default_group="Infantry" name="{=aom_elu_villager_teen}Village Teenager" occupation="Townsfolk" culture="Culture.eredluin" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<skills></skills>
+		<Equipments>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster civilian="true">
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
+			</EquipmentRoster>
+			<EquipmentRoster>
+				<equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+				<equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+			</EquipmentRoster>
+		</Equipments>
+	</NPCCharacter>
+
+	<!-- Lord templates. Referenced from taom_spcultures.xml <lord_templates> and
+	     <rebellion_hero_templates>; both lists previously held vanilla's Culture.empire
+	     leaders, and a hero keeps its TEMPLATE's culture. Equipment comes from the
+	     already-authored taom_eredluin_lord_* rosters. -->
+	<NPCCharacter id="spc_eredluin_lord_1" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="curt" culture="Culture.eredluin" name="{=aom_eredluin_lord_1}Bold dwarven lord" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="1" /><Trait id="Calculating" value="-1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_eredluin_lord_battle_male" />
+			<EquipmentSet id="taom_eredluin_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+	<NPCCharacter id="spc_eredluin_lord_2" race="dwarf" default_group="Infantry" is_template="true" is_hero="false" voice="earnest" culture="Culture.eredluin" name="{=aom_eredluin_lord_2}Cautious dwarven lord" skill_template="SkillSet.infantry_heavyinfantry_level1_template_skills" occupation="Lord">
+		<face><face_key_template value="BodyProperty.fighter_erebor" /></face>
+		<Traits><Trait id="Valor" value="-1" /><Trait id="Calculating" value="1" /></Traits>
+		<Equipments>
+			<EquipmentSet id="taom_eredluin_lord_battle_male" />
+			<EquipmentSet id="taom_eredluin_lord_civilian_male" equipmentType="Civilian" />
+		</Equipments>
+	</NPCCharacter>
+</NPCCharacters>

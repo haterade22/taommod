@@ -3,6 +3,20 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.15.0] — 14 Nov 2026 — Mod data updated to TAOM v2.0.38
+
+- The Troops, Lords, Clans, Kingdoms, Factions, Armoury and Weaponry pages now show the data of TAOM v2.0.38 (released 10 Nov 2026).
+- Eight new realms have faction and kingdom pages: Arthedain, Cardolan, Rhudaur, Ered Luin, Anduin Vale, Angáladh, Dorwinion and South Rhovanion. They use the standard faction picture until their own art is added.
+- Lothlorien is no longer hidden: its own troops and lords now show on the Troops and Lords pages.
+- The Armoury has two new sets of gear: Lothlorien and Gundabad Snow.
+
+### Mod data
+
+- Troop files: 27 (was 18). New: Anduin Vale, Angáladh, Arthedain, Cardolan, Dorwinion, Ered Luin, Feral Orcs, Gundabad Snow, Lothlorien, Rhudaur, South Rhovanion. The Blue Craig and Misty Mountain Orcs troop files are no longer in the mod, so those two realms now show only one troop each.
+- NPC, lords, heroes, clans, cultures and kingdoms files are re-copied; new NPC files for the new realms and a separate Harad lords file.
+- Armoury and Weaponry files are re-copied from the LOTRLOME Armory module as installed with v2.0.38.
+- Troop branch descriptions on the faction pages (the short text under each troop tree) are not written yet for the new realms.
+
 ## [3.14.1] — 11 Nov 2026 — Discord bot privacy policy: verified role
 
 - The Privacy Policy of The Great Eye now says what is stored so the verified role can be given back when a member rejoins, and that it is deleted 2 years after the member was last seen.
