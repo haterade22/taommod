@@ -23,7 +23,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="intro-copy">
             This site is intentionally light. Based on the current codebase, TAOM does not run analytics, advertising
             trackers, account logins, or on-site contact forms. The only browser-side storage used by the site itself is
-            a temporary session flag so the cookie notice does not keep reappearing while you browse.
+            a temporary session flag for the cookie notice and two small display settings you choose yourself.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <div class="summary-item">
               <span class="summary-label">Stored locally</span>
-              <strong>One temporary <code>sessionStorage</code> flag</strong>
+              <strong>One session flag and two display settings</strong>
             </div>
             <div class="summary-item">
               <span class="summary-label">Third-party requests</span>
@@ -54,6 +54,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             TAOM stores one temporary browser session entry to remember that you dismissed the cookie notice. This is
             kept in <code>sessionStorage</code>, not as a persistent tracking cookie, and it clears when the browser
             session ends.
+          </p>
+          <p>
+            Two settings are kept in <code>localStorage</code> so they stay the same on your next visit: whether the home
+            page music is muted, and which build the Features page shows. Neither identifies you or is sent anywhere, and
+            clearing your browser's site data removes them.
           </p>
         </article>
 
