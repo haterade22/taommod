@@ -36,6 +36,18 @@ describe('getCultureDisplayName', () => {
     expect(getCultureDisplayName('umbar_corsairs')).toBe('Umbar Corsairs');
   });
 
+  it('maps the Arnor-successor and added cultures', () => {
+    expect(getCultureDisplayName('arthedain')).toBe('Arthedain');
+    expect(getCultureDisplayName('cardolan')).toBe('Cardolan');
+    expect(getCultureDisplayName('rhudaur')).toBe('Rhudaur');
+    expect(getCultureDisplayName('eredluin')).toBe('Ered Luin');
+    expect(getCultureDisplayName('anduinvale')).toBe('Anduin Vale');
+    expect(getCultureDisplayName('angaladh')).toBe('Angáladh');
+    expect(getCultureDisplayName('dorwinion')).toBe('Dorwinion');
+    expect(getCultureDisplayName('southrhovanion')).toBe('South Rhovanion');
+    expect(getCultureDisplayName('feral_orcs')).toBe('Feral Orcs');
+  });
+
   it('handles armory folder-name aliases', () => {
     expect(getCultureDisplayName('dunland')).toBe('Dunland');
     expect(getCultureDisplayName('dol_guldur')).toBe('Dol Guldur');
@@ -60,15 +72,13 @@ describe('getCultureDisplayName', () => {
 });
 
 describe('isHiddenCulture', () => {
-  it('returns true for hidden cultures', () => {
-    expect(isHiddenCulture('lothlorien')).toBe(true);
-  });
-
   it('returns false for visible cultures', () => {
     expect(isHiddenCulture('gondor')).toBe(false);
     expect(isHiddenCulture('mordor')).toBe(false);
     expect(isHiddenCulture('erebor')).toBe(false);
     expect(isHiddenCulture('aserai')).toBe(false);
+    // Lothlorien has its own troop trees since TAOM 2.0.36 and is shown
+    expect(isHiddenCulture('lothlorien')).toBe(false);
     // Dale ships under the sturgia culture id and is no longer hidden
     expect(isHiddenCulture('sturgia')).toBe(false);
   });

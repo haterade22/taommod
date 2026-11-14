@@ -332,9 +332,9 @@
 			<xsl:attribute name="color2">0xFFB28944</xsl:attribute>
 
 			<!-- Troop references -->
-			<xsl:attribute name="basic_troop">NPCCharacter.harad_levy</xsl:attribute>
-			<xsl:attribute name="elite_basic_troop">NPCCharacter.harad_noble</xsl:attribute>
-			<xsl:attribute name="executioner">NPCCharacter.harad_noble</xsl:attribute>
+			<xsl:attribute name="basic_troop">NPCCharacter.harad_reg_levy</xsl:attribute>
+			<xsl:attribute name="elite_basic_troop">NPCCharacter.harad_serp_noble</xsl:attribute>
+			<xsl:attribute name="executioner">NPCCharacter.harad_serp_noble</xsl:attribute>
 			<xsl:attribute name="melee_militia_troop">NPCCharacter.harad_militia_spearman</xsl:attribute>
 			<xsl:attribute name="ranged_militia_troop">NPCCharacter.harad_militia_archer</xsl:attribute>
 			<xsl:attribute name="melee_elite_militia_troop">NPCCharacter.harad_militia_veteran_spearman</xsl:attribute>
@@ -1296,6 +1296,16 @@
 				<template name="NPCCharacter.spc_dale_headman_1" />
 				<template name="NPCCharacter.spc_dale_headman_2" />
 				<template name="NPCCharacter.spc_dale_headman_3" />
+				<template name="NPCCharacter.spc_wanderer_dale_0" />
+				<template name="NPCCharacter.spc_wanderer_dale_1" />
+				<template name="NPCCharacter.spc_wanderer_dale_2" />
+				<template name="NPCCharacter.spc_wanderer_dale_3" />
+				<template name="NPCCharacter.spc_wanderer_dale_4" />
+				<template name="NPCCharacter.spc_wanderer_dale_5" />
+				<template name="NPCCharacter.spc_wanderer_dale_6" />
+				<template name="NPCCharacter.spc_wanderer_dale_7" />
+				<template name="NPCCharacter.spc_wanderer_dale_8" />
+				<template name="NPCCharacter.spc_wanderer_dale_9" />
 			</notable_templates>
 
 			<!-- Vassal reward items (Dale longbow — Bard's black-arrow theme) -->
@@ -1452,6 +1462,16 @@
 				<template name="NPCCharacter.spc_khand_headman_1" />
 				<template name="NPCCharacter.spc_khand_headman_2" />
 				<template name="NPCCharacter.spc_khand_headman_3" />
+				<template name="NPCCharacter.spc_wanderer_khand_0" />
+				<template name="NPCCharacter.spc_wanderer_khand_1" />
+				<template name="NPCCharacter.spc_wanderer_khand_2" />
+				<template name="NPCCharacter.spc_wanderer_khand_3" />
+				<template name="NPCCharacter.spc_wanderer_khand_4" />
+				<template name="NPCCharacter.spc_wanderer_khand_5" />
+				<template name="NPCCharacter.spc_wanderer_khand_6" />
+				<template name="NPCCharacter.spc_wanderer_khand_7" />
+				<template name="NPCCharacter.spc_wanderer_khand_8" />
+				<template name="NPCCharacter.spc_wanderer_khand_9" />
 			</notable_templates>
 
 			<!-- Vassal reward items (Mordor sword — Khand serves Mordor) -->

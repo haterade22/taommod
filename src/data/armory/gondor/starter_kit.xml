@@ -4,7 +4,7 @@
   tools/generate_starter_kit.py (do not hand-edit; re-run the generator).
   Each item is a stat-floored twin of a player-start roster item, same meshes,
   is_merchandise=false; crafted twins carry an explicit value=, plain items compute
-  theirs from the floored stats. Donors: wm_gondor_sword_a01, sm_gd_shield_a1, wm_gondor_light_spear, gondor_noble_jerkin_a, sk_gd_ano_boots_a, gondor_noble_coat_b, ithilien_cloak, gondor_steel_bow_starter, gondor_noble_coat_a, wm_gondor_lossarnach_1h_axe_black_ash_a, wm_gondor_light_spear_cardolan, sk_ar_art_chainmail_half_a, sk_ar_art_boots_a, sk_ar_art_cape_a, wm_gondor_bow, wm_gondor_spear_a
+  theirs from the floored stats. Donors: wm_gondor_sword_a01, sm_gd_shield_a1, wm_gondor_light_spear, gondor_noble_jerkin_a, sk_gd_ano_boots_a, gondor_noble_coat_b, ithilien_cloak, gondor_steel_bow_starter, gondor_noble_coat_a, wm_gondor_lossarnach_1h_axe_black_ash_a, wm_gondor_light_spear_cardolan, sk_ar_art_chainmail_half_a, sk_ar_art_boots_a, sk_ar_art_cape_a, sk_gd_anf_inf_chainmail_a, sk_gd_ano_pauld_inf_med_a, wm_gondor_bow, wm_gondor_spear_a
 -->
 <Items>
     <CraftedItem id="starter_wm_gondor_sword_a01" name="{=starter_wm_gondor_sword_a01}[Gondor] Sword Medium A (Starter)" crafting_template="OneHandedSword" is_merchandise="false" culture="Culture.gondor" value="150">
@@ -96,6 +96,18 @@
     <Item id="starter_sk_ar_art_cape_a" name="{=starter_sk_ar_art_cape_a}[Arnor] Cape (Starter)" mesh="sk_ar_art_cape_a" culture="Culture.gondor" is_merchandise="false" weight="0.5" appearance="6" Type="Cape" difficulty="0">
         <ItemComponent>
             <Armor body_armor="5" arm_armor="1" modifier_group="cloth_unarmoured" material_type="Cloth" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+    <Item id="starter_sk_gd_anf_inf_chainmail_a" name="{=starter_sk_gd_anf_inf_chainmail_a}[Gondor] Anfalas Chainmail A (Starter)" subtype="body_armor" mesh="sk_gd_anf_inf_chainmail_a" culture="Culture.gondor" is_merchandise="false" weight="8.0" difficulty="0" appearance="1" Type="BodyArmor">
+        <ItemComponent>
+            <Armor body_armor="9" has_gender_variations="false" covers_body="true" modifier_group="leather" material_type="Chainmail" />
+        </ItemComponent>
+        <Flags UseTeamColor="true" />
+    </Item>
+    <Item id="starter_sk_gd_ano_pauld_inf_med_a" name="{=starter_sk_gd_ano_pauld_inf_med_a}[Gondor] Anorien Infantry Pauldron I (Starter)" subtype="head_armor" mesh="sk_gd_ano_pauld_inf_med_a" culture="Culture.gondor" is_merchandise="false" weight="5.0" difficulty="0" appearance="3" Type="Cape">
+        <ItemComponent>
+            <Armor body_armor="6" arm_armor="2" modifier_group="cloth" material_type="Chainmail" />
         </ItemComponent>
         <Flags UseTeamColor="true" />
     </Item>
