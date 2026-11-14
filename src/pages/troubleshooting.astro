@@ -12,7 +12,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Load Order</h2>
       <p class="version-note">Bannerlord Version <strong>1.5.7</strong></p>
       <ol class="load-order">
-        <li><span class="mod-name">TAOM.Dependencies</span> <span class="mod-version">v2.0.38</span></li>
+        <li><span class="mod-name">TAOM.Dependencies</span></li>
         <li><span class="mod-name">Native</span></li>
         <li><span class="mod-name">SandboxCore</span></li>
         <li><span class="mod-name">Sandbox</span></li>
@@ -22,9 +22,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><span class="mod-name">Fast Mode</span> <span class="mod-note">Optional</span></li>
         <li><span class="mod-name">LOTRLOME_Armory</span></li>
         <li><span class="mod-name">TAOM_MAP</span></li>
-        <li><span class="mod-name">TAOM</span> <span class="mod-version">v2.0.38</span></li>
+        <li><span class="mod-name">TAOM</span></li>
         <li><span class="mod-name">Coop</span> <span class="mod-note">Optional, last</span></li>
       </ol>
+      <p>
+        All four TAOM modules (TAOM, TAOM.Dependencies, TAOM_MAP and LOTRLOME_Armory) carry the same version. Keep
+        LOTRLOME_Armory above TAOM in the launcher. For a clean install, remove the old Modules\TAOM folder first. From
+        v2.0.39 Realms is part of TAOM, so remove a separate TAOM.Realms module if you have one.
+      </p>
     </section>
 
     <section class="tip-section warning-section">

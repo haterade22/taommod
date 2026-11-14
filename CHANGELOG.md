@@ -3,6 +3,15 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.16.0] — 14 Nov 2026 — Features page updated for TAOM v2.0.39, install notes
+
+- The supporter build on the Features page now shows TAOM v2.0.39 (released 13 Nov 2026). The public build stays on v2.0.38.
+- Realms and Titles and War Pledge are out of Coming soon and now in the supporter build. Realms has its settings, including tribute and claims.
+- New supporter cards: Defend Helm's Deep, Hero Auras, Lost Footing, Battle HUD Colours, Custom Battle Muster Screen, Banner Editor, Lord Retinue, Hall Seats and Encounter Lines.
+- The Long Defeat card lists the kill feed, the split defenders and the siege engines that come back each wave (supporter build). Marshal's Word Outlines is now off by default there.
+- The Co-op card says not to start a co-op session on v2.0.39; the public view is unchanged.
+- Download and Troubleshooting: clean install, keep LOTRLOME_Armory above TAOM, all four modules share one version, and the separate TAOM.Realms module is no longer needed from v2.0.39. The load order no longer lists module versions.
+
 ## [3.15.1] — 14 Nov 2026 — Load order updated for Bannerlord 1.5.7
 
 - The Download and Troubleshooting pages now say Bannerlord 1.5.7 (Steam beta branch) instead of 1.4.8.
