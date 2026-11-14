@@ -9,6 +9,10 @@ or mod data, patches (2.5.1) are small fixes.
 - A button in the bottom-left corner mutes and unmutes it, and the site remembers your choice. The music stops when you leave the home page.
 - The cookie and privacy pages now list the two display settings the site remembers in your browser (music muted, Features page build).
 
+## [3.16.1] — 14 Nov 2026 — Download through the launcher
+
+- The Download page no longer links to ModDB, which does not have the current version. The first install step now says to download the mod with the TAOM launcher.
+
 ## [3.16.0] — 14 Nov 2026 — Features page updated for TAOM v2.0.39, install notes
 
 - The supporter build on the Features page now shows TAOM v2.0.39 (released 13 Nov 2026). The public build stays on v2.0.38.
