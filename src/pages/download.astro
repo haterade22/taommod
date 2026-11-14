@@ -3,7 +3,7 @@ import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const loadOrder = [
-  { name: 'TAOM.Dependencies', meta: 'v2.0.26' },
+  { name: 'TAOM.Dependencies', meta: 'v2.0.38' },
   { name: 'Native' },
   { name: 'SandboxCore' },
   { name: 'Sandbox' },
@@ -11,9 +11,10 @@ const loadOrder = [
   { name: 'CustomBattle' },
   { name: 'Birth and Aging Options', note: 'Optional' },
   { name: 'Fast Mode', note: 'Optional' },
-  { name: 'LOTRLOME_Armory', meta: 'v2.0.26' },
-  { name: 'TAOM_MAP', meta: 'v2.0.26' },
-  { name: 'TAOM', meta: 'v2.0.27', highlight: true },
+  { name: 'LOTRLOME_Armory' },
+  { name: 'TAOM_MAP' },
+  { name: 'TAOM', meta: 'v2.0.38', highlight: true },
+  { name: 'Coop', note: 'Optional, last' },
 ];
 ---
 
@@ -33,7 +34,7 @@ const loadOrder = [
       <section class="hero-panel">
         <div class="hero-copy">
           <p class="eyebrow">Prepare Your Campaign</p>
-          <h1>Download and install TAOM for Bannerlord 1.4.8.</h1>
+          <h1>Download and install TAOM for Bannerlord 1.5.7.</h1>
           <p class="intro-copy">
             Everything you need to get into Middle-earth: launcher links, manual download mirrors, install steps, load
             order, and troubleshooting in one place.
@@ -56,9 +57,10 @@ const loadOrder = [
 
         <div class="hero-card">
           <p class="hero-card-label">Compatibility</p>
-          <h2>Steam Bannerlord 1.4.8</h2>
+          <h2>Steam Bannerlord 1.5.7 (beta branch)</h2>
           <ul class="hero-card-list">
-            <li>Use Bannerlord version 1.4.8 before installing.</li>
+            <li>Use Bannerlord version 1.5.7 before installing.</li>
+            <li>Start a new campaign. Saves from older versions are not supported.</li>
             <li>The Xbox Game Pass version is not supported.</li>
             <li>Delete older TAOM files before starting a new install.</li>
           </ul>
@@ -95,7 +97,7 @@ const loadOrder = [
           <h2>Before you start the install</h2>
           <div class="stack-list">
             <div class="stack-item">
-              <h3>Use Bannerlord 1.4.8</h3>
+              <h3>Use Bannerlord 1.5.7</h3>
               <p>Set your game version first so the installed files and launcher order match the current TAOM build.</p>
             </div>
             <div class="stack-item">
@@ -128,7 +130,10 @@ const loadOrder = [
             <li>Delete older TAOM files from the Modules folder before copying new ones in.</li>
             <li>
               Copy every extracted file into the Modules folder.
-              <span class="note">The package already includes the required dependencies.</span>
+              <span class="note"
+                >The package already includes the required dependencies (Harmony, ButterLib, UIExtenderEx and MCM).
+                Remove separate Workshop or Nexus copies of those.</span
+              >
             </li>
             <li>
               Unblock DLLs. Right-click each DLL, open Properties, and check "Unblock", or run:
@@ -146,7 +151,10 @@ const loadOrder = [
         <article class="content-card content-card-large">
           <p class="card-kicker">Launcher Load Order</p>
           <h2>Set this exact order</h2>
-          <p class="lead-copy">Use Bannerlord version 1.4.8 and keep the modules arranged exactly like this.</p>
+          <p class="lead-copy">
+            Use Bannerlord version 1.5.7 and keep the modules arranged exactly like this. StoryMode stays on and the
+            Naval DLC (War Sails) stays off.
+          </p>
           <ol class="load-order">
             {
               loadOrder.map((entry) => (
