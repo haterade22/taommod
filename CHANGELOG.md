@@ -3,6 +3,12 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.17.0] — 14 Nov 2026 — Main menu music on the home page
+
+- The home page plays TAOM's main menu theme. Browsers only allow sound after you click or press a key, so it starts then.
+- A button in the bottom-left corner mutes and unmutes it, and the site remembers your choice. The music stops when you leave the home page.
+- The cookie and privacy pages now list the two display settings the site remembers in your browser (music muted, Features page build).
+
 ## [3.16.1] — 14 Nov 2026 — Download through the launcher
 
 - The Download page no longer links to ModDB, which does not have the current version. The first install step now says to download the mod with the TAOM launcher.

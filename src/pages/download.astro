@@ -2,7 +2,7 @@
 import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const loadOrder = [
+const loadOrder: { name: string; meta?: string; note?: string; highlight?: boolean }[] = [
   { name: 'TAOM.Dependencies' },
   { name: 'Native' },
   { name: 'SandboxCore' },

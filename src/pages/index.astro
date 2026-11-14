@@ -59,6 +59,26 @@ import { srcsetFor } from '../lib/responsive-image';
         </div>
       </div>
     </main>
+
+    <!-- TAOM main menu theme. Browsers only allow sound after the visitor has clicked or pressed a key, so the music
+         starts then; the corner button mutes it, and the choice is remembered. -->
+    <audio data-home-music loop preload="none" data-src="/audio/menu-theme.mp3"></audio>
+    <button class="home-music-toggle" type="button" data-home-music-toggle aria-pressed="false" aria-label="Mute music">
+      <svg class="icon-on" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"></path>
+        <path
+          d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"></path>
+      </svg>
+      <svg class="icon-off" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"></path>
+        <path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        ></path>
+      </svg>
+    </button>
   </div>
 </BaseLayout>
 
@@ -82,6 +102,90 @@ import { srcsetFor } from '../lib/responsive-image';
     }
 
     startHomeVideo();
+  })();
+
+  (() => {
+    const STORAGE_KEY = 'taom-home-music-muted';
+    const readMuted = () => {
+      try {
+        return localStorage.getItem(STORAGE_KEY) === '1';
+      } catch {
+        return false;
+      }
+    };
+    const saveMuted = (muted) => {
+      try {
+        localStorage.setItem(STORAGE_KEY, muted ? '1' : '0');
+      } catch {
+        /* storage blocked: the choice lasts for this visit only */
+      }
+    };
+
+    const initHomeMusic = () => {
+      const audio = document.querySelector('[data-home-music]');
+      const toggle = document.querySelector('[data-home-music-toggle]');
+      if (!audio || !toggle || audio.dataset.ready) return;
+      audio.dataset.ready = '1';
+      audio.volume = 0.35;
+
+      let muted = readMuted();
+      const waiting = new AbortController();
+
+      const show = () => {
+        toggle.setAttribute('aria-pressed', String(muted));
+        toggle.setAttribute('aria-label', muted ? 'Play music' : 'Mute music');
+        toggle.classList.toggle('is-muted', muted);
+      };
+
+      const play = () => {
+        if (!audio.src) audio.src = audio.dataset.src;
+        return audio.play();
+      };
+
+      // Browsers block sound until the visitor interacts, so if autoplay is refused, start on the first click or key.
+      const startOnInteraction = () => {
+        const start = (event) => {
+          if (muted || toggle.contains(event.target)) return;
+          waiting.abort();
+          play().catch(() => {});
+        };
+        for (const type of ['pointerdown', 'keydown', 'touchstart']) {
+          document.addEventListener(type, start, { signal: waiting.signal, passive: true });
+        }
+      };
+
+      toggle.addEventListener('click', () => {
+        muted = !muted;
+        saveMuted(muted);
+        show();
+        if (muted) {
+          audio.pause();
+        } else {
+          waiting.abort();
+          play().catch(() => {});
+        }
+      });
+
+      // Leaving the home page (the site swaps pages without a full reload) stops the music.
+      document.addEventListener(
+        'astro:before-swap',
+        () => {
+          waiting.abort();
+          audio.pause();
+        },
+        { once: true },
+      );
+
+      show();
+      if (!muted) play().catch(startOnInteraction);
+    };
+
+    if (!window.__taomHomeMusicBound) {
+      window.__taomHomeMusicBound = true;
+      document.addEventListener('astro:page-load', initHomeMusic);
+    }
+
+    initHomeMusic();
   })();
 </script>
 
@@ -325,6 +429,61 @@ import { srcsetFor } from '../lib/responsive-image';
     transform: translateY(-2px);
     filter: brightness(1.06);
     border-color: rgba(234, 221, 200, 0.28);
+  }
+
+  /* Bottom-left: the cookie notice uses the bottom-right corner. */
+  .home-music-toggle {
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0;
+    color: #d19a33;
+    background: rgba(16, 12, 10, 0.88);
+    border: 1px solid rgba(128, 101, 62, 0.55);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .home-music-toggle:hover,
+  .home-music-toggle:focus-visible {
+    color: #f7f2ec;
+    border-color: rgba(234, 221, 200, 0.4);
+  }
+
+  .home-music-toggle:focus-visible {
+    outline: 2px solid #d19a33;
+    outline-offset: 3px;
+  }
+
+  .home-music-toggle .icon-off,
+  .home-music-toggle.is-muted .icon-on {
+    display: none;
+  }
+
+  .home-music-toggle.is-muted .icon-off {
+    display: block;
+  }
+
+  /* Phones: the cookie notice is a full-width strip at the bottom, so on the home page it starts right of the
+     music button and both stay visible. */
+  @media (max-width: 640px) {
+    .home-music-toggle {
+      left: 0.75rem;
+      bottom: 0.75rem;
+    }
+
+    :global(body.taom-home-body .cookie-notice) {
+      width: calc(100vw - 4.75rem);
+    }
   }
 
   @media (max-width: 980px) {
