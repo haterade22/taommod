@@ -38,7 +38,7 @@ npx astro check   # TypeScript/Astro type checking
 
 ## Key Conventions
 
-- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland, `sturgia` → Dale). Every culture id present in the data must have an entry or it renders as a raw capitalised id; `HIDDEN_CULTURES` (currently only `lothlorien`) filters `/troops` and `/lords`. Kingdom ids for the Kingdom column on `/lords` come from `KINGDOM_ID_TO_NAME` in `parse-clans.ts` — keep both in step when the mod adds a faction.
+- **Culture mapping**: Bannerlord vanilla culture IDs map to LOTR factions via `CULTURE_DISPLAY_NAMES` in `xml-shared.ts` (e.g., `aserai` → Harad, `vlandia` → Rohan, `khuzait` → Rhun, `empire` → Dunland, `sturgia` → Dale). Every culture id present in the data must have an entry or it renders as a raw capitalised id; `HIDDEN_CULTURES` (currently empty) can hide a culture from `/troops` and `/lords`. Kingdom ids for the Kingdom column on `/lords` come from `KINGDOM_ID_TO_NAME` in `parse-clans.ts` — keep both in step when the mod adds a faction.
 - **XML name cleanup**: `stripLocKey()` removes `{=key}` prefixes, `stripPrefix()` removes `Item.`/`Hero.`/etc prefixes
 - **CSS culture colors**: Table rows use `data-culture` attributes for faction-colored backgrounds (defined in `styles/global.css`)
 - **Skill colors**: Per-skill CSS classes like `.skill-athletics`, `.skill-riding` with `.skill-zero` for dimming zero values (in `styles/global.css`)

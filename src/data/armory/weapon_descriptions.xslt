@@ -310,8 +310,10 @@
 			<AvailablePiece id="starter_aserai_blade_2"/>
 			<AvailablePiece id="starter_aserai_blade_8"/>
 			<AvailablePiece id="starter_wm_mordor_set1_sword_a02_blade"/>
-			<AvailablePiece id="starter_empire_blade_4"/>
+			<AvailablePiece id="starter_wm_dale_ws_sword_a02_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_sword_a03_blade"/>
 			<AvailablePiece id="starter_wm_rohan_ws_sword_a01_blade"/>
+			<AvailablePiece id="starter_empire_blade_4"/>
 			<AvailablePiece id="starter_wm_harad_sword_a01_blade"/>
 			<!-- TAOM-STARTER-KIT:END -->
 		</AvailablePieces>
@@ -620,8 +622,9 @@
 			<AvailablePiece id="starter_sm_rh_loke_spear_blade_a"/>
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
-			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_spear_a01_blade"/>
 			<AvailablePiece id="starter_wm_rohan_ws_spear_a01_blade"/>
+			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
 			<AvailablePiece id="starter_dunland_caerdh_spear_head_a"/>
 			<AvailablePiece id="starter_wm_harad_spear_a01_head"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
@@ -784,8 +787,9 @@
 			<AvailablePiece id="starter_sm_rh_loke_spear_blade_a"/>
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
-			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_spear_a01_blade"/>
 			<AvailablePiece id="starter_wm_rohan_ws_spear_a01_blade"/>
+			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
 			<AvailablePiece id="starter_dunland_caerdh_spear_head_a"/>
 			<AvailablePiece id="starter_wm_harad_spear_a01_head"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
@@ -951,8 +955,9 @@
 			<AvailablePiece id="starter_wm_isengard_1h_spear_a01_blade"/>
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
-			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_spear_a01_blade"/>
 			<AvailablePiece id="starter_wm_rohan_ws_spear_a01_blade"/>
+			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
 			<AvailablePiece id="starter_dunland_caerdh_spear_head_a"/>
 			<AvailablePiece id="starter_wm_harad_spear_a01_head"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
@@ -1214,8 +1219,9 @@
 			<AvailablePiece id="starter_wm_dol_goldur_2h_halberd_a01_blade"/>
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
-			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_spear_a01_blade"/>
 			<AvailablePiece id="starter_wm_rohan_ws_spear_a01_blade"/>
+			<AvailablePiece id="starter_wm_gondor_spear_a_blade"/>
 			<AvailablePiece id="starter_dunland_caerdh_spear_head_a"/>
 			<AvailablePiece id="starter_wm_harad_spear_a01_head"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
@@ -1294,6 +1300,9 @@
 			<AvailablePiece id="starter_wm_mordor_set1_axe_a01_blade"/>
 			<AvailablePiece id="starter_sm_dwarf_erebor_axe_blade_1h_a"/>
 			<AvailablePiece id="starter_wm_gundabad_axe_a01_blade"/>
+			<AvailablePiece id="starter_axe_craft_20_head"/>
+			<AvailablePiece id="starter_wm_dale_ws_1h_axe_a03_blade"/>
+			<AvailablePiece id="starter_wm_dale_ws_1h_axe_a01_blade"/>
 			<!-- TAOM-STARTER-KIT:END -->
 		</AvailablePieces>
 	</xsl:template>
@@ -1414,6 +1423,7 @@
 			<!-- TAOM-STARTER-KIT:START -->
 			<AvailablePiece id="starter_spear_blade_27"/>
 			<AvailablePiece id="starter_spear_blade_42"/>
+			<AvailablePiece id="starter_wm_dale_ws_spear_a01_blade"/>
 			<AvailablePiece id="starter_spear_blade_15"/>
 			<!-- TAOM-STARTER-KIT:END -->
 	</AvailablePieces>

@@ -58,6 +58,15 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   mistymountainorcs: 'Misty Mountain Orcs',
   bluecraig: 'Blue Craig',
   lindon: 'Lindon',
+  anduinvale: 'Anduin Vale',
+  angaladh: 'Angáladh',
+  arthedain: 'Arthedain',
+  cardolan: 'Cardolan',
+  dorwinion: 'Dorwinion',
+  eredluin: 'Ered Luin',
+  feral_orcs: 'Feral Orcs',
+  rhudaur: 'Rhudaur',
+  southrhovanion: 'South Rhovanion',
   // Minor/raider cultures
   dunland_raiders: 'Dunland Raiders',
   erebor_warriors: 'Erebor Warriors',
@@ -75,10 +84,11 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   rhun: 'Rhun',
   lothlorien: 'Lothlorien',
   dale: 'Dale',
+  gundabad_snow: 'Gundabad Snow',
 };
 
 // Cultures to exclude from display
-const HIDDEN_CULTURES = new Set(['lothlorien']);
+const HIDDEN_CULTURES = new Set<string>();
 
 export function getCultureDisplayName(culture: string): string {
   return CULTURE_DISPLAY_NAMES[culture] || culture.charAt(0).toUpperCase() + culture.slice(1);

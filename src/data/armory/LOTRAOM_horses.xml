@@ -1702,4 +1702,111 @@
 		</ItemComponent>
 	</Item>
 	<!-- ===== /WARG ===== -->
+	<!-- ===== DIRE WOLF (#1081, tools/apply_dire_wolf_armory.py) ===== -->
+	<Item id="dire_wolf_grey"
+		name="{=dire_wolf_grey}[Gundabad] Grey Dire Wolf"
+		mesh="dire_wolf_grey"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.gundabad"
+		is_merchandise="true"
+		value="1220"
+		weight="500"
+		difficulty="20"
+		appearance="1"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.dire_wolf"
+				maneuver="70"
+				speed="55"
+				charge_damage="15"
+				body_length="100"
+				is_mountable="true" />
+		</ItemComponent>
+	</Item>
+	<Item id="dire_wolf_white"
+		name="{=dire_wolf_white}[Gundabad] White Dire Wolf"
+		mesh="dire_wolf_white"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.gundabad"
+		is_merchandise="true"
+		value="1220"
+		weight="500"
+		difficulty="20"
+		appearance="1"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.dire_wolf"
+				maneuver="70"
+				speed="55"
+				charge_damage="15"
+				body_length="100"
+				is_mountable="true" />
+		</ItemComponent>
+	</Item>
+	<Item id="dire_wolf_black"
+		name="{=dire_wolf_black}[Goblin] Black Dire Wolf"
+		mesh="dire_wolf_black"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.goblin"
+		is_merchandise="true"
+		value="1220"
+		weight="500"
+		difficulty="20"
+		appearance="1"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.dire_wolf"
+				maneuver="70"
+				speed="55"
+				charge_damage="15"
+				body_length="100"
+				is_mountable="true" />
+		</ItemComponent>
+	</Item>
+	<Item id="dire_wolf_brown"
+		name="{=dire_wolf_brown}[Goblin] Brown Dire Wolf"
+		mesh="dire_wolf_brown"
+		subtype="horse"
+		item_category="war_horse"
+		culture="Culture.goblin"
+		is_merchandise="true"
+		value="1220"
+		weight="500"
+		difficulty="20"
+		appearance="1"
+		Type="Horse">
+		<ItemComponent>
+			<Horse
+				monster="Monster.dire_wolf"
+				maneuver="70"
+				speed="55"
+				charge_damage="15"
+				body_length="100"
+				is_mountable="true" />
+		</ItemComponent>
+	</Item>
+	<Item id="dire_wolf_saddle"
+		name="{=dire_wolf_saddle}[Gundabad] Dire Wolf Saddle"
+		mesh="dire_wolf_saddle"
+		is_merchandise="true"
+		culture="Culture.gundabad"
+		weight="16"
+		appearance="0.5"
+		Type="HorseHarness">
+		<ItemComponent>
+			<Armor
+				body_armor="12"
+				mane_cover_type="none"
+				family_type="1"
+				material_type="Leather" />
+		</ItemComponent>
+		<Flags Civilian="true" />
+	</Item>
+	<!-- ===== /DIRE WOLF ===== -->
 </Items>
