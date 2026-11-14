@@ -3,7 +3,7 @@ import Topbar from '../components/Topbar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const loadOrder = [
-  { name: 'TAOM.Dependencies', meta: 'v2.0.38' },
+  { name: 'TAOM.Dependencies' },
   { name: 'Native' },
   { name: 'SandboxCore' },
   { name: 'Sandbox' },
@@ -13,7 +13,7 @@ const loadOrder = [
   { name: 'Fast Mode', note: 'Optional' },
   { name: 'LOTRLOME_Armory' },
   { name: 'TAOM_MAP' },
-  { name: 'TAOM', meta: 'v2.0.38', highlight: true },
+  { name: 'TAOM', highlight: true },
   { name: 'Coop', note: 'Optional, last' },
 ];
 ---
@@ -62,7 +62,7 @@ const loadOrder = [
             <li>Use Bannerlord version 1.5.7 before installing.</li>
             <li>Start a new campaign. Saves from older versions are not supported.</li>
             <li>The Xbox Game Pass version is not supported.</li>
-            <li>Delete older TAOM files before starting a new install.</li>
+            <li>Do a clean install: remove the old Modules\TAOM folder before copying the new one in.</li>
           </ul>
         </div>
       </section>
@@ -127,7 +127,10 @@ const loadOrder = [
               <code class="code-block">Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\</code>
               <span class="note">Your drive letter may vary depending on where Bannerlord is installed.</span>
             </li>
-            <li>Delete older TAOM files from the Modules folder before copying new ones in.</li>
+            <li>
+              Delete the old TAOM folder (Modules\TAOM) and any older TAOM files from the Modules folder before copying
+              new ones in.
+            </li>
             <li>
               Copy every extracted file into the Modules folder.
               <span class="note"
@@ -166,6 +169,11 @@ const loadOrder = [
               ))
             }
           </ol>
+          <p class="note note-inline">
+            All four TAOM modules (TAOM, TAOM.Dependencies, TAOM_MAP and LOTRLOME_Armory) carry the same version, so
+            install them together. Keep LOTRLOME_Armory above TAOM; the vanilla launcher does not sort it for you.
+            Realms is part of TAOM from v2.0.39, so remove a separate TAOM.Realms module if you have one.
+          </p>
           <p class="note note-inline">
             Press Play, then set Terrain Quality to Medium or higher in the in-game options.
           </p>

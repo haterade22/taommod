@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-14",
   "builds": {
     "public": {
       "label": "Public",
@@ -12,8 +12,8 @@
     "supporter": {
       "label": "Supporter",
       "game": "Bannerlord 1.5.7",
-      "modVersion": "v2.0.38",
-      "released": "2026-11-10",
+      "modVersion": "v2.0.39",
+      "released": "2026-11-13",
       "careerCount": 91,
       "modOptionsCount": "400+"
     }
@@ -101,6 +101,23 @@
           ]
         },
         {
+          "title": "Defend Helm’s Deep",
+          "summary": "When the War Chronicle’s Battle of the Hornburg opens and the map is free, you are offered the defence of Helm’s Deep to fight yourself.",
+          "points": [
+            "Choose Defend the walls or Let fate decide",
+            "A lost defence gives Isengard the fortress",
+            "The fight has its own music track, “Isengard vs. Rohan”"
+          ],
+          "settings": [
+            {
+              "name": "Offer Story Missions",
+              "default": "On"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
           "title": "Rally",
           "summary": "A kingdom that has lost a large share of its towns and castles gets a small, temporary boost so the war does not end in a one-sided collapse.",
           "points": [
@@ -142,8 +159,14 @@
             "Khand, Rhudaur, Umbar, Shaghâna and Âbanissa lean to the Shadow; Cardolan and Dorwinion to the Free Peoples",
             "One realm joins at a time, 30 days apart, and never a realm a player rules"
           ],
-          "coming": true,
-          "watch": ["Enable War Pledge"]
+          "only": "supporter",
+          "new": "v2.0.39",
+          "settings": [
+            {
+              "name": "Enable War Pledge",
+              "default": "On"
+            }
+          ]
         }
       ]
     },
@@ -625,7 +648,7 @@
             },
             {
               "name": "Outlines",
-              "default": "On"
+              "default": "Off"
             },
             {
               "name": "Hollow Square",
@@ -635,7 +658,72 @@
               "name": "Throwers Throw First",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "settings": [
+              {
+                "name": "Enable Marshal's Word",
+                "default": "On"
+              },
+              {
+                "name": "Keep the Array",
+                "default": "On"
+              },
+              {
+                "name": "Arrive Together",
+                "default": "On"
+              },
+              {
+                "name": "Outlines",
+                "default": "On"
+              },
+              {
+                "name": "Hollow Square",
+                "default": "On"
+              },
+              {
+                "name": "Throwers Throw First",
+                "default": "On"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Hero Auras",
+          "summary": "Named heroes strengthen the allied soldiers within 15 m of them, each in his own way.",
+          "points": [
+            "Aragorn’s men take less damage and Dáin’s dwarves keep their feet",
+            "Théoden and Éomer’s riders strike harder",
+            "Elves near Elrond, Thranduil and Galadriel draw faster"
+          ],
+          "settings": [
+            {
+              "name": "Enable Hero Auras",
+              "default": "On"
+            },
+            {
+              "name": "Hero Aura Strength",
+              "default": "1"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
+          "title": "Lost Footing",
+          "summary": "Soldiers stuck off walkable ground or in water step back to firm ground instead of standing there for the rest of the battle.",
+          "points": [
+            "After 10 seconds the soldier moves to the nearest good spot",
+            "After 30 seconds he goes to his place in his formation, if you are not close"
+          ],
+          "settings": [
+            {
+              "name": "Lost Footing Rescue",
+              "default": "On"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
         },
         {
           "title": "The Seat of Seeing",
@@ -934,9 +1022,20 @@
             "Between waves, buy reinforcements and fortifications in the shop (B): field care, a stronger gate and gate repairs",
             "Every third wave, pick one of three boons; from wave 5 the waves gain named powers",
             "Enemy captains, lieutenants and generals lead every fourth wave, and the bigger ones call in more Uruk-hai",
-            "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)"
+            "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)",
+            "A kill feed shows while you fight",
+            "The defenders split into groups at the start of each wave, and siege engines you destroy come back each wave"
           ],
-          "new": "v2.0.37"
+          "new": "v2.0.37",
+          "public": {
+            "points": [
+              "Start as Sword and Board, Two Handed Infantry, Archer or Cavalry",
+              "Between waves, buy reinforcements and fortifications in the shop (B): field care, a stronger gate and gate repairs",
+              "Every third wave, pick one of three boons; from wave 5 the waves gain named powers",
+              "Enemy captains, lieutenants and generals lead every fourth wave, and the bigger ones call in more Uruk-hai",
+              "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)"
+            ]
+          }
         },
         {
           "title": "Fords of War",
@@ -1093,16 +1192,90 @@
           ]
         },
         {
+          "title": "Lord Retinue",
+          "summary": "An AI lord whose clan is at its party limit takes an idle relative along as scout, surgeon, engineer or quartermaster.",
+          "settings": [
+            {
+              "name": "Enable Lord Retinue",
+              "default": "On"
+            },
+            {
+              "name": "Extra Heroes Per Party",
+              "default": "1"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
           "title": "Realms and Titles",
-          "summary": "Feudal titles from barony to kingdom, with claims, usurpation, offices and the return of the king.",
+          "summary": "Every village, castle, town and realm has a title with a holder by right, a succession law and claims. Titles run from barony to kingdom, and the throne of Gondor can be restored.",
           "points": [
-            "Buy a claim on a title, then usurp it, form a vacant title your side holds, or restore a throne such as Gondor’s for Aragorn",
-            "Vassals pay their liege tribute each week, and offices such as the Steward of Gondor or a Marshal of the Mark pay influence",
-            "AI lords press claims of their own and hand lesser titles to their grown children",
+            "Claims cost your people’s special resource and are pressed with influence; you can claim fiefs your own clan owns",
+            "A duchy or higher can be usurped, or formed, once your side holds most of the lands beneath it",
+            "Gondor’s throne starts vacant under Steward Denethor. A clan serving Gondor with Aragorn can restore the crown and found the House of Telcontar in Minas Tirith; playing as Aragorn, you are crowned",
+            "Kingdom, Empire and Union titles rename the kingdom of their holder, and the dwarves can form Khazad-dûm over Moria’s duchies",
+            "Tribute: each vassal clan pays its liege a daily share of its fief income, shown in your expected gold. Each side has its own switch and a percentage from 1 to 25",
+            "Offices such as the Steward of Gondor or a Marshal of the Mark pay influence; AI lords press claims and hand lesser titles to their grown children",
+            "Ruling houses keep their own banner, shown on parties, in the encyclopedia and in the banner editor; every title has an encyclopedia page",
             "Lords are styled by their titles, such as Steward Denethor of Gondor"
           ],
-          "coming": true,
-          "watch": ["AI Lords Press Claims", "Tribute (%)"]
+          "only": "supporter",
+          "new": "v2.0.39",
+          "settings": [
+            {
+              "name": "Claim Price (%)",
+              "default": "100"
+            },
+            {
+              "name": "Title Influence Cost (%)",
+              "default": "100"
+            },
+            {
+              "name": "AI Lords Press Claims",
+              "default": "On"
+            },
+            {
+              "name": "Tribute From Vassals",
+              "default": "On"
+            },
+            {
+              "name": "Tribute From Vassals (%)",
+              "default": "5"
+            },
+            {
+              "name": "Tribute To Liege",
+              "default": "On"
+            },
+            {
+              "name": "Tribute To Liege (%)",
+              "default": "5"
+            },
+            {
+              "name": "Office Influence (%)",
+              "default": "100"
+            },
+            {
+              "name": "Resentment Over Fiefs",
+              "default": "On"
+            },
+            {
+              "name": "Liege's Pull",
+              "default": "On"
+            },
+            {
+              "name": "Liege Army Discount",
+              "default": "On"
+            },
+            {
+              "name": "Lands for Sons and Daughters",
+              "default": "On"
+            },
+            {
+              "name": "Lords Styled by Their Titles",
+              "default": "On"
+            }
+          ]
         }
       ]
     },
@@ -1121,6 +1294,21 @@
               "default": "On"
             }
           ]
+        },
+        {
+          "title": "Hall Seats",
+          "summary": "A lord’s hall seats only as many lords as it holds, so 20 to 40 lords no longer crowd the door.",
+          "points": [
+            "The owner, the ruler, the governor, your own clan, quest givers and the lord you talk to always appear"
+          ],
+          "settings": [
+            {
+              "name": "Hall Seats",
+              "default": "On"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
         },
         {
           "title": "Rule Your Lands",
@@ -1315,6 +1503,38 @@
           "new": "v2.0.38"
         },
         {
+          "title": "Battle HUD Colours",
+          "summary": "The rings of the round battle HUD can be drawn in flat colours that are easier to tell apart with Deuteranopia, Protanopia or Tritanopia.",
+          "points": [
+            "Set under Accessibility, Battle HUD Colours. It changes your health, mount health and shield rings, and applies in the current battle"
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
+          "title": "Custom Battle Muster Screen",
+          "summary": "Custom Battle has a TAOM muster screen: two armies, their commanders, factions and battlefield settings, with 32 map previews.",
+          "points": [
+            "Vanilla commanders and troops are hidden, and the folded lords are back",
+            "A field battle can start with you as a Captain"
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
+          "title": "Banner Editor",
+          "summary": "A layered banner editor replaces the base game’s, in character creation and in a running campaign.",
+          "points": ["New banners for Lindon, Ered Luin, Nos Nowë, Nos Thavn a Minas Loss and the House of Telcontar"],
+          "settings": [
+            {
+              "name": "Themed Banner Editor",
+              "default": "On"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
           "title": "Better Items and Skill Limits",
           "summary": "Small additions to the inventory and character screens.",
           "points": [
@@ -1374,6 +1594,22 @@
           ]
         },
         {
+          "title": "Encounter Lines",
+          "summary": "Lords, caravans, villagers, bandits and hideout chiefs speak in their own people’s voice, and the words change with who you are to them.",
+          "points": [
+            "681 new lines replace the base game’s Calradian text",
+            "Lords introduce themselves, and minor factions greet you, in Middle-earth terms; kin lines give way to vanilla while at war"
+          ],
+          "settings": [
+            {
+              "name": "Enable Encounter Lines",
+              "default": "On"
+            }
+          ],
+          "only": "supporter",
+          "new": "v2.0.39"
+        },
+        {
           "title": "Taverns and Notables",
           "summary": "More to do when you walk into a town.",
           "points": [
@@ -1409,13 +1645,17 @@
         },
         {
           "title": "Co-op",
-          "summary": "TAOM works with the Bannerlord Coop and Bannerlord Together mods (one or the other, never both). The TAOM team does not provide co-op support.",
-          "points": [
-            "Every player needs the same TAOM version, mod list and Mod Options settings",
-            "StoryMode must be on and War Sails off; Coop goes last in the load order",
-            "Host-a-game only: a dedicated server does not work",
-            "In co-op the host controls time, and TAOM's diplomacy rules stand down"
-          ]
+          "summary": "Do not start a co-op session on TAOM v2.0.39.",
+          "points": ["Co-op is not supported on this build"],
+          "public": {
+            "summary": "TAOM works with the Bannerlord Coop and Bannerlord Together mods (one or the other, never both). The TAOM team does not provide co-op support.",
+            "points": [
+              "Every player needs the same TAOM version, mod list and Mod Options settings",
+              "StoryMode must be on and War Sails off; Coop goes last in the load order",
+              "Host-a-game only: a dedicated server does not work",
+              "In co-op the host controls time, and TAOM's diplomacy rules stand down"
+            ]
+          }
         }
       ]
     }
