@@ -3,6 +3,13 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.15.1] — 14 Nov 2026 — Load order updated for Bannerlord 1.5.7
+
+- The Download and Troubleshooting pages now say Bannerlord 1.5.7 (Steam beta branch) instead of 1.4.8.
+- The load order shows TAOM and TAOM.Dependencies at v2.0.38. The version numbers of LOTRLOME_Armory and TAOM_MAP are no longer listed.
+- Coop is listed as an optional module that goes last. The Download page also says to start a new campaign, to remove separate Harmony, ButterLib, UIExtenderEx and MCM copies, to keep StoryMode on and the Naval DLC off.
+- The music answer on Troubleshooting no longer names a Bannerlord version.
+
 ## [3.14.1] — 11 Nov 2026 — Discord bot privacy policy: verified role
 
 - The Privacy Policy of The Great Eye now says what is stored so the verified role can be given back when a member rejoins, and that it is deleted 2 years after the member was last seen.
