@@ -3,6 +3,14 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.18.0] — 15 Nov 2026 — Features page: realms, camps, refuges and new Coming soon cards
+
+- The builds shown are unchanged: public TAOM v2.0.38, supporter TAOM v2.0.39. There is no newer release yet.
+- Realms and Titles (supporter build) now explains claims and their prices, usurping, forming titles, grants and revokes, the title tree, primary titles, offices, AI claims and the weekly effects.
+- Camps and Refuges is now two cards, Field Camps and Refuges, with the camp types, ambushes, lookouts, camp work, resting, and the refuge's warden, garrison, stash, stronghold and militia.
+- New Coming soon cards: Cheat Menu (campaign and battle, with god mode), Realm Names, Banners and New High Titles, Troops and Gear on the Base Game's Scale, Troop Upgrades in The Long Defeat, and Loading and Startup Notices.
+- The Careers card now gives the right number of careers (91). Free Peoples and the Shadow notes that the supporter build also stops you recruiting troops who would desert.
+
 ## [3.17.0] — 14 Nov 2026 — Main menu music on the home page
 
 - The home page plays TAOM's main menu theme. Browsers only allow sound after you click or press a key, so it starts then.

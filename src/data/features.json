@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-15",
   "builds": {
     "public": {
       "label": "Public",
@@ -209,6 +209,7 @@
             "No marriages across the line; Neutral cultures (Khand, Umbar, Shaghâna, Âbanissa) marry anyone",
             "Wanderers will not serve a player from the other side",
             "Troops of the other side desert a party or garrison, half of each type per day",
+            "Troops who would desert you cannot be recruited from prisoners, from notables or by a garrison’s own recruiting",
             "Recruiting prisoners of your own side costs no morale",
             "Free and Evil tournaments do not seat each other's fighters",
             "AI lords of the Free Peoples never join, defect to or hire out to a realm of the Shadow, and the reverse; Neutral clans may deal with either side",
@@ -231,7 +232,19 @@
               "name": "Enable Kingdom Allegiance",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": [
+              "No recruiting volunteers in a settlement held by the other side",
+              "No marriages across the line; Neutral cultures (Khand, Umbar, Shaghâna, Âbanissa) marry anyone",
+              "Wanderers will not serve a player from the other side",
+              "Troops of the other side desert a party or garrison, half of each type per day",
+              "Recruiting prisoners of your own side costs no morale",
+              "Free and Evil tournaments do not seat each other's fighters",
+              "AI lords of the Free Peoples never join, defect to or hire out to a realm of the Shadow, and the reverse; Neutral clans may deal with either side",
+              "A new campaign starts with no friendships between Free and Evil lords: each one becomes enmity of the same strength"
+            ]
+          }
         },
         {
           "title": "Fair Fief Grants",
@@ -340,7 +353,7 @@
       "cards": [
         {
           "title": "Careers",
-          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 76 careers, about three for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
+          "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 91 careers, three or more for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
           "points": [
             "Always-on passive bonuses (wages, party size, speed, morale, troop costs and more)",
             "An active battle ability on the V key: a buff for you and nearby allies, shaped by your role (infantry, ranged or cavalry)",
@@ -576,15 +589,19 @@
           "new": "v2.0.37"
         },
         {
-          "title": "Camps and Refuges",
-          "summary": "Pitch field or fortified camps on the campaign map for morale and foraging, or set ambushes and lookouts. Raise a camp into a refuge: a lasting base with a garrison and stores.",
+          "title": "Field Camps",
+          "summary": "Press Make Camp on the campaign map to pitch a camp where your party stands. A field camp raises morale and forages grain, a fortified camp raises morale twice as fast, and ambush and lookout camps stay small and hidden.",
           "points": [
-            "Up to 3 refuges, depending on clan tier; upgrade one into a stronghold",
-            "Defenders of a refuge take 20% less damage (35% in a stronghold), and militia rally to it under attack",
-            "Set the men to work from a camp: hunting, felling timber or fishing",
-            "Wounded troops and heroes heal faster while you rest in camp",
+            "A field camp takes 4 hours to raise, an ambush or lookout camp a quarter of that. Fortifying a raised field camp costs 500 gold and takes twice as long",
+            "Morale rises by 1 an hour in a field camp and by 2 in a fortified one; foraging brings in grain by terrain, Scouting and the size of the party",
+            "Field and fortified camps stand at least 10 map units from any town or castle; ambush and lookout camps have no such limit",
+            "An ambush camp can spring on a hostile party passing within 10 units, at a 50% base chance that rises when it passes close or your Scouting is high. A sprung ambush halves the target’s morale and leaves it disorganised before the fight",
+            "A lookout camp widens your sight by 20%, and more with Scouting",
+            "Set the men to work from a field or fortified camp: hunt for meat, fell timber in a forest or fish near water. A work takes 10 hours and brings in up to 30 goods; above ten men it needs one tool per ten men, and a long work costs some morale",
+            "Rest with the camp panel open: 15 more wounded troops heal a day, and heroes regain 19 more hit points a day",
             "Send a scout from camp to sweep the land or look over a nearby town or castle",
-            "Review the host: see your army drawn up on the field and drill it, with no one hurt"
+            "Review the host: see your army drawn up on the field and drill it, with no one hurt",
+            "A new campaign can start in a camp, if you turn that on"
           ],
           "settings": [
             {
@@ -592,10 +609,65 @@
               "default": "On"
             },
             {
-              "name": "Enable Refuges",
-              "default": "On"
+              "name": "Camp Setup Hours",
+              "default": "4"
+            },
+            {
+              "name": "Fortified Upgrade Cost",
+              "default": "500"
+            },
+            {
+              "name": "Start New Campaigns In Camp",
+              "default": "Off"
             }
           ]
+        },
+        {
+          "title": "Refuges",
+          "summary": "Turn a raised field or fortified camp into a refuge: a lasting base of your own on the campaign map, held by a warden, with a garrison, prisoners and a stash of goods.",
+          "points": [
+            "Founding a refuge costs 2,000 gold and it takes 6 hours to raise. It must stand at least 16 map units from any town or castle",
+            "Choose a companion as its warden, or promote one of your soldiers to the post",
+            "Leave troops and prisoners in its garrison and goods in its stash. The garrison eats from the stash, so keep it stocked",
+            "Manage a refuge from up to 4 map units away; the clan screen lists every refuge with your garrisons",
+            "One refuge at first and up to 3 as your clan tier rises",
+            "Upgrade a refuge into a stronghold for 5,000 gold, at least 26 units from any town or castle",
+            "Its defenders take 20% less damage, 35% in a stronghold, in battle and in auto-resolve",
+            "Under attack, 6 to 40 militia rally to it; an older refuge with a bigger garrison draws more",
+            "Dismantle a refuge to take its warden, troops, prisoners and goods back into your party",
+            "Enemy raids on refuges are an experimental option, off by default"
+          ],
+          "settings": [
+            {
+              "name": "Enable Refuges",
+              "default": "On"
+            },
+            {
+              "name": "Found Cost",
+              "default": "2000"
+            },
+            {
+              "name": "Stronghold Upgrade Cost",
+              "default": "5000"
+            },
+            {
+              "name": "Enable Enemy Raids",
+              "default": "Off"
+            }
+          ]
+        },
+        {
+          "title": "Troops and Gear on the Base Game’s Scale",
+          "summary": "Troop skills, weapon damage and armour are brought back into the range the base game uses, spread over TAOM’s ten troop tiers.",
+          "points": [
+            "Each tier has one skill number: 20, 40, 70, 100 and 130 for tiers 1 to 5, then 156, 182, 208, 234 and 260 for tiers 6 to 10. A tier 10 troop had up to 390 in its main weapon before",
+            "A troop’s best skill is the weapon it carries, and peoples keep their character: elves highest, then dwarves, then men; Rohan has the best riders and Mirkwood the best archers",
+            "Weapons are capped by the strongest base game weapon of their kind (a one-handed sword hits for at most 95) and rise by tier and by each people’s skill at smithing",
+            "The best troop armour is 54 head, 67 body, 57 arm and 44 leg, and lords wear at most 5 more",
+            "No upgrade gives a troop weaker armour or a weaker weapon, and elite troops whose people have no fitting weapon get one made for their tier",
+            "Lords wear armour close to the best elite troops of their own people"
+          ],
+          "coming": true
         }
       ]
     },
@@ -1048,6 +1120,16 @@
             "Give each lane Push, Hold, Fall back or Seize, run the battle at up to 10 times speed, or press P to fight as one of your soldiers"
           ],
           "new": "v2.0.37"
+        },
+        {
+          "title": "Troop Upgrades in The Long Defeat",
+          "summary": "The Long Defeat shop at Helm’s Deep sells upgrades for the soldiers you already have, one step up the Rohan troop line at a time.",
+          "points": [
+            "Westfold Militia to Axemen for 15 gold a soldier, then Veteran or Heavy Axemen (25) and Helmingas (40)",
+            "Eastfold Yeomen to Bowmen (15), then Veteran Bowmen (25)",
+            "King’s Knights to the King’s Royal Guard (60) or the Riders of Rohan (90)"
+          ],
+          "coming": true
         }
       ]
     },
@@ -1209,15 +1291,23 @@
         },
         {
           "title": "Realms and Titles",
-          "summary": "Every village, castle, town and realm has a title with a holder by right, a succession law and claims. Titles run from barony to kingdom, and the throne of Gondor can be restored.",
+          "summary": "Every village, castle, town and realm has a title with a holder by right, a succession law and claims. Titles climb from lordship and barony through county and duchy to kingdom, high kingship and union, and every title has its own page in the encyclopedia.",
           "points": [
-            "Claims cost your people’s special resource and are pressed with influence; you can claim fiefs your own clan owns",
-            "A duchy or higher can be usurped, or formed, once your side holds most of the lands beneath it",
-            "Gondor’s throne starts vacant under Steward Denethor. A clan serving Gondor with Aragorn can restore the crown and found the House of Telcontar in Minas Tirith; playing as Aragorn, you are crowned",
-            "Kingdom, Empire and Union titles rename the kingdom of their holder, and the dwarves can form Khazad-dûm over Moria’s duchies",
+            "A title’s page shows its holder, its seat, its liege and vassal titles, claims, laws, offices and past holders, and the actions open to you with their price or the reason they are refused",
+            "Buy a claim with your people’s special resource: 40 for a barony, 80 for a county, 200 for a duchy, 500 for a kingdom. A claim on a duchy or higher is for sale only once you, your clan or your vassals hold one of the lands beneath it, so titles are climbed one step at a time",
+            "Press a claim to usurp the title for influence: 50 for a barony, 100 for a county, 200 for a duchy, 400 for a kingdom. Buying a claim costs 10 relation with the holder, usurping costs 20",
+            "Inside your own realm you can claim and usurp a town or castle your clan owns when its title stayed with its old holder",
+            "A duchy or higher can be usurped, or formed while it is vacant, once your side holds more than half of the lands beneath it. Your side is you, your clan and your vassals; a ruler counts every lord of the realm",
+            "Grant lesser titles to your vassals (+10 relation) or revoke them for influence (−30 relation)",
+            "The title tree shows a realm’s whole hierarchy; open it from any title section and click through to each title",
+            "Gondor’s throne starts vacant under Steward Denethor. A clan serving Gondor with Aragorn can restore the crown for 2,500 influence and found the House of Telcontar in Minas Tirith; playing as Aragorn, you are crowned",
+            "Kingdom, high kingship and union titles rename the kingdom of their holder, and the dwarves can form Khazad-dûm over Moria’s duchies",
+            "A ruler with two titles of the same rank chooses which one they are known by; their style and the realm’s banner follow it",
             "Tribute: each vassal clan pays its liege a daily share of its fief income, shown in your expected gold. Each side has its own switch and a percentage from 1 to 25",
-            "Offices such as the Steward of Gondor or a Marshal of the Mark pay influence; AI lords press claims and hand lesser titles to their grown children",
-            "Ruling houses keep their own banner, shown on parties, in the encyclopedia and in the banner editor; every title has an encyclopedia page",
+            "Offices such as the Steward of Gondor, the three Marshals of the Mark and the Lieutenant of Barad-dûr pay influence every week",
+            "Every week AI lords buy and press claims and AI rulers form vacant duchies their lords hold; lords hand lesser titles to their grown children",
+            "Each week a clan loses relation and loyalty while another clan owns the fief of its title, and vassals grow closer to their liege",
+            "Ruling houses keep their own banner, shown on parties, in the encyclopedia and in the banner editor",
             "Lords are styled by their titles, such as Steward Denethor of Gondor"
           ],
           "only": "supporter",
@@ -1275,6 +1365,43 @@
               "name": "Lords Styled by Their Titles",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "Realm Names, Banners and New High Titles",
+          "summary": "Choose what your titles do to your realm’s name and banner, browse a new title tree, and reach for new high titles in the south and the Blue Mountains.",
+          "points": [
+            "Choose whether your realm takes the name of the higher title you hold, as Erebor becomes Durin’s Folk; AI realms have their own switch",
+            "Choose your realm’s banner: the title’s banner, the realm’s own banner, or your house banner. The last two also keep a coronation from replacing your clan banner",
+            "AI realms can keep their own banners instead of flying their titles’ banners",
+            "The title tree opens as a window: the realm at the top, its titles below joined by lines, and a panel with the details of the title you select",
+            "New high titles, vacant until one ruler holds the lands beneath them: the High Kingship of Haradwaith over Harad and Shaghâna, and the Mansion of Ered Luin over Ered Luin and Blue Craig. Durin’s Folk stands over Erebor and Ered Luin, with Khazad-dûm under it. These need a new campaign",
+            "The Haradrim’s titles take Haradric names: a realm is a Taskralan, a duchy an Autara and a town a Tarba",
+            "The houses of Angaladh, Arthedain, Cardolan, Rhudaur, the Anduin Vale, Dale, Dorwinion and South Rhovanion take new names, and many houses get new banners"
+          ],
+          "settings": [
+            {
+              "name": "Your Realm Takes Your Title's Name",
+              "default": "On"
+            },
+            {
+              "name": "AI Realms Take Their Titles' Names",
+              "default": "On"
+            },
+            {
+              "name": "Your Realm's Banner",
+              "default": "Title banner"
+            },
+            {
+              "name": "AI Realms Fly Title Banners",
+              "default": "On"
+            }
+          ],
+          "coming": true,
+          "watch": [
+            "Your Realm Takes Your Title's Name",
+            "AI Realms Take Their Titles' Names",
+            "AI Realms Fly Title Banners"
           ]
         }
       ]
@@ -1566,6 +1693,34 @@
               "default": "On"
             }
           ]
+        },
+        {
+          "title": "Cheat Menu",
+          "summary": "An optional cheat menu for single player, off by default. Turn it on and a Cheats button joins the bottom bar of the campaign map; H opens it too.",
+          "points": [
+            "On the campaign map: travel to the gate of any town, castle or village, take 10,000 gold, 1,000 of your special resource, 100 influence or 100 renown, gain 20 relation with every lord of a kingdom, add 10 basic or elite recruits, or heal your party",
+            "In battle, Cheats in the Esc menu (or H): heal yourself or your whole side, rout or kill the enemy, or add 10 allied or 10 enemy troops",
+            "God mode in battle: you and your mount take no damage until you switch it off or the battle ends. Blows still knock you down",
+            "Both H keys can be changed under Options, Keybindings",
+            "Cheats change your save, and most cannot be undone. The menu is not available in co-op"
+          ],
+          "settings": [
+            {
+              "name": "Enable Cheat Menu",
+              "default": "Off"
+            }
+          ],
+          "coming": true,
+          "watch": ["Enable Cheat Menu"]
+        },
+        {
+          "title": "Loading and Startup Notices",
+          "summary": "Clearer notices when the game is busy or something in the install will cause trouble.",
+          "points": [
+            "When a battle’s first load compiles 50 or more shaders, a small counter shows how many are done and the loading screen says the game is not frozen",
+            "At the main menu, one notice warns when War Sails, or a separate copy of Harmony, ButterLib, UIExtenderEx or MCM, is installed next to TAOM"
+          ],
+          "coming": true
         }
       ]
     },
