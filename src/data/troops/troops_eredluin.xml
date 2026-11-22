@@ -14,11 +14,11 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="38" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="40" />
-      <skill id="TwoHanded" value="20" />
-      <skill id="Polearm" value="30" />
+      <skill id="Athletics" value="20" />
+      <skill id="Riding" value="10" />
+      <skill id="OneHanded" value="20" />
+      <skill id="TwoHanded" value="10" />
+      <skill id="Polearm" value="10" />
       <skill id="Bow" value="10" />
       <skill id="Crossbow" value="10" />
       <skill id="Throwing" value="20" />
@@ -42,7 +42,14 @@
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_light_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_light_a" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -58,11 +65,11 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="70" />
-      <skill id="TwoHanded" value="27" />
-      <skill id="Polearm" value="55" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="45" />
+      <skill id="TwoHanded" value="20" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="20" />
@@ -88,7 +95,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_gloves_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -104,14 +118,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="100" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="80" />
-      <skill id="Bow" value="20" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="75" />
+      <skill id="TwoHanded" value="35" />
+      <skill id="Polearm" value="35" />
+      <skill id="Bow" value="30" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_hall_warden" />
@@ -135,7 +149,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -151,14 +172,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="130" />
-      <skill id="TwoHanded" value="52" />
-      <skill id="Polearm" value="105" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="110" />
+      <skill id="TwoHanded" value="50" />
+      <skill id="Polearm" value="95" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_veteran_hall_warden" />
@@ -167,7 +188,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_b" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_med_c1" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_scale_a" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_medium_b" />
@@ -177,14 +198,21 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_b2" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_med_c2" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_scale_a" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_medium_d" />
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_med_b2" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_e" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -200,14 +228,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="175" />
-      <skill id="TwoHanded" value="70" />
-      <skill id="Polearm" value="140" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="140" />
+      <skill id="TwoHanded" value="65" />
+      <skill id="Polearm" value="125" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_halls_warden" />
@@ -216,7 +244,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_c" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_heavy_a1" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_heavy_a" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_heavy_cape_a" />
@@ -226,14 +254,21 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_c2" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_heavy_b1" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_heavy_b" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_heavy_cape_a" />
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_heavy_c7" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_heavy_a2" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -249,21 +284,21 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="90" />
-      <skill id="Polearm" value="180" />
-      <skill id="Bow" value="35" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="170" />
+      <skill id="TwoHanded" value="80" />
+      <skill id="Polearm" value="150" />
+      <skill id="Bow" value="60" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_d" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_a3" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_a" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_a" />
@@ -273,14 +308,21 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_d2" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_a4" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_b" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_cape_a" />
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_elite_c4" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_elite_b3" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -296,14 +338,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="100" />
-      <skill id="Polearm" value="80" />
-      <skill id="Bow" value="20" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="45" />
+      <skill id="TwoHanded" value="80" />
+      <skill id="Polearm" value="35" />
+      <skill id="Bow" value="30" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="65" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_mattock_warrior" />
@@ -327,7 +369,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_light_c1" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_med_c1" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -343,14 +392,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="130" />
-      <skill id="Polearm" value="105" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="50" />
+      <skill id="TwoHanded" value="110" />
+      <skill id="Polearm" value="50" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="95" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_veteran_mattock_warrior" />
@@ -374,7 +423,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_med_b1" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_med_b1" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -390,14 +446,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="175" />
-      <skill id="Polearm" value="140" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="145" />
+      <skill id="Polearm" value="65" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="125" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -419,7 +475,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_heavy_c9" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_heavy_b2" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -435,12 +498,12 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="55" />
-      <skill id="TwoHanded" value="30" />
-      <skill id="Polearm" value="30" />
-      <skill id="Bow" value="45" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="30" />
+      <skill id="TwoHanded" value="20" />
+      <skill id="Polearm" value="20" />
+      <skill id="Bow" value="38" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="20" />
     </skills>
@@ -466,7 +529,14 @@
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_light_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -482,14 +552,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="40" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="60" />
+      <skill id="TwoHanded" value="35" />
+      <skill id="Polearm" value="35" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_mountain_bowman" />
@@ -515,7 +585,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -531,14 +608,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="85" />
       <skill id="TwoHanded" value="50" />
       <skill id="Polearm" value="50" />
-      <skill id="Bow" value="120" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Bow" value="96" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -564,7 +641,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_gloves_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_d" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -581,11 +665,11 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="70" />
-      <skill id="TwoHanded" value="27" />
-      <skill id="Polearm" value="55" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="45" />
+      <skill id="TwoHanded" value="20" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="15" />
@@ -611,7 +695,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_gloves_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -627,21 +718,21 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="100" />
-      <skill id="Bow" value="20" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="70" />
+      <skill id="TwoHanded" value="35" />
+      <skill id="Polearm" value="75" />
+      <skill id="Bow" value="30" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_broadbeam_shieldguard" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_tower_a" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_b" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_light_c" />
@@ -651,7 +742,7 @@
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_tower_b" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_a" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_plate_light_d" />
@@ -660,7 +751,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_c" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_c" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -676,14 +774,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="95" />
       <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="130" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Polearm" value="110" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_gatewarden" />
@@ -709,7 +807,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_gloves_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_f" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -725,21 +830,21 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="60" />
-      <skill id="Polearm" value="175" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="125" />
+      <skill id="TwoHanded" value="65" />
+      <skill id="Polearm" value="140" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_ironbound_warden" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_tower_c" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_leather_heavy_a" />
@@ -749,7 +854,7 @@
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_heavy_a1" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_b" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_b_t4" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_tower_d" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_a2" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_leather_heavy_b" />
@@ -758,7 +863,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_heavy_c8" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_heavy_b3" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -774,14 +886,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="90" />
-      <skill id="Polearm" value="180" />
-      <skill id="Bow" value="35" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="170" />
+      <skill id="TwoHanded" value="80" />
+      <skill id="Polearm" value="150" />
+      <skill id="Bow" value="60" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_kings_guard" />
@@ -790,7 +902,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_iron_shield_tower_a" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_b1" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_c" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_cape_a" />
@@ -800,14 +912,21 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_iron_shield_tower_b" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_b2" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_d" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_cape_b" />
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_elite_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_elite_a3" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -823,21 +942,21 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="140" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="270" />
-      <skill id="TwoHanded" value="110" />
-      <skill id="Polearm" value="220" />
-      <skill id="Bow" value="40" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="190" />
+      <skill id="Riding" value="75" />
+      <skill id="OneHanded" value="195" />
+      <skill id="TwoHanded" value="90" />
+      <skill id="Polearm" value="175" />
+      <skill id="Bow" value="75" />
+      <skill id="Crossbow" value="75" />
+      <skill id="Throwing" value="75" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_iron_shield_tower_c" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_d2" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_c" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_cape_a" />
@@ -847,14 +966,21 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.sm_dwarf_erebor_1h_axe_b2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_tower_e" />
-        <equipment slot="Item2" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item2" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t6" />
         <equipment slot="Head" id="Item.sk_dwarf_iron_helmet_elite_d4" />
         <equipment slot="Body" id="Item.sk_dwarf_iron_chest_elite_d" />
         <equipment slot="Cape" id="Item.sk_dwarf_iron_pauldron_elite_cape_b" />
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_elite_d" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_greaves_elite_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -870,14 +996,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="55" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="60" />
+      <skill id="TwoHanded" value="35" />
+      <skill id="Polearm" value="35" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_firebeard_arbalester" />
@@ -905,7 +1031,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -921,14 +1054,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="85" />
       <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="55" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="120" />
-      <skill id="Throwing" value="25" />
+      <skill id="Polearm" value="50" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="96" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_firebeard_marksman" />
@@ -956,7 +1089,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_med_a2" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_d" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -972,14 +1112,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="60" />
-      <skill id="Polearm" value="60" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="160" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="110" />
+      <skill id="TwoHanded" value="65" />
+      <skill id="Polearm" value="65" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="125" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_firebeard_master" />
@@ -1007,7 +1147,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_heavy_c9" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_heavy_c2" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1023,14 +1170,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="180" />
-      <skill id="TwoHanded" value="70" />
-      <skill id="Polearm" value="70" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="195" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="135" />
+      <skill id="TwoHanded" value="80" />
+      <skill id="Polearm" value="80" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="150" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -1056,7 +1203,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_bracer_elite_c2" />
         <equipment slot="Leg" id="Item.sk_dwarf_iron_boots_elite_c2" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1072,34 +1226,41 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="95" />
       <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="130" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Polearm" value="110" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_militia_veteran_spearman" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_a" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_b" />
         <equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_light_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_leather_b" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_b" />
         <equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_light_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1115,14 +1276,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="50" />
-      <skill id="Bow" value="45" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="30" />
+      <skill id="TwoHanded" value="30" />
+      <skill id="Polearm" value="30" />
+      <skill id="Bow" value="38" />
+      <skill id="Crossbow" value="38" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.eredluin_militia_veteran_archer" />
@@ -1144,7 +1305,14 @@
         <equipment slot="Body" id="Item.sk_dwarf_erebor_chest_leather_light_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1160,19 +1328,19 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="110" />
-      <skill id="Riding" value="15" />
-      <skill id="OneHanded" value="120" />
-      <skill id="TwoHanded" value="65" />
-      <skill id="Polearm" value="145" />
-      <skill id="Bow" value="40" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="115" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="105" />
+      <skill id="TwoHanded" value="60" />
+      <skill id="Polearm" value="120" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_a" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_b" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_leather_med_a" />
@@ -1181,7 +1349,7 @@
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_a" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.sm_dwarf_erebor_spear_a" />
+        <equipment slot="Item0" id="Item.taom_ph_sm_dwarf_erebor_spear_a_t2" />
         <equipment slot="Item1" id="Item.sm_dwarf_erebor_shield_metal_a2" />
         <equipment slot="Item2" id="Item.sm_dwarf_erebor_1h_axe_b" />
         <equipment slot="Head" id="Item.sk_dwarf_erebor_helmet_leather_med_b" />
@@ -1189,7 +1357,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1205,14 +1380,14 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="110" />
-      <skill id="Riding" value="15" />
-      <skill id="OneHanded" value="120" />
-      <skill id="TwoHanded" value="65" />
-      <skill id="Polearm" value="65" />
-      <skill id="Bow" value="75" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="115" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="60" />
+      <skill id="TwoHanded" value="60" />
+      <skill id="Polearm" value="60" />
+      <skill id="Bow" value="67" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -1236,7 +1411,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_erebor_bracers_med_b" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_med_b" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 
@@ -1252,11 +1434,11 @@
       <face_key_template value="BodyProperty.fighter_erebor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="70" />
-      <skill id="TwoHanded" value="27" />
-      <skill id="Polearm" value="55" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="45" />
+      <skill id="TwoHanded" value="20" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="15" />
@@ -1279,7 +1461,14 @@
         <equipment slot="Gloves" id="Item.sk_dwarf_iron_gloves_a" />
         <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
       </EquipmentRoster>
-      <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_a" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
+      <EquipmentRoster civilian="true">
+        <equipment slot="Body" id="Item.sk_dwarf_tunic_normal_b" />
+        <equipment slot="Leg" id="Item.sk_dwarf_erebor_boots_light_a" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
 </NPCCharacters>

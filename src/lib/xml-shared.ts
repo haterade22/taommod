@@ -76,6 +76,9 @@ const CULTURE_DISPLAY_NAMES: Record<string, string> = {
   mirkwood_stalkers: 'Mirkwood Stalkers',
   rhun_raiders: 'Rhûn Raiders',
   umbar_corsairs: 'Umbar Corsairs',
+  // Wild creature cultures
+  mirkwood_spiders: 'Mirkwood Spiders',
+  wild_trolls: 'Wild Trolls',
   // Armory folder-name aliases
   dunland: 'Dunland',
   dol_guldur: 'Dol Guldur',

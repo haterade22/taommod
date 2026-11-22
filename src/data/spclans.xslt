@@ -384,7 +384,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_1']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_1}House of Girion</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_1}Barding</xsl:attribute>
       <xsl:attribute name="color">FF163D52</xsl:attribute>
       <xsl:attribute name="color2">FFC0652A</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_dale_sturgia_1_template</xsl:attribute>
@@ -395,7 +395,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_2']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_2}House of Bard</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_2}Mueller</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF183D59</xsl:attribute>
       <xsl:attribute name="color2">FFC8752C</xsl:attribute>
@@ -407,7 +407,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_3']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_3}House of Brand</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_3}Oparyn</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF1A3D60</xsl:attribute>
       <xsl:attribute name="color2">FFCF852D</xsl:attribute>
@@ -419,7 +419,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_4']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_4}House of Bain</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_4}Glenbrook</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF1C3C67</xsl:attribute>
       <xsl:attribute name="color2">FFD29633</xsl:attribute>
@@ -431,7 +431,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_5']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_5}House of Esgaroth</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_5}Frygar</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S7</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF1E3A6E</xsl:attribute>
@@ -444,7 +444,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_6']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_6}House of the River</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_6}Telliore</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S6</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF203775</xsl:attribute>
@@ -457,7 +457,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_7']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_7}House of the Archers</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_7}Wolffort</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="color">FF22347C</xsl:attribute>
       <xsl:attribute name="color2">FFD7C149</xsl:attribute>
@@ -469,7 +469,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_8']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_8}House of Long Lake</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_8}Freyya</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="tier">3</xsl:attribute>
       <xsl:attribute name="color">FF243083</xsl:attribute>
@@ -482,7 +482,7 @@
   <xsl:template match="Faction[@id='clan_sturgia_9']">
     <xsl:copy>
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
-      <xsl:attribute name="name">{=TAOM_clan_sturgia_9}House of the Dragon-slayer</xsl:attribute>
+      <xsl:attribute name="name">{=TAOM_clan_sturgia_9}Arnstyr</xsl:attribute>
       <xsl:attribute name="banner_key">11.312.166.1528.1528.764.764.1.0.0.27000.238.171.900.900.765.790.0.0.0</xsl:attribute>
       <xsl:attribute name="tier">3</xsl:attribute>
       <xsl:attribute name="color">FF262B8A</xsl:attribute>
@@ -511,7 +511,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_2}Khadnomäa</xsl:attribute>
       <xsl:attribute name="banner_key">11.138.166.1528.1528.764.764.1.0.0.503.143.171.679.679.764.764.0.0.44.503.142.171.662.662.764.764.0.0.44.503.143.171.591.591.764.764.0.0.44.503.142.171.573.573.764.764.0.0.44.503.143.171.20.20.1030.764.0.0.44.503.143.171.20.20.1025.704.0.0.44.503.143.171.20.20.1007.651.0.0.44.503.143.171.20.20.978.605.0.0.44.503.143.171.20.20.764.498.0.0.44.503.143.171.20.20.823.505.0.0.44.503.143.171.20.20.881.525.0.0.44.503.143.171.20.20.932.556.0.0.44.503.143.171.20.20.823.1023.0.0.44.503.143.171.20.20.932.972.0.0.44.503.143.171.20.20.764.1030.0.0.44.503.143.171.20.20.881.1003.0.0.44.503.143.171.20.20.978.923.0.0.44.503.143.171.20.20.1007.877.0.0.44.503.143.171.20.20.1025.824.0.0.44.503.143.171.20.20.499.764.0.1.314.503.143.171.20.20.504.704.0.1.314.503.143.171.20.20.522.651.0.1.314.503.143.171.20.20.551.605.0.1.314.503.143.171.20.20.765.498.0.1.314.503.143.171.20.20.706.505.0.1.314.503.143.171.20.20.648.525.0.1.314.503.143.171.20.20.597.556.0.1.314.503.143.171.20.20.706.1023.0.1.314.503.143.171.20.20.597.972.0.1.314.503.143.171.20.20.765.1030.0.1.314.503.143.171.20.20.648.1003.0.1.314.503.143.171.20.20.551.923.0.1.314.503.143.171.20.20.522.877.0.1.314.503.143.171.20.20.504.824.0.1.314.427.143.171.140.140.624.630.0.1.44.427.143.171.140.140.624.898.0.0.134.427.143.171.140.140.904.898.0.1.224.427.143.171.140.140.904.630.0.0.-44.515.143.171.75.75.765.592.0.0.0.515.143.171.75.75.765.592.0.0.44.515.142.171.60.60.764.592.0.0.0.515.142.171.60.60.764.592.0.0.44.515.143.171.75.75.765.936.0.0.0.515.143.171.75.75.765.936.0.0.44.515.142.171.60.60.764.936.0.0.0.515.142.171.60.60.764.936.0.0.44.515.143.171.75.75.936.764.0.0.0.515.143.171.75.75.936.764.0.0.44.515.142.171.60.60.935.764.0.0.0.515.142.171.60.60.935.764.0.0.44.515.143.171.75.75.592.764.0.0.0.515.143.171.75.75.592.764.0.0.44.515.142.171.60.60.591.764.0.0.0.515.142.171.60.60.591.764.0.0.44.503.143.171.269.269.764.764.0.0.44.503.142.171.258.258.764.764.0.0.44.503.143.171.217.217.764.764.0.0.44.503.138.171.205.205.764.764.0.0.44.512.143.171.30.30.764.663.0.0.0.512.143.171.30.30.764.865.0.0.0.512.143.171.30.30.663.764.0.0.89.512.143.171.30.30.665.744.0.0.76.512.143.171.30.30.671.725.0.0.60.512.143.171.30.30.680.709.0.0.52.512.143.171.30.30.691.693.0.0.41.512.143.171.30.30.705.681.0.0.29.512.143.171.30.30.722.672.0.0.17.512.143.171.30.30.742.666.0.0.6.512.143.171.30.30.742.862.0.1.171.512.143.171.30.30.722.856.0.1.160.512.143.171.30.30.705.847.0.1.148.512.143.171.30.30.691.835.0.1.136.512.143.171.30.30.680.819.0.1.124.512.143.171.30.30.671.803.0.1.117.512.143.171.30.30.665.784.0.1.101.512.143.171.30.30.765.663.0.1.0.512.143.171.30.30.765.865.0.1.0.512.143.171.30.30.866.764.0.1.269.512.143.171.30.30.864.744.0.1.280.512.143.171.30.30.858.725.0.1.297.512.143.171.30.30.849.709.0.1.304.512.143.171.30.30.838.693.0.1.316.512.143.171.30.30.824.681.0.1.328.512.143.171.30.30.807.672.0.1.340.512.143.171.30.30.787.666.0.1.351.512.143.171.30.30.787.862.0.0.185.512.143.171.30.30.807.856.0.0.197.512.143.171.30.30.824.847.0.0.209.512.143.171.30.30.838.835.0.0.221.512.143.171.30.30.849.819.0.0.232.512.143.171.30.30.858.803.0.0.240.512.143.171.30.30.864.784.0.0.256.19007.31.116.200.200.767.755.1.0.0</xsl:attribute>
-      <xsl:attribute name="tier">4</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF78182D</xsl:attribute>
       <xsl:attribute name="color2">FFB37023</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_2_template</xsl:attribute>
@@ -524,7 +524,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_3}Kamalakä</xsl:attribute>
       <xsl:attribute name="banner_key">11.231.166.1528.1528.764.764.1.0.0.504.3.171.771.2278.764.599.0.0.179.504.142.171.733.2225.764.599.0.0.179.13003.88.116.300.300.761.504.1.0.0.13000.88.116.300.300.755.803.0.0.0</xsl:attribute>
-      <xsl:attribute name="tier">4</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF7F1928</xsl:attribute>
       <xsl:attribute name="color2">FFBA7F24</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_3_template</xsl:attribute>
@@ -537,7 +537,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_4}Calmacilioni</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.505.266.171.483.483.764.764.0.0.44.505.202.171.451.451.764.764.0.0.44.505.266.171.483.483.764.764.0.0.0.505.202.171.471.471.764.764.0.0.0.503.172.171.40.40.764.532.0.0.0.503.172.171.40.40.764.995.0.0.0.503.172.171.40.40.995.764.0.0.0.503.274.171.40.40.533.756.0.0.0.505.266.116.400.400.764.764.0.0.0.505.2000.116.381.381.764.764.0.0.0.505.266.116.359.359.764.764.0.0.0.505.100.116.347.347.764.764.0.0.0.515.172.116.40.40.640.638.0.0.0.515.172.116.40.40.640.638.0.0.44.12005.172.116.300.300.764.764.1.0.0.515.172.116.40.40.888.638.0.0.0.515.172.116.40.40.888.638.0.0.44.515.172.116.40.40.888.890.0.0.0.515.172.116.40.40.888.890.0.0.44.515.172.116.40.40.640.890.0.0.0.515.172.116.40.40.640.890.0.0.44</xsl:attribute>
-      <xsl:attribute name="tier">4</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF871B23</xsl:attribute>
       <xsl:attribute name="color2">FFC29026</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_4_template</xsl:attribute>
@@ -550,7 +550,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_5}Tacfimin</xsl:attribute>
       <xsl:attribute name="banner_key">11.0.166.1528.1528.764.764.1.0.0.505.116.171.450.450.764.764.0.0.44.505.0.171.440.440.764.764.0.0.44.505.116.171.413.413.764.764.0.0.44.505.0.171.376.376.764.764.0.0.44.505.116.171.361.361.764.764.0.0.44.505.116.171.409.409.764.764.0.0.0.505.0.171.397.397.764.764.0.0.0.505.116.171.372.372.764.764.0.0.0.505.0.171.336.336.764.764.0.0.0.505.116.171.320.320.764.764.0.0.0.13004.88.116.300.300.765.765.1.0.0</xsl:attribute>
-      <xsl:attribute name="tier">4</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF8E1C1C</xsl:attribute>
       <xsl:attribute name="color2">FFC9A227</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_5_template</xsl:attribute>
@@ -563,7 +563,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_6}Medjanomä</xsl:attribute>
       <xsl:attribute name="banner_key">11.138.166.1528.1528.764.764.1.0.0.503.143.171.421.421.763.631.0.0.0.503.148.171.418.418.763.637.0.0.0.505.138.171.1430.418.763.746.0.0.179.504.143.171.379.990.764.851.0.0.179.504.148.171.371.970.764.842.0.0.179.504.143.171.56.175.764.398.0.0.0.504.143.171.49.171.840.410.0.0.-19.504.143.171.46.161.902.445.0.0.-34.504.143.171.39.145.946.497.0.0.-52.504.143.171.49.171.688.410.0.1.18.504.143.171.46.161.626.445.0.1.33.504.143.171.39.145.582.497.0.1.50.505.148.171.366.18.765.565.0.0.179.13003.143.116.200.200.771.618.1.0.0.19013.143.116.175.175.764.780.0.0.0</xsl:attribute>
-      <xsl:attribute name="tier">3</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF95261D</xsl:attribute>
       <xsl:attribute name="color2">FFD0B528</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_6_template</xsl:attribute>
@@ -576,7 +576,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_7}Ziyalokkä</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.505.143.171.475.1556.764.764.0.0.0.505.148.171.419.1556.764.764.0.0.0.411.119.171.24.24.571.1120.0.0.0.411.119.171.24.24.571.1098.0.0.0.411.119.171.24.24.571.1077.0.0.0.411.119.171.24.24.571.1056.0.0.0.411.119.171.24.24.571.1034.0.0.0.411.119.171.24.24.571.1013.0.0.0.411.119.171.24.24.571.991.0.0.0.411.119.171.24.24.571.970.0.0.0.411.119.171.24.24.571.949.0.0.0.411.119.171.24.24.571.927.0.0.0.411.119.171.24.24.571.908.0.0.0.411.119.171.24.24.571.886.0.0.0.411.119.171.24.24.571.865.0.0.0.411.119.171.24.24.571.844.0.0.0.411.119.171.24.24.571.822.0.0.0.411.119.171.24.24.571.802.0.0.0.411.119.171.24.24.571.780.0.0.0.411.119.171.24.24.571.759.0.0.0.411.119.171.24.24.571.738.0.0.0.411.119.171.24.24.571.716.0.0.0.411.119.171.24.24.571.695.0.0.0.411.119.171.24.24.571.673.0.0.0.411.119.171.24.24.571.652.0.0.0.411.119.171.24.24.571.631.0.0.0.411.119.171.24.24.571.609.0.0.0.411.119.171.24.24.571.591.0.0.0.411.119.171.24.24.571.569.0.0.0.411.119.171.24.24.571.548.0.0.0.411.119.171.24.24.571.527.0.0.0.411.119.171.24.24.571.505.0.0.0.411.119.171.24.24.571.486.0.0.0.411.119.171.24.24.571.465.0.0.0.411.119.171.24.24.571.443.0.0.0.411.119.171.24.24.571.424.0.0.0.411.119.171.24.24.571.406.0.0.0.411.119.171.24.24.957.1120.0.0.0.411.119.171.24.24.957.1098.0.0.0.411.119.171.24.24.957.1077.0.0.0.411.119.171.24.24.957.1056.0.0.0.411.119.171.24.24.957.1034.0.0.0.411.119.171.24.24.957.1013.0.0.0.411.119.171.24.24.957.991.0.0.0.411.119.171.24.24.957.970.0.0.0.411.119.171.24.24.957.949.0.0.0.411.119.171.24.24.957.927.0.0.0.411.119.171.24.24.957.908.0.0.0.411.119.171.24.24.957.886.0.0.0.411.119.171.24.24.957.865.0.0.0.411.119.171.24.24.957.844.0.0.0.411.119.171.24.24.957.822.0.0.0.411.119.171.24.24.957.802.0.0.0.411.119.171.24.24.957.780.0.0.0.411.119.171.24.24.957.759.0.0.0.411.119.171.24.24.957.738.0.0.0.411.119.171.24.24.957.716.0.0.0.411.119.171.24.24.957.695.0.0.0.411.119.171.24.24.957.673.0.0.0.411.119.171.24.24.957.652.0.0.0.411.119.171.24.24.957.631.0.0.0.411.119.171.24.24.957.609.0.0.0.411.119.171.24.24.957.591.0.0.0.411.119.171.24.24.957.569.0.0.0.411.119.171.24.24.957.548.0.0.0.411.119.171.24.24.957.527.0.0.0.411.119.171.24.24.957.505.0.0.0.411.119.171.24.24.957.486.0.0.0.411.119.171.24.24.957.465.0.0.0.411.119.171.24.24.957.443.0.0.0.411.119.171.24.24.957.424.0.0.0.411.119.171.24.24.957.406.0.0.0.13002.149.2000.400.400.775.804.1.0.0.19006.149.116.350.350.755.530.1.0.0</xsl:attribute>
-      <xsl:attribute name="tier">3</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FF9D321F</xsl:attribute>
       <xsl:attribute name="color2">FFD6C72C</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_7_template</xsl:attribute>
@@ -589,7 +589,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_8}Awzalikä</xsl:attribute>
       <xsl:attribute name="banner_key">11.149.166.1528.1528.764.764.1.0.0.503.3.171.679.679.764.764.0.0.44.503.142.171.662.662.764.764.0.0.44.503.3.171.345.345.764.764.0.0.44.503.100.171.319.319.764.764.0.0.44.503.3.171.268.268.764.764.0.0.44.503.100.171.253.253.764.764.0.0.44.512.3.171.36.36.764.638.0.0.0.512.3.171.36.36.764.889.0.0.0.512.3.171.36.36.638.764.0.0.89.512.3.171.36.36.641.739.0.0.76.512.3.171.36.36.648.716.0.0.60.512.3.171.36.36.660.695.0.0.52.512.3.171.36.36.673.676.0.0.41.512.3.171.36.36.691.661.0.0.29.512.3.171.36.36.711.650.0.0.17.512.3.171.36.36.736.642.0.0.6.512.3.171.36.36.736.885.0.1.171.512.3.171.36.36.711.878.0.1.160.512.3.171.36.36.691.867.0.1.148.512.3.171.36.36.673.851.0.1.136.512.3.171.36.36.660.832.0.1.124.512.3.171.36.36.648.812.0.1.117.512.3.171.36.36.641.788.0.1.101.512.3.171.36.36.764.638.0.1.0.512.3.171.36.36.764.889.0.1.0.512.3.171.36.36.889.764.0.1.269.512.3.171.36.36.886.739.0.1.280.512.3.171.36.36.879.716.0.1.297.512.3.171.36.36.867.695.0.1.304.512.3.171.36.36.854.676.0.1.316.512.3.171.36.36.836.661.0.1.328.512.3.171.36.36.816.650.0.1.340.512.3.171.36.36.791.642.0.1.351.512.3.171.36.36.791.885.0.0.185.512.3.171.36.36.816.878.0.0.197.512.3.171.36.36.836.867.0.0.209.512.3.171.36.36.854.851.0.0.221.512.3.171.36.36.867.832.0.0.232.512.3.171.36.36.879.812.0.0.240.512.3.171.36.36.886.788.0.0.256.427.3.171.100.100.765.577.0.0.0.515.3.171.60.60.765.544.0.0.0.515.3.171.60.60.765.544.0.0.44.427.3.171.100.100.765.951.0.1.179.515.3.171.60.60.765.984.0.1.179.515.3.171.60.60.765.984.0.1.134.427.3.171.100.100.952.764.0.0.269.515.3.171.60.60.985.763.0.0.269.515.3.171.60.60.985.763.0.0.314.427.3.171.100.100.575.764.0.1.88.515.3.171.60.60.542.763.0.1.88.515.3.171.60.60.542.763.0.1.43.427.3.171.100.100.901.634.0.0.315.515.3.171.60.60.923.610.0.0.315.515.3.171.60.60.923.610.0.0.0.427.3.171.100.100.626.634.0.1.42.515.3.171.60.60.604.610.0.1.42.515.3.171.60.60.604.610.0.1.357.427.3.171.100.100.626.634.0.1.42.515.3.171.60.60.604.610.0.1.42.515.3.171.60.60.604.610.0.1.357.427.3.171.100.100.901.893.0.1.222.515.3.171.60.60.923.917.0.1.222.515.3.171.60.60.923.917.0.1.177.427.3.171.100.100.626.893.0.0.135.515.3.171.60.60.604.917.0.0.135.515.3.171.60.60.604.917.0.0.180.13001.31.116.200.200.767.762.0.0.0</xsl:attribute>
-      <xsl:attribute name="tier">3</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FFA43E20</xsl:attribute>
       <xsl:attribute name="color2">FFD7D533</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_8_template</xsl:attribute>
@@ -602,7 +602,7 @@
       <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'color' and local-name() != 'color2' and local-name() != 'default_party_template']"/>
       <xsl:attribute name="name">{=TAOM_clan_aserai_9}Ikendakä</xsl:attribute>
       <xsl:attribute name="banner_key">11.142.166.1528.1528.764.764.1.0.0.503.143.171.679.679.764.764.0.0.44.503.116.171.656.656.764.764.0.0.44.503.143.171.584.584.764.764.0.0.44.503.116.171.564.564.764.764.0.0.44.427.143.171.75.75.764.600.0.0.0.427.143.171.75.75.764.928.0.1.179.427.143.171.75.75.928.764.0.0.269.427.143.171.75.75.600.764.0.1.89.439.143.171.55.125.504.764.0.1.0.439.143.171.55.125.520.673.0.1.-18.439.143.171.55.125.568.590.0.1.-35.439.143.171.55.125.639.534.0.1.-58.439.143.171.55.125.726.503.0.1.-79.439.143.171.55.125.815.505.0.1.-100.439.143.171.55.125.898.535.0.1.-115.439.143.171.55.125.963.592.0.1.-138.439.143.171.55.125.1008.670.0.1.-158.439.143.171.55.125.1027.761.0.1.-178.439.143.171.55.125.1013.851.0.1.-195.439.143.171.55.125.970.931.0.1.-214.439.143.171.55.125.903.986.0.1.-235.439.143.171.55.125.818.1019.0.1.-255.439.143.171.55.125.726.1022.0.1.-276.439.143.171.55.125.639.992.0.1.-299.439.143.171.55.125.567.935.0.1.-321.439.143.171.55.125.520.853.0.1.-337.503.143.171.273.273.764.764.0.0.44.503.116.171.263.263.764.764.0.0.44.503.143.171.221.221.764.764.0.0.44.503.142.171.211.211.764.764.0.0.44.439.143.171.21.49.661.764.0.1.0.439.143.171.21.49.667.729.0.1.-18.439.143.171.21.49.686.696.0.1.-35.439.143.171.21.49.714.674.0.1.-58.439.143.171.21.49.748.662.0.1.-79.439.143.171.21.49.783.663.0.1.-100.439.143.171.21.49.816.674.0.1.-115.439.143.171.21.49.841.697.0.1.-138.439.143.171.21.49.859.727.0.1.-158.439.143.171.21.49.866.763.0.1.-178.439.143.171.21.49.861.798.0.1.-195.439.143.171.21.49.844.830.0.1.-214.439.143.171.21.49.818.851.0.1.-235.439.143.171.21.49.784.864.0.1.-255.439.143.171.21.49.748.866.0.1.-276.439.143.171.21.49.714.854.0.1.-299.439.143.171.21.49.686.831.0.1.-321.439.143.171.21.49.667.799.0.1.-337.19005.143.116.175.175.762.765.1.0.0</xsl:attribute>
-      <xsl:attribute name="tier">4</xsl:attribute>
+      <xsl:attribute name="tier">5</xsl:attribute>
       <xsl:attribute name="color">FFAC4B22</xsl:attribute>
       <xsl:attribute name="color2">FFD0D93B</xsl:attribute>
       <xsl:attribute name="default_party_template">PartyTemplate.kingdom_hero_party_harad_aserai_9_template</xsl:attribute>
@@ -867,10 +867,12 @@
   <!-- Ghilman → Serpent Guard (Haradrim mounted mercenaries) -->
   <xsl:template match="Faction[@id='ghilman']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_ghilman_name}Serpent Guard</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_ghilman_short}Serpent Guard</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_ghilman_text}The Serpent Guard are mounted soldiers in the service of the Serpentlord of Near Harad. Bred in the saddle on the rolling plains south of the Ephel Dúath, they are unmatched as horse-archers in all of Middle-earth's southern lands. In times of peace between Harad and Mordor, the Guard hires its services to Haradrim lords and to any other power rich enough to afford their golden fee.</xsl:attribute>
+      <xsl:attribute name="color">FF7A1212</xsl:attribute>
+      <xsl:attribute name="color2">FF141414</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -894,11 +896,13 @@
        MinorClanMigration sets this one on load. -->
   <xsl:template match="Faction[@id='legion_of_the_betrayed']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'culture']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'culture' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="culture">Culture.arthedain</xsl:attribute>
       <xsl:attribute name="name">{=TAOM_legion_name}The Grey Company</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_legion_short}Grey Company</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_legion_text}The Grey Company are the last organised brotherhood of the Dúnedain Rangers, descendants of the kings of Arnor who lost their kingdom ages ago. They ride across the North without a home of their own, keeping the peace in lands that have forgotten their names. Though their first loyalty is to the line of Elendil, they take contracts from lords across Middle-earth when their wandering brings them through civilised lands.</xsl:attribute>
+      <xsl:attribute name="color">FF4F545A</xsl:attribute>
+      <xsl:attribute name="color2">FF8A9A8A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -906,11 +910,13 @@
   <!-- Skolderbrotva → Axemen of Erebor (Dwarven mercenaries) -->
   <xsl:template match="Faction[@id='skolderbrotva']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_skolderbrotva_name}Axemen of Erebor</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_skolderbrotva_short}Axemen</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_skolderbrotva_text}The Axemen of Erebor are veterans of King Thorin's battles who found peacetime ill-suited to their temperament. Trained in the close-quarter fighting of the Dwarven halls — shield wall, short axe, mattock — they are formidable on any terrain but excel in the mountain passes that connect Erebor to the kingdoms of men. They take contracts from any who can afford their fee, but will not raise an axe against Erebor or Rivendell.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_S1</xsl:attribute>
+      <xsl:attribute name="color">FF2B4A73</xsl:attribute>
+      <xsl:attribute name="color2">FFC0C8D0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -922,12 +928,14 @@
        leaders' title text and the encyclopedia culture, and it is saved (MinorClanMigration fixes an old save). -->
   <xsl:template match="Faction[@id='company_of_the_boar']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'culture']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'culture' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="culture">Culture.umbar</xsl:attribute>
       <xsl:attribute name="name">{=TAOM_company_name}Corsair Blades</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_company_short}Corsairs</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_company_text}The Corsair Blades are veteran sea-fighters from the harbours of Umbar who have taken to selling their skills on land. They fight as crossbowmen — the preferred arm of shipboard warfare — and are as comfortable in a siege as they are on a rolling deck. Their captain, a scarred Númenórean exile, keeps them to their contracts with iron discipline, knowing that their reputation is their most valuable cargo.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_V3</xsl:attribute>
+      <xsl:attribute name="color">FF1B1F2B</xsl:attribute>
+      <xsl:attribute name="color2">FFB8B8B0</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -937,10 +945,12 @@
   <!-- Beni Zilal → The Blind Eye (Haradrim smuggler-assassins) -->
   <xsl:template match="Faction[@id='beni_zilal']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_beni_zilal_name}The Blind Eye</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_beni_zilal_short}Blind Eye</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_beni_zilal_text}The Blind Eye is a brotherhood of smugglers, fences, and hired killers operating across the coasts of Harad and the deep desert. They are said to descend from a cult of assassins who served a forgotten Haradrim king, and their methods — poison, shadow, and the leveraging of secrets — remain unchanged. Lords who wish to quietly remove a rival, or merchants who need cargo moved without customs inspection, know where to leave a gold coin and a sealed letter.</xsl:attribute>
+      <xsl:attribute name="color">FF2A1F3D</xsl:attribute>
+      <xsl:attribute name="color2">FF8C7A5B</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -948,11 +958,13 @@
   <!-- Wolfskins → Variag Ravagers (Khand raider outlaws) -->
   <xsl:template match="Faction[@id='wolfskins']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_wolfskins_name}Variag Ravagers</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_wolfskins_short}Ravagers</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_wolfskins_text}The Variag Ravagers are war-bands of young Variag warriors from the steppes of Khand who spend their early manhood in a state of ritual warfare: they may own no cooked food, sleep under no permanent roof, and take no mercy. While most eventually return to the settled life of their clans, some never do, and these form the Ravagers — outlaws who prey on the roads of Khand and raid across its borders into Harad and Gondor.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_K5</xsl:attribute>
+      <xsl:attribute name="color">FF6B1E14</xsl:attribute>
+      <xsl:attribute name="color2">FFC4A06A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -960,12 +972,14 @@
   <!-- Brotherhood of the Woods → Dunlending Reavers (culture change: vlandia → empire) -->
   <xsl:template match="Faction[@id='brotherhood_of_woods']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'culture' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'culture' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_brotherhood_name}Dunlending Reavers</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_brotherhood_short}Reavers</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_brotherhood_text}The Dunlending Reavers are the broken remnant of a hill-clan that once dwelt in the valleys now ruled by the Rohirrim. Their grandfathers were driven from fertile land into the rocky heights, and they have nursed that bitterness into a raider's philosophy: everything taken from a southron or a king's man is merely the restoration of what was stolen. In practice they are brigands, but dangerous ones who know every goat-track through the hills.</xsl:attribute>
       <xsl:attribute name="culture">Culture.empire</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN3</xsl:attribute>
+      <xsl:attribute name="color">FF4B3B2A</xsl:attribute>
+      <xsl:attribute name="color2">FF7A3B2A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -973,10 +987,12 @@
   <!-- Hidden Hand → The Mouth's Servants (Mordor intelligence network) -->
   <xsl:template match="Faction[@id='hidden_hand']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_hidden_hand_name}The Mouth's Servants</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_hidden_hand_short}Servants</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_hidden_hand_text}The Mouth's Servants are the Eyes of Barad-dûr operating beyond the Black Gate — informants, enforcers, and spies embedded among the peoples bordering Mordor. Where Sauron's armies cannot yet reach, these agents collect tribute and silence dissent. They work through bribery, blackmail, and quiet murder, ensuring that no conspiracy against the Dark Lord takes root before it is uprooted and crushed.</xsl:attribute>
+      <xsl:attribute name="color">FF1C1C1C</xsl:attribute>
+      <xsl:attribute name="color2">FF8B1A10</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -984,10 +1000,12 @@
   <!-- Lake Rats → Wreckers of the Long Lake (Esgaroth criminals) -->
   <xsl:template match="Faction[@id='lakepike']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_lakepike_name}Wreckers of the Long Lake</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_lakepike_short}Wreckers</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_lakepike_text}The Wreckers of the Long Lake live in the reed-beds and rotting old jetties of the Long Lake's shadowed shores, far from the respectable lights of Esgaroth. They make their living by luring barges onto hidden shoals with false lanterns, then stripping the cargo and selling it through fences in the town itself. Despite the efforts of the Lake-town Master and the Dale merchants, the Wreckers have too many friends in the dockside taverns to be easily driven out.</xsl:attribute>
+      <xsl:attribute name="color">FF2F4A4A</xsl:attribute>
+      <xsl:attribute name="color2">FF8C8A6A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -997,11 +1015,13 @@
   <!-- Embers of the Flame → Cult of the Lidless Eye (Black Númenórean sect) -->
   <xsl:template match="Faction[@id='embers_of_flame']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_embers_name}Cult of the Lidless Eye</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_embers_short}Eye Cult</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_embers_text}The Cult of the Lidless Eye is a secret society rooted in the Black Númenórean tradition, venerating Sauron as a god-king who will restore his faithful to glory when he rises again. They recruit among the dispossessed of Dunland and the forgotten corners of the realm, promising divine favour and earthly power. In truth, their leaders answer to agents of Barad-dûr, and their cell-based structure makes them nearly impossible for any lord's justice to eradicate.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_EN5</xsl:attribute>
+      <xsl:attribute name="color">FF1A0F0F</xsl:attribute>
+      <xsl:attribute name="color2">FFD2570A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -1011,10 +1031,12 @@
   <!-- Jawwal → The Sand-Riders (Haradrim desert nomads) -->
   <xsl:template match="Faction[@id='jawwal']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_jawwal_name}The Sand-Riders</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_jawwal_short}Sand-Riders</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_jawwal_text}The Sand-Riders are the nomadic desert clans of the deep Harad interior, masters of the waterless wastes between the Ephel Dúath and the distant southern sea. They range across routes known only to themselves, demanding tribute from any caravan bold enough to cross their territory. The settled lords of Near Harad treat them as a nuisance; the Sand-Riders consider the settled lords thieves who stole what the desert had already given freely.</xsl:attribute>
+      <xsl:attribute name="color">FF9A6B2F</xsl:attribute>
+      <xsl:attribute name="color2">FFC9A25E</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -1022,11 +1044,13 @@
   <!-- Karakhergit → Wild Easterlings (Rhun steppe nomads) -->
   <xsl:template match="Faction[@id='karakhuzaits']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_karakhuzaits_name}The Wild Easterlings</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_karakhuzaits_short}Wild Ones</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_karakhuzaits_text}The Wild Easterlings are the unconquered steppe clans of the Sea of Rhûn, who have resisted the authority of every lord who has tried to bring them to heel — Rhûn chieftain, Mordor lieutenant, and King of Dale alike. They range across the grasslands east of the Celduin, rounding up horses, raiding flocks, and collecting road tribute from any caravan foolish enough to cross their steppe without an armed escort.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_RU10</xsl:attribute>
+      <xsl:attribute name="color">FF6B4A2B</xsl:attribute>
+      <xsl:attribute name="color2">FF2E5B57</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -1034,10 +1058,12 @@
   <!-- Forest People → The Drúedain / Woses (ancient forest dwellers) -->
   <xsl:template match="Faction[@id='forest_people']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_forest_people_name}The Drúedain</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_forest_people_short}Woses</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_forest_people_text}The Drúedain, known to Men as Woses or the Wild Men of the Woods, are an ancient people who dwell in the deep forest of Drúadan and the hidden valleys of the White Mountains. They clear ground with fire, grow what they need on the ash-rich soil, and move on when the land is spent — a way of life the settled peoples of Middle-earth have never understood and never bothered to. The Drúedain want no lord, pay no tax, and ask only to be left to the forest's silence.</xsl:attribute>
+      <xsl:attribute name="color">FF3B4A2A</xsl:attribute>
+      <xsl:attribute name="color2">FF8B6B3A</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -1045,11 +1071,13 @@
   <!-- Eleftheroi → The Beornings (skin-changers of the Anduin vale) -->
   <xsl:template match="Faction[@id='eleftheroi']">
     <xsl:copy>
-      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement']"/>
+      <xsl:apply-templates select="@*[local-name() != 'name' and local-name() != 'short_name' and local-name() != 'text' and local-name() != 'initial_home_settlement' and local-name() != 'color' and local-name() != 'color2']"/>
       <xsl:attribute name="name">{=TAOM_eleftheroi_name}The Beornings</xsl:attribute>
       <xsl:attribute name="short_name">{=TAOM_eleftheroi_short}Beornings</xsl:attribute>
       <xsl:attribute name="text">{=TAOM_eleftheroi_text}The Beornings are the great woodmen who dwell in the vale of the Anduin between the Misty Mountains and Mirkwood, led by the skin-changers of Beorn's line. They allow no Orc to cross their territory, charge a toll at the Ford of Carrock to fund their watch, and answer to no king in Middle-earth. Though they will trade and talk with Elves and Dwarves, any army that marches through their forest without leave will find that the Beornings have very large teeth.</xsl:attribute>
       <xsl:attribute name="initial_home_settlement">Settlement.castle_M1</xsl:attribute>
+      <xsl:attribute name="color">FF4A3020</xsl:attribute>
+      <xsl:attribute name="color2">FFD9A441</xsl:attribute>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>

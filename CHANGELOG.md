@@ -3,6 +3,22 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.19.0] — 22 Nov 2026 — TAOM v2.0.41 and v2.0.42
+
+- The Features page now shows the public build as TAOM v2.0.41 and the supporter build as TAOM v2.0.42, both released 20 Nov 2026, with 500+ Mod Options.
+- Everything that was only in the supporter build is now in the public build too, including Realms and Titles, War Pledge, Defend Helm's Deep, Hero Auras, Lord Retinue, Hall Seats, Encounter Lines and the Banner Editor.
+- Out of Coming soon and into both builds: Cheat Menu, Realm Names, Banners and New High Titles, Troops and Gear on the Base Game's Scale, Troop Upgrades in The Long Defeat, and Loading and Startup Notices.
+- New cards: Campaign Rules at the Start, Hostile Peace, Cleaving Blows, Combat Stamina, Aragorn, Legolas and Gimli, and Languages and Text Input. New Coming soon card: Battle Gear Loot.
+- Smaller additions: tournament weapons by culture, elephant and mûmak gaits, the Orc battle voice, the realm name size setting, and the heroes at Helm's Deep. The supporter view lists the cheaper caravan guards and faster caravans from v2.0.42.
+- The Co-op card no longer says to avoid co-op. It now covers TAOM.CoopCompat, Long Defeat runs in co-op and guests at the Elite Emissary.
+- Download and Troubleshooting: TAOM.CoopCompat added to the load order, below Coop, for co-op players. Troubleshooting also says that TAOM shows a notice and stays off on a game version other than 1.5.7.
+
+### Mod data
+
+- Troops, lords, clans, cultures and kingdoms synced to TAOM v2.0.41. Still 1,120 troops in 27 troop files, 188 clans and 22 kingdoms. Troop skills follow the new tier scale, and the lords of eight realms carry their new names.
+- The Armoury and Weaponry pages are unchanged: the LOTRLOME_Armory copy available was v2.0.37, not v2.0.41.
+- Wild creature cultures (Mirkwood Spiders, Wild Trolls) now have display names.
+
 ## [3.18.0] — 15 Nov 2026 — Features page: realms, camps, refuges and new Coming soon cards
 
 - The builds shown are unchanged: public TAOM v2.0.38, supporter TAOM v2.0.39. There is no newer release yet.

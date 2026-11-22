@@ -14,7 +14,8 @@ const loadOrder: { name: string; meta?: string; note?: string; highlight?: boole
   { name: 'LOTRLOME_Armory' },
   { name: 'TAOM_MAP' },
   { name: 'TAOM', highlight: true },
-  { name: 'Coop', note: 'Optional, last' },
+  { name: 'Coop', note: 'Optional, co-op only' },
+  { name: 'TAOM.CoopCompat', note: 'With Coop only, last' },
 ];
 ---
 
@@ -166,8 +167,9 @@ const loadOrder: { name: string; meta?: string; note?: string; highlight?: boole
           </ol>
           <p class="note note-inline">
             All four TAOM modules (TAOM, TAOM.Dependencies, TAOM_MAP and LOTRLOME_Armory) carry the same version, so
-            install them together. Keep LOTRLOME_Armory above TAOM; the vanilla launcher does not sort it for you.
-            Realms is part of TAOM from v2.0.39, so remove a separate TAOM.Realms module if you have one.
+            install them together. Keep LOTRLOME_Armory above TAOM; the vanilla launcher does not sort it for you. Co-op
+            players with Bannerlord Coop also enable TAOM.CoopCompat, the same version as TAOM, below Coop. Realms is
+            part of TAOM from v2.0.39, so remove a separate TAOM.Realms module if you have one.
           </p>
           <p class="note note-inline">
             Press Play, then set Terrain Quality to Medium or higher in the in-game options.

@@ -84,7 +84,7 @@ function parseSettings(source) {
       i = j;
       continue;
     }
-    const prop = line.match(/public\s+[\w<>.]+\s+(\w+)\s*\{[^}]*\}\s*(?:=\s*(.+?);)?$/);
+    const prop = line.match(/public\s+[\w<>.]+\s+(\w+)\s*\{[^}]*\}\s*(?:=\s*(.+?);?)?$/); // a dropdown default runs onto the next lines
     if (prop && pending) {
       out.push({ ...pending, default: normaliseDefault(prop[2] || '') });
       pending = null;

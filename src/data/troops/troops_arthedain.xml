@@ -13,14 +13,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="38" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="30" />
-      <skill id="TwoHanded" value="20" />
-      <skill id="Polearm" value="40" />
+      <skill id="Athletics" value="20" />
+      <skill id="Riding" value="10" />
+      <skill id="OneHanded" value="10" />
+      <skill id="TwoHanded" value="10" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="10" />
       <skill id="Crossbow" value="10" />
-      <skill id="Throwing" value="20" />
+      <skill id="Throwing" value="15" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_spearman" />
@@ -31,7 +31,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a1" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentRoster>
@@ -39,7 +39,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a3" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_b" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
@@ -57,14 +57,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="55" />
-      <skill id="TwoHanded" value="30" />
-      <skill id="Polearm" value="70" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="35" />
+      <skill id="TwoHanded" value="20" />
+      <skill id="Polearm" value="40" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
-      <skill id="Throwing" value="20" />
+      <skill id="Throwing" value="15" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_footman" />
@@ -105,14 +105,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="100" />
-      <skill id="Bow" value="20" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="35" />
+      <skill id="Polearm" value="70" />
+      <skill id="Bow" value="30" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_shieldman" />
@@ -153,23 +153,23 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="130" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="90" />
+      <skill id="Polearm" value="100" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_fornost_guard" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_a3" />
-        <equipment slot="Item2" id="Item.numenorean_bastard_heavy_a" />
+        <equipment slot="Item2" id="Item.taom_ph_numenorean_bastard_heavy_a_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_med_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_inf_med_a" />
         <equipment slot="Cape" id="Item.sk_ar_art_pauld_inf_med_a" />
@@ -177,9 +177,9 @@
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_inf_med_a" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_a4" />
-        <equipment slot="Item2" id="Item.numenorean_bastard_heavy_b" />
+        <equipment slot="Item2" id="Item.taom_ph_numenorean_bastard_heavy_b_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_med_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_inf_med_b" />
         <equipment slot="Cape" id="Item.sk_ar_art_pauld_inf_med_b" />
@@ -201,21 +201,21 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="60" />
-      <skill id="Polearm" value="175" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="120" />
+      <skill id="Polearm" value="135" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_warden" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b1" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_warden_heavy_a" />
@@ -225,7 +225,7 @@
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_inf_heavy_a" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b2" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_b" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_warden_heavy_b" />
@@ -249,14 +249,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="90" />
-      <skill id="Polearm" value="180" />
-      <skill id="Bow" value="35" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="160" />
+      <skill id="Polearm" value="145" />
+      <skill id="Bow" value="60" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_evendim_warden" />
@@ -265,7 +265,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b1" />
-        <equipment slot="Item2" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item2" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_warden_elite_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_inf_heavy_a" />
         <equipment slot="Cape" id="Item.sk_ar_art_pauld_cape_inf_elite_a" />
@@ -275,7 +275,7 @@
       <EquipmentRoster>
         <equipment slot="Item0" id="Item.numenorean_bastard_elite_b" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b2" />
-        <equipment slot="Item2" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item2" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_warden_elite_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_inf_heavy_b" />
         <equipment slot="Cape" id="Item.sk_ar_art_pauld_cape_inf_elite_b" />
@@ -297,14 +297,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="140" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="90" />
-      <skill id="Polearm" value="270" />
-      <skill id="Bow" value="40" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="190" />
+      <skill id="Riding" value="75" />
+      <skill id="OneHanded" value="90" />
+      <skill id="TwoHanded" value="165" />
+      <skill id="Polearm" value="185" />
+      <skill id="Bow" value="75" />
+      <skill id="Crossbow" value="75" />
+      <skill id="Throwing" value="75" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -342,11 +342,11 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="70" />
-      <skill id="TwoHanded" value="27" />
-      <skill id="Polearm" value="55" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="20" />
+      <skill id="TwoHanded" value="40" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="15" />
@@ -362,7 +362,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a1" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
@@ -371,7 +371,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a3" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
@@ -390,14 +390,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="40" />
-      <skill id="Polearm" value="55" />
-      <skill id="Bow" value="115" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="35" />
+      <skill id="TwoHanded" value="70" />
+      <skill id="Polearm" value="35" />
+      <skill id="Bow" value="79" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_ranger" />
@@ -410,7 +410,7 @@
         <equipment slot="Item3" id="Item.numenorean_bastard_heavy_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_md_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
@@ -421,7 +421,7 @@
         <equipment slot="Item3" id="Item.numenorean_bastard_heavy_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_md_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
@@ -440,14 +440,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="55" />
-      <skill id="Bow" value="160" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="50" />
+      <skill id="TwoHanded" value="100" />
+      <skill id="Polearm" value="50" />
+      <skill id="Bow" value="112" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_veteran_ranger" />
@@ -457,10 +457,10 @@
         <equipment slot="Item0" id="Item.ladder_arthedain_bow_t4" />
         <equipment slot="Item1" id="Item.bodkin_arrows_a" />
         <equipment slot="Item2" id="Item.bodkin_arrows_a" />
-        <equipment slot="Item3" id="Item.numenorean_bastard_heavy_b" />
+        <equipment slot="Item3" id="Item.taom_ph_numenorean_bastard_heavy_b_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_med_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_med_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_med_a" />
       </EquipmentRoster>
@@ -468,10 +468,10 @@
         <equipment slot="Item0" id="Item.ladder_arthedain_bow_t4" />
         <equipment slot="Item1" id="Item.bodkin_arrows_a" />
         <equipment slot="Item2" id="Item.bodkin_arrows_a" />
-        <equipment slot="Item3" id="Item.numenorean_bastard_heavy_b" />
+        <equipment slot="Item3" id="Item.taom_ph_numenorean_bastard_heavy_b_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_med_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_med_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_med_a" />
       </EquipmentRoster>
@@ -490,14 +490,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="60" />
-      <skill id="Polearm" value="60" />
-      <skill id="Bow" value="200" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="130" />
+      <skill id="Polearm" value="65" />
+      <skill id="Bow" value="145" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_ranger_captain" />
@@ -510,7 +510,7 @@
         <equipment slot="Item3" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_heavy_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_heavy_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_heavy_a" />
       </EquipmentRoster>
@@ -521,7 +521,7 @@
         <equipment slot="Item3" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_heavy_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_heavy_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_heavy_a" />
       </EquipmentRoster>
@@ -540,14 +540,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="180" />
-      <skill id="TwoHanded" value="70" />
-      <skill id="Polearm" value="70" />
-      <skill id="Bow" value="235" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="155" />
+      <skill id="Polearm" value="80" />
+      <skill id="Bow" value="174" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_steel_bowman" />
@@ -590,14 +590,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="140" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="220" />
-      <skill id="TwoHanded" value="80" />
-      <skill id="Polearm" value="80" />
-      <skill id="Bow" value="290" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="190" />
+      <skill id="Riding" value="75" />
+      <skill id="OneHanded" value="90" />
+      <skill id="TwoHanded" value="180" />
+      <skill id="Polearm" value="90" />
+      <skill id="Bow" value="203" />
+      <skill id="Crossbow" value="75" />
+      <skill id="Throwing" value="75" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -638,14 +638,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="80" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="80" />
-      <skill id="TwoHanded" value="100" />
-      <skill id="Polearm" value="80" />
-      <skill id="Bow" value="20" />
-      <skill id="Crossbow" value="20" />
-      <skill id="Throwing" value="20" />
+      <skill id="Athletics" value="75" />
+      <skill id="Riding" value="30" />
+      <skill id="OneHanded" value="35" />
+      <skill id="TwoHanded" value="40" />
+      <skill id="Polearm" value="70" />
+      <skill id="Bow" value="30" />
+      <skill id="Crossbow" value="30" />
+      <skill id="Throwing" value="30" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_citadel_guard" />
@@ -682,14 +682,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="130" />
-      <skill id="Polearm" value="105" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="50" />
+      <skill id="TwoHanded" value="100" />
+      <skill id="Polearm" value="90" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_veteran_citadel_guard" />
@@ -728,14 +728,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="105" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="175" />
-      <skill id="Polearm" value="140" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="135" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="135" />
+      <skill id="Polearm" value="120" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_knight" />
@@ -774,14 +774,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="120" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="175" />
-      <skill id="Polearm" value="180" />
-      <skill id="Bow" value="35" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="165" />
+      <skill id="Riding" value="60" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="160" />
+      <skill id="Polearm" value="120" />
+      <skill id="Bow" value="60" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_kings_guard" />
@@ -820,14 +820,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="140" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="225" />
-      <skill id="TwoHanded" value="270" />
-      <skill id="Polearm" value="220" />
-      <skill id="Bow" value="40" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="190" />
+      <skill id="Riding" value="75" />
+      <skill id="OneHanded" value="90" />
+      <skill id="TwoHanded" value="185" />
+      <skill id="Polearm" value="165" />
+      <skill id="Bow" value="75" />
+      <skill id="Crossbow" value="75" />
+      <skill id="Throwing" value="75" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -864,38 +864,38 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="85" />
-      <skill id="Riding" value="120" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="130" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="55" />
+      <skill id="Riding" value="100" />
+      <skill id="OneHanded" value="50" />
+      <skill id="TwoHanded" value="90" />
+      <skill id="Polearm" value="100" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_lancer" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_a3" />
-        <equipment slot="Item2" id="Item.numenorean_bastard_heavy_a" />
+        <equipment slot="Item2" id="Item.taom_ph_numenorean_bastard_heavy_a_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_med_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_noble_med_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_med_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_med_a" />
         <equipment slot="Horse" id="Item.t2_empire_horse" />
         <equipment slot="HorseHarness" id="Item.gondor_horse_armor_4" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_gondor_spear_b_cardolan" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_gondor_spear_b_cardolan_t4" />
         <equipment slot="Item1" id="Item.sm_gd_shield_a4" />
-        <equipment slot="Item2" id="Item.numenorean_bastard_heavy_b" />
+        <equipment slot="Item2" id="Item.taom_ph_numenorean_bastard_heavy_b_t4" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_med_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chest_noble_med_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_hv_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_bracer_noble_med_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_med_a" />
         <equipment slot="Horse" id="Item.t2_empire_horse" />
@@ -916,21 +916,21 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="160" />
-      <skill id="OneHanded" value="140" />
-      <skill id="TwoHanded" value="60" />
-      <skill id="Polearm" value="175" />
-      <skill id="Bow" value="30" />
-      <skill id="Crossbow" value="30" />
-      <skill id="Throwing" value="30" />
+      <skill id="Athletics" value="70" />
+      <skill id="Riding" value="135" />
+      <skill id="OneHanded" value="65" />
+      <skill id="TwoHanded" value="120" />
+      <skill id="Polearm" value="135" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_knight_of_annuminas" />
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_swan_knight_lance_a" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_swan_knight_lance_a_t5" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b1" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_cav_heavy_a" />
@@ -942,7 +942,7 @@
         <equipment slot="HorseHarness" id="Item.gondor_horse_armor_3" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_swan_knight_lance_a" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_swan_knight_lance_a_t5" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b2" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_b" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_cav_heavy_b" />
@@ -968,19 +968,19 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="110" />
-      <skill id="Riding" value="205" />
-      <skill id="OneHanded" value="180" />
-      <skill id="TwoHanded" value="70" />
-      <skill id="Polearm" value="225" />
-      <skill id="Bow" value="35" />
-      <skill id="Crossbow" value="35" />
-      <skill id="Throwing" value="35" />
+      <skill id="Athletics" value="80" />
+      <skill id="Riding" value="160" />
+      <skill id="OneHanded" value="80" />
+      <skill id="TwoHanded" value="145" />
+      <skill id="Polearm" value="160" />
+      <skill id="Bow" value="60" />
+      <skill id="Crossbow" value="60" />
+      <skill id="Throwing" value="60" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_swan_knight_lance_a" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_swan_knight_lance_a_t5" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b1" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_a" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_cav_heavy_a" />
@@ -992,7 +992,7 @@
         <equipment slot="HorseHarness" id="Item.gondor_horse_armor_3" />
       </EquipmentRoster>
       <EquipmentRoster>
-        <equipment slot="Item0" id="Item.wm_swan_knight_lance_a" />
+        <equipment slot="Item0" id="Item.taom_ph_wm_swan_knight_lance_a_t5" />
         <equipment slot="Item1" id="Item.sm_gd_shield_b2" />
         <equipment slot="Item2" id="Item.numenorean_bastard_elite_b" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_cav_heavy_b" />
@@ -1018,14 +1018,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="95" />
       <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="130" />
-      <skill id="Bow" value="25" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Polearm" value="100" />
+      <skill id="Bow" value="40" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_militia_veteran_spearman" />
@@ -1037,7 +1037,7 @@
         <equipment slot="Item2" id="Item.wm_gondor_sword_a01" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentRoster>
@@ -1046,7 +1046,7 @@
         <equipment slot="Item2" id="Item.wm_gondor_sword_a01" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_b" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
@@ -1064,14 +1064,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="95" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="105" />
-      <skill id="TwoHanded" value="50" />
-      <skill id="Polearm" value="50" />
-      <skill id="Bow" value="85" />
-      <skill id="Crossbow" value="25" />
-      <skill id="Throwing" value="25" />
+      <skill id="Athletics" value="105" />
+      <skill id="Riding" value="40" />
+      <skill id="OneHanded" value="40" />
+      <skill id="TwoHanded" value="40" />
+      <skill id="Polearm" value="40" />
+      <skill id="Bow" value="46" />
+      <skill id="Crossbow" value="40" />
+      <skill id="Throwing" value="40" />
     </skills>
     <upgrade_targets>
       <upgrade_target id="NPCCharacter.arthedain_militia_veteran_archer" />
@@ -1084,7 +1084,7 @@
         <equipment slot="Item3" id="Item.wm_gondor_sword_a01" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentRoster>
@@ -1094,7 +1094,7 @@
         <equipment slot="Item3" id="Item.wm_gondor_sword_a01" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_b" />
         <equipment slot="Leg" id="Item.sk_ar_art_boots_a" />
       </EquipmentRoster>
       <EquipmentSet id="battania_troop_civilian_template_t2" equipmentType="Civilian" />
@@ -1112,14 +1112,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="110" />
-      <skill id="Riding" value="15" />
-      <skill id="OneHanded" value="120" />
-      <skill id="TwoHanded" value="65" />
-      <skill id="Polearm" value="145" />
-      <skill id="Bow" value="40" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="115" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="105" />
+      <skill id="TwoHanded" value="60" />
+      <skill id="Polearm" value="110" />
+      <skill id="Bow" value="50" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -1158,14 +1158,14 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="110" />
-      <skill id="Riding" value="15" />
-      <skill id="OneHanded" value="120" />
-      <skill id="TwoHanded" value="65" />
-      <skill id="Polearm" value="65" />
-      <skill id="Bow" value="115" />
-      <skill id="Crossbow" value="40" />
-      <skill id="Throwing" value="40" />
+      <skill id="Athletics" value="115" />
+      <skill id="Riding" value="50" />
+      <skill id="OneHanded" value="70" />
+      <skill id="TwoHanded" value="60" />
+      <skill id="Polearm" value="60" />
+      <skill id="Bow" value="79" />
+      <skill id="Crossbow" value="50" />
+      <skill id="Throwing" value="50" />
     </skills>
     <upgrade_targets></upgrade_targets>
     <Equipments>
@@ -1176,7 +1176,7 @@
         <equipment slot="Item3" id="Item.wm_gondor_sword_a03" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_med_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_md_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_inf_med_a" />
       </EquipmentRoster>
@@ -1187,7 +1187,7 @@
         <equipment slot="Item3" id="Item.wm_gondor_sword_a03" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_inf_med_b" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_full_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_md_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_inf_med_a" />
       </EquipmentRoster>
@@ -1206,11 +1206,11 @@
       <face_key_template value="BodyProperty.fighter_gondor" />
     </face>
     <skills>
-      <skill id="Athletics" value="52" />
-      <skill id="Riding" value="0" />
-      <skill id="OneHanded" value="70" />
-      <skill id="TwoHanded" value="27" />
-      <skill id="Polearm" value="55" />
+      <skill id="Athletics" value="40" />
+      <skill id="Riding" value="15" />
+      <skill id="OneHanded" value="20" />
+      <skill id="TwoHanded" value="40" />
+      <skill id="Polearm" value="20" />
       <skill id="Bow" value="15" />
       <skill id="Crossbow" value="15" />
       <skill id="Throwing" value="15" />
@@ -1222,7 +1222,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a1" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_a" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_a" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_a" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
@@ -1231,7 +1231,7 @@
         <equipment slot="Item1" id="Item.sm_gd_shield_a3" />
         <equipment slot="Head" id="Item.sk_ar_art_helmet_noble_light_a" />
         <equipment slot="Body" id="Item.sk_ar_art_chainmail_half_b" />
-        <equipment slot="Cape" id="Item.sk_ar_art_cape_b" />
+        <equipment slot="Cape" id="Item.taom_band_lt_sk_ar_art_cape_b" />
         <equipment slot="Gloves" id="Item.sk_ar_art_gloves_a" />
         <equipment slot="Leg" id="Item.sk_ar_art_grvs_noble_light_a" />
       </EquipmentRoster>
