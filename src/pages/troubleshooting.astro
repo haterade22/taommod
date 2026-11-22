@@ -23,12 +23,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><span class="mod-name">LOTRLOME_Armory</span></li>
         <li><span class="mod-name">TAOM_MAP</span></li>
         <li><span class="mod-name">TAOM</span></li>
-        <li><span class="mod-name">Coop</span> <span class="mod-note">Optional, last</span></li>
+        <li><span class="mod-name">Coop</span> <span class="mod-note">Optional, co-op only</span></li>
+        <li><span class="mod-name">TAOM.CoopCompat</span> <span class="mod-note">With Coop only, last</span></li>
       </ol>
       <p>
         All four TAOM modules (TAOM, TAOM.Dependencies, TAOM_MAP and LOTRLOME_Armory) carry the same version. Keep
         LOTRLOME_Armory above TAOM in the launcher. For a clean install, remove the old Modules\TAOM folder first. From
-        v2.0.39 Realms is part of TAOM, so remove a separate TAOM.Realms module if you have one.
+        v2.0.39 Realms is part of TAOM, so remove a separate TAOM.Realms module if you have one. Co-op players with
+        Bannerlord Coop also enable TAOM.CoopCompat, the same version as TAOM, below Coop. If your game is not on 1.5.7,
+        TAOM says so in a notice at the main menu and stays switched off.
       </p>
     </section>
 

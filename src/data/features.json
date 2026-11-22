@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-15",
+  "updatedAt": "2026-11-22",
   "builds": {
     "public": {
       "label": "Public",
       "game": "Bannerlord 1.5.7",
-      "modVersion": "v2.0.38",
-      "released": "2026-11-10",
+      "modVersion": "v2.0.41",
+      "released": "2026-11-20",
       "careerCount": 91,
-      "modOptionsCount": "400+"
+      "modOptionsCount": "500+"
     },
     "supporter": {
       "label": "Supporter",
       "game": "Bannerlord 1.5.7",
-      "modVersion": "v2.0.39",
-      "released": "2026-11-13",
+      "modVersion": "v2.0.42",
+      "released": "2026-11-20",
       "careerCount": 91,
-      "modOptionsCount": "400+"
+      "modOptionsCount": "500+"
     }
   },
   "sections": [
@@ -106,7 +106,9 @@
           "points": [
             "Choose Defend the walls or Let fate decide",
             "A lost defence gives Isengard the fortress",
-            "The fight has its own music track, “Isengard vs. Rohan”"
+            "The fight has its own music track, “Isengard vs. Rohan”",
+            "Aragorn, Legolas and Gimli stand on the walls with the garrison",
+            "The offer follows your side of the war, so a Mordor or Harad player is not asked to defend the Hornburg"
           ],
           "settings": [
             {
@@ -114,7 +116,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -159,7 +160,6 @@
             "Khand, Rhudaur, Umbar, Shaghâna and Âbanissa lean to the Shadow; Cardolan and Dorwinion to the Free Peoples",
             "One realm joins at a time, 30 days apart, and never a realm a player rules"
           ],
-          "only": "supporter",
           "new": "v2.0.39",
           "settings": [
             {
@@ -232,19 +232,35 @@
               "name": "Enable Kingdom Allegiance",
               "default": "On"
             }
+          ]
+        },
+        {
+          "title": "Hostile Peace",
+          "summary": "Before the War of the Ring, realms of the Free Peoples and the Shadow that are at peace still do not act as friends.",
+          "points": [
+            "Their caravans do not trade in each other’s towns, and they never sign trade agreements",
+            "The towns and castles of a sworn enemy realm treat you as in war: you enter a town only in disguise, a castle not at all, and you cannot trade, recruit or rest in its villages",
+            "A kingdom you rule cannot ally with a realm of the other side; Neutral realms can ally with anyone"
           ],
-          "public": {
-            "points": [
-              "No recruiting volunteers in a settlement held by the other side",
-              "No marriages across the line; Neutral cultures (Khand, Umbar, Shaghâna, Âbanissa) marry anyone",
-              "Wanderers will not serve a player from the other side",
-              "Troops of the other side desert a party or garrison, half of each type per day",
-              "Recruiting prisoners of your own side costs no morale",
-              "Free and Evil tournaments do not seat each other's fighters",
-              "AI lords of the Free Peoples never join, defect to or hire out to a realm of the Shadow, and the reverse; Neutral clans may deal with either side",
-              "A new campaign starts with no friendships between Free and Evil lords: each one becomes enmity of the same strength"
-            ]
-          }
+          "settings": [
+            {
+              "name": "No Caravan Trade With Enemy Realms",
+              "default": "On"
+            },
+            {
+              "name": "No Trade Agreements With Enemy Realms",
+              "default": "On"
+            },
+            {
+              "name": "Enemy Realms Close Their Gates",
+              "default": "On"
+            },
+            {
+              "name": "Allow Player Alliances With Anyone",
+              "default": "Off"
+            }
+          ],
+          "new": "v2.0.41"
         },
         {
           "title": "Fair Fief Grants",
@@ -351,6 +367,16 @@
       "title": "Your Path",
       "intro": "Who you are in Middle-earth: a career, a soldier in someone else's host, or a lord who already rules.",
       "cards": [
+        {
+          "title": "Campaign Rules at the Start",
+          "summary": "A new campaign picks its main rules on the Advanced Start Options screen and keeps them in its save.",
+          "points": [
+            "War of the Ring or Sandbox (no scripted war), and when the war starts: Early, Standard, Late or Custom",
+            "Troop Weight, whether the war can be won, Eye of Sauron hunters, large AI armies and an Alignment rules preset (Standard, Strict or Relaxed)",
+            "The TAOM mod options now set the rules for new campaigns; a campaign started before v2.0.41 still follows them"
+          ],
+          "new": "v2.0.41"
+        },
         {
           "title": "Careers",
           "summary": "Every hero can take a career, a Middle-earth class with its own play style. There are 91 careers, three or more for each realm, from the Ranger of Ithilien to the Corsair Captain and the Olog-hai Warchief.",
@@ -585,8 +611,7 @@
             "The Snow Orcs of Mount Gram: 13 Gundabad troops, recruited at Mount Gram and by the Grishûk clan",
             "Dire wolf riders for Gundabad and the goblins of the Misty Mountains, on a wolf about a quarter larger than a warg",
             "Arnor: Knight of Annúminas, Evendim Warden and Dúnedain Steel Bowman for Arthedain, and the Tharbad Bridge Guard for Cardolan"
-          ],
-          "new": "v2.0.37"
+          ]
         },
         {
           "title": "Field Camps",
@@ -667,7 +692,7 @@
             "No upgrade gives a troop weaker armour or a weaker weapon, and elite troops whose people have no fitting weapon get one made for their tier",
             "Lords wear armour close to the best elite troops of their own people"
           ],
-          "coming": true
+          "new": "v2.0.41"
         }
       ]
     },
@@ -695,6 +720,63 @@
           ]
         },
         {
+          "title": "Cleaving Blows",
+          "summary": "Your two-handed swings with an axe, mace, sword or polearm can cut through one enemy and strike the next.",
+          "points": [
+            "Each enemy after the first takes less damage. Armour slows the blade, and a kill or a clear skill lead over the victim carries it further",
+            "Up to 3 enemies per swing by default. Thrusts, shield blocks and swings from horseback never cleave",
+            "Only the character you control, unless AI two-handers are switched on too"
+          ],
+          "settings": [
+            {
+              "name": "Cleaving Blows",
+              "default": "On"
+            },
+            {
+              "name": "Cleaving Blows for AI Two-Handers",
+              "default": "Off"
+            },
+            {
+              "name": "Cleaving Blows Max Targets",
+              "default": "3"
+            }
+          ],
+          "new": "v2.0.41"
+        },
+        {
+          "title": "Combat Stamina",
+          "summary": "An experimental stamina system, off by default. Every swing, shot, throw, jump, kick, shield bash and blocked blow costs stamina, and running on foot drains it.",
+          "points": [
+            "A tired soldier swings and handles his weapon more slowly. An exhausted one cannot attack, block, kick or jump and slows to a walk until he is back at about a third",
+            "Higher tier troops and heroes have more stamina. Elves, dwarves, Uruk-hai and trolls have more than most Men, orcs and goblins less, and the Nazgûl do not tire",
+            "Soldiers working a siege engine pay nothing, and horses are not affected",
+            "A bar beside the battle HUD rings shows your own stamina"
+          ],
+          "settings": [
+            {
+              "name": "Enable Combat Stamina",
+              "default": "Off"
+            },
+            {
+              "name": "Stamina Applies To You",
+              "default": "On"
+            },
+            {
+              "name": "Stamina Applies To AI Soldiers",
+              "default": "On"
+            },
+            {
+              "name": "Stamina Cost Scale",
+              "default": "1.0"
+            },
+            {
+              "name": "Show Stamina Bar",
+              "default": "On"
+            }
+          ],
+          "new": "v2.0.41"
+        },
+        {
           "title": "Marshal's Word",
           "summary": "Richer orders for your companies in a battle.",
           "points": [
@@ -704,7 +786,6 @@
             "The Square order forms a plain hollow square instead of a packed schiltron",
             "Companies carrying javelins or other throwing weapons stop short on an Advance, throw, then go in to melee"
           ],
-          "new": "v2.0.37",
           "settings": [
             {
               "name": "Enable Marshal's Word",
@@ -730,35 +811,7 @@
               "name": "Throwers Throw First",
               "default": "On"
             }
-          ],
-          "public": {
-            "settings": [
-              {
-                "name": "Enable Marshal's Word",
-                "default": "On"
-              },
-              {
-                "name": "Keep the Array",
-                "default": "On"
-              },
-              {
-                "name": "Arrive Together",
-                "default": "On"
-              },
-              {
-                "name": "Outlines",
-                "default": "On"
-              },
-              {
-                "name": "Hollow Square",
-                "default": "On"
-              },
-              {
-                "name": "Throwers Throw First",
-                "default": "On"
-              }
-            ]
-          }
+          ]
         },
         {
           "title": "Hero Auras",
@@ -778,7 +831,6 @@
               "default": "1"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -794,7 +846,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -806,7 +857,6 @@
             "After your hero falls, press Delete in the Seat to take over the soldier in the middle of the screen",
             "Optional: begin every battle in the Seat, and lift the view a few metres over the ranks whenever the order panel is open"
           ],
-          "new": "v2.0.37",
           "settings": [
             {
               "name": "Enable the Seat of Seeing",
@@ -857,7 +907,6 @@
             "Armour does not reduce their damage, which can be scaled from 0 to full",
             "Your own character never does either"
           ],
-          "new": "v2.0.37",
           "settings": [
             {
               "name": "Enable Dwarf Attacks",
@@ -1020,6 +1069,27 @@
               "default": "On"
             }
           ]
+        },
+        {
+          "title": "Battle Gear Loot",
+          "summary": "An optional loot rule, off by default: after a battle your side wins, the enemies your party beat drop the gear they fought in.",
+          "points": [
+            "Each weapon, armour piece, horse and harness drops on its own roll, 10% by default",
+            "It replaces the usual random loot from fallen enemies; captured baggage, gold, prisoners and renown are unchanged",
+            "Heavy, elite and lord armour held back by Armour Acquisition, named weapons and banners never drop. Single player only"
+          ],
+          "settings": [
+            {
+              "name": "Enable Battle Gear Loot",
+              "default": "Off"
+            },
+            {
+              "name": "Gear Drop Chance (%)",
+              "default": "10"
+            }
+          ],
+          "coming": true,
+          "watch": ["Enable Battle Gear Loot", "Gear Drop Chance (%)"]
         }
       ]
     },
@@ -1054,7 +1124,8 @@
           "summary": "Harad's elephant tramples what is in front of it and swings its tusks at enemies to the side. Riders fight from a howdah on its back, and the mûmak carries a war tower.",
           "points": [
             "An elephant takes 12 party slots and a mûmak 20; both cost War Drums to buy and to feed",
-            "Both are bought from the emissary at Korb Taskral"
+            "Both are bought from the emissary at Korb Taskral",
+            "The war elephant and the mûmak each walk with their own gait, and their feet keep pace with the ground"
           ]
         },
         {
@@ -1096,18 +1167,9 @@
             "Enemy captains, lieutenants and generals lead every fourth wave, and the bigger ones call in more Uruk-hai",
             "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)",
             "A kill feed shows while you fight",
-            "The defenders split into groups at the start of each wave, and siege engines you destroy come back each wave"
-          ],
-          "new": "v2.0.37",
-          "public": {
-            "points": [
-              "Start as Sword and Board, Two Handed Infantry, Archer or Cavalry",
-              "Between waves, buy reinforcements and fortifications in the shop (B): field care, a stronger gate and gate repairs",
-              "Every third wave, pick one of three boons; from wave 5 the waves gain named powers",
-              "Enemy captains, lieutenants and generals lead every fourth wave, and the bigger ones call in more Uruk-hai",
-              "Sound the horn (H) to start the next wave early for extra gold, and speed the battle up to 10 times (M)"
-            ]
-          }
+            "The defenders split into groups at the start of each wave, and siege engines you destroy come back each wave",
+            "The Cavalry class rides out from the slope outside the Deeping Wall"
+          ]
         },
         {
           "title": "Fords of War",
@@ -1118,8 +1180,18 @@
             "Buy troop packs with F1 to F8 and upgrade them along six tracks",
             "A hero joins with a guard every five minutes, and neutral creature camps pay gold when cleared",
             "Give each lane Push, Hold, Fall back or Seize, run the battle at up to 10 times speed, or press P to fight as one of your soldiers"
+          ]
+        },
+        {
+          "title": "Aragorn, Legolas and Gimli",
+          "summary": "The three heroes fight beside you in The Long Defeat and in the Helm’s Deep story mission.",
+          "points": [
+            "Between waves of The Long Defeat the shop sells Aragorn for 350 gold, and Legolas and Gimli for 300 each. A hero who falls can be called again",
+            "Each has 800 health, timed abilities and heavy blows that can kill a soldier outright",
+            "Aragorn rallies the men around him, and Gimli shrugs off blows, frightens the orcs and fights with the Erebor two-handed axe",
+            "Legolas’s arrows fly true and pass through shields. His abilities make him shoot faster, loose two extra arrows or speed up the archers around him, and he steps back from melee and draws his sword when cornered"
           ],
-          "new": "v2.0.37"
+          "new": "v2.0.41"
         },
         {
           "title": "Troop Upgrades in The Long Defeat",
@@ -1129,7 +1201,7 @@
             "Eastfold Yeomen to Bowmen (15), then Veteran Bowmen (25)",
             "King’s Knights to the King’s Royal Guard (60) or the Riders of Rohan (90)"
           ],
-          "coming": true
+          "new": "v2.0.41"
         }
       ]
     },
@@ -1286,7 +1358,6 @@
               "default": "1"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1310,7 +1381,6 @@
             "Ruling houses keep their own banner, shown on parties, in the encyclopedia and in the banner editor",
             "Lords are styled by their titles, such as Steward Denethor of Gondor"
           ],
-          "only": "supporter",
           "new": "v2.0.39",
           "settings": [
             {
@@ -1397,12 +1467,7 @@
               "default": "On"
             }
           ],
-          "coming": true,
-          "watch": [
-            "Your Realm Takes Your Title's Name",
-            "AI Realms Take Their Titles' Names",
-            "AI Realms Fly Title Banners"
-          ]
+          "new": "v2.0.41"
         }
       ]
     },
@@ -1434,7 +1499,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1482,7 +1546,6 @@
             "Holding a lord in your own clan’s dungeon halves his chance; the governor’s perks change it too",
             "Shows the odds the game already uses and changes no rule"
           ],
-          "new": "v2.0.37",
           "settings": [
             {
               "name": "Show Warden's Tally",
@@ -1493,7 +1556,11 @@
         {
           "title": "Markets and Caravans",
           "summary": "Town markets refill their gold toward a higher target (25,000 instead of 10,000), so drained markets recover. Caravans travel further, trade across the endless war and carry fuller loads.",
-          "points": ["Garrison food is corrected so elite garrisons do not starve their towns"],
+          "points": [
+            "Garrison food is corrected so elite garrisons do not starve their towns",
+            "Caravan guards earn a regular wage, not the 1.5× mercenary wage: a Gondor escort of 70 men costs about 488 gold a day instead of 732. This goes for AI caravans too",
+            "Your clan’s caravans move 15% faster (“Caravan pack train” in the speed tooltip)"
+          ],
           "settings": [
             {
               "name": "Enable Settlement Economy Tuning",
@@ -1503,7 +1570,10 @@
               "name": "Enable Caravan Trade Overhaul",
               "default": "On"
             }
-          ]
+          ],
+          "public": {
+            "points": ["Garrison food is corrected so elite garrisons do not starve their towns"]
+          }
         },
         {
           "title": "Smithing",
@@ -1536,7 +1606,7 @@
         {
           "title": "Tournaments",
           "summary": "Bets of up to 15,000 a round by default, and tournaments of the Free Peoples and the Shadow do not seat each other's fighters.",
-          "points": [],
+          "points": ["Arena fighters carry the weapons of the town’s own culture, not Calradian ones"],
           "settings": [
             {
               "name": "Max Bet Per Round",
@@ -1562,12 +1632,17 @@
             "A watercolour wash in each realm's colour, with realm names when zoomed out",
             "Your own realm's frontier is a gold cord",
             "Zoom all the way out and a parchment map of Middle-earth fades in",
-            "A notice when you ride into another kingdom; press M to hide or show the borders"
+            "A notice when you ride into another kingdom; press M to hide or show the borders",
+            "Realm names on the map can be made larger or smaller"
           ],
           "settings": [
             {
               "name": "Show Realm Borders",
               "default": "On"
+            },
+            {
+              "name": "Realm Name Size",
+              "default": "100%"
             }
           ]
         },
@@ -1626,8 +1701,7 @@
           "points": [
             "The horse and shield rings show only while you have one",
             "Arrows, bolts and javelins are counted in a small capsule beside it"
-          ],
-          "new": "v2.0.38"
+          ]
         },
         {
           "title": "Battle HUD Colours",
@@ -1635,7 +1709,6 @@
           "points": [
             "Set under Accessibility, Battle HUD Colours. It changes your health, mount health and shield rings, and applies in the current battle"
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1645,7 +1718,6 @@
             "Vanilla commanders and troops are hidden, and the folded lords are back",
             "A field battle can start with you as a Captain"
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1658,7 +1730,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1695,12 +1766,28 @@
           ]
         },
         {
+          "title": "Languages and Text Input",
+          "summary": "Simplified and Traditional Chinese use the Chinese team’s own text, built into TAOM, so the separate TAOM_CN module is no longer needed.",
+          "points": [
+            "The TAOM pages of the Mod Options menu can now be translated; new rows show in English until the next translation pass",
+            "For Chinese, Japanese and Korean input methods, map and battle hotkeys no longer open the input method window; text fields still get it"
+          ],
+          "settings": [
+            {
+              "name": "Pause the input method outside text fields",
+              "default": "On"
+            }
+          ],
+          "new": "v2.0.41"
+        },
+        {
           "title": "Cheat Menu",
           "summary": "An optional cheat menu for single player, off by default. Turn it on and a Cheats button joins the bottom bar of the campaign map; H opens it too.",
           "points": [
             "On the campaign map: travel to the gate of any town, castle or village, take 10,000 gold, 1,000 of your special resource, 100 influence or 100 renown, gain 20 relation with every lord of a kingdom, add 10 basic or elite recruits, or heal your party",
             "In battle, Cheats in the Esc menu (or H): heal yourself or your whole side, rout or kill the enemy, or add 10 allied or 10 enemy troops",
             "God mode in battle: you and your mount take no damage until you switch it off or the battle ends. Blows still knock you down",
+            "An Unlimited party switch, a searchable list of your faction’s troops and a screen with every troop in the game",
             "Both H keys can be changed under Options, Keybindings",
             "Cheats change your save, and most cannot be undone. The menu is not available in co-op"
           ],
@@ -1710,17 +1797,17 @@
               "default": "Off"
             }
           ],
-          "coming": true,
-          "watch": ["Enable Cheat Menu"]
+          "new": "v2.0.41"
         },
         {
           "title": "Loading and Startup Notices",
           "summary": "Clearer notices when the game is busy or something in the install will cause trouble.",
           "points": [
+            "If the game is not Bannerlord 1.5.7, a notice at the main menu says so and TAOM stays switched off, instead of the engine’s error box",
             "When a battle’s first load compiles 50 or more shaders, a small counter shows how many are done and the loading screen says the game is not frozen",
             "At the main menu, one notice warns when War Sails, or a separate copy of Harmony, ButterLib, UIExtenderEx or MCM, is installed next to TAOM"
           ],
-          "coming": true
+          "new": "v2.0.41"
         }
       ]
     },
@@ -1761,7 +1848,6 @@
               "default": "On"
             }
           ],
-          "only": "supporter",
           "new": "v2.0.39"
         },
         {
@@ -1787,7 +1873,10 @@
         {
           "title": "Races",
           "summary": "Dwarves, elves, orcs, Uruk-hai, goblins, trolls and more, each with their own size, animations, voices and combat traits.",
-          "points": ["The camera sits at a dwarf's eye height when you play one"],
+          "points": [
+            "The camera sits at a dwarf's eye height when you play one",
+            "Orc soldiers shout with the Uruk battle voice"
+          ],
           "link": {
             "href": "/mod-info/races/",
             "label": "See the races"
@@ -1800,17 +1889,16 @@
         },
         {
           "title": "Co-op",
-          "summary": "Do not start a co-op session on TAOM v2.0.39.",
-          "points": ["Co-op is not supported on this build"],
-          "public": {
-            "summary": "TAOM works with the Bannerlord Coop and Bannerlord Together mods (one or the other, never both). The TAOM team does not provide co-op support.",
-            "points": [
-              "Every player needs the same TAOM version, mod list and Mod Options settings",
-              "StoryMode must be on and War Sails off; Coop goes last in the load order",
-              "Host-a-game only: a dedicated server does not work",
-              "In co-op the host controls time, and TAOM's diplomacy rules stand down"
-            ]
-          }
+          "summary": "TAOM works with the Bannerlord Coop and Bannerlord Together mods (one or the other, never both). The TAOM team does not provide co-op support.",
+          "points": [
+            "Every player needs the same TAOM version, mod list and Mod Options settings",
+            "StoryMode must be on and War Sails off; Coop goes last in the load order",
+            "Host-a-game only: a dedicated server does not work",
+            "In co-op the host controls time, and TAOM's diplomacy rules stand down",
+            "With Bannerlord Coop, also enable TAOM.CoopCompat (the same version as TAOM) below Coop",
+            "A Long Defeat run can be hosted and joined, if your Coop version has the session support it needs",
+            "A guest can buy from the Elite Emissary and improve gear at a town armoury"
+          ]
         }
       ]
     }
