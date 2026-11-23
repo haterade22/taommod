@@ -3,6 +3,10 @@
 Every update to taommod.com, newest first. Major versions (3.0.0) are redesigns, minor versions (3.1.0) add features
 or mod data, patches (2.5.1) are small fixes.
 
+## [3.19.1] — 23 Nov 2026 — Features fix
+
+- The Look of Middle-earth card no longer says a main-menu option pre-compiles shaders; TAOM has no such option.
+
 ## [3.19.0] — 22 Nov 2026 — TAOM v2.0.41 and v2.0.42
 
 - The Features page now shows the public build as TAOM v2.0.41 and the supporter build as TAOM v2.0.42, both released 20 Nov 2026, with 500+ Mod Options.
